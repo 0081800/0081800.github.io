@@ -15,21 +15,21 @@
 列式存储 列压缩 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -47,11 +47,11 @@
 优点：可以支持更复杂的数据结构，而无需考虑数据存储结构。
 事务处理与分析处理 事务处理：OLTP 分析处理：OLAP 对比 属性 OLTP OLAP 主要读属性 基于键，每次查询返回少量记录 对于大量记录进行汇总 主要写属性 随机访问，低延迟写入用户的输入 批量导入（ETL）或事件流 典型使用场景 终端用户，通过网络应用程序 内部分析师，为决策提供支持 数据表征 最新的数据状态（当前时间点） 随着事件而变化的所有事件历史 数据规模 GB 到 TB TB 到 PB 数据仓库 星型与雪花型分析模式 星型模型也称为维度建模。
 列式存储 列压缩 " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -80,7 +80,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -97,23 +97,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -125,23 +125,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -156,7 +156,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/">数据存储与检索</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/">数据存储与检索</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -176,10 +176,10 @@
 
   <div class="post-content"><div>
         <h2 id="存储引擎">存储引擎<a href="#存储引擎" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="哈希索引--20210606103354-哈希索引-dot-md"><a href="/notes/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/">哈希索引</a><a href="#哈希索引--20210606103354-哈希索引-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="日志结构存储引擎-lsm-tree--20210606100317-lsm-tree-dot-md">日志结构存储引擎：<a href="/notes/notes/20210606100317-lsm_tree/">LSM-Tree</a><a href="#日志结构存储引擎-lsm-tree--20210606100317-lsm-tree-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="面向页的存储引擎-b-trees--20210606143901-b-trees-dot-md">面向页的存储引擎：<a href="/notes/notes/20210606143901-b_trees/">B-trees</a><a href="#面向页的存储引擎-b-trees--20210606143901-b-trees-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="对比-lsm-tree--20210606100317-lsm-tree-dot-md--和-b-trees--20210606143901-b-trees-dot-md">对比 <a href="/notes/notes/20210606100317-lsm_tree/">LSM-Tree</a> 和 <a href="/notes/notes/20210606143901-b_trees/">B-trees</a><a href="#对比-lsm-tree--20210606100317-lsm-tree-dot-md--和-b-trees--20210606143901-b-trees-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="哈希索引--20210606103354-哈希索引-dot-md"><a href="/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/">哈希索引</a><a href="#哈希索引--20210606103354-哈希索引-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="日志结构存储引擎-lsm-tree--20210606100317-lsm-tree-dot-md">日志结构存储引擎：<a href="/notes/20210606100317-lsm_tree/">LSM-Tree</a><a href="#日志结构存储引擎-lsm-tree--20210606100317-lsm-tree-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="面向页的存储引擎-b-trees--20210606143901-b-trees-dot-md">面向页的存储引擎：<a href="/notes/20210606143901-b_trees/">B-trees</a><a href="#面向页的存储引擎-b-trees--20210606143901-b-trees-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="对比-lsm-tree--20210606100317-lsm-tree-dot-md--和-b-trees--20210606143901-b-trees-dot-md">对比 <a href="/notes/20210606100317-lsm_tree/">LSM-Tree</a> 和 <a href="/notes/20210606143901-b_trees/">B-trees</a><a href="#对比-lsm-tree--20210606100317-lsm-tree-dot-md--和-b-trees--20210606143901-b-trees-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <table>
 <thead>
 <tr>
@@ -233,8 +233,8 @@
 </li>
 </ul>
 <h2 id="事务处理与分析处理">事务处理与分析处理<a href="#事务处理与分析处理" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="事务处理-oltp--20210610214348-oltp-dot-md">事务处理：<a href="/notes/notes/20210610214348-oltp/">OLTP</a><a href="#事务处理-oltp--20210610214348-oltp-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h3 id="分析处理-olap--20210610214521-olap-dot-md">分析处理：<a href="/notes/notes/20210610214521-olap/">OLAP</a><a href="#分析处理-olap--20210610214521-olap-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="事务处理-oltp--20210610214348-oltp-dot-md">事务处理：<a href="/notes/20210610214348-oltp/">OLTP</a><a href="#事务处理-oltp--20210610214348-oltp-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="分析处理-olap--20210610214521-olap-dot-md">分析处理：<a href="/notes/20210610214521-olap/">OLAP</a><a href="#分析处理-olap--20210610214521-olap-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h3 id="对比">对比<a href="#对比" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <table>
 <thead>
@@ -1689,7 +1689,7 @@
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
+          <li><a href="/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
        
      </ul>
     </div>
@@ -1712,8 +1712,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

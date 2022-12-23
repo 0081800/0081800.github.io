@@ -13,21 +13,21 @@
 请求 应用创建 SQ entries（SQE），更新 SQ tail； 内核消费 SQE，更新 SQ head 完成 内核为完成一个或多个请求创建 CQ enries（CQE），更新 CQ tail； 应用消费 CQE，更新 CQ head 完成事件（completion events）可能以任意顺序到达，到总是与特定的 SQE 相关联的。 消费 CQE 过程无需切换到内核态 带来的好处 支持批处理 支持文件 I/O 系统调用：read、write、send、recv、accept、opentat、stat、专用的一些系统调用，如 fallocate 不再局限于数据库应用 应对现在硬件架构：将硬件架构本身作为一个网络（多核多 CPU 是一个基础网络、CPU 之间是一个网络、CPU 和磁盘 I/O 之间又是一个网络） 三种工作模式 中断驱动模式（interrupt driven）：默认模式。可通过 io_uring_enter() 提交 I/O 请求，然后直接检查 CQ 状态判断是否完成。" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210907142848-linux_kernel/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -43,11 +43,11 @@
 提交队列：submission queue（SQ） 完成队列：completion queue（CQ） 这两个队列：
 都是单生产者、单消费者，size 是 2 的幂次； 提供无锁接口（lock-less access interface），内部使用内存屏障做同步（coordinated with memory barrers）。 使用方式：
 请求 应用创建 SQ entries（SQE），更新 SQ tail； 内核消费 SQE，更新 SQ head 完成 内核为完成一个或多个请求创建 CQ enries（CQE），更新 CQ tail； 应用消费 CQE，更新 CQ head 完成事件（completion events）可能以任意顺序到达，到总是与特定的 SQE 相关联的。 消费 CQE 过程无需切换到内核态 带来的好处 支持批处理 支持文件 I/O 系统调用：read、write、send、recv、accept、opentat、stat、专用的一些系统调用，如 fallocate 不再局限于数据库应用 应对现在硬件架构：将硬件架构本身作为一个网络（多核多 CPU 是一个基础网络、CPU 之间是一个网络、CPU 和磁盘 I/O 之间又是一个网络） 三种工作模式 中断驱动模式（interrupt driven）：默认模式。可通过 io_uring_enter() 提交 I/O 请求，然后直接检查 CQ 状态判断是否完成。" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210907142848-linux_kernel/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -76,7 +76,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -93,23 +93,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -121,23 +121,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -152,7 +152,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210907142848-linux_kernel/">Linux kernel</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/">Linux kernel</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -172,7 +172,7 @@
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20220104103936-linux/">Linux</a></li>
+<li>tags: <a href="/notes/20220104103936-linux/">Linux</a></li>
 </ul>
 <h2 id="linux-i-o">Linux I/O<a href="#linux-i-o" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="linux-i-o-演进">Linux I/O 演进<a href="#linux-i-o-演进" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -255,7 +255,7 @@
 <li>Linked operations</li>
 </ol>
 <h4 id="用户空间库-liburing">用户空间库 liburing<a href="#用户空间库-liburing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h2 id="linux-virtual-memory-management--20200320174700-linux-virtual-memory-management-dot-md"><a href="/notes/notes/20200320174700_linux_virtual_memory_management/">Linux Virtual Memory Management</a><a href="#linux-virtual-memory-management--20200320174700-linux-virtual-memory-management-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="linux-virtual-memory-management--20200320174700-linux-virtual-memory-management-dot-md"><a href="/notes/20200320174700_linux_virtual_memory_management/">Linux Virtual Memory Management</a><a href="#linux-virtual-memory-management--20200320174700-linux-virtual-memory-management-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 
       </div></div>
 
@@ -1682,8 +1682,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

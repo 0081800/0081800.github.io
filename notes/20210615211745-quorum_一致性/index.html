@@ -13,21 +13,21 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
 \(w&amp;lt;n\) ，如果一个节点不可用，仍然可以处理写入。 \(r&amp;lt;n\) ，如果一个节点不可用，仍然可以处理读取。 \(n=3\),\(w=2\),\(r=2\)，则可以容忍一个节点不可用 \(n=5\),\(w=3\),\(r=3\), 则可以容忍两个节点不可用 局限性 如果采用了 sloppy quorum，写操作的 w 节点和读取的 r 节点可能完全不同，因此无法保证写请求一定存在重叠的节点。 并发无法明确顺序，需要进行合并并发写入。如最后写入者获胜。 同时读写，写操作在一部分节点上完成，则读取新值还是旧值存在不确定性。 部分节点写入成功，但是最终写入失败无法回滚。 新值的节点失效，但恢复数据来自某个旧值，则总的新值节点数低于 w 边界情况 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -43,11 +43,11 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
 \(w\) 仲裁写（法定票数写） \(r\) 仲裁读（法定票说读） 一般 \(n\) 设置为奇数： \(w=r=(n&#43;1)/2\) （向上取整）。
 可容忍的失效节点数 仲裁条件 \(w&#43;r&amp;gt;n\) 定义了系统可容忍的失效节点数。
 \(w&amp;lt;n\) ，如果一个节点不可用，仍然可以处理写入。 \(r&amp;lt;n\) ，如果一个节点不可用，仍然可以处理读取。 \(n=3\),\(w=2\),\(r=2\)，则可以容忍一个节点不可用 \(n=5\),\(w=3\),\(r=3\), 则可以容忍两个节点不可用 局限性 如果采用了 sloppy quorum，写操作的 w 节点和读取的 r 节点可能完全不同，因此无法保证写请求一定存在重叠的节点。 并发无法明确顺序，需要进行合并并发写入。如最后写入者获胜。 同时读写，写操作在一部分节点上完成，则读取新值还是旧值存在不确定性。 部分节点写入成功，但是最终写入失败无法回滚。 新值的节点失效，但恢复数据来自某个旧值，则总的新值节点数低于 w 边界情况 " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -76,7 +76,7 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -93,23 +93,23 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -121,23 +121,23 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -152,7 +152,7 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -172,7 +172,7 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/">一致性</a></li>
+<li>tags: <a href="/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/">一致性</a></li>
 </ul>
 <h2 id="确定读写成功">确定读写成功<a href="#确定读写成功" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>确定读写节点在多少节点成功才可以认为写入成功：需要保证读取时至少一个包含新值。</p>
@@ -192,8 +192,8 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
 </ul>
 <h2 id="局限性">局限性<a href="#局限性" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ol>
-<li>如果采用了 <a href="/notes/notes/20210615212500-sloppy_quorum/">sloppy quorum</a>，写操作的 w 节点和读取的 r 节点可能完全不同，因此无法保证写请求一定存在重叠的节点。</li>
-<li>并发无法明确顺序，需要进行合并并发写入。如<a href="/notes/notes/20210615083500-%E6%9C%80%E5%90%8E%E5%86%99%E5%85%A5%E8%80%85%E8%8E%B7%E8%83%9C/">最后写入者获胜</a>。</li>
+<li>如果采用了 <a href="/notes/20210615212500-sloppy_quorum/">sloppy quorum</a>，写操作的 w 节点和读取的 r 节点可能完全不同，因此无法保证写请求一定存在重叠的节点。</li>
+<li>并发无法明确顺序，需要进行合并并发写入。如<a href="/notes/20210615083500-%E6%9C%80%E5%90%8E%E5%86%99%E5%85%A5%E8%80%85%E8%8E%B7%E8%83%9C/">最后写入者获胜</a>。</li>
 <li>同时读写，写操作在一部分节点上完成，则读取新值还是旧值存在不确定性。</li>
 <li>部分节点写入成功，但是最终写入失败无法回滚。</li>
 <li>新值的节点失效，但恢复数据来自某个旧值，则总的新值节点数低于 w</li>
@@ -1617,13 +1617,13 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20220107113911-patterns_of_distributed_systems_quorum/">Patterns of Distributed Systems: Quorum</a></li>
+          <li><a href="/notes/20220107113911-patterns_of_distributed_systems_quorum/">Patterns of Distributed Systems: Quorum</a></li>
        
-          <li><a href="/notes/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">一致性与共识</a></li>
+          <li><a href="/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">一致性与共识</a></li>
        
-          <li><a href="/notes/notes/20210721063222-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%8C%91%E6%88%98/">分布式系统挑战</a></li>
+          <li><a href="/notes/20210721063222-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%8C%91%E6%88%98/">分布式系统挑战</a></li>
        
-          <li><a href="/notes/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/">无主节点复制</a></li>
+          <li><a href="/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/">无主节点复制</a></li>
        
      </ul>
     </div>
@@ -1646,8 +1646,8 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

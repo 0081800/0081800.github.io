@@ -11,21 +11,21 @@
 https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20221122204442-solana_101_2_anchor/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20221122204442-solana_101_2_anchor/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -39,11 +39,11 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta property="og:description" content="tags: Solana 101: Create an Escrow dApp 链上数据存储 账号所有权 账号可以通过 Metadata 指定一个 Program 作为拥有者； Program 作为拥有者可以： 修改账号数据； 使用该账号签名。 PDA(Program Derived Address) 1 PDA 只有一个类似公钥的地址，但是没有对应的私钥； 可以通过 getProgramAccounts 获取一个 Program 的 PDA。 使用 PDA 进行合约链上存储：
 通过 SystemProgram.createAccount 进行创建2； 把指定 Program 作为新账号的 Owner； 将 PDA 传递给 Program 进行操作。 创建一个计数器 部署智能合约； 创建一个 PDA 并进行初始化； 增加计数器； 其他账号获取 PDA，并增加计数器； 使用 Anchor 重写计数器 Understanding Program Derived Addresses&amp;#160;&amp;#x21a9;&amp;#xfe0e;
 https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20221122204442-solana_101_2_anchor/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20221122204442-solana_101_2_anchor/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -72,7 +72,7 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -89,23 +89,23 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -117,23 +117,23 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -148,7 +148,7 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20221122204442-solana_101_2_anchor/">Solana 101: 2. Anchor</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20221122204442-solana_101_2_anchor/">Solana 101: 2. Anchor</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -168,7 +168,7 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20221119104334-solana_101_create_a_escrow_dapp/">Solana 101: Create an Escrow dApp</a></li>
+<li>tags: <a href="/notes/20221119104334-solana_101_create_a_escrow_dapp/">Solana 101: Create an Escrow dApp</a></li>
 </ul>
 <h2 id="链上数据存储">链上数据存储<a href="#链上数据存储" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="账号所有权">账号所有权<a href="#账号所有权" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -1637,8 +1637,8 @@ https://stackoverflow.com/a/72060971&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

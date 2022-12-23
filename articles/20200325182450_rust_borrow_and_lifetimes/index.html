@@ -16,21 +16,21 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 资源回收 Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，当：" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/articles/20200325182450_rust_borrow_and_lifetimes/" />
+<link rel="canonical" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -49,11 +49,11 @@ Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布
 以下是一些额外的注释供你参考：
 Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷贝（通过 memcpy 浅拷贝），而不是语义上的拷贝或克隆。 如果想要让一个 POD 结构体变成不可拷贝的，你可以使用一个 NoCopy 标记，或者实现 Drop 特性（trait）。 转移之后，所有权就转移到了下一个所有者那。
 资源回收 Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，当：" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/articles/20200325182450_rust_borrow_and_lifetimes/" />
+<meta property="og:url" content="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -82,7 +82,7 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -99,23 +99,23 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -127,23 +127,23 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -158,7 +158,7 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/articles/20200325182450_rust_borrow_and_lifetimes/">Rust Borrow and Lifetimes</a></h1>
+    <a href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/">Rust Borrow and Lifetimes</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -178,7 +178,7 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20200307191429_rust/">Rust</a>,<a href="/notes/topics/20200309112105_translate/">Translate</a>,<a href="/notes/notes/20200325165657_rust_wrapper_types/">Rust Wrapper Types</a></li>
+<li>tags: <a href="/topics/20200307191429_rust/">Rust</a>,<a href="/topics/20200309112105_translate/">Translate</a>,<a href="/notes/20200325165657_rust_wrapper_types/">Rust Wrapper Types</a></li>
 </ul>
 <p>原文链接：<a href="http://arthurtw.github.io/2014/11/30/rust-borrow-lifetimes.html">Rust Borrow and Lifetimes</a>。</p>
 <p>Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布，目前最新稳定版本 <a href="https://github.com/rust-lang/rust/releases/tag/1.42.0">1.42</a>）。
@@ -1898,7 +1898,7 @@ C. 每一个独立的借用者或被借用的指针的生命周期</p>
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a></li>
+          <li><a href="/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a></li>
        
      </ul>
     </div>
@@ -1921,8 +1921,8 @@ C. 每一个独立的借用者或被借用的指针的生命周期</p>
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

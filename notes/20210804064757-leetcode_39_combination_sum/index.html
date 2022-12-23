@@ -9,21 +9,21 @@
 <meta name="description" content="tags: LeetCode source: https://leetcode.com/problems/combination-sum/ class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; combinationSum(vector&amp;lt;int&amp;gt;&amp;amp; candidates, int target) { backtracking(candidates, 0, target); return res; } private: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res; vector&amp;lt;int&amp;gt; track; void backtracking(vector&amp;lt;int&amp;gt; &amp;amp; candidates, int n, int target) { if (n == target) { res.push_back(track); return; } // this is new if (n &amp;gt; target) { return; } for (auto c : candidates) { track.push_back(c); backtracking(candidates, n &#43; c, target); track.pop_back(); } } }; 问题：会有不同顺序但是元素相同的数组，如何快速高效的进行过滤？" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210804064757-leetcode_39_combination_sum/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210804064757-leetcode_39_combination_sum/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -35,11 +35,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="LeetCode: 39. Combination Sum">
 <meta property="og:description" content="tags: LeetCode source: https://leetcode.com/problems/combination-sum/ class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; combinationSum(vector&amp;lt;int&amp;gt;&amp;amp; candidates, int target) { backtracking(candidates, 0, target); return res; } private: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res; vector&amp;lt;int&amp;gt; track; void backtracking(vector&amp;lt;int&amp;gt; &amp;amp; candidates, int n, int target) { if (n == target) { res.push_back(track); return; } // this is new if (n &amp;gt; target) { return; } for (auto c : candidates) { track.push_back(c); backtracking(candidates, n &#43; c, target); track.pop_back(); } } }; 问题：会有不同顺序但是元素相同的数组，如何快速高效的进行过滤？" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210804064757-leetcode_39_combination_sum/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210804064757-leetcode_39_combination_sum/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -68,7 +68,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -85,23 +85,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -113,23 +113,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -144,7 +144,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210804064757-leetcode_39_combination_sum/">LeetCode: 39. Combination Sum</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210804064757-leetcode_39_combination_sum/">LeetCode: 39. Combination Sum</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -164,7 +164,7 @@
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20200320172132_leetcode/">LeetCode</a></li>
+<li>tags: <a href="/notes/20200320172132_leetcode/">LeetCode</a></li>
 <li>source: <a href="https://leetcode.com/problems/combination-sum/">https://leetcode.com/problems/combination-sum/</a></li>
 </ul>
 <!-- raw HTML omitted -->
@@ -1645,7 +1645,7 @@
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20210804071039-leetcode_40_combination_sum_ii/">LeetCode: 40. Combination Sum II</a></li>
+          <li><a href="/notes/20210804071039-leetcode_40_combination_sum_ii/">LeetCode: 40. Combination Sum II</a></li>
        
      </ul>
     </div>
@@ -1668,8 +1668,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

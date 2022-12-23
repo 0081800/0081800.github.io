@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Taking Smart Notes With Org-mode</title>
-    <link>https://www.linuxzen.com/notes/articles/</link>
+    <link>https://notes.0081800.xyz/articles/</link>
     <description>Recent content in Articles on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Oct 2022 10:12:00 +0800</lastBuildDate><atom:link href="https://www.linuxzen.com/notes/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Oct 2022 10:12:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wrap &amp; Unwrap errors in Go</title>
-      <link>https://www.linuxzen.com/notes/articles/20221012101258-wrap_unwrap_errors_in_go/</link>
+      <link>https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/</link>
       <pubDate>Wed, 12 Oct 2022 10:12:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20221012101258-wrap_unwrap_errors_in_go/</guid>
+      <guid>https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/</guid>
       <description>tags: Go source: “Wrap and Unwrap Errors in Go (Golang) | Gosamples.Dev.” Accessed October 12, 2022. https://gosamples.dev/wrap-unwrap-errors/. Overview Since Go1.13, there is a new feature about error add to go: Wrap &amp;amp; Unwrap errors. Let&amp;rsquo;s start from a simple example:
 package main import ( &amp;#34;errors&amp;#34; &amp;#34;fmt&amp;#34; ) var errRollingInTheDeep = errors.New(&amp;#34;rolling in the deep&amp;#34;) func doSomeActualJob() error { return errRollingInTheDeep } func someFrameworkCaller() error { // We use fmt.Errorf to wrap error.</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20200218115725/&#34;&gt;Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200218115725/&#34;&gt;Go&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;source: “Wrap and Unwrap Errors in Go (Golang) | Gosamples.Dev.” Accessed October 12, 2022. &lt;a href=&#34;https://gosamples.dev/wrap-unwrap-errors/&#34;&gt;https://gosamples.dev/wrap-unwrap-errors/&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -177,16 +177,16 @@ the invocation stacktrace of error. I&amp;rsquo;m wonder if this help.&lt;/p&gt;
     
     <item>
       <title>actix-web extractors 支持提取任意长度的参数</title>
-      <link>https://www.linuxzen.com/notes/articles/20211221174651-actix_web_extractor/</link>
+      <link>https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/</link>
       <pubDate>Tue, 21 Dec 2021 17:46:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20211221174651-actix_web_extractor/</guid>
+      <guid>https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/</guid>
       <description>tags: Rust 背景 今天看了一下 actix-web 发现该框架支持基于参数的 Extractor，可以非常方便地解析参数（包括 URI、Query、JSON 和 FormData）。
 先来看一个在项目 README.md 中的例子：
 use actix_web::{get, web, App, HttpServer, Responder}; #[get(&amp;#34;/{id}/{name}/index.html&amp;#34;)] async fn index(web::Path((id, name)): web::Path&amp;lt;(u32, String)&amp;gt;) -&amp;gt; impl Responder { format!(&amp;#34;Hello {}! id:{}&amp;#34;, name, id) } #[actix_web::main] async fn main() -&amp;gt; std::io::Result&amp;lt;()&amp;gt; { HttpServer::new(|| App::new().service(index)) .bind(&amp;#34;127.0.0.1:8080&amp;#34;)? .run() .await } 初看之下觉得很神奇，但细想通过宏实现应该不是特别困难，然后发现其官网还有不是基于宏的运行时调用：
 use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(req: HttpRequest) -&amp;gt; impl Responder { let name = req.match_info().get(&amp;#34;name&amp;#34;).unwrap_or(&amp;#34;World&amp;#34;); format!(&amp;#34;Hello {}!</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;p&gt;今天看了一下 actix-web 发现该框架支持基于参数的 Extractor，可以非常方便地解析参数（包括 URI、Query、JSON 和 FormData）。&lt;/p&gt;
@@ -357,10 +357,10 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
     
     <item>
       <title>Airflow powers AI</title>
-      <link>https://www.linuxzen.com/notes/articles/20210826074053-airflow_powers_ai/</link>
+      <link>https://notes.0081800.xyz/articles/20210826074053-airflow_powers_ai/</link>
       <pubDate>Thu, 26 Aug 2021 07:40:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20210826074053-airflow_powers_ai/</guid>
+      <guid>https://notes.0081800.xyz/articles/20210826074053-airflow_powers_ai/</guid>
       <description>背景介绍 最近接手了一个项目，经过需求调研决定尝试使用 Airflow 调度数据生产，过程涉及：
 从大数据 Hive 数据库整合数据宽表； 在 Spark 上运行 IRT 算法模型汇总 ADS 表。 从中学习了很多关于大数据的知识，同时也积累了如何通过 Airflow 提交 Spark 任务的经验，应当抽时间总结一下。
 冰山之下 如「冰山理论」所描述，我们所做的只是冰山露在水面的一角，隐藏在冰山之下更大的一部份是：
@@ -393,7 +393,7 @@ Spark 介绍 架构 Spark 编程 Spark SQL Hive Table 示例 Airflow + Spark 平
 &lt;h3 id=&#34;架构&#34;&gt;架构&lt;/h3&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://www.linuxzen.com/notes/notes/ox-hugo/2021-08-30_11-37-00_arch-diag-basic.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2021-08-30_11-37-00_arch-diag-basic.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -405,13 +405,13 @@ Spark 介绍 架构 Spark 编程 Spark SQL Hive Table 示例 Airflow + Spark 平
 &lt;li&gt;Connection&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;providers-packages&#34;&gt;Providers packages&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.linuxzen.com/notes/notes/ox-hugo/2021-08-30_11-34-20_screenshot.png&#34; alt=&#34;&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2021-08-30_11-34-20_screenshot.png&#34; alt=&#34;&#34;&gt;
 See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-providers/index.html&#34;&gt;Provider packages&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;spark-介绍&#34;&gt;Spark 介绍&lt;/h2&gt;
 &lt;h3 id=&#34;架构&#34;&gt;架构&lt;/h3&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://www.linuxzen.com/notes/notes/ox-hugo/2021-08-30_08-04-43_cluster-overview.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2021-08-30_08-04-43_cluster-overview.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -419,7 +419,7 @@ See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-provide
 &lt;h3 id=&#34;spark-编程&#34;&gt;Spark 编程&lt;/h3&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://www.linuxzen.com/notes/notes/ox-hugo/2021-08-30_08-06-05_Spark%20RDD.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2021-08-30_08-06-05_Spark%20RDD.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -449,10 +449,10 @@ See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-provide
     
     <item>
       <title>Understanding Rust futures by going way too deep</title>
-      <link>https://www.linuxzen.com/notes/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/</link>
+      <link>https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/</link>
       <pubDate>Mon, 26 Jul 2021 10:57:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/</guid>
+      <guid>https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/</guid>
       <description>tags: Translate,Rust,Tokio 原文链接：Understanding Rust futures by going way too deep。
 译者注：原文大量的引入了有趣的对话，迫于排版问题这里不进行翻译，必要的对话通过引用块来解释。
 深入理解 Rust future 用 Rust future！就是这么简单！直到我们发现并非如此。所以我们先探索简单的部分，然后继续探索困难部分而不是等它慢慢靠近我们。
@@ -461,7 +461,7 @@ See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-provide
 $ cargo new waytoodeep Created binary (application) `waytoodeep` package 我们需要安装 cargo-edit 如果之前没有安装过的话，接下来就可以直接 cargo add ：
 $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0 Downloaded 1 crate (57.6 KB) in 0.47s Ignored package `cargo-edit v0.7.0` is already installed, use --force to override 因为 cargo-edit 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像 cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中， 但是 cargo add 没有。</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20210808083146-tokio/&#34;&gt;Tokio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20210808083146-tokio/&#34;&gt;Tokio&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep&#34;&gt;Understanding Rust futures by going way too deep&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;译者注：原文大量的引入了有趣的对话，迫于排版问题这里不进行翻译，必要的对话通过引用块来解释。&lt;/p&gt;
@@ -2730,10 +2730,10 @@ Jul 26 00:08:13.710  INFO waytoodeep: All done! res=(&amp;#34;first&amp;#34;, &a
     
     <item>
       <title>Surgical Reading: How to Read 12 Books at Once</title>
-      <link>https://www.linuxzen.com/notes/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/</link>
+      <link>https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/</link>
       <pubDate>Sun, 28 Jun 2020 13:46:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/</guid>
+      <guid>https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/</guid>
       <description>tags: Translate,Incomplete 原文链接：https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books
 手术阅读法：如何同时阅读 12 本书 译者注：这篇文章让我想起了《如何阅读一本书》这本书，文章中的大部分技巧都能在这本书中找出来，阅读是一门需要学习的技能。
 当有人问我如何阅读时我总是会有点尴尬，因为我一般都是同时阅读十几本书。
@@ -2754,7 +2754,7 @@ Jul 26 00:08:13.710  INFO waytoodeep: All done! res=(&amp;#34;first&amp;#34;, &a
 了解一本书（Approaching a Book ） 当我开始阅读一本非小说的书籍之前，我会话费 5-10 分钟的时间尝试去了解他对我具有什么价值以及它的结构。当我们决定要阅读此书时我们可以通过很多方式做到这一点。 也许通过亚马逊阅读一些评论和反馈或者随机浏览其中一部分。我更喜欢使用这本书本身。
 同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。 你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 &amp;ndash; 根据你自己的喜好就行。</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20211231172037-incomplete/&#34;&gt;Incomplete&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20211231172037-incomplete/&#34;&gt;Incomplete&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books&#34;&gt;https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;手术阅读法-如何同时阅读-12-本书&#34;&gt;手术阅读法：如何同时阅读 12 本书&lt;/h2&gt;
@@ -2804,10 +2804,10 @@ Jul 26 00:08:13.710  INFO waytoodeep: All done! res=(&amp;#34;first&amp;#34;, &a
     
     <item>
       <title>Rust Borrow and Lifetimes</title>
-      <link>https://www.linuxzen.com/notes/articles/20200325182450_rust_borrow_and_lifetimes/</link>
+      <link>https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20200325182450_rust_borrow_and_lifetimes/</guid>
+      <guid>https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/</guid>
       <description>tags: Rust,Translate,Rust Wrapper Types 原文链接：Rust Borrow and Lifetimes。
 Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布，目前最新稳定版本 1.42）。 我必须再写一篇关于我为什么觉得 Rust 牛逼的新博客，但是今天我将关注在它的借用（borrow） 和生命周期（lifetimes）系统，这也是常常让包括我在内的 Rust 新手陷入困境的地方。这篇文章假设 你基本了解 Rust，如果还没推荐你先阅读指南和指针指南。
 资源所有权和借用 Rust 通过一个难缠的（sophisticated）借用系统在不用 GC 的情况下达到内存安全。对于任何资源 （栈内存、堆内存、文件句柄等），他们都对应一个唯一的所有者（owner）在需要的情况下处理资源回收。 你可以通过 &amp;amp; 或者 &amp;amp;mut 创建一个新的绑定指向该资源，这被称之为借用或可变借用。编译器确保 所有的所有者（owners）和借用者（borrowers）行为正确。
@@ -2817,7 +2817,7 @@ Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布
 Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷贝（通过 memcpy 浅拷贝），而不是语义上的拷贝或克隆。 如果想要让一个 POD 结构体变成不可拷贝的，你可以使用一个 NoCopy 标记，或者实现 Drop 特性（trait）。 转移之后，所有权就转移到了下一个所有者那。
 资源回收 Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，当：</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20200325165657_rust_wrapper_types/&#34;&gt;Rust Wrapper Types&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/&#34;&gt;Rust Wrapper Types&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;http://arthurtw.github.io/2014/11/30/rust-borrow-lifetimes.html&#34;&gt;Rust Borrow and Lifetimes&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布，目前最新稳定版本 &lt;a href=&#34;https://github.com/rust-lang/rust/releases/tag/1.42.0&#34;&gt;1.42&lt;/a&gt;）。
@@ -3130,10 +3130,10 @@ C. 每一个独立的借用者或被借用的指针的生命周期&lt;/p&gt;
     
     <item>
       <title>译：深度学习算法：完整指南</title>
-      <link>https://www.linuxzen.com/notes/articles/20200309112133_deep_learning_algorithms/</link>
+      <link>https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/</link>
       <pubDate>Mon, 09 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/articles/20200309112133_deep_learning_algorithms/</guid>
+      <guid>https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/</guid>
       <description>tags: Translate,Deep Learning,AI,Incomplete 原文链接：Deep Learning Algorithms : The Complete Guide。
 深度学习正在影响整个世界。
 深度学习的炒作始于 2012 年：一个神经网络（Neural Network）在图片识别任务上表现出超人的性能，并且只有少数人能预测将会发生什么。
@@ -3158,7 +3158,7 @@ Transformers
 词嵌入 (Word embedding) 序列建模（Sequence Modeling） 计算机视觉中的机器学习
 本地化和物体识别 单发探测器（Single shot detectors） 语义分割（Semantic Segmentation） 姿势估计（Pose Estimation） 深度学习在科学和企业界取得了疯狂的人气。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，每年都出现了越来越多的研究论文并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181.</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20200310093014_deep_learning/&#34;&gt;Deep Learning&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20211231172037-incomplete/&#34;&gt;Incomplete&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20200310093014_deep_learning/&#34;&gt;Deep Learning&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20211231172037-incomplete/&#34;&gt;Incomplete&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://theaisummer.com/Deep-Learning-Algorithms/&#34;&gt;Deep Learning Algorithms : The Complete Guide&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;深度学习正在影响整个世界。&lt;/p&gt;
@@ -3230,7 +3230,7 @@ Transformers
 &lt;p&gt;但是通过这些我们能做些什么呢？&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://www.linuxzen.com/notes/images/deep-learning-complete-guide/neuron.jpg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/images/deep-learning-complete-guide/neuron.jpg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -3248,7 +3248,7 @@ Transformers
 &lt;p&gt;FNN 通常是全部连接的（&lt;a href=&#34;https://theaisummer.com/Neural_Network_from_scratch/&#34;&gt;fully connected&lt;/a&gt;），也就是说层中的每一个神经元都与下一层中其他神经元相连。所描述的结构被称为多层感知器 (Multilayer Perceptron)，起源于 1958。单层感知器只能学习线性可分离模式，但是一个多层感知器可以学习数据间的非线性关系。&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://www.linuxzen.com/notes/images/deep-learning-complete-guide/neural-network.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/images/deep-learning-complete-guide/neural-network.png&#34;   /&gt;
     
   &lt;/figure&gt;
 

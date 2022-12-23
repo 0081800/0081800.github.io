@@ -10,21 +10,21 @@
 &amp;lt;- high -- low -&amp;gt; &#43;------------------- wow(row(i):0,col(j):0) 0 -&amp;gt; [ 0010, 0010 ] | 1 -&amp;gt; [ 0000, 0000 ] | 2 -&amp;gt; [ 0000, 0000 ] | | &#43;--------------- wow(row(i):0,col(j):1) 0 -&amp;gt; [ 0010 | 1 = 0011, 0010 ] | | 1 -&amp;gt; [ 0000, 0000 | 1 = 0001 ] | | 2 -&amp;gt; [ 0000, 0000 ] | | | | &#43;----------- wow(row(i):0,col(j):2) 0 -&amp;gt; [ 0011 | 3 = 0100, 0010 ] | | | 1 -&amp;gt; [ 0000, 0001 ] | | | 2 -&amp;gt; [ 0000, 0000 | 3 = 0100 ] &#43;---&#43;---&#43;---&#43; | 2 | 1 | 3 | &#43;---&#43;---&#43;---&#43; ----| 3 | 2 | 1 | | &#43;---&#43;---&#43;---&#43; | | 1 | 3 | 2 | | &#43;---&#43;---&#43;---&#43; |- wow(row(i):1,col(j):0) 0 -&amp;gt; [0010 | 3 = 0110, 0010] &#43;---------------------&#43; 1 -&amp;gt; [0000, 0001 | 3 = 0101] 2 -&amp;gt; [0000, 0100] class Solution { public: bool isValidSudoku(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board) { vector&amp;lt;int&amp;gt; wow(9,0); int mux1; int mux2; int mux3; int box_index; for(int i=0;i&amp;lt;9;i&#43;&#43;){ for(int j=0;j&amp;lt;9;j&#43;&#43;){ if(board[i][j] == &amp;#39;." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210805070351-leetcode_36_valid_sudoku/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210805070351-leetcode_36_valid_sudoku/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -37,11 +37,11 @@
 <meta property="og:title" content="LeetCode: 36. Valid Sudoku">
 <meta property="og:description" content="tags: LeetCode https://leetcode.com/problems/valid-sudoku/
 &amp;lt;- high -- low -&amp;gt; &#43;------------------- wow(row(i):0,col(j):0) 0 -&amp;gt; [ 0010, 0010 ] | 1 -&amp;gt; [ 0000, 0000 ] | 2 -&amp;gt; [ 0000, 0000 ] | | &#43;--------------- wow(row(i):0,col(j):1) 0 -&amp;gt; [ 0010 | 1 = 0011, 0010 ] | | 1 -&amp;gt; [ 0000, 0000 | 1 = 0001 ] | | 2 -&amp;gt; [ 0000, 0000 ] | | | | &#43;----------- wow(row(i):0,col(j):2) 0 -&amp;gt; [ 0011 | 3 = 0100, 0010 ] | | | 1 -&amp;gt; [ 0000, 0001 ] | | | 2 -&amp;gt; [ 0000, 0000 | 3 = 0100 ] &#43;---&#43;---&#43;---&#43; | 2 | 1 | 3 | &#43;---&#43;---&#43;---&#43; ----| 3 | 2 | 1 | | &#43;---&#43;---&#43;---&#43; | | 1 | 3 | 2 | | &#43;---&#43;---&#43;---&#43; |- wow(row(i):1,col(j):0) 0 -&amp;gt; [0010 | 3 = 0110, 0010] &#43;---------------------&#43; 1 -&amp;gt; [0000, 0001 | 3 = 0101] 2 -&amp;gt; [0000, 0100] class Solution { public: bool isValidSudoku(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board) { vector&amp;lt;int&amp;gt; wow(9,0); int mux1; int mux2; int mux3; int box_index; for(int i=0;i&amp;lt;9;i&#43;&#43;){ for(int j=0;j&amp;lt;9;j&#43;&#43;){ if(board[i][j] == &amp;#39;." />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210805070351-leetcode_36_valid_sudoku/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210805070351-leetcode_36_valid_sudoku/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -70,7 +70,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -87,23 +87,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -115,23 +115,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -146,7 +146,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210805070351-leetcode_36_valid_sudoku/">LeetCode: 36. Valid Sudoku</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210805070351-leetcode_36_valid_sudoku/">LeetCode: 36. Valid Sudoku</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -166,7 +166,7 @@
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20200320172132_leetcode/">LeetCode</a></li>
+<li>tags: <a href="/notes/20200320172132_leetcode/">LeetCode</a></li>
 </ul>
 <p><a href="https://leetcode.com/problems/valid-sudoku/">https://leetcode.com/problems/valid-sudoku/</a></p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">												  &lt;- high -- low -&gt;
@@ -1646,8 +1646,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

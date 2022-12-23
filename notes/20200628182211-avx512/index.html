@@ -10,21 +10,21 @@
 编译器支持相关封装避免编写汇编代码，官方指南：Intrinsics Guide 基于 sse_mathfun 的 avx_mathfun 封装相关宏和函数 mp3 库 lame 中的 SSE 加速实现 libmp3lame/vector/xmm_quantize_sub.c AVX512 VNNI https://en.wikichip.org/wiki/x86/avx512_vnni " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20200628182211-avx512/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20200628182211-avx512/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -37,11 +37,11 @@
 <meta property="og:title" content="SSE/AVX/AVX2/AVX512">
 <meta property="og:description" content=" tags: Computer Systems,C/C&#43;&#43;,优化,High Performance 部分 intel CPU 支持向量指令集同时进行多路整数和浮点数计算，以此来进行对相关算法进行优化，这里整理相关链接：
 编译器支持相关封装避免编写汇编代码，官方指南：Intrinsics Guide 基于 sse_mathfun 的 avx_mathfun 封装相关宏和函数 mp3 库 lame 中的 SSE 加速实现 libmp3lame/vector/xmm_quantize_sub.c AVX512 VNNI https://en.wikichip.org/wiki/x86/avx512_vnni " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20200628182211-avx512/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20200628182211-avx512/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -70,7 +70,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -87,23 +87,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -115,23 +115,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -146,7 +146,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20200628182211-avx512/">SSE/AVX/AVX2/AVX512</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20200628182211-avx512/">SSE/AVX/AVX2/AVX512</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -166,7 +166,7 @@
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20200802151319-computer_systems/">Computer Systems</a>,<a href="/notes/topics/20200320171108_c/">C/C++</a>,<a href="/notes/notes/20200628182150-%E4%BC%98%E5%8C%96/">优化</a>,<a href="/notes/projects/20220110112848-high_performance/">High Performance</a></li>
+<li>tags: <a href="/topics/20200802151319-computer_systems/">Computer Systems</a>,<a href="/topics/20200320171108_c/">C/C++</a>,<a href="/notes/20200628182150-%E4%BC%98%E5%8C%96/">优化</a>,<a href="/projects/20220110112848-high_performance/">High Performance</a></li>
 </ul>
 <p>部分 intel CPU 支持向量指令集同时进行多路整数和浮点数计算，以此来进行对相关算法进行优化，这里整理相关链接：</p>
 <ul>
@@ -1596,13 +1596,13 @@
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20220512182310-fast_bitset_decoding_using_intel_avx_512/">Fast bitset decoding using Intel AVX-512</a></li>
+          <li><a href="/notes/20220512182310-fast_bitset_decoding_using_intel_avx_512/">Fast bitset decoding using Intel AVX-512</a></li>
        
-          <li><a href="/notes/notes/20220505144135-luhn_algorithm_using_swar_and_simd/">Luhn algorithm using SWAR and SIMD</a></li>
+          <li><a href="/notes/20220505144135-luhn_algorithm_using_swar_and_simd/">Luhn algorithm using SWAR and SIMD</a></li>
        
-          <li><a href="/notes/notes/20220505141919-removing_characters_from_strings_faster_with_avx_512/">Removing characters from strings faster with AVX-512</a></li>
+          <li><a href="/notes/20220505141919-removing_characters_from_strings_faster_with_avx_512/">Removing characters from strings faster with AVX-512</a></li>
        
-          <li><a href="/notes/notes/20200628182150-%E4%BC%98%E5%8C%96/">优化</a></li>
+          <li><a href="/notes/20200628182150-%E4%BC%98%E5%8C%96/">优化</a></li>
        
      </ul>
     </div>
@@ -1625,8 +1625,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

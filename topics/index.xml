@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Topics on Taking Smart Notes With Org-mode</title>
-    <link>https://www.linuxzen.com/notes/topics/</link>
+    <link>https://notes.0081800.xyz/topics/</link>
     <description>Recent content in Topics on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 02 Jan 2022 07:43:00 +0800</lastBuildDate><atom:link href="https://www.linuxzen.com/notes/topics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jan 2022 07:43:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/topics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Programming Tools</title>
-      <link>https://www.linuxzen.com/notes/topics/20220102074329-programming_tools/</link>
+      <link>https://notes.0081800.xyz/topics/20220102074329-programming_tools/</link>
       <pubDate>Sun, 02 Jan 2022 07:43:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20220102074329-programming_tools/</guid>
+      <guid>https://notes.0081800.xyz/topics/20220102074329-programming_tools/</guid>
       <description> tags: Tools </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20220104162549-tools/&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20220104162549-tools/&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Operating system</title>
-      <link>https://www.linuxzen.com/notes/topics/20220102074112-operating_system/</link>
+      <link>https://notes.0081800.xyz/topics/20220102074112-operating_system/</link>
       <pubDate>Sun, 02 Jan 2022 07:41:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20220102074112-operating_system/</guid>
+      <guid>https://notes.0081800.xyz/topics/20220102074112-operating_system/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>macOS</title>
-      <link>https://www.linuxzen.com/notes/topics/20220102074038-macos/</link>
+      <link>https://notes.0081800.xyz/topics/20220102074038-macos/</link>
       <pubDate>Sun, 02 Jan 2022 07:40:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20220102074038-macos/</guid>
+      <guid>https://notes.0081800.xyz/topics/20220102074038-macos/</guid>
       <description> tags: Operating system </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20220102074112-operating_system/&#34;&gt;Operating system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102074112-operating_system/&#34;&gt;Operating system&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Memory Model</title>
-      <link>https://www.linuxzen.com/notes/topics/20220102072550-memory_model/</link>
+      <link>https://notes.0081800.xyz/topics/20220102072550-memory_model/</link>
       <pubDate>Sun, 02 Jan 2022 07:25:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20220102072550-memory_model/</guid>
+      <guid>https://notes.0081800.xyz/topics/20220102072550-memory_model/</guid>
       <description> tags: Computer Systems </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200802151319-computer_systems/&#34;&gt;Computer Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200802151319-computer_systems/&#34;&gt;Computer Systems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>一致性</title>
-      <link>https://www.linuxzen.com/notes/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/</link>
+      <link>https://notes.0081800.xyz/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/</link>
       <pubDate>Sat, 01 Jan 2022 07:49:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/</guid>
+      <guid>https://notes.0081800.xyz/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/</guid>
       <description> tags: 分布式 </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/&#34;&gt;分布式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/&#34;&gt;分布式&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Incomplete</title>
-      <link>https://www.linuxzen.com/notes/topics/20211231172037-incomplete/</link>
+      <link>https://notes.0081800.xyz/topics/20211231172037-incomplete/</link>
       <pubDate>Fri, 31 Dec 2021 17:20:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20211231172037-incomplete/</guid>
+      <guid>https://notes.0081800.xyz/topics/20211231172037-incomplete/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>计划读的书</title>
-      <link>https://www.linuxzen.com/notes/topics/20211231171333-%E8%AE%A1%E5%88%92%E8%AF%BB%E7%9A%84%E4%B9%A6/</link>
+      <link>https://notes.0081800.xyz/topics/20211231171333-%E8%AE%A1%E5%88%92%E8%AF%BB%E7%9A%84%E4%B9%A6/</link>
       <pubDate>Fri, 31 Dec 2021 17:13:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20211231171333-%E8%AE%A1%E5%88%92%E8%AF%BB%E7%9A%84%E4%B9%A6/</guid>
+      <guid>https://notes.0081800.xyz/topics/20211231171333-%E8%AE%A1%E5%88%92%E8%AF%BB%E7%9A%84%E4%B9%A6/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>LSP</title>
-      <link>https://www.linuxzen.com/notes/topics/20211231165951-lsp/</link>
+      <link>https://notes.0081800.xyz/topics/20211231165951-lsp/</link>
       <pubDate>Fri, 31 Dec 2021 16:59:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20211231165951-lsp/</guid>
+      <guid>https://notes.0081800.xyz/topics/20211231165951-lsp/</guid>
       <description> tags: Emacs,Programming Tools source: https://emacs-lsp.github.io/lsp-mode/ </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200218120634/&#34;&gt;Emacs&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20220102074329-programming_tools/&#34;&gt;Programming Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200218120634/&#34;&gt;Emacs&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20220102074329-programming_tools/&#34;&gt;Programming Tools&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;source: &lt;a href=&#34;https://emacs-lsp.github.io/lsp-mode/&#34;&gt;https://emacs-lsp.github.io/lsp-mode/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -105,26 +105,26 @@
     
     <item>
       <title>org-roam</title>
-      <link>https://www.linuxzen.com/notes/topics/20211231142654-org_roam/</link>
+      <link>https://notes.0081800.xyz/topics/20211231142654-org_roam/</link>
       <pubDate>Fri, 31 Dec 2021 14:26:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20211231142654-org_roam/</guid>
+      <guid>https://notes.0081800.xyz/topics/20211231142654-org_roam/</guid>
       <description> tags: Org Mode </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200218120643_org_mode/&#34;&gt;Org Mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200218120643_org_mode/&#34;&gt;Org Mode&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>虚拟化</title>
-      <link>https://www.linuxzen.com/notes/topics/20211122114900-%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
+      <link>https://notes.0081800.xyz/topics/20211122114900-%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
       <pubDate>Mon, 22 Nov 2021 11:49:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20211122114900-%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
+      <guid>https://notes.0081800.xyz/topics/20211122114900-%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
       <description> tags: 技术 相关论文 [译] [论文] 可虚拟化第三代（计算机）架构的规范化条件（ACM, 1974） 容器化 Learning Containers From The Bottom Up </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200323104645_%E6%8A%80%E6%9C%AF/&#34;&gt;技术&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200323104645_%E6%8A%80%E6%9C%AF/&#34;&gt;技术&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;相关论文&#34;&gt;相关论文&lt;/h2&gt;
 &lt;ul&gt;
@@ -139,14 +139,14 @@
     
     <item>
       <title>Java</title>
-      <link>https://www.linuxzen.com/notes/topics/20210901081938-java/</link>
+      <link>https://notes.0081800.xyz/topics/20210901081938-java/</link>
       <pubDate>Wed, 01 Sep 2021 08:19:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20210901081938-java/</guid>
+      <guid>https://notes.0081800.xyz/topics/20210901081938-java/</guid>
       <description>tags: Programming Language Java 生态工具 Maven/Ivy 依赖获取和解决工具 coursier SDKMAN Java 环境和 SDK 管理 SDKMAN 可以实现 Java 环境和一些常见 SDK 的管理，包括：JDK、Scala、sbt 和 Spark 等。
 Java 项目构建工具 Maven Graddle Ant JVM Java 内存模型 JVM 设置代理 Java Networking and Proxies</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;java-生态工具&#34;&gt;Java 生态工具&lt;/h2&gt;
 &lt;h3 id=&#34;maven-ivy-依赖获取和解决工具&#34;&gt;Maven/Ivy 依赖获取和解决工具&lt;/h3&gt;
@@ -161,7 +161,7 @@ Java 项目构建工具 Maven Graddle Ant JVM Java 内存模型 JVM 设置代理
 &lt;h3 id=&#34;ant&#34;&gt;Ant&lt;/h3&gt;
 &lt;h2 id=&#34;jvm&#34;&gt;JVM&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20210713202541-java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/&#34;&gt;Java 内存模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20210713202541-java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/&#34;&gt;Java 内存模型&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;jvm-设置代理&#34;&gt;JVM 设置代理&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html&#34;&gt;Java Networking and Proxies&lt;/a&gt;&lt;/p&gt;
@@ -170,36 +170,36 @@ Java 项目构建工具 Maven Graddle Ant JVM Java 内存模型 JVM 设置代理
     
     <item>
       <title>分布式共识</title>
-      <link>https://www.linuxzen.com/notes/topics/20210804115431-%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</link>
+      <link>https://notes.0081800.xyz/topics/20210804115431-%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</link>
       <pubDate>Wed, 04 Aug 2021 11:54:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20210804115431-%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</guid>
+      <guid>https://notes.0081800.xyz/topics/20210804115431-%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</guid>
       <description> tags: 分布式 </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/&#34;&gt;分布式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/&#34;&gt;分布式&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>编程语言内存模型</title>
-      <link>https://www.linuxzen.com/notes/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://notes.0081800.xyz/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Mon, 12 Jul 2021 14:35:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://notes.0081800.xyz/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
       <description>tags: Memory Model,Programming Language,Computer Systems Programming Language Memory Models 编程语言内存模型 编程语言内存模型回答了并行程序可以依靠什么行为以便它们的线程之间可以共享内存的问题。
 首先需要理解原子变量（atomic variable）或原子操作（tomic operation），编程语言模型作为程序员和编译器之间的约定规定了它们之间所需要的额外细节。
 硬件、Litmus Tests、Happens Before 和 DRF-SC 程序使用DRF-SC 系统同步指令在多个处理器运行的代码之间创建一种“happens before”的关系。
 Thread 1 和 Thread 2 执行 S(a) 同步指令。在这个特定执行中，两条 S(a) 指令建立了从 Thread 1 到 Thread 2 的 happens-before 关系，因此 Thread 1 中的 = W(x)= 发生在 Thread 2 中的 R(x) 之前。</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20220102072550-memory_model/&#34;&gt;Memory Model&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200802151319-computer_systems/&#34;&gt;Computer Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102072550-memory_model/&#34;&gt;Memory Model&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200802151319-computer_systems/&#34;&gt;Computer Systems&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://research.swtch.com/plmm&#34;&gt;Programming Language Memory Models&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://colobu.com/2021/07/11/Programming-Language-Memory-Models/&#34;&gt;编程语言内存模型&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;编程语言内存模型回答了并行程序可以依靠什么行为以便它们的线程之间可以共享内存的问题。&lt;/p&gt;
-&lt;p&gt;首先需要理解&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/&#34;&gt;原子变量（atomic variable）或原子操作（tomic operation）&lt;/a&gt;，编程语言模型作为程序员和编译器之间的约定规定了它们之间所需要的额外细节。&lt;/p&gt;
+&lt;p&gt;首先需要理解&lt;a href=&#34;https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/&#34;&gt;原子变量（atomic variable）或原子操作（tomic operation）&lt;/a&gt;，编程语言模型作为程序员和编译器之间的约定规定了它们之间所需要的额外细节。&lt;/p&gt;
 &lt;h2 id=&#34;硬件-litmus-tests-happens-before-和-drf-sc&#34;&gt;硬件、Litmus Tests、Happens Before 和 DRF-SC&lt;/h2&gt;
-&lt;p&gt;程序使用&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/&#34;&gt;DRF-SC 系统同步指令&lt;/a&gt;在多个处理器运行的代码之间创建一种“happens before”的关系。&lt;/p&gt;
+&lt;p&gt;程序使用&lt;a href=&#34;https://notes.0081800.xyz/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/&#34;&gt;DRF-SC 系统同步指令&lt;/a&gt;在多个处理器运行的代码之间创建一种“happens before”的关系。&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;https://colobu.com/2021/07/11/Programming-Language-Memory-Models/mem-adve-4.png&#34;   /&gt;
@@ -213,48 +213,48 @@ Thread 1 和 Thread 2 执行 S(a) 同步指令。在这个特定执行中，两�
     
     <item>
       <title>Learning English</title>
-      <link>https://www.linuxzen.com/notes/topics/20210317141621-learning_english/</link>
+      <link>https://notes.0081800.xyz/topics/20210317141621-learning_english/</link>
       <pubDate>Wed, 17 Mar 2021 14:16:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20210317141621-learning_english/</guid>
+      <guid>https://notes.0081800.xyz/topics/20210317141621-learning_english/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>GDB</title>
-      <link>https://www.linuxzen.com/notes/topics/20210118114626-gdb/</link>
+      <link>https://notes.0081800.xyz/topics/20210118114626-gdb/</link>
       <pubDate>Mon, 18 Jan 2021 11:46:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20210118114626-gdb/</guid>
+      <guid>https://notes.0081800.xyz/topics/20210118114626-gdb/</guid>
       <description> tags: C/C++,Programming Tools </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320171108_c/&#34;&gt;C/C++&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20220102074329-programming_tools/&#34;&gt;Programming Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320171108_c/&#34;&gt;C/C++&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20220102074329-programming_tools/&#34;&gt;Programming Tools&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Computer Systems</title>
-      <link>https://www.linuxzen.com/notes/topics/20200802151319-computer_systems/</link>
+      <link>https://notes.0081800.xyz/topics/20200802151319-computer_systems/</link>
       <pubDate>Sun, 02 Aug 2020 15:13:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200802151319-computer_systems/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200802151319-computer_systems/</guid>
       <description>内存模型 硬件内存模型 编程语言内存模型 </description>
       <content>&lt;h2 id=&#34;内存模型&#34;&gt;内存模型&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/&#34;&gt;硬件内存模型&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/&#34;&gt;编程语言内存模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/&#34;&gt;硬件内存模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/&#34;&gt;编程语言内存模型&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://www.linuxzen.com/notes/topics/20200628133616-python/</link>
+      <link>https://notes.0081800.xyz/topics/20200628133616-python/</link>
       <pubDate>Sun, 28 Jun 2020 13:36:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200628133616-python/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200628133616-python/</guid>
       <description>Python vendor package 之前一直在找 Python 类似 go mod vendor 部署的解决方案，今天在看 PySpark 的时候找到了，主要现存两种解决方案：
 Conda 生态可以使用 conda-pack 原生 CPython 生态可以依托 venv-pack pex 对比
 时间 项目 活跃开发 贡献人数 提交数量 2021-08-28 venv-pack 否 2 30 conda-pack 是 15 246 pex 是 87 940 IPython EIN import numpy, math, matplotlib.pyplot as plt %matplotlib inline x = numpy.linspace(0, 2 * math.pi) plt.plot(x, numpy.sin(x)) Python Dark Magic Writing Python Extensions in Assembly 对应版本 manylinux2014 存在但是装不上 参见：PEP 599 &amp;ndash; The manylinux2014 Platform Tag</description>
@@ -319,82 +319,82 @@ plt.plot(x, numpy.sin(x))
     
     <item>
       <title>技术</title>
-      <link>https://www.linuxzen.com/notes/topics/20200323104645_%E6%8A%80%E6%9C%AF/</link>
+      <link>https://notes.0081800.xyz/topics/20200323104645_%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200323104645_%E6%8A%80%E6%9C%AF/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200323104645_%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>C/C&#43;&#43;</title>
-      <link>https://www.linuxzen.com/notes/topics/20200320171108_c/</link>
+      <link>https://notes.0081800.xyz/topics/20200320171108_c/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200320171108_c/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200320171108_c/</guid>
       <description> tags: Programming Language </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Programming Language</title>
-      <link>https://www.linuxzen.com/notes/topics/20200320170914_programming_language/</link>
+      <link>https://notes.0081800.xyz/topics/20200320170914_programming_language/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200320170914_programming_language/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200320170914_programming_language/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>分布式</title>
-      <link>https://www.linuxzen.com/notes/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/</link>
+      <link>https://notes.0081800.xyz/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/</guid>
       <description> tags: 技术 </description>
       <content>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200323104645_%E6%8A%80%E6%9C%AF/&#34;&gt;tags: 技术&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/topics/20200323104645_%E6%8A%80%E6%9C%AF/&#34;&gt;tags: 技术&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>大数据</title>
-      <link>https://www.linuxzen.com/notes/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
+      <link>https://notes.0081800.xyz/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/</guid>
       <description> tags: 技术 </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200323104645_%E6%8A%80%E6%9C%AF/&#34;&gt;技术&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200323104645_%E6%8A%80%E6%9C%AF/&#34;&gt;技术&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Translate</title>
-      <link>https://www.linuxzen.com/notes/topics/20200309112105_translate/</link>
+      <link>https://notes.0081800.xyz/topics/20200309112105_translate/</link>
       <pubDate>Mon, 09 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200309112105_translate/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200309112105_translate/</guid>
       <description> tags: Learning,Learning English </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/notes/20211231122121-learning/&#34;&gt;Learning&lt;/a&gt;,&lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20210317141621-learning_english/&#34;&gt;Learning English&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20211231122121-learning/&#34;&gt;Learning&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20210317141621-learning_english/&#34;&gt;Learning English&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>Emacs</title>
-      <link>https://www.linuxzen.com/notes/topics/20200218120634/</link>
+      <link>https://notes.0081800.xyz/topics/20200218120634/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200218120634/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200218120634/</guid>
       <description>Emacs 插入断页符^L C-q C-l 或 M-x quoted-insert RET C-l。
 可以通过 page-break-lines 这个扩展包来显示一个分隔符。
 部分 Orgmode 中 awesome-tray 不生效 部分 Orgmode 中 awesome-tray 设置的 0.1 height mode-line 不生效。</description>
@@ -408,13 +408,13 @@ plt.plot(x, numpy.sin(x))
     
     <item>
       <title>Org Mode</title>
-      <link>https://www.linuxzen.com/notes/topics/20200218120643_org_mode/</link>
+      <link>https://notes.0081800.xyz/topics/20200218120643_org_mode/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200218120643_org_mode/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200218120643_org_mode/</guid>
       <description>tags: Emacs 快捷键 C-c C-o 打开当前光标下的链接 C-c C-l 插入链接 C-c C-&#39; 插入代码块 Snippets [[http://www.gnu.org/software/emacs/][GNU Emacs]] 转义代码块 https://stackoverflow.com/a/7462884/2873718</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200218120634/&#34;&gt;Emacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200218120634/&#34;&gt;Emacs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;快捷键&#34;&gt;快捷键&lt;/h2&gt;
 &lt;ul&gt;
@@ -431,23 +431,23 @@ plt.plot(x, numpy.sin(x))
     
     <item>
       <title>Rust</title>
-      <link>https://www.linuxzen.com/notes/topics/20200307191429_rust/</link>
+      <link>https://notes.0081800.xyz/topics/20200307191429_rust/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200307191429_rust/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200307191429_rust/</guid>
       <description> tags: Programming Language </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://www.linuxzen.com/notes/notes/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
     
     <item>
       <title>正在读的书</title>
-      <link>https://www.linuxzen.com/notes/topics/20200307114122_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://notes.0081800.xyz/topics/20200307114122_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://www.linuxzen.com/notes/topics/20200307114122_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://notes.0081800.xyz/topics/20200307114122_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
       <content></content>
     </item>

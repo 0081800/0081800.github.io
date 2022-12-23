@@ -10,21 +10,21 @@
 The key idea is not only about stack, but also required a map to record how many same letters behind current one. Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20220321174725-leetcode101_316_remove_duplicate_letters/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -37,11 +37,11 @@ The key idea is not only about stack, but also required a map to record how many
 <meta property="og:title" content="LeetCode101: 316. Remove Duplicate Letters">
 <meta property="og:description" content="tags: String,LeetCode101,Stack,Hash Table,Hash Set I have solved this problem years before, LeetCode: 316.Remove Duplicate Letters, but still stuck on it.
 The key idea is not only about stack, but also required a map to record how many same letters behind current one. Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order." />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20220321174725-leetcode101_316_remove_duplicate_letters/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -70,7 +70,7 @@ The key idea is not only about stack, but also required a map to record how many
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -87,23 +87,23 @@ The key idea is not only about stack, but also required a map to record how many
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -115,23 +115,23 @@ The key idea is not only about stack, but also required a map to record how many
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -146,7 +146,7 @@ The key idea is not only about stack, but also required a map to record how many
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20220321174725-leetcode101_316_remove_duplicate_letters/">LeetCode101: 316. Remove Duplicate Letters</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/">LeetCode101: 316. Remove Duplicate Letters</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -166,9 +166,9 @@ The key idea is not only about stack, but also required a map to record how many
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20220321174510-string/">String</a>,<a href="/notes/notes/20220311065137-leetcode101/">LeetCode101</a>,<a href="/notes/notes/20220311073821-stack/">Stack</a>,<a href="/notes/notes/20220311221617-hash_table/">Hash Table</a>,<a href="/notes/notes/20220311183913-hash_set/">Hash Set</a></li>
+<li>tags: <a href="/notes/20220321174510-string/">String</a>,<a href="/notes/20220311065137-leetcode101/">LeetCode101</a>,<a href="/notes/20220311073821-stack/">Stack</a>,<a href="/notes/20220311221617-hash_table/">Hash Table</a>,<a href="/notes/20220311183913-hash_set/">Hash Set</a></li>
 </ul>
-<p>I have solved this problem years before, <a href="/notes/notes/20200320172625_leetcode_316_remove_duplicate_letters/">LeetCode: 316.Remove Duplicate Letters</a>, but still stuck on it.</p>
+<p>I have solved this problem years before, <a href="/notes/20200320172625_leetcode_316_remove_duplicate_letters/">LeetCode: 316.Remove Duplicate Letters</a>, but still stuck on it.</p>
 <p>The key idea is not only about stack, but also required a map to record how many same letters behind current one.
 Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
@@ -1616,7 +1616,7 @@ Which helps us to decide if drop current letter or not, when the new letter is l
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20220321174504-leetcode101_763_partition_labels/">LeetCode101: 763. Partition Labels</a></li>
+          <li><a href="/notes/20220321174504-leetcode101_763_partition_labels/">LeetCode101: 763. Partition Labels</a></li>
        
      </ul>
     </div>
@@ -1639,8 +1639,8 @@ Which helps us to decide if drop current letter or not, when the new letter is l
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

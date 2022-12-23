@@ -10,21 +10,21 @@
 实现了 Send 的类型，可以安全地在线程间传递所有权。也就是说， 可以跨线程移动。 实现了 Sync 的类型， 可以安全地在线程间传递不可变借用。也就是说，可以跨线程共享。 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -37,11 +37,11 @@
 <meta property="og:title" content="如何理解 Sync 和 Send?">
 <meta property="og:description" content=" tags: Rust,Thread Safety source: Hexi. “如何理解 Sync 和 Send?” 李晨曦的博客 | Hexi Blog, May 5, 2019. https://hexilee.me/2019/05/05/how-to-understand-sync-and-send-in-rust/. 语义：
 实现了 Send 的类型，可以安全地在线程间传递所有权。也就是说， 可以跨线程移动。 实现了 Sync 的类型， 可以安全地在线程间传递不可变借用。也就是说，可以跨线程共享。 " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -70,7 +70,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -87,23 +87,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -115,23 +115,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -146,7 +146,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/">如何理解 Sync 和 Send?</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/">如何理解 Sync 和 Send?</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -166,7 +166,7 @@
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20200307191429_rust/">Rust</a>,<a href="/notes/notes/20220117165224-thread_safety/">Thread Safety</a></li>
+<li>tags: <a href="/topics/20200307191429_rust/">Rust</a>,<a href="/notes/20220117165224-thread_safety/">Thread Safety</a></li>
 <li>source: Hexi. “如何理解 Sync 和 Send?” 李晨曦的博客 | Hexi Blog, May 5, 2019. <a href="https://hexilee.me/2019/05/05/how-to-understand-sync-and-send-in-rust/">https://hexilee.me/2019/05/05/how-to-understand-sync-and-send-in-rust/</a>.</li>
 </ul>
 <p>语义：</p>
@@ -1600,8 +1600,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

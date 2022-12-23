@@ -12,21 +12,21 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 基于消息传递的数据流 消息中间件：RabbitMQ、Kafka 分布式Actor 框架：Akka、Erlang OTP " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -41,11 +41,11 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 向后兼容 较新的代码可以读取旧代码编写的数据 向前兼容 较旧的代码可以读取较新代码编写的数据 数据编码格式 语言特定格式 Python pickle Java java.io.Serializable Ruby Marshal JSON、XML与二进制变体 二进制变体
 Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模式 基于数据库的数据流 不同是写写入不同的值 归档存储 基于服务的数据流：REST 和 RPC RPC 的问题 给人一种本地调用的错觉，却需要面临网络的不确定性：延迟和超时。
 基于消息传递的数据流 消息中间件：RabbitMQ、Kafka 分布式Actor 框架：Akka、Erlang OTP " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -74,7 +74,7 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -91,23 +91,23 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -119,23 +119,23 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -150,7 +150,7 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/">数据编码与演化</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/">数据编码与演化</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -188,8 +188,8 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 <ul>
 <li>Message Pack：二进制的 JSON</li>
 </ul>
-<h3 id="thrift-与-protocol-buffers--20210610222754-thrift-与-protocol-buffers-dot-md"><a href="/notes/notes/20210610222754-thrift_%E4%B8%8E_protocol_buffers/">Thrift 与 Protocol Buffers</a><a href="#thrift-与-protocol-buffers--20210610222754-thrift-与-protocol-buffers-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h3 id="avro--20210610222725-avro-dot-md"><a href="/notes/notes/20210610222725-avro/">Avro</a><a href="#avro--20210610222725-avro-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="thrift-与-protocol-buffers--20210610222754-thrift-与-protocol-buffers-dot-md"><a href="/notes/20210610222754-thrift_%E4%B8%8E_protocol_buffers/">Thrift 与 Protocol Buffers</a><a href="#thrift-与-protocol-buffers--20210610222754-thrift-与-protocol-buffers-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="avro--20210610222725-avro-dot-md"><a href="/notes/20210610222725-avro/">Avro</a><a href="#avro--20210610222725-avro-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h2 id="数据流模式">数据流模式<a href="#数据流模式" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="基于数据库的数据流">基于数据库的数据流<a href="#基于数据库的数据流" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h4 id="不同是写写入不同的值">不同是写写入不同的值<a href="#不同是写写入不同的值" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
@@ -199,7 +199,7 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 <p>给人一种本地调用的错觉，却需要面临网络的不确定性：延迟和超时。</p>
 <h3 id="基于消息传递的数据流">基于消息传递的数据流<a href="#基于消息传递的数据流" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h4 id="消息中间件-rabbitmq-kafka">消息中间件：RabbitMQ、Kafka<a href="#消息中间件-rabbitmq-kafka" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="分布式-actor--20210612091808-actor-dot-md--框架-akka-erlang-otp">分布式<a href="/notes/notes/20210612091808-actor/">Actor</a> 框架：Akka、Erlang OTP<a href="#分布式-actor--20210612091808-actor-dot-md--框架-akka-erlang-otp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="分布式-actor--20210612091808-actor-dot-md--框架-akka-erlang-otp">分布式<a href="/notes/20210612091808-actor/">Actor</a> 框架：Akka、Erlang OTP<a href="#分布式-actor--20210612091808-actor-dot-md--框架-akka-erlang-otp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 
       </div></div>
 
@@ -1612,7 +1612,7 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
+          <li><a href="/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
        
      </ul>
     </div>
@@ -1635,8 +1635,8 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

@@ -16,21 +16,21 @@ LLVM 工具集（toolchain）就是这个模型的一个很好的成功的例子
 CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支持 Python 代码和 CPython 虚拟机。不过，CPython 同样实现了三阶段设计。 如果想知道为什么，我们需要更加详细的解释编译器的三阶段的每个阶段。" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -49,11 +49,11 @@ Note: 本文参考 CPython 3.9。一些实现细节将必然会随着 CPython �
 编译器前端（frontend）将源代码转换成一种中间语言（IR,intermediate representation）。然后优化器（optimzer）拿到中间语言 对其进行优化并把优化过的中间语言传递给编译器后端生成机器码。如果我们选择一种源语言和目标机器无关的中间语言，我们就 得到了三阶段设计的关键益处：对于一个编译器来说，支持一种新的源语言仅仅需要新增一个对应的编译器前端，支持一种新的目标机器 仅仅需要新增一个对应的编译器后端。
 LLVM 工具集（toolchain）就是这个模型的一个很好的成功的例子。有很多编译器前端如 C、Rust、Swift 等其他很多编程语言基于 LLVM 提供给编译器更加复杂的部分。LLVM 的创建者 Chris Latter 提供了一个很好的 LLVM 架构概览。
 CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支持 Python 代码和 CPython 虚拟机。不过，CPython 同样实现了三阶段设计。 如果想知道为什么，我们需要更加详细的解释编译器的三阶段的每个阶段。" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -82,7 +82,7 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -99,23 +99,23 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -127,23 +127,23 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -158,7 +158,7 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/">Python behind the scenes #2: how the CPython compiler works</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/">Python behind the scenes #2: how the CPython compiler works</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -178,7 +178,7 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20200309112105_translate/">Translate</a>,<a href="/notes/topics/20211231172037-incomplete/">Incomplete</a>,<a href="/notes/topics/20200628133616-python/">Python</a></li>
+<li>tags: <a href="/topics/20200309112105_translate/">Translate</a>,<a href="/topics/20211231172037-incomplete/">Incomplete</a>,<a href="/topics/20200628133616-python/">Python</a></li>
 </ul>
 <h2 id="python-幕后-2-cpython-编译器如何工作">Python 幕后 #2: CPython 编译器如何工作<a href="#python-幕后-2-cpython-编译器如何工作" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="今天的主题-today-s-subject">今天的主题（Today&rsquo;s subject）<a href="#今天的主题-today-s-subject" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -1893,8 +1893,8 @@ Python 代码问题的更优雅的方案。</p>
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

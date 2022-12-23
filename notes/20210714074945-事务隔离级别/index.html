@@ -13,21 +13,21 @@
 串行化 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -43,11 +43,11 @@
 可重复读（快照级别隔离） 在同一个事务中，反复读取总能获得一致性的结果，而不会读取到其他事务提交修改的新值。总体性想法是：每个事务都从数据库的一致性快照中读取，事务一开始所看到的是最近提交的数据，即使数据随后可能被另外一个事务更改，但保证每个事务都只看到特定时间点的旧数据。
 实现快照级别隔离 MVCC
 串行化 " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -76,7 +76,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -93,23 +93,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -121,23 +121,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -152,7 +152,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">事务隔离级别</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">事务隔离级别</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -184,12 +184,12 @@
 <h3 id="防止脏写">防止脏写<a href="#防止脏写" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>通常通过推迟第二个写请求（行锁），直到前面的事务完成提交（或者终止）。</p>
 <h3 id="防止脏读">防止脏读<a href="#防止脏读" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>通过行锁同样可以避免脏读，但是实际中不可行（性能太差），一般采用类似 <a href="/notes/notes/20200827195823-mvcc/">MVCC</a> 的方式：对于待更新的对象，数据库都会维护其旧值和当前持锁事务将要设置的新值两个版本。
+<p>通过行锁同样可以避免脏读，但是实际中不可行（性能太差），一般采用类似 <a href="/notes/20200827195823-mvcc/">MVCC</a> 的方式：对于待更新的对象，数据库都会维护其旧值和当前持锁事务将要设置的新值两个版本。
 事务提交之前，其他所有读操作读旧值；仅当写事务提交之后，才会切换到读取新值。</p>
 <h2 id="可重复读-快照级别隔离">可重复读（快照级别隔离）<a href="#可重复读-快照级别隔离" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>在同一个事务中，反复读取总能获得一致性的结果，而不会读取到其他事务提交修改的新值。总体性想法是：每个事务都从数据库的一致性快照中读取，事务一开始所看到的是最近提交的数据，即使数据随后可能被另外一个事务更改，但保证每个事务都只看到特定时间点的旧数据。</p>
 <h3 id="实现快照级别隔离">实现快照级别隔离<a href="#实现快照级别隔离" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p><a href="/notes/notes/20200827195823-mvcc/">MVCC</a></p>
+<p><a href="/notes/20200827195823-mvcc/">MVCC</a></p>
 <h2 id="串行化">串行化<a href="#串行化" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 
       </div></div>
@@ -1605,9 +1605,9 @@
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20210714074135-acid/">ACID</a></li>
+          <li><a href="/notes/20210714074135-acid/">ACID</a></li>
        
-          <li><a href="/notes/notes/20210714073909-%E4%BA%8B%E5%8A%A1/">事务</a></li>
+          <li><a href="/notes/20210714073909-%E4%BA%8B%E5%8A%A1/">事务</a></li>
        
      </ul>
     </div>
@@ -1630,8 +1630,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

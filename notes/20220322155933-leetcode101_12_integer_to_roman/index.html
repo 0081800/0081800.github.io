@@ -9,21 +9,21 @@
 <meta name="description" content="tags: Math,Hash Table,LeetCode101 class Solution { public: string intToRoman(int num) { vector&amp;lt;string&amp;gt; roman {&amp;#34;M&amp;#34;, &amp;#34;CM&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;CD&amp;#34;, &amp;#34;C&amp;#34;, &amp;#34;XC&amp;#34;, &amp;#34;L&amp;#34;, &amp;#34;XL&amp;#34;, &amp;#34;X&amp;#34;, &amp;#34;IX&amp;#34;, &amp;#34;V&amp;#34;, &amp;#34;IV&amp;#34;, &amp;#34;I&amp;#34;}; vector&amp;lt;int&amp;gt; integers {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 }; string r; int times = 0; for (int i = 0; i &amp;lt; integers.size(); &#43;&#43;i) { if (num &amp;gt;= integers[i]) { times = num / integers[i]; num -= times * integers[i]; for (int j = times; j &amp;gt; 0; --j) { r." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20220322155933-leetcode101_12_integer_to_roman/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20220322155933-leetcode101_12_integer_to_roman/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -35,11 +35,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="LeetCode101: 12. Integer to Roman">
 <meta property="og:description" content="tags: Math,Hash Table,LeetCode101 class Solution { public: string intToRoman(int num) { vector&amp;lt;string&amp;gt; roman {&amp;#34;M&amp;#34;, &amp;#34;CM&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;CD&amp;#34;, &amp;#34;C&amp;#34;, &amp;#34;XC&amp;#34;, &amp;#34;L&amp;#34;, &amp;#34;XL&amp;#34;, &amp;#34;X&amp;#34;, &amp;#34;IX&amp;#34;, &amp;#34;V&amp;#34;, &amp;#34;IV&amp;#34;, &amp;#34;I&amp;#34;}; vector&amp;lt;int&amp;gt; integers {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 }; string r; int times = 0; for (int i = 0; i &amp;lt; integers.size(); &#43;&#43;i) { if (num &amp;gt;= integers[i]) { times = num / integers[i]; num -= times * integers[i]; for (int j = times; j &amp;gt; 0; --j) { r." />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20220322155933-leetcode101_12_integer_to_roman/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20220322155933-leetcode101_12_integer_to_roman/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -68,7 +68,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -85,23 +85,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -113,23 +113,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -144,7 +144,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20220322155933-leetcode101_12_integer_to_roman/">LeetCode101: 12. Integer to Roman</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20220322155933-leetcode101_12_integer_to_roman/">LeetCode101: 12. Integer to Roman</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -164,7 +164,7 @@
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20220318084456-math/">Math</a>,<a href="/notes/notes/20220311221617-hash_table/">Hash Table</a>,<a href="/notes/notes/20220311065137-leetcode101/">LeetCode101</a></li>
+<li>tags: <a href="/notes/20220318084456-math/">Math</a>,<a href="/notes/20220311221617-hash_table/">Hash Table</a>,<a href="/notes/20220311065137-leetcode101/">LeetCode101</a></li>
 </ul>
 <!-- raw HTML omitted -->
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
@@ -1613,8 +1613,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

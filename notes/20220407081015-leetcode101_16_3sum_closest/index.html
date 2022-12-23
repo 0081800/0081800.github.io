@@ -10,21 +10,21 @@
 class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { sort(nums.begin(), nums.end()); int closest = INT_MAX, l, r, sum, T, res; for (int i = 0; i &amp;lt; nums.size(); i&#43;&#43;) { l = i &#43; 1; r = nums.size() - 1; T = target - nums[i]; while (l &amp;lt; r) { sum = nums[l] &#43; nums[r]; if (abs(sum - T) &amp;lt; closest) { res = sum &#43; nums[i]; closest = abs(sum - T); } if (sum == T) { return target; } if (sum &amp;lt; T) { l&#43;&#43;; } else { r--; } } } return res; } }; " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20220407081015-leetcode101_16_3sum_closest/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20220407081015-leetcode101_16_3sum_closest/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -37,11 +37,11 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
 <meta property="og:title" content="LeetCode101: 16. 3Sum Closest">
 <meta property="og:description" content=" tags: LeetCode101,Sorting,Two Pointers,Three Pointers Key ideas see LeetCode101: 15. 3Sum
 class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { sort(nums.begin(), nums.end()); int closest = INT_MAX, l, r, sum, T, res; for (int i = 0; i &amp;lt; nums.size(); i&#43;&#43;) { l = i &#43; 1; r = nums.size() - 1; T = target - nums[i]; while (l &amp;lt; r) { sum = nums[l] &#43; nums[r]; if (abs(sum - T) &amp;lt; closest) { res = sum &#43; nums[i]; closest = abs(sum - T); } if (sum == T) { return target; } if (sum &amp;lt; T) { l&#43;&#43;; } else { r--; } } } return res; } }; " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20220407081015-leetcode101_16_3sum_closest/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20220407081015-leetcode101_16_3sum_closest/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -70,7 +70,7 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -87,23 +87,23 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -115,23 +115,23 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -146,7 +146,7 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20220407081015-leetcode101_16_3sum_closest/">LeetCode101: 16. 3Sum Closest</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20220407081015-leetcode101_16_3sum_closest/">LeetCode101: 16. 3Sum Closest</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -166,9 +166,9 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/notes/20220311065137-leetcode101/">LeetCode101</a>,<a href="/notes/notes/20220324120212-sorting/">Sorting</a>,<a href="/notes/notes/20220311075423-two_pointer/">Two Pointers</a>,<a href="/notes/notes/20220407080033-three_pointers/">Three Pointers</a></li>
+<li>tags: <a href="/notes/20220311065137-leetcode101/">LeetCode101</a>,<a href="/notes/20220324120212-sorting/">Sorting</a>,<a href="/notes/20220311075423-two_pointer/">Two Pointers</a>,<a href="/notes/20220407080033-three_pointers/">Three Pointers</a></li>
 </ul>
-<p>Key ideas see <a href="/notes/notes/20220407080010-leetcode101_15_3sum/">LeetCode101: 15. 3Sum</a></p>
+<p>Key ideas see <a href="/notes/20220407080010-leetcode101_15_3sum/">LeetCode101: 15. 3Sum</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> threeSumClosest(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> nums, <span style="color:#66d9ef">int</span> target) {
@@ -1623,8 +1623,8 @@ class Solution { public: int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; 
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

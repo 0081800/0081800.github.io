@@ -18,21 +18,21 @@ Rust 的许多特性都是从其他语言借鉴而来。Rust 之所以变得有�
 fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&amp;gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&amp;#34;skylight&amp;#34;)); // open the input file let mut from_file = try!" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20200629181735-rust_means_never_having_to_close_a_socket/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -53,11 +53,11 @@ Rust 的许多特性都是从其他语言借鉴而来。Rust 之所以变得有�
 所有权系统（The Ownership System） 让这种保证工作的方式是通过 Rust 的「所有权（ownership）」系统。不管任何时候你创建一个新的对象，都被创建它的「作用域（scope）」所拥有。
 让我们通过一个例子来进一步说明：我们定义一个函数，函数拷贝输入文件到临时文件去处理它，然后拷贝输入文件到输出文件。
 fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&amp;gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&amp;#34;skylight&amp;#34;)); // open the input file let mut from_file = try!" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20200629181735-rust_means_never_having_to_close_a_socket/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -86,7 +86,7 @@ fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -103,23 +103,23 @@ fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -131,23 +131,23 @@ fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -162,7 +162,7 @@ fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20200629181735-rust_means_never_having_to_close_a_socket/">Rust Means Never Having to Close a Socket</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/">Rust Means Never Having to Close a Socket</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -182,7 +182,7 @@ fn process(from: &amp;amp;Path, to: &amp;amp;Path) -&amp;gt; IoResult&amp;lt;()&
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20200309112105_translate/">Translate</a>,<a href="/notes/topics/20200307191429_rust/">Rust</a>,<a href="/notes/notes/20200325165657_rust_wrapper_types/">Rust Wrapper Types</a></li>
+<li>tags: <a href="/topics/20200309112105_translate/">Translate</a>,<a href="/topics/20200307191429_rust/">Rust</a>,<a href="/notes/20200325165657_rust_wrapper_types/">Rust Wrapper Types</a></li>
 </ul>
 <p>原文链接：<a href="https://blog.skylight.io/rust-means-never-having-to-close-a-socket/">Rust Means Never Having to Close a Socket</a></p>
 <p>Rust 最酷的特性之一就是它可以自动地帮助你管理资源，同时在仍能保持安全（没有段错误）和高性能。</p>
@@ -1885,7 +1885,7 @@ Rust 改变了这个领域中的传统权衡，我建议您将脑中告诉自己
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20200629174943-%E5%BC%95%E7%94%A8%E5%92%8C%E5%80%9F%E7%94%A8/">引用和借用</a></li>
+          <li><a href="/notes/20200629174943-%E5%BC%95%E7%94%A8%E5%92%8C%E5%80%9F%E7%94%A8/">引用和借用</a></li>
        
      </ul>
     </div>
@@ -1908,8 +1908,8 @@ Rust 改变了这个领域中的传统权衡，我建议您将脑中告诉自己
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

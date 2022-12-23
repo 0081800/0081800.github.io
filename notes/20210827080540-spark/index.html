@@ -13,21 +13,21 @@ Understanding the working of Spark Driver and Executor Cluster Mode Overview Spa
 Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210827080540-spark/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210827080540-spark/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -43,11 +43,11 @@ Spark Driver &amp;amp; Executor Driver 执行 spark-commit 客户端，创建 Sp
 Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
 以下代码是在 Executor 上执行的：
 Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210827080540-spark/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210827080540-spark/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -76,7 +76,7 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -93,23 +93,23 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -121,23 +121,23 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -152,7 +152,7 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210827080540-spark/">Spark</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210827080540-spark/">Spark</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -172,12 +172,12 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
 
   <div class="post-content"><div>
         <ul>
-<li>tags: <a href="/notes/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/">Bigdata</a></li>
+<li>tags: <a href="/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/">Bigdata</a></li>
 </ul>
 <h2 id="spark-编程语言选择">Spark 编程语言选择<a href="#spark-编程语言选择" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（<a href="#spark-%E7%AE%A1%E7%90%86-python-%E4%BE%9D%E8%B5%96">Spark 管理 Python 依赖</a>）。
 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。
-其中 <a href="/notes/notes/20210827073626-scala/">Scala</a> 兼具简单和 JVM 的优势，但是它「不流行」。</p>
+其中 <a href="/notes/20210827073626-scala/">Scala</a> 兼具简单和 JVM 的优势，但是它「不流行」。</p>
 <h2 id="spark-driver-and-executor">Spark Driver &amp; Executor<a href="#spark-driver-and-executor" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li>Driver 执行 spark-commit 客户端，创建 <code>SparkContext</code> 执行 <code>main</code> 函数。</li>
@@ -216,7 +216,7 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> distData <span style="color:#66d9ef">=</span> sc<span style="color:#f92672">.</span>parallelize<span style="color:#f92672">(</span>data<span style="color:#f92672">)</span>
 </span></span></code></pre></div><h4 id="外部数据集">外部数据集<a href="#外部数据集" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <ul>
-<li>输入源支持支持 Hadoop 支持的任何存储源，包括：本地文件系统、<a href="/notes/notes/20210808075530-hadoop_distributed_file_system/">HDFS</a>、Cassandra、<a href="/notes/notes/20210810071455-hbase/">HBase</a>、<a href="http://wiki.apache.org/hadoop/AmazonS3">Amazaon S3</a> 等</li>
+<li>输入源支持支持 Hadoop 支持的任何存储源，包括：本地文件系统、<a href="/notes/20210808075530-hadoop_distributed_file_system/">HDFS</a>、Cassandra、<a href="/notes/20210810071455-hbase/">HBase</a>、<a href="http://wiki.apache.org/hadoop/AmazonS3">Amazaon S3</a> 等</li>
 <li>输入格式支持：文本文件、<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/SequenceFileInputFormat.html">SequenceFiles</a> 和任何其他 Hadoop <a href="http://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/InputFormat.html">InputFormat</a></li>
 </ul>
 <blockquote>
@@ -253,7 +253,7 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <p>支持 <code>--archives</code> 参数上传打包好的环境信息，主要三种方式：</p>
 <ul>
 <li>PySpark 原生特性， <code>--py-files</code> 支持 zip 和 egg 格式，但是不支持 whl</li>
-<li><a href="/notes/topics/20200628133616-python/#python-vendor-package">Python vendor package</a></li>
+<li><a href="/topics/20200628133616-python/#python-vendor-package">Python vendor package</a></li>
 </ul>
 <p>See alos: <a href="https://spark.apache.org/docs/latest/api/python/user%5Fguide/python%5Fpackaging.html">Python Package Management</a></p>
 <h3 id="standalone-cluster">Standalone cluster<a href="#standalone-cluster" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -1690,7 +1690,7 @@ spark.sql.orc.impl=hive
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20220104105030-batch_processing/">Batch processing</a></li>
+          <li><a href="/notes/20220104105030-batch_processing/">Batch processing</a></li>
        
      </ul>
     </div>
@@ -1713,8 +1713,8 @@ spark.sql.orc.impl=hive
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

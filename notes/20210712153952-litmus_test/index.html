@@ -11,21 +11,21 @@ litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而�
 Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210712153952-litmus_test/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -39,11 +39,11 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
 <meta property="og:description" content="下面这种关于样本结果的问题被称为 litmus test 。它只有两个答案：可能还是不可能？为我们提供了一种区分内存一致性模型的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。
 litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而是一个线程本地寄存器。
 Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210712153952-litmus_test/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210712153952-litmus_test/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -72,7 +72,7 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -89,23 +89,23 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -117,23 +117,23 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -148,7 +148,7 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210712153952-litmus_test/">litmus test</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/">litmus test</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -167,7 +167,7 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   
 
   <div class="post-content"><div>
-        <p>下面这种关于样本结果的问题被称为 <code>litmus test</code> 。它只有两个答案：可能还是不可能？为我们提供了一种区分<a href="/notes/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/">内存一致性模型</a>的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。</p>
+        <p>下面这种关于样本结果的问题被称为 <code>litmus test</code> 。它只有两个答案：可能还是不可能？为我们提供了一种区分<a href="/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/">内存一致性模型</a>的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。</p>
 <p><code>litmus test</code> 假设所有变量都初始为 <code>0</code> ， <code>rN</code> 表示非共享变量，而是一个线程本地寄存器。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>Litmus Test: Message Passing
 </span></span><span style="display:flex;"><span>Can this program see r1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">?</span>
@@ -1595,15 +1595,15 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/">JavaScript 内存模型 (2017)</a></li>
+          <li><a href="/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/">JavaScript 内存模型 (2017)</a></li>
        
-          <li><a href="/notes/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/">C&#43;&#43; 弱同步原子（acquire/release atomic）</a></li>
+          <li><a href="/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/">C&#43;&#43; 弱同步原子（acquire/release atomic）</a></li>
        
-          <li><a href="/notes/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/">Java 同步原子（volatile）</a></li>
+          <li><a href="/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/">Java 同步原子（volatile）</a></li>
        
-          <li><a href="/notes/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/">x86 总存储有序（x86-TSO)</a></li>
+          <li><a href="/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/">x86 总存储有序（x86-TSO)</a></li>
        
-          <li><a href="/notes/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/">顺序一致性</a></li>
+          <li><a href="/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/">顺序一致性</a></li>
        
      </ul>
     </div>
@@ -1626,8 +1626,8 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

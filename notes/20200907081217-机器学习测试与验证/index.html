@@ -11,21 +11,21 @@
 交叉验证 为避免验证集浪费太多数据，交叉验证将训练集分成若干个互补子集，然后每个模型都通过这些子集的不同组合来 训练，之后用剩余的子集进行验证。" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -39,11 +39,11 @@
 <meta property="og:description" content="将数据分成两部分：训练集和测试集，通常使用 80% 的数据进行训练，20% 的数据用来测试。
 验证集 单独分出来一个保留集合作为验证集，防止调整模型和超参数拟合测试集的最佳模型。
 交叉验证 为避免验证集浪费太多数据，交叉验证将训练集分成若干个互补子集，然后每个模型都通过这些子集的不同组合来 训练，之后用剩余的子集进行验证。" />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -72,7 +72,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -89,23 +89,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -117,23 +117,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -148,7 +148,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/">机器学习测试与验证</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/">机器学习测试与验证</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -1585,7 +1585,7 @@
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20200905075701-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《机器学习实战》读书笔记</a></li>
+          <li><a href="/notes/20200905075701-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《机器学习实战》读书笔记</a></li>
        
      </ul>
     </div>
@@ -1608,8 +1608,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 

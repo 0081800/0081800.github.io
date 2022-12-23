@@ -13,21 +13,21 @@
 读修复与反熵 读修复；客户端并行读取多个节点，检测到过期的返回值，然后用新的返回值写入到返回旧值的副本。 反熵过程：后台不断查找副本之间的差异，将任何缺少的数据从一个节点复制到另一个节点。不保证特定顺序的复制写入，并且会引入明显的复制滞后问题。 Quorum 一致性 检测并发写 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://www.linuxzen.com/notes/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/" />
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/" />
 
 
 
 
-<link rel="stylesheet" href="https://www.linuxzen.com/notes/assets/style.css">
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
 
 
 
 
 
 
-<link rel="apple-touch-icon" href="https://www.linuxzen.com/notes/img/apple-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://www.linuxzen.com/notes/img/favicon/orange.png">
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
 
 
 
@@ -43,11 +43,11 @@
 现在失效的节点重新上线，客户端可能会读取到旧的值。
 为了解决这个问题客户端并行的向多个节点发送读请求，并通过版本号来确定哪个值更新。
 读修复与反熵 读修复；客户端并行读取多个节点，检测到过期的返回值，然后用新的返回值写入到返回旧值的副本。 反熵过程：后台不断查找副本之间的差异，将任何缺少的数据从一个节点复制到另一个节点。不保证特定顺序的复制写入，并且会引入明显的复制滞后问题。 Quorum 一致性 检测并发写 " />
-<meta property="og:url" content="https://www.linuxzen.com/notes/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
   
-    <meta property="og:image" content="https://www.linuxzen.com/notes/img/favicon/orange.png">
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
   
 
 <meta property="og:image:width" content="2048">
@@ -76,7 +76,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://www.linuxzen.com/notes/">
+      <a href="https://notes.0081800.xyz">
   <div class="logo">
     Terminal
   </div>
@@ -93,23 +93,23 @@
     
       
         
-          <li><a href="/notes/projects/"> Projects in Progress</a></li>
+          <li><a href="/projects/"> Projects in Progress</a></li>
         
       
         
-          <li><a href="/notes/articles/">Articles</a></li>
+          <li><a href="/articles/">Articles</a></li>
         
       
         
-          <li><a href="/notes/flashcards/">Flashcards</a></li>
+          <li><a href="/flashcards/">Flashcards</a></li>
         
       
         
-          <li><a href="/notes/notes/">Notes</a></li>
+          <li><a href="/notes/">Notes</a></li>
         
       
         
-          <li><a href="/notes/topics/">Topics</a></li>
+          <li><a href="/topics/">Topics</a></li>
         
       
       
@@ -121,23 +121,23 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/notes/projects/"> Projects in Progress</a></li>
+        <li><a href="/projects/"> Projects in Progress</a></li>
       
     
       
-        <li><a href="/notes/articles/">Articles</a></li>
+        <li><a href="/articles/">Articles</a></li>
       
     
       
-        <li><a href="/notes/flashcards/">Flashcards</a></li>
+        <li><a href="/flashcards/">Flashcards</a></li>
       
     
       
-        <li><a href="/notes/notes/">Notes</a></li>
+        <li><a href="/notes/">Notes</a></li>
       
     
       
-        <li><a href="/notes/topics/">Topics</a></li>
+        <li><a href="/topics/">Topics</a></li>
       
     
     
@@ -152,7 +152,7 @@
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://www.linuxzen.com/notes/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/">无主节点复制</a></h1>
+    <a href="https://notes.0081800.xyz/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/">无主节点复制</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
@@ -184,10 +184,10 @@
 <h3 id="读修复与反熵">读修复与反熵<a href="#读修复与反熵" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <ul>
 <li>读修复；客户端并行读取多个节点，检测到过期的返回值，然后用新的返回值写入到返回旧值的副本。</li>
-<li>反熵过程：后台不断查找副本之间的差异，将任何缺少的数据从一个节点复制到另一个节点。不保证特定顺序的复制写入，并且会引入明显的<a href="/notes/notes/20210614205621-%E5%A4%8D%E5%88%B6%E6%BB%9E%E5%90%8E%E9%97%AE%E9%A2%98/">复制滞后问题</a>。</li>
+<li>反熵过程：后台不断查找副本之间的差异，将任何缺少的数据从一个节点复制到另一个节点。不保证特定顺序的复制写入，并且会引入明显的<a href="/notes/20210614205621-%E5%A4%8D%E5%88%B6%E6%BB%9E%E5%90%8E%E9%97%AE%E9%A2%98/">复制滞后问题</a>。</li>
 </ul>
-<h3 id="quorum-一致性--20210615211745-quorum-一致性-dot-md"><a href="/notes/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a><a href="#quorum-一致性--20210615211745-quorum-一致性-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h3 id="检测并发写--20210615213433-检测并发写-dot-md"><a href="/notes/notes/20210615213433-%E6%A3%80%E6%B5%8B%E5%B9%B6%E5%8F%91%E5%86%99/">检测并发写</a><a href="#检测并发写--20210615213433-检测并发写-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="quorum-一致性--20210615211745-quorum-一致性-dot-md"><a href="/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a><a href="#quorum-一致性--20210615211745-quorum-一致性-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="检测并发写--20210615213433-检测并发写-dot-md"><a href="/notes/20210615213433-%E6%A3%80%E6%B5%8B%E5%B9%B6%E5%8F%91%E5%86%99/">检测并发写</a><a href="#检测并发写--20210615213433-检测并发写-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 
       </div></div>
 
@@ -1600,7 +1600,7 @@
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/">数据复制</a></li>
+          <li><a href="/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/">数据复制</a></li>
        
      </ul>
     </div>
@@ -1623,8 +1623,8 @@
   </div>
 </footer>
 
-<script src="https://www.linuxzen.com/notes/assets/main.js"></script>
-<script src="https://www.linuxzen.com/notes/assets/prism.js"></script>
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
 
 
 
