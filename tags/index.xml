@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Taking Smart Notes With Org-mode</title>
+    <link>https://www.linuxzen.com/notes/tags/</link>
+    <description>Recent content in Tags on Taking Smart Notes With Org-mode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 05 Sep 2020 07:57:00 +0800</lastBuildDate><atom:link href="https://www.linuxzen.com/notes/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ml</title>
+      <link>https://www.linuxzen.com/notes/tags/ml/</link>
+      <pubDate>Sat, 05 Sep 2020 07:57:00 +0800</pubDate>
+      
+      <guid>https://www.linuxzen.com/notes/tags/ml/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>study</title>
+      <link>https://www.linuxzen.com/notes/tags/study/</link>
+      <pubDate>Sat, 05 Sep 2020 07:57:00 +0800</pubDate>
+      
+      <guid>https://www.linuxzen.com/notes/tags/study/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>cs</title>
+      <link>https://www.linuxzen.com/notes/tags/cs/</link>
+      <pubDate>Sun, 02 Aug 2020 15:50:00 +0800</pubDate>
+      
+      <guid>https://www.linuxzen.com/notes/tags/cs/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>https://www.linuxzen.com/notes/tags/rust/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://www.linuxzen.com/notes/tags/rust/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>index</title>
+      <link>https://www.linuxzen.com/notes/tags/index/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://www.linuxzen.com/notes/tags/index/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>ddd</title>
+      <link>https://www.linuxzen.com/notes/tags/ddd/</link>
+      <pubDate>Sat, 15 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://www.linuxzen.com/notes/tags/ddd/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+  </channel>
+</rss>
