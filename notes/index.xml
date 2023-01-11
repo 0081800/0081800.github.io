@@ -303,9 +303,15 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
       <pubDate>Tue, 22 Nov 2022 20:45:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/</guid>
-      <description> tags: Solana 101: Create an Escrow dApp 创建 SPL Token SPL Token 交互：授权 Program 转帐 转帐 Token 到 Program </description>
+      <description> tags: Solana 101: Create an Escrow dApp Connect to Wallet 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：
+https://github.com/lorisleiva/solana-wallets-vue 创建 SPL Token SPL Token 交互：授权 Program 转帐 转帐 Token 到 Program </description>
       <content>&lt;ul&gt;
 &lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20221119104334-solana_101_create_a_escrow_dapp/&#34;&gt;Solana 101: Create an Escrow dApp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;connect-to-wallet&#34;&gt;Connect to Wallet&lt;/h2&gt;
+&lt;p&gt;使用 &lt;a href=&#34;https://solana-labs.github.io/wallet-adapter/&#34;&gt;@solana/wallet-adapter&lt;/a&gt; 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/lorisleiva/solana-wallets-vue&#34;&gt;https://github.com/lorisleiva/solana-wallets-vue&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;创建-spl-token&#34;&gt;创建 SPL Token&lt;/h2&gt;
 &lt;h2 id=&#34;spl-token-交互-授权-program-转帐&#34;&gt;SPL Token 交互：授权 Program 转帐&lt;/h2&gt;
