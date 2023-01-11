@@ -6,8 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" tags: Solana 101: Create an Escrow dApp Connect to Wallet 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：
-https://github.com/lorisleiva/solana-wallets-vue 创建 SPL Token SPL Token 交互：授权 Program 转帐 转帐 Token 到 Program " />
+<meta name="description" content=" tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 创建 SPL Token SPL Token 交互：授权 Program 转帐 Program 创建 Token 账号并转帐 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/" />
@@ -35,8 +34,7 @@ https://github.com/lorisleiva/solana-wallets-vue 创建 SPL Token SPL Token 交�
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Solana 101: 3. SPL Token">
-<meta property="og:description" content=" tags: Solana 101: Create an Escrow dApp Connect to Wallet 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：
-https://github.com/lorisleiva/solana-wallets-vue 创建 SPL Token SPL Token 交互：授权 Program 转帐 转帐 Token 到 Program " />
+<meta property="og:description" content=" tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 创建 SPL Token SPL Token 交互：授权 Program 转帐 Program 创建 Token 账号并转帐 " />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
@@ -168,14 +166,14 @@ https://github.com/lorisleiva/solana-wallets-vue 创建 SPL Token SPL Token 交�
         <ul>
 <li>tags: <a href="/notes/20221119104334-solana_101_create_a_escrow_dapp/">Solana 101: Create an Escrow dApp</a></li>
 </ul>
-<h2 id="connect-to-wallet">Connect to Wallet<a href="#connect-to-wallet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>使用 <a href="https://solana-labs.github.io/wallet-adapter/">@solana/wallet-adapter</a> 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：</p>
-<ul>
-<li><a href="https://github.com/lorisleiva/solana-wallets-vue">https://github.com/lorisleiva/solana-wallets-vue</a></li>
-</ul>
+<h2 id="连接钱包">连接钱包<a href="#连接钱包" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ol>
+<li>安装 <a href="https://phantom.app/download">Phantom</a> 钱包；</li>
+<li>使用 <a href="https://solana-labs.github.io/wallet-adapter/">@solana/wallet-adapter</a> 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：<a href="https://github.com/lorisleiva/solana-wallets-vue">https://github.com/lorisleiva/solana-wallets-vue</a>。</li>
+</ol>
 <h2 id="创建-spl-token">创建 SPL Token<a href="#创建-spl-token" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h2 id="spl-token-交互-授权-program-转帐">SPL Token 交互：授权 Program 转帐<a href="#spl-token-交互-授权-program-转帐" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h2 id="转帐-token-到-program">转帐 Token 到 Program<a href="#转帐-token-到-program" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="program-创建-token-账号并转帐">Program 创建 Token 账号并转帐<a href="#program-创建-token-账号并转帐" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 
       </div></div>
 
