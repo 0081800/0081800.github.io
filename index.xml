@@ -200,9 +200,16 @@ location @websocket {
       <pubDate>Sat, 24 Dec 2022 11:08:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20221224110813-decoration/</guid>
-      <description> https://github.com/RobbieXie/2020DecorationNote </description>
-      <content>&lt;ul&gt;
+      <description>参考 https://github.com/RobbieXie/2020DecorationNote Ideas 在马桶旁边要留一个插座，用于智能马桶垫； 厨房油烟机机一个光滑斜面可以在餐厅坐着看锅里的情况； 全屋六类线预留 AP 和插座，最好能扩大弱电箱能放进去个 NAS； </description>
+      <content>&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/RobbieXie/2020DecorationNote&#34;&gt;https://github.com/RobbieXie/2020DecorationNote&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ideas&#34;&gt;Ideas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在马桶旁边要留一个插座，用于智能马桶垫；&lt;/li&gt;
+&lt;li&gt;厨房油烟机机一个光滑斜面可以在餐厅坐着看锅里的情况；&lt;/li&gt;
+&lt;li&gt;全屋六类线预留 AP 和插座，最好能扩大弱电箱能放进去个 NAS；&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
