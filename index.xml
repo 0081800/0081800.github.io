@@ -310,7 +310,7 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
       <pubDate>Tue, 22 Nov 2022 20:45:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/</guid>
-      <description>tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 创建 SPL Token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
+      <description>tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 npm install solana-wallets-vue @solana/wallet-adapter-wallets 创建 SPL Token 安装依赖 npm install --save @solana/spl-token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
 供应代币 要持有代币必须创建一个对应的 Associated Token Account（ATA），也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。
 代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 USDT&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
       <content>&lt;ul&gt;
@@ -319,10 +319,14 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
 &lt;h2 id=&#34;连接钱包&#34;&gt;连接钱包&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;安装 &lt;a href=&#34;https://phantom.app/download&#34;&gt;Phantom&lt;/a&gt; 钱包；&lt;/li&gt;
-&lt;li&gt;使用 &lt;a href=&#34;https://solana-labs.github.io/wallet-adapter/&#34;&gt;@solana/wallet-adapter&lt;/a&gt; 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：&lt;a href=&#34;https://github.com/lorisleiva/solana-wallets-vue&#34;&gt;https://github.com/lorisleiva/solana-wallets-vue&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;使用 &lt;a href=&#34;https://solana-labs.github.io/wallet-adapter/&#34;&gt;@solana/wallet-adapter&lt;/a&gt; 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：&lt;a href=&#34;https://github.com/lorisleiva/solana-wallets-vue&#34;&gt;https://github.com/lorisleiva/solana-wallets-vue&lt;/a&gt;。
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install solana-wallets-vue @solana/wallet-adapter-wallets
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;创建-spl-token&#34;&gt;创建 SPL Token&lt;/h2&gt;
-&lt;h3 id=&#34;创建代币&#34;&gt;创建代币&lt;/h3&gt;
+&lt;h3 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install --save @solana/spl-token
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;创建代币&#34;&gt;创建代币&lt;/h3&gt;
 &lt;p&gt;通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 &lt;a href=&#34;https://solscan.io/account/TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA&#34;&gt;Token Program&lt;/a&gt; 即可发行一种代币。&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h3 id=&#34;供应代币&#34;&gt;供应代币&lt;/h3&gt;
 &lt;p&gt;要持有代币必须创建一个对应的 &lt;a href=&#34;https://spl.solana.com/associated-token-account&#34;&gt;Associated Token Account（ATA）&lt;/a&gt;，也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。&lt;/p&gt;

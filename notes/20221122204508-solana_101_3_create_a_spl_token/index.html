@@ -6,7 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 创建 SPL Token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
+<meta name="description" content="tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 npm install solana-wallets-vue @solana/wallet-adapter-wallets 创建 SPL Token 安装依赖 npm install --save @solana/spl-token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
 供应代币 要持有代币必须创建一个对应的 Associated Token Account（ATA），也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。
 代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 USDT&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta name="keywords" content="" />
@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Solana 101: 3. SPL Token">
-<meta property="og:description" content="tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 创建 SPL Token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
+<meta property="og:description" content="tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 npm install solana-wallets-vue @solana/wallet-adapter-wallets 创建 SPL Token 安装依赖 npm install --save @solana/spl-token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
 供应代币 要持有代币必须创建一个对应的 Associated Token Account（ATA），也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。
 代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 USDT&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/" />
@@ -173,10 +173,14 @@
 <h2 id="连接钱包">连接钱包<a href="#连接钱包" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ol>
 <li>安装 <a href="https://phantom.app/download">Phantom</a> 钱包；</li>
-<li>使用 <a href="https://solana-labs.github.io/wallet-adapter/">@solana/wallet-adapter</a> 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：<a href="https://github.com/lorisleiva/solana-wallets-vue">https://github.com/lorisleiva/solana-wallets-vue</a>。</li>
+<li>使用 <a href="https://solana-labs.github.io/wallet-adapter/">@solana/wallet-adapter</a> 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：<a href="https://github.com/lorisleiva/solana-wallets-vue">https://github.com/lorisleiva/solana-wallets-vue</a>。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install solana-wallets-vue @solana/wallet-adapter-wallets
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="创建-spl-token">创建 SPL Token<a href="#创建-spl-token" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="创建代币">创建代币<a href="#创建代币" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="安装依赖">安装依赖<a href="#安装依赖" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install --save @solana/spl-token
+</span></span></code></pre></div><h3 id="创建代币">创建代币<a href="#创建代币" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 <a href="https://solscan.io/account/TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA">Token Program</a> 即可发行一种代币。<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <h3 id="供应代币">供应代币<a href="#供应代币" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>要持有代币必须创建一个对应的 <a href="https://spl.solana.com/associated-token-account">Associated Token Account（ATA）</a>，也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。</p>
