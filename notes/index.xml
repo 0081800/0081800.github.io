@@ -6,7 +6,22 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 26 Dec 2022 15:46:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Jan 2023 10:51:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypertext in Emacs: find-file-at-point</title>
+      <link>https://notes.0081800.xyz/notes/20230131105103-hypertext_in_emacs_find_file_at_point/</link>
+      <pubDate>Tue, 31 Jan 2023 10:51:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230131105103-hypertext_in_emacs_find_file_at_point/</guid>
+      <description>tags: Emacs source: http://bjornwestergard.com/log/2022-04-19-hypertext-emacs.gmi C-x C-f M-n to find-file-at-point.</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200218120634/&#34;&gt;Emacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;http://bjornwestergard.com/log/2022-04-19-hypertext-emacs.gmi&#34;&gt;http://bjornwestergard.com/log/2022-04-19-hypertext-emacs.gmi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;C-x C-f M-n&lt;/code&gt; to &lt;code&gt;find-file-at-point&lt;/code&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Solana PDA</title>
       <link>https://notes.0081800.xyz/notes/20221226154617-solana_pda/</link>
