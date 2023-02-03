@@ -6,7 +6,43 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 31 Jan 2023 10:51:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Feb 2023 13:38:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decode input data of Ethereum</title>
+      <link>https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/</link>
+      <pubDate>Fri, 03 Feb 2023 13:38:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/</guid>
+      <description>tags: Ethereum,Blockchain,Tron source: https://ethereum.stackexchange.com/a/110498 const data = &amp;#39;0x7ff36ab50000000000000000000000000000000000000000000000bc18ba4144048bbab00000000000000000000000000000000000000000000000000000000000000080000000000000000000000000c0c5eb43e2df059e3be6e4fb0284c283caa5991900000000000000000000000000000000000000000000000000000000614d87a80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c00000000000000000000000008ba0619b1e7a582e0bce5bbe9843322c954c340&amp;#39;; ethers.utils.defaultAbiCoder.decode( [&amp;#39;uint256&amp;#39;, &amp;#39;address[]&amp;#39;, &amp;#39;address&amp;#39;, &amp;#39;uint256&amp;#39;], ethers.utils.hexDataSlice(data, 4) ) // gives: [e, [&amp;#34;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&amp;#34;, &amp;#34;0x08ba0619b1e7A582E0BCe5BBE9843322C954C340&amp;#34;], &amp;#34;0xC0C5eb43E2dF059e3Be6E4fb0284C283CAa59919&amp;#34;, e] (4) Online tools: Playground.</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/projects/20220104070947-ethereum/&#34;&gt;Ethereum&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20210804115349-%E5%8C%BA%E5%9D%97%E9%93%BE/&#34;&gt;Blockchain&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20230203133859-tron/&#34;&gt;Tron&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://ethereum.stackexchange.com/a/110498&#34;&gt;https://ethereum.stackexchange.com/a/110498&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0x7ff36ab50000000000000000000000000000000000000000000000bc18ba4144048bbab00000000000000000000000000000000000000000000000000000000000000080000000000000000000000000c0c5eb43e2df059e3be6e4fb0284c283caa5991900000000000000000000000000000000000000000000000000000000614d87a80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c00000000000000000000000008ba0619b1e7a582e0bce5bbe9843322c954c340&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ethers&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;utils&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;defaultAbiCoder&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;decode&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;uint256&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;address[]&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;address&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;uint256&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;ethers&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;utils&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;hexDataSlice&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// gives: [e, [&amp;#34;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&amp;#34;, &amp;#34;0x08ba0619b1e7A582E0BCe5BBE9843322C954C340&amp;#34;], &amp;#34;0xC0C5eb43E2dF059e3Be6E4fb0284C283CAa59919&amp;#34;, e] (4)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Online tools: &lt;a href=&#34;https://playground.ethers.org/&#34;&gt;Playground&lt;/a&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Tron</title>
+      <link>https://notes.0081800.xyz/notes/20230203133859-tron/</link>
+      <pubDate>Fri, 03 Feb 2023 13:38:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230203133859-tron/</guid>
+      <description> tags: Blockchain </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20210804115349-%E5%8C%BA%E5%9D%97%E9%93%BE/&#34;&gt;Blockchain&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Hypertext in Emacs: find-file-at-point</title>
       <link>https://notes.0081800.xyz/notes/20230131105103-hypertext_in_emacs_find_file_at_point/</link>
