@@ -709,7 +709,7 @@ Solana 的 Program 可以被更新。
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It generates a Mandelbrot like the code likes:&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-10-24_11-28-37_M.jpg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-10-24_11-28-37_M.jpg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -1709,7 +1709,7 @@ Do &amp;amp; Tell, don&amp;rsquo;t miss the &amp;ldquo;telling&amp;rdquo; part. 
 &lt;/ul&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-06-15_18-36-24_Luck-Surface-Area-768x768.jpg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-06-15_18-36-24_Luck-Surface-Area-768x768.jpg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -1976,7 +1976,7 @@ which &lt;em&gt;D&lt;/em&gt; provided by an untrusted prover &lt;em&gt;P&lt;/em&
 &lt;/ul&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/amt-binary.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/amt-binary.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -2044,7 +2044,7 @@ then \(r = s2\) and \(\pi = [h3, h4]\)(shown with a dotted line). \(Verify(a, f,
 And use the &lt;em&gt;root hash&lt;/em&gt; of merkel tree to obtain a certificate from Let&amp;rsquo;s Encrypt.&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-06-06_14-14-47_screenshot.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-06-06_14-14-47_screenshot.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -2071,7 +2071,7 @@ straightforward method of how to do binary search among tow sorted arrays.&lt;/p
 &lt;p&gt;Assume we have two sorted arrays, &lt;code&gt;X&lt;/code&gt; and &lt;code&gt;Y&lt;/code&gt;, and cut them between at &lt;code&gt;x2,x3&lt;/code&gt; and &lt;code&gt;y3,y4&lt;/code&gt;:&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/median-sorted-array.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/median-sorted-array.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -2084,7 +2084,7 @@ straightforward method of how to do binary search among tow sorted arrays.&lt;/p
 &lt;p&gt;then we find the median postion, as the merged arrays of the four elements may be order by:&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/median-merged-array.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/median-merged-array.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -2416,7 +2416,7 @@ it&amp;rsquo;s important as the data were splitted into many blocks and stored i
 &lt;p&gt;Let&amp;rsquo;s check the follow image that download from Wikipedia:&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-06-01_11-29-11_800px-Hash_Tree.svg.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-06-01_11-29-11_800px-Hash_Tree.svg.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -3737,14 +3737,14 @@ function reverse_in_place(a[0..n-1]) for i from 0 to floor((n-2)/2) tmp := a[i] 
 &lt;p&gt;Let see two examples before we go further:&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/in-place-reverse-1.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/in-place-reverse-1.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
 
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/in-place-reverse-2.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/in-place-reverse-2.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -6767,7 +6767,7 @@ Show brand colors at memorable moments that reinforce your brand&amp;rsquo;s sty
 &lt;/ul&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-02-12_07-48-07_k6WO1fd7T40A9JvSVfHqs0CPLFyTEDCecsVGxEDhOaTP0wUTPYOVVkxt60hKxBprgNoMqs8OyKqtlaQ4tDBtQJs-fTcZrpZEjxhUVQ=w1064-v0.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-02-12_07-48-07_k6WO1fd7T40A9JvSVfHqs0CPLFyTEDCecsVGxEDhOaTP0wUTPYOVVkxt60hKxBprgNoMqs8OyKqtlaQ4tDBtQJs-fTcZrpZEjxhUVQ=w1064-v0.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -7815,7 +7815,7 @@ Do have regular, clear, frank conversations about your career with your direct m
 &lt;p&gt;The worst you do above:&lt;/p&gt;
 
       &lt;figure class=&#34;left&#34; &gt;
-        &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-01-07_11-15-32_leaving-flowchart.png&#34;   /&gt;
+        &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-01-07_11-15-32_leaving-flowchart.png&#34;   /&gt;
         
       &lt;/figure&gt;
     
@@ -8370,7 +8370,7 @@ Watermarks: Useful for event time windowing. All input data with event times les
 &lt;/ul&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-01-06_11-23-54_Figure-03-Windowing.jpg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-01-06_11-23-54_Figure-03-Windowing.jpg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -8480,7 +8480,7 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
 &lt;p&gt;Skew always exists between Event time and Processing time.&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-01-05_17-11-36_post01_fig01_timedomains-ea86183a3a9d99179a6e6f5c521ffdbf.jpg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-01-05_17-11-36_post01_fig01_timedomains-ea86183a3a9d99179a6e6f5c521ffdbf.jpg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -9203,7 +9203,7 @@ Checkpoint n will contain the state of each operator that resulted from having c
 &lt;/ol&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-01-04_11-31-22_stream_barriers.svg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-01-04_11-31-22_stream_barriers.svg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -11720,7 +11720,7 @@ Sorry, I will have to leave soon.&lt;/li&gt;
 &lt;li&gt;提交队列：submission queue（SQ）&lt;/li&gt;
 &lt;li&gt;完成队列：completion queue（CQ）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2021-09-08_07-15-03_io_uring.png&#34; alt=&#34;&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2021-09-08_07-15-03_io_uring.png&#34; alt=&#34;&#34;&gt;
 这两个队列：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;都是单生产者、单消费者，size 是 2 的幂次；&lt;/li&gt;
@@ -11837,7 +11837,7 @@ Sorry, I will have to leave soon.&lt;/li&gt;
 &lt;h2 id=&#34;领域模式构造块&#34;&gt;领域模式构造块&lt;/h2&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/ddd-blocks.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/ddd-blocks.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -12395,7 +12395,7 @@ typesafe: https://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[modu
 &lt;h3 id=&#34;graphviz-绘制思维导图&#34;&gt;Graphviz 绘制思维导图&lt;/h3&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/graphviz-example-mind.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/graphviz-example-mind.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -12631,7 +12631,7 @@ typesafe: https://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[modu
 2
 &lt;/code&gt;&lt;/pre&gt;
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/leetcode-tree.svg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/leetcode-tree.svg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -13587,7 +13587,7 @@ Effective abstraction. A reliable network running over unreliable channel. Hidin
 &lt;/ul&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/2022-01-12_06-56-52_eefa1170a673da0140efe1ece7a2884b.svg&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2022-01-12_06-56-52_eefa1170a673da0140efe1ece7a2884b.svg&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -14559,7 +14559,7 @@ class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solv
 &lt;p&gt;&lt;code&gt;r - c&lt;/code&gt; 在正对角线是一致的：&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/n-queues-pos-diag.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/n-queues-pos-diag.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -14567,7 +14567,7 @@ class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solv
 &lt;p&gt;斜对角线 &lt;code&gt;r + c&lt;/code&gt; 是一致的:&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/n-queues-neg-diag.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/n-queues-neg-diag.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -15309,7 +15309,7 @@ Index: 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, 2, 1, 0, 1, 0,
 &lt;p&gt;举例： &lt;code&gt;[1, 2, 3]&lt;/code&gt; ，顺着叶子节点和删除的节点就可以还原成全排列。&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/leetcode-46-1.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/leetcode-46-1.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -17515,7 +17515,7 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 &lt;p&gt;B-tree 将数据库分解成固定大小的页或块，传统上 4KB，这种设计更接近底层硬件，磁盘也是以固定大小的块排列的。&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/b-tree-dot.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/b-tree-dot.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -17529,14 +17529,14 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 &lt;/ol&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/b-tree-dot-insert-before.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/b-tree-dot-insert-before.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
 
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/b-tree-dot-insert-after.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/b-tree-dot-insert-after.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
@@ -23282,7 +23282,7 @@ ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，�
 &lt;h4 id=&#34;推导过程&#34;&gt;推导过程&lt;/h4&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://notes.0081800.xyz/notes/ox-hugo/dp-coin.png&#34;   /&gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/dp-coin.png&#34;   /&gt;
     
   &lt;/figure&gt;
 
