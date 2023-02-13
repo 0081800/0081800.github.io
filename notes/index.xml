@@ -6,7 +6,21 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Feb 2023 13:38:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Feb 2023 16:44:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Five Tips For a Healthier Postgres Database in the New Year</title>
+      <link>https://notes.0081800.xyz/notes/20230213164423-five_tips_for_a_healthier_postgres_database_in_the_new_year/</link>
+      <pubDate>Mon, 13 Feb 2023 16:44:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230213164423-five_tips_for_a_healthier_postgres_database_in_the_new_year/</guid>
+      <description> tags: Database, PostgresQL source: Crunchy Data. “Five Tips For a Healthier Postgres Database in the New Year.” Accessed February 13, 2023. https://crunchydata.com/blog/five-tips-for-a-healthier-postgres-database-in-the-new-year. </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20210805082720-%E6%95%B0%E6%8D%AE%E5%BA%93/&#34;&gt;Database&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20220913105411-postgresql/&#34;&gt;PostgresQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: Crunchy Data. “Five Tips For a Healthier Postgres Database in the New Year.” Accessed February 13, 2023. &lt;a href=&#34;https://crunchydata.com/blog/five-tips-for-a-healthier-postgres-database-in-the-new-year&#34;&gt;https://crunchydata.com/blog/five-tips-for-a-healthier-postgres-database-in-the-new-year&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Decode input data of Ethereum</title>
       <link>https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/</link>
