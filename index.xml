@@ -6,7 +6,97 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 13 Feb 2023 16:44:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Feb 2023 09:45:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EIP 1559</title>
+      <link>https://notes.0081800.xyz/notes/20230221094510-eip_1559/</link>
+      <pubDate>Tue, 21 Feb 2023 09:45:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230221094510-eip_1559/</guid>
+      <description>tags: Ethereum Before EIP 1559 The miner receive both fees and block reward.
+After EIP 1559 The fee divide to 2 parts:
+Base Fee Priority Fee The miner receive priority fee and block reward, the base fee will be burned.</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/projects/20220104070947-ethereum/&#34;&gt;Ethereum&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;before-eip-1559&#34;&gt;Before EIP 1559&lt;/h2&gt;
+&lt;p&gt;The miner receive both fees and block reward.&lt;/p&gt;
+&lt;h2 id=&#34;after-eip-1559&#34;&gt;After EIP 1559&lt;/h2&gt;
+&lt;p&gt;The fee divide to 2 parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Base Fee&lt;/li&gt;
+&lt;li&gt;Priority Fee&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The miner receive priority fee and block reward, the base fee will be burned.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Papers</title>
+      <link>https://notes.0081800.xyz/topic/20230220113214-papers/</link>
+      <pubDate>Mon, 20 Feb 2023 11:32:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/topic/20230220113214-papers/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Papers We Love</title>
+      <link>https://notes.0081800.xyz/notes/20230220113243-papers_we_love/</link>
+      <pubDate>Mon, 20 Feb 2023 11:32:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230220113243-papers_we_love/</guid>
+      <description> source: https://github.com/papers-we-love/papers-we-love tags: Papers </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://github.com/papers-we-love/papers-we-love&#34;&gt;https://github.com/papers-we-love/papers-we-love&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topic/20230220113214-papers/&#34;&gt;Papers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>The Refreshingly Rewarding Realm of Research Papers</title>
+      <link>https://notes.0081800.xyz/notes/20230220113142-the_refreshingly_rewarding_realm_of_research_papers/</link>
+      <pubDate>Mon, 20 Feb 2023 11:31:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230220113142-the_refreshingly_rewarding_realm_of_research_papers/</guid>
+      <description> source: The Refreshingly Rewarding Realm of Research Papers, 2015. https://www.youtube.com/watch?v=8eRx5Wo3xYA. tags: Papers Finding Something to Read Sources:
+Colleagues Papers We Love the morning paper With some topics/categories, to search on ACM Librarian Reading &amp;amp; Comprehending 3 Phases:
+Go though: title/sections/concclusions/references. Read more closely Mark unread References Step though closely Summarize in 1-2 sentences </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;source: The Refreshingly Rewarding Realm of Research Papers, 2015. &lt;a href=&#34;https://www.youtube.com/watch?v=8eRx5Wo3xYA&#34;&gt;https://www.youtube.com/watch?v=8eRx5Wo3xYA&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topic/20230220113214-papers/&#34;&gt;Papers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;finding-something-to-read&#34;&gt;Finding Something to Read&lt;/h2&gt;
+&lt;p&gt;Sources:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Colleagues&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20230220113243-papers_we_love/&#34;&gt;Papers We Love&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.acolyer.org/&#34;&gt;the morning paper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;With some topics/categories, to search on
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.acm.org/&#34;&gt;ACM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Librarian&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;reading-and-comprehending&#34;&gt;Reading &amp;amp; Comprehending&lt;/h2&gt;
+&lt;p&gt;3 Phases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go though: title/sections/concclusions/references.&lt;/li&gt;
+&lt;li&gt;Read more closely
+&lt;ul&gt;
+&lt;li&gt;Mark unread&lt;/li&gt;
+&lt;li&gt;References&lt;/li&gt;
+&lt;li&gt;Step though closely&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Summarize in 1-2 sentences&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    </item>
+    
     <item>
       <title>Five Tips For a Healthier Postgres Database in the New Year</title>
       <link>https://notes.0081800.xyz/notes/20230213164423-five_tips_for_a_healthier_postgres_database_in_the_new_year/</link>

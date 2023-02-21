@@ -2,13 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://notes.0081800.xyz/notes/20230213164423-five_tips_for_a_healthier_postgres_database_in_the_new_year/</loc>
-    <lastmod>2023-02-13T16:44:00+08:00</lastmod>
+    <loc>https://notes.0081800.xyz/notes/20230221094510-eip_1559/</loc>
+    <lastmod>2023-02-21T09:45:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2023-02-13T16:44:00+08:00</lastmod>
+    <lastmod>2023-02-21T09:45:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2023-02-21T09:45:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/topic/20230220113214-papers/</loc>
+    <lastmod>2023-02-20T11:32:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230220113243-papers_we_love/</loc>
+    <lastmod>2023-02-20T11:32:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/topic/</loc>
+    <lastmod>2023-02-20T11:32:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230220113142-the_refreshingly_rewarding_realm_of_research_papers/</loc>
+    <lastmod>2023-02-20T11:31:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230213164423-five_tips_for_a_healthier_postgres_database_in_the_new_year/</loc>
     <lastmod>2023-02-13T16:44:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/</loc>
