@@ -6,7 +6,144 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Feb 2023 09:45:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Feb 2023 10:11:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>优质免费服务</title>
+      <link>https://notes.0081800.xyz/notes/20230224101131-%E4%BC%98%E8%B4%A8%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Fri, 24 Feb 2023 10:11:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230224101131-%E4%BC%98%E8%B4%A8%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1/</guid>
+      <description>tags: Online Tools,Microstartup
+source: https://twitter.com/vikingmute/status/1597417185470992384
+HTTPS: Let&amp;rsquo;s Encrypt(acme.sh)
+企业邮箱：
+ym.163.coom（3G 容量） zoho.com.cn/mail/ landing page 搭建
+https://tailblocks.cc/ https://landing.ant.design/ 图标素材
+fontawesome.com iconfinder.com 音乐素材
+https://uppbeat.io 插画
+https://undraw.co/illustrations https://www.manypixels.co/gallery storyset.com CDN
+cloudflare.com jsdelivr.com 静态托管
+pages.cloudflare.com（无限请求和无线带宽） vercel.com(1G 带宽限制) 免费域名
+freenom.com 免费 PS
+photopea.com 非关系数据库
+AWS DynamoDB 25GB 存储 + 1G 传输 Azure CosmosDB 25GB 存储，兼容 MongoDB 以及 PostgresQL 关系型数据库
+https://planetscale.com 5GB 存储，每月 10亿行读，1000万行写。 监控工具
+https://uptimerobot.com/ 对象存储
+网易云 nos https://163yun.com/nos/free 50GB 存储，20GB下行流量/月 又拍云联盟 https://upyun.com/league 10GB 存储，25GB流量/月 https://cloudinary.</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20211231123329-online_tools/&#34;&gt;Online Tools&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20220104175722-microstartup/&#34;&gt;Microstartup&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;source: &lt;a href=&#34;https://twitter.com/vikingmute/status/1597417185470992384&#34;&gt;https://twitter.com/vikingmute/status/1597417185470992384&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTPS: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200319221212_let_s_encrypt/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt;(acme.sh)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;企业邮箱：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ym.163.coom（3G 容量）&lt;/li&gt;
+&lt;li&gt;zoho.com.cn/mail/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;landing page 搭建&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tailblocks.cc/&#34;&gt;https://tailblocks.cc/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://landing.ant.design/&#34;&gt;https://landing.ant.design/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图标素材&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fontawesome.co&#34;&gt;fontawesome.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://iconfinder.com&#34;&gt;iconfinder.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;音乐素材&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://uppbeat.io&#34;&gt;https://uppbeat.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;插画&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://undraw.co/illustrations&#34;&gt;https://undraw.co/illustrations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.manypixels.co/gallery&#34;&gt;https://www.manypixels.co/gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://storyset.com&#34;&gt;storyset.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CDN&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cloudflare.com&lt;/li&gt;
+&lt;li&gt;jsdelivr.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;静态托管&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pages.cloudflare.com（无限请求和无线带宽）&lt;/li&gt;
+&lt;li&gt;vercel.com(1G 带宽限制)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;免费域名&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;freenom.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;免费 PS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://photopea.com&#34;&gt;photopea.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;非关系数据库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS DynamoDB 25GB 存储 + 1G 传输&lt;/li&gt;
+&lt;li&gt;Azure CosmosDB 25GB 存储，兼容 MongoDB 以及 PostgresQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关系型数据库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://planetscale.com&#34;&gt;https://planetscale.com&lt;/a&gt; 5GB 存储，每月 10亿行读，1000万行写。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;监控工具&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://uptimerobot.com/&#34;&gt;https://uptimerobot.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对象存储&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;网易云 nos &lt;a href=&#34;https://163yun.com/nos/free&#34;&gt;https://163yun.com/nos/free&lt;/a&gt; 50GB 存储，20GB下行流量/月&lt;/li&gt;
+&lt;li&gt;又拍云联盟 &lt;a href=&#34;https://upyun.com/league&#34;&gt;https://upyun.com/league&lt;/a&gt; 10GB 存储，25GB流量/月&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloudinary.com/&#34;&gt;https://cloudinary.com/&lt;/a&gt;（国外），易用、强大、25GB存储，每月 25,000 次图片转换，25GB 流量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;客户信息&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://crisp.chat/&#34;&gt;https://crisp.chat/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IP 信息查询&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ipapi.co/&#34;&gt;https://ipapi.co/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>EIP 1559</title>
       <link>https://notes.0081800.xyz/notes/20230221094510-eip_1559/</link>
