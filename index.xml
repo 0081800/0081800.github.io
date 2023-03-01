@@ -6,7 +6,31 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 24 Feb 2023 10:11:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Feb 2023 09:04:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Yubikey</title>
+      <link>https://notes.0081800.xyz/notes/20230225090409-yubikey/</link>
+      <pubDate>Sat, 25 Feb 2023 09:04:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230225090409-yubikey/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>How to Weaponize the Yubikey</title>
+      <link>https://notes.0081800.xyz/notes/20230225090358-how_to_weaponize_the_yubikey/</link>
+      <pubDate>Sat, 25 Feb 2023 09:03:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230225090358-how_to_weaponize_the_yubikey/</guid>
+      <description> tags: Yubikey source: BHIS. “How to Weaponize the Yubikey.” Black Hills Information Security (blog), May 2, 2019. https://www.blackhillsinfosec.com/how-to-weaponize-the-yubikey/. </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230225090409-yubikey/&#34;&gt;Yubikey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: BHIS. “How to Weaponize the Yubikey.” Black Hills Information Security (blog), May 2, 2019. &lt;a href=&#34;https://www.blackhillsinfosec.com/how-to-weaponize-the-yubikey/&#34;&gt;https://www.blackhillsinfosec.com/how-to-weaponize-the-yubikey/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>优质免费服务</title>
       <link>https://notes.0081800.xyz/notes/20230224101131-%E4%BC%98%E8%B4%A8%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1/</link>
