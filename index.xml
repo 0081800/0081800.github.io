@@ -222,9 +222,9 @@ Base Fee Priority Fee The miner receive priority fee and block reward, the base 
       <pubDate>Mon, 20 Feb 2023 11:31:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230220113142-the_refreshingly_rewarding_realm_of_research_papers/</guid>
-      <description> source: The Refreshingly Rewarding Realm of Research Papers, 2015. https://www.youtube.com/watch?v=8eRx5Wo3xYA. tags: Papers Finding Something to Read Sources:
-Colleagues Papers We Love the morning paper With some topics/categories, to search on ACM Librarian Reading &amp;amp; Comprehending 3 Phases:
-Go though: title/sections/concclusions/references. Read more closely Mark unread References Step though closely Summarize in 1-2 sentences </description>
+      <description>source: The Refreshingly Rewarding Realm of Research Papers, 2015. https://www.youtube.com/watch?v=8eRx5Wo3xYA. tags: Papers Finding Something to Read Sources:
+Colleagues Papers We Love the morning paper With some topics/categories, to search on ACM Classification System(Require membership) Librarian Reading &amp;amp; Comprehending 3 Passes:
+Go though: title/sections/concclusions/references. (10min) Read more closely (1-2 hours) Mark unread References Step though closely Summarize in 1-2 sentences; outline major contributes; note strengths/weaknesses (couple hours) Implementing Use familar tools, except the paper used specific tool.</description>
       <content>&lt;ul&gt;
 &lt;li&gt;source: The Refreshingly Rewarding Realm of Research Papers, 2015. &lt;a href=&#34;https://www.youtube.com/watch?v=8eRx5Wo3xYA&#34;&gt;https://www.youtube.com/watch?v=8eRx5Wo3xYA&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topic/20230220113214-papers/&#34;&gt;Papers&lt;/a&gt;&lt;/li&gt;
@@ -237,24 +237,32 @@ Go though: title/sections/concclusions/references. Read more closely Mark unread
 &lt;li&gt;&lt;a href=&#34;https://blog.acolyer.org/&#34;&gt;the morning paper&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;With some topics/categories, to search on
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://dl.acm.org/&#34;&gt;ACM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.acm.org/&#34;&gt;ACM&lt;/a&gt; Classification System(Require membership)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Librarian&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;reading-and-comprehending&#34;&gt;Reading &amp;amp; Comprehending&lt;/h2&gt;
-&lt;p&gt;3 Phases:&lt;/p&gt;
+&lt;p&gt;3 Passes:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Go though: title/sections/concclusions/references.&lt;/li&gt;
-&lt;li&gt;Read more closely
+&lt;li&gt;Go though: title/sections/concclusions/references. (10min)&lt;/li&gt;
+&lt;li&gt;Read more closely (1-2 hours)
 &lt;ul&gt;
 &lt;li&gt;Mark unread&lt;/li&gt;
 &lt;li&gt;References&lt;/li&gt;
 &lt;li&gt;Step though closely&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Summarize in 1-2 sentences&lt;/li&gt;
+&lt;li&gt;Summarize in 1-2 sentences; outline major contributes; note strengths/weaknesses (couple hours)&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;implementing&#34;&gt;Implementing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use familar tools, except the paper used specific tool.&lt;/li&gt;
+&lt;li&gt;Be aware to pseudo code.&lt;/li&gt;
+&lt;li&gt;Prepare to work and results&lt;/li&gt;
+&lt;li&gt;Test early. Test often.&lt;/li&gt;
+&lt;li&gt;Interacting with the authors.&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </item>
     
