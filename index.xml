@@ -6,7 +6,21 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 09 Mar 2023 09:30:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Mar 2023 08:58:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Yubikey: a configuration cheatsheet</title>
+      <link>https://notes.0081800.xyz/notes/20230311085820-how_to_yubikey_a_configuration_cheatsheet/</link>
+      <pubDate>Sat, 11 Mar 2023 08:58:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230311085820-how_to_yubikey_a_configuration_cheatsheet/</guid>
+      <description> tags: Yubikey source: “How to Yubikey: A Configuration Cheatsheet,” March 1, 2023. https://debugging.works/blog/yubikey-cheatsheet/. </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230225090409-yubikey/&#34;&gt;Yubikey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: “How to Yubikey: A Configuration Cheatsheet,” March 1, 2023. &lt;a href=&#34;https://debugging.works/blog/yubikey-cheatsheet/&#34;&gt;https://debugging.works/blog/yubikey-cheatsheet/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Overhead of Python asyncio Tasks: 260K/s</title>
       <link>https://notes.0081800.xyz/notes/20230309093002-overhead_of_python_asyncio_tasks_260k_s/</link>
