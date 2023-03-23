@@ -82,6 +82,30 @@ Content-Type: application/json
   &amp;#34;method&amp;#34;: &amp;#34;eth_getStorageAt&amp;#34;,
   &amp;#34;params&amp;#34;: [ &amp;#34;0x5300000000000000000000000000000000000002&amp;#34;, &amp;#34;0x3&amp;#34;]
 }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;in-a-batch&#34;&gt;In a Batch&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-restclient&#34; data-lang=&#34;restclient&#34;&gt;POST https://alpha-rpc.scroll.io/l2
+Content-Type: application/json
+
+[
+  {
+    &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;,
+    &amp;#34;id&amp;#34;: 1,
+    &amp;#34;method&amp;#34;: &amp;#34;eth_getStorageAt&amp;#34;,
+    &amp;#34;params&amp;#34;: [ &amp;#34;0x5300000000000000000000000000000000000002&amp;#34;, &amp;#34;0x1&amp;#34;]
+  },
+  {
+    &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;,
+    &amp;#34;id&amp;#34;: 2,
+    &amp;#34;method&amp;#34;: &amp;#34;eth_getStorageAt&amp;#34;,
+    &amp;#34;params&amp;#34;: [ &amp;#34;0x5300000000000000000000000000000000000002&amp;#34;, &amp;#34;0x2&amp;#34;]
+  },
+  {
+    &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;,
+    &amp;#34;id&amp;#34;: 3,
+    &amp;#34;method&amp;#34;: &amp;#34;eth_getStorageAt&amp;#34;,
+    &amp;#34;params&amp;#34;: [ &amp;#34;0x5300000000000000000000000000000000000002&amp;#34;, &amp;#34;0x3&amp;#34;]
+  }
+]
 &lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
