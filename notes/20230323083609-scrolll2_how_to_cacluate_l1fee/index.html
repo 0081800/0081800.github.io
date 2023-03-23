@@ -198,7 +198,7 @@ but the wallet only exclude the Layer 2 gas fee to do so when you transfer all y
 <p>Finally we put all these together<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// EIP-1559
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 16 * non-zero calldata bytes + 4 * zero calldata bytes
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">l1GasUsed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">calcCalldataFee</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">overhead</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">l1GasUsed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">calcCalldataFee</span>(<span style="color:#a6e22e">calldata</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">overhead</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">l1Gas</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">round</span>((<span style="color:#a6e22e">l1GasUsed</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">l1GasPrice</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">scalar</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">precision</span>)
 </span></span></code></pre></div></li>
 </ol>
