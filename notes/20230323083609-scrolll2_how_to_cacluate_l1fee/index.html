@@ -202,7 +202,38 @@ but the wallet only exclude the Layer 2 gas fee to do so when you transfer all y
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">l1Gas</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">round</span>((<span style="color:#a6e22e">l1GasUsed</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">l1GasPrice</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">scalar</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">precision</span>)
 </span></span></code></pre></div></li>
 </ol>
-<div class="footnotes" role="doc-endnotes">
+<h2 id="how-to-retrieve-state-slots">How to Retrieve State Slots?<a href="#how-to-retrieve-state-slots" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="l1basefeeslot">L1BaseFeeSlot<a href="#l1basefeeslot" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<pre tabindex="0"><code class="language-restclient" data-lang="restclient">POST https://alpha-rpc.scroll.io/l2
+Content-Type: application/json
+
+{
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;id&#34;: 40,
+  &#34;method&#34;: &#34;eth_getStorageAt&#34;,
+  &#34;params&#34;: [ &#34;0x5300000000000000000000000000000000000002&#34;, &#34;0x1&#34;]
+}
+</code></pre><h3 id="overheadslot">OverheadSlot<a href="#overheadslot" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<pre tabindex="0"><code class="language-restclient" data-lang="restclient">POST https://alpha-rpc.scroll.io/l2
+Content-Type: application/json
+
+{
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;id&#34;: 40,
+  &#34;method&#34;: &#34;eth_getStorageAt&#34;,
+  &#34;params&#34;: [ &#34;0x5300000000000000000000000000000000000002&#34;, &#34;0x2&#34;]
+}
+</code></pre><h3 id="scalarslot">ScalarSlot<a href="#scalarslot" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<pre tabindex="0"><code class="language-restclient" data-lang="restclient">POST https://alpha-rpc.scroll.io/l2
+Content-Type: application/json
+
+{
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;id&#34;: 40,
+  &#34;method&#34;: &#34;eth_getStorageAt&#34;,
+  &#34;params&#34;: [ &#34;0x5300000000000000000000000000000000000002&#34;, &#34;0x3&#34;]
+}
+</code></pre><div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">
