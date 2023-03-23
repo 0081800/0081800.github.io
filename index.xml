@@ -6,7 +6,74 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 11 Mar 2023 08:58:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Mar 2023 08:36:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ScrollL2: How to Caculate L1Fee</title>
+      <link>https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/</link>
+      <pubDate>Thu, 23 Mar 2023 08:36:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/</guid>
+      <description>tags: Ethereum Layer 2 Background You may meet the below error when you&amp;rsquo;re trying to transfer all your ETH from one address to another address:
+invalid transaction: insufficient funds for l1fee + gas * price + value
+The reason is that the Layer 1 fee are included in Scroll&amp;rsquo;s gas fee system, but the wallet only exclude the Layer 2 gas fee to do so when you transfer all your ETH.</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20221223100819-ethereum_layer_2/&#34;&gt;Ethereum Layer 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;You may meet the below error when you&amp;rsquo;re trying to transfer all your ETH from one address to another address:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;invalid transaction: insufficient funds for l1fee + gas * price + value&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The reason is that the Layer 1 fee are included in Scroll&amp;rsquo;s gas fee system,
+but the wallet only exclude the Layer 2 gas fee to do so when you transfer all your ETH. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-the-l1-fee-be-caculated&#34;&gt;How the L1 Fee be Caculated?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Some state is stored in the state store slots&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, which including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;l1BaseFee&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;precision&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;overhead&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scalar&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You got some RLP&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; encoded raw data when you send tx to Scroll, which need to be stored to the Layer 1 network as a &lt;code&gt;calldata&lt;/code&gt;, which requires fee charge&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;. let&amp;rsquo;s name it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;raw&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally we put all these together&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// EIP-1559
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 16 * non-zero calldata bytes + 4 * zero calldata bytes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;l1GasUsed&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;calcCalldataFee&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;overhead&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;l1Gas&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;round&lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;l1GasUsed&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;l1GasPrice&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;scalar&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;precision&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/scroll-tech/go-ethereum/blob/127af384ed0491fbe71767be17c7e72aa4761fff/rollup/fees/rollup_fee.go#L202&#34;&gt;VerifyFee&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/scroll-tech/go-ethereum/blob/127af384ed0491fbe71767be17c7e72aa4761fff/rollup/rcfg/config.go#L22-L26&#34;&gt;L1 Gas Definition&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/&#34;&gt;Recursive-length prefix (RLP) serialization&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://eips.ethereum.org/EIPS/eip-1559&#34;&gt;EIP-1559&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/scroll-tech/go-ethereum/blob/127af384ed0491fbe71767be17c7e72aa4761fff/rollup/fees/rollup_fee.go#L104-L135&#34;&gt;CalculateL1Fee&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
     <item>
       <title>How to Yubikey: a configuration cheatsheet</title>
       <link>https://notes.0081800.xyz/notes/20230311085820-how_to_yubikey_a_configuration_cheatsheet/</link>
@@ -666,7 +733,9 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
       <guid>https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/</guid>
       <description>tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 npm install solana-wallets-vue @solana/wallet-adapter-wallets 创建 SPL Token 安装依赖 npm install --save @solana/spl-token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
 发行代币 要持有代币必须创建一个对应的 Associated Token Account（ATA），也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。
-代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 USDT&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 Libraries:
+spl_associated_token_account Steps:
+Delegate token to Program &amp;ndash; in frontend. Create a Associated Token Account for Program to hold token.</description>
       <content>&lt;ul&gt;
 &lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20221119104334-solana_101_create_a_escrow_dapp/&#34;&gt;Solana 101: Create an Escrow dApp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -687,6 +756,21 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
 &lt;h3 id=&#34;代币转帐&#34;&gt;代币转帐&lt;/h3&gt;
 &lt;h3 id=&#34;燃烧代币&#34;&gt;燃烧代币&lt;/h3&gt;
 &lt;h2 id=&#34;spl-token-交互-授权-program-转帐&#34;&gt;SPL Token 交互：授权 Program 转帐&lt;/h2&gt;
+&lt;p&gt;Libraries:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.rs/spl-associated-token-account/latest/spl_associated_token_account/index.html&#34;&gt;spl_associated_token_account&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Delegate token to Program &amp;ndash; in frontend.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.rs/spl-associated-token-account/latest/spl_associated_token_account/instruction/fn.create_associated_token_account.html&#34;&gt;Create a Associated Token Account for Program to hold token&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;Q: How to avoid duplicated initialization?&lt;/li&gt;
+&lt;li&gt;A: data size of account.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Program: &lt;a href=&#34;https://docs.rs/spl-token/3.5.0/spl_token/instruction/enum.TokenInstruction.html#variant.Transfer&#34;&gt;Transfer&lt;/a&gt; token from wallet to Program&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

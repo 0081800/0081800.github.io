@@ -147,6 +147,41 @@
     
       <div class="post on-list">
         <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/">ScrollL2: How to Caculate L1Fee</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2023-03-23
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Ethereum Layer 2 Background You may meet the below error when you&rsquo;re trying to transfer all your ETH from one address to another address:
+invalid transaction: insufficient funds for l1fee + gas * price + value
+The reason is that the Layer 1 fee are included in Scroll&rsquo;s gas fee system, but the wallet only exclude the Layer 2 gas fee to do so when you transfer all your ETH.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
           <a href="https://notes.0081800.xyz/notes/20230311085820-how_to_yubikey_a_configuration_cheatsheet/">How to Yubikey: a configuration cheatsheet</a>
         </h1>
         <div class="post-meta">
@@ -817,6 +852,12 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
 
         <div class="post-content">
           
+          
+          tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 npm install solana-wallets-vue @solana/wallet-adapter-wallets 创建 SPL Token 安装依赖 npm install --save @solana/spl-token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
+发行代币 要持有代币必须创建一个对应的 Associated Token Account（ATA），也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。
+代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 Libraries:
+spl_associated_token_account Steps:
+Delegate token to Program &ndash; in frontend. Create a Associated Token Account for Program to hold token.
           
           
         </div>
