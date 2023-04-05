@@ -123,6 +123,39 @@
     
       <div class="post on-list">
         <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/">Use GDB to Debug Cgo Segmentation Fault</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2023-04-05
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Go, GDB Enable Core Dumps ulimit -S -c unlimited Confirm or Change The Location of Core Dumps sysctl -w kernel.core_pattern=/tmp/core.%e.%p # Or echo &#39;/tmp/core.%e.%p&#39; | tee /proc/sys/kernel/core_pattern Set GOTRACEBACK Environment Variable to Let Go Program Core Dumps when Panic export GOTRACEBACK=crash Run Go Program and Wait Segmentation Fault Use GDB to Debug gdb /path/to/goprogram /tmp/core-xx-xx Then use thread apply all bt to see all backtraces, include compiled C code.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
           <a href="https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/">ScrollL2: How to Caculate L1Fee</a>
         </h1>
         <div class="post-meta">
@@ -21335,6 +21368,13 @@ func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if
         </a>
       </span>
     
+    
+      <span class="button next">
+        <a href="/notes/page/132/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
     
   </div>
 </div>
