@@ -7,7 +7,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="tags: Ethereum source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash. personal_sign add prefix to data and human readable text that encoded UFT-8. signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differents Between V3 and V42 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
-Custom type array Custom type with `null` input Some input types that V4 doesn&amp;rsquo;t support but V3 does:" />
+Custom type array Custom type with null input Some input types that V4 doesn&amp;rsquo;t support but V3 does:" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/" />
@@ -36,7 +36,7 @@ Custom type array Custom type with `null` input Some input types that V4 doesn&a
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Ethereum Signing Data">
 <meta property="og:description" content="tags: Ethereum source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash. personal_sign add prefix to data and human readable text that encoded UFT-8. signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differents Between V3 and V42 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
-Custom type array Custom type with `null` input Some input types that V4 doesn&amp;rsquo;t support but V3 does:" />
+Custom type array Custom type with null input Some input types that V4 doesn&amp;rsquo;t support but V3 does:" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
@@ -153,19 +153,19 @@ Custom type array Custom type with `null` input Some input types that V4 doesn&a
 <li><code>signTypedData_v3</code></li>
 <li><code>signTypedData_v4</code> compatible with V3.</li>
 </ul>
-<h2 id="differents-between-v3-and-v4">Differents Between V3 and V4<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><a href="#differents-between-v3-and-v4" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="differents-between-v3-and-v4">Differents Between V3 and V4<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><a href="#differents-between-v3-and-v4" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Some input types that V3 doesn&rsquo;t support but V4 does:</p>
 <ol>
 <li>Custom type array</li>
-<li>Custom type with `null` input</li>
+<li>Custom type with <code>null</code> input</li>
 </ol>
 <p>Some input types that V4 doesn&rsquo;t support but V3 does:</p>
 <ol>
-<li>Atomic type with `undefined` input</li>
-<li>Dynamic type with `undefined` input</li>
+<li>Atomic type with <code>undefined</code> input</li>
+<li>Dynamic type with <code>undefined</code> input</li>
 </ol>
 <blockquote>
-<p>Atomic types are of a fixed size (e.g. `int8`), whereas dynamic
+<p>Atomic types are of a fixed size (e.g. <code>int8d</code>), whereas dynamic
 types can vary in size (e.g. strings, bytes). We also test arrays of each of these types.</p>
 </blockquote>
 <div class="footnotes" role="doc-endnotes">

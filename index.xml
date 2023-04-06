@@ -14,7 +14,7 @@
       
       <guid>https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/</guid>
       <description>tags: Ethereum source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash. personal_sign add prefix to data and human readable text that encoded UFT-8. signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differents Between V3 and V42 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
-Custom type array Custom type with `null` input Some input types that V4 doesn&amp;rsquo;t support but V3 does:</description>
+Custom type array Custom type with null input Some input types that V4 doesn&amp;rsquo;t support but V3 does:</description>
       <content>&lt;ul&gt;
 &lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/projects/20220104070947-ethereum/&#34;&gt;Ethereum&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. &lt;a href=&#34;https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4&#34;&gt;https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4&lt;/a&gt;.&lt;/li&gt;
@@ -27,19 +27,19 @@ Custom type array Custom type with `null` input Some input types that V4 doesn&a
 &lt;li&gt;&lt;code&gt;signTypedData_v3&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;signTypedData_v4&lt;/code&gt; compatible with V3.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;differents-between-v3-and-v4&#34;&gt;Differents Between V3 and V4&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;differents-between-v3-and-v4&#34;&gt;Differents Between V3 and V4&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;p&gt;Some input types that V3 doesn&amp;rsquo;t support but V4 does:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Custom type array&lt;/li&gt;
-&lt;li&gt;Custom type with `null` input&lt;/li&gt;
+&lt;li&gt;Custom type with &lt;code&gt;null&lt;/code&gt; input&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Some input types that V4 doesn&amp;rsquo;t support but V3 does:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Atomic type with `undefined` input&lt;/li&gt;
-&lt;li&gt;Dynamic type with `undefined` input&lt;/li&gt;
+&lt;li&gt;Atomic type with &lt;code&gt;undefined&lt;/code&gt; input&lt;/li&gt;
+&lt;li&gt;Dynamic type with &lt;code&gt;undefined&lt;/code&gt; input&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Atomic types are of a fixed size (e.g. `int8`), whereas dynamic
+&lt;p&gt;Atomic types are of a fixed size (e.g. &lt;code&gt;int8d&lt;/code&gt;), whereas dynamic
 types can vary in size (e.g. strings, bytes). We also test arrays of each of these types.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
