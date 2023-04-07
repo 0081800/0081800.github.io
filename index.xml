@@ -13,7 +13,7 @@
       <pubDate>Thu, 06 Apr 2023 09:09:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/</guid>
-      <description>tags: Ethereum source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash. personal_sign add prefix to data and human readable text that encoded UFT-8. signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V42 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
+      <description>tags: Ethereum source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
 Custom type array Custom type with null input Some input types that V4 doesn&amp;rsquo;t support but V3 does:</description>
       <content>&lt;ul&gt;
 &lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/projects/20220104070947-ethereum/&#34;&gt;Ethereum&lt;/a&gt;&lt;/li&gt;
@@ -21,13 +21,13 @@ Custom type array Custom type with null input Some input types that V4 doesn&amp
 &lt;/ul&gt;
 &lt;h2 id=&#34;five-methods&#34;&gt;Five Methods&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;eth_sign&lt;/code&gt; allow to sign arbitrary hash.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;personal_sign&lt;/code&gt; add prefix to data and human readable text that encoded UFT-8.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;eth_sign&lt;/code&gt; allow to sign arbitrary hash.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;personal_sign&lt;/code&gt; add prefix to data and human readable text that encoded UFT-8.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;signTypedData&lt;/code&gt; or &lt;code&gt;signTypedData_v1&lt;/code&gt; first release that lacked some later security improvements.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;signTypedData_v3&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;signTypedData_v4&lt;/code&gt; compatible with V3.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;differences-between-v3-and-v4&#34;&gt;Differences Between V3 and V4&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;differences-between-v3-and-v4&#34;&gt;Differences Between V3 and V4&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;p&gt;Some input types that V3 doesn&amp;rsquo;t support but V4 does:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Custom type array&lt;/li&gt;
@@ -49,7 +49,13 @@ types can vary in size (e.g. strings, bytes). We also test arrays of each of the
 &lt;p&gt;&lt;a href=&#34;https://docs.metamask.io/guide/signing-data.html#a-brief-history&#34;&gt;A Brief History&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/MetaMask/eth-sig-util/blob/c3da17cf7e9d428e4a70d15370f188a36a15a794/src/sign-typed-data.test.ts#L343-L384&#34;&gt;src/sign-typed-data.test.ts#L343-L384&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/MetaMask/test-dapp/blob/fb848448bd58d4ef725d6817ad2f99bc86827a27/src/index.js#L1149-L1150&#34;&gt;https://github.com/MetaMask/test-dapp/blob/fb848448bd58d4ef725d6817ad2f99bc86827a27/src/index.js#L1149-L1150&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ethereumjs/ethereumjs-monorepo/blob/c83f11b3fc293ad539806dff5c9dc481f96a740f/packages/util/src/signature.ts#L183-L193&#34;&gt;packages/util/src/signature.ts#L183-L193&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/MetaMask/eth-sig-util/blob/c3da17cf7e9d428e4a70d15370f188a36a15a794/src/sign-typed-data.test.ts#L343-L384&#34;&gt;src/sign-typed-data.test.ts#L343-L384&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
