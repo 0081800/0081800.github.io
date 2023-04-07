@@ -6,17 +6,65 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 06 Apr 2023 09:09:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Apr 2023 18:04:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sign Message</title>
+      <link>https://notes.0081800.xyz/notes/20230407180408-sign_message/</link>
+      <pubDate>Fri, 07 Apr 2023 18:04:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230407180408-sign_message/</guid>
+      <description> tags: Blockchain </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20210804115349-%E5%8C%BA%E5%9D%97%E9%93%BE/&#34;&gt;Blockchain&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Tron Signing Data</title>
+      <link>https://notes.0081800.xyz/notes/20230407180424-tron_signing_data/</link>
+      <pubDate>Fri, 07 Apr 2023 18:04:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230407180424-tron_signing_data/</guid>
+      <description>tags: Tron, Sign Message Three methods tronweb.trx.signMessageV1 Deprecated tronweb.trx.signMessageV21 tronweb.trx._signtypeddata2, 3 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+TIP 104&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230203133859-tron/&#34;&gt;Tron&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407180408-sign_message/&#34;&gt;Sign Message&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;three-methods&#34;&gt;Three methods&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.tron.network/reference/signmessagev2-1&#34;&gt;tronweb.trx.signMessageV1&lt;/a&gt; &lt;strong&gt;Deprecated&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.tron.network/reference/signmessagev2&#34;&gt;tronweb.trx.signMessageV2&lt;/a&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.tron.network/reference/_signtypeddata&#34;&gt;tronweb.trx._signtypeddata&lt;/a&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;!-- raw HTML omitted --&gt;, &lt;!-- raw HTML omitted --&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&#34;&gt;https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89&#34;&gt;https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tronprotocol/tips/blob/master/tip-104.md&#34;&gt;TIP 104&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
     <item>
       <title>Ethereum Signing Data</title>
       <link>https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/</link>
       <pubDate>Thu, 06 Apr 2023 09:09:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/</guid>
-      <description>tags: Ethereum source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
+      <description>tags: Ethereum, Sign Message source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn&amp;rsquo;t support but V4 does:
 Custom type array Custom type with null input Some input types that V4 doesn&amp;rsquo;t support but V3 does:</description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/projects/20220104070947-ethereum/&#34;&gt;Ethereum&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/projects/20220104070947-ethereum/&#34;&gt;Ethereum&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407180408-sign_message/&#34;&gt;Sign Message&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. &lt;a href=&#34;https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4&#34;&gt;https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;five-methods&#34;&gt;Five Methods&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
