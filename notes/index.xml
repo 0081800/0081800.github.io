@@ -13,9 +13,9 @@
       <pubDate>Fri, 07 Apr 2023 18:19:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230407181930-jemalloc/</guid>
-      <description> tags: Memory Model </description>
+      <description> tags: Memory Management, Heap Fragmentation </description>
       <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102072550-memory_model/&#34;&gt;Memory Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407181835-memory_management/&#34;&gt;Memory Management&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407181757-heap_fragmentation/&#34;&gt;Heap Fragmentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
