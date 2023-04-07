@@ -6,7 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="tags: Tron, Sign Message Three methods tronweb.trx.signMessageV1 Deprecated tronweb.trx.signMessageV21 tronweb.trx._signtypeddata2, 3 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+<meta name="description" content="tags: Tron, Sign Message Three methods tronweb.trx.signMessageV11 tronweb.trx.signMessageV22 tronweb.trx._signtypeddata3, 4 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/lib/trx.js#L727-L739&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&amp;#160;&amp;#x21a9;&amp;#xfe0e;
 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89&amp;#160;&amp;#x21a9;&amp;#xfe0e;
 TIP 104&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta name="keywords" content="" />
@@ -36,7 +37,8 @@ TIP 104&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Tron Signing Data">
-<meta property="og:description" content="tags: Tron, Sign Message Three methods tronweb.trx.signMessageV1 Deprecated tronweb.trx.signMessageV21 tronweb.trx._signtypeddata2, 3 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+<meta property="og:description" content="tags: Tron, Sign Message Three methods tronweb.trx.signMessageV11 tronweb.trx.signMessageV22 tronweb.trx._signtypeddata3, 4 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/lib/trx.js#L727-L739&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18&amp;#160;&amp;#x21a9;&amp;#xfe0e;
 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89&amp;#160;&amp;#x21a9;&amp;#xfe0e;
 TIP 104&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20230407180424-tron_signing_data/" />
@@ -148,21 +150,24 @@ TIP 104&amp;#160;&amp;#x21a9;&amp;#xfe0e;" />
 </ul>
 <h2 id="three-methods">Three methods<a href="#three-methods" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
-<li><a href="https://developers.tron.network/reference/signmessagev2-1">tronweb.trx.signMessageV1</a> <strong>Deprecated</strong></li>
-<li><a href="https://developers.tron.network/reference/signmessagev2">tronweb.trx.signMessageV2</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
-<li><a href="https://developers.tron.network/reference/_signtypeddata">tronweb.trx._signtypeddata</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><!-- raw HTML omitted -->, <!-- raw HTML omitted --><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+<li><a href="https://developers.tron.network/reference/signmessagev2-1">tronweb.trx.signMessageV1</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li><a href="https://developers.tron.network/reference/signmessagev2">tronweb.trx.signMessageV2</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li><a href="https://developers.tron.network/reference/_signtypeddata">tronweb.trx._signtypeddata</a><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup><!-- raw HTML omitted -->, <!-- raw HTML omitted --><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
 </ul>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">
-<p><a href="https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18">https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/lib/trx.js#L727-L739">https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/lib/trx.js#L727-L739</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2">
-<p><a href="https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89">https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18">https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3">
-<p><a href="https://github.com/tronprotocol/tips/blob/master/tip-104.md">TIP 104</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89">https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://github.com/tronprotocol/tips/blob/master/tip-104.md">TIP 104</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
