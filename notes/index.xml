@@ -58,6 +58,13 @@
 &lt;li&gt;source:Svix Blog. “Spotting and Avoiding Heap Fragmentation in Rust Applications,” April 4, 2023. &lt;a href=&#34;https://www.svix.com/blog/heap-fragmentation-in-rust-applications/&#34;&gt;https://www.svix.com/blog/heap-fragmentation-in-rust-applications/&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Heap fragmentation cause stair-step memeory usage, use &lt;code&gt;jemalloc&lt;/code&gt; to solve heap fragmentation.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;https://notes.0081800.xyz/ox-hugo/2023-04-07_18-22-19_dd-stair-step-WHFN6CZC.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
 </content>
     </item>
     
