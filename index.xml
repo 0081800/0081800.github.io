@@ -6,7 +6,61 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Apr 2023 18:04:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Apr 2023 18:19:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jemalloc</title>
+      <link>https://notes.0081800.xyz/notes/20230407181930-jemalloc/</link>
+      <pubDate>Fri, 07 Apr 2023 18:19:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230407181930-jemalloc/</guid>
+      <description> tags: Memory Model </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102072550-memory_model/&#34;&gt;Memory Model&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Memory Management</title>
+      <link>https://notes.0081800.xyz/notes/20230407181835-memory_management/</link>
+      <pubDate>Fri, 07 Apr 2023 18:18:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230407181835-memory_management/</guid>
+      <description> tags: Memory Model </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102072550-memory_model/&#34;&gt;Memory Model&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Heap Fragmentation</title>
+      <link>https://notes.0081800.xyz/notes/20230407181757-heap_fragmentation/</link>
+      <pubDate>Fri, 07 Apr 2023 18:17:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230407181757-heap_fragmentation/</guid>
+      <description> tags: Memory Management </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407181835-memory_management/&#34;&gt;Memory Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Spotting and Avoiding Heap Fragmentation in Rust Applications</title>
+      <link>https://notes.0081800.xyz/notes/20230407181742-spotting_and_avoiding_heap_fragmentation_in_rust_applications/</link>
+      <pubDate>Fri, 07 Apr 2023 18:17:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230407181742-spotting_and_avoiding_heap_fragmentation_in_rust_applications/</guid>
+      <description>tags: Heap Fragmentation, jemalloc source:Svix Blog. “Spotting and Avoiding Heap Fragmentation in Rust Applications,” April 4, 2023. https://www.svix.com/blog/heap-fragmentation-in-rust-applications/. Heap fragmentation cause stair-step memeory usage, use jemalloc to solve heap fragmentation.</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407181757-heap_fragmentation/&#34;&gt;Heap Fragmentation&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20230407181930-jemalloc/&#34;&gt;jemalloc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source:Svix Blog. “Spotting and Avoiding Heap Fragmentation in Rust Applications,” April 4, 2023. &lt;a href=&#34;https://www.svix.com/blog/heap-fragmentation-in-rust-applications/&#34;&gt;https://www.svix.com/blog/heap-fragmentation-in-rust-applications/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Heap fragmentation cause stair-step memeory usage, use &lt;code&gt;jemalloc&lt;/code&gt; to solve heap fragmentation.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Sign Message</title>
       <link>https://notes.0081800.xyz/notes/20230407180408-sign_message/</link>
