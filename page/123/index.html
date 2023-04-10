@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.106.0">
+  
+    <title>Taking Smart Notes With Org-mode</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://notes.0081800.xyz/" />
+
+
+
+
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taking Smart Notes With Org-mode">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://notes.0081800.xyz/" />
+<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+
+  
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://notes.0081800.xyz/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/articles/">Articles</a></li>
+        
+      
+        
+          <li><a href="/notes/">Notes</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/articles/">Articles</a></li>
+      
+    
+      
+        <li><a href="/notes/">Notes</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629174911-%E6%89%80%E6%9C%89%E6%9D%83/">所有权</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          规则 每个值都有一个变量叫做所有者（owner） 同一时间只能有一个所有者 当所有者超出作用域则值被销毁 变量作用域 作用域是一个变量有效的范围 当变量超出作用域范围自动调用对象的 drop 方法进行内存归还操作 变量相互作用：所有权转移（Move） 对于所有在栈上分配的值（固定大小），在进行赋值操作时都对值进行拷贝：
+let x = 5; ley y = x; // copy 5 to y 但是对于在堆上分配的，变量保存的是指向内存的指针，所以在赋值时拷贝的也是指向该内存的指针：
+let s1 = String::from(&#34;hello&#34;); let s2 = s1; 为了保证内存安全，防止 s1 和 s2 超出作用域范围调用两次 drop 造成重复的内存回收，Rust 会让 s1 不再有效，来避免对 s1 进行回收。继续使用 s1 会导致编译错误。这种情况叫做所有权转移（move）。
+变量相互作用：克隆（Clone） 克隆用于深度拷贝变量：
+let s1 = String::from(&#34;hello&#34;); let s2 = s1.clone(); println!(s1); 变量项目作用：拷贝（Copy） 如果数据类型的大小在编译期能够确定都将存储在栈上，这种情况下能够进行快速的拷贝。
+Copy 特性（trait）注解用于将值存贮在栈栈上 Copy 特性注解不能和 Drop 特性注解混用 Copy 特性注解使用规则如下 所有的数字类型 所有的布尔型 所有的浮点型 字符类型 所有元素都实现了 Copy 特性注解的元祖 所有权和函数 函数传递实参的规则和变量类似，传递变量到一个函数将为发生所有权转移或者拷贝。
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629174911-%E6%89%80%E6%9C%89%E6%9D%83/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629174820-%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/">语句和表达式</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629174820-%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200628183417-member_initialize/">Member initialize</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-28
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200628183417-member_initialize/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200628183227-iterator_class/">Iterator class</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-28
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200628183227-iterator_class/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200628182211-avx512/">SSE/AVX/AVX2/AVX512</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-28
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200628182211-avx512/"> →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/page/122/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/124/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+  
+</div>
+
+</body>
+</html>

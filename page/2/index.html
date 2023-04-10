@@ -133,11 +133,11 @@
     
       <div class="post on-list">
         <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/topics/20211231172037-incomplete/">Incomplete</a>
+          <a href="https://notes.0081800.xyz/notes/20230407180408-sign_message/">Sign Message</a>
         </h1>
         <div class="post-meta">
           <span class="post-date">
-            2021-12-31
+            2023-04-07
           </span>
           
             <span class="post-author">:: [Gray King]</span>
@@ -157,18 +157,18 @@
         
         <div>
           <a class="read-more button"
-            href="/topics/20211231172037-incomplete/"> →</a>
+            href="/notes/20230407180408-sign_message/"> →</a>
         </div>
         
       </div>
     
       <div class="post on-list">
         <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/topics/20211231171333-%E8%AE%A1%E5%88%92%E8%AF%BB%E7%9A%84%E4%B9%A6/">计划读的书</a>
+          <a href="https://notes.0081800.xyz/notes/20230407180424-tron_signing_data/">Tron Signing Data</a>
         </h1>
         <div class="post-meta">
           <span class="post-date">
-            2021-12-31
+            2023-04-07
           </span>
           
             <span class="post-author">:: [Gray King]</span>
@@ -188,18 +188,18 @@
         
         <div>
           <a class="read-more button"
-            href="/topics/20211231171333-%E8%AE%A1%E5%88%92%E8%AF%BB%E7%9A%84%E4%B9%A6/"> →</a>
+            href="/notes/20230407180424-tron_signing_data/"> →</a>
         </div>
         
       </div>
     
       <div class="post on-list">
         <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/topics/20211231165951-lsp/">LSP</a>
+          <a href="https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/">Ethereum Signing Data</a>
         </h1>
         <div class="post-meta">
           <span class="post-date">
-            2021-12-31
+            2023-04-06
           </span>
           
             <span class="post-author">:: [Gray King]</span>
@@ -213,24 +213,27 @@
         <div class="post-content">
           
           
+          tags: Ethereum, Sign Message source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn&rsquo;t support but V4 does:
+Custom type array Custom type with null input Some input types that V4 doesn&rsquo;t support but V3 does:
+          
           
         </div>
 
         
         <div>
           <a class="read-more button"
-            href="/topics/20211231165951-lsp/"> →</a>
+            href="/notes/20230406090923-ethereum_signing_data/"> →</a>
         </div>
         
       </div>
     
       <div class="post on-list">
         <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/topics/20211231142654-org_roam/">org-roam</a>
+          <a href="https://notes.0081800.xyz/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/">Use GDB to Debug Cgo Segmentation Fault</a>
         </h1>
         <div class="post-meta">
           <span class="post-date">
-            2021-12-31
+            2023-04-05
           </span>
           
             <span class="post-author">:: [Gray King]</span>
@@ -244,24 +247,26 @@
         <div class="post-content">
           
           
+          tags: Go, GDB Enable Core Dumps ulimit -S -c unlimited Confirm or Change The Location of Core Dumps sysctl -w kernel.core_pattern=/tmp/core.%e.%p # Or echo &#39;/tmp/core.%e.%p&#39; | tee /proc/sys/kernel/core_pattern Set GOTRACEBACK Environment Variable to Let Go Program Core Dumps when Panic export GOTRACEBACK=crash Run Go Program and Wait Segmentation Fault Use GDB to Debug gdb /path/to/goprogram /tmp/core-xx-xx Then use thread apply all bt to see all backtraces, include compiled C code.
+          
           
         </div>
 
         
         <div>
           <a class="read-more button"
-            href="/topics/20211231142654-org_roam/"> →</a>
+            href="/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/"> →</a>
         </div>
         
       </div>
     
       <div class="post on-list">
         <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/topics/20211122114900-%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
+          <a href="https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/">ScrollL2: How to Caculate L1Fee</a>
         </h1>
         <div class="post-meta">
           <span class="post-date">
-            2021-11-22
+            2023-03-23
           </span>
           
             <span class="post-author">:: [Gray King]</span>
@@ -275,13 +280,17 @@
         <div class="post-content">
           
           
+          tags: Ethereum Layer 2 Background You may meet the below error when you&rsquo;re trying to transfer all your ETH from one address to another address:
+invalid transaction: insufficient funds for l1fee + gas * price + value
+The reason is that the Layer 1 fee are included in Scroll&rsquo;s gas fee system, but the wallet only exclude the Layer 2 gas fee to do so when you transfer all your ETH.
+          
           
         </div>
 
         
         <div>
           <a class="read-more button"
-            href="/topics/20211122114900-%E8%99%9A%E6%8B%9F%E5%8C%96/"> →</a>
+            href="/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/"> →</a>
         </div>
         
       </div>

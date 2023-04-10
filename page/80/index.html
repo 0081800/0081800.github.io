@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.106.0">
+  
+    <title>Taking Smart Notes With Org-mode</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://notes.0081800.xyz/" />
+
+
+
+
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taking Smart Notes With Org-mode">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://notes.0081800.xyz/" />
+<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+
+  
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://notes.0081800.xyz/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/articles/">Articles</a></li>
+        
+      
+        
+          <li><a href="/notes/">Notes</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/articles/">Articles</a></li>
+      
+    
+      
+        <li><a href="/notes/">Notes</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210920073034-%E8%8B%B1%E8%AF%AD%E6%97%B6%E6%80%81/">英语时态</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-09-20
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Learning English 通过动词变化来区分时间 通过动词变化来区分时间。
+I am walking in the rain. 正在 I will walk in the rain. 将要 I walk in the rain sometings. 一般状态、重复、常态 一般现在时 表示：
+当前的一般状态
+重复或习惯动作
+am/is/are（be 动词）：是，处于某状态
+do/does（实意动词）：具体动作
+(X): am/is/are + do/des 一般现在时不能 am/is/are 跟动词实意动词
+一般现在时第三人称单音形规则 tags: 英语读音规则 一般现在时第三人称单数动词需要变形，需要注意变形后的读音
+清对清 /s/ works helps 非清则浊 /z/ lives sees goes does /dʌz/ 组合 /dz/ /ts/ meets needs 近似音 -es /iz/ introduces fishes 现在进行时 当前正在发生的事情或动作，表示当前正在发生或者近将来。
+I&rsquo;m looking for a shirt.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210920073034-%E8%8B%B1%E8%AF%AD%E6%97%B6%E6%80%81/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/">Linux kernel</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-09-07
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Linux Linux I/O Linux I/O 演进 阻塞式：read()/write() 非阻塞式：select()/poll()/epoll()，不支持文件 I/O Thread Pool Direct I/O（数据软件）：绕过 page cache 异步 IO（Linux AIO）：早起进支持文件 I/O，近期支持了 epoll 支持非文件 I/O Linux io_uring [译] Linux 异步 I/O 框架 io_uring：基本原理、程序示例与性能压测 对比 Linux AIO：
+重新设计实现真正的是不。 支持任何类型的 I/O：cached files、direct-access files 甚至 blocking sockets。 灵活、可扩展：基于 io_uring 能够重写 Linux 的每个系统调用。 原理及核心数据结构：SQ/CQ/SQE/CQE 每个 io_uring 实例都有两个环形队列，在内核和应用程序之间共享：
+提交队列：submission queue（SQ） 完成队列：completion queue（CQ） 这两个队列：
+都是单生产者、单消费者，size 是 2 的幂次； 提供无锁接口（lock-less access interface），内部使用内存屏障做同步（coordinated with memory barrers）。 使用方式：
+请求 应用创建 SQ entries（SQE），更新 SQ tail； 内核消费 SQE，更新 SQ head 完成 内核为完成一个或多个请求创建 CQ enries（CQE），更新 CQ tail； 应用消费 CQE，更新 CQ head 完成事件（completion events）可能以任意顺序到达，到总是与特定的 SQE 相关联的。 消费 CQE 过程无需切换到内核态 带来的好处 支持批处理 支持文件 I/O 系统调用：read、write、send、recv、accept、opentat、stat、专用的一些系统调用，如 fallocate 不再局限于数据库应用 应对现在硬件架构：将硬件架构本身作为一个网络（多核多 CPU 是一个基础网络、CPU 之间是一个网络、CPU 和磁盘 I/O 之间又是一个网络） 三种工作模式 中断驱动模式（interrupt driven）：默认模式。可通过 io_uring_enter() 提交 I/O 请求，然后直接检查 CQ 状态判断是否完成。
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210907142848-linux_kernel/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210906151915-scala_lsp_metals/">Scala lsp-metals</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-09-06
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210906151915-scala_lsp_metals/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/">领域模式</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-09-03
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: DDD,《领域驱动设计》读书笔记 领域基础模式 模式：UBIQUITOUS LANGUAGE 在同领域专家、开发人员和项目管理沟通的过程中建立并使用 UBIQUITOUS LANGUAGE，，并在模型实现时依然使用 UBIQUITOUS LANGUAGE 来让设计与沟通相一致（中文语境下稍显困难），UBIQUITOUS LANGUAGE 让知识消化后直接驱动变更模型。
+应用 UBIQUITOUS LANGUAGE 需要大声的建模。
+模式：MODEL-DRIVEN DESIGN 严格按照模型来编写代码，让模型与实际系统相结合。 不再分离「分析模型」和程序设计，而是寻求一种能够满足这两方面需求的单一模型。 工具：面向对象编程语言、UML等。 更好的支持 UBIQUITOUS LANGUAGE. 模式：HANDS-ON MODELER 开发设计和模型设计紧密合作，避免模型设计者不参与编写和程序设计者不参与模型设计。 每一个开发人员都必须不同程度的参与模型讨论并且与领域专家保持联系，模型设计者及时通过 UBIQUITOUS LANGUAGE 与接触代码的人及时交换关于模型的想法。 领域模式构造块 模式：LAYERED ARCHITECTURE 分层架构是实现 DDD 的基础，分层架构将不同的层次的实现分开，自上倒下应分为：
+用户界面层 应用层 领域层（模型的精髓） 基础设施层 核心在于要将领域层单独出来实现 MODEL-DRIVEN DESIGN，对业务进行建模封装业务规则。调用规则也只能自上而下的调用，不能反向调用。
+领域层（或模型层）分离出来之后使得模型足够丰富，结构足够清晰，可以捕捉到基本的业务知识，并有效的使用这些知识。
+模式：ENTITY 用于跟踪对象的状态，有唯一标识符，在系统中是可变的，两个对象是否一个通过唯一标识来判断，不是靠它们的属性定义。
+模式：VALUE OBJECT 区别与 ENTITY ，没有唯一标识，仅记录状态，一般设计为不可变用于共享 VALUE OBJECT，两个对象是否一个通过对象属性的值来判断。
+模式：SERVICE 没有状态，但又需要建模的对象，只包含动作。用于一些不适合建模为对象的领域概念。
+与领域概念相关的操作不是 ENTITY 或 VALUE OBJECT 的一个自然组成部署 接口是根据领域模型的其他元素定义的。 操作是无状态的 模式：MODULE（或 PACKAGE） 根据对象的意义划分领域模型，低耦合高内聚。按照模式或者对象生命周期或者其他方式划分都是错误的。
+模式：AGGREGATE 划分模型边界，统一对关联模型的创建、修改、复制和销毁。一般选定一个 ENTITY 对象作为 AGGREGATE 的「根」，同时对事务应用一组规则：
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210902153221-airflow/">Airflow</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-09-02
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          案例 Airflow powers AI。
+Airflow SSO 接入 公司 SSO 系统不是基于开源标准，而是一套自定义的方式，目前网上没有成熟的解决方案，通过查看 Flask-AppBuilder 和 Airflow 的代码发现可以扩展 flask_appbuilder.security.views.AuthRemoteUserView 并通过自定义的 SecurityManager 指定 authremoteuserview 来实现，去掉具体 SSO 逻辑后的代码如下：
+from urllib.parse import urlencode from urllib.parse import urljoin import requests from flask import flash from flask import redirect from flask import request from flask_appbuilder.baseviews import expose from flask_appbuilder.security.views import AuthRemoteUserView try: from airflow.www.security import AirflowSecurityManager except ImportError: AirflowSecurityManager = None __version__ = &#34;0.1.0&#34; AUTHORIZE_URL = &#34;https://example.com/sso/login&#34; ACCESS_TOKEN_URL = &#34;https://example.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210902153221-airflow/"> →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/page/79/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/81/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+  
+</div>
+
+</body>
+</html>

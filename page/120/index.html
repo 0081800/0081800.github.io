@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.106.0">
+  
+    <title>Taking Smart Notes With Org-mode</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://notes.0081800.xyz/" />
+
+
+
+
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taking Smart Notes With Org-mode">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://notes.0081800.xyz/" />
+<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+
+  
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://notes.0081800.xyz/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/articles/">Articles</a></li>
+        
+      
+        
+          <li><a href="/notes/">Notes</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/articles/">Articles</a></li>
+      
+    
+      
+        <li><a href="/notes/">Notes</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/">Rust Means Never Having to Close a Socket</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Translate,Rust,Rust Wrapper Types 原文链接：Rust Means Never Having to Close a Socket
+Rust 最酷的特性之一就是它可以自动地帮助你管理资源，同时在仍能保持安全（没有段错误）和高性能。
+这是因为 Rust 是一门与众不同地编程语言，要理解我说的可能有点困难，让我来更近一步说明：
+Rust 就像带垃圾回收的编程语言，你无需手动释放内存 Rust 不同于其他带垃圾回收的编程语言，你无需1手动关闭或者释放像文件、套接字和锁这样的资源 Rust 达到以上这些特性不附带任何运行时开销（垃圾回收或者引用计数），并且不牺牲安全性。 如果你曾经造成过一个套接字或者文件泄漏，或者使用过一些抽象方法造成了这些资源的泄漏，那么你就会知道这有多重要。
+你可能已经期望通过“使用后释放”来避免内存问题，而与此同时你并没有考虑到没有明确地关闭套接字可能出现类似的错误。我在这里告诉你，还有更好地办法。
+如果你使用的是带垃圾回收的编程语言，则应密切关注本文提到的资源管理方面的内容。如果你使用的是像 C/C++ 这样底层编程语言，你可能会对安全方面更加感兴趣。
+Rust 的许多特性都是从其他语言借鉴而来。Rust 之所以变得有趣是因为它把所有的这些特性放在了一起，并且在编程语言层面实现了更严格地保证。 实际上，这种编程语言层面的保证让这些特性更加实用。
+所有权系统（The Ownership System） 让这种保证工作的方式是通过 Rust 的「所有权（ownership）」系统。不管任何时候你创建一个新的对象，都被创建它的「作用域（scope）」所拥有。
+让我们通过一个例子来进一步说明：我们定义一个函数，函数拷贝输入文件到临时文件去处理它，然后拷贝输入文件到输出文件。
+fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&#34;skylight&#34;)); // open the input file let mut from_file = try!
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629181735-rust_means_never_having_to_close_a_socket/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629180709-rust_%E5%B9%B6%E5%8F%91/">Rust 并发</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629180709-rust_%E5%B9%B6%E5%8F%91/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629180623-rust_%E5%AE%8F/">Rust 宏</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629180623-rust_%E5%AE%8F/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629180545-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">智能指针</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          智能指针 表现的像一个指针，拥有数据并允许在对数据进行维护。
+通常通过 struct 实现并实现两个特性 Deref 和 Drop
+Deref 允许智能指针实例行为像一个引用，让代码可以同时处理引用和智能指针 Drop 允许自定义智能指针超出作用域的行为。 标准库常见的智能指针
+Box&lt;T&gt; 用于在堆分配值 Rc&lt;T&gt; 引用计数类型，允许多个拥有者 Ref&lt;T&gt; 和 RefMut&lt;T&gt; 和通过 RefCell&lt;T&gt; 访问，运行时取代编译期强制检查借用规则 Box&lt;T&gt; 场景：
+编译期未知大小的类型（递归类型（自己包含自己类型的类型，如链表）编译期无法确定大小）
+// 递归类型 enum List { Cons(i32, Box&lt;List&gt;), Nil, } fn main() { let b = Box::new(5); println!(&#34;b = {}&#34;, b); let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); } 避免大量数据转移所有权时发生拷贝
+拥有一个实现特定特性的值（不关心具体类型）的所有权
+Deref 用于自定义解引用操作符（ * ） 的行为，智能指针通过实现该特性来模拟普通引用的行为。
+对比
+fn main() { let x = 5; let y = &amp;x; assert_eq!
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629180545-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/">迭代器</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-06-29
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/"> →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/page/119/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/121/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+  
+</div>
+
+</body>
+</html>

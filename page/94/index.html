@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.106.0">
+  
+    <title>Taking Smart Notes With Org-mode</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://notes.0081800.xyz/" />
+
+
+
+
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taking Smart Notes With Org-mode">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://notes.0081800.xyz/" />
+<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+
+  
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://notes.0081800.xyz/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/articles/">Articles</a></li>
+        
+      
+        
+          <li><a href="/notes/">Notes</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/articles/">Articles</a></li>
+      
+    
+      
+        <li><a href="/notes/">Notes</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210721063222-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%8C%91%E6%88%98/">分布式系统挑战</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-21
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: 分布式 故障与部分失效 单节点一般是要么工作要么失效，但是分布式系统多节点面临部分失效，大大提高了分布式系统的复杂性。
+单节点软件特性：
+硬件正常工作时，相同的操作通常总会产生相同的结果，即确定性。 如果发生了某种内部错误，我们宁愿使计算机全部崩溃，而不是返回一个错误的结果。 云计算和超算 超算：垂直扩展的极端，设置检查点，一点节点故障则全部失效从上一个检查点重新开始（离线批处理），类似单机上内核崩溃。 云计算：水平扩展的极端 传统企业位于两个极端的中间 分布式可靠必然面临部分失效，需要依赖软件系统来提供容错机制。我们需要在不可靠的组件上构建可靠的系统。
+不可靠网络 分布式无共享系统：成本低廉。 互联网以及大多数 IDC 内部网络都是异步网络：不保证发送一定到达（排队），等待响应时可能出现任何错误。 现实中的网络故障非常普遍 故障检测：HA、主从切换、保活机制（ICMP，SYN） 超时与无限期的延迟 网络拥塞与排队 网络负载过高会出现拥塞。 数据在发送的过程中分别会在发送端和接收端进行排队：等待发送和等待处理。 TCP 的拥塞控制机制。 虚拟化 CPU 核切换虚拟机 同步与异步网络 同步网络：固定电话网络，一路电话分配固定的电路、有带宽保证，规定延迟内保证完成数据包发送，不会丢弃数据包，成本高，利用率低 异步网络：数据中心网络，共享带宽，无法保证延迟和数据包发送，成本低廉，利用率高 不可靠时钟 单调时钟与墙上时钟 时间同步与准确性 计算机中的石英钟不够精确 NTP 服务器不稳定（网络、防火墙或服务本身） 虚拟机中时钟是虚拟化的。 终端设备不可控：休眠、故意设置 依赖同步的时钟 时钟陷阱：
+一天可能不总是 86400 秒 回拨 多个节点上的时间完全不相同 需要精确同步的时钟：
+自己监控所有节点上的时钟偏差 某个节点时钟漂移超出上限则将其宣告失效 时间戳与时间顺序 最后写入者获胜 时钟的置信区间 通过直接安装 GPS 接收器或原子（铯）时钟，它的误差范围通常可以查询制造商手册。
+全局快照的同步时钟 Google Spanner 根据部署了 GPS 接收器或者原子时钟的 TrueTime API 返回的时钟置信区间。确保读事务足够晚发生，避免与先前事务的置信区间产生重叠。
+进程暂停 垃圾回收 虚拟化暂停虚拟机 磁盘 I/O 内存交换分区 手动暂停进程（SIGSTOP/SIGCONT） 响应时间保证 RTOS 系统 调整垃圾回收的影响 知识，真相与谎言 真相由多数决定：Quorum 一致性 主节点与锁 Fencing 令牌 拜占庭故障 理论系统模型与现实 计时方面
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210721063222-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%8C%91%E6%88%98/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210719073125-leetcode_46_permutations/">LeetCode: 46. Permutations</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-19
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: LeetCode,backtracking Keywords backtrack 回溯算法
+图解 举例： [1, 2, 3] ，顺着叶子节点和删除的节点就可以还原成全排列。
+从上面图可以看出来，叶子节点加上回溯路径上被移除的节点就是结果的一项，从左到右依次是：
+[3,R:2,R:1] -&gt; [3,2,1] [2,R:3,R:1] -&gt; [2,3,1] &hellip; class Solution { public: vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) { vector&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; track; backtrack(res, track, nums); return res; } void backtrack(vector&lt;vector&lt;int&gt;&gt; &amp; res, vector&lt;int&gt; &amp; track, vector&lt;int&gt;&amp; nums) { if (track.size() == nums.size()) { res.push_back(track); return; } for (int i = 0; i &lt; nums.size(); i++) { if (visited.find(nums[i]) != visited.end() &amp;&amp; visited[nums[i]]) { continue; } track.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210719073125-leetcode_46_permutations/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/">JavaScript 内存模型 (2017)</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-16
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210716120258-c_rust_%E5%92%8C_swift_%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">C、Rust 和 Swift 的内存模型</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-16
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210716120258-c_rust_%E5%92%8C_swift_%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/">C++ 弱同步原子（acquire/release atomic）</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-16
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: C++11 内存模型,C/C++ C++ 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C++ 同步原子（atomic）较短的调用。
+较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
+atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
+来看下面 litmus test：
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/"> →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/page/93/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/95/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+  
+</div>
+
+</body>
+</html>

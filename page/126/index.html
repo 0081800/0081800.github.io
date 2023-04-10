@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.106.0">
+  
+    <title>Taking Smart Notes With Org-mode</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://notes.0081800.xyz/" />
+
+
+
+
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taking Smart Notes With Org-mode">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://notes.0081800.xyz/" />
+<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+
+  
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://notes.0081800.xyz/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/articles/">Articles</a></li>
+        
+      
+        
+          <li><a href="/notes/">Notes</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/articles/">Articles</a></li>
+      
+    
+      
+        <li><a href="/notes/">Notes</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200320172022_kafka/">Kafka</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-03-20
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Bigdata 相关知识点 概念组成 Producer 消息产生者，往指定 Topic 的指定 Partition 发送消息
+Consumer Group 消费指定 Topic 的消息
+Consumer 消费指定 Topic 下某一分区的消息 Topic 区分不同消息主题
+Partition 保证同一分区的有序性 Connector
+消息可被不同的 Consumer Group 重复消费（广播或订阅）。同一 Consumer Group 下的不同 Consumer 分别消费不同的 Partition，Consumer 数量不能超过 Partition 数量。
+数据被持久化并分片成功后发送 ACK 保证里数据不被丢失。
+设计 持久化 基于文件系统
+基于队列是顺序的和磁盘的顺序访问要比内存的随机访问要快（参见 The Pathologies of Big Data）， Kafka 采用在磁盘文件系统上尾部写头部读的方式。 Kafka 没有采用 BTree 存储数据因为 BTree 的操作是 O(log N) ，而且对磁盘的 seek 操作要慢，且同时只能进行一次限制了并行，所以实际操作比 O(log N) 要慢 基于磁盘的顺序访问进行在尾部写和头部读，可以实现读写都是 O(1) 的时间复杂度，并且读写互不干扰 基于以上实现，Kafka 可以不必在消息一经消费就删除，而是可以保留消息一段相对较长的时间（比如一周） 高效
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200320172022_kafka/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200320172132_leetcode/">LeetCode</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-03-20
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="https://notes.0081800.xyz/tags/index/">index</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200320172132_leetcode/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200320172219_leetcode_trapping_tain_water/">LeetCode: Trapping Tain Water</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-03-20
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200320172219_leetcode_trapping_tain_water/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200320174700_linux_virtual_memory_management/">Linux Virtual Memory Management</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-03-20
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Linux 原文连接：Linux Virtual Memory Management Chapter 2 Describing Physical Memory：描述物理内存 独立于平台架构的方式描述内存 — 更好的支持多平台
+本章包含描述存储器、内存页的结构体（structures）和一些影响 VM 行为的标识位（flags）
+VM 中普遍（prevlent）认为第一重要（principal）的概念是 NUMA。
+大型机器中内存访问速度取决于 CPU 到内存的距离。比如一组（bank）内存分配给每一个处理器或者一组内存非常适合靠近的 DMA 设备卡。
+这里的每组（bank）内存被称为节点（node）并且这个概念在 Linux 中通过 struct pglist_data（typedef pg_data_t) 表示，即使在 UMA 架构下也是如此。每一个节点是一个由 NULL 结尾的链表，通过 pg_data_t-&gt;next_node 指向下一个节点。
+每一个节点都被分割成多个块（block）称为分区（zone）用于表示内存中的范围。分区使用 struct zone_struct(typedef zone_t) 结构体描述，每一个分区都是以下三种类型的一种
+ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，由内核直接映射到线性地址空间的上部区域（将在第四章讨论） ZONE_HIGHMEM 896MB - END，剩余不由内核直接映射的系统可用内存， 大部分内核操作都只能使用这种类型的分区，所以这里也是这里也是最关键的性能区域（most performance critical zone） 每一个物理页帧（physical page frame）都使用结构体 struct page 表示，所有的结构体都保存在全局数组 mem_map 中，mem_map 通常存储在 ZONE_NORMAL 的开始处；
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200320174700_linux_virtual_memory_management/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20200320171538_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-03-20
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          tags: Algorithm 状态转移方程 无后效性 如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前各段状态的影响。
+一旦 \(f(n)\) 确定，“我们如何凑出 \(f(n)\) ”就再也用不着了：
+要求出 \(f(15)\)，只需要知道 \(f(14)\),\(f(10)\),\(f(4)\) 的值， 而 \(f(14)\),\(f(10)\),\(f(4)\) 是如何算出来的，对之后的问题没有影响。 “未来与过去无关”，这就是无后效性。
+最优子结构 大问题的最优解可以由小问题的最优解推出，这个性质叫做“最优子结构性质”：
+\(f(n)\) 的定义需要蕴含“最优”，利用 \(f(14)\),\(f(10)\),\(f(4)\) 的最优解，我们即可算出 \(f(15)\) 的最优解。
+能将大问题拆成几个小问题，且满足无后效性、最优子结构性质。 DP 思路 参见 LeetCode 讨论：
+先写出穷举的方法 找出不必要的重复计算 写出 DP 练习 0x00 硬币找零 描述 假设有几种硬币，如1、3、5，并且数量无限。请找出能够组成某个数目的找零所使用最少的硬币数。
+状态转移公式 公式 \(f(n)=min\{f(n-1),f(n-3),f(n-5)\} + 1\)
+检查是否满足上面提到的两个特性：
+无后效性：对于 \(n\)，一旦 \(f(n)\) 确定，以后只关心 \(f(n)\) 的值，不关心怎么计算的； 最优子结构：对于 \(n\)，只要 \(n - 1\) \(n - 3\) \(n - 5\) 能是最优解，那么就能计算出 n; 推导过程 假设找零 15：
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20200320171538_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"> →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/page/125/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/127/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+  
+</div>
+
+</body>
+</html>

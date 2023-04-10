@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.106.0">
+  
+    <title>Taking Smart Notes With Org-mode</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://notes.0081800.xyz/" />
+
+
+
+
+<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taking Smart Notes With Org-mode">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://notes.0081800.xyz/" />
+<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+
+  
+    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://notes.0081800.xyz/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/articles/">Articles</a></li>
+        
+      
+        
+          <li><a href="/notes/">Notes</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/articles/">Articles</a></li>
+      
+    
+      
+        <li><a href="/notes/">Notes</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/">弱有序和无数据竞争（DRF）</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-12
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210712162917-arm_power_relaxed_memory_model/">ARM/POWER Relaxed Memory Model</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-12
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          ARM和POWER系统的概念模型是，每个处理器从其自己的完整内存副本中读取和向其写入，每个写入独立地传播到其他处理器，随着写入的传播，允许重新排序。
+在这个宽松的(relaxed)模型中，我们迄今为止所看到的每一个litmus test的答案都是“yes，这真的可能发生。”
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210712162917-arm_power_relaxed_memory_model/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/">内存屏障</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-12
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/">x86 总存储有序（x86-TSO)</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-12
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
+重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
+写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
+基于以上下面 litmus test 的答案依然是 no ，这种情况与顺序一致性模型结果一致：
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. 但其他测试则并不一致区分与顺序一致性的常用例子:
+Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0, r2 = 0?
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/"> →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/">litmus test</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-07-12
+          </span>
+          
+            <span class="post-author">:: [Gray King]</span>
+          
+        </div>
+
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/notes/20210712153952-litmus_test/"> →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/page/100/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/102/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://notes.0081800.xyz/assets/main.js"></script>
+<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+  
+</div>
+
+</body>
+</html>
