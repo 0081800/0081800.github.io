@@ -6,9 +6,9 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" tags: Python, LSP
+<meta name="description" content="tags: Python, LSP
 source: https://emacs-lsp.github.io/lsp-pyright/#usage-notes
-Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &amp;#34;HOME&amp;#34;) &amp;#34;/.local//src/python-type-stubs&amp;#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django " />
+Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &amp;#34;HOME&amp;#34;) &amp;#34;/.local//src/python-type-stubs&amp;#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django Add Celery Type Stubs git clone https://github.com/sbdchd/celery-types ~/.local/src/celery-types ln -sf ~/.local/src/celery-types/amqp-stubs ~/.local/src/python-type-stubs/amqp ln -sf ~/.local/src/celery-types/billiard-stubs ~/.local/src/python-type-stubs/billiard ln -sf ~/.local/src/celery-types/celery-stubs ~/.local/src/python-type-stubs/celery ln -sf ~/.local/src/celery-types/django_celery_results-stubs ~/.local/src/python-type-stubs/django_celery_results ln -sf ~/.local/src/celery-types/ephem-stubs ~/.local/src/python-type-stubs/ephem ln -sf ~/.local/src/celery-types/kombu-stubs ~/.local/src/python-type-stubs/kombu ln -sf ~/." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20230410161857-pyright_type_stubs/" />
@@ -36,9 +36,9 @@ Download Default Type Stubs git clone https://github.com/microsoft/python-type-s
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Pyright Type Stubs">
-<meta property="og:description" content=" tags: Python, LSP
+<meta property="og:description" content="tags: Python, LSP
 source: https://emacs-lsp.github.io/lsp-pyright/#usage-notes
-Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &amp;#34;HOME&amp;#34;) &amp;#34;/.local//src/python-type-stubs&amp;#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django " />
+Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &amp;#34;HOME&amp;#34;) &amp;#34;/.local//src/python-type-stubs&amp;#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django Add Celery Type Stubs git clone https://github.com/sbdchd/celery-types ~/.local/src/celery-types ln -sf ~/.local/src/celery-types/amqp-stubs ~/.local/src/python-type-stubs/amqp ln -sf ~/.local/src/celery-types/billiard-stubs ~/.local/src/python-type-stubs/billiard ln -sf ~/.local/src/celery-types/celery-stubs ~/.local/src/python-type-stubs/celery ln -sf ~/.local/src/celery-types/django_celery_results-stubs ~/.local/src/python-type-stubs/django_celery_results ln -sf ~/.local/src/celery-types/ephem-stubs ~/.local/src/python-type-stubs/ephem ln -sf ~/.local/src/celery-types/kombu-stubs ~/.local/src/python-type-stubs/kombu ln -sf ~/." />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20230410161857-pyright_type_stubs/" />
 <meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
@@ -158,6 +158,15 @@ Download Default Type Stubs git clone https://github.com/microsoft/python-type-s
 </span></span></code></pre></div><h2 id="add-django-type-stubs">Add Django Type Stubs<a href="#add-django-type-stubs" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs
 </span></span><span style="display:flex;"><span>ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django
+</span></span></code></pre></div><h2 id="add-celery-type-stubs">Add Celery Type Stubs<a href="#add-celery-type-stubs" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/sbdchd/celery-types ~/.local/src/celery-types
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/amqp-stubs ~/.local/src/python-type-stubs/amqp
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/billiard-stubs ~/.local/src/python-type-stubs/billiard
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/celery-stubs ~/.local/src/python-type-stubs/celery
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/django_celery_results-stubs ~/.local/src/python-type-stubs/django_celery_results
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/ephem-stubs ~/.local/src/python-type-stubs/ephem
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/kombu-stubs ~/.local/src/python-type-stubs/kombu
+</span></span><span style="display:flex;"><span>ln -sf ~/.local/src/celery-types/vine-stubs ~/.local/src/python-type-stubs/vine
 </span></span></code></pre></div>
       </div></div>
 

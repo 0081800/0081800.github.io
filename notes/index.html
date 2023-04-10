@@ -141,6 +141,10 @@
         <div class="post-content">
           
           
+          tags: Python, LSP
+source: https://emacs-lsp.github.io/lsp-pyright/#usage-notes
+Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &#34;HOME&#34;) &#34;/.local//src/python-type-stubs&#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django Add Celery Type Stubs git clone https://github.com/sbdchd/celery-types ~/.local/src/celery-types ln -sf ~/.local/src/celery-types/amqp-stubs ~/.local/src/python-type-stubs/amqp ln -sf ~/.local/src/celery-types/billiard-stubs ~/.local/src/python-type-stubs/billiard ln -sf ~/.local/src/celery-types/celery-stubs ~/.local/src/python-type-stubs/celery ln -sf ~/.local/src/celery-types/django_celery_results-stubs ~/.local/src/python-type-stubs/django_celery_results ln -sf ~/.local/src/celery-types/ephem-stubs ~/.local/src/python-type-stubs/ephem ln -sf ~/.local/src/celery-types/kombu-stubs ~/.local/src/python-type-stubs/kombu ln -sf ~/.
+          
           
         </div>
 
