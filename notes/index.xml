@@ -6,7 +6,34 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Apr 2023 18:19:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Apr 2023 16:18:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyright Type Stubs</title>
+      <link>https://notes.0081800.xyz/notes/20230410161857-pyright_type_stubs/</link>
+      <pubDate>Mon, 10 Apr 2023 16:18:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230410161857-pyright_type_stubs/</guid>
+      <description> tags: Python, LSP
+source: https://emacs-lsp.github.io/lsp-pyright/#usage-notes
+Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &amp;#34;HOME&amp;#34;) &amp;#34;/.local//src/python-type-stubs&amp;#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django </description>
+      <content>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200628133616-python/&#34;&gt;Python&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/topics/20211231165951-lsp/&#34;&gt;LSP&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;source: &lt;a href=&#34;https://emacs-lsp.github.io/lsp-pyright/#usage-notes&#34;&gt;https://emacs-lsp.github.io/lsp-pyright/#usage-notes&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;download-default-type-stubs&#34;&gt;Download Default Type Stubs&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;use-it-in-emacs&#34;&gt;Use it in Emacs&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(setq lsp-pyright-stub-path (&lt;span style=&#34;color:#a6e22e&#34;&gt;concat&lt;/span&gt; (getenv &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HOME&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/.local//src/python-type-stubs&amp;#34;&lt;/span&gt;)) &lt;span style=&#34;color:#75715e&#34;&gt;;; example&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;add-django-type-stubs&#34;&gt;Add Django Type Stubs&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
     <item>
       <title>jemalloc</title>
       <link>https://notes.0081800.xyz/notes/20230407181930-jemalloc/</link>
