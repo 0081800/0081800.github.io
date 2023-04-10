@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ml on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/tags/ml/</link>
@@ -15,18 +15,6 @@
       <guid>https://notes.0081800.xyz/notes/20200905075701-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>概览 机器学习系统的种类 机器学习的主要挑战 机器学习测试与验证 模型是观察的简化。
 相关数学概念 机器学习涉及数学概念 </description>
-      <content>&lt;h2 id=&#34;概览&#34;&gt;概览&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200907074200-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%A7%8D%E7%B1%BB/&#34;&gt;机器学习系统的种类&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200907080323-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%BB%E8%A6%81%E6%8C%91%E6%88%98/&#34;&gt;机器学习的主要挑战&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/&#34;&gt;机器学习测试与验证&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;模型是观察的简化。&lt;/p&gt;
-&lt;h2 id=&#34;相关数学概念&#34;&gt;相关数学概念&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200912093811-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B6%89%E5%8F%8A%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/&#34;&gt;机器学习涉及数学概念&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
   </channel>

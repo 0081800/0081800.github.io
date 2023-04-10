@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>index on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/tags/index/</link>
@@ -14,7 +14,6 @@
       
       <guid>https://notes.0081800.xyz/topics/20200323104645_%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
-      <content></content>
     </item>
     
     <item>
@@ -24,10 +23,6 @@
       
       <guid>https://notes.0081800.xyz/notes/20200320172132_leetcode/</guid>
       <description> tags: Learning,Algorithm </description>
-      <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20211231122121-learning/&#34;&gt;Learning&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/projects/20220104182327-algorithm/&#34;&gt;Algorithm&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
     <item>
@@ -37,10 +32,6 @@
       
       <guid>https://notes.0081800.xyz/topics/20200309112105_translate/</guid>
       <description> tags: Learning,Learning English </description>
-      <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20211231122121-learning/&#34;&gt;Learning&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20210317141621-learning_english/&#34;&gt;Learning English&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
     <item>
@@ -50,22 +41,6 @@
       
       <guid>https://notes.0081800.xyz/notes/20200224132507/</guid>
       <description> 基金 基金定投 股市相关概念 相关书籍 《巴比伦富翁新解》读书笔记 《百箭穿杨》读书笔记 To Read 《布雷迪报告》 </description>
-      <content>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200224132645_/&#34;&gt;基金&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200311093314_%E5%9F%BA%E9%87%91%E5%AE%9A%E6%8A%95/&#34;&gt;基金定投&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200318160435_%E8%82%A1%E5%B8%82%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/&#34;&gt;股市相关概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;相关书籍
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200307114151_%E5%B7%B4%E6%AF%94%E4%BC%A6%E5%AF%8C%E7%BF%81%E6%96%B0%E8%A7%A3/&#34;&gt;《巴比伦富翁新解》读书笔记&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200320180837_%E7%99%BE%E7%AE%AD%E7%A9%BF%E6%9D%A8/&#34;&gt;《百箭穿杨》读书笔记&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;to-read&#34;&gt;To Read&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;《布雷迪报告》&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
     <item>
@@ -75,7 +50,6 @@
       
       <guid>https://notes.0081800.xyz/topics/20200307114122_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
-      <content></content>
     </item>
     
   </channel>

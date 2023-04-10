@@ -1,153 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>LeetCode: 51. N-Queens :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>LeetCode: 51. N-Queens | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens/ 一旦一个 Queue 被放置，那么横轴、纵轴、对角线都不再允许放置。我们按行进行遍历，所以我们需要跟踪以下位置是否已经放置 Queue：
 纵轴（Column）：cols 主对角线（Positive Diagonal）：posDiag 次对角线（Negative Diagonal）：negDiag 纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 r 纵轴为 c ，
 r - c 在正对角线是一致的：
 斜对角线 r &#43; c 是一致的:
-class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solveNQueens(int n) { for (int r = 0; r &amp;lt; n; r&#43;&#43;) { string col = string(n, &amp;#39;.&amp;#39;); track.push_back(col); } backtracking(0, n); return res; } private: set&amp;lt;int&amp;gt; cols; // c set&amp;lt;int&amp;gt; posDiag; // r - c set&amp;lt;int&amp;gt; negDiag; // r &#43; c vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; res; vector&amp;lt;string&amp;gt; track; void backtracking(int r, int n) { if (r == n) { res." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/" />
+class Solution { public: vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) { for (int r = 0; r &lt; n; r&#43;&#43;) { string col = string(n, &#39;.&#39;); track.push_back(col); } backtracking(0, n); return res; } private: set&lt;int&gt; cols; // c set&lt;int&gt; posDiag; // r - c set&lt;int&gt; negDiag; // r &#43; c vector&lt;vector&lt;string&gt;&gt; res; vector&lt;string&gt; track; void backtracking(int r, int n) { if (r == n) { res.">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="LeetCode: 51. N-Queens">
+    </style>
+</noscript><meta property="og:title" content="LeetCode: 51. N-Queens" />
 <meta property="og:description" content="tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens/ 一旦一个 Queue 被放置，那么横轴、纵轴、对角线都不再允许放置。我们按行进行遍历，所以我们需要跟踪以下位置是否已经放置 Queue：
 纵轴（Column）：cols 主对角线（Positive Diagonal）：posDiag 次对角线（Negative Diagonal）：negDiag 纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 r 纵轴为 c ，
 r - c 在正对角线是一致的：
 斜对角线 r &#43; c 是一致的:
-class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solveNQueens(int n) { for (int r = 0; r &amp;lt; n; r&#43;&#43;) { string col = string(n, &amp;#39;.&amp;#39;); track.push_back(col); } backtracking(0, n); return res; } private: set&amp;lt;int&amp;gt; cols; // c set&amp;lt;int&amp;gt; posDiag; // r - c set&amp;lt;int&amp;gt; negDiag; // r &#43; c vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; res; vector&amp;lt;string&amp;gt; track; void backtracking(int r, int n) { if (r == n) { res." />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+class Solution { public: vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) { for (int r = 0; r &lt; n; r&#43;&#43;) { string col = string(n, &#39;.&#39;); track.push_back(col); } backtracking(0, n); return res; } private: set&lt;int&gt; cols; // c set&lt;int&gt; posDiag; // r - c set&lt;int&gt; negDiag; // r &#43; c vector&lt;vector&lt;string&gt;&gt; res; vector&lt;string&gt; track; void backtracking(int r, int n) { if (r == n) { res." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-08-02T07:32:00+08:00" />
+<meta property="article:modified_time" content="2021-08-02T07:32:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-08-02 07:32:00 &#43;0800 &#43;0800" />
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LeetCode: 51. N-Queens"/>
+<meta name="twitter:description" content="tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens/ 一旦一个 Queue 被放置，那么横轴、纵轴、对角线都不再允许放置。我们按行进行遍历，所以我们需要跟踪以下位置是否已经放置 Queue：
+纵轴（Column）：cols 主对角线（Positive Diagonal）：posDiag 次对角线（Negative Diagonal）：negDiag 纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 r 纵轴为 c ，
+r - c 在正对角线是一致的：
+斜对角线 r &#43; c 是一致的:
+class Solution { public: vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) { for (int r = 0; r &lt; n; r&#43;&#43;) { string col = string(n, &#39;.&#39;); track.push_back(col); } backtracking(0, n); return res; } private: set&lt;int&gt; cols; // c set&lt;int&gt; posDiag; // r - c set&lt;int&gt; negDiag; // r &#43; c vector&lt;vector&lt;string&gt;&gt; res; vector&lt;string&gt; track; void backtracking(int r, int n) { if (r == n) { res."/>
 
 
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "LeetCode: 51. N-Queens",
+      "item": "https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LeetCode: 51. N-Queens",
+  "name": "LeetCode: 51. N-Queens",
+  "description": "tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens/ 一旦一个 Queue 被放置，那么横轴、纵轴、对角线都不再允许放置。我们按行进行遍历，所以我们需要跟踪以下位置是否已经放置 Queue：\n纵轴（Column）：cols 主对角线（Positive Diagonal）：posDiag 次对角线（Negative Diagonal）：negDiag 纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 r 纵轴为 c ，\nr - c 在正对角线是一致的：\n斜对角线 r + c 是一致的:\nclass Solution { public: vector\u0026lt;vector\u0026lt;string\u0026gt;\u0026gt; solveNQueens(int n) { for (int r = 0; r \u0026lt; n; r++) { string col = string(n, \u0026#39;.\u0026#39;); track.push_back(col); } backtracking(0, n); return res; } private: set\u0026lt;int\u0026gt; cols; // c set\u0026lt;int\u0026gt; posDiag; // r - c set\u0026lt;int\u0026gt; negDiag; // r + c vector\u0026lt;vector\u0026lt;string\u0026gt;\u0026gt; res; vector\u0026lt;string\u0026gt; track; void backtracking(int r, int n) { if (r == n) { res.",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens/ 一旦一个 Queue 被放置，那么横轴、纵轴、对角线都不再允许放置。我们按行进行遍历，所以我们需要跟踪以下位置是否已经放置 Queue：\n纵轴（Column）：cols 主对角线（Positive Diagonal）：posDiag 次对角线（Negative Diagonal）：negDiag 纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 r 纵轴为 c ，\nr - c 在正对角线是一致的：\n斜对角线 r + c 是一致的:\nclass Solution { public: vector\u003cvector\u003cstring\u003e\u003e solveNQueens(int n) { for (int r = 0; r \u003c n; r++) { string col = string(n, '.'); track.push_back(col); } backtracking(0, n); return res; } private: set\u003cint\u003e cols; // c set\u003cint\u003e posDiag; // r - c set\u003cint\u003e negDiag; // r + c vector\u003cvector\u003cstring\u003e\u003e res; vector\u003cstring\u003e track; void backtracking(int r, int n) { if (r == n) { res.push_back(track); return; } for (int c = 0; c \u003c n; c++) { if (cols.find(c) != cols.end() || posDiag.find(r - c) != posDiag.end() || negDiag.find(r + c) != negDiag.end()) { continue; } cols.insert(c); posDiag.insert(r - c); negDiag.insert(r + c); track[r][c] = 'Q'; backtracking(r + 1, n); track[r][c] = '.'; cols.erase(c); posDiag.erase(r - c); negDiag.erase(r + c); } } }; 结果\n[[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]] 一些想明白的问题：\n为什么没有 Q 出现在第一行第一列的情况？因为没有走到最后一行（r == n） 怎么出现的两个结果？这个要看回溯过程。 回溯过程：\n在每一列放置 Q 之后都会陷入下一行的递归中。 相当于以第一行的每一列进行遍历，依次穷举剩下行的每一列的可能性。 一旦一条路径走到头（r == n）说明有结果，还是回溯过程，接着进行下一列的可能回到 1. 继续 ",
+  "wordCount" : "167",
+  "inLanguage": "en",
+  "datePublished": "2021-08-02T07:32:00+08:00",
+  "dateModified": "2021-08-02T07:32:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      LeetCode: 51. N-Queens
+    </h1>
+    <div class="post-meta"><span title='2021-08-02 07:32:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/">LeetCode: 51. N-Queens</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-08-02 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> 
 
-  
-
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/notes/20200320172132_leetcode/">LeetCode</a>,<a href="/notes/20210803065050-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">backtracking</a></li>
 <li>source: <a href="https://leetcode.com/problems/n-queens/">https://leetcode.com/problems/n-queens/</a></li>
 </ul>
@@ -159,20 +218,14 @@ class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solv
 </ul>
 <p>纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 <code>r</code> 纵轴为 <code>c</code> ，</p>
 <p><code>r - c</code> 在正对角线是一致的：</p>
-
-  <figure class="left" >
-    <img src="/ox-hugo/n-queues-pos-diag.png"   />
-    
-  </figure>
-
+<figure>
+    <img loading="lazy" src="/ox-hugo/n-queues-pos-diag.png"/> 
+</figure>
 
 <p>斜对角线 <code>r + c</code> 是一致的:</p>
-
-  <figure class="left" >
-    <img src="/ox-hugo/n-queues-neg-diag.png"   />
-    
-  </figure>
-
+<figure>
+    <img loading="lazy" src="/ox-hugo/n-queues-neg-diag.png"/> 
+</figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
@@ -226,39 +279,16 @@ class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solv
 <li>一旦一条路径走到头（r == n）说明有结果，还是回溯过程，接着进行下一列的可能回到 1. 继续</li>
 </ol>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210802193049-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/">
-                <span class="button__icon">←</span>
-                <span class="button__text">边缘计算</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210731075851-multi_paxios/">
-                <span class="button__text">Multi-Paxios</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1714,51 +1744,152 @@ class Solution { public: vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; solv
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210803074630-leetcode_52_n_queens_ii/">LeetCode: 52. N-Queens II</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>LeetCode: 52. N-Queens II
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens-ii/ 参见：LeetCode: 51. N-Queens</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-08-03 07:46:00 +0800 +0800'>August 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to LeetCode: 52. N-Queens II" href="https://notes.0081800.xyz/notes/20210803074630-leetcode_52_n_queens_ii/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

@@ -1,164 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>Clock Synchronization with Chris Perl :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer&amp;rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Clock Synchronization with Chris Perl | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
+<meta name="description" content="tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer&rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
+But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc.">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Clock Synchronization with Chris Perl" />
+<meta property="og:description" content="tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer&rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
 But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/" />
-
-
-
-
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
-
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Clock Synchronization with Chris Perl">
-<meta property="og:description" content="tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer&amp;rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
-But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc." />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-08-09T10:38:00+08:00" />
+<meta property="article:modified_time" content="2021-08-09T10:38:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Clock Synchronization with Chris Perl"/>
+<meta name="twitter:description" content="tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer&rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
+But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc."/>
 
 
-  <meta property="article:published_time" content="2021-08-09 10:38:00 &#43;0800 &#43;0800" />
-
-
-
-
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Clock Synchronization with Chris Perl",
+      "item": "https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Clock Synchronization with Chris Perl",
+  "name": "Clock Synchronization with Chris Perl",
+  "description": "tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer\u0026rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.\nBut a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc.",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer’s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.\nBut a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc. A really high-quality oscillator would be really expensive. So most computers come with fairly bad oscillators.\nGPS: External Reference Buy a GPS appliance to receive time from the signal of the GPS satellites.\nFrom the book DDIA, nearly every large data center have one in their room to synchronize time from GPS.\nThe accuracy there is something like maybe 100 nanoseconds.\nWhy Clock Synchronization is so Important? Total ordering of events in a distributed system.\nNTP: Synchronize Clock Inside of a Computer Network NTP stands for Network Time Protocol.\nThere are four timestamps, as the core:\nclient send timestamp: before client send a packet to server, client record a timestamp as it. server receive timestamp: when the server received the packet. server send timestamp: when the server reply to the client. client receive timestamp: when the client recived the reply packet from the server. With those four timestamps, we can compute two important numbers:\nThe offset, how far my clock is off from yours. The delay, how long it took those packets to traverse the network. The Weakness of NTP Too much assumption. Adjust time abruptly. May change time in the negative direction. chrony: A More Customizable Implementation of NTP NTP can do the Slewing in an appropariate way: keep the rates pretty close to the real-time rates, and it’s slowly, for chrony, the default is 12 seconds to remove one second of error.\nPTP: Precision Time Protocol A successor to NTP that uses multicast, hardware timestamping, networking switches, and faster default update rates to achieve better synchronization. Which meets MiFID II1.\nNTP is good to milliseconds. PTP is good to microseconds.\nThree things made PTP much more accurate than NTP:\nHardware Timestamping: many hardware vendors support it with PTP. So PTP get a timestamp when the packet arrives at the network card. Frequency of Updates. Lots of Switches, multicast by switches, involved and help you move time across the network while understanding their own delays that they’re adding to it. Multicast: Best Master Clock Algorithm A process for determining the best time source available, which PTP then uses as its grandmaster2.\nWith multicast, as a client, you don’t need to configured which server to talk, just run the client, and start receiving from grandmaster. It also good to grandmaster: NO connection need to maintain.\nAlso with the multicast, PTP should be used:\nIn a small area. Hybrid mode, sync message comes in multicast, but the delay request and the delay response wind up being unicast. Final Solution Some GPS appliances get time from GPS. Use PTP to move time from the GPS appliances to a set of Linux machines. The, NTP interleaved mode to move the time from those machines onto machines further downstream. Short Overview of NTP Interleaved Mode the interleaved mode is sort of a special way in which you can run NTP and that when you transmit your next NTP packet you send that hardware timestamp that you got for the previous transmission, and then the other side, each side can use those. I don’t want to get into too much of the details of how that works, but it allows you to get more accuracy and to leverage those hardware timestamps on transmission.\nResults We are absolutely no worse error than about 35 microseconds.\nA set of European financial regulations that required, among a number of other changes, that some market participants, including Jane Street, be able to show that their clocks were synchronized, within 100 Microseconds, to UTC. ↩︎\nThe clock used by PTP as its time reference. ↩︎\n",
+  "wordCount" : "667",
+  "inLanguage": "en",
+  "datePublished": "2021-08-09T10:38:00+08:00",
+  "dateModified": "2021-08-09T10:38:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      Clock Synchronization with Chris Perl
+    </h1>
+    <div class="post-meta"><span title='2021-08-09 10:38:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/">Clock Synchronization with Chris Perl</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-08-09 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#electronic-oscillator-computer-itself-to-dervie-its-notion-of-time" aria-label="Electronic Oscillator: Computer itself to Dervie its Notion of Time">Electronic Oscillator: Computer itself to Dervie its Notion of Time</a></li>
+                <li>
+                    <a href="#gps-external-reference" aria-label="GPS: External Reference">GPS: External Reference</a></li>
+                <li>
+                    <a href="#why-clock-synchronization-is-so-important" aria-label="Why Clock Synchronization is so Important?">Why Clock Synchronization is so Important?</a></li>
+                <li>
+                    <a href="#ntp-synchronize-clock-inside-of-a-computer-network" aria-label="NTP: Synchronize Clock Inside of a Computer Network">NTP: Synchronize Clock Inside of a Computer Network</a><ul>
+                        
+                <li>
+                    <a href="#the-weakness-of-ntp" aria-label="The Weakness of NTP">The Weakness of NTP</a></li></ul>
+                </li>
+                <li>
+                    <a href="#chrony-a-more-customizable-implementation-of-ntp" aria-label="chrony: A More Customizable Implementation of NTP">chrony: A More Customizable Implementation of NTP</a></li>
+                <li>
+                    <a href="#ptp-precision-time-protocol" aria-label="PTP:  Precision Time Protocol">PTP:  Precision Time Protocol</a><ul>
+                        
+                <li>
+                    <a href="#multicast-best-master-clock-algorithm" aria-label="Multicast: Best Master Clock Algorithm">Multicast: Best Master Clock Algorithm</a></li></ul>
+                </li>
+                <li>
+                    <a href="#final-solution" aria-label="Final Solution">Final Solution</a><ul>
+                        
+                <li>
+                    <a href="#short-overview-of-ntp-interleaved-mode" aria-label="Short Overview of NTP Interleaved Mode">Short Overview of NTP Interleaved Mode</a></li></ul>
+                </li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/topics/20200320174417_%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>,<a href="/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/">一致性</a>,<a href="/notes/20220414150932-clock_synchronization/">Clock Synchronization</a>,<a href="/notes/20220414161423-multicast/">Multicast</a></li>
 <li>source: <a href="https://signalsandthreads.com/clock-synchronization/">https://signalsandthreads.com/clock-synchronization/</a></li>
 </ul>
-<h2 id="electronic-oscillator-computer-itself-to-dervie-its-notion-of-time">Electronic Oscillator: Computer itself to Dervie its Notion of Time<a href="#electronic-oscillator-computer-itself-to-dervie-its-notion-of-time" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="electronic-oscillator-computer-itself-to-dervie-its-notion-of-time">Electronic Oscillator: Computer itself to Dervie its Notion of Time<a hidden class="anchor" aria-hidden="true" href="#electronic-oscillator-computer-itself-to-dervie-its-notion-of-time">#</a></h2>
 <p>Computer&rsquo;s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt.
 So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.</p>
 <p>But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc. A really high-quality oscillator would be really expensive.
 So most computers come with fairly bad oscillators.</p>
-<h2 id="gps-external-reference">GPS: External Reference<a href="#gps-external-reference" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="gps-external-reference">GPS: External Reference<a hidden class="anchor" aria-hidden="true" href="#gps-external-reference">#</a></h2>
 <p>Buy a GPS appliance to receive time from the signal of the GPS satellites.</p>
 <blockquote>
 <p>From the book DDIA, nearly every large data center have one in their room to synchronize time from GPS.</p>
 </blockquote>
 <p>The accuracy there is something like maybe 100 nanoseconds.</p>
-<h2 id="why-clock-synchronization-is-so-important">Why Clock Synchronization is so Important?<a href="#why-clock-synchronization-is-so-important" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="why-clock-synchronization-is-so-important">Why Clock Synchronization is so Important?<a hidden class="anchor" aria-hidden="true" href="#why-clock-synchronization-is-so-important">#</a></h2>
 <p>Total ordering of events in a distributed system.</p>
-<h2 id="ntp-synchronize-clock-inside-of-a-computer-network">NTP: Synchronize Clock Inside of a Computer Network<a href="#ntp-synchronize-clock-inside-of-a-computer-network" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="ntp-synchronize-clock-inside-of-a-computer-network">NTP: Synchronize Clock Inside of a Computer Network<a hidden class="anchor" aria-hidden="true" href="#ntp-synchronize-clock-inside-of-a-computer-network">#</a></h2>
 <p>NTP stands for Network Time Protocol.</p>
 <p>There are four timestamps, as the core:</p>
 <ol>
@@ -172,16 +267,16 @@ So most computers come with fairly bad oscillators.</p>
 <li>The <em>offset</em>, how far my clock is off from yours.</li>
 <li>The <em>delay</em>, how long it took those packets to traverse the network.</li>
 </ol>
-<h3 id="the-weakness-of-ntp">The Weakness of NTP<a href="#the-weakness-of-ntp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="the-weakness-of-ntp">The Weakness of NTP<a hidden class="anchor" aria-hidden="true" href="#the-weakness-of-ntp">#</a></h3>
 <ul>
 <li>Too much assumption.</li>
 <li>Adjust time abruptly.</li>
 <li>May change time in the negative direction.</li>
 </ul>
-<h2 id="chrony-a-more-customizable-implementation-of-ntp">chrony: A More Customizable Implementation of NTP<a href="#chrony-a-more-customizable-implementation-of-ntp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="chrony-a-more-customizable-implementation-of-ntp">chrony: A More Customizable Implementation of NTP<a hidden class="anchor" aria-hidden="true" href="#chrony-a-more-customizable-implementation-of-ntp">#</a></h2>
 <p>NTP can do the Slewing in an appropariate way: keep the rates pretty close to the real-time rates, and it&rsquo;s slowly,
 for chrony, the default is 12 seconds to remove one second of error.</p>
-<h2 id="ptp-precision-time-protocol">PTP:  Precision Time Protocol<a href="#ptp-precision-time-protocol" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="ptp-precision-time-protocol">PTP:  Precision Time Protocol<a hidden class="anchor" aria-hidden="true" href="#ptp-precision-time-protocol">#</a></h2>
 <p>A successor to NTP that uses multicast, hardware timestamping, networking switches, and faster default update rates to achieve better synchronization.
 Which meets MiFID II<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <blockquote>
@@ -193,7 +288,7 @@ Which meets MiFID II<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role=
 <li><em>Frequency of Updates</em>.</li>
 <li><em>Lots of Switches</em>, multicast by switches, involved and help you move time across the network while understanding their own delays that they’re adding to it.</li>
 </ul>
-<h3 id="multicast-best-master-clock-algorithm">Multicast: Best Master Clock Algorithm<a href="#multicast-best-master-clock-algorithm" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="multicast-best-master-clock-algorithm">Multicast: Best Master Clock Algorithm<a hidden class="anchor" aria-hidden="true" href="#multicast-best-master-clock-algorithm">#</a></h3>
 <p>A process for determining the best time source available, which PTP then uses as its grandmaster<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>With multicast, as a client, you don&rsquo;t need to configured which server to talk, just run the client, and start receiving from grandmaster.
 It also good to grandmaster: NO connection need to maintain.</p>
@@ -202,17 +297,17 @@ It also good to grandmaster: NO connection need to maintain.</p>
 <li>In a small area.</li>
 <li><em>Hybrid mode</em>, sync message comes in multicast, but the delay request and the delay response wind up being unicast.</li>
 </ol>
-<h2 id="final-solution">Final Solution<a href="#final-solution" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="final-solution">Final Solution<a hidden class="anchor" aria-hidden="true" href="#final-solution">#</a></h2>
 <ol>
 <li>Some GPS appliances get time from GPS.</li>
 <li>Use PTP to move time from the GPS appliances to a set of Linux machines.</li>
 <li>The, NTP interleaved mode to move the time from those machines onto machines further downstream.</li>
 </ol>
-<h3 id="short-overview-of-ntp-interleaved-mode">Short Overview of NTP Interleaved Mode<a href="#short-overview-of-ntp-interleaved-mode" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="short-overview-of-ntp-interleaved-mode">Short Overview of NTP Interleaved Mode<a hidden class="anchor" aria-hidden="true" href="#short-overview-of-ntp-interleaved-mode">#</a></h3>
 <blockquote>
 <p>the interleaved mode is sort of a special way in which you can run NTP and that when you transmit your next NTP packet you send that hardware timestamp that you got for the previous transmission, and then the other side, each side can use those. I don’t want to get into too much of the details of how that works, but it allows you to get more accuracy and to leverage those hardware timestamps on transmission.</p>
 </blockquote>
-<h2 id="results">Results<a href="#results" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
 <blockquote>
 <p>We are absolutely no worse error than about 35 microseconds.</p>
 </blockquote>
@@ -228,39 +323,18 @@ It also good to grandmaster: NO connection need to maintain.</p>
 </ol>
 </div>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210810070530-%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86/">
-                <span class="button__icon">←</span>
-                <span class="button__text">大规模并行处理</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210809080723-hive/">
-                <span class="button__text">Hive</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
+
+   
 
    
 
@@ -1715,43 +1789,131 @@ It also good to grandmaster: NO connection need to maintain.</p>
    
 
 
-<hr>
+<hr />
 
   <div class="bl-section">
     <h4>No notes link to this note</h4>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

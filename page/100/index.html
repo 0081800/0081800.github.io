@@ -1,347 +1,292 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="auto">
+
 <head>
-	<meta name="generator" content="Hugo 0.106.0">
-  
-    <title>Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/" />
+	<meta name="generator" content="Hugo 0.106.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Taking Smart Notes With Org-mode</title>
 
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://notes.0081800.xyz/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/index.xml">
+<link rel="alternate" type="application/json" href="https://notes.0081800.xyz/index.json">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Taking Smart Notes With Org-mode">
+    </style>
+</noscript><meta property="og:title" content="Taking Smart Notes With Org-mode" />
 <meta property="og:description" content="" />
+<meta property="og:type" content="website" />
 <meta property="og:url" content="https://notes.0081800.xyz/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Taking Smart Notes With Org-mode"/>
+<meta name="twitter:description" content=""/>
 
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-
-
-
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
-
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Taking Smart Notes With Org-mode",
+  "url": "https://notes.0081800.xyz/",
+  "description": "",
+  "thumbnailUrl": "https://notes.0081800.xyz/favicon.ico",
+  "sameAs": [
+      
+  ]
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>新的 Java 内存模型（2004）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
+Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
+同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
+有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
+happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） </p>
   </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 新的 Java 内存模型（2004）" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Java 编译器公共子表达式消除（common subexpression elimination）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>// p and q may or may not point at the same object. int i = p.x; // ... maybe another thread writes p.x at this point ... int j = q.x; int k = p.x; 在这个程序中，公共子表达式消除（common subexpression elimination）会注意到 p.x 被计算了两次，并将最后一行优化为 k = i 。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:10:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 编译器公共子表达式消除（common subexpression elimination）" href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>原始 Java 内存模型（1996）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Java 内存模型,Java Java 是第一个试图写下多线程程序保证的主流语言。它包括：
+互斥体（mutex），并定义了它们隐含的内存排序要求。 “volatile” 原子变量: volatile 变量的所有读和写都需要直接在主内存中按程序顺序执行，使得对 volatile 变量的操作以顺序一致的方式进行。 制定了（或者至少试图制定）具有数据竞争的程序的行为。 缺陷 Atomic 需要同步：volatile 原子变量是不同步的，所以它们无助于消除程序其余部分的竞争。不能用于构建新的同步原语。 一致性与编译器优化不兼容：Java 编译器公共子表达式消除（common subexpression elimination）会导致其他线程写入新值无法对消除后表达式生效。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:05:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原始 Java 内存模型（1996）" href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>DRF-SC 系统同步指令
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>保证了弱有序和无数据竞争（DRF）的系统会提供称为同步的特定指令，提供一种协调不同处理器（相当于硬件线程）的属性。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:51:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to DRF-SC 系统同步指令" href="https://notes.0081800.xyz/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>同步原子（synchronizing atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>原子变量（atomic variable）或原子操作（tomic operation）更好的解释。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:44:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 同步原子（synchronizing atomic）" href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://notes.0081800.xyz/page/99/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://notes.0081800.xyz/page/101/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
 </a>
 
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-    
-  </ul>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
-  
-</header>
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-  <div class="content">
-    
-  
-  <div class="posts">
-    
-    
-
-    
-    
-      
-    
-    
-
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/">Java 编译器公共子表达式消除（common subexpression elimination）</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2021-07-13
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/">原始 Java 内存模型（1996）</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2021-07-13
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/">DRF-SC 系统同步指令</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2021-07-13
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/">同步原子（synchronizing atomic）</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2021-07-13
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/">原子变量（atomic variable）或原子操作（tomic operation）</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2021-07-13
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
-代码示例
-// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
-Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"> →</a>
-        </div>
-        
-      </div>
-    
-    <div class="pagination">
-  <div class="pagination__buttons">
-    
-      <span class="button previous">
-        <a href="/page/99/">
-          <span class="button__icon">←</span>
-          <span class="button__text">Newer posts</span>
-        </a>
-      </span>
-    
-    
-      <span class="button next">
-        <a href="/page/101/">
-          <span class="button__text">Older posts</span>
-          <span class="button__icon">→</span>
-        </a>
-      </span>
-    
-  </div>
-</div>
-
-  </div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
-    
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
-</footer>
-
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
-
-  
-</div>
-
+</script>
 </body>
+
 </html>

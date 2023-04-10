@@ -1,147 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>LeetCode: 79. Word Search :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>LeetCode: 79. Word Search | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="tags: LeetCode 79. Word Search
-class Solution { public: bool exist(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &amp;lt; board." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/" />
+class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board.">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="LeetCode: 79. Word Search">
+    </style>
+</noscript><meta property="og:title" content="LeetCode: 79. Word Search" />
 <meta property="og:description" content="tags: LeetCode 79. Word Search
-class Solution { public: bool exist(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &amp;lt; board." />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-08-15T08:15:00+08:00" />
+<meta property="article:modified_time" content="2021-08-15T08:15:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-08-15 08:15:00 &#43;0800 &#43;0800" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LeetCode: 79. Word Search"/>
+<meta name="twitter:description" content="tags: LeetCode 79. Word Search
+class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board."/>
 
 
-
-
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "LeetCode: 79. Word Search",
+      "item": "https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LeetCode: 79. Word Search",
+  "name": "LeetCode: 79. Word Search",
+  "description": "tags: LeetCode 79. Word Search\nclass Solution { public: bool exist(vector\u0026lt;vector\u0026lt;char\u0026gt;\u0026gt;\u0026amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u0026lt;vector\u0026lt;char\u0026gt;\u0026gt;\u0026amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i \u0026lt; board.",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: LeetCode 79. Word Search\nclass Solution { public: bool exist(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i \u003c board.size(); i++) { for (int j = col; j \u003c board[i].size(); j++) { auto directions = get_next_directions(board, i, j); if (directions.size() == 0) { return; } for (auto d: directions) { int r, c; track.push_back(board[i][j]); std::tie(r, c) = next_char_pos(board, row, col, d); if (word.find(track) == 0) { backtracking(board, word, r, c); } track.pop_back(); } } } } vector\u003cDirection\u003e get_next_directions(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col) { vector\u003cDirection\u003e r; if (col \u003c board[row].size() - 1) { r.push_back(right); } if (row \u003c board.size() - 1) { r.push_back(down); } if (row \u003e 0) { r.push_back(up); } if (col \u003e 0) { r.push_back(left); } return r; } tuple\u003cint, int\u003e next_char_pos(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col, Direction dir) { switch(dir) { case right: col++; break; case left: col--; break; case up: row--; break; case down: row++; break; } tuple\u003cint, int\u003er(row, col); return r; } }; 失败的用例：\n[[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]] \"ABCB\" 因为方向往回走导致，应该规避方向往回走。通过一个 set 来跟踪位置，防止进入前面的位置：\nclass Solution { public: bool exist(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; set\u003ctuple\u003cint, int\u003e\u003e pos; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i \u003c board.size(); i++) { for (int j = col; j \u003c board[i].size(); j++) { auto directions = get_next_directions(board, i, j); if (directions.size() == 0) { return; } for (auto d: directions) { tuple\u003cint, int\u003e p (i, j); if (pos.find(p) != pos.end()) { continue; } pos.insert(p); track.push_back(board[i][j]); int r, c; std::tie(r, c) = next_char_pos(board, row, col, d); if (word.find(track) == 0) { backtracking(board, word, r, c); } track.pop_back(); pos.erase(p); } } } } vector\u003cDirection\u003e get_next_directions(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col) { vector\u003cDirection\u003e r; if (col \u003c board[row].size() - 1) { r.push_back(right); } if (row \u003c board.size() - 1) { r.push_back(down); } if (row \u003e 0) { r.push_back(up); } if (col \u003e 0) { r.push_back(left); } return r; } tuple\u003cint, int\u003e next_char_pos(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col, Direction dir) { switch(dir) { case right: col++; break; case left: col--; break; case up: row--; break; case down: row++; break; } tuple\u003cint, int\u003er(row, col); return r; } }; 失败的用例：\n[[\"a\"]] \"a\" 代码逻辑有问题，修正后：\nclass Solution { public: bool exist(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; set\u003ctuple\u003cint, int\u003e\u003e pos; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i \u003c board.size(); i++) { for (int j = col; j \u003c board[i].size(); j++) { tuple\u003cint, int\u003e p (i, j); if (pos.find(p) != pos.end()) { continue; } pos.insert(p); track.push_back(board[i][j]); if (track == word || res) { res = true; return; } if (word.find(track) == 0) { auto directions = get_next_directions(board, i, j); for (auto d: directions) { int r, c; std::tie(r, c) = next_char_pos(board, row, col, d); backtracking(board, word, r, c); } } track.pop_back(); pos.erase(p); } } } vector\u003cDirection\u003e get_next_directions(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col) { vector\u003cDirection\u003e r; if (col \u003c board[row].size() - 1) { r.push_back(right); } if (row \u003c board.size() - 1) { r.push_back(down); } if (row \u003e 0) { r.push_back(up); } if (col \u003e 0) { r.push_back(left); } return r; } tuple\u003cint, int\u003e next_char_pos(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col, Direction dir) { switch(dir) { case right: col++; break; case left: col--; break; case up: row--; break; case down: row++; break; } tuple\u003cint, int\u003er(row, col); return r; } }; 以下测试用例无法通过：\n[[\"a\",\"b\"]] \"ba\" 调整代码后（进入下一个节点的 row/col 没用 i/j）:\nclass Solution { public: bool exist(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; set\u003ctuple\u003cint, int\u003e\u003e pos; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word, int row, int col) { cout \u003c\u003c track \u003c\u003c endl; if (track == word || res) { res = true; return; } for (int i = row; i \u003c board.size(); i++) { for (int j = col; j \u003c board[i].size(); j++) { tuple\u003cint, int\u003e p (i, j); if (pos.find(p) != pos.end()) { continue; } pos.insert(p); track.push_back(board[i][j]); if (track == word) { res = true; return; } if (word.find(track) == 0) { auto directions = get_next_directions(board, i, j); for (auto d: directions) { int r, c; std::tie(r, c) = next_char_pos(board, i, j, d); backtracking(board, word, r, c); } } track.pop_back(); pos.erase(p); } } } vector\u003cDirection\u003e get_next_directions(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col) { vector\u003cDirection\u003e r; if (col \u003c board[row].size() - 1) { r.push_back(right); } if (row \u003c board.size() - 1) { r.push_back(down); } if (row \u003e 0) { r.push_back(up); } if (col \u003e 0) { r.push_back(left); } return r; } tuple\u003cint, int\u003e next_char_pos(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col, Direction dir) { switch(dir) { case right: col++; break; case left: col--; break; case up: row--; break; case down: row++; break; } tuple\u003cint, int\u003er(row, col); return r; } }; 此时的失败用例：\n[[\"a\",\"b\"],[\"c\",\"d\"]] \"abcd\" 改成如果位置已经存在则返回可以通过:\nclass Solution { public: bool exist(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; set\u003ctuple\u003cint, int\u003e\u003e pos; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i \u003c board.size(); i++) { for (int j = col; j \u003c board[i].size(); j++) { tuple\u003cint, int\u003e p (i, j); if (pos.find(p) != pos.end()) { return; // \u003c--------- here } pos.insert(p); track.push_back(board[i][j]); if (word.find(track) == 0) { auto directions = get_next_directions(board, i, j); if (track == word) { res = true; return; } for (auto d: directions) { int r, c; std::tie(r, c) = next_char_pos(board, i, j, d); backtracking(board, word, r, c); } } track.pop_back(); pos.erase(p); } } } vector\u003cDirection\u003e get_next_directions(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col) { vector\u003cDirection\u003e r; if (col \u003c board[row].size() - 1) { r.push_back(right); } if (row \u003c board.size() - 1) { r.push_back(down); } if (row \u003e 0) { r.push_back(up); } if (col \u003e 0) { r.push_back(left); } return r; } tuple\u003cint, int\u003e next_char_pos(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col, Direction dir) { switch(dir) { case right: col++; break; case left: col--; break; case up: row--; break; case down: row++; break; } tuple\u003cint, int\u003er(row, col); return r; } }; 但是在下面测试用例失败了：\n[[\"b\"],[\"a\"],[\"b\"],[\"b\"],[\"a\"]] \"baa\" 简单的过滤掉：\nif (board.size() \u003e 0 \u0026\u0026 board[0].size() == 1) { string s; for (int i = 0; i \u003c board.size(); i++) { s.push_back(board[0][0]); } return s.find(word) != string::npos; } 现在下面失败了：\n[[\"a\",\"a\",\"b\",\"a\",\"a\",\"b\"],[\"a\",\"a\",\"b\",\"b\",\"b\",\"a\"],[\"a\",\"a\",\"a\",\"a\",\"b\",\"a\"],[\"b\",\"a\",\"b\",\"b\",\"a\",\"b\"],[\"a\",\"b\",\"b\",\"a\",\"b\",\"a\"],[\"b\",\"a\",\"a\",\"a\",\"a\",\"b\"]] \"bbbaabbbbbab\" 经过仔细推敲后：\nclass Solution { public: bool exist(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word) { for (int i = 0; i \u003c board.size(); i++) { for (int j = 0; j \u003c board[i].size(); j++) { backtracking(board, word, i, j); } } return res; } private: string track; bool res = false; set\u003ctuple\u003cint, int\u003e\u003e pos; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, string word, int row, int col) { tuple\u003cint, int\u003e p (row, col); if (pos.find(p) != pos.end()) { return; // \u003c--------- here } pos.insert(p); track.push_back(board[row][col]); if (track == word) { cout \u003c\u003c track \u003c\u003c endl; res = true; return; } if (res) { return; } if (word.find(track) == 0) { cout \u003c\u003c row \u003c\u003c \", \" \u003c\u003c col \u003c\u003c endl; auto directions = get_next_directions(board, row, col); for (auto d: directions) { int r, c; std::tie(r, c) = next_char_pos(board, row, col, d); cout \u003c\u003c \" \" \u003c\u003c r \u003c\u003c \",\" \u003c\u003c c \u003c\u003c endl; backtracking(board, word, r, c); } } track.pop_back(); pos.erase(p); } vector\u003cDirection\u003e get_next_directions(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col) { vector\u003cDirection\u003e r; if (col \u003c board[row].size() - 1) { r.push_back(right); } if (row \u003c board.size() - 1) { r.push_back(down); } if (row \u003e 0) { r.push_back(up); } if (col \u003e 0) { r.push_back(left); } return r; } tuple\u003cint, int\u003e next_char_pos(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, int row, int col, Direction dir) { switch(dir) { case right: col++; break; case left: col--; break; case up: row--; break; case down: row++; break; } tuple\u003cint, int\u003er(row, col); return r; } }; 下面用例会导致处理事件过长：\n[[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"]] \"AAAAAAAAAAAAAAB\" 测试用例快照:\n[[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]] \"ABCCED\" [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]] \"SEE\" [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]] \"ABCB\" [[\"a\"]] \"a\" [[\"a\",\"b\"]] \"ba\" [[\"a\",\"b\"],[\"c\",\"d\"]] \"dbac\" [[\"a\",\"b\"],[\"c\",\"d\"]] \"abcd\" [[\"a\",\"a\",\"a\",\"a\"],[\"a\",\"a\",\"a\",\"a\"],[\"a\",\"a\",\"a\",\"a\"]] \"aaaaaaaaaaaaa\" [[\"b\"],[\"a\"],[\"b\"],[\"b\"],[\"a\"]] \"baa\" [[\"a\"]] \"ab\" [[\"a\",\"a\",\"b\",\"a\",\"a\",\"b\"],[\"a\",\"a\",\"b\",\"b\",\"b\",\"a\"],[\"a\",\"a\",\"a\",\"a\",\"b\",\"a\"],[\"b\",\"a\",\"b\",\"b\",\"a\",\"b\"],[\"a\",\"b\",\"b\",\"a\",\"b\",\"a\"],[\"b\",\"a\",\"a\",\"a\",\"a\",\"b\"]] \"bbbaabbbbbab\" [[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"]] \"AAAAAAAAAAAAAAB\" ",
+  "wordCount" : "1498",
+  "inLanguage": "en",
+  "datePublished": "2021-08-15T08:15:00+08:00",
+  "dateModified": "2021-08-15T08:15:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      LeetCode: 79. Word Search
+    </h1>
+    <div class="post-meta"><span title='2021-08-15 08:15:00 +0800 +0800'>August 15, 2021</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/">LeetCode: 79. Word Search</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-08-15 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> 
 
-  
-
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/notes/20200320172132_leetcode/">LeetCode</a></li>
 </ul>
 <p><a href="https://leetcode.com/problems/word-search/">79. Word Search</a></p>
@@ -736,39 +792,18 @@ class Solution { public: bool exist(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp
 [[&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;],[&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;],[&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;],[&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;],[&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;],[&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;,&#34;A&#34;]]
 &#34;AAAAAAAAAAAAAAB&#34;
 </code></pre>
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210816074540-leetcode_112_path_sum/">
-                <span class="button__icon">←</span>
-                <span class="button__text">LeetCode: 112. Path Sum</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210814072447-event_store/">
-                <span class="button__text">Event Store</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
+
+   
 
    
 
@@ -2223,43 +2258,131 @@ class Solution { public: bool exist(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp
    
 
 
-<hr>
+<hr />
 
   <div class="bl-section">
     <h4>No notes link to this note</h4>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

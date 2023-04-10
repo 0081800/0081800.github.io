@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>《领域驱动设计》读书笔记 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>《领域驱动设计》读书笔记 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="ddd">
 <meta name="description" content="tags: 正在读的书,读书笔记,DDD 前言和目录 好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。
 什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。
 本书组织方式：
@@ -15,39 +16,61 @@
 软件问题建模的区域就是软件的领域
 物质世界的领域：机票预订程序涉及的飞机乘客。 无形的领域：会计程序的金融领域。 领域涉及知识信息超载的问题，模型这种知识对知识进行了选择性的简化和有意的结构化。
 领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。
-模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -&amp;gt; 人 或 人 -&amp;gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。
+模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -&gt; 人 或 人 -&gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。
 将 ENTITY 和 VALUE OBJECT 区分开 依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。
 AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
 选择 REPOSITORY 为 AGGREGATE 根对象建立 REPOSITORY。
 场景走查 根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。
-对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" />
+对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="《领域驱动设计》读书笔记">
+    </style>
+</noscript><meta property="og:title" content="《领域驱动设计》读书笔记" />
 <meta property="og:description" content="tags: 正在读的书,读书笔记,DDD 前言和目录 好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。
 什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。
 本书组织方式：
@@ -57,130 +80,257 @@ AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
 软件问题建模的区域就是软件的领域
 物质世界的领域：机票预订程序涉及的飞机乘客。 无形的领域：会计程序的金融领域。 领域涉及知识信息超载的问题，模型这种知识对知识进行了选择性的简化和有意的结构化。
 领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。
-模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -&amp;gt; 人 或 人 -&amp;gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。
+模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -&gt; 人 或 人 -&gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。
 将 ENTITY 和 VALUE OBJECT 区分开 依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。
 AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
 选择 REPOSITORY 为 AGGREGATE 根对象建立 REPOSITORY。
 场景走查 根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。
 对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2019-06-15T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-06-15T00:00:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2019-06-15 00:00:00 &#43;0800 &#43;0800" />
-
-
-
-
-
-
-
-
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《领域驱动设计》读书笔记"/>
+<meta name="twitter:description" content="tags: 正在读的书,读书笔记,DDD 前言和目录 好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。
+什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。
+本书组织方式：
+领域建模 领域建模的过程就是消化知识的过程，这个过程应该贯穿整个开发过程，需要持续学习。
+模型用来描绘人们所关注的实现或想法的某个方面，比如地图就是模型。
+模型是一种简化，是对实现的解释：把与解决问题密切相关的方面抽象出来，而忽略无关的细节。
+软件问题建模的区域就是软件的领域
+物质世界的领域：机票预订程序涉及的飞机乘客。 无形的领域：会计程序的金融领域。 领域涉及知识信息超载的问题，模型这种知识对知识进行了选择性的简化和有意的结构化。
+领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。
+模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -&gt; 人 或 人 -&gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。
+将 ENTITY 和 VALUE OBJECT 区分开 依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。
+AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
+选择 REPOSITORY 为 AGGREGATE 根对象建立 REPOSITORY。
+场景走查 根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。
+对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。"/>
 
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "《领域驱动设计》读书笔记",
+      "item": "https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "《领域驱动设计》读书笔记",
+  "name": "《领域驱动设计》读书笔记",
+  "description": "tags: 正在读的书,读书笔记,DDD 前言和目录 好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。\n什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。\n本书组织方式：\n领域建模 领域建模的过程就是消化知识的过程，这个过程应该贯穿整个开发过程，需要持续学习。\n模型用来描绘人们所关注的实现或想法的某个方面，比如地图就是模型。\n模型是一种简化，是对实现的解释：把与解决问题密切相关的方面抽象出来，而忽略无关的细节。\n软件问题建模的区域就是软件的领域\n物质世界的领域：机票预订程序涉及的飞机乘客。 无形的领域：会计程序的金融领域。 领域涉及知识信息超载的问题，模型这种知识对知识进行了选择性的简化和有意的结构化。\n领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。\n模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -\u0026gt; 人 或 人 -\u0026gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。\n将 ENTITY 和 VALUE OBJECT 区分开 依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。\nAGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。\n选择 REPOSITORY 为 AGGREGATE 根对象建立 REPOSITORY。\n场景走查 根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。\n对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。",
+  "keywords": [
+    "ddd"
+  ],
+  "articleBody": " tags: 正在读的书,读书笔记,DDD 前言和目录 好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。\n什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。\n本书组织方式：\n领域建模 领域建模的过程就是消化知识的过程，这个过程应该贯穿整个开发过程，需要持续学习。\n模型用来描绘人们所关注的实现或想法的某个方面，比如地图就是模型。\n模型是一种简化，是对实现的解释：把与解决问题密切相关的方面抽象出来，而忽略无关的细节。\n软件问题建模的区域就是软件的领域\n物质世界的领域：机票预订程序涉及的飞机乘客。 无形的领域：会计程序的金融领域。 领域涉及知识信息超载的问题，模型这种知识对知识进行了选择性的简化和有意的结构化。\n领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。\n模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -\u003e 人 或 人 -\u003e 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。\n将 ENTITY 和 VALUE OBJECT 区分开 依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。\nAGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。\n选择 REPOSITORY 为 AGGREGATE 根对象建立 REPOSITORY。\n场景走查 根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。\n对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。\n停一下，重构 建模和设计需要经常进行重构：利用新知识来改进模型和设计。\nMODULE 划分 应该按照对象的意义来划分，其他任何划分方式都是错误的，包括：\n按模式划分 按照对象生命周期划分 通过重构发现深层模型 重构不应该停留在代码细节层面，还应当在模型设计层面随着对知识吸收的加深对模型进行重构，发现深层模型。\n深层模型能够穿过领域表象，清楚地表达出领域专家们的主要关注点以及相关的知识。\n深层模型/柔性设计 在不断重构的过程中，设计本身也需要支持重构所带来变化。设计自身的某些特性就可以使其易于修改和使用。 每次对模型和代码所进行的修改能够反映出对领域的新理解，不断的重构能给系统最需要修改的地方增添灵活性， 并能找到简单快捷的方式来实现普通的功能。\n「戴久的手套在手指关节处变得柔软；而其他部分已然硬实，可起到保护的作用。」反复的修改能让我们越来越接近柔性设计。\n柔性设计除了便于修改，还有助于改进模型本身。MODEL-DRIVEN DESIGN 需要以下两个方面支持：\n深层模型使设计更具表现力； 同时，当设计的灵活性可以让开发人员进行实验，而设计又能清晰的表达出领域含义时，能够将开发人员的深层理解反馈到整个模型发现的过程中。 这应该是构建系统的基础。\n发现过程 支持不断重构、借用别人已经建好的模式。\n突破 重构创造机遇 关注根本：不要强行突破 概念挖掘 倾听语言 倾听领域专家的语言，思考并表达，观察领域专家的表情，判断自己是否找到了正确的概念（对象）。\n检查不足之处 积极与领域专家沟通，寻找丢失的概念。（注意领域专家的表情）\n思考矛盾之处 矛盾可以合理存在，但是一定要仔细思考两种对立的看法是如何同时应用于同一个外部实现的，这会给我们带来启示。\n查阅书记 通过解释基本概念和传统思想的书籍来寻找概念。\n尝试，再尝试 为隐式概念建模 显式的约束 约束通常式隐含的，将它们显式的表现出来可以极大地提高设计质量。约束有时自然的存在于对象或方法中。\n将过程建模为领域对象 建模方式：\n通过 模式：SERVICE 显式表达。 通过 STRATEGY 表达选择过程：选择变成选择不同的对象，不同对象表示不同的 STRATEGY。 ",
+  "wordCount" : "120",
+  "inLanguage": "en",
+  "datePublished": "2019-06-15T00:00:00+08:00",
+  "dateModified": "2019-06-15T00:00:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      《领域驱动设计》读书笔记
+    </h1>
+    <div class="post-meta"><span title='2019-06-15 00:00:00 +0800 +0800'>June 15, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/">《领域驱动设计》读书笔记</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2019-06-15 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
-  <span class="post-tags">
-    
-    #<a href="https://notes.0081800.xyz/tags/ddd/">ddd</a>&nbsp;
-    
-  </span>
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%89%8d%e8%a8%80%e5%92%8c%e7%9b%ae%e5%bd%95" aria-label="前言和目录">前言和目录</a></li>
+                <li>
+                    <a href="#%e9%a2%86%e5%9f%9f%e5%bb%ba%e6%a8%a1" aria-label="领域建模">领域建模</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a8%a1%e5%9e%8b%e8%a1%a8%e7%a4%ba" aria-label="模型表示">模型表示</a><ul>
+                        
+                <li>
+                    <a href="#%e5%85%b3%e8%81%94" aria-label="关联">关联</a></li>
+                <li>
+                    <a href="#%e8%a1%a8%e7%a4%ba%e6%96%b9%e5%bc%8f" aria-label="表示方式">表示方式</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%a2%86%e5%9f%9f%e6%a8%a1%e5%bc%8f--20210903080049-%e9%a2%86%e5%9f%9f%e6%a8%a1%e5%bc%8f-dot-md" aria-label="领域模式"><a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/">领域模式</a></a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e8%b7%b5-model-driven-design--20210903080049-%e9%a2%86%e5%9f%9f%e6%a8%a1%e5%bc%8f-dot-md" aria-label="实践 MODEL-DRIVEN DESIGN">实践 <a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/#模式-model-driven-design">MODEL-DRIVEN DESIGN</a></a><ul>
+                        
+                <li>
+                    <a href="#%e9%9a%94%e7%a6%bb%e9%a2%86%e5%9f%9f-%e5%bc%95%e5%85%a5%e5%ba%94%e7%94%a8%e5%b1%82" aria-label="隔离领域：引入应用层">隔离领域：引入应用层</a></li>
+                <li>
+                    <a href="#%e5%b0%86-entity-%e5%92%8c-value-object-%e5%8c%ba%e5%88%86%e5%bc%80" aria-label="将 ENTITY 和 VALUE OBJECT 区分开">将 ENTITY 和 VALUE OBJECT 区分开</a></li>
+                <li>
+                    <a href="#aggregate-%e8%be%b9%e7%95%8c" aria-label="AGGREGATE 边界">AGGREGATE 边界</a></li>
+                <li>
+                    <a href="#%e9%80%89%e6%8b%a9-repository" aria-label="选择 REPOSITORY">选择 REPOSITORY</a></li>
+                <li>
+                    <a href="#%e5%9c%ba%e6%99%af%e8%b5%b0%e6%9f%a5" aria-label="场景走查">场景走查</a></li>
+                <li>
+                    <a href="#%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba" aria-label="对象创建">对象创建</a></li>
+                <li>
+                    <a href="#%e5%81%9c%e4%b8%80%e4%b8%8b-%e9%87%8d%e6%9e%84" aria-label="停一下，重构">停一下，重构</a></li>
+                <li>
+                    <a href="#module-%e5%88%92%e5%88%86" aria-label="MODULE 划分">MODULE 划分</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%80%9a%e8%bf%87%e9%87%8d%e6%9e%84%e5%8f%91%e7%8e%b0%e6%b7%b1%e5%b1%82%e6%a8%a1%e5%9e%8b" aria-label="通过重构发现深层模型">通过重构发现深层模型</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b7%b1%e5%b1%82%e6%a8%a1%e5%9e%8b-%e6%9f%94%e6%80%a7%e8%ae%be%e8%ae%a1" aria-label="深层模型/柔性设计">深层模型/柔性设计</a></li>
+                <li>
+                    <a href="#%e5%8f%91%e7%8e%b0%e8%bf%87%e7%a8%8b" aria-label="发现过程">发现过程</a></li>
+                <li>
+                    <a href="#%e7%aa%81%e7%a0%b4" aria-label="突破">突破</a><ul>
+                        
+                <li>
+                    <a href="#%e9%87%8d%e6%9e%84%e5%88%9b%e9%80%a0%e6%9c%ba%e9%81%87" aria-label="重构创造机遇">重构创造机遇</a></li>
+                <li>
+                    <a href="#%e5%85%b3%e6%b3%a8%e6%a0%b9%e6%9c%ac-%e4%b8%8d%e8%a6%81%e5%bc%ba%e8%a1%8c%e7%aa%81%e7%a0%b4" aria-label="关注根本：不要强行突破">关注根本：不要强行突破</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%a6%82%e5%bf%b5%e6%8c%96%e6%8e%98" aria-label="概念挖掘">概念挖掘</a><ul>
+                        
+                <li>
+                    <a href="#%e5%80%be%e5%90%ac%e8%af%ad%e8%a8%80" aria-label="倾听语言">倾听语言</a></li>
+                <li>
+                    <a href="#%e6%a3%80%e6%9f%a5%e4%b8%8d%e8%b6%b3%e4%b9%8b%e5%a4%84" aria-label="检查不足之处">检查不足之处</a></li>
+                <li>
+                    <a href="#%e6%80%9d%e8%80%83%e7%9f%9b%e7%9b%be%e4%b9%8b%e5%a4%84" aria-label="思考矛盾之处">思考矛盾之处</a></li>
+                <li>
+                    <a href="#%e6%9f%a5%e9%98%85%e4%b9%a6%e8%ae%b0" aria-label="查阅书记">查阅书记</a></li>
+                <li>
+                    <a href="#%e5%b0%9d%e8%af%95-%e5%86%8d%e5%b0%9d%e8%af%95" aria-label="尝试，再尝试">尝试，再尝试</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%ba%e9%9a%90%e5%bc%8f%e6%a6%82%e5%bf%b5%e5%bb%ba%e6%a8%a1" aria-label="为隐式概念建模">为隐式概念建模</a><ul>
+                        
+                <li>
+                    <a href="#%e6%98%be%e5%bc%8f%e7%9a%84%e7%ba%a6%e6%9d%9f" aria-label="显式的约束">显式的约束</a></li>
+                <li>
+                    <a href="#%e5%b0%86%e8%bf%87%e7%a8%8b%e5%bb%ba%e6%a8%a1%e4%b8%ba%e9%a2%86%e5%9f%9f%e5%af%b9%e8%b1%a1" aria-label="将过程建模为领域对象">将过程建模为领域对象</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/topics/20200307114122_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">正在读的书</a>,<a href="/notes/20211210181234-%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/">读书笔记</a>,<a href="/notes/20210814071825-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/">DDD</a></li>
 </ul>
-<h2 id="前言和目录">前言和目录<a href="#前言和目录" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="前言和目录">前言和目录<a hidden class="anchor" aria-hidden="true" href="#前言和目录">#</a></h2>
 <p>好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。</p>
 <p>什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。</p>
 <p>本书组织方式：</p>
-<h2 id="领域建模">领域建模<a href="#领域建模" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="领域建模">领域建模<a hidden class="anchor" aria-hidden="true" href="#领域建模">#</a></h2>
 <p>领域建模的过程就是消化知识的过程，这个过程应该贯穿整个开发过程，需要持续学习。</p>
 <ul>
 <li>
@@ -199,40 +349,40 @@ AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
 <p>领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。</p>
 </li>
 </ul>
-<h3 id="模型表示">模型表示<a href="#模型表示" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="关联">关联<a href="#关联" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="模型表示">模型表示<a hidden class="anchor" aria-hidden="true" href="#模型表示">#</a></h3>
+<h4 id="关联">关联<a hidden class="anchor" aria-hidden="true" href="#关联">#</a></h4>
 <ol>
 <li>规定一个遍历方向：存在双向联结时（地址 -&gt; 人 或 人 -&gt; 地址）尽量只用一种，并避免互相关联</li>
 <li>添加一个限定符，以便有效减少多重关联</li>
 <li>消除不必要的关联</li>
 </ol>
-<h4 id="表示方式">表示方式<a href="#表示方式" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h2 id="领域模式--20210903080049-领域模式-dot-md"><a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/">领域模式</a><a href="#领域模式--20210903080049-领域模式-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h2 id="实践-model-driven-design--20210903080049-领域模式-dot-md">实践 <a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/#模式-model-driven-design">MODEL-DRIVEN DESIGN</a><a href="#实践-model-driven-design--20210903080049-领域模式-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="隔离领域-引入应用层">隔离领域：引入应用层<a href="#隔离领域-引入应用层" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="表示方式">表示方式<a hidden class="anchor" aria-hidden="true" href="#表示方式">#</a></h4>
+<h2 id="领域模式--20210903080049-领域模式-dot-md"><a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/">领域模式</a><a hidden class="anchor" aria-hidden="true" href="#领域模式--20210903080049-领域模式-dot-md">#</a></h2>
+<h2 id="实践-model-driven-design--20210903080049-领域模式-dot-md">实践 <a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/#模式-model-driven-design">MODEL-DRIVEN DESIGN</a><a hidden class="anchor" aria-hidden="true" href="#实践-model-driven-design--20210903080049-领域模式-dot-md">#</a></h2>
+<h3 id="隔离领域-引入应用层">隔离领域：引入应用层<a hidden class="anchor" aria-hidden="true" href="#隔离领域-引入应用层">#</a></h3>
 <p>应用 <a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/#模式-layered-architecture">LAYERED ARCHITECTURE</a> 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。</p>
-<h3 id="将-entity-和-value-object-区分开">将 ENTITY 和 VALUE OBJECT 区分开<a href="#将-entity-和-value-object-区分开" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="将-entity-和-value-object-区分开">将 ENTITY 和 VALUE OBJECT 区分开<a hidden class="anchor" aria-hidden="true" href="#将-entity-和-value-object-区分开">#</a></h3>
 <p>依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。</p>
-<h3 id="aggregate-边界">AGGREGATE 边界<a href="#aggregate-边界" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="aggregate-边界">AGGREGATE 边界<a hidden class="anchor" aria-hidden="true" href="#aggregate-边界">#</a></h3>
 <p>识别模型中的 AGGREGATE 根和对应的边界。</p>
-<h3 id="选择-repository">选择 REPOSITORY<a href="#选择-repository" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="选择-repository">选择 REPOSITORY<a hidden class="anchor" aria-hidden="true" href="#选择-repository">#</a></h3>
 <p>为 AGGREGATE 根对象建立 REPOSITORY。</p>
-<h3 id="场景走查">场景走查<a href="#场景走查" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="场景走查">场景走查<a hidden class="anchor" aria-hidden="true" href="#场景走查">#</a></h3>
 <p>根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。</p>
-<h3 id="对象创建">对象创建<a href="#对象创建" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="对象创建">对象创建<a hidden class="anchor" aria-hidden="true" href="#对象创建">#</a></h3>
 <p>如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。</p>
-<h3 id="停一下-重构">停一下，重构<a href="#停一下-重构" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="停一下-重构">停一下，重构<a hidden class="anchor" aria-hidden="true" href="#停一下-重构">#</a></h3>
 <p>建模和设计需要经常进行重构：利用新知识来改进模型和设计。</p>
-<h3 id="module-划分">MODULE 划分<a href="#module-划分" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="module-划分">MODULE 划分<a hidden class="anchor" aria-hidden="true" href="#module-划分">#</a></h3>
 <p>应该按照对象的意义来划分，其他任何划分方式都是错误的，包括：</p>
 <ul>
 <li>按模式划分</li>
 <li>按照对象生命周期划分</li>
 </ul>
-<h2 id="通过重构发现深层模型">通过重构发现深层模型<a href="#通过重构发现深层模型" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="通过重构发现深层模型">通过重构发现深层模型<a hidden class="anchor" aria-hidden="true" href="#通过重构发现深层模型">#</a></h2>
 <p>重构不应该停留在代码细节层面，还应当在模型设计层面随着对知识吸收的加深对模型进行重构，发现深层模型。</p>
 <p>深层模型能够穿过领域表象，清楚地表达出领域专家们的主要关注点以及相关的知识。</p>
-<h3 id="深层模型-柔性设计">深层模型/柔性设计<a href="#深层模型-柔性设计" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="深层模型-柔性设计">深层模型/柔性设计<a hidden class="anchor" aria-hidden="true" href="#深层模型-柔性设计">#</a></h3>
 <p>在不断重构的过程中，设计本身也需要支持重构所带来变化。设计自身的某些特性就可以使其易于修改和使用。
 每次对模型和代码所进行的修改能够反映出对领域的新理解，不断的重构能给系统最需要修改的地方增添灵活性，
 并能找到简单快捷的方式来实现普通的功能。</p>
@@ -243,64 +393,42 @@ AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
 <li>同时，当设计的灵活性可以让开发人员进行实验，而设计又能清晰的表达出领域含义时，能够将开发人员的深层理解反馈到整个模型发现的过程中。</li>
 </ol>
 <p>这应该是构建系统的基础。</p>
-<h3 id="发现过程">发现过程<a href="#发现过程" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="发现过程">发现过程<a hidden class="anchor" aria-hidden="true" href="#发现过程">#</a></h3>
 <p>支持不断重构、借用别人已经建好的模式。</p>
-<h3 id="突破">突破<a href="#突破" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="重构创造机遇">重构创造机遇<a href="#重构创造机遇" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="关注根本-不要强行突破">关注根本：不要强行突破<a href="#关注根本-不要强行突破" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h3 id="概念挖掘">概念挖掘<a href="#概念挖掘" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="倾听语言">倾听语言<a href="#倾听语言" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="突破">突破<a hidden class="anchor" aria-hidden="true" href="#突破">#</a></h3>
+<h4 id="重构创造机遇">重构创造机遇<a hidden class="anchor" aria-hidden="true" href="#重构创造机遇">#</a></h4>
+<h4 id="关注根本-不要强行突破">关注根本：不要强行突破<a hidden class="anchor" aria-hidden="true" href="#关注根本-不要强行突破">#</a></h4>
+<h3 id="概念挖掘">概念挖掘<a hidden class="anchor" aria-hidden="true" href="#概念挖掘">#</a></h3>
+<h4 id="倾听语言">倾听语言<a hidden class="anchor" aria-hidden="true" href="#倾听语言">#</a></h4>
 <p>倾听领域专家的语言，思考并表达，观察领域专家的表情，判断自己是否找到了正确的概念（对象）。</p>
-<h4 id="检查不足之处">检查不足之处<a href="#检查不足之处" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="检查不足之处">检查不足之处<a hidden class="anchor" aria-hidden="true" href="#检查不足之处">#</a></h4>
 <p>积极与领域专家沟通，寻找丢失的概念。（注意领域专家的表情）</p>
-<h4 id="思考矛盾之处">思考矛盾之处<a href="#思考矛盾之处" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="思考矛盾之处">思考矛盾之处<a hidden class="anchor" aria-hidden="true" href="#思考矛盾之处">#</a></h4>
 <p>矛盾可以合理存在，但是一定要仔细思考两种对立的看法是如何同时应用于同一个外部实现的，这会给我们带来启示。</p>
-<h4 id="查阅书记">查阅书记<a href="#查阅书记" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="查阅书记">查阅书记<a hidden class="anchor" aria-hidden="true" href="#查阅书记">#</a></h4>
 <p>通过解释基本概念和传统思想的书籍来寻找概念。</p>
-<h4 id="尝试-再尝试">尝试，再尝试<a href="#尝试-再尝试" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h3 id="为隐式概念建模">为隐式概念建模<a href="#为隐式概念建模" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="显式的约束">显式的约束<a href="#显式的约束" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="尝试-再尝试">尝试，再尝试<a hidden class="anchor" aria-hidden="true" href="#尝试-再尝试">#</a></h4>
+<h3 id="为隐式概念建模">为隐式概念建模<a hidden class="anchor" aria-hidden="true" href="#为隐式概念建模">#</a></h3>
+<h4 id="显式的约束">显式的约束<a hidden class="anchor" aria-hidden="true" href="#显式的约束">#</a></h4>
 <p>约束通常式隐含的，将它们显式的表现出来可以极大地提高设计质量。约束有时自然的存在于对象或方法中。</p>
-<h4 id="将过程建模为领域对象">将过程建模为领域对象<a href="#将过程建模为领域对象" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="将过程建模为领域对象">将过程建模为领域对象<a hidden class="anchor" aria-hidden="true" href="#将过程建模为领域对象">#</a></h4>
 <p>建模方式：</p>
 <ul>
 <li>通过 <a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/#模式-service">模式：SERVICE</a> 显式表达。</li>
 <li>通过 STRATEGY 表达选择过程：选择变成选择不同的对象，不同对象表示不同的 STRATEGY。</li>
 </ul>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20200224133214/">
-                <span class="button__icon">←</span>
-                <span class="button__text">CPI</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20200320172625_leetcode_316_remove_duplicate_letters/">
-                <span class="button__text">LeetCode: 316.Remove Duplicate Letters</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://notes.0081800.xyz/tags/ddd/">ddd</a></li>
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1758,53 +1886,173 @@ AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/">领域模式</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>领域模式
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: DDD,《领域驱动设计》读书笔记 领域基础模式 模式：UBIQUITOUS LANGUAGE 在同领域专家、开发人员和项目管理沟通的过程中建立并使用 UBIQUITOUS LANGUAGE，，并在模型实现时依然使用 UBIQUITOUS LANGUAGE 来让设计与沟通相一致（中文语境下稍显困难），UBIQUITOUS LANGUAGE 让知识消化后直接驱动变更模型。
+应用 UBIQUITOUS LANGUAGE 需要大声的建模。
+模式：MODEL-DRIVEN DESIGN 严格按照模型来编写代码，让模型与实际系统相结合。 不再分离「分析模型」和程序设计，而是寻求一种能够满足这两方面需求的单一模型。 工具：面向对象编程语言、UML等。 更好的支持 UBIQUITOUS LANGUAGE. 模式：HANDS-ON MODELER 开发设计和模型设计紧密合作，避免模型设计者不参与编写和程序设计者不参与模型设计。 每一个开发人员都必须不同程度的参与模型讨论并且与领域专家保持联系，模型设计者及时通过 UBIQUITOUS LANGUAGE 与接触代码的人及时交换关于模型的想法。 领域模式构造块 模式：LAYERED ARCHITECTURE 分层架构是实现 DDD 的基础，分层架构将不同的层次的实现分开，自上倒下应分为：
+用户界面层 应用层 领域层（模型的精髓） 基础设施层 核心在于要将领域层单独出来实现 MODEL-DRIVEN DESIGN，对业务进行建模封装业务规则。调用规则也只能自上而下的调用，不能反向调用。
+领域层（或模型层）分离出来之后使得模型足够丰富，结构足够清晰，可以捕捉到基本的业务知识，并有效的使用这些知识。
+模式：ENTITY 用于跟踪对象的状态，有唯一标识符，在系统中是可变的，两个对象是否一个通过唯一标识来判断，不是靠它们的属性定义。
+模式：VALUE OBJECT 区别与 ENTITY ，没有唯一标识，仅记录状态，一般设计为不可变用于共享 VALUE OBJECT，两个对象是否一个通过对象属性的值来判断。
+模式：SERVICE 没有状态，但又需要建模的对象，只包含动作。用于一些不适合建模为对象的领域概念。
+与领域概念相关的操作不是 ENTITY 或 VALUE OBJECT 的一个自然组成部署 接口是根据领域模型的其他元素定义的。 操作是无状态的 模式：MODULE（或 PACKAGE） 根据对象的意义划分领域模型，低耦合高内聚。按照模式或者对象生命周期或者其他方式划分都是错误的。
+模式：AGGREGATE 划分模型边界，统一对关联模型的创建、修改、复制和销毁。一般选定一个 ENTITY 对象作为 AGGREGATE 的「根」，同时对事务应用一组规则：...</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-09-03 08:00:00 +0800 +0800'>September 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 领域模式" href="https://notes.0081800.xyz/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/"></a>
+          </article>
        
-          <li><a href="/notes/20210814071825-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/">领域驱动设计</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>领域驱动设计
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> 《领域驱动设计》读书笔记 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-08-14 07:18:00 +0800 +0800'>August 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 领域驱动设计" href="https://notes.0081800.xyz/notes/20210814071825-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

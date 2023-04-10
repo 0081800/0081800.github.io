@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Topics on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/topic/</link>
@@ -14,7 +14,6 @@
       
       <guid>https://notes.0081800.xyz/topic/20230220113214-papers/</guid>
       <description></description>
-      <content></content>
     </item>
     
   </channel>

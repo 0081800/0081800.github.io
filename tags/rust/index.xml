@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>rust on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/tags/rust/</link>
@@ -14,10 +14,6 @@
       
       <guid>https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/</guid>
       <description> tags: Rust </description>
-      <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
     <item>
@@ -27,10 +23,6 @@
       
       <guid>https://notes.0081800.xyz/topics/20200307191429_rust/</guid>
       <description> tags: Programming Language </description>
-      <content>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200320170914_programming_language/&#34;&gt;Programming Language&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
     <item>
@@ -58,65 +50,6 @@ Rust 宏
 Rust 并发
 函数指针 fn 区分闭包的 Fn 特性，函数指针都实现来三个闭包的特性。
 fn do(f: fn(i32) -&amp;gt; i32, arg: i32) -&amp;gt; i32 { f(arg) + f(arg) } </description>
-      <content>&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20211210181234-%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/&#34;&gt;读书笔记&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629174820-%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/&#34;&gt;语句和表达式&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629174911-%E6%89%80%E6%9C%89%E6%9D%83/&#34;&gt;所有权&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629174943-%E5%BC%95%E7%94%A8%E5%92%8C%E5%80%9F%E7%94%A8/&#34;&gt;引用和借用&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629175956-%E7%BB%93%E6%9E%84%E4%BD%93/&#34;&gt;结构体&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180041-%E6%9E%9A%E4%B8%BE/&#34;&gt;枚举&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/&#34;&gt;模式匹配&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180202-if_let/&#34;&gt;if let&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180233-%E6%A8%A1%E5%9D%97%E5%8C%96/&#34;&gt;模块化&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180301-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/&#34;&gt;错误处理&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180345-traits/&#34;&gt;Traits&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/&#34;&gt;生命周期&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180436-%E9%97%AD%E5%8C%85/&#34;&gt;闭包&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/&#34;&gt;迭代器&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180545-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/&#34;&gt;智能指针&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180623-rust_%E5%AE%8F/&#34;&gt;Rust 宏&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://notes.0081800.xyz/notes/20200629180709-rust_%E5%B9%B6%E5%8F%91/&#34;&gt;Rust 并发&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;函数指针&#34;&gt;函数指针&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;fn&lt;/code&gt; 区分闭包的 &lt;code&gt;Fn&lt;/code&gt; 特性，函数指针都实现来三个闭包的特性。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;do&lt;/span&gt;(f: &lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;, arg: &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;)  -&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	f(arg) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; f(arg)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
   </channel>

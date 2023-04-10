@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>一致性与共识 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>一致性与共识 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。
 线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。
 可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。
@@ -19,34 +20,56 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 因果顺序并非全序：因果关系是小范围集合的偏序，可线性化是一个全序操作。 可线性化强于因果一致性 捕获因果依赖关系：检测并发写 序列号排序 非因果序列发生器 适用于系统不存在唯一主节点。
 每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。 用足够高的分辨率的墙上时间戳附加到每个操作上。 预先分配区间范围，并及时扩容。 Lamport 时间戳 可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 （计数器，节点 ID） ：
 节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：
-两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/" />
+两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="一致性与共识">
+    </style>
+</noscript><meta property="og:title" content="一致性与共识" />
 <meta property="og:description" content="tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。
 线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。
 可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。
@@ -61,165 +84,316 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。 用足够高的分辨率的墙上时间戳附加到每个操作上。 预先分配区间范围，并及时扩容。 Lamport 时间戳 可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 （计数器，节点 ID） ：
 节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：
 两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-07-25T07:26:00+08:00" />
+<meta property="article:modified_time" content="2021-07-25T07:26:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-07-25 07:26:00 &#43;0800 &#43;0800" />
-
-
-
-
-
-
-
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一致性与共识"/>
+<meta name="twitter:description" content="tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。
+线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。
+可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。
+约束与唯一性保证 同一个用户名、电子邮件或系统中文件名需要唯一性的保证，也应该进行「线性化」。
+跨通道的时间依赖 系统中存在其他通信渠道也需要「线性化」。
+实现线性化系统 主从复制（部分支持可线性化） 共识算法（可线性化） 多主复制（不可线性化） 无主复制（可能不可线性化） 线性化与Quorum 一致性 Dynamo 风格的复制模型，读写遵从严格的 quorum 是无法支持可线性化的。
+线性化的代价 多主复制和主从复制，网络中断都会导致同步暂停，从而无法保证客户端要求的线性化读写。
+CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，现代多个 CPU 对同一个内存地址的读写都不能满足（参见硬件内存模型），如果需要强一致则需要内存屏障（栅栏）指令。
+之所以放弃线性化的原因就是性能，而不是为了容错。由于网络延迟的不确定性，无论是否发生网络故障，线性化对性能的影响都是巨大的。
+顺序保证 顺序与因果关系 顺序有助于保持因果关系。
+因果顺序并非全序：因果关系是小范围集合的偏序，可线性化是一个全序操作。 可线性化强于因果一致性 捕获因果依赖关系：检测并发写 序列号排序 非因果序列发生器 适用于系统不存在唯一主节点。
+每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。 用足够高的分辨率的墙上时间戳附加到每个操作上。 预先分配区间范围，并及时扩容。 Lamport 时间戳 可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 （计数器，节点 ID） ：
+节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：
+两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量："/>
 
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "一致性与共识",
+      "item": "https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "一致性与共识",
+  "name": "一致性与共识",
+  "description": "tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。\n线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。\n可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。\n约束与唯一性保证 同一个用户名、电子邮件或系统中文件名需要唯一性的保证，也应该进行「线性化」。\n跨通道的时间依赖 系统中存在其他通信渠道也需要「线性化」。\n实现线性化系统 主从复制（部分支持可线性化） 共识算法（可线性化） 多主复制（不可线性化） 无主复制（可能不可线性化） 线性化与Quorum 一致性 Dynamo 风格的复制模型，读写遵从严格的 quorum 是无法支持可线性化的。\n线性化的代价 多主复制和主从复制，网络中断都会导致同步暂停，从而无法保证客户端要求的线性化读写。\nCAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，现代多个 CPU 对同一个内存地址的读写都不能满足（参见硬件内存模型），如果需要强一致则需要内存屏障（栅栏）指令。\n之所以放弃线性化的原因就是性能，而不是为了容错。由于网络延迟的不确定性，无论是否发生网络故障，线性化对性能的影响都是巨大的。\n顺序保证 顺序与因果关系 顺序有助于保持因果关系。\n因果顺序并非全序：因果关系是小范围集合的偏序，可线性化是一个全序操作。 可线性化强于因果一致性 捕获因果依赖关系：检测并发写 序列号排序 非因果序列发生器 适用于系统不存在唯一主节点。\n每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。 用足够高的分辨率的墙上时间戳附加到每个操作上。 预先分配区间范围，并及时扩容。 Lamport 时间戳 可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 （计数器，节点 ID） ：\n节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：\n两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。\n线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。\n可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。\n约束与唯一性保证 同一个用户名、电子邮件或系统中文件名需要唯一性的保证，也应该进行「线性化」。\n跨通道的时间依赖 系统中存在其他通信渠道也需要「线性化」。\n实现线性化系统 主从复制（部分支持可线性化） 共识算法（可线性化） 多主复制（不可线性化） 无主复制（可能不可线性化） 线性化与Quorum 一致性 Dynamo 风格的复制模型，读写遵从严格的 quorum 是无法支持可线性化的。\n线性化的代价 多主复制和主从复制，网络中断都会导致同步暂停，从而无法保证客户端要求的线性化读写。\nCAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，现代多个 CPU 对同一个内存地址的读写都不能满足（参见硬件内存模型），如果需要强一致则需要内存屏障（栅栏）指令。\n之所以放弃线性化的原因就是性能，而不是为了容错。由于网络延迟的不确定性，无论是否发生网络故障，线性化对性能的影响都是巨大的。\n顺序保证 顺序与因果关系 顺序有助于保持因果关系。\n因果顺序并非全序：因果关系是小范围集合的偏序，可线性化是一个全序操作。 可线性化强于因果一致性 捕获因果依赖关系：检测并发写 序列号排序 非因果序列发生器 适用于系统不存在唯一主节点。\n每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。 用足够高的分辨率的墙上时间戳附加到每个操作上。 预先分配区间范围，并及时扩容。 Lamport 时间戳 可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 （计数器，节点 ID） ：\n节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：\n两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：\n版本矢量用以区分两个操作是并发还是因果依赖。 Lamport 时间戳主要用于确保全序关系。 时间戳依然不够 某些场景下全序关系依然不能满足需求，比如用户名唯一性要求，为了确认用户名唯一，需要获取所有节点正在进行的请求，查看有没有相同的用户名请求，才能建立全序关系。\n全序关系广播 分布式系统面临的问题：\n分布式系统中让所有节点就全序关系达成一致。 如何扩展系统的吞吐量使之突破单一主节点的限制。 如何处理主节点失效时的故障切换。 全序关系广播通常指节点之间交换消息的某种协议。需要满足两个基本安全属性：\n可靠发送：没有消息丢失，一定发送到所有节点。 严格有序：消息总是以相同顺序发送给每个节点。 全系关系广播使用场景 ZooKeeper 和 etcd 这样的共识服务实际上就实现了全序关系广播。\n数据库复制：通过消息传递代表数据库写请求，让每个副本按照相同的顺序处理写请求，那么副本可以保持一致。 可串形化事务：通过消息表示确定性事务并且作为存储过程来执行，切每个节点都遵从相同的执行顺序。 提供 Fencing 令牌的锁服务：每个获取锁的请求都作为消息附加到日志中，所有消息按照日志中的顺序一次编号。（ZooKeeper 的 zxid）。 全序关系广播和可线性化 全系关系广播：基于异步模型，保证消息以固定顺序可靠的发送，但是不保证消息何时发送成功 可线性化强调就近性：读取时保证能够看到最新写入值。 采用全序关系广播实现线性化存储 可以通过使用全序关系广播以追加日志的方式来实现线性化的原子比较-设置操作：\n日志中追加一条消息，并指明用户名 读取日志，将其广播给所有节点，并等待回复 检查是否有任何消息声称改用户名已被注册。如果第一条这样的回复来自当前节点，那么就成功获取用户名。 此过程只保证了线性化写入，无法保证线性化读取，这里只提供了顺序一致性有时也成为时间线一致性，弱与线性化的保证。\n满足线性化读取的方案：\nectd 的 quorum 读取：追加的方式把读取请求排序、广播，然后各个节点获取该日志，当本节点收到消息时才执行真正的操作。 ZooKeeper 的 sync() 操作：如果可以以线性化的方式获取当前最新日志中的消息的位置，则查询位置，等待直到该位置之前的所有条目都已经发送给你，接下来再执行读取。 可以从同步更新的副本上进行读取，这样确保总是读取最新值。这种技术可以用于链式复制。 采用线性化存储实现全序关系广播 通过线性化存储递增一个计数，相比于 Lamport 时间戳 其具有连续性，可以检测消息可靠性。\n实现线性化存储难点是失效。\n分布式事务与共识 共识问题是分布式计算中最重要也是最基本的问题之一。\n很多重要的场景需要集群节点达成一致，例如：\n主节点选举：脑裂。 原子事务提交：跨节点或跨分区事务提交。所有节点要么全部成功，要么全部中止。 原子提交与两阶段提交 两阶段提交 tags: 分布式共识 2PC 是一种在多节点之间实现事务原子提交的算法，用来确保所有节点要么全部提交，要么全部中止。\n不同于单节点上请求提交，2PC 中的提交/中止过程分为两个阶段。\n不要混淆 2PC 和 2PL。\n2PL 引入了新的组件：协调者（也称为事务管理器）。协调者通常实现为共享库，运行在请求事务相同进程中，但也可以是单独的进程或服务。\n数据库节点称为事务中的参与者。当应用程序准备提交事务时，协调者开始阶段1:发送一个准备请求到所有节点，询问它们是否可以提交。协调者然后跟踪参与者的回应：\n全部回应「是」：表示准备好提交，协调者开始阶段 2 ，提交开始实际执行。 任何回应「否」：协调者发送放弃请求。 实践中的分布式事务 目前两种截然不同的分布式事务：\n数据库内部的分布式事务：所有节点运行相同的软件，协议也是内部的无需考虑兼容性。 异构分布式事务：存在两种或两种以上的不同参与者实现技术。即使完全不同的系统，跨系统的分布式事务必须确保原子提交。 异构分布式事务充满挑战。\nExactly-once 消息处理 异构分布式事务旨在无缝集成多种不同的系统。消息队列通过自动提交消息和消息处理结果，可以确保消息可以有效处理有且仅有一次。 让系统可以进行安全的重试，来保持原子性。\nX/A 交易 X/Open XA（eXtend Architectrue，XA）是异构环境下实施两阶段提交的一个工业标准。其并不是一个网络协议，而是一个 C API。 XA 假定应用程序通过网络或者客户端库函数与参与者节点进行通信。事务协调者需要实现 XA API。\n应用程序崩溃，事务日志保存在应用服务本地磁盘，需要重启崩溃节点，XA API 读取日志，进而恢复事务的决定。\n停顿扔持有锁 从协调者故障恢复 启发式决策：参与者节点可以在紧急情况下单方面做出决定，放弃或者继续那些停顿的事务，而不需要等到协调者发出指令。\n分布式事务限制 如果协调者不支持数据复制，会造成单点故障。 破坏现在很多 HTTP 服务的无状态特性。 X/A 需要保持多系统可兼容的最低标准，来兼容各种数据系统，无法实现诸如死锁检测和 SSI。 分布式事务有扩大事务失败的风险，与构建容错系统背道而驰。 支持容错的共识 共识就是让几个节点就某项协议达成一致。\n需要满足的性质：\n协商一致性（Uniform agreement）：所有节点都接受相同的决议。共识的核心思想：决定一致的结果，一旦决定，就不能改变。 诚实性（Integrity）：所有节点不能反悔，即对某一些提议不能有两次决定。 合法性（Validity）：如果决定了值 v，则 v 一定是由某个节点锁提议的。 可终止性：节点如果不崩溃则最终一定可以达成决议。引入容错思想：强调共识算法不能原地空转，必须取得实质性的进展。属于一种活性（安全性和活性)。 大部分节点都正常运行才能确保可终止性，这个多数就可能安全的构成 quorum。\n可终止性的前提下，发生崩溃或者不可用的节点数必须小于半数节点。\n大多数共识算法都假定系统不存在拜占庭故障。\n共识算法与全序广播 最著名的容错式共识算法包括：VSR、Paxos、Raft 和 Zab。\n这些算法实际上并没有直接采用上述的形式化模型：提议一个值，同时满足上面 4 个属性。 相反，他们是决定一个值，然后采用全序关系广播算法：在每一轮中，节点提出他们接下来想要发送的消息，然后决定下一个消息的全局顺序。\n全序广播相当于持续多轮共识：\n由与协商一致性，所有节点决定以相同的顺序发送相同的消息。 由于诚实性，消息不能重复。 由于合法性，消息不会被破坏，也不是凭空捏造。 由于可终止性，消息不会丢失。 全序关系广播比重复性的一轮共识只解决一个提议更加高效（VSR、Raft 和 Zab，Paxos 对应的是其优化版本 Multi-Paxios）。\n主从复制与共识 主从复制的主节点一般是有运维人员手动选择和配置的，是一个独裁性质的“一致性算法”。 如果支持自动选举主节点和切换，这样更接近容错式全序广播，从而达成共识。\n共识面临选举一个主节点需要一个主节点。要解决共识，必须先处理共识。\nEpoch 和 Quorum 共识算法协议采用了一种弱化保证：协议定义了一个世代编号（epoch number，Paxos 的 ballot number，VSP 的 view number，Raft 中的 term number）， 并保证在每个世代里，主节点是唯一确定的。\n如果当前主节点失效，节点就开始一轮投票。选举会赋予一个单调递增的 epoch 号。\n主节点如果想做某个决定，需将提议发送给其他所有节点，等待 quorum 节点响应。\n两轮不同的投票：首先决定谁是主节点，然后对主节点的提议进行投票。\n和 2PC 最大的区别是：\n2PC 的协调者不依靠选举产生。 2PC 要求每个参与者都必须做出“是”，容错共识算法只需要收到多数节点的投票结果即可通过决议。 共识算法定义了恢复过程，出现故障可重新选举主节点。 共识的局限性 节点投票过程是一个同步复制过程。 许多严格的多数节点才能允许。3节点允许1节点失效、5/2。 多数共识算法假定一组固定参与投票的节点集，无法动态缩扩容。 依靠超时来检测节点失效。 对网络特别敏感，比如 Raft 中两个节点如果网络持续不可靠会出现主从反复切换，从而性能下降。 成员协调服务 ZooKeeper etcd 将成千上万节点的共识交由像 ZooKeeper 这样由三五节点组成的共识代理大大提高性能。\n",
+  "wordCount" : "261",
+  "inLanguage": "en",
+  "datePublished": "2021-07-25T07:26:00+08:00",
+  "dateModified": "2021-07-25T07:26:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      一致性与共识
+    </h1>
+    <div class="post-meta"><span title='2021-07-25 07:26:00 +0800 +0800'>July 25, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">一致性与共识</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-07-25 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80%e8%87%b4%e6%80%a7%e4%bf%9d%e8%af%81" aria-label="一致性保证">一致性保证</a></li>
+                <li>
+                    <a href="#%e5%8f%af%e7%ba%bf%e6%80%a7%e5%8c%96" aria-label="可线性化">可线性化</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ba%bf%e6%80%a7%e5%8c%96%e4%be%9d%e8%b5%96%e7%9a%84%e6%9d%a1%e4%bb%b6" aria-label="线性化依赖的条件">线性化依赖的条件</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8a%a0%e9%94%81%e4%b8%8e%e4%b8%bb%e8%8a%82%e7%82%b9%e9%80%89%e4%b8%be" aria-label="加锁与主节点选举">加锁与主节点选举</a></li>
+                <li>
+                    <a href="#%e7%ba%a6%e6%9d%9f%e4%b8%8e%e5%94%af%e4%b8%80%e6%80%a7%e4%bf%9d%e8%af%81" aria-label="约束与唯一性保证">约束与唯一性保证</a></li>
+                <li>
+                    <a href="#%e8%b7%a8%e9%80%9a%e9%81%93%e7%9a%84%e6%97%b6%e9%97%b4%e4%be%9d%e8%b5%96" aria-label="跨通道的时间依赖">跨通道的时间依赖</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e7%8e%b0%e7%ba%bf%e6%80%a7%e5%8c%96%e7%b3%bb%e7%bb%9f" aria-label="实现线性化系统">实现线性化系统</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ba%bf%e6%80%a7%e5%8c%96%e4%b8%8e-quorum-%e4%b8%80%e8%87%b4%e6%80%a7--20210615211745-quorum-%e4%b8%80%e8%87%b4%e6%80%a7-dot-md" aria-label="线性化与Quorum 一致性">线性化与<a href="/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a></a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ba%bf%e6%80%a7%e5%8c%96%e7%9a%84%e4%bb%a3%e4%bb%b7" aria-label="线性化的代价">线性化的代价</a></li>
+                <li>
+                    <a href="#cap-%e7%90%86%e8%ae%ba--20210726072940-cap-%e7%90%86%e8%ae%ba-dot-md" aria-label="CAP 理论"><a href="/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/">CAP 理论</a></a></li>
+                <li>
+                    <a href="#%e5%8f%af%e7%ba%bf%e6%80%a7%e5%8c%96%e4%b8%8e%e7%bd%91%e7%bb%9c%e5%bb%b6%e8%bf%9f" aria-label="可线性化与网络延迟">可线性化与网络延迟</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%a1%ba%e5%ba%8f%e4%bf%9d%e8%af%81" aria-label="顺序保证">顺序保证</a><ul>
+                        
+                <li>
+                    <a href="#%e9%a1%ba%e5%ba%8f%e4%b8%8e%e5%9b%a0%e6%9e%9c%e5%85%b3%e7%b3%bb" aria-label="顺序与因果关系">顺序与因果关系</a></li>
+                <li>
+                    <a href="#%e5%ba%8f%e5%88%97%e5%8f%b7%e6%8e%92%e5%ba%8f" aria-label="序列号排序">序列号排序</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9d%9e%e5%9b%a0%e6%9e%9c%e5%ba%8f%e5%88%97%e5%8f%91%e7%94%9f%e5%99%a8" aria-label="非因果序列发生器">非因果序列发生器</a></li>
+                <li>
+                    <a href="#lamport-%e6%97%b6%e9%97%b4%e6%88%b3" aria-label="Lamport 时间戳">Lamport 时间戳</a></li>
+                <li>
+                    <a href="#%e6%97%b6%e9%97%b4%e6%88%b3%e4%be%9d%e7%84%b6%e4%b8%8d%e5%a4%9f" aria-label="时间戳依然不够">时间戳依然不够</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%a8%e5%ba%8f%e5%85%b3%e7%b3%bb%e5%b9%bf%e6%92%ad" aria-label="全序关系广播">全序关系广播</a><ul>
+                        
+                <li>
+                    <a href="#%e5%85%a8%e7%b3%bb%e5%85%b3%e7%b3%bb%e5%b9%bf%e6%92%ad%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="全系关系广播使用场景">全系关系广播使用场景</a></li>
+                <li>
+                    <a href="#%e5%85%a8%e5%ba%8f%e5%85%b3%e7%b3%bb%e5%b9%bf%e6%92%ad%e5%92%8c%e5%8f%af%e7%ba%bf%e6%80%a7%e5%8c%96" aria-label="全序关系广播和可线性化">全序关系广播和可线性化</a></li>
+                <li>
+                    <a href="#%e9%87%87%e7%94%a8%e5%85%a8%e5%ba%8f%e5%85%b3%e7%b3%bb%e5%b9%bf%e6%92%ad%e5%ae%9e%e7%8e%b0%e7%ba%bf%e6%80%a7%e5%8c%96%e5%ad%98%e5%82%a8" aria-label="采用全序关系广播实现线性化存储">采用全序关系广播实现线性化存储</a></li>
+                <li>
+                    <a href="#%e9%87%87%e7%94%a8%e7%ba%bf%e6%80%a7%e5%8c%96%e5%ad%98%e5%82%a8%e5%ae%9e%e7%8e%b0%e5%85%a8%e5%ba%8f%e5%85%b3%e7%b3%bb%e5%b9%bf%e6%92%ad" aria-label="采用线性化存储实现全序关系广播">采用线性化存储实现全序关系广播</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%86%e5%b8%83%e5%bc%8f%e4%ba%8b%e5%8a%a1%e4%b8%8e%e5%85%b1%e8%af%86" aria-label="分布式事务与共识">分布式事务与共识</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8e%9f%e5%ad%90%e6%8f%90%e4%ba%a4%e4%b8%8e%e4%b8%a4%e9%98%b6%e6%ae%b5%e6%8f%90%e4%ba%a4" aria-label="原子提交与两阶段提交">原子提交与两阶段提交</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%a4%e9%98%b6%e6%ae%b5%e6%8f%90%e4%ba%a4" aria-label="两阶段提交">两阶段提交</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e8%b7%b5%e4%b8%ad%e7%9a%84%e5%88%86%e5%b8%83%e5%bc%8f%e4%ba%8b%e5%8a%a1" aria-label="实践中的分布式事务">实践中的分布式事务</a><ul>
+                        
+                <li>
+                    <a href="#exactly-once-%e6%b6%88%e6%81%af%e5%a4%84%e7%90%86" aria-label="Exactly-once 消息处理">Exactly-once 消息处理</a></li>
+                <li>
+                    <a href="#x-a-%e4%ba%a4%e6%98%93" aria-label="X/A 交易">X/A 交易</a></li>
+                <li>
+                    <a href="#%e5%81%9c%e9%a1%bf%e6%89%94%e6%8c%81%e6%9c%89%e9%94%81" aria-label="停顿扔持有锁">停顿扔持有锁</a></li>
+                <li>
+                    <a href="#%e4%bb%8e%e5%8d%8f%e8%b0%83%e8%80%85%e6%95%85%e9%9a%9c%e6%81%a2%e5%a4%8d" aria-label="从协调者故障恢复">从协调者故障恢复</a></li>
+                <li>
+                    <a href="#%e5%88%86%e5%b8%83%e5%bc%8f%e4%ba%8b%e5%8a%a1%e9%99%90%e5%88%b6" aria-label="分布式事务限制">分布式事务限制</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%94%af%e6%8c%81%e5%ae%b9%e9%94%99%e7%9a%84%e5%85%b1%e8%af%86" aria-label="支持容错的共识">支持容错的共识</a><ul>
+                        
+                <li>
+                    <a href="#%e5%85%b1%e8%af%86%e7%ae%97%e6%b3%95%e4%b8%8e%e5%85%a8%e5%ba%8f%e5%b9%bf%e6%92%ad" aria-label="共识算法与全序广播">共识算法与全序广播</a></li>
+                <li>
+                    <a href="#%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6%e4%b8%8e%e5%85%b1%e8%af%86" aria-label="主从复制与共识">主从复制与共识</a></li>
+                <li>
+                    <a href="#epoch-%e5%92%8c-quorum" aria-label="Epoch 和 Quorum">Epoch 和 Quorum</a></li>
+                <li>
+                    <a href="#%e5%85%b1%e8%af%86%e7%9a%84%e5%b1%80%e9%99%90%e6%80%a7" aria-label="共识的局限性">共识的局限性</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%88%90%e5%91%98%e5%8d%8f%e8%b0%83%e6%9c%8d%e5%8a%a1" aria-label="成员协调服务">成员协调服务</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/topics/20210804115431-%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/">分布式共识</a>,<a href="/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/">一致性</a></li>
 </ul>
-<h2 id="一致性保证">一致性保证<a href="#一致性保证" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="一致性保证">一致性保证<a hidden class="anchor" aria-hidden="true" href="#一致性保证">#</a></h2>
 <p>分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。</p>
 <ul>
 <li>线性化：最强一致性模型</li>
 <li>顺序保证：保证时间顺序，特别是因果关系和全局顺序</li>
 <li>最终一致性：一种非常弱的保证，参见<a href="/notes/20210614210005-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%E6%95%88%E5%BA%94/">最终一致性效应</a></li>
 </ul>
-<h2 id="可线性化">可线性化<a href="#可线性化" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="可线性化">可线性化<a hidden class="anchor" aria-hidden="true" href="#可线性化">#</a></h2>
 <p>分布式语义下对寄存器（单个对象）顺序的读写。应区别与可<a href="/notes/20210716074157-%E4%B8%B2%E8%A1%8C%E5%8C%96/">串行化</a>。</p>
 <ul>
 <li>可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同</li>
 <li>可线性化是读写寄存器（单个对象）的最新值的保证。</li>
 </ul>
-<h3 id="线性化依赖的条件">线性化依赖的条件<a href="#线性化依赖的条件" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="加锁与主节点选举">加锁与主节点选举<a href="#加锁与主节点选举" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="线性化依赖的条件">线性化依赖的条件<a hidden class="anchor" aria-hidden="true" href="#线性化依赖的条件">#</a></h3>
+<h4 id="加锁与主节点选举">加锁与主节点选举<a hidden class="anchor" aria-hidden="true" href="#加锁与主节点选举">#</a></h4>
 <p>每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。</p>
-<h4 id="约束与唯一性保证">约束与唯一性保证<a href="#约束与唯一性保证" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="约束与唯一性保证">约束与唯一性保证<a hidden class="anchor" aria-hidden="true" href="#约束与唯一性保证">#</a></h4>
 <p>同一个用户名、电子邮件或系统中文件名需要唯一性的保证，也应该进行「线性化」。</p>
-<h4 id="跨通道的时间依赖">跨通道的时间依赖<a href="#跨通道的时间依赖" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="跨通道的时间依赖">跨通道的时间依赖<a hidden class="anchor" aria-hidden="true" href="#跨通道的时间依赖">#</a></h4>
 <p>系统中存在其他通信渠道也需要「线性化」。</p>
-<h3 id="实现线性化系统">实现线性化系统<a href="#实现线性化系统" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="实现线性化系统">实现线性化系统<a hidden class="anchor" aria-hidden="true" href="#实现线性化系统">#</a></h3>
 <ul>
 <li>主从复制（部分支持可线性化）</li>
 <li>共识算法（可线性化）</li>
 <li>多主复制（不可线性化）</li>
 <li>无主复制（可能不可线性化）</li>
 </ul>
-<h4 id="线性化与-quorum-一致性--20210615211745-quorum-一致性-dot-md">线性化与<a href="/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a><a href="#线性化与-quorum-一致性--20210615211745-quorum-一致性-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="线性化与-quorum-一致性--20210615211745-quorum-一致性-dot-md">线性化与<a href="/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">Quorum 一致性</a><a hidden class="anchor" aria-hidden="true" href="#线性化与-quorum-一致性--20210615211745-quorum-一致性-dot-md">#</a></h4>
 <p>Dynamo 风格的复制模型，读写遵从严格的 quorum 是无法支持可线性化的。</p>
-<h3 id="线性化的代价">线性化的代价<a href="#线性化的代价" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="线性化的代价">线性化的代价<a hidden class="anchor" aria-hidden="true" href="#线性化的代价">#</a></h3>
 <p>多主复制和主从复制，网络中断都会导致同步暂停，从而无法保证客户端要求的线性化读写。</p>
-<h3 id="cap-理论--20210726072940-cap-理论-dot-md"><a href="/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/">CAP 理论</a><a href="#cap-理论--20210726072940-cap-理论-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h3 id="可线性化与网络延迟">可线性化与网络延迟<a href="#可线性化与网络延迟" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="cap-理论--20210726072940-cap-理论-dot-md"><a href="/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/">CAP 理论</a><a hidden class="anchor" aria-hidden="true" href="#cap-理论--20210726072940-cap-理论-dot-md">#</a></h3>
+<h3 id="可线性化与网络延迟">可线性化与网络延迟<a hidden class="anchor" aria-hidden="true" href="#可线性化与网络延迟">#</a></h3>
 <p>很少有系统真正满足线性化，现代多个 CPU 对同一个内存地址的读写都不能满足（参见<a href="/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">硬件内存模型</a>），如果需要强一致则需要内存屏障（栅栏）指令。</p>
 <p>之所以放弃线性化的原因就是性能，而不是为了容错。由于网络延迟的不确定性，无论是否发生网络故障，线性化对性能的影响都是巨大的。</p>
-<h2 id="顺序保证">顺序保证<a href="#顺序保证" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="顺序与因果关系">顺序与因果关系<a href="#顺序与因果关系" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h2 id="顺序保证">顺序保证<a hidden class="anchor" aria-hidden="true" href="#顺序保证">#</a></h2>
+<h3 id="顺序与因果关系">顺序与因果关系<a hidden class="anchor" aria-hidden="true" href="#顺序与因果关系">#</a></h3>
 <p>顺序有助于保持因果关系。</p>
 <ul>
 <li>因果顺序并非全序：因果关系是小范围集合的<a href="/notes/20210726080332-%E5%81%8F%E5%BA%8F/">偏序</a>，可线性化是一个<a href="/notes/20210727073548-%E5%85%A8%E5%BA%8F/">全序</a>操作。</li>
 <li>可线性化强于因果一致性</li>
 <li>捕获因果依赖关系：<a href="/notes/20210615213433-%E6%A3%80%E6%B5%8B%E5%B9%B6%E5%8F%91%E5%86%99/">检测并发写</a></li>
 </ul>
-<h3 id="序列号排序">序列号排序<a href="#序列号排序" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="非因果序列发生器">非因果序列发生器<a href="#非因果序列发生器" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="序列号排序">序列号排序<a hidden class="anchor" aria-hidden="true" href="#序列号排序">#</a></h3>
+<h4 id="非因果序列发生器">非因果序列发生器<a hidden class="anchor" aria-hidden="true" href="#非因果序列发生器">#</a></h4>
 <p>适用于系统不存在唯一主节点。</p>
 <ul>
 <li>每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。</li>
 <li>用足够高的分辨率的墙上时间戳附加到每个操作上。</li>
 <li>预先分配区间范围，并及时扩容。</li>
 </ul>
-<h4 id="lamport-时间戳">Lamport 时间戳<a href="#lamport-时间戳" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="lamport-时间戳">Lamport 时间戳<a hidden class="anchor" aria-hidden="true" href="#lamport-时间戳">#</a></h4>
 <p>可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 <code>（计数器，节点 ID）</code> ：</p>
 <ul>
 <li>节点 ID：每个节点都有一个唯一标志符。</li>
@@ -235,9 +409,9 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 <li>版本矢量用以区分两个操作是并发还是因果依赖。</li>
 <li>Lamport 时间戳主要用于确保全序关系。</li>
 </ul>
-<h4 id="时间戳依然不够">时间戳依然不够<a href="#时间戳依然不够" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="时间戳依然不够">时间戳依然不够<a hidden class="anchor" aria-hidden="true" href="#时间戳依然不够">#</a></h4>
 <p>某些场景下全序关系依然不能满足需求，比如用户名唯一性要求，为了确认用户名唯一，需要获取所有节点正在进行的请求，查看有没有相同的用户名请求，才能建立全序关系。</p>
-<h3 id="全序关系广播">全序关系广播<a href="#全序关系广播" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="全序关系广播">全序关系广播<a hidden class="anchor" aria-hidden="true" href="#全序关系广播">#</a></h3>
 <p>分布式系统面临的问题：</p>
 <ul>
 <li>分布式系统中让所有节点就全序关系达成一致。</li>
@@ -249,19 +423,19 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 <li>可靠发送：没有消息丢失，一定发送到所有节点。</li>
 <li>严格有序：消息总是以相同顺序发送给每个节点。</li>
 </ul>
-<h4 id="全系关系广播使用场景">全系关系广播使用场景<a href="#全系关系广播使用场景" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="全系关系广播使用场景">全系关系广播使用场景<a hidden class="anchor" aria-hidden="true" href="#全系关系广播使用场景">#</a></h4>
 <p>ZooKeeper 和 etcd 这样的共识服务实际上就实现了全序关系广播。</p>
 <ul>
 <li>数据库复制：通过消息传递代表数据库写请求，让每个副本按照相同的顺序处理写请求，那么副本可以保持一致。</li>
 <li>可串形化事务：通过消息表示确定性事务并且作为存储过程来执行，切每个节点都遵从相同的执行顺序。</li>
 <li>提供 <a href="/notes/20210722075942-fencing_%E4%BB%A4%E7%89%8C/">Fencing 令牌</a>的锁服务：每个获取锁的请求都作为消息附加到日志中，所有消息按照日志中的顺序一次编号。（ZooKeeper 的 zxid）。</li>
 </ul>
-<h4 id="全序关系广播和可线性化">全序关系广播和可线性化<a href="#全序关系广播和可线性化" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="全序关系广播和可线性化">全序关系广播和可线性化<a hidden class="anchor" aria-hidden="true" href="#全序关系广播和可线性化">#</a></h4>
 <ul>
 <li>全系关系广播：基于异步模型，保证消息以固定顺序可靠的发送，但是不保证消息何时发送成功</li>
 <li>可线性化强调就近性：读取时保证能够看到最新写入值。</li>
 </ul>
-<h4 id="采用全序关系广播实现线性化存储">采用全序关系广播实现线性化存储<a href="#采用全序关系广播实现线性化存储" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="采用全序关系广播实现线性化存储">采用全序关系广播实现线性化存储<a hidden class="anchor" aria-hidden="true" href="#采用全序关系广播实现线性化存储">#</a></h4>
 <p>可以通过使用全序关系广播以追加日志的方式来实现线性化的原子<a href="/notes/20210728070407-%E6%AF%94%E8%BE%83_%E8%AE%BE%E7%BD%AE/">比较-设置</a>操作：</p>
 <ol>
 <li>日志中追加一条消息，并指明用户名</li>
@@ -275,18 +449,18 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 <li>ZooKeeper 的 sync() 操作：如果可以以线性化的方式获取当前最新日志中的消息的位置，则查询位置，等待直到该位置之前的所有条目都已经发送给你，接下来再执行读取。</li>
 <li>可以从同步更新的副本上进行读取，这样确保总是读取最新值。这种技术可以用于<a href="/notes/20210728071508-%E9%93%BE%E5%BC%8F%E5%A4%8D%E5%88%B6/">链式复制</a>。</li>
 </ul>
-<h4 id="采用线性化存储实现全序关系广播">采用线性化存储实现全序关系广播<a href="#采用线性化存储实现全序关系广播" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="采用线性化存储实现全序关系广播">采用线性化存储实现全序关系广播<a hidden class="anchor" aria-hidden="true" href="#采用线性化存储实现全序关系广播">#</a></h4>
 <p>通过线性化存储递增一个计数，相比于 <a href="#lamport-%E6%97%B6%E9%97%B4%E6%88%B3">Lamport 时间戳</a> 其具有连续性，可以检测消息可靠性。</p>
 <p>实现线性化存储难点是失效。</p>
-<h2 id="分布式事务与共识">分布式事务与共识<a href="#分布式事务与共识" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="分布式事务与共识">分布式事务与共识<a hidden class="anchor" aria-hidden="true" href="#分布式事务与共识">#</a></h2>
 <p>共识问题是分布式计算中最重要也是最基本的问题之一。</p>
 <p>很多重要的场景需要集群节点达成一致，例如：</p>
 <ul>
 <li>主节点选举：脑裂。</li>
 <li>原子事务提交：跨节点或跨分区事务提交。所有节点要么全部成功，要么全部中止。</li>
 </ul>
-<h3 id="原子提交与两阶段提交">原子提交与两阶段提交<a href="#原子提交与两阶段提交" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="两阶段提交">两阶段提交<a href="#两阶段提交" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="原子提交与两阶段提交">原子提交与两阶段提交<a hidden class="anchor" aria-hidden="true" href="#原子提交与两阶段提交">#</a></h3>
+<h4 id="两阶段提交">两阶段提交<a hidden class="anchor" aria-hidden="true" href="#两阶段提交">#</a></h4>
 <ul>
 <li>tags: <a href="/topics/20210804115431-%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/">分布式共识</a></li>
 </ul>
@@ -301,31 +475,31 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 <li>全部回应「是」：表示准备好提交，协调者开始阶段 2 ，提交开始实际执行。</li>
 <li>任何回应「否」：协调者发送放弃请求。</li>
 </ul>
-<h3 id="实践中的分布式事务">实践中的分布式事务<a href="#实践中的分布式事务" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="实践中的分布式事务">实践中的分布式事务<a hidden class="anchor" aria-hidden="true" href="#实践中的分布式事务">#</a></h3>
 <p>目前两种截然不同的分布式事务：</p>
 <ol>
 <li>数据库内部的分布式事务：所有节点运行相同的软件，协议也是内部的无需考虑兼容性。</li>
 <li>异构分布式事务：存在两种或两种以上的不同参与者实现技术。即使完全不同的系统，跨系统的分布式事务必须确保原子提交。</li>
 </ol>
 <p>异构分布式事务充满挑战。</p>
-<h4 id="exactly-once-消息处理">Exactly-once 消息处理<a href="#exactly-once-消息处理" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="exactly-once-消息处理">Exactly-once 消息处理<a hidden class="anchor" aria-hidden="true" href="#exactly-once-消息处理">#</a></h4>
 <p>异构分布式事务旨在无缝集成多种不同的系统。消息队列通过自动提交消息和消息处理结果，可以确保消息可以有效处理有且仅有一次。
 让系统可以进行安全的重试，来保持原子性。</p>
-<h4 id="x-a-交易">X/A 交易<a href="#x-a-交易" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="x-a-交易">X/A 交易<a hidden class="anchor" aria-hidden="true" href="#x-a-交易">#</a></h4>
 <p>X/Open XA（eXtend Architectrue，XA）是异构环境下实施两阶段提交的一个工业标准。其并不是一个网络协议，而是一个 C API。
 XA 假定应用程序通过网络或者客户端库函数与参与者节点进行通信。事务协调者需要实现 XA API。</p>
 <p>应用程序崩溃，事务日志保存在应用服务本地磁盘，需要重启崩溃节点，XA API 读取日志，进而恢复事务的决定。</p>
-<h4 id="停顿扔持有锁">停顿扔持有锁<a href="#停顿扔持有锁" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="从协调者故障恢复">从协调者故障恢复<a href="#从协调者故障恢复" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="停顿扔持有锁">停顿扔持有锁<a hidden class="anchor" aria-hidden="true" href="#停顿扔持有锁">#</a></h4>
+<h4 id="从协调者故障恢复">从协调者故障恢复<a hidden class="anchor" aria-hidden="true" href="#从协调者故障恢复">#</a></h4>
 <p>启发式决策：参与者节点可以在紧急情况下单方面做出决定，放弃或者继续那些停顿的事务，而不需要等到协调者发出指令。</p>
-<h4 id="分布式事务限制">分布式事务限制<a href="#分布式事务限制" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="分布式事务限制">分布式事务限制<a hidden class="anchor" aria-hidden="true" href="#分布式事务限制">#</a></h4>
 <ul>
 <li>如果协调者不支持数据复制，会造成单点故障。</li>
 <li>破坏现在很多 HTTP 服务的无状态特性。</li>
 <li>X/A 需要保持多系统可兼容的最低标准，来兼容各种数据系统，无法实现诸如死锁检测和 <a href="/notes/20210716075758-%E5%8F%AF%E4%B8%B2%E5%BD%A2%E5%8C%96%E7%9A%84%E5%BF%AB%E7%85%A7%E9%9A%94%E7%A6%BB/">SSI</a>。</li>
 <li>分布式事务有扩大事务失败的风险，与构建容错系统背道而驰。</li>
 </ul>
-<h3 id="支持容错的共识">支持容错的共识<a href="#支持容错的共识" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="支持容错的共识">支持容错的共识<a hidden class="anchor" aria-hidden="true" href="#支持容错的共识">#</a></h3>
 <p>共识就是让几个节点就某项协议达成一致。</p>
 <p>需要满足的性质：</p>
 <ul>
@@ -337,7 +511,7 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
 <p>大部分节点都正常运行才能确保可终止性，这个多数就可能安全的构成 <a href="/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/">quorum</a>。</p>
 <p>可终止性的前提下，发生崩溃或者不可用的节点数必须小于半数节点。</p>
 <p>大多数共识算法都假定系统不存在<a href="/notes/20210722080226-%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%95%85%E9%9A%9C/">拜占庭故障</a>。</p>
-<h4 id="共识算法与全序广播">共识算法与全序广播<a href="#共识算法与全序广播" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="共识算法与全序广播">共识算法与全序广播<a hidden class="anchor" aria-hidden="true" href="#共识算法与全序广播">#</a></h4>
 <p>最著名的容错式共识算法包括：<a href="/notes/20210731075128-vsr/">VSR</a>、<a href="/notes/20210731075140-paxos/">Paxos</a>、<a href="/notes/20210731075154-raft/">Raft</a> 和 <a href="/notes/20210731075206-zab/">Zab</a>。</p>
 <p>这些算法实际上并没有直接采用上述的形式化模型：提议一个值，同时满足上面 4 个属性。
 相反，他们是决定一个值，然后采用<a href="#%E5%85%A8%E5%BA%8F%E5%85%B3%E7%B3%BB%E5%B9%BF%E6%92%AD">全序关系广播</a>算法：在每一轮中，节点提出他们接下来想要发送的消息，然后决定下一个消息的全局顺序。</p>
@@ -349,11 +523,11 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
 <li>由于可终止性，消息不会丢失。</li>
 </ul>
 <p>全序关系广播比重复性的一轮共识只解决一个提议更加高效（VSR、Raft 和 Zab，Paxos 对应的是其优化版本 <a href="/notes/20210731075851-multi_paxios/">Multi-Paxios）</a>。</p>
-<h4 id="主从复制与共识">主从复制与共识<a href="#主从复制与共识" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="主从复制与共识">主从复制与共识<a hidden class="anchor" aria-hidden="true" href="#主从复制与共识">#</a></h4>
 <p>主从复制的主节点一般是有运维人员手动选择和配置的，是一个独裁性质的“一致性算法”。
 如果支持自动选举主节点和切换，这样更接近容错式全序广播，从而达成共识。</p>
 <p>共识面临选举一个主节点需要一个主节点。要解决共识，必须先处理共识。</p>
-<h4 id="epoch-和-quorum">Epoch 和 Quorum<a href="#epoch-和-quorum" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="epoch-和-quorum">Epoch 和 Quorum<a hidden class="anchor" aria-hidden="true" href="#epoch-和-quorum">#</a></h4>
 <p>共识算法协议采用了一种弱化保证：协议定义了一个世代编号（epoch number，Paxos 的 ballot number，VSP 的 view number，Raft 中的 term number），
 并保证在每个世代里，主节点是唯一确定的。</p>
 <p>如果当前主节点失效，节点就开始一轮投票。选举会赋予一个单调递增的 epoch 号。</p>
@@ -365,7 +539,7 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
 <li>2PC 要求每个参与者都必须做出“是”，容错共识算法只需要收到多数节点的投票结果即可通过决议。</li>
 <li>共识算法定义了恢复过程，出现故障可重新选举主节点。</li>
 </ul>
-<h4 id="共识的局限性">共识的局限性<a href="#共识的局限性" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="共识的局限性">共识的局限性<a hidden class="anchor" aria-hidden="true" href="#共识的局限性">#</a></h4>
 <ul>
 <li>节点投票过程是一个同步复制过程。</li>
 <li>许多严格的多数节点才能允许。3节点允许1节点失效、5/2。</li>
@@ -373,46 +547,23 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
 <li>依靠超时来检测节点失效。</li>
 <li>对网络特别敏感，比如 Raft 中两个节点如果网络持续不可靠会出现主从反复切换，从而性能下降。</li>
 </ul>
-<h3 id="成员协调服务">成员协调服务<a href="#成员协调服务" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="成员协调服务">成员协调服务<a hidden class="anchor" aria-hidden="true" href="#成员协调服务">#</a></h3>
 <ul>
 <li>ZooKeeper</li>
 <li>etcd</li>
 </ul>
 <p>将成千上万节点的共识交由像 ZooKeeper 这样由三五节点组成的共识代理大大提高性能。</p>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/">
-                <span class="button__icon">←</span>
-                <span class="button__text">CAP 理论</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210722080226-%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%95%85%E9%9A%9C/">
-                <span class="button__text">拜占庭故障</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1872,55 +2023,179 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210731075154-raft/">Raft</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Raft
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 共识算法，分布式共识 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-31 07:51:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Raft" href="https://notes.0081800.xyz/notes/20210731075154-raft/"></a>
+          </article>
        
-          <li><a href="/notes/20210731075128-vsr/">VSR</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>VSR
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: Incomplete，分布式，共识算法 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-31 07:51:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to VSR" href="https://notes.0081800.xyz/notes/20210731075128-vsr/"></a>
+          </article>
        
-          <li><a href="/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>《数据密集型应用系统设计》读书笔记
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
+扩展：
+垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
+复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

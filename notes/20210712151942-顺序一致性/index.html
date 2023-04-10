@@ -1,147 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>顺序一致性 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>顺序一致性 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
-The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/" />
+The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program.">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="顺序一致性">
+    </style>
+</noscript><meta property="og:title" content="顺序一致性" />
 <meta property="og:description" content="Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
 The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program." />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-07-12T15:19:00+08:00" />
+<meta property="article:modified_time" content="2021-07-12T15:19:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-07-12 15:19:00 &#43;0800 &#43;0800" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="顺序一致性"/>
+<meta name="twitter:description" content="Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
+The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program."/>
 
 
-
-
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "顺序一致性",
+      "item": "https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "顺序一致性",
+  "name": "顺序一致性",
+  "description": "Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：\nThe customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：\nThe customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program. A multiprocessor satisfying this condition will be called sequentially consistent.\n为这种计算机设计和证明多处理算法正确性的通常方法假定满足下列条件:任何执行的结果都是相同的，就好像所有处理器的操作都是按某种顺序执行的，每个处理器的操作都是按程序指定的顺序出现的。满足这一条件的多处理器系统将被称为顺序一致的。\n顺序一致性允许程序员假设程序按照它们在源码中组织相同的顺序执行，并且单个线程的执行只是以某种顺序交替（interleaving），而不是以其他方式排列。\n看一下下面这个 litmus test：\nLitmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 如果 litmus test 的执行顺序一致，则有六种可能的交替：\n所以这个 litmus test 的答案是 no 。\n不幸得时，实践中现在硬件都会偏离顺序一致性来放弃严格的顺序一致性可以让硬件更快的执行程序。\n",
+  "wordCount" : "137",
+  "inLanguage": "en",
+  "datePublished": "2021-07-12T15:19:00+08:00",
+  "dateModified": "2021-07-12T15:19:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      顺序一致性
+    </h1>
+    <div class="post-meta"><span title='2021-07-12 15:19:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/">顺序一致性</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-07-12 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> 
 
-  
-
-  
-
-  
-
-  <div class="post-content"><div>
-        <p>Leslie Lamport 1979 年的论文 <a href="https://www.microsoft.com/en-us/research/publication/make-multiprocessor-computer-correctly-executes-multiprocess-programs/">How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs</a> 定义：</p>
+  <div class="post-content"><p>Leslie Lamport 1979 年的论文 <a href="https://www.microsoft.com/en-us/research/publication/make-multiprocessor-computer-correctly-executes-multiprocess-programs/">How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs</a> 定义：</p>
 <blockquote>
 <p>The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program. A multiprocessor satisfying this condition will be called sequentially consistent.</p>
 </blockquote>
@@ -157,49 +213,23 @@ The customary approach to designing and proving the correctness of multiprocess 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>                 r1 <span style="color:#f92672">=</span> y
 </span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>                 r2 <span style="color:#f92672">=</span> x
 </span></span></code></pre></div><p>如果 <a href="/notes/20210712153952-litmus_test/">litmus test</a> 的执行顺序一致，则有六种可能的交替：</p>
-
-  <figure class="left" >
-    <img src="https://colobu.com/2021/06/30/hwmm/mem-litmus.png"   />
-    
-  </figure>
-
+<figure>
+    <img loading="lazy" src="https://colobu.com/2021/06/30/hwmm/mem-litmus.png"/> 
+</figure>
 
 <p>所以这个 <a href="/notes/20210712153952-litmus_test/">litmus test</a> 的答案是 <code>no</code> 。</p>
 <p>不幸得时，实践中现在硬件都会偏离顺序一致性来放弃严格的顺序一致性可以让硬件更快的执行程序。</p>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/">
-                <span class="button__icon">←</span>
-                <span class="button__text">litmus test</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/">
-                <span class="button__text">内存一致性模型</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1667,63 +1697,252 @@ The customary approach to designing and proving the correctness of multiprocess 
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">一致性与共识</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>一致性与共识
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。
+线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。
+可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。
+约束与唯一性保证 同一个用户名、电子邮件或系统中文件名需要唯一性的保证，也应该进行「线性化」。
+跨通道的时间依赖 系统中存在其他通信渠道也需要「线性化」。
+实现线性化系统 主从复制（部分支持可线性化） 共识算法（可线性化） 多主复制（不可线性化） 无主复制（可能不可线性化） 线性化与Quorum 一致性 Dynamo 风格的复制模型，读写遵从严格的 quorum 是无法支持可线性化的。
+线性化的代价 多主复制和主从复制，网络中断都会导致同步暂停，从而无法保证客户端要求的线性化读写。
+CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，现代多个 CPU 对同一个内存地址的读写都不能满足（参见硬件内存模型），如果需要强一致则需要内存屏障（栅栏）指令。
+之所以放弃线性化的原因就是性能，而不是为了容错。由于网络延迟的不确定性，无论是否发生网络故障，线性化对性能的影响都是巨大的。
+顺序保证 顺序与因果关系 顺序有助于保持因果关系。
+因果顺序并非全序：因果关系是小范围集合的偏序，可线性化是一个全序操作。 可线性化强于因果一致性 捕获因果依赖关系：检测并发写 序列号排序 非因果序列发生器 适用于系统不存在唯一主节点。
+每个节点都独立产生自己的一组序列号：一个奇数一个偶数，或者切入节点唯一标识符。 用足够高的分辨率的墙上时间戳附加到每个操作上。 预先分配区间范围，并及时扩容。 Lamport 时间戳 可以产生因果关系一致的序列号。Lamport 时间戳是一个值对 （计数器，节点 ID） ：
+节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：
+两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：...</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-25 07:26:00 +0800 +0800'>July 25, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 一致性与共识" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/"></a>
+          </article>
        
-          <li><a href="/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/">C&#43;&#43; 弱同步原子（acquire/release atomic）</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>C&#43;&#43; 弱同步原子（acquire/release atomic）
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
+较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
+atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
+来看下面 litmus test：
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?...</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-16 11:59:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to C&#43;&#43; 弱同步原子（acquire/release atomic）" href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/"></a>
+          </article>
        
-          <li><a href="/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">C&#43;&#43;11 内存模型</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>C&#43;&#43;11 内存模型
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
+C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+          </article>
        
-          <li><a href="/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/">内存顺序一致性（sequential consistency）</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>内存顺序一致性（sequential consistency）
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>See also: 顺序一致性。</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-16 11:10:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 内存顺序一致性（sequential consistency）" href="https://notes.0081800.xyz/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/"></a>
+          </article>
        
-          <li><a href="/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/">内存屏障</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>内存屏障
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>内存屏障（或栅栏）是非顺序一致性的硬件提供的一种显式指令，用于控制排序提供更强的内存排序，修复同步算法。
+添加内存屏障，确保每个线程在开始读取之前都会刷新其先前对内存的写入：
+// Thread 1 // Thread 2 x = 1 y = 1 barrier barrier r1 = y r2 = x x86 总存储有序（x86-TSO) 加上内存屏障之后 r1=0, r2=0 就会变得不可能。</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-12 16:21:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 内存屏障" href="https://notes.0081800.xyz/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/"></a>
+          </article>
        
-          <li><a href="/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/">x86 总存储有序（x86-TSO)</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>x86 总存储有序（x86-TSO)
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
+重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
+写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
+基于以上下面 litmus test 的答案依然是 no ，这种情况与顺序一致性模型结果一致：
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. 但其他测试则并不一致区分与顺序一致性的常用例子:
+Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0, r2 = 0?...</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-12 15:58:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to x86 总存储有序（x86-TSO)" href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/"></a>
+          </article>
        
-          <li><a href="/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/">内存一致性模型</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>内存一致性模型
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
+最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
+例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 内存一致性模型" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

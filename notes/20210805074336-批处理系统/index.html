@@ -1,45 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>批处理系统 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>批处理系统 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="MapReduce MapReduce 与分布式文件系统 MapReduce 就像分布在上千台机器上的 Unix 工具。
 MapReduce 作业通常不会修改输入，除了输出外没有任何副作用。 MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（Hadoop Distributed File System)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。 MapReduce 作业执行 MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。
 要创建 MapReduce 作业需要实现两个回调函数： mapper 和 reducer （另请参阅 MapReduce 查询）:
 Mapper: 每个输入记录都会调用一次，从输入记录提取任意数量的关键字和值（可以为空），不保留任何状态，可以独立处理。 Reducer: MapReduce 框架使用 Mapper 生成的键值对，收集同一个关键字的所有值，并使用迭代器调用 reducer 以使用该值的集合。 Reducer 可以生成输出记录。 MapReduce 分布式执行 参见 Hadoop 的 MapReduce 的分布式执行。
 MapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：
 第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。
-Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/" />
+Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="批处理系统">
+    </style>
+</noscript><meta property="og:title" content="批处理系统" />
 <meta property="og:description" content="MapReduce MapReduce 与分布式文件系统 MapReduce 就像分布在上千台机器上的 Unix 工具。
 MapReduce 作业通常不会修改输入，除了输出外没有任何副作用。 MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（Hadoop Distributed File System)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。 MapReduce 作业执行 MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。
 要创建 MapReduce 作业需要实现两个回调函数： mapper 和 reducer （另请参阅 MapReduce 查询）:
@@ -47,118 +70,230 @@ Mapper: 每个输入记录都会调用一次，从输入记录提取任意数量
 MapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：
 第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。
 Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-08-05T07:43:00+08:00" />
+<meta property="article:modified_time" content="2021-08-05T07:43:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-08-05 07:43:00 &#43;0800 &#43;0800" />
-
-
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="批处理系统"/>
+<meta name="twitter:description" content="MapReduce MapReduce 与分布式文件系统 MapReduce 就像分布在上千台机器上的 Unix 工具。
+MapReduce 作业通常不会修改输入，除了输出外没有任何副作用。 MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（Hadoop Distributed File System)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。 MapReduce 作业执行 MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。
+要创建 MapReduce 作业需要实现两个回调函数： mapper 和 reducer （另请参阅 MapReduce 查询）:
+Mapper: 每个输入记录都会调用一次，从输入记录提取任意数量的关键字和值（可以为空），不保留任何状态，可以独立处理。 Reducer: MapReduce 框架使用 Mapper 生成的键值对，收集同一个关键字的所有值，并使用迭代器调用 reducer 以使用该值的集合。 Reducer 可以生成输出记录。 MapReduce 分布式执行 参见 Hadoop 的 MapReduce 的分布式执行。
+MapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：
+第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。
+Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。"/>
 
 
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "批处理系统",
+      "item": "https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "批处理系统",
+  "name": "批处理系统",
+  "description": "MapReduce MapReduce 与分布式文件系统 MapReduce 就像分布在上千台机器上的 Unix 工具。\nMapReduce 作业通常不会修改输入，除了输出外没有任何副作用。 MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（Hadoop Distributed File System)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。 MapReduce 作业执行 MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。\n要创建 MapReduce 作业需要实现两个回调函数： mapper 和 reducer （另请参阅 MapReduce 查询）:\nMapper: 每个输入记录都会调用一次，从输入记录提取任意数量的关键字和值（可以为空），不保留任何状态，可以独立处理。 Reducer: MapReduce 框架使用 Mapper 生成的键值对，收集同一个关键字的所有值，并使用迭代器调用 reducer 以使用该值的集合。 Reducer 可以生成输出记录。 MapReduce 分布式执行 参见 Hadoop 的 MapReduce 的分布式执行。\nMapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：\n第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。\nReduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。",
+  "keywords": [
+    
+  ],
+  "articleBody": "MapReduce MapReduce 与分布式文件系统 MapReduce 就像分布在上千台机器上的 Unix 工具。\nMapReduce 作业通常不会修改输入，除了输出外没有任何副作用。 MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（Hadoop Distributed File System)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。 MapReduce 作业执行 MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。\n要创建 MapReduce 作业需要实现两个回调函数： mapper 和 reducer （另请参阅 MapReduce 查询）:\nMapper: 每个输入记录都会调用一次，从输入记录提取任意数量的关键字和值（可以为空），不保留任何状态，可以独立处理。 Reducer: MapReduce 框架使用 Mapper 生成的键值对，收集同一个关键字的所有值，并使用迭代器调用 reducer 以使用该值的集合。 Reducer 可以生成输出记录。 MapReduce 分布式执行 参见 Hadoop 的 MapReduce 的分布式执行。\nMapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：\n第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。\nReduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。\n排序-合并 join 次级排序：reducer 会首先看到用户数据库的记录，然后按照时间戳顺序查看活动事件。\n基于次级排序 reducer 可以很容易的执行 join：为每个用户 ID 调用一次 reducer 函数。\n第一个值是来自用户数据库的出生日期记录，并存储在局部变量。 然后使用相同的用户 ID 遍历活动事件。 进行聚类。 reducer 每次处理一个特定用户 ID 的所有记录。\n将相关数据放在一起 分组 处理数据倾斜 数据抽样探测热键，使用算法进行补偿。缺点是需要进行数据复制。\nHive 需要在表格元数据中明确指定热键，并将与这些键相关记录与其余文件分开存放。\nMap 端 join 操作 广播哈希 join 把小数据集加载到内存哈希表中，mapper 的时候直接读取哈希表进行数据补全。\n“广播”：每个分区的 mapper 读取整个小数据集到内存哈希表。\n分区哈希 join 将加载到内存哈希表的数据缩小独立作用于每个分区。\nHive 中称为 bucketed map join。\nmap 端合并 join 按关键字升序增量读取两个输入文件，并且匹配具有相同关键字的记录。\n具有 map 端 join 的 MapReduce 工作流 批处理工作流的输出 生成搜索索引 批处理输出键值 批处理输出的哲学 对比 Hadoop 与分布式数据库 参见 对比分布式数据库。\n相关文章 Why MapReduce is making a comeback 超越 MapReduce 中间状态实体化 数据流引擎：Spark、Flink、Tez 容错：Spark 使用 弹性分布式数据集 跟踪数据的祖先，Flink 对运算符状态建立检查点来从故障中恢复。 数据流对 MapReduce 的改进是：不需要自己将所有中间状态写入文件系统。\n图与迭代处理 Pregel 处理模型 高级 API 和语言 Hive、Pig、Cascading 和 Crunch。Tez 可以将这些高级语言移植到新的数据流执行引擎。\n",
+  "wordCount" : "171",
+  "inLanguage": "en",
+  "datePublished": "2021-08-05T07:43:00+08:00",
+  "dateModified": "2021-08-05T07:43:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      批处理系统
+    </h1>
+    <div class="post-meta"><span title='2021-08-05 07:43:00 +0800 +0800'>August 5, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/">批处理系统</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-08-05 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#mapreduce" aria-label="MapReduce">MapReduce</a><ul>
+                        
+                <li>
+                    <a href="#mapreduce-%e4%b8%8e%e5%88%86%e5%b8%83%e5%bc%8f%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f" aria-label="MapReduce 与分布式文件系统">MapReduce 与分布式文件系统</a></li>
+                <li>
+                    <a href="#mapreduce-%e4%bd%9c%e4%b8%9a%e6%89%a7%e8%a1%8c" aria-label="MapReduce 作业执行">MapReduce 作业执行</a><ul>
+                        
+                <li>
+                    <a href="#mapreduce-%e5%88%86%e5%b8%83%e5%bc%8f%e6%89%a7%e8%a1%8c" aria-label="MapReduce 分布式执行">MapReduce 分布式执行</a></li>
+                <li>
+                    <a href="#mapreduce-%e5%b7%a5%e4%bd%9c%e6%b5%81" aria-label="MapReduce 工作流">MapReduce 工作流</a></li></ul>
+                </li>
+                <li>
+                    <a href="#reduce-%e7%ab%af%e7%9a%84-join-%e4%b8%8e%e5%88%86%e7%bb%84" aria-label="Reduce 端的 join 与分组">Reduce 端的 join 与分组</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%92%e5%ba%8f-%e5%90%88%e5%b9%b6-join" aria-label="排序-合并 join">排序-合并 join</a></li>
+                <li>
+                    <a href="#%e5%b0%86%e7%9b%b8%e5%85%b3%e6%95%b0%e6%8d%ae%e6%94%be%e5%9c%a8%e4%b8%80%e8%b5%b7" aria-label="将相关数据放在一起">将相关数据放在一起</a></li>
+                <li>
+                    <a href="#%e5%88%86%e7%bb%84" aria-label="分组">分组</a></li>
+                <li>
+                    <a href="#%e5%a4%84%e7%90%86%e6%95%b0%e6%8d%ae%e5%80%be%e6%96%9c" aria-label="处理数据倾斜">处理数据倾斜</a></li></ul>
+                </li>
+                <li>
+                    <a href="#map-%e7%ab%af-join-%e6%93%8d%e4%bd%9c" aria-label="Map 端 join 操作">Map 端 join 操作</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b9%bf%e6%92%ad%e5%93%88%e5%b8%8c-join" aria-label="广播哈希 join">广播哈希 join</a></li>
+                <li>
+                    <a href="#%e5%88%86%e5%8c%ba%e5%93%88%e5%b8%8c-join" aria-label="分区哈希 join">分区哈希 join</a></li>
+                <li>
+                    <a href="#map-%e7%ab%af%e5%90%88%e5%b9%b6-join" aria-label="map 端合并 join">map 端合并 join</a></li>
+                <li>
+                    <a href="#%e5%85%b7%e6%9c%89-map-%e7%ab%af-join-%e7%9a%84-mapreduce-%e5%b7%a5%e4%bd%9c%e6%b5%81" aria-label="具有 map 端 join 的 MapReduce 工作流">具有 map 端 join 的 MapReduce 工作流</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%89%b9%e5%a4%84%e7%90%86%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%9a%84%e8%be%93%e5%87%ba" aria-label="批处理工作流的输出">批处理工作流的输出</a><ul>
+                        
+                <li>
+                    <a href="#%e7%94%9f%e6%88%90%e6%90%9c%e7%b4%a2%e7%b4%a2%e5%bc%95" aria-label="生成搜索索引">生成搜索索引</a></li>
+                <li>
+                    <a href="#%e6%89%b9%e5%a4%84%e7%90%86%e8%be%93%e5%87%ba%e9%94%ae%e5%80%bc" aria-label="批处理输出键值">批处理输出键值</a></li>
+                <li>
+                    <a href="#%e6%89%b9%e5%a4%84%e7%90%86%e8%be%93%e5%87%ba%e7%9a%84%e5%93%b2%e5%ad%a6" aria-label="批处理输出的哲学">批处理输出的哲学</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%af%b9%e6%af%94-hadoop-%e4%b8%8e%e5%88%86%e5%b8%83%e5%bc%8f%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="对比 Hadoop 与分布式数据库">对比 Hadoop 与分布式数据库</a></li>
+                <li>
+                    <a href="#%e7%9b%b8%e5%85%b3%e6%96%87%e7%ab%a0" aria-label="相关文章">相关文章</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%b6%85%e8%b6%8a-mapreduce" aria-label="超越 MapReduce">超越 MapReduce</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%ad%e9%97%b4%e7%8a%b6%e6%80%81%e5%ae%9e%e4%bd%93%e5%8c%96" aria-label="中间状态实体化">中间状态实体化</a></li>
+                <li>
+                    <a href="#%e5%9b%be%e4%b8%8e%e8%bf%ad%e4%bb%a3%e5%a4%84%e7%90%86" aria-label="图与迭代处理">图与迭代处理</a></li>
+                <li>
+                    <a href="#%e9%ab%98%e7%ba%a7-api-%e5%92%8c%e8%af%ad%e8%a8%80" aria-label="高级 API 和语言">高级 API 和语言</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <h2 id="mapreduce">MapReduce<a href="#mapreduce" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="mapreduce-与分布式文件系统">MapReduce 与分布式文件系统<a href="#mapreduce-与分布式文件系统" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+  <div class="post-content"><h2 id="mapreduce">MapReduce<a hidden class="anchor" aria-hidden="true" href="#mapreduce">#</a></h2>
+<h3 id="mapreduce-与分布式文件系统">MapReduce 与分布式文件系统<a hidden class="anchor" aria-hidden="true" href="#mapreduce-与分布式文件系统">#</a></h3>
 <p>MapReduce 就像分布在上千台机器上的 Unix 工具。</p>
 <ul>
 <li>MapReduce 作业通常不会修改输入，除了输出外没有任何副作用。</li>
 <li>MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（<a href="/notes/20210808075530-hadoop_distributed_file_system/">Hadoop Distributed File System</a>)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。</li>
 </ul>
-<h3 id="mapreduce-作业执行">MapReduce 作业执行<a href="#mapreduce-作业执行" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="mapreduce-作业执行">MapReduce 作业执行<a hidden class="anchor" aria-hidden="true" href="#mapreduce-作业执行">#</a></h3>
 <p>MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。</p>
 <p>要创建 MapReduce 作业需要实现两个回调函数： <code>mapper</code> 和 <code>reducer</code> （另请参阅 <a href="/notes/20210606095222-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80/#数据查询语言">MapReduce 查询</a>）:</p>
 <ul>
@@ -166,19 +301,19 @@ Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数�
 <li><code>Reducer</code>: MapReduce 框架使用 <code>Mapper</code> 生成的键值对，收集同一个关键字的所有值，并使用迭代器调用 reducer 以使用该值的集合。
 Reducer 可以生成输出记录。</li>
 </ul>
-<h4 id="mapreduce-分布式执行">MapReduce 分布式执行<a href="#mapreduce-分布式执行" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="mapreduce-分布式执行">MapReduce 分布式执行<a hidden class="anchor" aria-hidden="true" href="#mapreduce-分布式执行">#</a></h4>
 <p>参见 Hadoop 的 <a href="/notes/20210809073407-hadoop/#id-7ce0e649-d25b-4d30-9c25-22caf92cbf2b-mapreduce">MapReduce 的分布式执行</a>。</p>
-<h4 id="mapreduce-工作流">MapReduce 工作流<a href="#mapreduce-工作流" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="mapreduce-工作流">MapReduce 工作流<a hidden class="anchor" aria-hidden="true" href="#mapreduce-工作流">#</a></h4>
 <p>将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：</p>
 <ul>
 <li>第一个作业必须配置将其输出写入 HDFS 中指定目录；</li>
 <li>第二个作业必须配置读取相同的目录名作为输入。</li>
 </ul>
 <p>目前已经开发了处理依赖管理的 <a href="/notes/20210809073407-hadoop/#id-7ce0e649-d25b-4d30-9c25-22caf92cbf2b-mapreduce">MapReduce 工作流调度器</a>。</p>
-<h3 id="reduce-端的-join-与分组">Reduce 端的 join 与分组<a href="#reduce-端的-join-与分组" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="reduce-端的-join-与分组">Reduce 端的 join 与分组<a hidden class="anchor" aria-hidden="true" href="#reduce-端的-join-与分组">#</a></h3>
 <p>批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。
 假设 join 两张表：用户和活动事件。</p>
-<h4 id="排序-合并-join">排序-合并 join<a href="#排序-合并-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="排序-合并-join">排序-合并 join<a hidden class="anchor" aria-hidden="true" href="#排序-合并-join">#</a></h4>
 <p>次级排序：reducer 会首先看到用户数据库的记录，然后按照时间戳顺序查看活动事件。</p>
 <p>基于次级排序 reducer 可以很容易的执行 join：为每个用户 ID 调用一次 reducer 函数。</p>
 <ul>
@@ -187,78 +322,55 @@ Reducer 可以生成输出记录。</li>
 <li>进行聚类。</li>
 </ul>
 <p>reducer 每次处理一个特定用户 ID 的所有记录。</p>
-<h4 id="将相关数据放在一起">将相关数据放在一起<a href="#将相关数据放在一起" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="分组">分组<a href="#分组" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="处理数据倾斜">处理数据倾斜<a href="#处理数据倾斜" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="将相关数据放在一起">将相关数据放在一起<a hidden class="anchor" aria-hidden="true" href="#将相关数据放在一起">#</a></h4>
+<h4 id="分组">分组<a hidden class="anchor" aria-hidden="true" href="#分组">#</a></h4>
+<h4 id="处理数据倾斜">处理数据倾斜<a hidden class="anchor" aria-hidden="true" href="#处理数据倾斜">#</a></h4>
 <p>数据抽样探测热键，使用算法进行补偿。缺点是需要进行数据复制。</p>
 <p>Hive 需要在表格元数据中明确指定热键，并将与这些键相关记录与其余文件分开存放。</p>
-<h3 id="map-端-join-操作">Map 端 join 操作<a href="#map-端-join-操作" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="广播哈希-join">广播哈希 join<a href="#广播哈希-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="map-端-join-操作">Map 端 join 操作<a hidden class="anchor" aria-hidden="true" href="#map-端-join-操作">#</a></h3>
+<h4 id="广播哈希-join">广播哈希 join<a hidden class="anchor" aria-hidden="true" href="#广播哈希-join">#</a></h4>
 <p>把小数据集加载到内存哈希表中，mapper 的时候直接读取哈希表进行数据补全。</p>
 <p>“广播”：每个分区的 mapper 读取整个小数据集到内存哈希表。</p>
-<h4 id="分区哈希-join">分区哈希 join<a href="#分区哈希-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="分区哈希-join">分区哈希 join<a hidden class="anchor" aria-hidden="true" href="#分区哈希-join">#</a></h4>
 <p>将加载到内存哈希表的数据缩小独立作用于每个分区。</p>
 <p>Hive 中称为 <a href="/notes/20210809080723-hive/#bucketed-map-join">bucketed map join</a>。</p>
-<h4 id="map-端合并-join">map 端合并 join<a href="#map-端合并-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="map-端合并-join">map 端合并 join<a hidden class="anchor" aria-hidden="true" href="#map-端合并-join">#</a></h4>
 <p>按关键字升序增量读取两个输入文件，并且匹配具有相同关键字的记录。</p>
-<h4 id="具有-map-端-join-的-mapreduce-工作流">具有 map 端 join 的 MapReduce 工作流<a href="#具有-map-端-join-的-mapreduce-工作流" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h3 id="批处理工作流的输出">批处理工作流的输出<a href="#批处理工作流的输出" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="生成搜索索引">生成搜索索引<a href="#生成搜索索引" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="批处理输出键值">批处理输出键值<a href="#批处理输出键值" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="批处理输出的哲学">批处理输出的哲学<a href="#批处理输出的哲学" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h3 id="对比-hadoop-与分布式数据库">对比 Hadoop 与分布式数据库<a href="#对比-hadoop-与分布式数据库" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="具有-map-端-join-的-mapreduce-工作流">具有 map 端 join 的 MapReduce 工作流<a hidden class="anchor" aria-hidden="true" href="#具有-map-端-join-的-mapreduce-工作流">#</a></h4>
+<h3 id="批处理工作流的输出">批处理工作流的输出<a hidden class="anchor" aria-hidden="true" href="#批处理工作流的输出">#</a></h3>
+<h4 id="生成搜索索引">生成搜索索引<a hidden class="anchor" aria-hidden="true" href="#生成搜索索引">#</a></h4>
+<h4 id="批处理输出键值">批处理输出键值<a hidden class="anchor" aria-hidden="true" href="#批处理输出键值">#</a></h4>
+<h4 id="批处理输出的哲学">批处理输出的哲学<a hidden class="anchor" aria-hidden="true" href="#批处理输出的哲学">#</a></h4>
+<h3 id="对比-hadoop-与分布式数据库">对比 Hadoop 与分布式数据库<a hidden class="anchor" aria-hidden="true" href="#对比-hadoop-与分布式数据库">#</a></h3>
 <p>参见 <a href="/notes/20210809073407-hadoop/#对比分布式数据库">对比分布式数据库</a>。</p>
-<h3 id="相关文章">相关文章<a href="#相关文章" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="相关文章">相关文章<a hidden class="anchor" aria-hidden="true" href="#相关文章">#</a></h3>
 <ul>
 <li><a href="/notes/20210811111926-why_mapreduce_is_making_a_comeback/">Why MapReduce is making a comeback</a></li>
 </ul>
-<h2 id="超越-mapreduce">超越 MapReduce<a href="#超越-mapreduce" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="中间状态实体化">中间状态实体化<a href="#中间状态实体化" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h2 id="超越-mapreduce">超越 MapReduce<a hidden class="anchor" aria-hidden="true" href="#超越-mapreduce">#</a></h2>
+<h3 id="中间状态实体化">中间状态实体化<a hidden class="anchor" aria-hidden="true" href="#中间状态实体化">#</a></h3>
 <ul>
 <li>数据流引擎：Spark、Flink、Tez</li>
 <li>容错：Spark 使用 <a href="/notes/20210810072604-%E5%BC%B9%E6%80%A7%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86/">弹性分布式数据集</a> 跟踪数据的祖先，Flink 对运算符状态建立检查点来从故障中恢复。</li>
 </ul>
 <p>数据流对 MapReduce 的改进是：不需要自己将所有中间状态写入文件系统。</p>
-<h3 id="图与迭代处理">图与迭代处理<a href="#图与迭代处理" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="图与迭代处理">图与迭代处理<a hidden class="anchor" aria-hidden="true" href="#图与迭代处理">#</a></h3>
 <ul>
 <li>Pregel 处理模型</li>
 </ul>
-<h3 id="高级-api-和语言">高级 API 和语言<a href="#高级-api-和语言" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="高级-api-和语言">高级 API 和语言<a hidden class="anchor" aria-hidden="true" href="#高级-api-和语言">#</a></h3>
 <p>Hive、Pig、Cascading 和 Crunch。Tez 可以将这些高级语言移植到新的数据流执行引擎。</p>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210805082720-%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                <span class="button__icon">←</span>
-                <span class="button__text">数据库</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210805073600-leetcode_37_sudoku_solver/">
-                <span class="button__text">LeetCode: 37. Sudoku Solver</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1716,53 +1828,169 @@ Reducer 可以生成输出记录。</li>
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210809073407-hadoop/">Hadoop</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Hadoop
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: Bigdata Hadoop Distributed File System MapReduce MapReduce shuffle 按照 reducer 分区，排序和将数据分区从 mapper 复制到 reducer。（令人困惑的术语，并不完全与洗牌一样，在 MapReduce 中其实没有随机性）。
+MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
+输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
+          </article>
        
-          <li><a href="/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>《数据密集型应用系统设计》读书笔记
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
+扩展：
+垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
+复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

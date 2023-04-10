@@ -1,151 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>内存一致性模型 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>内存一致性模型 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content=" tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
 最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
 例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
-// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 " />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/" />
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 ">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="内存一致性模型">
+    </style>
+</noscript><meta property="og:title" content="内存一致性模型" />
 <meta property="og:description" content=" tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
 最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
 例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
 // Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 " />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-07-12T15:05:00+08:00" />
+<meta property="article:modified_time" content="2021-07-12T15:05:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-07-12 15:05:00 &#43;0800 &#43;0800" />
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="内存一致性模型"/>
+<meta name="twitter:description" content=" tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
+最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
+例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 "/>
 
 
-
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "内存一致性模型",
+      "item": "https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "内存一致性模型",
+  "name": "内存一致性模型",
+  "description": " tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。\n最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C++ 或 Java）对该语言编写代码的程序员提供的保证。\n例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？\n// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 ",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。\n最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C++ 或 Java）对该语言编写代码的程序员提供的保证。\n例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？\n// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 ",
+  "wordCount" : "59",
+  "inLanguage": "en",
+  "datePublished": "2021-07-12T15:05:00+08:00",
+  "dateModified": "2021-07-12T15:05:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      内存一致性模型
+    </h1>
+    <div class="post-meta"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/">内存一致性模型</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-07-12 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#memory-coherence-vs-consistency--20210716110147-memory-coherence-vs-consistency-dot-md" aria-label="Memory coherence vs consistency"><a href="/notes/20210716110147-memory_coherence_vs_consistency/">Memory coherence vs consistency</a></a></li>
+                <li>
+                    <a href="#%e5%86%85%e5%ad%98%e4%b8%80%e8%87%b4%e6%80%a7-coherence--20210716110953-%e5%86%85%e5%ad%98%e4%b8%80%e8%87%b4%e6%80%a7-coherence-dot-md" aria-label="内存一致性（coherence）"><a href="/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/">内存一致性（coherence）</a></a></li>
+                <li>
+                    <a href="#%e5%86%85%e5%ad%98%e9%a1%ba%e5%ba%8f%e4%b8%80%e8%87%b4%e6%80%a7-sequential-consistency--20210716111043-%e5%86%85%e5%ad%98%e9%a1%ba%e5%ba%8f%e4%b8%80%e8%87%b4%e6%80%a7-sequential-consistency-dot-md" aria-label="内存顺序一致性（sequential consistency）"><a href="/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/">内存顺序一致性（sequential consistency）</a></a></li>
+                <li>
+                    <a href="#%e7%a1%ac%e4%bb%b6" aria-label="硬件">硬件</a></li>
+                <li>
+                    <a href="#%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b--20210712143544-%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b-dot-md" aria-label="编程语言内存模型"><a href="/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">编程语言内存模型</a></a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/topics/20220101074955-%E4%B8%80%E8%87%B4%E6%80%A7/">一致性</a>，<a href="/topics/20220102072550-memory_model/">Memory Model</a></li>
 </ul>
 <p>当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。
@@ -155,51 +234,28 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// Thread 1           // Thread 2
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;                <span style="color:#66d9ef">while</span>(done <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) { <span style="color:#75715e">/* loop */</span> }
 </span></span><span style="display:flex;"><span>done <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;             print(x);
-</span></span></code></pre></div><h2 id="memory-coherence-vs-consistency--20210716110147-memory-coherence-vs-consistency-dot-md"><a href="/notes/20210716110147-memory_coherence_vs_consistency/">Memory coherence vs consistency</a><a href="#memory-coherence-vs-consistency--20210716110147-memory-coherence-vs-consistency-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h2 id="内存一致性-coherence--20210716110953-内存一致性-coherence-dot-md"><a href="/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/">内存一致性（coherence）</a><a href="#内存一致性-coherence--20210716110953-内存一致性-coherence-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h2 id="内存顺序一致性-sequential-consistency--20210716111043-内存顺序一致性-sequential-consistency-dot-md"><a href="/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/">内存顺序一致性（sequential consistency）</a><a href="#内存顺序一致性-sequential-consistency--20210716111043-内存顺序一致性-sequential-consistency-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h2 id="硬件">硬件<a href="#硬件" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="memory-coherence-vs-consistency--20210716110147-memory-coherence-vs-consistency-dot-md"><a href="/notes/20210716110147-memory_coherence_vs_consistency/">Memory coherence vs consistency</a><a hidden class="anchor" aria-hidden="true" href="#memory-coherence-vs-consistency--20210716110147-memory-coherence-vs-consistency-dot-md">#</a></h2>
+<h2 id="内存一致性-coherence--20210716110953-内存一致性-coherence-dot-md"><a href="/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/">内存一致性（coherence）</a><a hidden class="anchor" aria-hidden="true" href="#内存一致性-coherence--20210716110953-内存一致性-coherence-dot-md">#</a></h2>
+<h2 id="内存顺序一致性-sequential-consistency--20210716111043-内存顺序一致性-sequential-consistency-dot-md"><a href="/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/">内存顺序一致性（sequential consistency）</a><a hidden class="anchor" aria-hidden="true" href="#内存顺序一致性-sequential-consistency--20210716111043-内存顺序一致性-sequential-consistency-dot-md">#</a></h2>
+<h2 id="硬件">硬件<a hidden class="anchor" aria-hidden="true" href="#硬件">#</a></h2>
 <ul>
 <li><a href="/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/">顺序一致性</a></li>
 <li><a href="/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/">x86 总存储有序（x86-TSO)</a></li>
 <li><a href="/notes/20210712162917-arm_power_relaxed_memory_model/">ARM/POWER Relaxed Memory Model</a></li>
 <li><a href="/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/">弱有序和无数据竞争（DRF）</a></li>
 </ul>
-<h2 id="编程语言内存模型--20210712143544-编程语言内存模型-dot-md"><a href="/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">编程语言内存模型</a><a href="#编程语言内存模型--20210712143544-编程语言内存模型-dot-md" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="编程语言内存模型--20210712143544-编程语言内存模型-dot-md"><a href="/topics/20210712143544-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">编程语言内存模型</a><a hidden class="anchor" aria-hidden="true" href="#编程语言内存模型--20210712143544-编程语言内存模型-dot-md">#</a></h2>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/">
-                <span class="button__icon">←</span>
-                <span class="button__text">顺序一致性</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
-                <span class="button__text">硬件内存模型</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1659,55 +1715,181 @@
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/">原子变量（atomic variable）或原子操作（tomic operation）</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>原子变量（atomic variable）或原子操作（tomic operation）
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
+代码示例
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
+Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。...</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
+          </article>
        
-          <li><a href="/notes/20210712153952-litmus_test/">litmus test</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>litmus test
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>下面这种关于样本结果的问题被称为 litmus test 。它只有两个答案：可能还是不可能？为我们提供了一种区分内存一致性模型的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。
+litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而是一个线程本地寄存器。
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
+          </article>
        
-          <li><a href="/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">硬件内存模型</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>硬件内存模型
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型</p>
+            </div>
+            <footer class="entry-footer"><span title='2021-07-12 14:32:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 硬件内存模型" href="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

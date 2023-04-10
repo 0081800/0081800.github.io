@@ -68,6 +68,9 @@
     <loc>https://notes.0081800.xyz/notes/20230220113142-the_refreshingly_rewarding_realm_of_research_papers/</loc>
     <lastmod>2023-02-20T11:31:00+08:00</lastmod>
   </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230218143222-mpc/</loc>
+    <lastmod>2023-02-18T14:32:00+08:00</lastmod>
+  </url><url>
     <loc>https://notes.0081800.xyz/notes/20230213164423-five_tips_for_a_healthier_postgres_database_in_the_new_year/</loc>
     <lastmod>2023-02-13T16:44:00+08:00</lastmod>
   </url><url>
@@ -2178,5 +2181,7 @@
     <lastmod>2019-04-09T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/categories/</loc>
+  </url><url>
+    <loc>https://notes.0081800.xyz/search/</loc>
   </url>
 </urlset>

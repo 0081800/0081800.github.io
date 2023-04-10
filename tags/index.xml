@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/tags/</link>
@@ -14,7 +14,6 @@
       
       <guid>https://notes.0081800.xyz/tags/ml/</guid>
       <description></description>
-      <content></content>
     </item>
     
     <item>
@@ -24,7 +23,6 @@
       
       <guid>https://notes.0081800.xyz/tags/study/</guid>
       <description></description>
-      <content></content>
     </item>
     
     <item>
@@ -34,7 +32,6 @@
       
       <guid>https://notes.0081800.xyz/tags/cs/</guid>
       <description></description>
-      <content></content>
     </item>
     
     <item>
@@ -44,7 +41,6 @@
       
       <guid>https://notes.0081800.xyz/tags/rust/</guid>
       <description></description>
-      <content></content>
     </item>
     
     <item>
@@ -54,7 +50,6 @@
       
       <guid>https://notes.0081800.xyz/tags/index/</guid>
       <description></description>
-      <content></content>
     </item>
     
     <item>
@@ -64,7 +59,6 @@
       
       <guid>https://notes.0081800.xyz/tags/ddd/</guid>
       <description></description>
-      <content></content>
     </item>
     
   </channel>

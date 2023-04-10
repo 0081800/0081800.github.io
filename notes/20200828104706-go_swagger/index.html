@@ -1,172 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>Go Swagger 实现代码即文档 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Go Swagger 实现代码即文档 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
 代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
-//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&amp;#34;Hello world!&amp;#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
-paths: {} swagger: &amp;#34;2.0&amp;#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
-创建 swagger/swagger." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/" />
+//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
+paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
+创建 swagger/swagger.">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="Go Swagger 实现代码即文档">
+    </style>
+</noscript><meta property="og:title" content="Go Swagger 实现代码即文档" />
 <meta property="og:description" content="tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
 代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
-//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&amp;#34;Hello world!&amp;#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
-paths: {} swagger: &amp;#34;2.0&amp;#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
+//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
+paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
 创建 swagger/swagger." />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20200828104706-go_swagger/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20200828104706-go_swagger/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2020-08-28T10:47:00+08:00" />
+<meta property="article:modified_time" content="2020-08-28T10:47:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2020-08-28 10:47:00 &#43;0800 &#43;0800" />
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go Swagger 实现代码即文档"/>
+<meta name="twitter:description" content="tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
+代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
+//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
+paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
+创建 swagger/swagger."/>
 
 
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Go Swagger 实现代码即文档",
+      "item": "https://notes.0081800.xyz/notes/20200828104706-go_swagger/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Go Swagger 实现代码即文档",
+  "name": "Go Swagger 实现代码即文档",
+  "description": "tags: Go 目标 当跟随这篇文章完成后将产出如下内容：\n代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：\n//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(\u0026#34;Hello world!\u0026#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：\npaths: {} swagger: \u0026#34;2.0\u0026#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。\n创建 swagger/swagger.",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: Go 目标 当跟随这篇文章完成后将产出如下内容：\n代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：\n//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(\"Hello world!\"); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：\npaths: {} swagger: \"2.0\" 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。\n创建 swagger/swagger.go 填充如下内容：\n// Package swagger defines API documentation. // // Swagger 演示后端接口 // // Schemes: http // Host: 10.200.242.35:8080 // BasePath: /api/ // Version: 0.1.0 // Contact: 王会 // // Consumes: // - application/json // // Produces: // - application/vnd.17zuoye.v1+json // // swagger:meta package swagger 上面文件通过注释来定义了一些接口相关的信息，包括：\nSchemes 定义可用的协议 Host 定义接口地址 BasePath 定义接口基础路径 Consumes 定义复杂请求的类型（可以覆盖） Produces 定义接口响应类型（可以覆盖） 还有一些其他的信息，比如联系人等。 通过 swagger:meta 来结束声明。\n此时我们再次运行 go generate 将会得到如下 swagger.yml 定义：\nbasePath: /api/ consumes: - application/json host: 10.200.242.35:8080 info: contact: email: hui.wang.a@17zuoye.com name: 王会 description: Swagger 演示后端接口 title: defines API documentation. version: 0.1.0 paths: {} produces: - application/vnd.17zuoye.v1+json schemes: - http swagger: \"2.0\" 编写接口文档 准备 service 包 我们打算将接口实现相关代码放在 service 包下，首先来创建 service/service.go ：\npackage service import ( \"github.com/gin-gonic/gin\" ) var Engine = gin.Default() var Router = Engine.Group(\"/api\") func init() { // Mount handlers to gin here } POST 提交信息 假设我们编写一个创建用户信息的接口，需要名字和年龄两个参数。我们在 service 包下创建 user.go\npackage service import ( \"github.com/gin-gonic/gin\" ) func CreateUser(c *gin.Context) { } func init() { // swagger:route POST /users users-create // // 创建用户。 // // Responses: // default: DefaultResponse // 201: UserResponse Router.POST(\"/users\", CreateUser) } 通过上面代码中的注释我们创建了一个 Swagger 中的 route 其 ID 是 users-create 。 我们在注释中也声明了响应，但是我们目前还没有定义参数和对应的响应。\nGo Swagger 的参数定义是反向的，意思就是你需要定义一个 parameter 然后指明用在哪个 route 或 operation 上（通过对应的 ID）。下面就让我们一起来看一看，我们来创建 swagger/user.go ：\npackage swagger // UserCreateForm 用于创建用户的表单，可以供 gin 使用 type UserCreateForm struct { Username string `json:\"username\"` Age int `json:\"age\"` } // UserCreateParams 声明 Swagger 参数生成文档 // swagger:parameters users-create type UserCreateParams struct { // in: body Body UserCreateForm } // UserEntity user entity to respond type UserEntity struct { ID uint64 `json:\"id\"` Username string `json:\"username\"` Age int `json:\"age\"` } // UserResponse 声明 Swagger 响应用于文档生成 // swagger:response type UserResponse struct { // in: body Body UserEntity } 接下来调整 swagger/swagger.go 定义 DefaultResponse:\n// Package swagger defines API documentation. // // Swagger 演示后端接口 // // Schemes: http // Host: 10.200.242.35:8080 // BasePath: /api/ // Version: 0.1.0 // Contact: 王会 // // Consumes: // - application/json // // Produces: // - application/vnd.17zuoye.v1+json // // swagger:meta package swagger // Default default entity type Default struct { Code int `json:\"code\"` Message string `json:\"msg\"` } // DefaultResponse 默认响应，用于 Swagger 文档生成 // swagger:response type DefaultResponse struct { // in: body Body Default } 现在我们运行 go generate 将会生成如下 swagger.yml\nbasePath: /api/ consumes: - application/json definitions: Default: description: Default default entity properties: code: format: int64 type: integer x-go-name: Code msg: type: string x-go-name: Message type: object x-go-package: gitlab.17zuoye.net/vgo/go-swagger-example/swagger UserEntity: description: UserEntity user entity to respond properties: age: format: int64 type: integer x-go-name: Age id: format: uint64 type: integer x-go-name: ID username: type: string x-go-name: Username type: object x-go-package: gitlab.17zuoye.net/vgo/go-swagger-example/swagger UserCreateForm: description: UserCreateForm 用于创建用户的表单，可以供 gin 使用 properties: age: format: int64 type: integer x-go-name: Age username: type: string x-go-name: Username type: object x-go-package: gitlab.17zuoye.net/vgo/go-swagger-example/swagger host: 10.200.242.35:8080 info: contact: email: hui.wang.a@17zuoye.com name: 王会 description: Swagger 演示后端接口 title: defines API documentation. version: 0.1.0 paths: /users: post: operationId: users-create parameters: - in: body name: Body schema: $ref: '#/definitions/UserCreateForm' responses: \"201\": $ref: '#/responses/UserResponse' default: $ref: '#/responses/DefaultResponse' summary: 创建用户。 produces: - application/vnd.17zuoye.v1+json responses: DefaultResponse: description: DefaultResponse 默认响应，用于 Swagger 文档生成 schema: $ref: '#/definitions/Default' UserResponse: description: UserResponse 声明 Swagger 响应用于文档生成 schema: $ref: '#/definitions/UserEntity' schemes: - http swagger: \"2.0\" 运行 swagger serve -F swagger swagger.yml 可查看文档。\n查询参数 接下来我们来编写查询接口文档，这次和上面创建稍有不同，参数通过 Query 进行传递， 编辑 service/user.go\npackage service import ( \"github.com/gin-gonic/gin\" ) func CreateUser(c *gin.Context) { } func QueryUsers(c *gin.Context) { } func init() { // swagger:route POST /users users-create // // 创建用户。 // // Responses: // default: DefaultResponse // 201: UserResponse Router.POST(\"/users\", CreateUser) // swagger:route GET /users users-query // // 查询用户。 // // Respones: // default: DefaultResponse // 200: UsersResponse Router.GET(\"/users\", QueryUsers) } 接下来调整 swagger/user.go 定义参数和响应：\npackage swagger // UserCreateForm 用于创建用户的表单，可以供 gin 使用 type UserCreateForm struct { Username string `json:\"username\"` Age int `json:\"age\"` } // UserCreateParams 声明 Swagger 参数生成文档 // swagger:parameters users-create type UserCreateParams struct { // in: body Body UserCreateForm } // UserEntity user entity to respond type UserEntity struct { ID uint64 `json:\"id\"` Username string `json:\"username\"` Age int `json:\"age\"` } // UserResponse 声明 Swagger 响应用于文档生成 // swagger:response type UserResponse struct { // in: body Body UserEntity } // UserQueryParams 声明 Swagger 参数生成文档 // swagger:parameters users-query type UserQueryParams struct { // json tag 用于 swagger // in: query Username string `json:\"username\" form:\"username\"` } // UsersResponse 用户列表响应 // swagger:response type UsersResponse struct { // in: body Body struct { Page int `json:\"page\"` PerPage int `json:\"perPage\"` Total int `json:\"total\"` Users []UserEntity `json:\"users\"` } } 运行 go generate \u0026\u0026 swagger serve -F swagger swagger.yml 可查看效果。\nURL 中 Path 参数 如果我们要更新用户信息，按照 RESTful 的设计方式，请求的方式应该是 PATCH /api/users/:id ， 此时 route 已经无法满足，需要借助 operation 编写一些原始的 YAML 来实现，下面是调整 后的 service/user.go:\npackage service import ( \"github.com/gin-gonic/gin\" ) func CreateUser(c *gin.Context) { } func QueryUsers(c *gin.Context) { } func UpdateUser(c *gin.Context) { } func init() { // swagger:route POST /users users-create // // 创建用户。 // // Responses: // default: DefaultResponse // 201: UserResponse Router.POST(\"/users\", CreateUser) // swagger:route GET /users users-query // // 查询用户。 // // Responses: // default: DefaultResponse // 200: UsersResponse Router.GET(\"/users\", QueryUsers) // swagger:operation PATCH /users/{userId} users-update // // 更新用户信息。 // // --- // parameters: // - in: path // name: userId // type: int // description: 用户 ID // - in: body // name: Body // schema: // \"$ref\": \"#/definitions/UserCreateForm\" // respones: // \"200\": // \"$ref\": \"#/responses/UserResponse\" // \"default\": // \"$ref\": \"#/responses/DefaultResponse\" Router.PATCH(\"/users/:id\", UpdateUser) } 部署 可以通过 CI/CD 生成 swagger.yml 进行部署，然后将对应的 JSON 地址结合公司 http://swagger.17zuoye.net/ 进行部署查看。\n相关示例可以参考 http://gitlab.17zuoye.net/vgo/go-swagger-example\n",
+  "wordCount" : "926",
+  "inLanguage": "en",
+  "datePublished": "2020-08-28T10:47:00+08:00",
+  "dateModified": "2020-08-28T10:47:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20200828104706-go_swagger/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      Go Swagger 实现代码即文档
+    </h1>
+    <div class="post-meta"><span title='2020-08-28 10:47:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/">Go Swagger 实现代码即文档</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2020-08-28 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%9b%ae%e6%a0%87" aria-label="目标">目标</a></li>
+                <li>
+                    <a href="#%e5%87%86%e5%a4%87" aria-label="准备">准备</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e9%a1%b9%e7%9b%ae" aria-label="创建一个项目">创建一个项目</a></li>
+                <li>
+                    <a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" aria-label="开始使用">开始使用</a></li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e5%8d%95%e7%8b%ac%e7%9a%84%e5%8c%85%e6%89%98%e7%ae%a1-swagger-%e7%9b%b8%e5%85%b3%e5%ae%9a%e4%b9%89" aria-label="使用单独的包托管 swagger 相关定义">使用单独的包托管 swagger 相关定义</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%bc%96%e5%86%99%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3" aria-label="编写接口文档">编写接口文档</a><ul>
+                        
+                <li>
+                    <a href="#%e5%87%86%e5%a4%87-service-%e5%8c%85" aria-label="准备 service 包">准备 service 包</a></li>
+                <li>
+                    <a href="#post-%e6%8f%90%e4%ba%a4%e4%bf%a1%e6%81%af" aria-label="POST 提交信息">POST 提交信息</a></li>
+                <li>
+                    <a href="#%e6%9f%a5%e8%af%a2%e5%8f%82%e6%95%b0" aria-label="查询参数">查询参数</a></li>
+                <li>
+                    <a href="#url-%e4%b8%ad-path-%e5%8f%82%e6%95%b0" aria-label="URL 中 Path 参数">URL 中 Path 参数</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%83%a8%e7%bd%b2" aria-label="部署">部署</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/notes/20200218115725/">Go</a></li>
 </ul>
-<h2 id="目标">目标<a href="#目标" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="目标">目标<a hidden class="anchor" aria-hidden="true" href="#目标">#</a></h2>
 <p>当跟随这篇文章完成后将产出如下内容：</p>
 <ul>
 <li>代码 <a href="http://gitlab.17zuoye.net/vgo/go-swagger-example">http://gitlab.17zuoye.net/vgo/go-swagger-example</a></li>
 <li>文档 <a href="http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json">http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json</a></li>
 </ul>
-<h2 id="准备">准备<a href="#准备" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="准备">准备<a hidden class="anchor" aria-hidden="true" href="#准备">#</a></h2>
 <ul>
 <li>Go1.14 及以上版本</li>
 <li>安装 <code>go-swagger</code> ：参见 <a href="https://goswagger.io/install.html">官方文档</a>。</li>
 <li>接下来使用 <a href="https://gin-gonic.com/">gin</a> 框架作为示例，如果之前没接触过可以先了解下该框架</li>
 </ul>
-<h3 id="创建一个项目">创建一个项目<a href="#创建一个项目" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="创建一个项目">创建一个项目<a hidden class="anchor" aria-hidden="true" href="#创建一个项目">#</a></h3>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ mkdir go-swagger-example
 $ cd go-swagger-example/
 $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
-</code></pre><h3 id="开始使用">开始使用<a href="#开始使用" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+</code></pre><h3 id="开始使用">开始使用<a hidden class="anchor" aria-hidden="true" href="#开始使用">#</a></h3>
 <p>首先在你的 `main.go` 定义 <code>go generate</code> 像下面这样：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//go:generate swagger generate spec -o ./swagger.yml
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -177,7 +273,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span></code></pre></div><p>此时如果运行 <code>go generate</code> 在项目目录下就会生成一个 <code>swagger.yml</code> 文件：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">paths</span>: {}
 </span></span><span style="display:flex;"><span><span style="color:#f92672">swagger</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>
-</span></span></code></pre></div><h3 id="使用单独的包托管-swagger-相关定义">使用单独的包托管 swagger 相关定义<a href="#使用单独的包托管-swagger-相关定义" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+</span></span></code></pre></div><h3 id="使用单独的包托管-swagger-相关定义">使用单独的包托管 swagger 相关定义<a hidden class="anchor" aria-hidden="true" href="#使用单独的包托管-swagger-相关定义">#</a></h3>
 <p>在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。
 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。</p>
 <p>创建 <code>swagger/swagger.go</code> 填充如下内容：</p>
@@ -227,8 +323,8 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span><span style="color:#f92672">schemes</span>:
 </span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">http</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">swagger</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>
-</span></span></code></pre></div><h2 id="编写接口文档">编写接口文档<a href="#编写接口文档" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="准备-service-包">准备 service 包<a href="#准备-service-包" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+</span></span></code></pre></div><h2 id="编写接口文档">编写接口文档<a hidden class="anchor" aria-hidden="true" href="#编写接口文档">#</a></h2>
+<h3 id="准备-service-包">准备 service 包<a hidden class="anchor" aria-hidden="true" href="#准备-service-包">#</a></h3>
 <p>我们打算将接口实现相关代码放在 <code>service</code> 包下，首先来创建 <code>service/service.go</code> ：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
 </span></span><span style="display:flex;"><span>
@@ -243,7 +339,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Mount handlers to gin here
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><h3 id="post-提交信息">POST 提交信息<a href="#post-提交信息" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+</span></span></code></pre></div><h3 id="post-提交信息">POST 提交信息<a hidden class="anchor" aria-hidden="true" href="#post-提交信息">#</a></h3>
 <p>假设我们编写一个创建用户信息的接口，需要名字和年龄两个参数。我们在 <code>service</code> 包下创建 <code>user.go</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
 </span></span><span style="display:flex;"><span>
@@ -412,7 +508,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">http</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">swagger</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>
 </span></span></code></pre></div><p>运行 <code>swagger serve -F swagger swagger.yml</code> 可查看文档。</p>
-<h3 id="查询参数">查询参数<a href="#查询参数" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="查询参数">查询参数<a hidden class="anchor" aria-hidden="true" href="#查询参数">#</a></h3>
 <p>接下来我们来编写查询接口文档，这次和上面创建稍有不同，参数通过 Query 进行传递，
 编辑 <code>service/user.go</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
@@ -498,7 +594,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>运行 <code>go generate &amp;&amp; swagger serve -F swagger swagger.yml</code> 可查看效果。</p>
-<h3 id="url-中-path-参数">URL 中 Path 参数<a href="#url-中-path-参数" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="url-中-path-参数">URL 中 Path 参数<a hidden class="anchor" aria-hidden="true" href="#url-中-path-参数">#</a></h3>
 <p>如果我们要更新用户信息，按照 RESTful 的设计方式，请求的方式应该是 <code>PATCH /api/users/:id</code> ，
 此时 <code>route</code> 已经无法满足，需要借助 <code>operation</code> 编写一些原始的 <code>YAML</code> 来实现，下面是调整
 后的 <code>service/user.go</code>:</p>
@@ -560,44 +656,23 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//    &#34;$ref&#34;: &#34;#/responses/DefaultResponse&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">PATCH</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">UpdateUser</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="部署">部署<a href="#部署" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="部署">部署<a hidden class="anchor" aria-hidden="true" href="#部署">#</a></h2>
 <p>可以通过 CI/CD 生成 <code>swagger.yml</code> 进行部署，然后将对应的 JSON 地址结合公司 <a href="http://swagger.17zuoye.net/">http://swagger.17zuoye.net/</a>
 进行部署查看。</p>
 <p>相关示例可以参考 <a href="http://gitlab.17zuoye.net/vgo/go-swagger-example">http://gitlab.17zuoye.net/vgo/go-swagger-example</a></p>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20200828160809-rust_asynchronous_programming/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Rust Asynchronous Programming</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20200827195950-mysql_forget_password/">
-                <span class="button__text">MySQL forget password</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
+
+   
 
    
 
@@ -2052,43 +2127,131 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
    
 
 
-<hr>
+<hr />
 
   <div class="bl-section">
     <h4>No notes link to this note</h4>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

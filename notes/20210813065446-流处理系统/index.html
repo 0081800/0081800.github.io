@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>流处理系统 :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>流处理系统 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。
 消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。
 数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。
@@ -16,34 +17,56 @@
 事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：
 CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。
 从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。
-状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/" />
+状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="流处理系统">
+    </style>
+</noscript><meta property="og:title" content="流处理系统" />
 <meta property="og:description" content="发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。
 消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。
 数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。
@@ -55,124 +78,269 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
 CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。
 从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。
 状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-08-13T06:54:00+08:00" />
+<meta property="article:modified_time" content="2021-08-13T06:54:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-08-13 06:54:00 &#43;0800 &#43;0800" />
-
-
-
-
-
-
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="流处理系统"/>
+<meta name="twitter:description" content="发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。
+消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。
+数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。
+实现变更数据捕获 解析复制日志，并将解析的内容发送到事件流中进行 replay。
+初始快照 replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。
+日志压缩 参考哈希索引。
+对变更流的 API 支持 数据库开始支持将变更流作为标准接口。
+事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：
+CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。
+从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。
+状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。"/>
 
 
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "流处理系统",
+      "item": "https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "流处理系统",
+  "name": "流处理系统",
+  "description": "发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。\n消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。\n数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。\n实现变更数据捕获 解析复制日志，并将解析的内容发送到事件流中进行 replay。\n初始快照 replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。\n日志压缩 参考哈希索引。\n对变更流的 API 支持 数据库开始支持将变更流作为标准接口。\n事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：\nCDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。\n从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。\n状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。",
+  "keywords": [
+    
+  ],
+  "articleBody": "发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。\n消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。\n数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。\n实现变更数据捕获 解析复制日志，并将解析的内容发送到事件流中进行 replay。\n初始快照 replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。\n日志压缩 参考哈希索引。\n对变更流的 API 支持 数据库开始支持将变更流作为标准接口。\n事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：\nCDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。\n从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。\n状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。\n流分析 Apache Storm、Spark Streaming、Flink、Concord、Samza 和 Kafka Streams。\n维护物化视图 在流上搜索 消息传递和 RPC 流的时间问题 需记录三个时间：\n事件发生时间，设备的时钟 事件发送时间，设备的时钟 事件接收时间，福奇的时钟 窗口类型 轮转窗口：长度固定，相互之间不重叠。 跳跃窗口：长度固定，可以允许相互之间重叠。 滑动窗口：通过保留事件排序的事件缓冲区并且从窗口过期时移除旧事件来实现。 会话窗口：没有固定持续事件，通过将同一用户在时间上紧密相关的所有事件分组在一起。 流式 join 流和流 join（窗口 join） 流和表 join 表和表 join join 和事件依赖性 流处理容错 微处理和校验点 重新审视原子提交 幂等性 故障后重建状态 ",
+  "wordCount" : "119",
+  "inLanguage": "en",
+  "datePublished": "2021-08-13T06:54:00+08:00",
+  "dateModified": "2021-08-13T06:54:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      流处理系统
+    </h1>
+    <div class="post-meta"><span title='2021-08-13 06:54:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/">流处理系统</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-08-13 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%8f%91%e9%80%81%e4%ba%8b%e4%bb%b6%e6%b5%81" aria-label="发送事件流">发送事件流</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b6%88%e6%81%af%e7%b3%bb%e7%bb%9f" aria-label="消息系统">消息系统</a><ul>
+                        
+                <li>
+                    <a href="#%e7%94%9f%e4%ba%a7%e8%80%85%e4%b8%8e%e6%b6%88%e6%81%af%e7%b3%bb%e7%bb%9f%e4%b9%8b%e9%97%b4%e7%9a%84%e7%9b%b4%e6%8e%a5%e6%b6%88%e6%81%af%e4%bc%a0%e9%80%92" aria-label="生产者与消息系统之间的直接消息传递">生产者与消息系统之间的直接消息传递</a></li>
+                <li>
+                    <a href="#%e6%b6%88%e6%81%af%e4%bb%a3%e7%90%86" aria-label="消息代理">消息代理</a></li>
+                <li>
+                    <a href="#%e5%88%86%e5%8c%ba%e6%97%a5%e5%bf%97" aria-label="分区日志">分区日志</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e4%b8%8e%e6%b5%81" aria-label="数据库与流">数据库与流</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bf%9d%e6%8c%81%e7%b3%bb%e7%bb%9f%e5%90%8c%e6%ad%a5" aria-label="保持系统同步">保持系统同步</a></li>
+                <li>
+                    <a href="#%e5%8f%98%e6%9b%b4%e6%95%b0%e6%8d%ae%e6%8d%95%e8%8e%b7" aria-label="变更数据捕获">变更数据捕获</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ae%9e%e7%8e%b0%e5%8f%98%e6%9b%b4%e6%95%b0%e6%8d%ae%e6%8d%95%e8%8e%b7" aria-label="实现变更数据捕获">实现变更数据捕获</a></li>
+                <li>
+                    <a href="#%e5%88%9d%e5%a7%8b%e5%bf%ab%e7%85%a7" aria-label="初始快照">初始快照</a></li>
+                <li>
+                    <a href="#%e6%97%a5%e5%bf%97%e5%8e%8b%e7%bc%a9" aria-label="日志压缩">日志压缩</a></li>
+                <li>
+                    <a href="#%e5%af%b9%e5%8f%98%e6%9b%b4%e6%b5%81%e7%9a%84-api-%e6%94%af%e6%8c%81" aria-label="对变更流的 API 支持">对变更流的 API 支持</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%8b%e4%bb%b6%e6%ba%af%e6%ba%90" aria-label="事件溯源">事件溯源</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%8e%e4%ba%8b%e4%bb%b6%e4%b8%ad%e5%af%bc%e5%87%ba%e5%bd%93%e5%89%8d%e7%8a%b6%e6%80%81-%e7%9c%9f%e6%ad%a3%e5%af%b9%e7%94%a8%e6%88%b7%e6%9c%89%e6%84%8f%e4%b9%89" aria-label="从事件中导出当前状态：真正对用户有意义">从事件中导出当前状态：真正对用户有意义</a></li>
+                <li>
+                    <a href="#%e5%91%bd%e4%bb%a4%e5%92%8c%e4%ba%8b%e4%bb%b6" aria-label="命令和事件">命令和事件</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%8a%b6%e6%80%81-%e6%b5%81%e4%b8%8e%e4%b8%8d%e5%8f%af%e5%8f%98%e6%80%a7" aria-label="状态，流与不可变性">状态，流与不可变性</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b5%81%e5%a4%84%e7%90%86" aria-label="流处理">流处理</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b5%81%e5%a4%84%e7%90%86%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="流处理适用场景">流处理适用场景</a><ul>
+                        
+                <li>
+                    <a href="#%e5%a4%8d%e6%9d%82%e4%ba%8b%e4%bb%b6%e5%a4%84%e7%90%86" aria-label="复杂事件处理">复杂事件处理</a></li>
+                <li>
+                    <a href="#%e6%b5%81%e5%88%86%e6%9e%90" aria-label="流分析">流分析</a></li>
+                <li>
+                    <a href="#%e7%bb%b4%e6%8a%a4%e7%89%a9%e5%8c%96%e8%a7%86%e5%9b%be" aria-label="维护物化视图">维护物化视图</a></li>
+                <li>
+                    <a href="#%e5%9c%a8%e6%b5%81%e4%b8%8a%e6%90%9c%e7%b4%a2" aria-label="在流上搜索">在流上搜索</a></li>
+                <li>
+                    <a href="#%e6%b6%88%e6%81%af%e4%bc%a0%e9%80%92%e5%92%8c-rpc" aria-label="消息传递和 RPC">消息传递和 RPC</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b5%81%e7%9a%84%e6%97%b6%e9%97%b4%e9%97%ae%e9%a2%98" aria-label="流的时间问题">流的时间问题</a><ul>
+                        
+                <li>
+                    <a href="#%e7%aa%97%e5%8f%a3%e7%b1%bb%e5%9e%8b" aria-label="窗口类型">窗口类型</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b5%81%e5%bc%8f-join" aria-label="流式 join">流式 join</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b5%81%e5%92%8c%e6%b5%81-join-%e7%aa%97%e5%8f%a3-join" aria-label="流和流 join（窗口 join）">流和流 join（窗口 join）</a></li>
+                <li>
+                    <a href="#%e6%b5%81%e5%92%8c%e8%a1%a8-join" aria-label="流和表 join">流和表 join</a></li>
+                <li>
+                    <a href="#%e8%a1%a8%e5%92%8c%e8%a1%a8-join" aria-label="表和表 join">表和表 join</a></li>
+                <li>
+                    <a href="#join-%e5%92%8c%e4%ba%8b%e4%bb%b6%e4%be%9d%e8%b5%96%e6%80%a7" aria-label="join 和事件依赖性">join 和事件依赖性</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b5%81%e5%a4%84%e7%90%86%e5%ae%b9%e9%94%99" aria-label="流处理容错">流处理容错</a><ul>
+                        
+                <li>
+                    <a href="#%e5%be%ae%e5%a4%84%e7%90%86%e5%92%8c%e6%a0%a1%e9%aa%8c%e7%82%b9" aria-label="微处理和校验点">微处理和校验点</a></li>
+                <li>
+                    <a href="#%e9%87%8d%e6%96%b0%e5%ae%a1%e8%a7%86%e5%8e%9f%e5%ad%90%e6%8f%90%e4%ba%a4" aria-label="重新审视原子提交">重新审视原子提交</a></li>
+                <li>
+                    <a href="#%e5%b9%82%e7%ad%89%e6%80%a7" aria-label="幂等性">幂等性</a></li>
+                <li>
+                    <a href="#%e6%95%85%e9%9a%9c%e5%90%8e%e9%87%8d%e5%bb%ba%e7%8a%b6%e6%80%81" aria-label="故障后重建状态">故障后重建状态</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <h2 id="发送事件流">发送事件流<a href="#发送事件流" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="消息系统">消息系统<a href="#消息系统" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+  <div class="post-content"><h2 id="发送事件流">发送事件流<a hidden class="anchor" aria-hidden="true" href="#发送事件流">#</a></h2>
+<h3 id="消息系统">消息系统<a hidden class="anchor" aria-hidden="true" href="#消息系统">#</a></h3>
 <ol>
 <li>生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活<a href="/notes/20210813071452-%E8%83%8C%E5%8E%8B/">背压</a>。</li>
 <li>节点崩溃或者暂时历险，是否会有消息丢失？</li>
 </ol>
-<h4 id="生产者与消息系统之间的直接消息传递">生产者与消息系统之间的直接消息传递<a href="#生产者与消息系统之间的直接消息传递" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="生产者与消息系统之间的直接消息传递">生产者与消息系统之间的直接消息传递<a hidden class="anchor" aria-hidden="true" href="#生产者与消息系统之间的直接消息传递">#</a></h4>
 <ul>
 <li>UDP 组播：广泛应用于金融股票</li>
 <li>无代理消息库：ZerroMQ 和 nanomsg</li>
 <li>StatsD 和 Brubeck 使用 UDP 传递消息</li>
 <li>HTTP、RPC 接口</li>
 </ul>
-<h4 id="消息代理">消息代理<a href="#消息代理" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="消息代理">消息代理<a hidden class="anchor" aria-hidden="true" href="#消息代理">#</a></h4>
 <p>参见：<a href="/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/#amqp-jms-风格的消息代理">AMQP/JMS 风格的消息代理</a>。
 也称消息队列。</p>
 <!-- raw HTML omitted -->
@@ -187,105 +355,82 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
 <ul>
 <li>确认和重传机制</li>
 </ul>
-<h4 id="分区日志">分区日志<a href="#分区日志" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="分区日志">分区日志<a hidden class="anchor" aria-hidden="true" href="#分区日志">#</a></h4>
 <p>参见： <a href="/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/#基于日志的消息代理">基于日志的消息代理</a>。</p>
-<h2 id="数据库与流">数据库与流<a href="#数据库与流" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="保持系统同步">保持系统同步<a href="#保持系统同步" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h3 id="变更数据捕获">变更数据捕获<a href="#变更数据捕获" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h2 id="数据库与流">数据库与流<a hidden class="anchor" aria-hidden="true" href="#数据库与流">#</a></h2>
+<h3 id="保持系统同步">保持系统同步<a hidden class="anchor" aria-hidden="true" href="#保持系统同步">#</a></h3>
+<h3 id="变更数据捕获">变更数据捕获<a hidden class="anchor" aria-hidden="true" href="#变更数据捕获">#</a></h3>
 <p>变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。
 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。</p>
-<h4 id="实现变更数据捕获">实现变更数据捕获<a href="#实现变更数据捕获" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="实现变更数据捕获">实现变更数据捕获<a hidden class="anchor" aria-hidden="true" href="#实现变更数据捕获">#</a></h4>
 <p>解析复制日志，并将解析的内容发送到事件流中进行 replay。</p>
-<h4 id="初始快照">初始快照<a href="#初始快照" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="初始快照">初始快照<a hidden class="anchor" aria-hidden="true" href="#初始快照">#</a></h4>
 <p>replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。</p>
-<h4 id="日志压缩">日志压缩<a href="#日志压缩" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="日志压缩">日志压缩<a hidden class="anchor" aria-hidden="true" href="#日志压缩">#</a></h4>
 <p>参考<a href="/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/">哈希索引</a>。</p>
-<h4 id="对变更流的-api-支持">对变更流的 API 支持<a href="#对变更流的-api-支持" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="对变更流的-api-支持">对变更流的 API 支持<a hidden class="anchor" aria-hidden="true" href="#对变更流的-api-支持">#</a></h4>
 <p>数据库开始支持将变更流作为标准接口。</p>
-<h3 id="事件溯源">事件溯源<a href="#事件溯源" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="事件溯源">事件溯源<a hidden class="anchor" aria-hidden="true" href="#事件溯源">#</a></h3>
 <p>一种在<a href="/notes/20210814071825-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/">领域驱动设计</a>社区中开发的技术，与 <a href="#%E5%8F%98%E6%9B%B4%E6%95%B0%E6%8D%AE%E6%8D%95%E8%8E%B7">CDC</a> 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：</p>
 <ul>
 <li><a href="#%E5%8F%98%E6%9B%B4%E6%95%B0%E6%8D%AE%E6%8D%95%E8%8E%B7">CDC</a> 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。</li>
 <li>事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。</li>
 </ul>
 <p>专门的数据库 <a href="/notes/20210814072447-event_store/">Event Store</a> 来支持使用事件溯源的应用程序。</p>
-<h4 id="从事件中导出当前状态-真正对用户有意义">从事件中导出当前状态：真正对用户有意义<a href="#从事件中导出当前状态-真正对用户有意义" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="命令和事件">命令和事件<a href="#命令和事件" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="从事件中导出当前状态-真正对用户有意义">从事件中导出当前状态：真正对用户有意义<a hidden class="anchor" aria-hidden="true" href="#从事件中导出当前状态-真正对用户有意义">#</a></h4>
+<h4 id="命令和事件">命令和事件<a hidden class="anchor" aria-hidden="true" href="#命令和事件">#</a></h4>
 <p>命令经过校验后转化为事件。</p>
-<h3 id="状态-流与不可变性">状态，流与不可变性<a href="#状态-流与不可变性" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h2 id="流处理">流处理<a href="#流处理" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="状态-流与不可变性">状态，流与不可变性<a hidden class="anchor" aria-hidden="true" href="#状态-流与不可变性">#</a></h3>
+<h2 id="流处理">流处理<a hidden class="anchor" aria-hidden="true" href="#流处理">#</a></h2>
 <ol>
 <li>事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。</li>
 <li>通过某种方式将事件推送给用户，如电子邮件、短信等。</li>
 <li>处理一个或多个输入流产生过一个或多个输出流。</li>
 </ol>
-<h3 id="流处理适用场景">流处理适用场景<a href="#流处理适用场景" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="复杂事件处理">复杂事件处理<a href="#复杂事件处理" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="流处理适用场景">流处理适用场景<a hidden class="anchor" aria-hidden="true" href="#流处理适用场景">#</a></h3>
+<h4 id="复杂事件处理">复杂事件处理<a hidden class="anchor" aria-hidden="true" href="#复杂事件处理">#</a></h4>
 <p>复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。
 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。</p>
-<h4 id="流分析">流分析<a href="#流分析" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="流分析">流分析<a hidden class="anchor" aria-hidden="true" href="#流分析">#</a></h4>
 <p>Apache Storm、Spark Streaming、Flink、Concord、Samza 和 Kafka Streams。</p>
-<h4 id="维护物化视图">维护物化视图<a href="#维护物化视图" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="在流上搜索">在流上搜索<a href="#在流上搜索" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="消息传递和-rpc">消息传递和 RPC<a href="#消息传递和-rpc" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h3 id="流的时间问题">流的时间问题<a href="#流的时间问题" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="维护物化视图">维护物化视图<a hidden class="anchor" aria-hidden="true" href="#维护物化视图">#</a></h4>
+<h4 id="在流上搜索">在流上搜索<a hidden class="anchor" aria-hidden="true" href="#在流上搜索">#</a></h4>
+<h4 id="消息传递和-rpc">消息传递和 RPC<a hidden class="anchor" aria-hidden="true" href="#消息传递和-rpc">#</a></h4>
+<h3 id="流的时间问题">流的时间问题<a hidden class="anchor" aria-hidden="true" href="#流的时间问题">#</a></h3>
 <p>需记录三个时间：</p>
 <ul>
 <li>事件发生时间，设备的时钟</li>
 <li>事件发送时间，设备的时钟</li>
 <li>事件接收时间，福奇的时钟</li>
 </ul>
-<h4 id="窗口类型">窗口类型<a href="#窗口类型" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="窗口类型">窗口类型<a hidden class="anchor" aria-hidden="true" href="#窗口类型">#</a></h4>
 <ul>
 <li>轮转窗口：长度固定，相互之间不重叠。</li>
 <li>跳跃窗口：长度固定，可以允许相互之间重叠。</li>
 <li>滑动窗口：通过保留事件排序的事件缓冲区并且从窗口过期时移除旧事件来实现。</li>
 <li>会话窗口：没有固定持续事件，通过将同一用户在时间上紧密相关的所有事件分组在一起。</li>
 </ul>
-<h3 id="流式-join">流式 join<a href="#流式-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="流和流-join-窗口-join">流和流 join（窗口 join）<a href="#流和流-join-窗口-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="流和表-join">流和表 join<a href="#流和表-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="表和表-join">表和表 join<a href="#表和表-join" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="join-和事件依赖性">join 和事件依赖性<a href="#join-和事件依赖性" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h3 id="流处理容错">流处理容错<a href="#流处理容错" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="微处理和校验点">微处理和校验点<a href="#微处理和校验点" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="重新审视原子提交">重新审视原子提交<a href="#重新审视原子提交" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="幂等性">幂等性<a href="#幂等性" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<h4 id="故障后重建状态">故障后重建状态<a href="#故障后重建状态" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="流式-join">流式 join<a hidden class="anchor" aria-hidden="true" href="#流式-join">#</a></h3>
+<h4 id="流和流-join-窗口-join">流和流 join（窗口 join）<a hidden class="anchor" aria-hidden="true" href="#流和流-join-窗口-join">#</a></h4>
+<h4 id="流和表-join">流和表 join<a hidden class="anchor" aria-hidden="true" href="#流和表-join">#</a></h4>
+<h4 id="表和表-join">表和表 join<a hidden class="anchor" aria-hidden="true" href="#表和表-join">#</a></h4>
+<h4 id="join-和事件依赖性">join 和事件依赖性<a hidden class="anchor" aria-hidden="true" href="#join-和事件依赖性">#</a></h4>
+<h3 id="流处理容错">流处理容错<a hidden class="anchor" aria-hidden="true" href="#流处理容错">#</a></h3>
+<h4 id="微处理和校验点">微处理和校验点<a hidden class="anchor" aria-hidden="true" href="#微处理和校验点">#</a></h4>
+<h4 id="重新审视原子提交">重新审视原子提交<a hidden class="anchor" aria-hidden="true" href="#重新审视原子提交">#</a></h4>
+<h4 id="幂等性">幂等性<a hidden class="anchor" aria-hidden="true" href="#幂等性">#</a></h4>
+<h4 id="故障后重建状态">故障后重建状态<a hidden class="anchor" aria-hidden="true" href="#故障后重建状态">#</a></h4>
 
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210813071452-%E8%83%8C%E5%8E%8B/">
-                <span class="button__icon">←</span>
-                <span class="button__text">背压</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210811111926-why_mapreduce_is_making_a_comeback/">
-                <span class="button__text">Why MapReduce is making a comeback</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1741,51 +1886,155 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《数据密集型应用系统设计》读书笔记</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>《数据密集型应用系统设计》读书笔记
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
+扩展：
+垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
+复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
+            </div>
+            <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

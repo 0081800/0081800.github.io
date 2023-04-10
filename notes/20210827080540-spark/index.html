@@ -1,177 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>Spark :: Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Spark | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
 <meta name="description" content="tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
-Spark Driver &amp;amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
+Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
 Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
 以下代码是在 Executor 上执行的：
-Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/notes/20210827080540-spark/" />
+Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20210827080540-spark/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="Spark">
+    </style>
+</noscript><meta property="og:title" content="Spark" />
 <meta property="og:description" content="tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
-Spark Driver &amp;amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
+Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
 Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
 以下代码是在 Executor 上执行的：
 Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210827080540-spark/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/20210827080540-spark/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2021-08-27T08:05:00+08:00" />
+<meta property="article:modified_time" content="2021-08-27T08:05:00+08:00" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-08-27 08:05:00 &#43;0800 &#43;0800" />
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spark"/>
+<meta name="twitter:description" content="tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
+Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
+Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
+以下代码是在 Executor 上执行的：
+Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect："/>
 
 
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Spark",
+      "item": "https://notes.0081800.xyz/notes/20210827080540-spark/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Spark",
+  "name": "Spark",
+  "description": "tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。\nSpark Driver \u0026amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:\nUnderstanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。\n以下代码是在 Executor 上执行的：\nTransformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。\nSpark Driver \u0026 Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:\nUnderstanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。\n以下代码是在 Executor 上执行的：\nTransformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：\nrdd.collect().foreach(println) collect 可能会导致 Driver 内存爆掉，可以使用 take：\nrd.take(100).foreach(println) 所以在这就带来在闭包中共享变量的问题，参见 Spark 共享变量。\nSpark 编程抽象 RDD Programming Guide\nSpark RDD 集合并行化 val data = Array(1, 2, 3, 4, 5) val distData = sc.parallelize(data) 外部数据集 输入源支持支持 Hadoop 支持的任何存储源，包括：本地文件系统、HDFS、Cassandra、HBase、Amazaon S3 等 输入格式支持：文本文件、SequenceFiles 和任何其他 Hadoop InputFormat 如果是本地文件系统，则文件需要存在与所有 Worker 节点上。\nSpark Transformations vs Actions Spark 支持两种操作类型：\ntransformations：从现有数据集创建新的数据集，比如 map。 actions：在数据集上进行运算然后返回值给 driver，比如 reduce。 Spark Transformations 懒执行 所有的 Spark transformations 会记住应用的基础数据集，只要在需要将结果返回给 driver 的时候才进行计算。 比如，我们可以感知到一个数据集（dataset）通过 map 创建，将会被 reduce 使用并返回 reduce 的结果给 driver 而不是一个映射过（mapped）的大数据集。\nSpark transformations 重复计算 默认情况下，每一次在一个 RDD 上运行 action Spark 都可能会进行重新计算，这时候可以使用 persist 缓存一个 RDD 到内存中。 下一次查询将会被加速，同时 Spark 支持存储到磁盘或者跨多节点复制（replicated）。\nSpark 共享变量 Spark 支持两种共享变量的方式：\nBroadcast Variables Accumulators 设置 Spark Python 版本 export PYSPARK_DRIVER_PYTHON=python # Do not set in cluster modes. export PYSPARK_PYTHON=./environment/bin/python # Executor 上面 environment 是提交的时候需要在 --archives 缀上的:\nspark-submit --archives pyspark_conda_env.tar.gz#environment app.py Note that PYSPARK_DRIVER_PYTHON above should not be set for cluster modes in YARN or Kubernetes.\nSpark 管理 Python 依赖 YARN 支持 --archives 参数上传打包好的环境信息，主要三种方式：\nPySpark 原生特性， --py-files 支持 zip 和 egg 格式，但是不支持 whl Python vendor package See alos: Python Package Management\nStandalone cluster 可以借助上面的 Python 包管理机制，将打包好的环境在各个节点进行同步。假设将 conda-pack 解压到 /opt/conda-envs/test，可以通过在 Spark 任务脚本最上方通过 PYSPARK_PYTHON 指定解释器：\nimport os os.environ['PYSPARK_PYTHON'] = '/opt/conda-envs/test' conf = {} sc = SparkContext(conf=conf) Spark Hive 表问题汇总 Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤 主要是因为 Orc 文件在 Hive 中存储的时候是大小写敏感的 Schema。 通过如下配置关闭 2.3 之后启用的选项：\nspark.sql.hive.convertMetastoreOrc=false 但是启用这个会导致写 Hive Orc 表的时候报错：\n[2021-11-20 08:22:26,500] {spark_submit.py:523} INFO - : java.lang.NoSuchMethodException: org.apache.hadoop.hive.ql.metadata.Hive.loadPartition(org.apache.hadoop.fs.Path, java.lang.String, java.util.Map, boolean, boolean, boolean, boolean, boolean, boolean) 只能在读指定表的时候动态设置:\nspark.conf.set(\"spark.sql.hive.convertMetastoreOrc\", False) 更多坑可以看 Upgrading Guide Upgrading Guide\nSpark 写入的 Hive Orc 表但是旧版 Hive 无法读取 # 解决写入 Orc 表但是 Hive 无法读取的问题 spark.sql.orc.impl=hive ",
+  "wordCount" : "332",
+  "inLanguage": "en",
+  "datePublished": "2021-08-27T08:05:00+08:00",
+  "dateModified": "2021-08-27T08:05:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20210827080540-spark/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title">
+      Spark
+    </h1>
+    <div class="post-meta"><span title='2021-08-27 08:05:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King
 
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="https://notes.0081800.xyz/notes/20210827080540-spark/">Spark</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-08-27 
-      </span>
-    
-    
-    <span class="post-author">:: [Gray King]</span>
-    
-  </div>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
+        <div class="inner"><ul>
+                <li>
+                    <a href="#spark-%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e9%80%89%e6%8b%a9" aria-label="Spark 编程语言选择">Spark 编程语言选择</a></li>
+                <li>
+                    <a href="#spark-driver-and-executor" aria-label="Spark Driver &amp;amp; Executor">Spark Driver &amp; Executor</a></li>
+                <li>
+                    <a href="#spark-%e4%bb%a3%e7%a0%81%e6%89%a7%e8%a1%8c" aria-label="Spark 代码执行">Spark 代码执行</a></li>
+                <li>
+                    <a href="#spark-%e7%bc%96%e7%a8%8b%e6%8a%bd%e8%b1%a1" aria-label="Spark 编程抽象">Spark 编程抽象</a><ul>
+                        
+                <li>
+                    <a href="#spark-rdd" aria-label="Spark RDD">Spark RDD</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9b%86%e5%90%88%e5%b9%b6%e8%a1%8c%e5%8c%96" aria-label="集合并行化">集合并行化</a></li>
+                <li>
+                    <a href="#%e5%a4%96%e9%83%a8%e6%95%b0%e6%8d%ae%e9%9b%86" aria-label="外部数据集">外部数据集</a></li>
+                <li>
+                    <a href="#spark-transformations-vs-actions" aria-label="Spark Transformations vs Actions">Spark Transformations vs Actions</a></li>
+                <li>
+                    <a href="#spark-transformations-%e6%87%92%e6%89%a7%e8%a1%8c" aria-label="Spark Transformations 懒执行">Spark Transformations 懒执行</a></li>
+                <li>
+                    <a href="#spark-transformations-%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97" aria-label="Spark transformations 重复计算">Spark transformations 重复计算</a></li></ul>
+                </li>
+                <li>
+                    <a href="#spark-%e5%85%b1%e4%ba%ab%e5%8f%98%e9%87%8f" aria-label="Spark 共享变量">Spark 共享变量</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%ae-spark-python-%e7%89%88%e6%9c%ac" aria-label="设置 Spark Python 版本">设置 Spark Python 版本</a></li>
+                <li>
+                    <a href="#spark-%e7%ae%a1%e7%90%86-python-%e4%be%9d%e8%b5%96" aria-label="Spark 管理 Python 依赖">Spark 管理 Python 依赖</a><ul>
+                        
+                <li>
+                    <a href="#yarn" aria-label="YARN">YARN</a></li>
+                <li>
+                    <a href="#standalone-cluster" aria-label="Standalone cluster">Standalone cluster</a></li></ul>
+                </li>
+                <li>
+                    <a href="#spark-hive-%e8%a1%a8%e9%97%ae%e9%a2%98%e6%b1%87%e6%80%bb" aria-label="Spark Hive 表问题汇总">Spark Hive 表问题汇总</a><ul>
+                        
+                <li>
+                    <a href="#spark-2-dot-3-%e4%b9%8b%e5%90%8e%e8%af%bb%e5%8f%96-hive-orc-%e5%ad%97%e6%ae%b5%e5%85%a8%e6%98%af-null-%e6%88%96%e8%80%85%e6%97%a0%e6%b3%95%e8%bf%87%e6%bb%a4" aria-label="Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤">Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤</a></li>
+                <li>
+                    <a href="#%e6%9b%b4%e5%a4%9a%e5%9d%91%e5%8f%af%e4%bb%a5%e7%9c%8b-upgrading-guide" aria-label="更多坑可以看 Upgrading Guide">更多坑可以看 Upgrading Guide</a></li>
+                <li>
+                    <a href="#spark-%e5%86%99%e5%85%a5%e7%9a%84-hive-orc-%e8%a1%a8%e4%bd%86%e6%98%af%e6%97%a7%e7%89%88-hive-%e6%97%a0%e6%b3%95%e8%af%bb%e5%8f%96" aria-label="Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取">Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-  
-
-  
-
-  <div class="post-content"><div>
-        <ul>
+  <div class="post-content"><ul>
 <li>tags: <a href="/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/">Bigdata</a></li>
 </ul>
-<h2 id="spark-编程语言选择">Spark 编程语言选择<a href="#spark-编程语言选择" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="spark-编程语言选择">Spark 编程语言选择<a hidden class="anchor" aria-hidden="true" href="#spark-编程语言选择">#</a></h2>
 <p>毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（<a href="#spark-%E7%AE%A1%E7%90%86-python-%E4%BE%9D%E8%B5%96">Spark 管理 Python 依赖</a>）。
 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。
 其中 <a href="/notes/20210827073626-scala/">Scala</a> 兼具简单和 JVM 的优势，但是它「不流行」。</p>
-<h2 id="spark-driver-and-executor">Spark Driver &amp; Executor<a href="#spark-driver-and-executor" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="spark-driver-and-executor">Spark Driver &amp; Executor<a hidden class="anchor" aria-hidden="true" href="#spark-driver-and-executor">#</a></h2>
 <ul>
 <li>Driver 执行 spark-commit 客户端，创建 <code>SparkContext</code> 执行 <code>main</code> 函数。</li>
 <li>Executor Spark Worker 上的线程</li>
 </ul>
-
-  <figure class="left" >
-    <img src="https://spark.apache.org/docs/latest/img/cluster-overview.png"   />
-    
-  </figure>
-
+<figure>
+    <img loading="lazy" src="https://spark.apache.org/docs/latest/img/cluster-overview.png"/> 
+</figure>
 
 <p>See also:</p>
 <ul>
 <li><a href="https://blog.knoldus.com/understanding-the-working-of-spark-driver-and-executor/">Understanding the working of Spark Driver and Executor</a></li>
 <li><a href="https://spark.apache.org/docs/latest/cluster-overview.html">Cluster Mode Overview</a></li>
 </ul>
-<h2 id="spark-代码执行">Spark 代码执行<a href="#spark-代码执行" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="spark-代码执行">Spark 代码执行<a hidden class="anchor" aria-hidden="true" href="#spark-代码执行">#</a></h2>
 <p>我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。
 但是我通过学习 <a href="#spark-rdd">Spark RDD</a> 学习到了一些知识。</p>
 <p>以下代码是在 Executor 上执行的：</p>
@@ -184,13 +298,13 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 </span></span></code></pre></div><p><code>collect</code> 可能会导致 Driver 内存爆掉，可以使用 <code>take</code>：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>rd<span style="color:#f92672">.</span>take<span style="color:#f92672">(</span><span style="color:#ae81ff">100</span><span style="color:#f92672">).</span>foreach<span style="color:#f92672">(</span>println<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>所以在这就带来在闭包中共享变量的问题，参见 <a href="#spark-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">Spark 共享变量</a>。</p>
-<h2 id="spark-编程抽象">Spark 编程抽象<a href="#spark-编程抽象" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="spark-编程抽象">Spark 编程抽象<a hidden class="anchor" aria-hidden="true" href="#spark-编程抽象">#</a></h2>
 <p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html">RDD Programming Guide</a></p>
-<h3 id="spark-rdd">Spark RDD<a href="#spark-rdd" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h4 id="集合并行化">集合并行化<a href="#集合并行化" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h3 id="spark-rdd">Spark RDD<a hidden class="anchor" aria-hidden="true" href="#spark-rdd">#</a></h3>
+<h4 id="集合并行化">集合并行化<a hidden class="anchor" aria-hidden="true" href="#集合并行化">#</a></h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> data <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Array</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> distData <span style="color:#66d9ef">=</span> sc<span style="color:#f92672">.</span>parallelize<span style="color:#f92672">(</span>data<span style="color:#f92672">)</span>
-</span></span></code></pre></div><h4 id="外部数据集">外部数据集<a href="#外部数据集" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+</span></span></code></pre></div><h4 id="外部数据集">外部数据集<a hidden class="anchor" aria-hidden="true" href="#外部数据集">#</a></h4>
 <ul>
 <li>输入源支持支持 Hadoop 支持的任何存储源，包括：本地文件系统、<a href="/notes/20210808075530-hadoop_distributed_file_system/">HDFS</a>、Cassandra、<a href="/notes/20210810071455-hbase/">HBase</a>、<a href="http://wiki.apache.org/hadoop/AmazonS3">Amazaon S3</a> 等</li>
 <li>输入格式支持：文本文件、<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/SequenceFileInputFormat.html">SequenceFiles</a> 和任何其他 Hadoop <a href="http://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/InputFormat.html">InputFormat</a></li>
@@ -198,25 +312,25 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <blockquote>
 <p>如果是本地文件系统，则文件需要存在与所有 Worker 节点上。</p>
 </blockquote>
-<h4 id="spark-transformations-vs-actions">Spark Transformations vs Actions<a href="#spark-transformations-vs-actions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="spark-transformations-vs-actions">Spark Transformations vs Actions<a hidden class="anchor" aria-hidden="true" href="#spark-transformations-vs-actions">#</a></h4>
 <p>Spark 支持两种操作类型：</p>
 <ul>
 <li><em>transformations</em>：从现有数据集创建新的数据集，比如 <code>map</code>。</li>
 <li><em>actions</em>：在数据集上进行运算然后返回值给 <em>driver</em>，比如 <code>reduce</code>。</li>
 </ul>
-<h4 id="spark-transformations-懒执行">Spark Transformations 懒执行<a href="#spark-transformations-懒执行" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="spark-transformations-懒执行">Spark Transformations 懒执行<a hidden class="anchor" aria-hidden="true" href="#spark-transformations-懒执行">#</a></h4>
 <p>所有的 Spark <em>transformations</em> 会记住应用的基础数据集，只要在需要将结果返回给 <em>driver</em> 的时候才进行计算。
 比如，我们可以感知到一个数据集（<em>dataset</em>）通过 <code>map</code> 创建，将会被 <code>reduce</code> 使用并返回 <code>reduce</code> 的结果给 <em>driver</em> 而不是一个映射过（<em>mapped</em>）的大数据集。</p>
-<h4 id="spark-transformations-重复计算">Spark transformations 重复计算<a href="#spark-transformations-重复计算" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="spark-transformations-重复计算">Spark transformations 重复计算<a hidden class="anchor" aria-hidden="true" href="#spark-transformations-重复计算">#</a></h4>
 <p>默认情况下，每一次在一个 RDD 上运行 action Spark 都可能会进行重新计算，这时候可以使用 <em>persist</em> 缓存一个 RDD 到内存中。
 下一次查询将会被加速，同时 Spark 支持存储到磁盘或者跨多节点复制（<em>replicated</em>）。</p>
-<h3 id="spark-共享变量">Spark 共享变量<a href="#spark-共享变量" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="spark-共享变量">Spark 共享变量<a hidden class="anchor" aria-hidden="true" href="#spark-共享变量">#</a></h3>
 <p>Spark 支持两种共享变量的方式：</p>
 <ul>
 <li>Broadcast Variables</li>
 <li>Accumulators</li>
 </ul>
-<h2 id="设置-spark-python-版本">设置 Spark Python 版本<a href="#设置-spark-python-版本" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="设置-spark-python-版本">设置 Spark Python 版本<a hidden class="anchor" aria-hidden="true" href="#设置-spark-python-版本">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PYSPARK_DRIVER_PYTHON<span style="color:#f92672">=</span>python <span style="color:#75715e"># Do not set in cluster modes.</span>
 </span></span><span style="display:flex;"><span>export PYSPARK_PYTHON<span style="color:#f92672">=</span>./environment/bin/python <span style="color:#75715e"># Executor</span>
 </span></span></code></pre></div><p>上面 environment 是提交的时候需要在 <code>--archives</code> 缀上的:</p>
@@ -224,15 +338,15 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 </span></span></code></pre></div><blockquote>
 <p>Note that <code>PYSPARK_DRIVER_PYTHON</code> above should not be set for cluster modes in YARN or Kubernetes.</p>
 </blockquote>
-<h2 id="spark-管理-python-依赖">Spark 管理 Python 依赖<a href="#spark-管理-python-依赖" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="yarn">YARN<a href="#yarn" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h2 id="spark-管理-python-依赖">Spark 管理 Python 依赖<a hidden class="anchor" aria-hidden="true" href="#spark-管理-python-依赖">#</a></h2>
+<h3 id="yarn">YARN<a hidden class="anchor" aria-hidden="true" href="#yarn">#</a></h3>
 <p>支持 <code>--archives</code> 参数上传打包好的环境信息，主要三种方式：</p>
 <ul>
 <li>PySpark 原生特性， <code>--py-files</code> 支持 zip 和 egg 格式，但是不支持 whl</li>
 <li><a href="/topics/20200628133616-python/#python-vendor-package">Python vendor package</a></li>
 </ul>
 <p>See alos: <a href="https://spark.apache.org/docs/latest/api/python/user%5Fguide/python%5Fpackaging.html">Python Package Management</a></p>
-<h3 id="standalone-cluster">Standalone cluster<a href="#standalone-cluster" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="standalone-cluster">Standalone cluster<a hidden class="anchor" aria-hidden="true" href="#standalone-cluster">#</a></h3>
 <p>可以借助上面的 Python 包管理机制，将打包好的环境在各个节点进行同步。假设将 conda-pack 解压到 <code>/opt/conda-envs/test</code>，可以通过在 Spark 任务脚本最上方通过 <code>PYSPARK_PYTHON</code> 指定解释器：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
 </span></span><span style="display:flex;"><span>
@@ -240,8 +354,8 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>conf <span style="color:#f92672">=</span> {}
 </span></span><span style="display:flex;"><span>sc <span style="color:#f92672">=</span> SparkContext(conf<span style="color:#f92672">=</span>conf)
-</span></span></code></pre></div><h2 id="spark-hive-表问题汇总">Spark Hive 表问题汇总<a href="#spark-hive-表问题汇总" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h3 id="spark-2-dot-3-之后读取-hive-orc-字段全是-null-或者无法过滤">Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤<a href="#spark-2-dot-3-之后读取-hive-orc-字段全是-null-或者无法过滤" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+</span></span></code></pre></div><h2 id="spark-hive-表问题汇总">Spark Hive 表问题汇总<a hidden class="anchor" aria-hidden="true" href="#spark-hive-表问题汇总">#</a></h2>
+<h3 id="spark-2-dot-3-之后读取-hive-orc-字段全是-null-或者无法过滤">Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤<a hidden class="anchor" aria-hidden="true" href="#spark-2-dot-3-之后读取-hive-orc-字段全是-null-或者无法过滤">#</a></h3>
 <p>主要是因为 Orc 文件在 Hive 中存储的时候是大小写敏感的 Schema。
 通过如下配置关闭 2.3 之后启用的选项：</p>
 <pre tabindex="0"><code class="language-prog" data-lang="prog">spark.sql.hive.convertMetastoreOrc=false
@@ -249,45 +363,22 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <pre tabindex="0"><code class="language-prog" data-lang="prog">[2021-11-20 08:22:26,500] {spark_submit.py:523} INFO - : java.lang.NoSuchMethodException: org.apache.hadoop.hive.ql.metadata.Hive.loadPartition(org.apache.hadoop.fs.Path, java.lang.String, java.util.Map, boolean, boolean, boolean, boolean, boolean, boolean)
 </code></pre><p>只能在读指定表的时候动态设置:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>spark<span style="color:#f92672">.</span>conf<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;spark.sql.hive.convertMetastoreOrc&#34;</span>, <span style="color:#66d9ef">False</span>)
-</span></span></code></pre></div><h3 id="更多坑可以看-upgrading-guide">更多坑可以看 Upgrading Guide<a href="#更多坑可以看-upgrading-guide" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+</span></span></code></pre></div><h3 id="更多坑可以看-upgrading-guide">更多坑可以看 Upgrading Guide<a hidden class="anchor" aria-hidden="true" href="#更多坑可以看-upgrading-guide">#</a></h3>
 <p><a href="https://spark.apache.org/docs/2.4.2/sql-migration-guide-upgrade.html">Upgrading Guide</a></p>
-<h3 id="spark-写入的-hive-orc-表但是旧版-hive-无法读取">Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取<a href="#spark-写入的-hive-orc-表但是旧版-hive-无法读取" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="spark-写入的-hive-orc-表但是旧版-hive-无法读取">Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取<a hidden class="anchor" aria-hidden="true" href="#spark-写入的-hive-orc-表但是旧版-hive-无法读取">#</a></h3>
 <pre tabindex="0"><code class="language-prog" data-lang="prog"># 解决写入 Orc 表但是 Hive 无法读取的问题
 spark.sql.orc.impl=hive
 </code></pre>
-      </div></div>
 
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h"></span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="https://notes.0081800.xyz/notes/20210902153221-airflow/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Airflow</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="https://notes.0081800.xyz/notes/20210827073626-scala/">
-                <span class="button__text">Scala</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
+  </div>
 
-  
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 
-  
 
+   
 
    
 
@@ -1743,51 +1834,152 @@ spark.sql.orc.impl=hive
 
    
 
+   
 
-<hr>
+
+<hr />
 
   <div class="bl-section">
-    <h4>Links to this note</h4>
+    <h3>Links to this note</h3>
+    <br />
     <div class="backlinks">
       <ul>
        
-          <li><a href="/notes/20220104105030-batch_processing/">Batch processing</a></li>
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Batch processing
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: Spark Batch processing is the paradigm at work when you process a bounded data stream. In this mode of operation you can choose to ingest the entire dataset before producing any results, which means that it is possible, for example, to sort the data, compute global statistics, or produce a final report that summarizes all of the input.</p>
+            </div>
+            <footer class="entry-footer"><span title='2022-01-04 10:50:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Batch processing" href="https://notes.0081800.xyz/notes/20220104105030-batch_processing/"></a>
+          </article>
        
      </ul>
     </div>
   </div>
 
 
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
+</article>
+    </main>
     
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
 
-  
-</div>
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 </body>
+
 </html>

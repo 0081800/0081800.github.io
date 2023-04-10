@@ -1,348 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="auto">
+
 <head>
-	<meta name="generator" content="Hugo 0.106.0">
-  
-    <title>Taking Smart Notes With Org-mode</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://notes.0081800.xyz/" />
+	<meta name="generator" content="Hugo 0.106.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Taking Smart Notes With Org-mode</title>
 
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://notes.0081800.xyz/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/index.xml">
+<link rel="alternate" type="application/json" href="https://notes.0081800.xyz/index.json">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
-<link rel="stylesheet" href="https://notes.0081800.xyz/assets/style.css">
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-
-
-
-
-<link rel="apple-touch-icon" href="https://notes.0081800.xyz/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="https://notes.0081800.xyz/img/favicon/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Taking Smart Notes With Org-mode">
+    </style>
+</noscript><meta property="og:title" content="Taking Smart Notes With Org-mode" />
 <meta property="og:description" content="" />
+<meta property="og:type" content="website" />
 <meta property="og:url" content="https://notes.0081800.xyz/" />
-<meta property="og:site_name" content="Taking Smart Notes With Org-mode" />
 
-  
-    <meta property="og:image" content="https://notes.0081800.xyz/img/favicon/orange.png">
-  
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Taking Smart Notes With Org-mode"/>
+<meta name="twitter:description" content=""/>
 
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-
-
-
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Taking Smart Notes With Org-mode" />
-
-
-
-
-
-
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Taking Smart Notes With Org-mode",
+  "url": "https://notes.0081800.xyz/",
+  "description": "",
+  "thumbnailUrl": "https://notes.0081800.xyz/favicon.ico",
+  "sameAs": [
+      
+  ]
+}
+</script>
 </head>
-<body class="orange">
 
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<div class="container center headings--one-size">
+</script>
 
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="https://notes.0081800.xyz/">
-  <div class="logo">
-    Terminal
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Decode input data of Ethereum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Ethereum,Blockchain,Tron source: https://ethereum.stackexchange.com/a/110498 const data = &#39;0x7ff36ab50000000000000000000000000000000000000000000000bc18ba4144048bbab00000000000000000000000000000000000000000000000000000000000000080000000000000000000000000c0c5eb43e2df059e3be6e4fb0284c283caa5991900000000000000000000000000000000000000000000000000000000614d87a80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c00000000000000000000000008ba0619b1e7a582e0bce5bbe9843322c954c340&#39;; ethers.utils.defaultAbiCoder.decode( [&#39;uint256&#39;, &#39;address[]&#39;, &#39;address&#39;, &#39;uint256&#39;], ethers.utils.hexDataSlice(data, 4) ) // gives: [e, [&#34;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&#34;, &#34;0x08ba0619b1e7A582E0BCe5BBE9843322C954C340&#34;], &#34;0xC0C5eb43E2dF059e3Be6E4fb0284C283CAa59919&#34;, e] (4) Online tools: Playground.</p>
   </div>
+  <footer class="entry-footer"><span title='2023-02-03 13:38:00 +0800 +0800'>February 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Decode input data of Ethereum" href="https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Tron
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Blockchain </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-02-03 13:38:00 +0800 +0800'>February 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Tron" href="https://notes.0081800.xyz/notes/20230203133859-tron/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Hypertext in Emacs: find-file-at-point
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Emacs source: http://bjornwestergard.com/log/2022-04-19-hypertext-emacs.gmi C-x C-f M-n to find-file-at-point.</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-31 10:51:00 +0800 +0800'>January 31, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Hypertext in Emacs: find-file-at-point" href="https://notes.0081800.xyz/notes/20230131105103-hypertext_in_emacs_find_file_at_point/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Solana PDA
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Solana, Solana 101: 2. Anchor What is Program Derived Address(PDA)?1 A Program Derived Address is simply an account owned by the program, but has no private key. Instead it’s signature is obtained by a set of seeds and a bump (a nonce which makes sure it’s off curve). “Generating” a Program Address is different from “creating” it.
+Generating One can generate a PDA using Pubkey::find_program_address in Rust or PublicKey....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-26 15:46:00 +0800 +0800'>December 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Solana PDA" href="https://notes.0081800.xyz/notes/20221226154617-solana_pda/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Reverse Proxy to bypass Network Issue of Solana RPC Node
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Nginx One Endpoint for Both WebSocket and Normal Requests,Solana,Solana 101: Create an Escrow dApp I met a lot network issues about connecting to RPC node of Solana, so I’m using a nginx server as a reverse proxy to bypass this problem:
+location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_upgrade; } location @ { proxy_pass https://api.testnet.solana.com; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Host &#34;api.testnet.solana.com&#34;; } location @websocket { proxy_redirect off; proxy_pass https://api....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-24 15:30:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Reverse Proxy to bypass Network Issue of Solana RPC Node" href="https://notes.0081800.xyz/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://notes.0081800.xyz/page/4/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://notes.0081800.xyz/page/6/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
 </a>
 
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/articles/">Articles</a></li>
-        
-      
-        
-          <li><a href="/notes/">Notes</a></li>
-        
-      
-      
-    
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-    
-  </ul>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/articles/">Articles</a></li>
-      
-    
-      
-        <li><a href="/notes/">Notes</a></li>
-      
-    
-    
-  </ul>
-</nav>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
-  
-</header>
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-  <div class="content">
-    
-  
-  <div class="posts">
-    
-    
-
-    
-    
-      
-    
-    
-
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20230203133859-tron/">Tron</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2023-02-03
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20230203133859-tron/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20230131105103-hypertext_in_emacs_find_file_at_point/">Hypertext in Emacs: find-file-at-point</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2023-01-31
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20230131105103-hypertext_in_emacs_find_file_at_point/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20221226154617-solana_pda/">Solana PDA</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2022-12-26
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          tags: Solana, Solana 101: 2. Anchor What is Program Derived Address(PDA)?1 A Program Derived Address is simply an account owned by the program, but has no private key. Instead it&rsquo;s signature is obtained by a set of seeds and a bump (a nonce which makes sure it&rsquo;s off curve). &ldquo;Generating&rdquo; a Program Address is different from &ldquo;creating&rdquo; it.
-Generating One can generate a PDA using Pubkey::find_program_address in Rust or PublicKey.
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20221226154617-solana_pda/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/">Reverse Proxy to bypass Network Issue of Solana RPC Node</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2022-12-24
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          tags: Nginx One Endpoint for Both WebSocket and Normal Requests,Solana,Solana 101: Create an Escrow dApp I met a lot network issues about connecting to RPC node of Solana, so I&rsquo;m using a nginx server as a reverse proxy to bypass this problem:
-location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_upgrade; } location @ { proxy_pass https://api.testnet.solana.com; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Host &#34;api.testnet.solana.com&#34;; } location @websocket { proxy_redirect off; proxy_pass https://api.
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/"> →</a>
-        </div>
-        
-      </div>
-    
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="https://notes.0081800.xyz/notes/20221224152920-nginx/">Nginx</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2022-12-24
-          </span>
-          
-            <span class="post-author">:: [Gray King]</span>
-          
-        </div>
-
-        
-
-        
-
-        <div class="post-content">
-          
-          
-          
-        </div>
-
-        
-        <div>
-          <a class="read-more button"
-            href="/notes/20221224152920-nginx/"> →</a>
-        </div>
-        
-      </div>
-    
-    <div class="pagination">
-  <div class="pagination__buttons">
-    
-      <span class="button previous">
-        <a href="/page/4/">
-          <span class="button__icon">←</span>
-          <span class="button__text">Newer posts</span>
-        </a>
-      </span>
-    
-    
-      <span class="button next">
-        <a href="/page/6/">
-          <span class="button__text">Older posts</span>
-          <span class="button__icon">→</span>
-        </a>
-      </span>
-    
-  </div>
-</div>
-
-  </div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
-    
-      <div class="copyright">
-        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
-</footer>
-
-<script src="https://notes.0081800.xyz/assets/main.js"></script>
-<script src="https://notes.0081800.xyz/assets/prism.js"></script>
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
-
-  
-</div>
-
+</script>
 </body>
+
 </html>
