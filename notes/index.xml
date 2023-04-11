@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Apr 2023 16:18:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Apr 2023 09:21:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aptos Signing Message</title>
+      <link>https://notes.0081800.xyz/notes/20230411092153-aptos_signing_message/</link>
+      <pubDate>Tue, 11 Apr 2023 09:21:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230411092153-aptos_signing_message/</guid>
+      <description>tags: Sign Message See also: getSigningMessage</description>
+    </item>
+    
     <item>
       <title>Pyright Type Stubs</title>
       <link>https://notes.0081800.xyz/notes/20230410161857-pyright_type_stubs/</link>

@@ -148,6 +148,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>系统架构
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 技术 设计原则 SOLID
+好的架构 我认为好的架构 能够无心智障碍的编写运行单元测试 从一起作业看好的架构 应该能够让任何开发人员方便的随时上线和回滚 面对上线对基础设施没有心理压力 完备的监控 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-22 00:00:00 +0800 +0800'>March 22, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 系统架构" href="https://notes.0081800.xyz/notes/20200322143810_%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>《百箭穿杨》读书笔记
     </h2>
   </header>
@@ -226,24 +239,6 @@ Partition 保证同一分区的有序性 Connector
   </div>
   <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode: Trapping Tain Water" href="https://notes.0081800.xyz/notes/20200320172219_leetcode_trapping_tain_water/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Linux Virtual Memory Management
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Linux 原文连接：Linux Virtual Memory Management Chapter 2 Describing Physical Memory：描述物理内存 独立于平台架构的方式描述内存 — 更好的支持多平台
-本章包含描述存储器、内存页的结构体（structures）和一些影响 VM 行为的标识位（flags）
-VM 中普遍（prevlent）认为第一重要（principal）的概念是 NUMA。
-大型机器中内存访问速度取决于 CPU 到内存的距离。比如一组（bank）内存分配给每一个处理器或者一组内存非常适合靠近的 DMA 设备卡。
-这里的每组（bank）内存被称为节点（node）并且这个概念在 Linux 中通过 struct pglist_data（typedef pg_data_t) 表示，即使在 UMA 架构下也是如此。每一个节点是一个由 NULL 结尾的链表，通过 pg_data_t-&gt;next_node 指向下一个节点。
-每一个节点都被分割成多个块（block）称为分区（zone）用于表示内存中的范围。分区使用 struct zone_struct(typedef zone_t) 结构体描述，每一个分区都是以下三种类型的一种
-ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，由内核直接映射到线性地址空间的上部区域（将在第四章讨论） ZONE_HIGHMEM 896MB - END，剩余不由内核直接映射的系统可用内存， 大部分内核操作都只能使用这种类型的分区，所以这里也是这里也是最关键的性能区域（most performance critical zone） 每一个物理页帧（physical page frame）都使用结构体 struct page 表示，所有的结构体都保存在全局数组 mem_map 中，mem_map 通常存储在 ZONE_NORMAL 的开始处；...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Linux Virtual Memory Management" href="https://notes.0081800.xyz/notes/20200320174700_linux_virtual_memory_management/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

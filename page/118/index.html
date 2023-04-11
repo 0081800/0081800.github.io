@@ -143,6 +143,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Go Swagger 实现代码即文档
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
+代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
+//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
+paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
+创建 swagger/swagger....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-08-28 10:47:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Go Swagger 实现代码即文档" href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>MySQL forget password
     </h2>
   </header>
@@ -194,18 +210,6 @@ MySQL 授权用户子网段需要使用:
   </div>
   <footer class="entry-footer"><span title='2020-08-27 18:06:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Network" href="https://notes.0081800.xyz/notes/20200827180638-network/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>逻辑右移
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>位移产生的空白填上 0，会导致有符号的负数变成正数。</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-02 16:55:00 +0800 +0800'>August 2, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 逻辑右移" href="https://notes.0081800.xyz/notes/20200802165502-%E9%80%BB%E8%BE%91%E5%8F%B3%E7%A7%BB/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
