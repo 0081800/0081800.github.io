@@ -148,6 +148,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>串行化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>实际串行执行 解决并发问题最直接的方法：在一个线程上按照顺序方式每次执行一个事务。
+为什么可行：
+内存越来越便宜，可以将事务需要的数据都放在内存中。 OLTP 事务通常执行很快，只产生少量的读写操作。通常较长时间的分析操作通常是只读。 事务为了充分利用单线程所做的调整：
+采用存储过程封装事务，Redis 采用 Lua 分区 约束 事务必须简短而高效。 事务所需数据都在内存。 写入吞吐量必须低，否则需要采用分区，最好没有跨分区事务。 要支持跨分区事务必须确保跨分区事务占比很小。 两阶段加锁 可串形化的快照隔离 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:41:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 串行化" href="https://notes.0081800.xyz/notes/20210716074157-%E4%B8%B2%E8%A1%8C%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>写倾斜
     </h2>
   </header>
@@ -198,18 +213,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-07-15 11:02:00 +0800 +0800'>July 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 更新 Go 内存模型" href="https://notes.0081800.xyz/notes/20210715110202-%E6%9B%B4%E6%96%B0_go_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode: 25. Reverse Nodes in k-Group
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode source: https://leetcode.com/problems/reverse-nodes-in-k-group/ /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode() : val(0), next(nullptr) {} * ListNode(int x) : val(x), next(nullptr) {} * ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */ class Solution { public: ListNode* reverseKGroup(ListNode* head, int k) { deque&lt;ListNode*&gt; dq; ListNode* cur = head; ListNode* top = nullptr; ListNode* tail = nullptr; bool first_k = true; while (cur !...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-15 06:44:00 +0800 +0800'>July 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 25. Reverse Nodes in k-Group" href="https://notes.0081800.xyz/notes/20210715064442-leetcode_25_reverse_nodes_in_k_group/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
