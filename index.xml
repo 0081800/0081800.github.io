@@ -23,7 +23,7 @@ const msg = `0x${Buffer.from(exampleMessage, &amp;#39;utf8&amp;#39;).toString(&a
       <pubDate>Tue, 11 Apr 2023 09:21:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230411092153-aptos_signing_message/</guid>
-      <description>tags: Sign Message See also: getSigningMessage</description>
+      <description>tags: Sign Message The starcoin.js has implemented about signing message of APTOS.</description>
     </item>
     
     <item>
