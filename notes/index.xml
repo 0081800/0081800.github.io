@@ -13,8 +13,8 @@
       <pubDate>Wed, 12 Apr 2023 10:21:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230412102128-starcoin_signing_message/</guid>
-      <description>tags: Starcoin Web3 StarTrek, Sign Message Dapp request personal_sign1
-const msg = `0x${Buffer.from(exampleMessage, &amp;#39;utf8&amp;#39;).toString(&amp;#39;hex&amp;#39;)}` console.log({ msg }) const networkId = networkDiv.innerHTML const extraParams = { networkId } const sign = await window.starcoin.request({ method: &amp;#39;personal_sign&amp;#39;, // params: [msg, from, &amp;#39;Example password&amp;#39;], // extraParams = params[2] || {}; means it should be an object: // params: [msg, from, { pwd: &amp;#39;Example password&amp;#39; }], params: [msg, from, extraParams], }) Starmask handling request signPersonalMessage &amp;gt; =utils.</description>
+      <description>tags: Starcoin Web3 StarTrek, Sign Message Invocation Path Dapp request personal_sign1
+const msg = `0x${Buffer.from(exampleMessage, &amp;#39;utf8&amp;#39;).toString(&amp;#39;hex&amp;#39;)}` console.log({ msg }) const networkId = networkDiv.innerHTML const extraParams = { networkId } const sign = await window.starcoin.request({ method: &amp;#39;personal_sign&amp;#39;, // params: [msg, from, &amp;#39;Example password&amp;#39;], // extraParams = params[2] || {}; means it should be an object: // params: [msg, from, { pwd: &amp;#39;Example password&amp;#39; }], params: [msg, from, extraParams], }) Starmask handling request signPersonalMessage</description>
     </item>
     
     <item>
