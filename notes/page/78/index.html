@@ -148,66 +148,63 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>How To Take Smart Notes: 10 Principles to Revolutionize Your Note-Taking and Writing
+    <h2>Distributed consensus (blockchain) simulation and visualization
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Learning,Taking Notes,RoamResearch source: https://fortelabs.co/blog/how-to-take-smart-notes/ Luhmann’s slip-box: build second brain context – its network of associations, relationships, and connections to other information.
-But Luhmann often remarked that he never forced himself to do anything he didn’t feel like doing: “I only do what is easy. I only write when I immediately know how to do it. If I falter for a moment, I put the matter aside and do something else” (Luhmann et al....</p>
+    <p> tags: 分布式共识,Online Tools,区块链 source: https://web3scout.github.io/forcecons-sim/ </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How To Take Smart Notes: 10 Principles to Revolutionize Your Note-Taking and Writing" href="https://notes.0081800.xyz/notes/20211231122658-how_to_take_smart_notes_10_principles_to_revolutionize_your_note_taking_and_writing/"></a>
+  <footer class="entry-footer"><span title='2022-01-01 07:51:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Distributed consensus (blockchain) simulation and visualization" href="https://notes.0081800.xyz/notes/20220101075156-distributed_consensus_blockchain_simulation_and_visualization/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>How To Take Smart Notes With Org-mode
+    <h2>Org-roam export backlinks on Hugo
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Learning,Taking Notes,org-roam,Org Mode source: https://blog.jethro.dev/posts/how%5Fto%5Ftake%5Fsmart%5Fnotes%5Forg/ Notes aren’t a record of my thinking process. They are my thinking process. – Richard Feynman
-The primary purpose of note-taking should not be for storing ideas, but for developing them. When we take notes, we should ask: “In what context do I want to see this note again?”
-Note-taking for writing:
-Find topic/research question Research/find literature Read and take notes Draw conclusions / outline text Write Two types of notes:...</p>
+    <p>tags: org-roam, Org Mode source: https://seds.nl/notes/org%5Froam%5Fexport%5Fbacklinks%5Fon%5Fhugo/ https://seds.nl/notes/export%5Forg%5Froam%5Fbacklinks%5Fwith%5Fgohugo/ 利用 hugo 的 partial template layouts/partials/backlinks.html
+{{ $re := $.File.BaseFileName }} {{ $backlinks := slice }} {{ range .Site.AllPages }} {{ if and (findRE $re .RawContent) (not (eq $re .File.BaseFileName)) }} {{ $backlinks = $backlinks | append . }} {{ end }} {{ end }} &lt;hr&gt; {{ if gt (len $backlinks) 0 }} &lt;div class=&#34;bl-section&#34;&gt; &lt;h4&gt;Links to this note&lt;/h4&gt; &lt;div class=&#34;backlinks&#34;&gt; &lt;ul&gt; {{ range $backlinks }} &lt;li&gt;&lt;a href=&#34;{{ ....</p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:23:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How To Take Smart Notes With Org-mode" href="https://notes.0081800.xyz/notes/20211231122318-how_to_take_smart_notes_with_org_mode/"></a>
+  <footer class="entry-footer"><span title='2021-12-31 14:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Org-roam export backlinks on Hugo" href="https://notes.0081800.xyz/notes/20211231142642-org_roam_export_backlinks_on_hugo/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Learning
+    <h2>Online Tools
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p> tags: Tools </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:21:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Learning" href="https://notes.0081800.xyz/notes/20211231122121-learning/"></a>
+  <footer class="entry-footer"><span title='2021-12-31 12:33:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Online Tools" href="https://notes.0081800.xyz/notes/20211231123329-online_tools/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>读书笔记
+    <h2>RoamResearch
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p> tags: Taking Notes,Online Tools </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-10 18:12:00 +0800 +0800'>December 10, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 读书笔记" href="https://notes.0081800.xyz/notes/20211210181234-%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/"></a>
+  <footer class="entry-footer"><span title='2021-12-31 12:32:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to RoamResearch" href="https://notes.0081800.xyz/notes/20211231123253-roamresearch/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>加解密
+    <h2>Roam: Why I Love It and How I Use It
     </h2>
   </header>
   <div class="entry-content">
-    <p>证书 [译] 写给工程师：关于证书（certificate）和公钥基础设施（PKI）的一切（SmallStep, 2018）</p>
+    <p> tags: Learning,Taking Notes source: https://www.nateliason.com/blog/roam </p>
   </div>
-  <footer class="entry-footer"><span title='2021-10-09 10:49:00 +0800 +0800'>October 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 加解密" href="https://notes.0081800.xyz/notes/20211009104957-%E5%8A%A0%E8%A7%A3%E5%AF%86/"></a>
+  <footer class="entry-footer"><span title='2021-12-31 12:29:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Roam: Why I Love It and How I Use It" href="https://notes.0081800.xyz/notes/20211231122919-roam_why_i_love_it_and_how_i_use_it/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -6,7 +6,34 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Apr 2023 10:21:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Apr 2023 09:50:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bash</title>
+      <link>https://notes.0081800.xyz/notes/20230417095019-bash/</link>
+      <pubDate>Mon, 17 Apr 2023 09:50:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230417095019-bash/</guid>
+      <description> tags: Linux </description>
+    </item>
+    
+    <item>
+      <title>Bash scripting cheatsheet</title>
+      <link>https://notes.0081800.xyz/notes/20230417095009-bash_scripting_cheatsheet/</link>
+      <pubDate>Mon, 17 Apr 2023 09:50:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230417095009-bash_scripting_cheatsheet/</guid>
+      <description> tags: Cheatsheet, Bash source: Devhints.io cheatsheets. “Bash Scripting Cheatsheet.” Accessed April 17, 2023. https://devhints.io/bash. </description>
+    </item>
+    
+    <item>
+      <title>Searchable Linux Syscall Table for x86 and x86_64</title>
+      <link>https://notes.0081800.xyz/notes/20230417094911-searchable_linux_syscall_table_for_x86_and_x86_64/</link>
+      <pubDate>Mon, 17 Apr 2023 09:49:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230417094911-searchable_linux_syscall_table_for_x86_and_x86_64/</guid>
+      <description> tags: Cheatsheet, Linux source: “Searchable Linux Syscall Table for X86 and X86_64 | PyTux.” Accessed April 17, 2023. https://filippo.io/linux-syscall-table/. </description>
+    </item>
+    
     <item>
       <title>Starcoin Signing Message</title>
       <link>https://notes.0081800.xyz/notes/20230412102128-starcoin_signing_message/</link>
@@ -15,6 +42,24 @@
       <guid>https://notes.0081800.xyz/notes/20230412102128-starcoin_signing_message/</guid>
       <description>tags: Starcoin Web3 StarTrek, Sign Message Invocation Path Dapp request personal_sign1
 const msg = `0x${Buffer.from(exampleMessage, &amp;#39;utf8&amp;#39;).toString(&amp;#39;hex&amp;#39;)}` console.log({ msg }) const networkId = networkDiv.innerHTML const extraParams = { networkId } const sign = await window.starcoin.request({ method: &amp;#39;personal_sign&amp;#39;, // params: [msg, from, &amp;#39;Example password&amp;#39;], // extraParams = params[2] || {}; means it should be an object: // params: [msg, from, { pwd: &amp;#39;Example password&amp;#39; }], params: [msg, from, extraParams], }) Starmask handling request signPersonalMessage</description>
+    </item>
+    
+    <item>
+      <title>pyenv</title>
+      <link>https://notes.0081800.xyz/notes/20230411180138-pyenv/</link>
+      <pubDate>Tue, 11 Apr 2023 18:01:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230411180138-pyenv/</guid>
+      <description> tags: Python </description>
+    </item>
+    
+    <item>
+      <title>Speedup Python Installation of pyenv</title>
+      <link>https://notes.0081800.xyz/notes/20230411180124-speedup_python_installation_of_pyenv/</link>
+      <pubDate>Tue, 11 Apr 2023 18:01:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230411180124-speedup_python_installation_of_pyenv/</guid>
+      <description> tags: Python, pyenv export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=1 export PYTHON_BUILD_MIRROR_URL=&amp;#34;https://npm.taobao.org/mirrors/python/&amp;#34; </description>
     </item>
     
     <item>
