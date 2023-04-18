@@ -143,6 +143,37 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>弱有序和无数据竞争（DRF）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>弱有序是 Sarita Adve 和 Mark Hill 在他们 1990 年的论文 Weak Ordering - A New Definition (1990) 提出。
+定义如下
+Let a synchronization model be a set of constraints on memory accesses that specify how and when synchronization needs to be done.
+同步模型是对内存访问的一组约束，这些约束指定了何时以及如何进行同步。
+硬件相对于同步模型是弱有序的，当且仅当它在顺序上与遵守同步模型的所有软件一致时。
+Adve和Hill提出了一种同步模型，他们称之为无数据竞争(data-race-free，DRF)。该模型假设硬件具有独立于普通内存读写的内存同步操作。普通的内存读写可以在同步操作之间重新排序，但不能在跨它们移动。(也就是说，同步操作也可用来做重新排序的内存屏障。)如果对于所有理想化的顺序一致的执行，从不同线程对同一位置的任何两个普通存储器访问要么都是读取，要么通过同步操作强制一个在另一个之前发生而分开执行，则程序被称为无数据竞争的。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 16:43:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 弱有序和无数据竞争（DRF）" href="https://notes.0081800.xyz/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>ARM/POWER Relaxed Memory Model
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ARM和POWER系统的概念模型是，每个处理器从其自己的完整内存副本中读取和向其写入，每个写入独立地传播到其他处理器，随着写入的传播，允许重新排序。
+在这个宽松的(relaxed)模型中，我们迄今为止所看到的每一个litmus test的答案都是“yes，这真的可能发生。”
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 16:29:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ARM/POWER Relaxed Memory Model" href="https://notes.0081800.xyz/notes/20210712162917-arm_power_relaxed_memory_model/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>内存屏障
     </h2>
   </header>
@@ -184,34 +215,6 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   </div>
   <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>顺序一致性
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
-The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:19:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 顺序一致性" href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>内存一致性模型
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
-最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
-例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
-// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 内存一致性模型" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

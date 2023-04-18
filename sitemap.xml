@@ -2,16 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/</loc>
+    <lastmod>2023-04-18T21:23:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/</loc>
+    <lastmod>2023-04-18T21:23:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2023-04-18T21:23:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230418151139-nltk_data/</loc>
+    <lastmod>2023-04-18T15:11:00+08:00</lastmod>
+  </url><url>
     <loc>https://notes.0081800.xyz/notes/20230417095019-bash/</loc>
     <lastmod>2023-04-17T09:50:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20230417095009-bash_scripting_cheatsheet/</loc>
-    <lastmod>2023-04-17T09:50:00+08:00</lastmod>
-  </url><url>
-    <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2023-04-17T09:50:00+08:00</lastmod>
-  </url><url>
-    <loc>https://notes.0081800.xyz/</loc>
     <lastmod>2023-04-17T09:50:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20230417094911-searchable_linux_syscall_table_for_x86_and_x86_64/</loc>

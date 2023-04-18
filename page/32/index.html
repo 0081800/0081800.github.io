@@ -143,6 +143,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Cycle detection
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Algorithm,Linked List,Fast &amp; Slow Pointers source: https://en.wikipedia.org/wiki/Cycle%5Fdetection Floyd’s tortoise and hare With two pointers:
+tortoise move slow: move 1 step in each loop. hare move fast: move 2 steps in each loop. If there is a circle existed, tortoise and hare will meet eventually in the circle. Now both tortoise and hare are in the circle, how to figure out the beginning of the circle?
+We put tortoise back to the beginning they both started....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-29 17:12:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Cycle detection" href="https://notes.0081800.xyz/notes/20220329171237-cycle_detection/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Tree
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Data Structures </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-29 16:08:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Tree" href="https://notes.0081800.xyz/notes/20220329160804-tree/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Binary Tree
     </h2>
   </header>
@@ -177,31 +203,6 @@ Add element to the bottom level of the heap at the leftmost open space....</p>
   </div>
   <footer class="entry-footer"><span title='2022-03-29 16:04:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Binary heap" href="https://notes.0081800.xyz/notes/20220329160438-binary_heap/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 215. Kth Largest Element in an Array
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Priority Queue,LeetCode101 Max heap priority queue class Solution { public: int findKthLargest(vector&lt;int&gt;&amp; nums, int k) { // max heap priority_queue&lt;int&gt; pq; for (auto iter = nums.begin(); iter != nums.end(); &#43;&#43;iter) { pq.push(*iter); } // The Kth largest element should let k &gt; 1 not k &gt; 0 for (; k &gt; 1; --k) { pq.pop(); } return pq.top(); } }; </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-29 07:23:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 215. Kth Largest Element in an Array" href="https://notes.0081800.xyz/notes/20220329072317-leetcode101_215_kth_largest_element_in_an_array/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 1337. The K Weakest Rows in a Matrix
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Priority Queue,LeetCode101 The key ideas:
-Use a std::pair to hold {count, index}, so it can compare count first then the index. Use a min heap priority queue to get the K weakest rows. class Solution { public: vector&lt;int&gt; kWeakestRows(vector&lt;vector&lt;int&gt;&gt;&amp; mat, int k) { // min heap priority_queue&lt; std::pair&lt;int, int&gt;, vector&lt;std::pair&lt;int, int&gt; &gt;, std::greater&lt;std::pair&lt;int, int&gt; &gt; &gt; pq; for (auto iter = mat.begin(); iter != mat.end(); &#43;&#43;iter) { int c = count((*iter)....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-29 07:14:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 1337. The K Weakest Rows in a Matrix" href="https://notes.0081800.xyz/notes/20220329071403-leetcode101_1337_the_k_weakest_rows_in_a_matrix/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

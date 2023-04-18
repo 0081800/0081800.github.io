@@ -148,6 +148,35 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode: 5.Longest Palindromic Substring
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode &gt; https://leetcode.com/problems/longest-palindromic-substring/description/
+思路 直接暴力往两边搜索
+func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if length == 0 { return s } start, end := 0, 0 for ci, _ := range buf { i, j := ci, ci // 无法处理 &#34;aaaa&#34; 和 &#34;noon&#34; 这种情况 for i &gt; 0 &amp;&amp; j &lt; length - 1 &amp;&amp; buf[i - 1] == buf[j &#43; 1] { i-- j&#43;&#43; } // 考虑 &#34;bba&#34; 这种情况 if i == j &amp;&amp; ci &gt; 0 &amp;&amp; buf[ci] == buf[ci - 1] { i, j = ci-1, ci } // 考虑 &#34;abb&#34; 这种情况 if i == j &amp;&amp; ci &lt; length - 1 &amp;&amp; buf[ci] == buf[ci &#43; 1] { i, j = ci, ci &#43; 1 } if i !...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 5.Longest Palindromic Substring" href="https://notes.0081800.xyz/notes/20200320173438_leetcode_5_longest_palindromic_substring/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode: 6.ZigZag Conversion
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode srouce: https://leetcode.com/problems/zigzag-conversion/description/ 先根据行数计算列数：
+\(column=length / (row &#43; 2) &#43; bool(length \mod (row &#43; 2))\)
+每一行必然有点的位置为：
+\(i \mod (row - 1)\) 为 0</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 6.ZigZag Conversion" href="https://notes.0081800.xyz/notes/20200320173548_leetcode_6_zigzag_conversion/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>MySQL
     </h2>
   </header>

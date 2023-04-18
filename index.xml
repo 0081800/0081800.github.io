@@ -6,7 +6,29 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 17 Apr 2023 09:50:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Apr 2023 21:23:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs on Macos: Too Many Files Open</title>
+      <link>https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/</link>
+      <pubDate>Tue, 18 Apr 2023 21:23:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/</guid>
+      <description>tags: Emacs, macOS source: Simon, Ben. “Gotcha: Emacs on Mac OS: Too Many Files Open.” Accessed April 18, 2023. https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html. Add below code snippet to your init.el:
+(defun file-notify-rm-all-watches () &amp;#34;Remove all existing file notification watches from Emacs.&amp;#34; (interactive) (maphash (lambda (key _value) (file-notify-rm-watch key)) file-notify-descriptors)) Then just execute M-x file-notify-rm-all-watches when you meet this problem next time.</description>
+    </item>
+    
+    <item>
+      <title>NLTK Data</title>
+      <link>https://notes.0081800.xyz/notes/20230418151139-nltk_data/</link>
+      <pubDate>Tue, 18 Apr 2023 15:11:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230418151139-nltk_data/</guid>
+      <description> tags: AI Clone nltk_data
+git clone https://github.com/nltk/nltk_data.git ~/.local/nltk_data Link nltk_data
+ln -sf ~/.local/nltk_data/packages ~/nltk_data Unzip
+cd ~/nltk_data/path unzip xx.zip </description>
+    </item>
+    
     <item>
       <title>Bash</title>
       <link>https://notes.0081800.xyz/notes/20230417095019-bash/</link>

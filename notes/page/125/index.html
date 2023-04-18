@@ -148,6 +148,44 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>所有权
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>规则 每个值都有一个变量叫做所有者（owner） 同一时间只能有一个所有者 当所有者超出作用域则值被销毁 变量作用域 作用域是一个变量有效的范围 当变量超出作用域范围自动调用对象的 drop 方法进行内存归还操作 变量相互作用：所有权转移（Move） 对于所有在栈上分配的值（固定大小），在进行赋值操作时都对值进行拷贝：
+let x = 5; ley y = x; // copy 5 to y 但是对于在堆上分配的，变量保存的是指向内存的指针，所以在赋值时拷贝的也是指向该内存的指针：
+let s1 = String::from(&#34;hello&#34;); let s2 = s1; 为了保证内存安全，防止 s1 和 s2 超出作用域范围调用两次 drop 造成重复的内存回收，Rust 会让 s1 不再有效，来避免对 s1 进行回收。继续使用 s1 会导致编译错误。这种情况叫做所有权转移（move）。
+变量相互作用：克隆（Clone） 克隆用于深度拷贝变量：
+let s1 = String::from(&#34;hello&#34;); let s2 = s1.clone(); println!(s1); 变量项目作用：拷贝（Copy） 如果数据类型的大小在编译期能够确定都将存储在栈上，这种情况下能够进行快速的拷贝。
+Copy 特性（trait）注解用于将值存贮在栈栈上 Copy 特性注解不能和 Drop 特性注解混用 Copy 特性注解使用规则如下 所有的数字类型 所有的布尔型 所有的浮点型 字符类型 所有元素都实现了 Copy 特性注解的元祖 所有权和函数 函数传递实参的规则和变量类似，传递变量到一个函数将为发生所有权转移或者拷贝。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 17:49:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 所有权" href="https://notes.0081800.xyz/notes/20200629174911-%E6%89%80%E6%9C%89%E6%9D%83/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>语句和表达式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rust 区分语句和表达式， Rust 是基于表达式的语言：
+语句：执行动作并且不返回值
+使用 let 声明变量是语句，所以 let 语句不返回值，也就不能像 Python 那样将 let 语句赋值给其他变量 函数声明也是语句 表达式：计算并返回值，不以分号（;）结尾
+5 &#43; 6 是一个表达式，计算并返回值 11
+表达式可以作为语句的一部分
+函数调用是表达式
+宏调用是表达式
+用 {} 创建的块也是表达式
+let x = { let y = 6; y &#43; 5 } if loop while for 是表达式
+在表达式后面增加分号（;）可以将一个表达式转为语句。</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 17:48:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 语句和表达式" href="https://notes.0081800.xyz/notes/20200629174820-%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Member initialize
     </h2>
   </header>
@@ -185,32 +223,6 @@ Iterator class 重载的操作符：
   </div>
   <footer class="entry-footer"><span title='2020-06-28 18:22:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to SSE/AVX/AVX2/AVX512" href="https://notes.0081800.xyz/notes/20200628182211-avx512/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>优化
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> AVX512 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-28 18:21:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 优化" href="https://notes.0081800.xyz/notes/20200628182150-%E4%BC%98%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>CMake
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: C/C&#43;&#43;,Programming Tools
-安装的头文件必须包含在目标的源代码中，否则构建如 iOS 的 Framework 时无法正确包含头文件
-ADD_LIBRARY(test test.h) CMake 生成 C&#43;&#43; LSP 配置文件</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-28 12:30:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to CMake" href="https://notes.0081800.xyz/notes/20200628123035-cmake/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
