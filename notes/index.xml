@@ -13,8 +13,10 @@
       <pubDate>Mon, 29 May 2023 09:33:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230529093313-postgresql_autovacuum_analyze/</guid>
-      <description>tags: PostgresQL Recently, I met a problem in PostgresQL: the index mismatched after batch rows inserted.
-Run ANALYZE on the table solved this problem after batch rows inerted.</description>
+      <description> tags: PostgresQL Recently, I met a problem in PostgresQL: the index mismatched after batch rows inserted.
+Run ANALYZE on the table solved this problem after batch rows inerted.
+Turns out autovacuum has been disabled on the PostgresQL instance:
+show autovacuum_analyze_scale_factor; show autovacuum_analyze_threshold ; SELECT * FROM pg_settings WHERE name LIKE &amp;#39;%autovacuum%&amp;#39;; </description>
     </item>
     
     <item>
