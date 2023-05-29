@@ -212,7 +212,7 @@
 </span></span><span style="display:flex;"><span>  syn::Ident::new(<span style="color:#e6db74">&#34;foo&#34;</span>, syn::Span::call_site()),
 </span></span><span style="display:flex;"><span>  syn::Ident::new(<span style="color:#e6db74">&#34;bar&#34;</span>, syn::Span::call_site()),
 </span></span><span style="display:flex;"><span>];
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> token <span style="color:#f92672">=</span> quote<span style="color:#f92672">!</span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> token <span style="color:#f92672">=</span> quote!{
 </span></span><span style="display:flex;"><span>  #(#fields),<span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>}; <span style="color:#75715e">// -&gt; foo,bar
 </span></span></span></code></pre></div>
@@ -224,6 +224,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

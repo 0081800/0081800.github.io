@@ -2,13 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/</loc>
-    <lastmod>2023-04-18T21:23:00+08:00</lastmod>
-  </url><url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2023-04-18T21:23:00+08:00</lastmod>
+    <lastmod>2023-05-29T09:33:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230529093313-postgresql_autovacuum_analyze/</loc>
+    <lastmod>2023-05-29T09:33:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2023-05-29T09:33:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230508154357-met_eddie/</loc>
+    <lastmod>2023-05-08T15:43:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230508154308-on_the_road/</loc>
+    <lastmod>2023-05-08T15:43:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/</loc>
     <lastmod>2023-04-18T21:23:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20230418151139-nltk_data/</loc>

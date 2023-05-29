@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.106.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.111.3"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -143,6 +143,61 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>B-trees
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>B-tree 是最广泛使用的索引结构。和排序字符串表：SSTables一样，B-tree 保留按键排序的 key-value 对， 这样可以实现高效的 key-value 查找和区间查询。
+结构 B-tree 将数据库分解成固定大小的页或块，传统上 4KB，这种设计更接近底层硬件，磁盘也是以固定大小的块排列的。
+分页因子 B-tree 中一个页所包含的子页引用数量称为分支因子。
+添加新键 找到其范围新键的页 如果页没有足够的可用空间来容纳新键，则将其分裂为两个半满的页，并更新父页以包含新的键范围。 算法确保树保持平衡：具有 n 个键的 B-tree 总是具有 \(O(log n)\) 的深度。大多数据库适合 3~4 层的 B-tree。 分支因子为 500 的 4KB 页的四级树可以存储高达 256TB。
+可靠性：WAL B-tree 底层的基本写操作是使用新的数据覆盖磁盘上的旧页。
+如果发生页分裂则需要覆盖多个不同的页，同时更新父页，这个操作比较危险，如果此时发生崩溃则会破坏索引。 常见的 B-tree 使用额外的数据结构：预写日志(WAL)：
+追加的写 WAL； 每个 B-tree 必须先更新 WAL 然后再修改树本身的页。 通过使用「锁存器」保护进行并发控制，保护 B-tree 页被多个线程访问而看到树不一样的状态。
+优化 通过复制方案替代 WAL 进行崩溃恢复，修改的页被写入不同的位置，树中父页的新版本被创建，并指向新的位置。 保存键的缩略信息，可以压入更多的键，保持更高的分支因子，减少层数。 对树进行布局，相邻叶子页按顺序保存在磁盘。 添加额外的指针到树中，如左右兄弟页。 变体，如分形树：借鉴日志结构减少磁盘寻道。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to B-trees" href="https://notes.0081800.xyz/notes/20210606143901-b_trees/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>哈希索引
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>索引 先来看一个世界上由 Bash 实现的最简单的数据库实现：
+#!/bin/bash db_set() { echo &#34;$1,$2&#34; &gt;&gt; database } db_get() { grep &#34;^$1,&#34; database | sed -e &#34;s/^$1,//&#34; | tail -n 1 } 这种数据库通过追加文件尾部的方式高效写入，许多数据库内部都是用日志，日志是一个仅支持追加更新的数据文件。但是 db_get 的性能会随着数据量的变大而下降，为了解决这个问题就需要引入新的数据结构： 索引 。
+索引是基于原始数据而派生而来的额外数据结构：适当的索引可以加速读取查询，但是回减慢写速度。
+key-value 索引通常使用 hash map 来实现，最简单的索引策略：保存内存中的 hash map，把每个键一一映射到数据文件中特定的字节偏移量。
+优化磁盘占用 将日志分解成一定大小的段，当文件达到一定大小时就关闭它，并将后续写入到新的段文件中。 然后可以在这些段上执行压缩：丢弃重复的键，并且只保留每个键最近的更新。 同时将变小后的多个段在后台合并在一起（段在写入后不再会进行修改所以不会出现竞争）。 合并完成后将读取请求切换到新的合并段上，然后可以安全的删除旧的段文件。 实现中面临的问题 文件格式：二进制。 删除记录：通过特殊的墓碑标记。 崩溃恢复：Bitcask 通过将 hash map 快照存储到磁盘。 部分写入：文件校验丢弃损坏的部分。 并发控制：只有一个写线程。 追加的好处 顺序写性能高。 并发控制和崩溃恢复简单。 段合并避免文件碎片化。 局限性 大量的键存储在内存可能导致内存耗尽，同时需要处理哈希冲突 区间查询效率不高。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-06 10:33:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 哈希索引" href="https://notes.0081800.xyz/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>排序字符串表：SSTables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SSTables 通过按照键的顺序存储在日志段文件中来解决哈希索引面临的一些问题。它要求每个键在每个合并的段文件中只能出现一次（通过压缩确保）。
+对比哈希索引的日志段 优点 合并段更加高效，即使文件大于可用内存。类似于归并排序算法中使用的方法。并发读取多个输入段文件，比较每个文件的第一个键，把最小的键拷贝到输出文件，并重复。
+解决多个段文件重复：保留最新的值，因为每个段包含在某段时间内写入数据库的所有值，意味着肯定有一个值比其他所有值更新。
+基于键有序的特性可以采用稀疏索引避免内存中包含所有键的索引。
+将一定范围内的所有键存储到一个块中，便于需要请求范围内多个 key-value，降低磁盘 I/O。
+构建和维护 保证顺序 内存中痛哦红黑树或者 AVL 树支持任意顺序插入并以排序后的顺序读取它们。
+写入时，将其添加到内存中的平衡树数据结构中，成为内存表。 内存表大于某个阈值（MB级别），将其作为 SSTable 文件写入磁盘。写入同时，写入可以继续添加到一个新的内存表实例中。 处理请求顺序：首先从内存表中查找键 -&gt; 最新的磁盘段文件 -&gt; 次新磁盘段文件，以此类推。 后台进程周期性执行段合并与压缩，合并多个段文件并丢弃被覆盖或着删除的值。 崩溃处理 为了避免数据库崩溃最近的写入（在内存表中尚未写入磁盘）将会丢失的问题：
+在磁盘上保留单独的日志，每个写入都会立即追加到该日志。并且无需排序。 内存表写入 SSTable 时，丢弃相应的日志。 使用此技术的数据库 LevelDB RocksDB 类似的
+Cassandra HBase </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 排序字符串表：SSTables" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LSM-Tree
     </h2>
   </header>
@@ -172,55 +227,6 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
   </div>
   <footer class="entry-footer"><span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 数据存储与检索" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>数据模型与查询语言
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>数据模型 关系模型 突出数据之间的关联。
-文档模型 数据来自于包含文档，文档间关联很少。
-图状数据模型 针对所有数据都可能互相关联。
-数据查询语言 Web 上声明式查询 CSS 选择器。
-MapReduce 查询 MapReduce 是一种编程模型，用于在许多机器上批量处理海量数据。
-MongoDB 中的 MapReduce
-db.observations.mapReduce( function map() { // 2 var year = this.observationTimestamp.getFullYear(); var month = this.obbservationTimestamp.getMonth() &#43; 1; emit(year &#43; &#34;-&#34; &#43; month, this.numAnimals); // 3 }, function reduce(key, values) { // 4 return Array.sum(values); // 5 }, { query: {family: &#34;Sharks&#34;}, // 1 out: &#34;monthlySharkReport&#34; // 6 } ); 过滤器声明式执行鲨鱼种类（MongoDB 特有扩展）。 mapper：对于每个匹配的文档都会调用一次这个 JavaScript 函数。 mapper 发射一个「键-值」对，键是 “2013-12” 格式的字符串，值是动物的数量 mapper 发射的键值对按键分组，对于相同键的所有「键-值」对，调用 reduce 函数。 reducer 函数将特定月份的所有观察到的动物数量相加。 最终输出写入到 monthlySharkReport 集合中 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 09:52:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 数据模型与查询语言" href="https://notes.0081800.xyz/notes/20210606095222-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>可靠、可扩展与可维护的应用系统
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>可靠性 故障与失效 故障（faults）或者错误：组件偏离其正常规格，可以提供容错（fault-tolerant）机制 失效（failure）意味系统作为一个整体停止 硬件故障 软件错误 人为失误 避免优化方式：
-以最小出错方式设计系统。抽象、提供管理界面，使“做正确的事很轻松”，防止限制过多。 分离最容易出错的地方，提供沙箱用以放心尝试。 充分测试。 提供快速恢复机制尽量减少故障影响：快速回滚，提供校验数据的工具。 设置详细而清晰的监控系统 培训和流程 可扩展性 描述负载 QPS 数据库写入比例 同时在线活动用户数 缓存命中率等。 描述性能 吞吐量（throughput）/每秒处理数据量 延迟（latency）/响应时间（response time）：延迟是处理时间，响应时间是客户端看到的。 最好通过百分位数来监控指标：p50/p80/p90/p95/p99/p999，p50 指标表示一半请求在这个指标之下，一半在这个指标之上。
-应对负载增加 无状态很方便扩容 但有状态的分布式面临一定的挑战 可维护性 可运维性：运维更轻松 监控、文档、自动化、良好的默认配置、可手动控制系统状态让系统自我修复（比如熔断机制）。
-简单性：简化复杂度 抽象！
-可演化性：易于改变 TDD 重构 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-04 22:16:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 可靠、可扩展与可维护的应用系统" href="https://notes.0081800.xyz/notes/20210604221658-%E5%8F%AF%E9%9D%A0_%E5%8F%AF%E6%89%A9%E5%B1%95%E4%B8%8E%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>《数据密集型应用系统设计》读书笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
-扩展：
-垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
-复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -6,7 +6,35 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 18 Apr 2023 21:23:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 09:33:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgresQL autovacuum &amp; ANALYZE</title>
+      <link>https://notes.0081800.xyz/notes/20230529093313-postgresql_autovacuum_analyze/</link>
+      <pubDate>Mon, 29 May 2023 09:33:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230529093313-postgresql_autovacuum_analyze/</guid>
+      <description>tags: PostgresQL Recently, I met a problem in PostgresQL: the index mismatched after batch rows inserted.
+Run ANALYZE on the table solved this problem after batch rows inerted.</description>
+    </item>
+    
+    <item>
+      <title>Met Eddie</title>
+      <link>https://notes.0081800.xyz/notes/20230508154357-met_eddie/</link>
+      <pubDate>Mon, 08 May 2023 15:43:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230508154357-met_eddie/</guid>
+      <description>tags: On The Road https://www.google.com/maps/dir/New+York/Joliet/Rock+Island,+IL/Rapids+City,+IL/Des+Moines,+IA/Adel,+Iowa/Stuart,+Iowa/Council+Bluffs,+Iowa/Omaha,+NE/Grand+Island,+NE/@40.7489186,-96.7492412,5z/data=!3m1!4b1!4m62!4m61!1m5!1m1!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!2m2!1d-74.0059728!2d40.7127753!1m5!1m1!1s0x880e456bec363d7d:0x9f9e66f7a36bc042!2m2!1d-88.0817251!2d41.525031!1m5!1m1!1s0x87e232c357044b77:0xecc19371d71475f1!2m2!1d-90.5787476!2d41.5094771!1m5!1m1!1s0x87e23f0ad2e7aeb3:0x43aab678fe9e328d!2m2!1d-90.3434615!2d41.5817!1m5!1m1!1s0x87ee99a4c1611ee7:0x710028512691e4b2!2m2!1d-93.6249593!2d41.5868353!1m5!1m1!1s0x87ec39285c3540b9:0x84581d5d4142c1ec!2m2!1d-94.017453!2d41.6144325!1m5!1m1!1s0x87ec60c99a9a7d0f:0xb0c00a66d8103978!2m2!1d-94.3183715!2d41.5034243!1m5!1m1!1s0x879381cfa109322f:0xbe4e81fa5222799e!2m2!1d-95.8608333!2d41.2619444!1m5!1m1!1s0x87938dc8b50cfced:0x46424d4fae37b604!2m2!1d-95.9345034!2d41.2565369!1m5!1m1!1s0x87998644ec7765f7:0xa12d5b784951b17b!2m2!1d-98.3420118!2d40.9263957!3e0</description>
+    </item>
+    
+    <item>
+      <title>On The Road</title>
+      <link>https://notes.0081800.xyz/notes/20230508154308-on_the_road/</link>
+      <pubDate>Mon, 08 May 2023 15:43:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230508154308-on_the_road/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Emacs on Macos: Too Many Files Open</title>
       <link>https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/</link>

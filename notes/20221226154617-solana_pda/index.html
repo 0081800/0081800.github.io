@@ -252,12 +252,12 @@ Generating One can generate a PDA using Pubkey::find_program_address in Rust or 
 <li>Transfer some lamports from funding account to the PDA to pay the rent;</li>
 <li>Allocate data space by <a href="https://docs.rs/solana-program/latest/solana_program/account_info/struct.AccountInfo.html#method.realloc">AccountInfo.realloc</a>.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// Assessing required lamports and creating transaction instruction
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   <span style="color:#66d9ef">let</span> lamports_required <span style="color:#f92672">=</span> Rent::get()<span style="color:#f92672">?</span>.minimum_balance(ACCOUNT_DATA_LEN);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   <span style="color:#66d9ef">let</span> lamports_required <span style="color:#f92672">=</span> Rent::get()<span style="color:#f92672">?</span>.minimum_balance(<span style="color:#66d9ef">ACCOUNT_DATA_LEN</span>);
 </span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">let</span> create_pda_account_ix <span style="color:#f92672">=</span> system_instruction::create_account(
 </span></span><span style="display:flex;"><span>       <span style="color:#f92672">&amp;</span>funding_account.key,
 </span></span><span style="display:flex;"><span>       <span style="color:#f92672">&amp;</span>pda_account.key,
 </span></span><span style="display:flex;"><span>       lamports_required,
-</span></span><span style="display:flex;"><span>       ACCOUNT_DATA_LEN.try_into().unwrap(),
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">ACCOUNT_DATA_LEN</span>.try_into().unwrap(),
 </span></span><span style="display:flex;"><span>       <span style="color:#f92672">&amp;</span>program_id,
 </span></span><span style="display:flex;"><span>   );
 </span></span><span style="display:flex;"><span>   <span style="color:#75715e">// Invoking the instruction but with PDAs as additional signer
@@ -284,17 +284,17 @@ Generating One can generate a PDA using Pubkey::find_program_address in Rust or 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// validation struct
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#[derive(Accounts)]</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CreateUserStats</span><span style="color:#f92672">&lt;&#39;</span><span style="color:#a6e22e">info</span><span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CreateUserStats</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;info</span><span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[account(mut)]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> user: <span style="color:#a6e22e">Signer</span><span style="color:#f92672">&lt;&#39;</span><span style="color:#a6e22e">info</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> user: <span style="color:#a6e22e">Signer</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;info</span><span style="color:#f92672">&gt;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// space: 8 discriminator + 2 level + 4 name length + 200 name + 1 bump
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">#[account(
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">        init,
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">        payer = user,
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">        space = 8 + 2 + 4 + 200 + 1, seeds = [b</span><span style="color:#e6db74">&#34;user-stats&#34;</span><span style="color:#75715e">, user.key().as_ref()], bump
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    )]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> user_stats: <span style="color:#a6e22e">Account</span><span style="color:#f92672">&lt;&#39;</span><span style="color:#a6e22e">info</span>, UserStats<span style="color:#f92672">&gt;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> system_program: <span style="color:#a6e22e">Program</span><span style="color:#f92672">&lt;&#39;</span><span style="color:#a6e22e">info</span>, System<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> user_stats: <span style="color:#a6e22e">Account</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;info</span>, UserStats<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> system_program: <span style="color:#a6e22e">Program</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;info</span>, System<span style="color:#f92672">&gt;</span>,
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="footnotes" role="doc-endnotes">
 <hr>
@@ -319,6 +319,12 @@ Generating One can generate a PDA using Pubkey::find_program_address in Rust or 
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

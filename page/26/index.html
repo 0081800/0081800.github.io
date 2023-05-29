@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.106.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.111.3"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -143,6 +143,42 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>NUMA
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: High Performance source: https://en.wikipedia.org/wiki/Non-uniform_memory_access </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-16 08:05:00 +0800 +0800'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to NUMA" href="https://notes.0081800.xyz/notes/20220416080519-numa/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>netstat
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Linux,Network,Tools netstat -s: show network status(errors) # show udp status $ netstat -s --udp Udp: 437.0k/s packets received 0.0/s packets to unknown port received. 386.9k/s packet receive errors 0.0/s packets sent RcvbufErrors: 123.8k/s SndbufErrors: 0 InCsumErrors: 0 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-16 07:55:00 +0800 +0800'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to netstat" href="https://notes.0081800.xyz/notes/20220416075544-netstat/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>ethtool
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Linux,Network,TCP,UDP,Tools ethtool -S: Reveal where the packets actuaaly went receiver$ watch &#39;sudo ethtool -S eth2 |grep rx&#39; rx_nodesc_drop_cnt: 451.3k/s rx-0.rx_packets: 8.0/s rx-1.rx_packets: 0.0/s rx-2.rx_packets: 0.0/s rx-3.rx_packets: 0.5/s rx-4.rx_packets: 355.2k/s rx-5.rx_packets: 0.0/s rx-6.rx_packets: 0.0/s rx-7.rx_packets: 0.5/s rx-8.rx_packets: 0.0/s rx-9.rx_packets: 0.0/s rx-10.rx_packets: 0.0/s </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-16 07:38:00 +0800 +0800'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ethtool" href="https://notes.0081800.xyz/notes/20220416073825-ethtool/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Multi-queue NICs
     </h2>
   </header>
@@ -164,44 +200,6 @@ Multi-queue hashing algorithms Use a hash from packet to decide the RX queue num
   </div>
   <footer class="entry-footer"><span title='2022-04-16 07:34:00 +0800 +0800'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to iptables" href="https://notes.0081800.xyz/notes/20220416073414-iptables/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Assembly
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-15 06:50:00 +0800 +0800'>April 15, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Assembly" href="https://notes.0081800.xyz/notes/20220415065058-assembly/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>How to receive a million packets per second
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Network,UDP,High Performance,iptables,ethtool,netstat,NUMA source: The Cloudflare Blog. “How to Receive a Million Packets per Second,” June 16, 2015. http://blog.cloudflare.com/how-to-receive-a-million-packets/. Keys:
-Make sure traffic won’t be interfered with by the iptables
-iptables -I INPUT 1 -p udp --dport 4321 -j ACCEPT iptables -t raw -I PREROUTING 1 -p udp --dport 4321 -j NOTRACK #&#43;end_src[[id:C471A6FF-7F4E-4E23-B070-14CE146BFA14][Multi-queue NICs]] 2. The first bottleneck ​	&#43; All packets are received by a signal RX queue, checked out with =ethtool -S=....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-14 18:50:00 +0800 +0800'>April 14, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How to receive a million packets per second" href="https://notes.0081800.xyz/notes/20220414185003-how_to_receive_a_million_packets_per_second/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>UDP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Network </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-14 18:50:00 +0800 +0800'>April 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to UDP" href="https://notes.0081800.xyz/notes/20220414185017-udp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

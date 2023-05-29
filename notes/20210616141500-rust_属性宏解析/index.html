@@ -308,7 +308,7 @@ quote = &ldquo;1.0&rdquo; syn = &ldquo;1.0&rdquo; Derive 属性宏 探讨 Rust �
 </span></span><span style="display:flex;"><span>			}
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> tokens <span style="color:#f92672">=</span> quote<span style="color:#f92672">!</span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> tokens <span style="color:#f92672">=</span> quote!{
 </span></span><span style="display:flex;"><span>	};
 </span></span><span style="display:flex;"><span>	tokens.into()
 </span></span><span style="display:flex;"><span>}
@@ -324,7 +324,7 @@ quote = &ldquo;1.0&rdquo; syn = &ldquo;1.0&rdquo; Derive 属性宏 探讨 Rust �
 </span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">return</span> Ok(Some(name));
 </span></span><span style="display:flex;"><span>					}
 </span></span><span style="display:flex;"><span>				} <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">return</span> Err(syn::Error::new(attr.bracket_token.span, <span style="color:#e6db74">&#34;expected `args(name = \&#34;...\&#34;)`&#34;</span>.to_owned()));
+</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">return</span> Err(syn::Error::new(attr.bracket_token.span, <span style="color:#e6db74">&#34;expected `args(name = </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">...</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">)`&#34;</span>.to_owned()));
 </span></span><span style="display:flex;"><span>				}
 </span></span><span style="display:flex;"><span>			}
 </span></span><span style="display:flex;"><span>		}
@@ -365,7 +365,7 @@ quote = &ldquo;1.0&rdquo; syn = &ldquo;1.0&rdquo; Derive 属性宏 探讨 Rust �
 </span></span><span style="display:flex;"><span>			}
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> tokens <span style="color:#f92672">=</span> quote<span style="color:#f92672">!</span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> tokens <span style="color:#f92672">=</span> quote!{
 </span></span><span style="display:flex;"><span>	};
 </span></span><span style="display:flex;"><span>	tokens.into()
 </span></span><span style="display:flex;"><span>}
@@ -381,7 +381,7 @@ quote = &ldquo;1.0&rdquo; syn = &ldquo;1.0&rdquo; Derive 属性宏 探讨 Rust �
 </span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">return</span> Ok(Some(name));
 </span></span><span style="display:flex;"><span>					}
 </span></span><span style="display:flex;"><span>				} <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">return</span> Err(syn::Error::new(attr.bracket_token.span, <span style="color:#e6db74">&#34;expected `meta = \&#34;...\&#34;`&#34;</span>.to_owned()));
+</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">return</span> Err(syn::Error::new(attr.bracket_token.span, <span style="color:#e6db74">&#34;expected `meta = </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">...</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">`&#34;</span>.to_owned()));
 </span></span><span style="display:flex;"><span>				}
 </span></span><span style="display:flex;"><span>			}
 </span></span><span style="display:flex;"><span>		}
@@ -397,6 +397,12 @@ quote = &ldquo;1.0&rdquo; syn = &ldquo;1.0&rdquo; Derive 属性宏 探讨 Rust �
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

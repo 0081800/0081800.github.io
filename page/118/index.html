@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.106.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.111.3"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -143,6 +143,45 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>MAE（平均绝对误差）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>\[MAE(X,h) = \frac{1}{m}\sum_{i=1}^{m}\left\lvert h(x^{(i)} - y ^{i})\right\rvert\]</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-09-12 10:15:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to MAE（平均绝对误差）" href="https://notes.0081800.xyz/notes/20200912101549-mae_%E5%B9%B3%E5%9D%87%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AE/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>RMSE（均方根误差）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>测量预测过程中的预测错误的标准差。
+公式
+\[RMSE(X,h)=\sqrt{\frac{1}{m}\sum_{i=1}^{m}(h(x^{(i)}) - y^{(i)})^2}\]
+m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。 ↩︎</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-09-12 09:45:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to RMSE（均方根误差）" href="https://notes.0081800.xyz/notes/20200912094544-rmse_%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>机器学习涉及数学概念
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>公式 RMSE（均方根误差） MAE（平均绝对误差） 概念 标准差（Std Dev） 范数 方差 皮尔逊相关系数（标准相关系数） 线性相关性 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-09-12 09:38:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 机器学习涉及数学概念" href="https://notes.0081800.xyz/notes/20200912093811-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B6%89%E5%8F%8A%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Python behind the scenes #1: how the CPython VM works
     </h2>
   </header>
@@ -168,60 +207,6 @@ $ python script.py 这篇文章将开启一个系列来尝试解答这个问题�
   </div>
   <footer class="entry-footer"><span title='2020-09-07 08:12:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 机器学习测试与验证" href="https://notes.0081800.xyz/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>机器学习的主要挑战
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>训练数据的数量不足 训练数据不具代表性 质量差的数据 无关特征 特征工程 一个成功的机器学习项目，关键部分是提取一组好的用了训练的特征集，这个过程叫做特征工程。
-特征选择 特征提取 通过手机数据创造新的特征 训练数据过度拟合 在模型的训练数据上表现良好，但是泛化时却不尽人如意。
-解决方法
-简化模型 收集更多的训练数据 减少训练数据中的噪声（修复数据错误和消除异常值） 正则化 通过约束模型使其更简单，并降低过度拟合风险。
-超参数 通过调整超参数来调整应用正则化的程度。调整超参数是构建机器学习系统的非常重要的组成部分。
-训练数据拟合不足 解决方法：
-选择一个带有更多参数、更强大的模型 给学习算法提供更好的特征集 减少模型中的约束（如减少正则化超参数） </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-09-07 08:03:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 机器学习的主要挑战" href="https://notes.0081800.xyz/notes/20200907080323-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%BB%E8%A6%81%E6%8C%91%E6%88%98/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>机器学习系统的种类
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>监督式/无监督式学习 监督式学习 定义 训练数据经过标注包含素所需解决方案（标签或标记）
-相关算法 K-邻近算法 线性回归 逻辑回归：广泛用于分类，输出“属于某个给定类别的概率”的值 支持向量机 决策树和随机森林 神经网络 适应场景 分类任务 预测变量 无监督式学习 定义 训练数据未经标注
-相关算法 聚类算法 K-平均算法 分层聚类分析 最大期望算法 可视化和降维 主成分分析 核主成分分析 局部线性嵌入 t-分布随机临近嵌入 关联规则学习 Apriori Eclat 适应场景 通过聚类算法检测相似（层次聚类算法精度更高，可以再次细分） 可视化算法 降维：不丢失太多信息的前提下简化数据，方法之一是合并特征，过程叫做特征提取 异常检测：判断新的输入是正常还是异常，数据初筛、防作弊等 关联规则学习：发现属性之间有趣的联系 半监督式学习 大量未标记数据和少量标记数据进行学习。
-强化学习 观察环境、作出选择、执行操作、并获得回报（负值则为惩罚）。
-批量学习和在线学习 在数据流中进行增量学习。
-批量学习 在线学习 在线学习也称为增量学习，同时支持恢复到上一状态，便于检测到性能下降及时中断和回滚。
-核外学习 超大数据集超出一台计算机的主存储器，每次加载部分数据并不断重复直至完成训练。
-学习率 学习率高系统迅速适应新数据，同时快速忘记老数据，学习率低则反之。
-基于实例和基于模型的学习 基于实例的学习 系统完全记住学习示例，然后通过某种相似度度量方式将其泛化到新的实例。
-基于模型的学习 模型选择 观察数据得出模型的过程。
-衡量模型表现 定义效用函数（或适应度函数）来衡量模型有多好 定义成本函数来衡量模型有多差 线性回归通常选择成本函数来衡量线性模型的预测和训练实例之间的差距。
-线性回归算法的意义所在：通过你提供的训练样本，找出最符合所提供数据的线性模型的参数，这就是训练过程。</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-09-07 07:42:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 机器学习系统的种类" href="https://notes.0081800.xyz/notes/20200907074200-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%A7%8D%E7%B1%BB/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>《机器学习实战》读书笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>概览 机器学习系统的种类 机器学习的主要挑战 机器学习测试与验证 模型是观察的简化。
-相关数学概念 机器学习涉及数学概念 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-09-05 07:57:00 +0800 +0800'>September 5, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 《机器学习实战》读书笔记" href="https://notes.0081800.xyz/notes/20200905075701-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -226,7 +226,7 @@ use proc_macro; #[some_attribute] pub fn some_name(input: TokenStream) -&gt; Tok
 <h2 id="宏">宏<a hidden class="anchor" aria-hidden="true" href="#宏">#</a></h2>
 <p>实现元编程，代码生成代码，必须带入当前命名空间内才能使用（不能使用 <code>mod::sub::macro!</code> 这种方式调用）。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[macro_export]</span>
-</span></span><span style="display:flex;"><span>macro_rules! vec {
+</span></span><span style="display:flex;"><span>macro_rules<span style="color:#f92672">!</span> vec {
 </span></span><span style="display:flex;"><span>	( <span style="color:#75715e">$($x</span>:<span style="color:#a6e22e">expr</span>), <span style="color:#f92672">*</span>) <span style="color:#f92672">=&gt;</span> {           <span style="color:#75715e">// $() 用于捕捉值，$x:expr 匹配 Rust 表达式并绑定到 $x，逗号（,）表明一个逗号可能出现在表达式后面，* 表明表达式匹配一次或多次
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		{
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> temp_vec <span style="color:#f92672">=</span> Vec::new();
@@ -254,6 +254,12 @@ use proc_macro; #[some_attribute] pub fn some_name(input: TokenStream) -&gt; Tok
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

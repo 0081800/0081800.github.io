@@ -148,6 +148,53 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>macOS 签名 GDB
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: GDB,macOS macOS 下通过 GDB 调试程序会出现：
+Unable to find Mach task port for process-id 1375: (os/kern) failure (0x5). (please check gdb is codesigned - see taskgated(8)) 需要通过 Keychain Access Application 创建证书： code-sign-cert
+需要对 gdb 进行签名，首先创建 gdb-entitlement.xml ：
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;com.apple.security.cs.debugger&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; 运行签名
+codesign --entitlements gdb-entitlement.xml -fs code-sign-cert $(which gdb) See also: PermissionsDarwin。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-26 18:10:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS 签名 GDB" href="https://notes.0081800.xyz/notes/20210726181021-macos_%E7%AD%BE%E5%90%8D_gdb/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>偏序
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>偏序集合（英语：Partiallyordered set，简写poset）是数学中，特别是序理论中，指配备了部分排序关系的集合。 这
+See also: 偏序关系</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-26 08:03:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 偏序" href="https://notes.0081800.xyz/notes/20210726080332-%E5%81%8F%E5%BA%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CAP 理论
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>CAP 最初作为一个经验法则提出（20 世纪 70 年代），并没有准确的定义，目的也只是帮助大家深入探讨数据库设计的权衡之道。它由 Eric Brewer 于 2000 年正式命名。
+解释一 CAP 定理：不要求线性化的应用更能容忍网络故障。
+只要不可靠才诶黄哦，都会发生违背线性化的风险。我们可以做如下权衡：
+如果应用要求线性化，一旦发生网络分区，则必须等待网络修复，或者直接返回错误。结果为服务不可用（保证一致性或者线性化）。 如果应用不要求线性化，且每个可副本独立处理请求。此时服务可用，但结果行为不符合线性化（保证高可用）。 解释二 一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）。系统只能支持两个特性。
+这里的分区指网络分区（即网络故障）。
+不过，这种理解存在误导性，网络分区是一种故障，不管喜欢还是不喜欢，它都可能发生，所以无法选择或逃避分区问题。
+网络正常的时候，系统可以同时保证一致性（线性化）和可用性。而一旦发生了网络故障，必须要么选择线性（一致性），要么可用性。 也就是“网络分区的情况下”是选择一致还是可用。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-26 07:29:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to CAP 理论" href="https://notes.0081800.xyz/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>一致性与共识
     </h2>
   </header>
@@ -181,51 +228,6 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
   </div>
   <footer class="entry-footer"><span title='2021-07-22 08:02:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 拜占庭故障" href="https://notes.0081800.xyz/notes/20210722080226-%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%95%85%E9%9A%9C/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Fencing 令牌
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Fencing（围栏）锁，每次锁服务授予锁时，同时返回 fencing 令牌，每次客户端发送写请求，都必须包含所持有的 fencing 令牌。
-fencing 令牌单调递增，如果低版本的写入后到达，发现已经有高版本的 fencing 令牌写入，则拒绝此次写入。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-22 07:59:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Fencing 令牌" href="https://notes.0081800.xyz/notes/20210722075942-fencing_%E4%BB%A4%E7%89%8C/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>单调时钟与墙上时钟
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>墙上时钟 根据某个日历返回当前的日期与时间。
-Linux 上的 clock_gettime(CLOCK_REALTIME) Java 中的 System.currentTimeMills() 会返回 1970-01-01（UTC）的时间戳（秒和毫秒）。
-墙上时钟会和 NTP 服务器同步产生跳跃导致一些奇怪的问题。
-单调时钟 更适合测量持续时间段（时间间隔），如超时或服务的响应时间。保证总是向前（不会出现墙上时钟的回拨现象）。
-Linux 上的 clock_gettime(CLOCK_MONOTONIC) Java 中的 System.nanoTime() 单调时钟多个节点的对比没有任何意义，多路 CPU 可能有单独的计时器，且不与其他 CPU 进行同步。由操作系统进行补偿它们之间的偏差。
-NTP 检测到本地石英比时间服务器更快或者更慢，NTP 会调整本地石英的震动频率（摆动），最大幅度为 0.05%。 NTP 并不会直接调整单调时钟向前或回拨 。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-22 07:30:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 单调时钟与墙上时钟" href="https://notes.0081800.xyz/notes/20210722073012-%E5%8D%95%E8%B0%83%E6%97%B6%E9%92%9F%E4%B8%8E%E5%A2%99%E4%B8%8A%E6%97%B6%E9%92%9F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode: 47. Permutations II
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode,backtracking 视频解析：https://www.youtube.com/watch?v=s7AvT7cGdSo
-在 LeetCode: 46. Permutations 的基础上增加重复的元素。感觉不能依赖于 track &#43; map 的去重逻辑回溯。
-class Solution { public: vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; nums) { vector&lt;vector&lt;int&gt;&gt; res; } }; 数据特征：
-Value: 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, Index: 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, class Solution { public: vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; nums) { set&lt;vector&lt;int&gt;&gt; res; vector&lt;vector&lt;int&gt;&gt; ret; int n, i; vector&lt;vector&lt;int&gt;&gt; perms; if (nums....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-21 07:36:00 +0800 +0800'>July 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 47. Permutations II" href="https://notes.0081800.xyz/notes/20210721073657-leetcode_47_permutations_ii/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

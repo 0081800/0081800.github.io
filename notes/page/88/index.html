@@ -148,6 +148,42 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>When Zero Cost Abstractions Aren&#39;t Zero Cost
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust 原文：When Zero Cost Abstractions Aren’t Zero Cost </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-10 15:17:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to When Zero Cost Abstractions Aren&#39;t Zero Cost" href="https://notes.0081800.xyz/notes/20210810151736-when_zero_cost_abstractions_aren_t_zero_cost/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>弹性分布式数据集
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-10 07:26:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 弹性分布式数据集" href="https://notes.0081800.xyz/notes/20210810072604-%E5%BC%B9%E6%80%A7%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>HBase
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-10 07:14:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to HBase" href="https://notes.0081800.xyz/notes/20210810071455-hbase/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>大规模并行处理
     </h2>
   </header>
@@ -169,44 +205,6 @@ But a bad oscillator could be influenced by the heat of CPU, like compiling Linu
   </div>
   <footer class="entry-footer"><span title='2021-08-09 10:38:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Clock Synchronization with Chris Perl" href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Hive
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Bigdata bucketed map join </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-09 08:07:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Hive" href="https://notes.0081800.xyz/notes/20210809080723-hive/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Hadoop
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Bigdata Hadoop Distributed File System MapReduce MapReduce shuffle 按照 reducer 分区，排序和将数据分区从 mapper 复制到 reducer。（令人困惑的术语，并不完全与洗牌一样，在 MapReduce 中其实没有随机性）。
-MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
-输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Tokio
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Rust </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-08 08:31:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Tokio" href="https://notes.0081800.xyz/notes/20210808083146-tokio/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
