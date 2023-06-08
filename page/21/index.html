@@ -143,6 +143,58 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Starcoin Blockchain from Scartch
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Starcoin Web3 StarTrek,Blockchain Overview Block is the basic element in a blockchain system, as we known blockchain system is just a ledger, which means a bookkeeping1 that recording of financial transactions. In the blockchain system, those transactions are stored in the blocks. In each block, the data stored in may look like:
+TXN FROM TO VALUE #0 God Cale 100 #1 Cale Alice 10 #2 Alice Bob 1 #3 Bob Mike 0....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-02 11:09:00 +0800 +0800'>June 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Starcoin Blockchain from Scartch" href="https://notes.0081800.xyz/notes/20220602110916-starcoin_blockchain/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Sparse Merkle Tree
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Merkle tree,Starcoin Web3 StarTrek </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-02 10:26:00 +0800 +0800'>June 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Sparse Merkle Tree" href="https://notes.0081800.xyz/notes/20220602102655-sparse_merkle_tree/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Jellyfish Merkle Tree
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Starcoin Web3 StarTrek,Sparse Merkle Tree,Merkle tree,LSM-Tree,Account-Model Blockchain Systems source: Gao, Zhenhuan, Yuxuan Hu, and Qinfan Wu. “Jellyfish Merkle Tree,” n.d., 12. JMT(Jellyfish Merkle Tree) a LSM-tree based Implementation of Sparse Merkle Tree Inspired by Patricia Merkle Tree and has been implemented in Rust, but it is language-independent.
+Merkel tree fits pretty well as an authenticated key-value store holding a huge amount of data in a tamper-proof way.
+Two major concerns where people have been trying to achieve some enhnacements:...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-02 10:24:00 +0800 +0800'>June 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Jellyfish Merkle Tree" href="https://notes.0081800.xyz/notes/20220602102439-jellyfish_merkle_tree/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Starcoin PoW
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Starcoin Web3 StarTrek, Proof-of-work Generate nonce (random data) as salt to join to the data of block to be hash. The goal is to find a hash value that less than target. The target is influenced by difficulty. As the difficulty gets bigger and the target will be smaller, which means more difficult to find.
+pub fn difficult_to_target(difficulty: U256) -&gt; U256 { U256::max_value() / difficulty } </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-01 19:00:00 +0800 +0800'>June 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Starcoin PoW" href="https://notes.0081800.xyz/notes/20220601190052-starcoin_pow/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Merkle tree
     </h2>
   </header>
@@ -153,60 +205,6 @@ Why the merkle tree is important to the peer-to-peer network? The main purpose o
   </div>
   <footer class="entry-footer"><span title='2022-06-01 11:03:00 +0800 +0800'>June 1, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Merkle tree" href="https://notes.0081800.xyz/notes/20220601110304-merkle_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Starcoin Learn Resource
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Starcoin Web3 StarTrek The documentation of Starcoin are written in multiple places:
-The Developers Documentation on the main site English Version Chinese Version The Starcoin Cookbook English Version Chinese Version </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-01 10:46:00 +0800 +0800'>June 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Starcoin Learn Resource" href="https://notes.0081800.xyz/notes/20220601104619-starcoin_learn_resource/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Compile Starcoin from Source And Setup a Dev Node
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Starcoin Web3 StarTrek Why compile starcoin from source? Why not download a released binary? Because I want to contribute code to it, maybe in the future.
-But the toolchain is awesome, the progress is very simple. Just two steps:
-Clone the code from GitHub
-git clone git@github.com:starcoinorg/starcoin.git Run scripts/dev_setup.sh:
-cd starcoin ./scripts/dev_setup.sh Then we are ready to compile:
-cargo build Wait? You haven’t install Rust yet? Please refer to Getting started....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-31 13:35:00 +0800 +0800'>May 31, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Compile Starcoin from Source And Setup a Dev Node" href="https://notes.0081800.xyz/notes/20220531133557-compile_starcoin_and_setup_a_dev_node/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Starcoin Web3 StarTrek
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Web3 Learn journal of Starcoin Web3 StarTrek Program, check the follow “Links to this note”.</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-31 10:45:00 +0800 +0800'>May 31, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Starcoin Web3 StarTrek" href="https://notes.0081800.xyz/notes/20220531104515-starcoin_web3_startrek/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Blogchain
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: ipfs source: https://blogchain.app/home </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-31 10:22:00 +0800 +0800'>May 31, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Blogchain" href="https://notes.0081800.xyz/notes/20220531102226-blogchain/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

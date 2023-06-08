@@ -143,6 +143,59 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Thrift 与 Protocol Buffers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>每个字段一个标记号码，字段名可以随意调整因为编码信息中只有标记号码，没有字段名称，但是标记号码不能随意调整，基于此可以实现：
+向前兼容 旧代码忽略不能识别的标记号码，并根据类型的注释来通知解析器跳过特定的字节数。 向后兼容 标记号码不变的情况下新的代码总是能够解析旧代码序列化的数据，但是新添加的字段不能标记为 required，不然会触发运行时错误。 同时为了保证前后兼容，删除字段也不能删除设置为 required 的字段，同时再次新添字段标记号码不能被再次使用。
+改变类型同时也会导致前后兼容问题。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Thrift 与 Protocol Buffers" href="https://notes.0081800.xyz/notes/20210610222754-thrift_%E4%B8%8E_protocol_buffers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>数据编码与演化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>模式演化要保证：
+向后兼容 较新的代码可以读取旧代码编写的数据 向前兼容 较旧的代码可以读取较新代码编写的数据 数据编码格式 语言特定格式 Python pickle Java java.io.Serializable Ruby Marshal JSON、XML与二进制变体 二进制变体
+Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模式 基于数据库的数据流 不同是写写入不同的值 归档存储 基于服务的数据流：REST 和 RPC RPC 的问题 给人一种本地调用的错觉，却需要面临网络的不确定性：延迟和超时。
+基于消息传递的数据流 消息中间件：RabbitMQ、Kafka 分布式Actor 框架：Akka、Erlang OTP </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 21:53:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 数据编码与演化" href="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>OLAP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在线分析处理（Online Analytic Processing，OLAP）。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 21:45:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to OLAP" href="https://notes.0081800.xyz/notes/20210610214521-olap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>OLTP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在线事务处理（Online Transaction Processing，OLTP）。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 21:43:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to OLTP" href="https://notes.0081800.xyz/notes/20210610214348-oltp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>B-trees
     </h2>
   </header>
@@ -158,75 +211,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to B-trees" href="https://notes.0081800.xyz/notes/20210606143901-b_trees/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>哈希索引
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>索引 先来看一个世界上由 Bash 实现的最简单的数据库实现：
-#!/bin/bash db_set() { echo &#34;$1,$2&#34; &gt;&gt; database } db_get() { grep &#34;^$1,&#34; database | sed -e &#34;s/^$1,//&#34; | tail -n 1 } 这种数据库通过追加文件尾部的方式高效写入，许多数据库内部都是用日志，日志是一个仅支持追加更新的数据文件。但是 db_get 的性能会随着数据量的变大而下降，为了解决这个问题就需要引入新的数据结构： 索引 。
-索引是基于原始数据而派生而来的额外数据结构：适当的索引可以加速读取查询，但是回减慢写速度。
-key-value 索引通常使用 hash map 来实现，最简单的索引策略：保存内存中的 hash map，把每个键一一映射到数据文件中特定的字节偏移量。
-优化磁盘占用 将日志分解成一定大小的段，当文件达到一定大小时就关闭它，并将后续写入到新的段文件中。 然后可以在这些段上执行压缩：丢弃重复的键，并且只保留每个键最近的更新。 同时将变小后的多个段在后台合并在一起（段在写入后不再会进行修改所以不会出现竞争）。 合并完成后将读取请求切换到新的合并段上，然后可以安全的删除旧的段文件。 实现中面临的问题 文件格式：二进制。 删除记录：通过特殊的墓碑标记。 崩溃恢复：Bitcask 通过将 hash map 快照存储到磁盘。 部分写入：文件校验丢弃损坏的部分。 并发控制：只有一个写线程。 追加的好处 顺序写性能高。 并发控制和崩溃恢复简单。 段合并避免文件碎片化。 局限性 大量的键存储在内存可能导致内存耗尽，同时需要处理哈希冲突 区间查询效率不高。 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:33:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 哈希索引" href="https://notes.0081800.xyz/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>排序字符串表：SSTables
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>SSTables 通过按照键的顺序存储在日志段文件中来解决哈希索引面临的一些问题。它要求每个键在每个合并的段文件中只能出现一次（通过压缩确保）。
-对比哈希索引的日志段 优点 合并段更加高效，即使文件大于可用内存。类似于归并排序算法中使用的方法。并发读取多个输入段文件，比较每个文件的第一个键，把最小的键拷贝到输出文件，并重复。
-解决多个段文件重复：保留最新的值，因为每个段包含在某段时间内写入数据库的所有值，意味着肯定有一个值比其他所有值更新。
-基于键有序的特性可以采用稀疏索引避免内存中包含所有键的索引。
-将一定范围内的所有键存储到一个块中，便于需要请求范围内多个 key-value，降低磁盘 I/O。
-构建和维护 保证顺序 内存中痛哦红黑树或者 AVL 树支持任意顺序插入并以排序后的顺序读取它们。
-写入时，将其添加到内存中的平衡树数据结构中，成为内存表。 内存表大于某个阈值（MB级别），将其作为 SSTable 文件写入磁盘。写入同时，写入可以继续添加到一个新的内存表实例中。 处理请求顺序：首先从内存表中查找键 -&gt; 最新的磁盘段文件 -&gt; 次新磁盘段文件，以此类推。 后台进程周期性执行段合并与压缩，合并多个段文件并丢弃被覆盖或着删除的值。 崩溃处理 为了避免数据库崩溃最近的写入（在内存表中尚未写入磁盘）将会丢失的问题：
-在磁盘上保留单独的日志，每个写入都会立即追加到该日志。并且无需排序。 内存表写入 SSTable 时，丢弃相应的日志。 使用此技术的数据库 LevelDB RocksDB 类似的
-Cassandra HBase </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 排序字符串表：SSTables" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LSM-Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Tree 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
-压缩排序文件基于排序字符串表：SSTables。
-LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
-性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LSM-Tree" href="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>数据存储与检索
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>存储引擎 哈希索引 日志结构存储引擎：LSM-Tree 面向页的存储引擎：B-trees 对比 LSM-Tree 和 B-trees 项目 LSM-Tree B-trees 备注 性能 写入更快，吞吐更高 读取更快 具体场景上需要进行基准测试 存储 可变大小的段，通常 nMB 固定大小的页，传统 4KB 写入 追加，写入更多不利于 SSD 新的数据覆盖磁盘上旧的页 并发控制 后台合并进行原子替换 锁存器 其他索引结构 在索引中存储值
-多列索引
-全文索引和模糊索引
-在内存中保存所有内容
-优点：可以支持更复杂的数据结构，而无需考虑数据存储结构。
-事务处理与分析处理 事务处理：OLTP 分析处理：OLAP 对比 属性 OLTP OLAP 主要读属性 基于键，每次查询返回少量记录 对于大量记录进行汇总 主要写属性 随机访问，低延迟写入用户的输入 批量导入（ETL）或事件流 典型使用场景 终端用户，通过网络应用程序 内部分析师，为决策提供支持 数据表征 最新的数据状态（当前时间点） 随着事件而变化的所有事件历史 数据规模 GB 到 TB TB 到 PB 数据仓库 星型与雪花型分析模式 星型模型也称为维度建模。
-列式存储 列压缩 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 数据存储与检索" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

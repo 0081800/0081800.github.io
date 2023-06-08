@@ -143,6 +143,60 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>English IPA
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Learning English 一些通用的规则：
+音标后面的 ː 提示拖长音。 元音 大而圆 音标 中文 发音技巧 常见单词 拼读规则 /​æ​/ 爱 张大嘴发中文的「爱」,发音短促有力。 bag map dad sad a /​e​/ 爱 音同 /​æ​/ 但是嘴形要小一些。 get let pen yes e /​ɔː​/ 哦 嘴巴轮圆了发音，并拖长音 floor door store sport oor,ore,or /​ɔ​/ 哦 /​ɔː​/ 的短音 lot dog hot shop o 扁扁扁 音标 中文 发音技巧 常见单词 拼读规则 /iː​/ 一 相比一嘴要扁一些，稍稍更用力一些 see meet he she ee, e /​i​/ 一 /iː​/ 短音 happy daddy honey 词尾的 y 或 ey /​I​/ 一 用 /​e​/ 的嘴形发 /​i​/ this give it city i /əː​/ 呃 相比中文嘴要扁一些，稍稍更用力一些 work girl dirt sir or, ir /​ə​/ 呃 /əː​/ 的短音 again a father weather 单独的 a 及词尾的 er 需要额外注意的：...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to English IPA" href="https://notes.0081800.xyz/notes/20210317141647-english_ipa/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>二叉树的遍历
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Algorithm,Data Structures,Binary Search Tree 分为三种：前序、后序和中序，其中最容易用栈改写的是后序。
+前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-20 20:32:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 二叉树的遍历" href="https://notes.0081800.xyz/notes/20210220203210-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>OX-HUGO 批量导出 Markdown
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Taking Notes, Org Mode 方案一：通过 Emacs 批处理模式 emacs file.org --batch -f org-hugo-export-wim-to-md --kill --batch 默认不启用配置文件，可以使用 -l
+emacs file.org --batch -l ~/.emacs.d/init.el -f org-hugo-export-wim-to-md --kill 方案二：通过 LISP 遍历 (mapc (lambda (x) (with-current-buffer (find-file-noselect x) (org-hugo-export-wim-to-md t))) (directory-files &#34;/Users/wh/codes/notes/roam-research-notes-hugo/journal&#34; nil &#34;^[0-9]&#43;$&#34; t)) </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-20 17:55:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to OX-HUGO 批量导出 Markdown" href="https://notes.0081800.xyz/notes/20210220175534-ox_hugo_%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA_markdown/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>中间件
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: 技术，技术概念 中间件可以对系统进行解耦，比如上层系统对下层系统进行网络请求，考虑下面结构
+- U - / | \ /--- | ---\ / | \ A B C 如果下层系统增加节点的话就需要重启 U。
+引入 HAProxy 或者 Nginx 之类的中间件可以对两层系统进行解耦：
+U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这样上层和下层系统都依赖中间件，但是系统之间不再强耦合，下层系统可以依赖中间件随意的进行所扩容而不用被上层系统感知。 这时候中间件只要保证中间件稳定即可，可以在中间件上进行热重启。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 中间件" href="https://notes.0081800.xyz/notes/20210220165816-%E4%B8%AD%E9%97%B4%E4%BB%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>技术随想
     </h2>
   </header>
@@ -151,55 +205,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 技术随想" href="https://notes.0081800.xyz/notes/20210220165806-%E6%8A%80%E6%9C%AF%E9%9A%8F%E6%83%B3/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>C/C&#43;&#43; thread-local storage
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: C/C&#43;&#43; source: All about thread-local storage </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-02-19 20:09:00 +0800 +0800'>February 19, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to C/C&#43;&#43; thread-local storage" href="https://notes.0081800.xyz/notes/20210219200958-c_c_thread_local_storage/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>macOS max open files
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: macOS fix “Too many open files in system” error</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-01-25 17:43:00 +0800 +0800'>January 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to macOS max open files" href="https://notes.0081800.xyz/notes/20210125174343-macos_max_open_files/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>GDB 打出所有线程的 Backtrace
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: GDB thread apply all bt </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-01-18 11:47:00 +0800 +0800'>January 18, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to GDB 打出所有线程的 Backtrace" href="https://notes.0081800.xyz/notes/20210118114707-gdb_%E6%89%93%E5%87%BA%E6%89%80%E6%9C%89%E7%BA%BF%E7%A8%8B%E7%9A%84_backtrace/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>C&#43;&#43; LSP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Emacs,LSP,C/C&#43;&#43;,CMake 通过如下命令生成 clangd 识别的编译配置文件
-mkdir build cd build cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. mv compile_commands.json ../ 然后重启 M-x lsp-restart-workspace RET 即可。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-01-14 17:50:00 +0800 +0800'>January 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to C&#43;&#43; LSP" href="https://notes.0081800.xyz/notes/20210114175011-lsp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

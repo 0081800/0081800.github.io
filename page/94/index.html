@@ -143,6 +143,58 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode: 51. N-Queens
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens/ 一旦一个 Queue 被放置，那么横轴、纵轴、对角线都不再允许放置。我们按行进行遍历，所以我们需要跟踪以下位置是否已经放置 Queue：
+纵轴（Column）：cols 主对角线（Positive Diagonal）：posDiag 次对角线（Negative Diagonal）：negDiag 纵轴很好记录，但是对角线比较困难，我们先来看一下对角线的特征，假设横轴为 r 纵轴为 c ，
+r - c 在正对角线是一致的：
+斜对角线 r &#43; c 是一致的:
+class Solution { public: vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) { for (int r = 0; r &lt; n; r&#43;&#43;) { string col = string(n, &#39;.&#39;); track.push_back(col); } backtracking(0, n); return res; } private: set&lt;int&gt; cols; // c set&lt;int&gt; posDiag; // r - c set&lt;int&gt; negDiag; // r &#43; c vector&lt;vector&lt;string&gt;&gt; res; vector&lt;string&gt; track; void backtracking(int r, int n) { if (r == n) { res....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-02 07:32:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 51. N-Queens" href="https://notes.0081800.xyz/notes/20210802073234-leetcode_51_n_queues/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Multi-Paxios
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式共识,Paxos </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-31 07:58:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Multi-Paxios" href="https://notes.0081800.xyz/notes/20210731075851-multi_paxios/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Zab
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式共识 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-31 07:52:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Zab" href="https://notes.0081800.xyz/notes/20210731075206-zab/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Paxos
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式共识,分布式 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-31 07:51:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Paxos" href="https://notes.0081800.xyz/notes/20210731075140-paxos/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Raft
     </h2>
   </header>
@@ -151,55 +203,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-07-31 07:51:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Raft" href="https://notes.0081800.xyz/notes/20210731075154-raft/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>VSR
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Incomplete，分布式，共识算法 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-31 07:51:00 +0800 +0800'>July 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to VSR" href="https://notes.0081800.xyz/notes/20210731075128-vsr/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>链式复制
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 分布式,Incomplete </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-28 07:15:00 +0800 +0800'>July 28, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 链式复制" href="https://notes.0081800.xyz/notes/20210728071508-%E9%93%BE%E5%BC%8F%E5%A4%8D%E5%88%B6/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>比较-设置
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>利用底层指令集实现比较设置等原子操作。
-See also：https://zh.wikipedia.org/wiki/%E6%AF%94%E8%BE%83%E5%B9%B6%E4%BA%A4%E6%8D%A2</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-28 07:04:00 +0800 +0800'>July 28, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 比较-设置" href="https://notes.0081800.xyz/notes/20210728070407-%E6%AF%94%E8%BE%83_%E8%AE%BE%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>全序
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-27 07:35:00 +0800 +0800'>July 27, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 全序" href="https://notes.0081800.xyz/notes/20210727073548-%E5%85%A8%E5%BA%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
