@@ -143,6 +143,42 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>消息队列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AMQP/JMS 风格的消息代理 将单个消息分配给消费者，消费者在成功处理后确认每条消息。消息被确认后从代理中删除。 适合作为一种异步 RPC。
+RabbitMQ ActiveMQ HornetQ Qpid TIBCO Enterprise MEssage Service IBM MQ Azure Service Bus Google Cloud Pub/Sub 多个消费者 负载均衡式 每一条消息都只被传递给其中一个消费者。
+扇出式 每条消息都被传递给所有消费者。
+确认和重新传递 为了确保消息不会丢失，消息代理使用确认：客户端必须在处理完消息后显式的告诉代理，以便代理可以将其从队列中移除。
+如果客户端的连接关闭或超时，而代理没有收到确认，则认为消息未处理，因此它将消息重新传递给另一个消费者。
+消息顺序性 即使消息代理试图保留消息顺序（标准要求），负载均衡与重新传递的组合也不可避免地导致消息被重新排序。
+基于日志的消息代理 代理将分区中的所有消息分配给相同的消费者节点，并始终以相同的顺序发送消息。 通过分区机制来实现并行（写在多个磁盘上突破磁盘带宽），消费者通过检查他们处理的最后一条消息的偏移量来跟踪进度。 代理将消息保存在磁盘上，因此如果有必要，可以回退并重新读取旧消息。 代表性的有：
+Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 参照 LSM-Tree 和 B-tree 的 WAL，可以使用相同的结构来实现消息代理： 生产者通过将消息追加到日志的末尾来发送消息，消费者通过依次读取日志来接收消息。 如果消费者读到日志的末尾，它就开始等待新消息被追加的通知。
+通过对日志进行分区突破单个磁盘所能体能的带宽吞吐上线。
+代理为每个消息分区分配了一个单调递增的序列号或偏移量，保证了分区内的消息完全有序。
+消费者偏移量：记录哪些消息已经被处理，减少 ACK 开销 磁盘空间：分段，定期删除 消费者跟不上生产者：增加 LAG 报警 重新处理消息：重置偏移量 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:28:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 消息队列" href="https://notes.0081800.xyz/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Networking 101: Building Blocks of TCP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: TCP,High Performance Browser Networking 原文链接：https://hpbn.co/building-blocks-of-tcp/。 Overview The 4th version of RFC 675, and final two seperate RFCs:
+RFC 791 - Internet Protocol(IPv4) RFC 793 - Transmission Control Protocol TCP provides:
+Effective abstraction. A reliable network running over unreliable channel. Hiding most the complexity of network communication: retransmission of lost data, in-order delivery, congestion control and avoidance, data integrity, and more. Three-Way Handhsake Sequence numbers are important for keep in-order delivery, and they are picked randomly from both sides for security reasons....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:17:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Networking 101: Building Blocks of TCP" href="https://notes.0081800.xyz/notes/20210813071739-networking_101_building_blocks_of_tcp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>TCP
     </h2>
   </header>
@@ -186,30 +222,6 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
   </div>
   <footer class="entry-footer"><span title='2021-08-13 06:54:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 流处理系统" href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Why MapReduce is making a comeback
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>原文链接：Why MapReduce is making a comeback。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-11 11:19:00 +0800 +0800'>August 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Why MapReduce is making a comeback" href="https://notes.0081800.xyz/notes/20210811111926-why_mapreduce_is_making_a_comeback/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>When Zero Cost Abstractions Aren&#39;t Zero Cost
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Rust 原文：When Zero Cost Abstractions Aren’t Zero Cost </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-10 15:17:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to When Zero Cost Abstractions Aren&#39;t Zero Cost" href="https://notes.0081800.xyz/notes/20210810151736-when_zero_cost_abstractions_aren_t_zero_cost/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

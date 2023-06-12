@@ -148,6 +148,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>IEEE 浮点数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Computer Systems,《深入理解计算机系统》读书笔记 浮点数小数表示形式 .0111 = \(0x2^{-1}&#43;2^{-2}&#43;2^{-3}&#43;2^{-4}\)
+IEEE 浮点数表示形式 \[ V=(-1)^s X M X 2^E \]
+s = 0 表示负数， s = 1 表示正数 M 是二进制表示的小数 E 是阶码 浮点数二进制组成 一个单独符号位 s 表吗符合 k 位阶码字段 exp 编码阶码 E n 位小数字段 frac 编码尾数 M 两种常见的格式 float s = 1 k = 8 n = 23 double s = 1 k = 11 n = 52 三种计算方式 前置的一些值
+e 是 exp 位表示的无符号数 f 是 frac 位表示的小数 \(Bias = 2^{k-1} -1\) 规格化的值 规则：阶码字段 exp 的位模式即不全为 0，也不全为 1（单精度 255，双精度 2047） 计算方式 \(E = e - Bias\) $M = 1 &#43; f $ 非规格化的值 规则：阶码字段 exp 全是 0（用于表示 0） 计算方式 \(E = 1 - Bias\) \(M = f\) 可以表示 &#43;0 和 -0。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-08-02 15:15:00 +0800 +0800'>August 2, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to IEEE 浮点数" href="https://notes.0081800.xyz/notes/20200802151523-ieee_%E6%B5%AE%E7%82%B9%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Choosing a Rust web framework, 2020 edition
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust source: Choosing a Rust web framework, 2020 edition </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-07-10 10:12:00 +0800 +0800'>July 10, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Choosing a Rust web framework, 2020 edition" href="https://notes.0081800.xyz/notes/20200710101214-web/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>SSH
     </h2>
   </header>
@@ -189,37 +216,6 @@ fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:17:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Rust Means Never Having to Close a Socket" href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust 并发
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>并发 std::marker::Send 允许跨线程转移所有权 Send 标记特性用于标识实现该特性的类型的所有权可以在线程中间转移，几乎所有 Rust 类型都实现了 Send ，但是也有一些例外如：
-Rc&lt;T&gt; ，如果克隆后在多个线程中转移所有权可能会多个线程同时增加计数器，可以使用 Arc&lt;T&gt; 替代 如果一个新的类型组合的类型都实现了 Send 那么该类型也自动实现了 Send ，几乎所有原始类型都实现了 Send .
-std::marker::Sync 允许多个线程同时访问 Sync 标记特性用于标识实现该特性的类型可以在多个线程中引用，任何类型 T 是 Sync 并且 T 的引用 &amp;T 是 Send 则意味着引用可以安全的发送给其他线程。
-同 Send 类似，几乎所有原始类型都实现了 Sync ，组合了所有类型都是 Sync 的类型自动实现 Sync 。
-以下只能指针没有实现 Sync
-Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实现 Sync 和 Send 是不安全的 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:07:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Rust 并发" href="https://notes.0081800.xyz/notes/20200629180709-rust_%E5%B9%B6%E5%8F%91/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust 宏
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>三种宏 自定义 #[derive] 属性行为（attribute-like）宏，Rust 属性宏解析 函数行为（function-like）宏 宏 实现元编程，代码生成代码，必须带入当前命名空间内才能使用（不能使用 mod::sub::macro! 这种方式调用）。
-#[macro_export] macro_rules! vec { ( $($x:expr), *) =&gt; { // $() 用于捕捉值，$x:expr 匹配 Rust 表达式并绑定到 $x，逗号（,）表明一个逗号可能出现在表达式后面，* 表明表达式匹配一次或多次 { let mut temp_vec = Vec::new(); ${ temp_vec.push($x); }* temp_vec } }; } 调用宏用于从属性生成代码 有点像编译期的装饰器：
-use proc_macro; #[some_attribute] pub fn some_name(input: TokenStream) -&gt; TokenStream { // --snip-- } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:06:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Rust 宏" href="https://notes.0081800.xyz/notes/20200629180623-rust_%E5%AE%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

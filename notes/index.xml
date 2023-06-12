@@ -6,7 +6,33 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 08 Jun 2023 21:46:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 10:08:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How is a Transaction Broadcasted</title>
+      <link>https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/</link>
+      <pubDate>Mon, 12 Jun 2023 10:08:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/</guid>
+      <description>tags: Ethereum Simulator Node Node Side If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
+https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let&amp;rsquo;s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
+SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:
+func (b *EthAPIBackend) SendTx(ctx context.</description>
+    </item>
+    
+    <item>
+      <title>Ethereum Simulator Node</title>
+      <link>https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/</link>
+      <pubDate>Mon, 12 Jun 2023 10:03:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/</guid>
+      <description>tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
+Relay To identify our transactions that need to simulate, if it&amp;rsquo;s failed then drop that tx, otherwise commit the final transaction to the mainnet.
+Things need to consider:
+How to limit or identify transactions that need to simulate?
+Only execute the transactions from local txpool.
+Where to identify the transction had been failed?</description>
+    </item>
+    
     <item>
       <title>English Words</title>
       <link>https://notes.0081800.xyz/notes/20230608214607-english_words/</link>
@@ -813,7 +839,7 @@ Distinct from other programming language, objects are stored in memory, resource
     </item>
     
     <item>
-      <title>How is a Block be Executed</title>
+      <title>How is a Block Executed</title>
       <link>https://notes.0081800.xyz/notes/20220624172625-how_a_block_is_executed/</link>
       <pubDate>Fri, 24 Jun 2022 17:26:00 +0800</pubDate>
       
@@ -854,7 +880,7 @@ Then we can see debug log in ~/.starcoin/dev/starcoin.log.</description>
     </item>
     
     <item>
-      <title>How is an Account be Created</title>
+      <title>How is an Account Created</title>
       <link>https://notes.0081800.xyz/notes/20220616181130-how_a_account_is_created/</link>
       <pubDate>Thu, 16 Jun 2022 18:11:00 +0800</pubDate>
       

@@ -148,6 +148,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>闭包
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>let add_one = | num | { num &#43; 1 }; 由于闭包和当前上下文相关联，所以 Rust 可以进行类型推导，类型注解也就不是必要的，但是依然可以自己添加：
+let add_one = | num: i32 | { num &#43; 1 }; fn add_one_v1 (x: u32) -&gt; u32 { x &#43; 1 } let add_one_v2 = |x: u32| -&gt; u32 { x &#43; 1 }; let add_one_v3 = |x| { x &#43; 1 }; let add_one_v4 = |x| x &#43; 1 ; 使用 Fn 存储闭包类型
+struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Option&lt;u32&gt;, } impl Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { fn new(calculation: T) -&gt; Cacher&lt;T&gt; { Cacher { calculation, value: None, } } fn value(&amp;mut self, arg: u32) -&gt; u32 { if let Some(value) = self....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 闭包" href="https://notes.0081800.xyz/notes/20200629180436-%E9%97%AD%E5%8C%85/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Traits
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Traits 定义行为在多个类型中共享。 可以定义默认行为在实现者中间共享。 可以用于定义参数的行为，同样可以定义返回值行为，当用 trait 限定返回值类型时，不能同时（if/else）返回多种实现了该 trait 的类型。 pub trait Summary { fn summarize(&amp;self) -&gt; String; } pub struct Article{ pub title: String, } impl Summary for Article { fn summarize(&amp;self) -&gt; String { format!(&#34;{}&#34;, self.title) } } pub fn notify(item: impl Summary) { println!(&#34;{}&#34;, item.summarize()); } // trait bound 语法糖版本 pub fn notify&lt;T: Summary&gt;(item: T) { println!(&#34;{}&#34;, item.summarize()); } 定义参数行为 通过 impl ： fn notify(item: impl TraitName) ，用于简单明了的场景，比如一个参数 通过 trait bound ： fn notify&lt;T: TraitName&gt; (item: T) ，用于更复杂的场景，比如多个参数用于减少代码 可以通过 &#43; 连接： fn notify(T: TraitName &#43; Display) (item: T)...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:03:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Traits" href="https://notes.0081800.xyz/notes/20200629180345-traits/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>错误处理
     </h2>
   </header>
@@ -194,32 +220,6 @@ use std::cmp::Ordering; use std::io; use std::{cmp::Ordering, io}; use std::io; 
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 模块化" href="https://notes.0081800.xyz/notes/20200629180233-%E6%A8%A1%E5%9D%97%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>模式匹配
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>#[derive(Debug)] enum UsState { Alabama, Alaska, } enum Coin { Penny, Nickel, Dime, Quarter(UsState), } fn value_cents(coin: Coin) -&gt; u8 { match coin { Coin::Peny =&gt; { println!(&#34;Lucy penny!&#34;); 1 }, Coin::Nickel =&gt; 5, Coin::Dime =&gt; 10, Coin::Quarter(state) =&gt; { println!(&#34;State quarter from {:?}!&#34;, state); 25 }, } } // Option fn plus_one(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; { match x { None =&gt; None, Some(i) =&gt; Some(i &#43; 1), } } let five = Some(5); let six = plus_one(five); let none = plus_one(None); 编译器会检查 match 覆盖所有情况， _ 可以用于所有未覆盖的情况。</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:01:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 模式匹配" href="https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>枚举
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>多种类型的集合体，一个类型的变量可以存储多种类型的值，枚举的每一项都是该枚举类型的变体：
-enum IpAddrKind { V4, V6, } fn main() { route(IpAddrKind::V4); route(IpAddrkind::V6); } fn route(kind: IpAddrKind) { // ... } 枚举的每一个变体都可以直接包含数据，并且每一个变体可以包含不同的数据类型和不同的数量，甚至可以直接放结构体（也可以是匿名的）。
-struct Ipv4Addr { // --snip-- } enum IpAddr { V4(Ipv4Addr), V6(String), } let home = IpAddr::V4(127, 0, 0, 1); let loopback = IpAddr::V6(String::from(&#34;::1&#34;)); struct Message { Quit, Move{ x: i32, y: i32 }, // anonymous struct Write(String), ChangeColor(i32, i32, i32), // three i32 values } 枚举也可以通过 impl 实现方法...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:00:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 枚举" href="https://notes.0081800.xyz/notes/20200629180041-%E6%9E%9A%E4%B8%BE/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
