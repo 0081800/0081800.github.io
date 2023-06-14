@@ -143,65 +143,72 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Clock Synchronization with Chris Perl
+    <h2>流处理系统
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer’s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
-But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc....</p>
+    <p>发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。
+消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。
+数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。
+实现变更数据捕获 解析复制日志，并将解析的内容发送到事件流中进行 replay。
+初始快照 replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。
+日志压缩 参考哈希索引。
+对变更流的 API 支持 数据库开始支持将变更流作为标准接口。
+事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：
+CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。
+从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。
+状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-09 10:38:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Clock Synchronization with Chris Perl" href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/"></a>
+  <footer class="entry-footer"><span title='2021-08-13 06:54:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 流处理系统" href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Hive
+    <h2>Why MapReduce is making a comeback
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Bigdata bucketed map join </p>
+    <p>原文链接：Why MapReduce is making a comeback。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-09 08:07:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Hive" href="https://notes.0081800.xyz/notes/20210809080723-hive/"></a>
+  <footer class="entry-footer"><span title='2021-08-11 11:19:00 +0800 +0800'>August 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Why MapReduce is making a comeback" href="https://notes.0081800.xyz/notes/20210811111926-why_mapreduce_is_making_a_comeback/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Hadoop
+    <h2>When Zero Cost Abstractions Aren&#39;t Zero Cost
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Bigdata Hadoop Distributed File System MapReduce MapReduce shuffle 按照 reducer 分区，排序和将数据分区从 mapper 复制到 reducer。（令人困惑的术语，并不完全与洗牌一样，在 MapReduce 中其实没有随机性）。
-MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
-输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
+    <p> tags: Rust 原文：When Zero Cost Abstractions Aren’t Zero Cost </p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
+  <footer class="entry-footer"><span title='2021-08-10 15:17:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to When Zero Cost Abstractions Aren&#39;t Zero Cost" href="https://notes.0081800.xyz/notes/20210810151736-when_zero_cost_abstractions_aren_t_zero_cost/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Tokio
+    <h2>弹性分布式数据集
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Rust </p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-08 08:31:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Tokio" href="https://notes.0081800.xyz/notes/20210808083146-tokio/"></a>
+  <footer class="entry-footer"><span title='2021-08-10 07:26:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 弹性分布式数据集" href="https://notes.0081800.xyz/notes/20210810072604-%E5%BC%B9%E6%80%A7%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>分布式文件系统
+    <h2>HBase
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: 分布式 </p>
+    <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-08 08:07:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 分布式文件系统" href="https://notes.0081800.xyz/notes/20210808080733-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"></a>
+  <footer class="entry-footer"><span title='2021-08-10 07:14:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to HBase" href="https://notes.0081800.xyz/notes/20210810071455-hbase/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

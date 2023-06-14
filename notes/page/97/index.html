@@ -148,78 +148,74 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>拜占庭故障
+    <h2>比较-设置
     </h2>
   </header>
   <div class="entry-content">
-    <p>节点撒谎伪造 Fencing 令牌，或者部分节点故障、不遵从协议、干扰网络或者恶意攻击，则为「拜占庭故障」。 如果系统仍可以继续运行，那么我们称之为「拜占庭式容错系统」。</p>
+    <p>利用底层指令集实现比较设置等原子操作。
+See also：https://zh.wikipedia.org/wiki/%E6%AF%94%E8%BE%83%E5%B9%B6%E4%BA%A4%E6%8D%A2</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-22 08:02:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 拜占庭故障" href="https://notes.0081800.xyz/notes/20210722080226-%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%95%85%E9%9A%9C/"></a>
+  <footer class="entry-footer"><span title='2021-07-28 07:04:00 +0800 +0800'>July 28, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 比较-设置" href="https://notes.0081800.xyz/notes/20210728070407-%E6%AF%94%E8%BE%83_%E8%AE%BE%E7%BD%AE/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Fencing 令牌
+    <h2>全序
     </h2>
   </header>
   <div class="entry-content">
-    <p>Fencing（围栏）锁，每次锁服务授予锁时，同时返回 fencing 令牌，每次客户端发送写请求，都必须包含所持有的 fencing 令牌。
-fencing 令牌单调递增，如果低版本的写入后到达，发现已经有高版本的 fencing 令牌写入，则拒绝此次写入。</p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-22 07:59:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Fencing 令牌" href="https://notes.0081800.xyz/notes/20210722075942-fencing_%E4%BB%A4%E7%89%8C/"></a>
+  <footer class="entry-footer"><span title='2021-07-27 07:35:00 +0800 +0800'>July 27, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 全序" href="https://notes.0081800.xyz/notes/20210727073548-%E5%85%A8%E5%BA%8F/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>单调时钟与墙上时钟
+    <h2>macOS 签名 GDB
     </h2>
   </header>
   <div class="entry-content">
-    <p>墙上时钟 根据某个日历返回当前的日期与时间。
-Linux 上的 clock_gettime(CLOCK_REALTIME) Java 中的 System.currentTimeMills() 会返回 1970-01-01（UTC）的时间戳（秒和毫秒）。
-墙上时钟会和 NTP 服务器同步产生跳跃导致一些奇怪的问题。
-单调时钟 更适合测量持续时间段（时间间隔），如超时或服务的响应时间。保证总是向前（不会出现墙上时钟的回拨现象）。
-Linux 上的 clock_gettime(CLOCK_MONOTONIC) Java 中的 System.nanoTime() 单调时钟多个节点的对比没有任何意义，多路 CPU 可能有单独的计时器，且不与其他 CPU 进行同步。由操作系统进行补偿它们之间的偏差。
-NTP 检测到本地石英比时间服务器更快或者更慢，NTP 会调整本地石英的震动频率（摆动），最大幅度为 0.05%。 NTP 并不会直接调整单调时钟向前或回拨 。</p>
+    <p>tags: GDB,macOS macOS 下通过 GDB 调试程序会出现：
+Unable to find Mach task port for process-id 1375: (os/kern) failure (0x5). (please check gdb is codesigned - see taskgated(8)) 需要通过 Keychain Access Application 创建证书： code-sign-cert
+需要对 gdb 进行签名，首先创建 gdb-entitlement.xml ：
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;com.apple.security.cs.debugger&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; 运行签名
+codesign --entitlements gdb-entitlement.xml -fs code-sign-cert $(which gdb) See also: PermissionsDarwin。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-22 07:30:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 单调时钟与墙上时钟" href="https://notes.0081800.xyz/notes/20210722073012-%E5%8D%95%E8%B0%83%E6%97%B6%E9%92%9F%E4%B8%8E%E5%A2%99%E4%B8%8A%E6%97%B6%E9%92%9F/"></a>
+  <footer class="entry-footer"><span title='2021-07-26 18:10:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS 签名 GDB" href="https://notes.0081800.xyz/notes/20210726181021-macos_%E7%AD%BE%E5%90%8D_gdb/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode: 47. Permutations II
+    <h2>偏序
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: LeetCode,backtracking 视频解析：https://www.youtube.com/watch?v=s7AvT7cGdSo
-在 LeetCode: 46. Permutations 的基础上增加重复的元素。感觉不能依赖于 track &#43; map 的去重逻辑回溯。
-class Solution { public: vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; nums) { vector&lt;vector&lt;int&gt;&gt; res; } }; 数据特征：
-Value: 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, Index: 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, class Solution { public: vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; nums) { set&lt;vector&lt;int&gt;&gt; res; vector&lt;vector&lt;int&gt;&gt; ret; int n, i; vector&lt;vector&lt;int&gt;&gt; perms; if (nums....</p>
+    <p>偏序集合（英语：Partiallyordered set，简写poset）是数学中，特别是序理论中，指配备了部分排序关系的集合。 这
+See also: 偏序关系</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-21 07:36:00 +0800 +0800'>July 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 47. Permutations II" href="https://notes.0081800.xyz/notes/20210721073657-leetcode_47_permutations_ii/"></a>
+  <footer class="entry-footer"><span title='2021-07-26 08:03:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 偏序" href="https://notes.0081800.xyz/notes/20210726080332-%E5%81%8F%E5%BA%8F/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>分布式系统挑战
+    <h2>CAP 理论
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: 分布式 故障与部分失效 单节点一般是要么工作要么失效，但是分布式系统多节点面临部分失效，大大提高了分布式系统的复杂性。
-单节点软件特性：
-硬件正常工作时，相同的操作通常总会产生相同的结果，即确定性。 如果发生了某种内部错误，我们宁愿使计算机全部崩溃，而不是返回一个错误的结果。 云计算和超算 超算：垂直扩展的极端，设置检查点，一点节点故障则全部失效从上一个检查点重新开始（离线批处理），类似单机上内核崩溃。 云计算：水平扩展的极端 传统企业位于两个极端的中间 分布式可靠必然面临部分失效，需要依赖软件系统来提供容错机制。我们需要在不可靠的组件上构建可靠的系统。
-不可靠网络 分布式无共享系统：成本低廉。 互联网以及大多数 IDC 内部网络都是异步网络：不保证发送一定到达（排队），等待响应时可能出现任何错误。 现实中的网络故障非常普遍 故障检测：HA、主从切换、保活机制（ICMP，SYN） 超时与无限期的延迟 网络拥塞与排队 网络负载过高会出现拥塞。 数据在发送的过程中分别会在发送端和接收端进行排队：等待发送和等待处理。 TCP 的拥塞控制机制。 虚拟化 CPU 核切换虚拟机 同步与异步网络 同步网络：固定电话网络，一路电话分配固定的电路、有带宽保证，规定延迟内保证完成数据包发送，不会丢弃数据包，成本高，利用率低 异步网络：数据中心网络，共享带宽，无法保证延迟和数据包发送，成本低廉，利用率高 不可靠时钟 单调时钟与墙上时钟 时间同步与准确性 计算机中的石英钟不够精确 NTP 服务器不稳定（网络、防火墙或服务本身） 虚拟机中时钟是虚拟化的。 终端设备不可控：休眠、故意设置 依赖同步的时钟 时钟陷阱：
-一天可能不总是 86400 秒 回拨 多个节点上的时间完全不相同 需要精确同步的时钟：
-自己监控所有节点上的时钟偏差 某个节点时钟漂移超出上限则将其宣告失效 时间戳与时间顺序 最后写入者获胜 时钟的置信区间 通过直接安装 GPS 接收器或原子（铯）时钟，它的误差范围通常可以查询制造商手册。
-全局快照的同步时钟 Google Spanner 根据部署了 GPS 接收器或者原子时钟的 TrueTime API 返回的时钟置信区间。确保读事务足够晚发生，避免与先前事务的置信区间产生重叠。
-进程暂停 垃圾回收 虚拟化暂停虚拟机 磁盘 I/O 内存交换分区 手动暂停进程（SIGSTOP/SIGCONT） 响应时间保证 RTOS 系统 调整垃圾回收的影响 知识，真相与谎言 真相由多数决定：Quorum 一致性 主节点与锁 Fencing 令牌 拜占庭故障 理论系统模型与现实 计时方面...</p>
+    <p>CAP 最初作为一个经验法则提出（20 世纪 70 年代），并没有准确的定义，目的也只是帮助大家深入探讨数据库设计的权衡之道。它由 Eric Brewer 于 2000 年正式命名。
+解释一 CAP 定理：不要求线性化的应用更能容忍网络故障。
+只要不可靠才诶黄哦，都会发生违背线性化的风险。我们可以做如下权衡：
+如果应用要求线性化，一旦发生网络分区，则必须等待网络修复，或者直接返回错误。结果为服务不可用（保证一致性或者线性化）。 如果应用不要求线性化，且每个可副本独立处理请求。此时服务可用，但结果行为不符合线性化（保证高可用）。 解释二 一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）。系统只能支持两个特性。
+这里的分区指网络分区（即网络故障）。
+不过，这种理解存在误导性，网络分区是一种故障，不管喜欢还是不喜欢，它都可能发生，所以无法选择或逃避分区问题。
+网络正常的时候，系统可以同时保证一致性（线性化）和可用性。而一旦发生了网络故障，必须要么选择线性（一致性），要么可用性。 也就是“网络分区的情况下”是选择一致还是可用。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-21 06:32:00 +0800 +0800'>July 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 分布式系统挑战" href="https://notes.0081800.xyz/notes/20210721063222-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%8C%91%E6%88%98/"></a>
+  <footer class="entry-footer"><span title='2021-07-26 07:29:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to CAP 理论" href="https://notes.0081800.xyz/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

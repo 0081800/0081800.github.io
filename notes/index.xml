@@ -6,17 +6,74 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 12 Jun 2023 10:08:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Jun 2023 09:18:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ethereum Execution Layer</title>
+      <link>https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/</link>
+      <pubDate>Wed, 14 Jun 2023 09:18:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/</guid>
+      <description> tags: Ethereum Networking Layer </description>
+    </item>
+    
+    <item>
+      <title>Ethereum Sub-protocols</title>
+      <link>https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/</link>
+      <pubDate>Wed, 14 Jun 2023 09:11:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/</guid>
+      <description> tags: Ethereum Networking, Ethereum Execution Layer </description>
+    </item>
+    
+    <item>
+      <title>Ethereum Wire Protocol</title>
+      <link>https://notes.0081800.xyz/notes/20230614091142-ethereum_wire_protocol/</link>
+      <pubDate>Wed, 14 Jun 2023 09:11:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230614091142-ethereum_wire_protocol/</guid>
+      <description>tags: Ethereum Sub-protocols, Ethereum Simulator Node Started when a RLPx session had initiated. Three main tasks before switch to PoS:
+Chain synchronization Block propagation Transaction exchange: exchange pending transaction between nodes. Only transaction exchange remit after switch to PoS.</description>
+    </item>
+    
+    <item>
+      <title>Ethereum DevP2P</title>
+      <link>https://notes.0081800.xyz/notes/20230614090850-ethereum_devp2p/</link>
+      <pubDate>Wed, 14 Jun 2023 09:08:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230614090850-ethereum_devp2p/</guid>
+      <description>tags: Ethereum Networking, Ethereum Execution Layer Basic stack for p2p networking. Initiating RLPx Session.
+RLPX Session Communicate messages that encoded in RLP between peers.</description>
+    </item>
+    
+    <item>
+      <title>Ethereum Networking Layer</title>
+      <link>https://notes.0081800.xyz/notes/20230614090110-ethereum_networking/</link>
+      <pubDate>Wed, 14 Jun 2023 09:01:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230614090110-ethereum_networking/</guid>
+      <description> tags: Ethereum source: https://ethereum.org/en/developers/docs/networking-layer/ </description>
+    </item>
+    
+    <item>
+      <title>Ethereum Discovery Nodes</title>
+      <link>https://notes.0081800.xyz/notes/20230614090056-ethereum_discovery_nodes/</link>
+      <pubDate>Wed, 14 Jun 2023 09:00:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230614090056-ethereum_discovery_nodes/</guid>
+      <description>tags: Ethereum Networking, Ethereum Simulator Node Boot nodes Using a small set that hardcoded bootnodes to bootstrap.
+Protocol Kademlia a modified form of Distributed Hash Table.
+Steps to join the network start client &amp;ndash;&amp;gt; connect to bootnode &amp;ndash;&amp;gt; bond to bootnode &amp;ndash;&amp;gt; find neighbours &amp;ndash;&amp;gt; bond to neighbours</description>
+    </item>
+    
     <item>
       <title>How is a Transaction Broadcasted</title>
       <link>https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/</link>
       <pubDate>Mon, 12 Jun 2023 10:08:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/</guid>
-      <description>tags: Ethereum Simulator Node Node Side If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
+      <description>tags: Ethereum Simulator Node, Ethereum Execution Layer Node Side: Receive pending transactions If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
 https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let&amp;rsquo;s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
-SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:
-func (b *EthAPIBackend) SendTx(ctx context.</description>
+SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:</description>
     </item>
     
     <item>
@@ -30,7 +87,7 @@ Relay To identify our transactions that need to simulate, if it&amp;rsquo;s fail
 Things need to consider:
 How to limit or identify transactions that need to simulate?
 Only execute the transactions from local txpool.
-Where to identify the transction had been failed?</description>
+Where to execute the transction previously?</description>
     </item>
     
     <item>

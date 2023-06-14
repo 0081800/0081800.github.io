@@ -143,71 +143,64 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
-    <h2>How is a Transaction Broadcasted
+    <h2>Ethereum Execution Layer
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Ethereum Simulator Node Node Side If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
-https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let’s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
-SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:
-func (b *EthAPIBackend) SendTx(ctx context....</p>
+    <p> tags: Ethereum Networking Layer </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-12 10:08:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How is a Transaction Broadcasted" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:18:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Execution Layer" href="https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Ethereum Simulator Node
+    <h2>Ethereum Sub-protocols
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
-Relay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.
-Things need to consider:
-How to limit or identify transactions that need to simulate?
-Only execute the transactions from local txpool.
-Where to identify the transction had been failed?...</p>
+    <p> tags: Ethereum Networking, Ethereum Execution Layer </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-12 10:03:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Simulator Node" href="https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Sub-protocols" href="https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>English Words
+    <h2>Ethereum Wire Protocol
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Learning English, Journal </p>
+    <p>tags: Ethereum Sub-protocols, Ethereum Simulator Node Started when a RLPx session had initiated. Three main tasks before switch to PoS:
+Chain synchronization Block propagation Transaction exchange: exchange pending transaction between nodes. Only transaction exchange remit after switch to PoS.</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-08 21:46:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to English Words" href="https://notes.0081800.xyz/notes/20230608214607-english_words/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Wire Protocol" href="https://notes.0081800.xyz/notes/20230614091142-ethereum_wire_protocol/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Journal
+    <h2>Ethereum DevP2P
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p>tags: Ethereum Networking, Ethereum Execution Layer Basic stack for p2p networking. Initiating RLPx Session.
+RLPX Session Communicate messages that encoded in RLP between peers.</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-08 21:46:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Journal" href="https://notes.0081800.xyz/notes/20230608214629-journal/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:08:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum DevP2P" href="https://notes.0081800.xyz/notes/20230614090850-ethereum_devp2p/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>coherent
+    <h2>Ethereum Networking Layer
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: English Words Adjective
-(of an argument , theory, or policy) logical and consistent: they failed to develop a coherent economic strategy. united as or forming a whole: divided into a number of geographically coherent kingdoms. Physics (of waves) having a constant phase relationship. </p>
+    <p> tags: Ethereum source: https://ethereum.org/en/developers/docs/networking-layer/ </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-08 21:45:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to coherent" href="https://notes.0081800.xyz/notes/20230608214518-coherent/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:01:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Networking Layer" href="https://notes.0081800.xyz/notes/20230614090110-ethereum_networking/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

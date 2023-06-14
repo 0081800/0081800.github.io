@@ -148,66 +148,64 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 456. 132 Pattern
+    <h2>LeetCode101: 739. Daily Temperatures
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Monotonic Stack,LeetCode101,Tricky We travel the numbers in the reverse order:
-Use a mono-increasing stack to find the largest number(3 in the 132 pattern), the value popped from stack is the second large number(2 in the 132 pattern), if any value less than the second large number, returns true. // Note: // // - subsequence is not contiguous, is i &lt; j &lt; k, not i &#43; 1 = j, j &#43; 1 = k // class Solution { public: bool find132pattern(vector&lt;int&gt;&amp; nums) { int K = INT_MIN; stack&lt;int&gt; mst; // mono-increasing stack for (int i = nums....</p>
+    <p>tags: Monotonic Stack,LeetCode101,LeetCode101: 496. Next Greater Element I Mono-descreasing stack class Solution { public: vector&lt;int&gt; dailyTemperatures(vector&lt;int&gt;&amp; temperatures) { vector&lt;int&gt; res(temperatures.size(), 0); stack&lt;int&gt; st; for (int i = 0; i &lt; temperatures.size(); i&#43;&#43;) { while (!st.empty() &amp;&amp; temperatures[st.top()] &lt; temperatures[i]) { res[st.top()] = i - st.top(); st.pop(); } st.push(i); } return res; } }; [73,74,75,71,69,72,76,73]</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-13 15:32:00 +0800 +0800'>March 13, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 456. 132 Pattern" href="https://notes.0081800.xyz/notes/20220313153222-456_132_pattern/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 11:23:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 739. Daily Temperatures" href="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Monotonic Stack
+    <h2>LeetCode101: 654. Maximum Binary Tree
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Data Structures,Stack source: “Monotonic Stack.” Accessed March 13, 2022. https://liuzhenglaichn.gitbook.io/algorithm/monotonic-stack. A monotonic stack is a stack whose elements are monotonically increasing or descreasing.
-It’s not only about the order in the stack, it’s also about remove larger/smaller elements before pushing.
-Monotonically descreasing we need to pop smaller elements from the stack before pushing a new element:
-vector&lt;int&gt; nums; // fill nums stack&lt;int&gt; st; for (auto i = nums.size() - 1; i &gt;= 0; i--) { while (!...</p>
+    <p>tags: Monotonic Stack,LeetCode101,Binary Search Tree Mono-descreasing stack Key:
+The largest number is the root, that we can observe in by iteration. We must clear the stack to fill the right side of BST after loop. The last popped element is the left of current node. From top to bottom, the top element is the right side of the element that under the top. class Solution { public: TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) { vector&lt;TreeNode*&gt; res(nums....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-13 14:51:00 +0800 +0800'>March 13, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Monotonic Stack" href="https://notes.0081800.xyz/notes/20220313145125-monotonic_stack/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>AVL Tree
+    <h2>LeetCode101: 581. Shortest Unsorted Continuous Subarray
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Binary Search Tree,Binary Tree,Tree </p>
+    <p>tags: Monotonic Stack,LeetCode101 Mono-increasing stack Key:
+Some case should move backward as the new value we meeted is larger than it. When we meet 2 in the stack, and here we need move backward. Some case we need move forward, as the following values are the mono-increaing stack: [1, 2, 5, 3, 4] class Solution { public: int findUnsortedSubarray(vector&lt;int&gt;&amp; nums) { stack&lt;int&gt; st; // mono-increasing int left = -1, right = -2; for (int i = 0; i &lt; nums....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:53:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to AVL Tree" href="https://notes.0081800.xyz/notes/20220312215308-avl_tree/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 07:13:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 581. Shortest Unsorted Continuous Subarray" href="https://notes.0081800.xyz/notes/20220315071351-leetcode101_581_shortest_unsorted_continuous_subarray/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Binary Search Tree
+    <h2>LeetCode101: 503. Next Greater Element II
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Data Structures,Binary Tree,Tree </p>
+    <p>tags: Monotonic Stack,LeetCode101 related: LeetCode101: 496. Next Greater Element I Mono-descreasing stack / normal order loop twice Loop twice to solve circular interger array Mono-descreasing stack to store index, avoid HashMap in Next Greater Element I, as there is a cicular array. class Solution { public: vector&lt;int&gt; nextGreaterElements(vector&lt;int&gt;&amp; nums) { vector&lt;int&gt; res(nums.size(), -1); stack&lt;int&gt; st; for (int j = 0, i = 0; j &lt; nums.size() * 2; &#43;&#43;j) { i = j &gt;= nums....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:51:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Binary Search Tree" href="https://notes.0081800.xyz/notes/20220312215158-binary_search_tree/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 06:30:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 503. Next Greater Element II" href="https://notes.0081800.xyz/notes/20220315063008-leetcode101_503_next_greater_element_ii/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Red-Black Tree
+    <h2>LeetCode101: 496. Next Greater Element I
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Binary Search Tree, AVL Tree,Tree </p>
+    <p>tags: Monotonic Stack,Hash Table,LeetCode101 Mono-descreasing and reverse order travel class Solution { public: vector&lt;int&gt; nextGreaterElement(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { // Mono-descreasing and reverse order travel. // The next greater of the popped value is the top of the stack, if it has any. // // For example: [1,3,4,2] // the stack goes: // [2] // [4] -&gt; 2 // [4, 3, 1] stack&lt;int&gt; st; vector&lt;int&gt; res; unordered_map&lt;int, int&gt; m; for (int i = nums2....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:51:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Red-Black Tree" href="https://notes.0081800.xyz/notes/20220312215140-red_black_tree/"></a>
+  <footer class="entry-footer"><span title='2022-03-14 08:58:00 +0800 +0800'>March 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 496. Next Greater Element I" href="https://notes.0081800.xyz/notes/20220314085847-leetcode101_496_next_greater_element_i/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -148,77 +148,101 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode
+    <h2>Rust Wrapper Types
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Learning,Algorithm </p>
+    <p> tags: Rust </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Rust Wrapper Types" href="https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>《架构整洁之道》读书笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: 读书笔记,系统架构 第一遍粗读 三个编程范式：结构化编程、面向对象编程、函数式编程
+每个编程范式都是增加限制：
+结构化编程限制了 goto 面向对象编程限制了函数指针 函数式编程限制可变变量（变量不可修改） 设计原则：SOLID</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-23 00:00:00 +0800 +0800'>March 23, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 《架构整洁之道》读书笔记" href="https://notes.0081800.xyz/notes/20200323104907_%E6%9E%B6%E6%9E%84%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SOLID
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SRP: Single Responsibility Principle 浅显的解释是软件模块只提供单一功能
+更进一步任何一个软件模块都应该有且只有一个被修改的原因
+再更进一步这个原则是关于人（Actor）的
+任何一个软件模块都应该只对一个用户或系统利益相关者负责。
+最终就是任何一个软件模块都应该只对某一类行为负责
+OCP：Open/Closed Principle 设计良好的软件应该易于扩展，同时抗拒修改。也就是说一个软件模块应该允许在不修改源码的情况下扩展它的行为。
+可以通过组合 SRP（代码分组）和调整依赖关系实现（DIP）。如果 A 组件不想被 B 组件上发生的修改所影响，那么就应该让 B 组件依赖于 A 组件。
+LSP：Liskov Substitution Principle 里氏替换原则：多态。
+每个类型是 S 的对象 o1 都存在一个类型为 T 的对象 o2，能使操作 T 类型的程序 P 在用 o2 替换 o1 时行为保持不变，我们就可以将 S 称为 T 的子类型。
+public class LiskovSub { public static main(String[] args) { T o1 = new S(); T o2 = new T(); P(o1); // ok P(o2); // ok } public static P(T o) { o....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-23 00:00:00 +0800 +0800'>March 23, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to SOLID" href="https://notes.0081800.xyz/notes/20200323101418_solid/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>系统架构
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 技术 设计原则 SOLID
+好的架构 我认为好的架构 能够无心智障碍的编写运行单元测试 从一起作业看好的架构 应该能够让任何开发人员方便的随时上线和回滚 面对上线对基础设施没有心理压力 完备的监控 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-22 00:00:00 +0800 +0800'>March 22, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 系统架构" href="https://notes.0081800.xyz/notes/20200322143810_%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>《百箭穿杨》读书笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>需要熟悉股市相关概念进行扫盲。
+粗读要点 树立安全边际，跟随格雷厄姆 寻找好的困难股，降低触底难度，加大触底区间，预测底部区间，分 5 档抄底，最好在 1-3 档就能完成抄底 每次只买总资产的 1% 盈利后可以将本金提出，只留底仓等待顶峰信号后抛出赚取高额利润的前提下保障本金 总是留 25%-40% 的现金 做长线 分析财报看毛利、营收增长率、负债率可以确定一个好股，然后就等一些情况下这只股遇到困难触底 看行业处于哪个周期：萌发、成长啥的 不做重仓 复读要点完善 安全边际 跟随格雷厄姆
+偏离：更保守或更激进 大赚小赔不如小赚不赔：不亏钱 困境好企 做有把握的事，不啃硬骨头，广撒网，多捞鱼，选取一批困境好企来实现从小盘大稳定增长股
+行业中的好企业标准
+行业很关键
+需求无限，供给有限
+关注行业周期
+大周期：新生-&gt;成长-&gt;成熟-&gt;衰落-&gt;消亡 小周期：大周期各个过程中的景气与萧条（一两年、三五年甚至一二十年）
+消亡之前会有死灰复燃，大周期中成长阶段会有萧条，注意区分。
+门槛高，竞争少
+只有少数寡头，估值会高
+唯一或第一
+成熟行业比较简单，成长行业比较困难。
+通过企业原则、经营原则、财务原则和市场原则衡量。- P28 生活经验活常识也很重要。
+落难好企
+行业顺境，某些原因导致的猜疑导致股价下跌 行业遭遇整体困境：偶然事件，反转时间比好把握 个股困境，主打产品破灭：有无法度过的风险 财务数据衡量困境好企能否度过难关 - P32
+负债率越低越好：不能超过 50% 资产中的现金越多越好：高于股东权益的 1/3，刚上市的好过上市很久的老企业（把钱折腾光了） 产品的毛利率越高越好：市场有需求 应收账款越少越好：钱可能收不回来 通过季报发现反转时机
+季报时间长，抗短期干扰，一季度定调、二季度（半年）纠偏或修正、三季度出结果（更好或更差）、四季度（年报）成果汇报和新的起点用于比较第一季度。
+一季度和半年狠重要。
+通过 营业收入 发现转机。困境表现为净利润增速下滑，之前是好企可能会市盈率过高。
+容错寻底 不亏钱的情况下寻找极限底部，保障安全、带来最大利润、带来良好心态
+变种“不破买价”：买入的价格很难再跌回原来的位置
+变成左侧交易者，不追涨
+大盘底与个股底的关系
+同步性：大盘筑底个股也在筑底，大盘达到最低位时，个股也先后到达最低位
+差异性
+大盘下跌蓝筹股先跌到位，大盘下跌过程中小盘成长股与稳定增长股少许跟跌或逆市上扬。 市场反弹小盘成长股与稳定增长股开始杀跌。
+耦合性：大盘底出现时次新股出现底部的概率大，老股形成底部可能需要好几年 – P56...</p>
   </div>
   <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode" href="https://notes.0081800.xyz/notes/20200320172132_leetcode/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode: Trapping Tain Water
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: LeetCode </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: Trapping Tain Water" href="https://notes.0081800.xyz/notes/20200320172219_leetcode_trapping_tain_water/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Linux Virtual Memory Management
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Linux 原文连接：Linux Virtual Memory Management Chapter 2 Describing Physical Memory：描述物理内存 独立于平台架构的方式描述内存 — 更好的支持多平台
-本章包含描述存储器、内存页的结构体（structures）和一些影响 VM 行为的标识位（flags）
-VM 中普遍（prevlent）认为第一重要（principal）的概念是 NUMA。
-大型机器中内存访问速度取决于 CPU 到内存的距离。比如一组（bank）内存分配给每一个处理器或者一组内存非常适合靠近的 DMA 设备卡。
-这里的每组（bank）内存被称为节点（node）并且这个概念在 Linux 中通过 struct pglist_data（typedef pg_data_t) 表示，即使在 UMA 架构下也是如此。每一个节点是一个由 NULL 结尾的链表，通过 pg_data_t-&gt;next_node 指向下一个节点。
-每一个节点都被分割成多个块（block）称为分区（zone）用于表示内存中的范围。分区使用 struct zone_struct(typedef zone_t) 结构体描述，每一个分区都是以下三种类型的一种
-ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，由内核直接映射到线性地址空间的上部区域（将在第四章讨论） ZONE_HIGHMEM 896MB - END，剩余不由内核直接映射的系统可用内存， 大部分内核操作都只能使用这种类型的分区，所以这里也是这里也是最关键的性能区域（most performance critical zone） 每一个物理页帧（physical page frame）都使用结构体 struct page 表示，所有的结构体都保存在全局数组 mem_map 中，mem_map 通常存储在 ZONE_NORMAL 的开始处；...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Linux Virtual Memory Management" href="https://notes.0081800.xyz/notes/20200320174700_linux_virtual_memory_management/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>动态规划
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Algorithm 状态转移方程 无后效性 如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前各段状态的影响。
-一旦 \(f(n)\) 确定，“我们如何凑出 \(f(n)\) ”就再也用不着了：
-要求出 \(f(15)\)，只需要知道 \(f(14)\),\(f(10)\),\(f(4)\) 的值， 而 \(f(14)\),\(f(10)\),\(f(4)\) 是如何算出来的，对之后的问题没有影响。 “未来与过去无关”，这就是无后效性。
-最优子结构 大问题的最优解可以由小问题的最优解推出，这个性质叫做“最优子结构性质”：
-\(f(n)\) 的定义需要蕴含“最优”，利用 \(f(14)\),\(f(10)\),\(f(4)\) 的最优解，我们即可算出 \(f(15)\) 的最优解。
-能将大问题拆成几个小问题，且满足无后效性、最优子结构性质。 DP 思路 参见 LeetCode 讨论：
-先写出穷举的方法 找出不必要的重复计算 写出 DP 练习 0x00 硬币找零 描述 假设有几种硬币，如1、3、5，并且数量无限。请找出能够组成某个数目的找零所使用最少的硬币数。
-状态转移公式 公式 \(f(n)=min\{f(n-1),f(n-3),f(n-5)\} &#43; 1\)
-检查是否满足上面提到的两个特性：
-无后效性：对于 \(n\)，一旦 \(f(n)\) 确定，以后只关心 \(f(n)\) 的值，不关心怎么计算的； 最优子结构：对于 \(n\)，只要 \(n - 1\) \(n - 3\) \(n - 5\) 能是最优解，那么就能计算出 n; 推导过程 假设找零 15：...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 动态规划" href="https://notes.0081800.xyz/notes/20200320171538_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>归并排序
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Algorithm,Sorting Wikipedia: 归并排序</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 归并排序" href="https://notes.0081800.xyz/notes/20200320173033_%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"></a>
+  <a class="entry-link" aria-label="post link to 《百箭穿杨》读书笔记" href="https://notes.0081800.xyz/notes/20200320180837_%E7%99%BE%E7%AE%AD%E7%A9%BF%E6%9D%A8/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

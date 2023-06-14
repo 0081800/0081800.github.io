@@ -143,74 +143,66 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>ARM/POWER Relaxed Memory Model
+    <h2>Java 编译器公共子表达式消除（common subexpression elimination）
     </h2>
   </header>
   <div class="entry-content">
-    <p>ARM和POWER系统的概念模型是，每个处理器从其自己的完整内存副本中读取和向其写入，每个写入独立地传播到其他处理器，随着写入的传播，允许重新排序。
-在这个宽松的(relaxed)模型中，我们迄今为止所看到的每一个litmus test的答案都是“yes，这真的可能发生。”
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no....</p>
+    <p>// p and q may or may not point at the same object. int i = p.x; // ... maybe another thread writes p.x at this point ... int j = q.x; int k = p.x; 在这个程序中，公共子表达式消除（common subexpression elimination）会注意到 p.x 被计算了两次，并将最后一行优化为 k = i 。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 16:29:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to ARM/POWER Relaxed Memory Model" href="https://notes.0081800.xyz/notes/20210712162917-arm_power_relaxed_memory_model/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 20:10:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 编译器公共子表达式消除（common subexpression elimination）" href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>内存屏障
+    <h2>原始 Java 内存模型（1996）
     </h2>
   </header>
   <div class="entry-content">
-    <p>内存屏障（或栅栏）是非顺序一致性的硬件提供的一种显式指令，用于控制排序提供更强的内存排序，修复同步算法。
-添加内存屏障，确保每个线程在开始读取之前都会刷新其先前对内存的写入：
-// Thread 1 // Thread 2 x = 1 y = 1 barrier barrier r1 = y r2 = x x86 总存储有序（x86-TSO) 加上内存屏障之后 r1=0, r2=0 就会变得不可能。</p>
+    <p> tags: Java 内存模型,Java Java 是第一个试图写下多线程程序保证的主流语言。它包括：
+互斥体（mutex），并定义了它们隐含的内存排序要求。 “volatile” 原子变量: volatile 变量的所有读和写都需要直接在主内存中按程序顺序执行，使得对 volatile 变量的操作以顺序一致的方式进行。 制定了（或者至少试图制定）具有数据竞争的程序的行为。 缺陷 Atomic 需要同步：volatile 原子变量是不同步的，所以它们无助于消除程序其余部分的竞争。不能用于构建新的同步原语。 一致性与编译器优化不兼容：Java 编译器公共子表达式消除（common subexpression elimination）会导致其他线程写入新值无法对消除后表达式生效。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 16:21:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 内存屏障" href="https://notes.0081800.xyz/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 20:05:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原始 Java 内存模型（1996）" href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>x86 总存储有序（x86-TSO)
+    <h2>DRF-SC 系统同步指令
     </h2>
   </header>
   <div class="entry-content">
-    <p>x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
-重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
-写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
-基于以上下面 litmus test 的答案依然是 no ，这种情况与顺序一致性模型结果一致：
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. 但其他测试则并不一致区分与顺序一致性的常用例子:
-Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0, r2 = 0?...</p>
+    <p>保证了弱有序和无数据竞争（DRF）的系统会提供称为同步的特定指令，提供一种协调不同处理器（相当于硬件线程）的属性。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:58:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to x86 总存储有序（x86-TSO)" href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 19:51:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to DRF-SC 系统同步指令" href="https://notes.0081800.xyz/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>litmus test
+    <h2>同步原子（synchronizing atomic）
     </h2>
   </header>
   <div class="entry-content">
-    <p>下面这种关于样本结果的问题被称为 litmus test 。它只有两个答案：可能还是不可能？为我们提供了一种区分内存一致性模型的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。
-litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而是一个线程本地寄存器。
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。</p>
+    <p>原子变量（atomic variable）或原子操作（tomic operation）更好的解释。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 19:44:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 同步原子（synchronizing atomic）" href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>顺序一致性
+    <h2>原子变量（atomic variable）或原子操作（tomic operation）
     </h2>
   </header>
   <div class="entry-content">
-    <p>Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
-The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program....</p>
+    <p>现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
+代码示例
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
+Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:19:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 顺序一致性" href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
