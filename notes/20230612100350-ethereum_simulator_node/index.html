@@ -113,8 +113,8 @@ Where to execute the transction previously?"/>
   "keywords": [
     
   ],
-  "articleBody": " tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.\nRelay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.\nThings need to consider:\nHow to limit or identify transactions that need to simulate?\nOnly execute the transactions from local txpool.\nWhere to execute the transction previously?\nAdd a new RPC method to simuluate and then send the transaction(e.g. eth_simuluateAndSendTransaction / eth_simuluateAndSendRawTransaction). Execute the transaction before we put the transaction into the txpool How to drop that transction from txpool?\nDon’t put it into the txpool if the transaction is failed. Do transaction need to be signed?\nHow to trace the changes during executing transaction?\n",
-  "wordCount" : "131",
+  "articleBody": " tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.\nRelay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.\nThings need to consider:\nHow to limit or identify transactions that need to simulate?\nOnly execute the transactions from local txpool.\nWhere to execute the transction previously?\nAdd a new RPC method to simuluate and then send the transaction(e.g. eth_simuluateAndSendTransaction / eth_simuluateAndSendRawTransaction). Execute the transaction before we put the transaction into the txpool How to drop that transction from txpool?\nDon’t put it into the txpool if the transaction is failed. Do transaction need to be signed?\nHow to trace the changes during executing transaction? Query StateDB via two different state root.\nPre-execute before put tx into the txpool The tx may not be seal into block if gas too low. Pre-execute before put tx into the block The tx may be sealed by another node because the txpool will be synchronized between nodes. ",
+  "wordCount" : "180",
   "inLanguage": "en",
   "datePublished": "2023-06-12T10:03:00+08:00",
   "dateModified": "2023-06-12T10:03:00+08:00",
@@ -217,8 +217,15 @@ Where to execute the transction previously?"/>
                 <li>
                     <a href="#simulator" aria-label="Simulator">Simulator</a></li>
                 <li>
-                    <a href="#relay" aria-label="Relay">Relay</a>
+                    <a href="#relay" aria-label="Relay">Relay</a><ul>
+                        
+                <li>
+                    <a href="#pre-execute-before-put-tx-into-the-txpool" aria-label="Pre-execute before put tx into the txpool">Pre-execute before put tx into the txpool</a></li>
+                <li>
+                    <a href="#pre-execute-before-put-tx-into-the-block" aria-label="Pre-execute before put tx into the block">Pre-execute before put tx into the block</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -254,9 +261,18 @@ Where to execute the transction previously?"/>
 <p>Do transaction need to be signed?</p>
 </li>
 <li>
-<p>How to trace the changes during executing transaction?</p>
+<p>How to trace the changes during executing transaction?
+Query StateDB via two different state root.</p>
 </li>
 </ol>
+<h3 id="pre-execute-before-put-tx-into-the-txpool">Pre-execute before put tx into the txpool<a hidden class="anchor" aria-hidden="true" href="#pre-execute-before-put-tx-into-the-txpool">#</a></h3>
+<ul>
+<li>The tx may not be seal into block if gas too low.</li>
+</ul>
+<h3 id="pre-execute-before-put-tx-into-the-block">Pre-execute before put tx into the block<a hidden class="anchor" aria-hidden="true" href="#pre-execute-before-put-tx-into-the-block">#</a></h3>
+<ul>
+<li>The tx may be sealed by another node because the txpool will be synchronized between nodes.</li>
+</ul>
 
 
   </div>
