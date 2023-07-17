@@ -148,6 +148,34 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>C、Rust 和 Swift 的内存模型
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Rust,Swift,编程语言内存模型 都采用C&#43;&#43;11 内存模型。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 12:02:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C、Rust 和 Swift 的内存模型" href="https://notes.0081800.xyz/notes/20210716120258-c_rust_%E5%92%8C_swift_%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>C&#43;&#43; 弱同步原子（acquire/release atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
+较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
+atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
+来看下面 litmus test：
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:59:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; 弱同步原子（acquire/release atomic）" href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>C&#43;&#43; 非同步原子（Relaxed atomic）
     </h2>
   </header>
@@ -181,33 +209,6 @@ atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); whil
   </div>
   <footer class="entry-footer"><span title='2021-07-16 11:36:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to DRF-SC 还是着火（Catch Fire）" href="https://notes.0081800.xyz/notes/20210716113642-drf_sc_%E8%BF%98%E6%98%AF%E7%9D%80%E7%81%AB_catch_fire/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>C&#43;&#43;11 内存模型
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
-C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Java 同步原子（volatile）
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>线程的创建前置于（happens bofere）线程的第一个动作。 互斥体 m 的解锁前置于（happens before）任何 后续（subsequent） 对互斥体 m 的锁定。 volatile 变量 v 的写入前置于（happens bofere）任何 后续（subsequent） 对变量 v 的读取。 “后续（subsequent）” 意味着什么？Java 定义了所有锁定、解锁和 volatile 变量访问的行为，给出了整个程序中所有这些操作的总顺序，就像它们发生在某个顺序一致的交错中一样。“后续（subsequent）”指在总顺序中较晚执行。也就是说：锁定、解锁和 volatile 变量的访问的“总顺序”定义了“后续”的含义，“后续”定义了由特定执行创建的“前置于（happens before）”关系，最终“前置于（happens before）”关系定义了该特定执行是否存在数据竞争。如果没有数据竞争，那么执行就会以顺序一致的方式进行。
-事实上， volatile 访问必须表现得像在某种总排序一样，意味这在下面 litmus test 中，不能出现 r1=0 和 r2=0 的结果:
-Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 11:28:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Java 同步原子（volatile）" href="https://notes.0081800.xyz/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

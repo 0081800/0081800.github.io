@@ -6,7 +6,19 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 14 Jun 2023 09:18:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Jul 2023 11:17:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineers Should Read Academic Papers</title>
+      <link>https://notes.0081800.xyz/notes/20230717111715-software_engineers_should_read_academic_papers/</link>
+      <pubDate>Mon, 17 Jul 2023 11:17:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230717111715-software_engineers_should_read_academic_papers/</guid>
+      <description>tags: Papers source: Al-Ansari, Khaled. “Software Engineers Should Read Academic Papers.” Medium (blog), July 15, 2023. https://medium.com/@KhaledElAnsari/software-engineers-should-read-academic-papers-9a6ee6ebc40d. There are some benefits of reading academic papers:
+Structured content can enhance your technical writing, you can learn structured writing.
+(Reading - Writing - Reviewing) cycle making you a better reader and reviewer.
+Reading to gain information. Structured writing make review easier. Better deading and writing make you a better reviewer. Bridge the industry and the academic field.</description>
+    </item>
+    
     <item>
       <title>Ethereum Execution Layer</title>
       <link>https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/</link>
@@ -91,6 +103,19 @@ Where to execute the transction previously?</description>
     </item>
     
     <item>
+      <title>How to Write a Technical Article</title>
+      <link>https://notes.0081800.xyz/notes/20230608223754-how_to_write_a_technical_article/</link>
+      <pubDate>Thu, 08 Jun 2023 22:37:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230608223754-how_to_write_a_technical_article/</guid>
+      <description>tags: Essay Writing Guide
+List outlines
+Explore the resources and documentation to understand
+Taking notes during the exploring
+Use the method of How to Take Smart Notes</description>
+    </item>
+    
+    <item>
       <title>English Words</title>
       <link>https://notes.0081800.xyz/notes/20230608214607-english_words/</link>
       <pubDate>Thu, 08 Jun 2023 21:46:00 +0800</pubDate>
@@ -124,9 +149,7 @@ Where to execute the transction previously?</description>
       <pubDate>Thu, 08 Jun 2023 21:33:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230608213315-essay_writing_guide/</guid>
-      <description>source: https://jordanbpeterson.com/wp-content/uploads/2018/02/Essay_Writing_Guide.docx tags: How to Write PART I: INTRODUCTION Writing an essay is to think by writing, formulate and organize ideas. Writing an essay is also to learn or explore a new topic.
-If you don&amp;rsquo;t have a big chunk of time in your daily life, then don&amp;rsquo;t relay your success on it, take 15 minutes every day is still powerful: 「日拱一卒，功不唐捐」.
-PART II: LEVELS OF RESOUTION Word Sentence Paragraph: 100 words or 10 sentences, rule is the rule A single idea.</description>
+      <description>source: https://jordanbpeterson.com/wp-content/uploads/2018/02/Essay_Writing_Guide.docx tags: How to Write PART I: INTRODUCTION Why are we need to learn how to write an essay? Writing an essay is to think by writing, formulate and organize ideas. Writing an essay is also to learn or explore a new topic. How to get things done? If you don&amp;rsquo;t have a big chunk of time in your daily life, then don&amp;rsquo;t relay your success on it, take 15 minutes every day is still powerful: 「日拱一卒，功不唐捐」.</description>
     </item>
     
     <item>

@@ -143,6 +143,42 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>结构体
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>结构体 元组结构体（tuple struct） 用于命名元组并和其他元组进行区分：
+struct Color(i32, i32, i32); struct Point(i32, i32, i32); let black = Color(0, 0, 0); let origin = Point(0, 0, 0); 由于定义了元组结构体所有 black 和 origin 是两个不同的类型。
+没有字段的结构体：类单元（Unit-Like）结构体 没有任何字段的结构体和单元类型 () 类似，用于实现一些特性（trait）但是没有任何数据。
+方法语法 self 占有所有权
+&amp;self 不可变借用
+&amp;mut self 可变借用
+自动引用和解引用
+在 Rust 中进行方法调用，如 object.something ，Rust 会自动添加 &amp; &amp;mut 或者 * , 用以自动匹配方法签名。以下是等价的：
+p1.distance(&amp;p2); (&amp;p1).distance(&amp;p2); 方法如果不声明 self 行参则是一个关联方法（静态方法），通过 :: 调用
+struct Rectangle { width: u32, height: u32, } impl Rectangle { fn square(size: u32) -&gt; Rectangle { Rectangle{ width: size, height: size } } } let r = Rectangle::square(10); 每一个结构体可以有多个 impl 块。</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 17:59:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 结构体" href="https://notes.0081800.xyz/notes/20200629175956-%E7%BB%93%E6%9E%84%E4%BD%93/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>引用和借用
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>类型前置 &amp; 表示引用，引用允许变量指向一个值但是不发生所有权转移。 引用不占有所有权，所以变量超出作用域之后不会触发 drop 调用。 引用作为函数形参被成为借用（borrowing） 可变引用 针对特定作用域下的特定数据只能创建一个可变引用。如果要创建多个可变引用可以通过大括号创建新的作用域
+let mut s = String::from(&#34;hello&#34;); { let s1 = mut &amp;s; } let s2 = mut &amp;s; 当已经存在不可变引用时，则无法再创建可变引用，下面代码无法编译通过
+let mut s = String::from(&#34;hello&#34;); let s1 = &amp;s; // OK let s2 = &amp;s; // OK let s3 = mut &amp;s; // BIG PROBLEM 悬空引用 以下代码是不允许的，无法编译通过
+fn main() { let s = dangling_string(); } fn dangling_string() -&gt; &amp;String { let s = String::from(&#34;hello&#34;); &amp;s } 上面代码 s 在函数内部分配，那么在函数执行完成后 s 将被释放，所以返回 s 的引用会造成悬空引用。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 17:49:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 引用和借用" href="https://notes.0081800.xyz/notes/20200629174943-%E5%BC%95%E7%94%A8%E5%92%8C%E5%80%9F%E7%94%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>所有权
     </h2>
   </header>
@@ -191,33 +227,6 @@ class Foo { public: Foo(int n) : n {n} { }; ~Foo() { }; private: int n; }; class
   </div>
   <footer class="entry-footer"><span title='2020-06-28 18:34:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Member initialize" href="https://notes.0081800.xyz/notes/20200628183417-member_initialize/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Iterator class
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: C/C&#43;&#43; 容器类实现 begin 和 end 方法返回 Iterator class 的实例， Iterator class 通过实现友元类可以直接访问容器类的私有属性， Iterator class 通过重载 &#43;&#43;/==/* 等操作符实现对容器类的访问并通过自己的私有属性记录当前位置。
-Iterator class 重载的操作符：
-&#43;&#43; 移动容器元素位置 == 判断两个容器位置是否相等（容器是否一个，位置是否一个） * 解引用返回当前位置指向的容器的值 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-28 18:32:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Iterator class" href="https://notes.0081800.xyz/notes/20200628183227-iterator_class/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>SSE/AVX/AVX2/AVX512
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Computer Systems,C/C&#43;&#43;,优化,High Performance 部分 intel CPU 支持向量指令集同时进行多路整数和浮点数计算，以此来进行对相关算法进行优化，这里整理相关链接：
-编译器支持相关封装避免编写汇编代码，官方指南：Intrinsics Guide 基于 sse_mathfun 的 avx_mathfun 封装相关宏和函数 mp3 库 lame 中的 SSE 加速实现 libmp3lame/vector/xmm_quantize_sub.c AVX512 VNNI https://en.wikichip.org/wiki/x86/avx512_vnni </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-28 18:22:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to SSE/AVX/AVX2/AVX512" href="https://notes.0081800.xyz/notes/20200628182211-avx512/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

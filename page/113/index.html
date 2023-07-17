@@ -143,6 +143,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>强一致性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 21:09:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 强一致性" href="https://notes.0081800.xyz/notes/20210614210953-%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>读写一致性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>也称为「写后读一致性」，解决用户主节点写入后立马从从节点读取不到到情况。只能解决单用户的一致性，但是解决不了多用户的一致性。
+场景 用户新提交了评论，但是自己看不到，需要等一会才能看到。
+解决方案 记录更新时间戳，在指定时间内从主节点读取。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 21:07:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 读写一致性" href="https://notes.0081800.xyz/notes/20210614210755-%E8%AF%BB%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>最终一致性效应
     </h2>
   </header>
@@ -185,39 +211,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-06-14 20:52:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 复制日志实现" href="https://notes.0081800.xyz/notes/20210614205249-%E5%A4%8D%E5%88%B6%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>主从复制
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>主从模式下主节点进行写入，可以从从节点进行读取。
-同步复制 主节点写入，并等待从节点写入后再返回写入成功。
-半同步复制 主节点写入，选举一个从节点进行同步复制，其他从节点进行异步复制，一旦同步复制的从节点出现性能下降或故障则选用一个新的从节点进行同步复制。
-异步复制 主节点写入，不等待从节点写入直接返回写入成功。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-14 20:32:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 主从复制" href="https://notes.0081800.xyz/notes/20210614203213-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>数据复制
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。
-配置新从节点 可以通过快照来加速新从节点复制：
-对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换
-确认失效 选举新的主节点 使主节点生效 挑战
-从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：
-性能 容忍数据中心失效 容忍网络问题 缺点：写冲突
-离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-14 20:31:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 数据复制" href="https://notes.0081800.xyz/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

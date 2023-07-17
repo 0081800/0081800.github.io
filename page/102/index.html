@@ -143,6 +143,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Memory coherence vs consistency
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
+Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:01:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Memory coherence vs consistency" href="https://notes.0081800.xyz/notes/20210716110147-memory_coherence_vs_consistency/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>悲观与乐观并发控制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>悲观并发控制 两阶段加锁是一个典型的悲观并发控制。设计原则：如果某些操作可能出错，则直接放弃等待直到安全。
+乐观并发控制 如果可能发生潜在冲突，事务会继续执行而不是终止，寄希望与相安无事；而当事务提交时，数据库会检查是否发生了冲突，如果是的话，中止事务并接下来重试。
+对比 如果冲突很多则性能不佳，如果性能良好，且事务之间的竞争不大，乐观并发控制会比悲观方式性能高很多。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 08:00:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 悲观与乐观并发控制" href="https://notes.0081800.xyz/notes/20210716080024-%E6%82%B2%E8%A7%82%E4%B8%8E%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>可串形化的快照隔离
     </h2>
   </header>
@@ -185,32 +212,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-07-16 07:41:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 串行化" href="https://notes.0081800.xyz/notes/20210716074157-%E4%B8%B2%E8%A1%8C%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>写倾斜
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>即不是脏写也不会更新丢失，事务之间的写冲突并不直接，写倾斜可以视为更广义的数据丢失。
-考虑急诊医生请假系统，核心逻辑是必须要有一个医生值班。两个医生同时请假，事务同时同时开始，那么两个医生都能查询到有两个医生值班，最后请假成功，导致无医生值班。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 07:21:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 写倾斜" href="https://notes.0081800.xyz/notes/20210716072157-%E5%86%99%E5%80%BE%E6%96%9C/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>写倾斜与幻读
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>写事务并发除了需要防止更新丢失还有一些更为微妙的写冲突。
-写倾斜与幻读 定义写倾斜。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 07:19:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 写倾斜与幻读" href="https://notes.0081800.xyz/notes/20210716071953-%E5%86%99%E5%80%BE%E6%96%9C%E4%B8%8E%E5%B9%BB%E8%AF%BB/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
