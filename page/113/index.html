@@ -143,6 +143,26 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>前缀一致读
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>对于一系列按照某个顺序发生的写请求，同时读取这些内容时也会按照当时写入的顺序。
+场景 分区数据库中出现的一个特殊问题。
+正常对话：
+P: C小姐，你能看到多远的文莱？
+C：大约 10s，P 先生。
+但是由于复制滞后，最终能被观察到的可能是：
+C：大约 10s，P 先生。
+P: C小姐，你能看到多远的文莱？
+解决方案 低效率：具有因果关系的写入都交给一个分区来完成。 新方法：跟踪事件因果关系。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 21:16:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 前缀一致读" href="https://notes.0081800.xyz/notes/20210614211632-%E5%89%8D%E7%BC%80%E4%B8%80%E8%87%B4%E8%AF%BB/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>单调读一致性
     </h2>
   </header>
@@ -193,21 +213,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-06-14 21:00:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 最终一致性效应" href="https://notes.0081800.xyz/notes/20210614210005-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%E6%95%88%E5%BA%94/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>复制滞后问题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>异步同步的情况下出出现最终一致性效应复制滞后会导致：用户提交了修改到主节点，但是从从节点没有读取到最新的变更，比如看不到自己提交的评论等。
-读写一致性：读自己的写 一旦用户的数据最近发生改变则路由用户请求从主节点进行读取，规避复制滞后的问题。
-缺点：只保证单一用户写后读的的一致性，但是不保证多个用户的一致性。比如发了一条评论，自己能刷新到但是同在身边的朋友可能就刷新不到。
-单调读一致性 前缀一致读 解决方案 应用层可以提供比数据库更强有力的保证。 事务是数据库提供的更强保证的一种方式。 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-14 20:56:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 复制滞后问题" href="https://notes.0081800.xyz/notes/20210614205621-%E5%A4%8D%E5%88%B6%E6%BB%9E%E5%90%8E%E9%97%AE%E9%A2%98/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

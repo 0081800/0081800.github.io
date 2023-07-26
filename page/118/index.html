@@ -143,6 +143,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>macOS 问题解决三板斧
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: macOS,macOS Cheatsheet 通常你沟通苹果的官方支持一般都会给你三板斧：
+重启：按住电源键 10 秒中，然后等几秒钟后再开机 重置 SMC：关机然后按住：Ctrl &#43; Option &#43; 右侧Shift &#43; 电源键 7 秒钟关机，等待几秒钟后开机。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-22 14:59:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS 问题解决三板斧" href="https://notes.0081800.xyz/notes/20210322145956-macos_%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E4%B8%89%E6%9D%BF%E6%96%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>macOS TimeMachine 日志
     </h2>
   </header>
@@ -191,21 +204,6 @@ emacs file.org --batch -l ~/.emacs.d/init.el -f org-hugo-export-wim-to-md --kill
   </div>
   <footer class="entry-footer"><span title='2021-02-20 17:55:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to OX-HUGO 批量导出 Markdown" href="https://notes.0081800.xyz/notes/20210220175534-ox_hugo_%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA_markdown/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>中间件
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: 技术，技术概念 中间件可以对系统进行解耦，比如上层系统对下层系统进行网络请求，考虑下面结构
-- U - / | \ /--- | ---\ / | \ A B C 如果下层系统增加节点的话就需要重启 U。
-引入 HAProxy 或者 Nginx 之类的中间件可以对两层系统进行解耦：
-U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这样上层和下层系统都依赖中间件，但是系统之间不再强耦合，下层系统可以依赖中间件随意的进行所扩容而不用被上层系统感知。 这时候中间件只要保证中间件稳定即可，可以在中间件上进行热重启。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 中间件" href="https://notes.0081800.xyz/notes/20210220165816-%E4%B8%AD%E9%97%B4%E4%BB%B6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
