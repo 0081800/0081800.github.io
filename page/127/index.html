@@ -143,6 +143,34 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>迭代器
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>迭代器 所有的迭代器都实现了 Iterator 特性：
+pub trait Iterator { type Item; // 关联类型 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;; // 返回 None 结束循环 } </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 迭代器" href="https://notes.0081800.xyz/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>生命周期
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
+fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
+标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
+结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 生命周期" href="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>闭包
     </h2>
   </header>
@@ -179,42 +207,6 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:03:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 错误处理" href="https://notes.0081800.xyz/notes/20200629180301-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>if let
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>let some_u8_value = Some(0u8); // Without `if let` match some_u8_value { Some(3) =&gt; println!(&#34;three&#34;); - =&gt; (), } // With `if let` if let Some(3) = some_u8_value { println!(&#34;three&#34;); } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to if let" href="https://notes.0081800.xyz/notes/20200629180202-if_let/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>模块化
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>包、crate 和模块 Cargo.toml 表示一个包
-包含 0 个或 1 个库 crate（ src/lib.rs ） 包含 0 个或多个可执行 crate （ src/main.rs src/bin/*.rs ） 可以同时包含以上两种 模块化系统
-模块，一种组织代码和控制路径隐私的方法
-所有的项（函数，方法，结构体，枚举，模块和常量）默认私有 不允许使用私有的子模块的代码 可以使用父模块和同级模块的代码 路径，一种命名项的方法
-use , 一个将路径带到当前作用域的关键字
-pub ，一个将项公开的关键字
-as ，一个将带到当前作用域项重命名的关键字
-super , 一个相当于文件系统里 .. 作用的关键字
-* ，通配符用于使用制定路径下的所有项
-pub use 用于重新暴露可以访问的模块
-模块可以放在一个文件，也可以按照一定规则拆分到不同文件下
-使用同一个 use 清理嵌套的 use
-use std::cmp::Ordering; use std::io; use std::{cmp::Ordering, io}; use std::io; use std::io::Write; use std::{self, Write}; mod sound { pub mod instrument { pub mod woodwind { pub fn clarinet() { super::breathe_in(); } } fn breathe_in() { } } mod voice { } } fn main() { // 绝对路径以 crate 开始，crate 表示根 crate::sound::instrument::woodwind::clarinet(); // 相对路径 sound::instrument::woodwind::clarinet(); } 上面例子 sound 模块并非公开，但是由于 main 和 sound 定义在同一模块下，所以允许在 main 中引用 sound 。</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 模块化" href="https://notes.0081800.xyz/notes/20200629180233-%E6%A8%A1%E5%9D%97%E5%8C%96/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

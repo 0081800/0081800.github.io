@@ -6,7 +6,16 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Jul 2023 09:15:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jul 2023 16:31:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uniswap V3 Event Log</title>
+      <link>https://notes.0081800.xyz/notes/20230731163157-uniswap_v3_event_log/</link>
+      <pubDate>Mon, 31 Jul 2023 16:31:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230731163157-uniswap_v3_event_log/</guid>
+      <description> tags: Uniswap V3, Ethereum POST https://rpc.ankr.com/eth Content-Type: application/json { &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;id&amp;#34;: 1, &amp;#34;method&amp;#34;: &amp;#34;eth_getTransactionReceipt&amp;#34;, &amp;#34;params&amp;#34;: [&amp;#34;0xeedf302cc12f4b7194742694aabec075c1c229f7b9d8e57a53c44c992bc6690c&amp;#34;] } </description>
+    </item>
+    
     <item>
       <title>The Best Way To Launch Your Startup</title>
       <link>https://notes.0081800.xyz/notes/20230726091549-the_best_way_to_launch_your_startup/</link>
@@ -40,6 +49,15 @@ You might need to read it bit by bit, again and again.</description>
 Structured content can enhance your technical writing, you can learn structured writing.
 (Reading - Writing - Reviewing) cycle making you a better reader and reviewer.
 Reading to gain information. Structured writing make review easier. Better deading and writing make you a better reviewer. Bridge the industry and the academic field.</description>
+    </item>
+    
+    <item>
+      <title>Solana Off-Chain Message Signing</title>
+      <link>https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/</link>
+      <pubDate>Thu, 15 Jun 2023 18:03:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/</guid>
+      <description> tags: Solana source: https://github.com/solana-labs/solana/blob/eabe1070667e87f447b9cb892e2d916ca5b68e34/sdk/src/offchain_message.rs#L237-L240 /// Serialize the off-chain message to bytes including full header pub fn serialize(&amp;amp;self) -&amp;gt; Result&amp;lt;Vec&amp;lt;u8&amp;gt;, SanitizeError&amp;gt; { // serialize signing domain let mut data = Self::SIGNING_DOMAIN.to_vec(); // serialize version and call version specific serializer match self { Self::V0(msg) =&amp;gt; { data.push(0); msg.serialize(&amp;amp;mut data)?; } } Ok(data) } </description>
     </item>
     
     <item>

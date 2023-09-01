@@ -143,6 +143,31 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>SSE/AVX/AVX2/AVX512
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Computer Systems,C/C&#43;&#43;,优化,High Performance 部分 intel CPU 支持向量指令集同时进行多路整数和浮点数计算，以此来进行对相关算法进行优化，这里整理相关链接：
+编译器支持相关封装避免编写汇编代码，官方指南：Intrinsics Guide 基于 sse_mathfun 的 avx_mathfun 封装相关宏和函数 mp3 库 lame 中的 SSE 加速实现 libmp3lame/vector/xmm_quantize_sub.c AVX512 VNNI https://en.wikichip.org/wiki/x86/avx512_vnni </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-28 18:22:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to SSE/AVX/AVX2/AVX512" href="https://notes.0081800.xyz/notes/20200628182211-avx512/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>优化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> AVX512 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-28 18:21:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 优化" href="https://notes.0081800.xyz/notes/20200628182150-%E4%BC%98%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>CMake
     </h2>
   </header>
@@ -179,37 +204,6 @@ $ env TERM=xterm-24bits emacs Emacs 通过 list-color-display 查看效果。</p
   </div>
   <footer class="entry-footer"><span title='2020-06-03 00:00:00 +0800 +0800'>June 3, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Emacs Tmux 256 colors" href="https://notes.0081800.xyz/notes/20200603103943_tmux_256_colors/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust Trait Object
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Rust 动态大小类型（DST）和 Sized 特性 str （非 &amp;str ）就是一个 DST，我们不能在运行时得知 str 的大小。 &amp;str 是一个指针类型，大小是已知的。
-DST：拥有额外的元数据存储动态大小的信息。
-每一个特性都是一个是个 DST，使用 Trait Object 必须是像 &amp;dyn Trait 和 Box&lt;dyn Trait&gt; （或 Rc&lt;dyn Trait&gt; ）的指针类型。
-dyn 关键字 dyn 关键字用于将 Trait Object 指针和普通的结构体指针区分开来。
-Sized vs ?Sized Rust 有一个特定的特性叫做 Sized 去判断一个类型的大小是否是编译期可知的，并且自动在编译期为所有已知大小的类型实现， 同时 Rust 隐式的为泛型函数的类型参数加上 Sized 的限制（bound），下面这样的泛型函数：
-fn generic&lt;T&gt;(t: T) { // --snip-- } 实际上相当于像下面这样硬编码：
-fn generic&lt;T: Sized&gt;(t: T) { // --snip-- } 也可以通过下面特定的语法取消这个限制：
-fn geneic&lt;T: ?Sized&gt;(t: &amp;T) { // --snip-- } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-29 00:00:00 +0800 +0800'>March 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Rust Trait Object" href="https://notes.0081800.xyz/notes/20200329204833_rust_trait_object/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust Wrapper Types
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Rust </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Rust Wrapper Types" href="https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -143,6 +143,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Tokio
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-08 08:31:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Tokio" href="https://notes.0081800.xyz/notes/20210808083146-tokio/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>分布式文件系统
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-08 08:07:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 分布式文件系统" href="https://notes.0081800.xyz/notes/20210808080733-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>网络连接存储
     </h2>
   </header>
@@ -177,38 +201,6 @@ HDFS 包含一个在每台机器上运行的守护进程，并会开放一个网
   </div>
   <footer class="entry-footer"><span title='2021-08-08 07:51:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Emacs Easter egg" href="https://notes.0081800.xyz/notes/20210808075104-emacs_easter_egg/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>数据库
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 技术 数据库作为一个长期发展的技术，但是在中国相对处于一个起步阶段，相关人才比较少。近年能够看得到的技术：
-TiDB 分布式关系型数据库 TDengine 面向 IoT 的 OLAP 数据库 相关创业公司：
-神策 https://zhuanlan.zhihu.com/p/396433354 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-05 08:27:00 +0800 +0800'>August 5, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 数据库" href="https://notes.0081800.xyz/notes/20210805082720-%E6%95%B0%E6%8D%AE%E5%BA%93/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>批处理系统
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>MapReduce MapReduce 与分布式文件系统 MapReduce 就像分布在上千台机器上的 Unix 工具。
-MapReduce 作业通常不会修改输入，除了输出外没有任何副作用。 MapReduce 作业在分布式文件系统上读写。（Unix 工具 stdin、stdout），如 HDFS（Hadoop Distributed File System)等（GlusterFS、QFS、Amazon S3、Azure Blob 和 OpenStack Swift）。 MapReduce 作业执行 MapReduce 是一个编程框架，可以使用它编写代码处理 HDFS 等分布式文件系统中的大型数据集。
-要创建 MapReduce 作业需要实现两个回调函数： mapper 和 reducer （另请参阅 MapReduce 查询）:
-Mapper: 每个输入记录都会调用一次，从输入记录提取任意数量的关键字和值（可以为空），不保留任何状态，可以独立处理。 Reducer: MapReduce 框架使用 Mapper 生成的键值对，收集同一个关键字的所有值，并使用迭代器调用 reducer 以使用该值的集合。 Reducer 可以生成输出记录。 MapReduce 分布式执行 参见 Hadoop 的 MapReduce 的分布式执行。
-MapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，作业的输出作为下一个作业的输入。通过目录名隐式的完成：
-第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。
-Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-05 07:43:00 +0800 +0800'>August 5, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 批处理系统" href="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
