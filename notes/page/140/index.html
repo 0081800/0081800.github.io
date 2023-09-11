@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Notes | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
+<meta name="description" content="Notes - Taking Smart Notes With Org-mode">
+<meta name="author" content="">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/notes/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Notes" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://notes.0081800.xyz/notes/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Notes"/>
+<meta name="twitter:description" content=""/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span class="active">Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a></div>
+  <h1>
+    Notes
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode: 4.Median of Two Sorted Arrays
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode 思路 归并排序
+代码 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 { nums := mergeSort(nums1, nums2) length := len(nums) if length % 2 != 0 { return float64(nums[(length - 1) / 2]) } i := length / 2 return (float64(nums[i]) &#43; float64(nums[i - 1])) / 2 } func mergeSort(nums1 []int, nums2 []int) []int { l1 := len(nums1) l2 := len(nums2) result := make([]int, 0, l1 &#43; l2) i, j := 0, 0 for i &lt; l1 &amp;&amp; j &lt; l2 { if nums1[i] &lt; nums2[j] { result = append(result, nums1[i]) i&#43;&#43; } else { result = append(result, nums2[j]) j&#43;&#43; } } result = append(result, nums1[i:]....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 4.Median of Two Sorted Arrays" href="https://notes.0081800.xyz/notes/20200320172945_leetcode_4_median_of_two_sorted_arrays/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode: 5.Longest Palindromic Substring
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode &gt; https://leetcode.com/problems/longest-palindromic-substring/description/
+思路 直接暴力往两边搜索
+func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if length == 0 { return s } start, end := 0, 0 for ci, _ := range buf { i, j := ci, ci // 无法处理 &#34;aaaa&#34; 和 &#34;noon&#34; 这种情况 for i &gt; 0 &amp;&amp; j &lt; length - 1 &amp;&amp; buf[i - 1] == buf[j &#43; 1] { i-- j&#43;&#43; } // 考虑 &#34;bba&#34; 这种情况 if i == j &amp;&amp; ci &gt; 0 &amp;&amp; buf[ci] == buf[ci - 1] { i, j = ci-1, ci } // 考虑 &#34;abb&#34; 这种情况 if i == j &amp;&amp; ci &lt; length - 1 &amp;&amp; buf[ci] == buf[ci &#43; 1] { i, j = ci, ci &#43; 1 } if i !...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 5.Longest Palindromic Substring" href="https://notes.0081800.xyz/notes/20200320173438_leetcode_5_longest_palindromic_substring/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode: 6.ZigZag Conversion
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode srouce: https://leetcode.com/problems/zigzag-conversion/description/ 先根据行数计算列数：
+\(column=length / (row &#43; 2) &#43; bool(length \mod (row &#43; 2))\)
+每一行必然有点的位置为：
+\(i \mod (row - 1)\) 为 0</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 6.ZigZag Conversion" href="https://notes.0081800.xyz/notes/20200320173548_leetcode_6_zigzag_conversion/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>MySQL
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to MySQL" href="https://notes.0081800.xyz/notes/20200320173956_mysql/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>《The Rust Programming Language》读书笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 读书笔记,Rust
+语句和表达式
+所有权
+引用和借用
+结构体
+枚举
+模式匹配
+if let
+模块化
+错误处理
+Traits
+生命周期
+闭包
+迭代器
+智能指针
+Rust 宏
+Rust 并发
+函数指针 fn 区分闭包的 Fn 特性，函数指针都实现来三个闭包的特性。
+fn do(f: fn(i32) -&gt; i32, arg: i32) -&gt; i32 { f(arg) &#43; f(arg) } </p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-09 00:00:00 +0800 +0800'>April 9, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 《The Rust Programming Language》读书笔记" href="https://notes.0081800.xyz/notes/20200325165411_the_rust_programming_language/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://notes.0081800.xyz/notes/page/139/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

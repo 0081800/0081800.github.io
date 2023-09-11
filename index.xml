@@ -6,7 +6,52 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 31 Jul 2023 16:31:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Sep 2023 14:24:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD</title>
+      <link>https://notes.0081800.xyz/notes/20230911142403-freebsd/</link>
+      <pubDate>Mon, 11 Sep 2023 14:24:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230911142403-freebsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FreeBSD</title>
+      <link>https://notes.0081800.xyz/notes/20230911142417-freebsd/</link>
+      <pubDate>Mon, 11 Sep 2023 14:24:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230911142417-freebsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Building a FreeBSD backup server</title>
+      <link>https://notes.0081800.xyz/notes/20230911142350-building_a_freebsd_backup_server/</link>
+      <pubDate>Mon, 11 Sep 2023 14:23:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230911142350-building_a_freebsd_backup_server/</guid>
+      <description>TAGS: FreeBSD, NAS Source: “Building a FreeBSD Backup Server.” Accessed September 11, 2023. https://ogris.de/howtos/freebsd-backup-server.html. $ zfs create -quota=1T data/timemachine [global] workgroup = WORKGROUP security = user netbios name = backup server string = backup.your-local-domain.invalid hostname lookups = yes load printers = no show add printer wizard = no time server = yes map to guest = Bad User use mmap = yes dos charset = 850 unix charset = UTF-8 mangled names = no log level = 0 vfs objects = fruit streams_xattr zfsacl fruit:model = MacPro fruit:resource = file fruit:metadata = netatalk ; time machines [macbook] path = /data/timemachine read only = no use sendfile = yes browseable = no hosts allow = macbook.</description>
+    </item>
+    
+    <item>
+      <title>Sui</title>
+      <link>https://notes.0081800.xyz/notes/20230911093102-sui/</link>
+      <pubDate>Mon, 11 Sep 2023 09:31:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230911093102-sui/</guid>
+      <description> TAGS: Blockchain </description>
+    </item>
+    
+    <item>
+      <title>Sui Move Call</title>
+      <link>https://notes.0081800.xyz/notes/20230911093008-sui_move_call/</link>
+      <pubDate>Mon, 11 Sep 2023 09:30:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230911093008-sui_move_call/</guid>
+      <description> TAGS: Sui POST http://127.0.0.1:9000 Content-Type: application/json { &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;method&amp;#34;: &amp;#34;sui_moveCall&amp;#34;, &amp;#34;params&amp;#34;: [ &amp;#34;0x1&amp;#34;, &amp;#34;0xc8&amp;#34;, &amp;#34;obc_dao&amp;#34;, &amp;#34;voting_delay&amp;#34;, &amp;#34; ] } </description>
+    </item>
+    
     <item>
       <title>Uniswap V3 Event Log</title>
       <link>https://notes.0081800.xyz/notes/20230731163157-uniswap_v3_event_log/</link>

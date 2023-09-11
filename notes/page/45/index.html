@@ -148,67 +148,64 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 219. Contains Duplicate II
+    <h2>Binary Search Tree
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Sliding Window,Hash Table,LeetCode101 This is an “near by” problem that can be solved by Sliding Window. The k in the problem is somehow means contiguous.
-And using a HashTable to indicate that two values in the different position are equal.
-The steps is following:
-Find two values at each side of window are equal. Return true if the offset between their indices is less than or equal k. Otherwise set left to the new position and continue....</p>
+    <p> tags: Data Structures,Binary Tree,Tree </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 07:37:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 219. Contains Duplicate II" href="https://notes.0081800.xyz/notes/20220312073726-219_contains_duplicate_ii/"></a>
+  <footer class="entry-footer"><span title='2022-03-12 21:51:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Binary Search Tree" href="https://notes.0081800.xyz/notes/20220312215158-binary_search_tree/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Hash Table
+    <h2>Red-Black Tree
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Data Structures </p>
+    <p> tags: Binary Search Tree, AVL Tree,Tree </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 22:16:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Hash Table" href="https://notes.0081800.xyz/notes/20220311221617-hash_table/"></a>
+  <footer class="entry-footer"><span title='2022-03-12 21:51:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Red-Black Tree" href="https://notes.0081800.xyz/notes/20220312215140-red_black_tree/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 209. Minimum Size Subarray Sum
+    <h2>set vs unordered_set in C&#43;&#43; STL
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Sliding Window,LeetCode101 Key:
-sum is greater than or equal to target Compute minimal must above slide left window, as decrease may cause sum less than target. See also 1695. Maximum Erasure Value class Solution { public: int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) { int left = 0; int sum = 0; int minimal = INT_MAX; for (auto right = 0; right &lt; nums.size(); right&#43;&#43;) { sum &#43;= nums[right]; while (sum &gt;= target) { minimal = min(minimal, right - left &#43; 1); sum -= nums[left&#43;&#43;]; } } return minimal == INT_MAX ?...</p>
+    <p>tags: C/C&#43;&#43; source: GeeksforGeeks. “Set vs Unordered_set in C&#43;&#43; STL,” May 28, 2018. https://www.geeksforgeeks.org/set-vs-unordered_set-c-stl/. set Ordered set that implemented by a “Self balancing BST” like Red-Black Tree.
+Extra find operations equal_range returns range of elements matching a specific key lower_bound returns an iterator to the first element not less than the given key upper_bound returns an iterator to the first element greater than the given key #include &lt;iostream&gt; #include &lt;set&gt; #include &lt;assert....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 22:08:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 209. Minimum Size Subarray Sum" href="https://notes.0081800.xyz/notes/20220311220839-209_minimum_size_subarray_sum/"></a>
+  <footer class="entry-footer"><span title='2022-03-12 21:50:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to set vs unordered_set in C&#43;&#43; STL" href="https://notes.0081800.xyz/notes/20220312215003-set_vs_unordered_set_in_c_stl/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>187. Repeated DNA Sequences
+    <h2>OrderedSet
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p>tags: C/C&#43;&#43;,Java,Data Structures In C&#43;&#43; the set container is an ordered or sorted set, unordered_set is the normal set in C&#43;&#43;. Differences between them please check set vs unordered_set in C&#43;&#43; STL.
+In Java there is an java.util.SortedSet interface.</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 21:30:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 187. Repeated DNA Sequences" href="https://notes.0081800.xyz/notes/20220311213000-187_repeated_dna_sequences/"></a>
+  <footer class="entry-footer"><span title='2022-03-12 21:37:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to OrderedSet" href="https://notes.0081800.xyz/notes/20220312213701-orderedset/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 187. Repeated DNA Sequences
+    <h2>LeetCode101: 220. Contains Duplicate III
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Sliding Window,LeetCode101,Hash Set Key:
-Fixed size window, right should start from 9 class Solution { public: vector&lt;string&gt; findRepeatedDnaSequences(string s) { int left = 0; unordered_set&lt;string&gt; results; unordered_set&lt;string&gt; hset; for (auto right = 9; right &lt; s.size(); right&#43;&#43;) { string sub(s, left, 10); if (hset.find(sub) != hset.end()) { results.insert(sub); } hset.insert(sub); left&#43;&#43;; } return vector&lt;string&gt;(results.begin(), results.end()); } }; </p>
+    <p>tags: Sliding Window,OrderedSet Use HashSet to attempt to meet the requirements in the window class Solution { public: bool containsNearbyAlmostDuplicate(vector&lt;int&gt;&amp; nums, int k, int t) { auto left = 0; auto K = 0; set&lt;long&gt; hset; // set in cpp is an sorted set for (auto right = 0; right &lt; nums.size(); right&#43;&#43;) { K = right - left; if (K &gt; k) { hset.erase(nums[left]); left&#43;&#43;; } hset.insert(nums[right]); // some numbers are the same....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 21:30:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 187. Repeated DNA Sequences" href="https://notes.0081800.xyz/notes/20220311213045-187_repeated_dna_sequences/"></a>
+  <footer class="entry-footer"><span title='2022-03-12 21:22:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 220. Contains Duplicate III" href="https://notes.0081800.xyz/notes/20220312212227-leetcode101_220_contains_duplicate_iii/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

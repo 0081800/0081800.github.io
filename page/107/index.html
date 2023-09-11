@@ -143,79 +143,70 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>原子变量（atomic variable）或原子操作（tomic operation）
+    <h2>新的 Java 内存模型（2004）
     </h2>
   </header>
   <div class="entry-content">
-    <p>现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
-代码示例
-// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
-Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。...</p>
+    <p> tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
+Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
+同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
+有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
+happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） </p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 新的 Java 内存模型（2004）" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>弱有序和无数据竞争（DRF）
+    <h2>Java 编译器公共子表达式消除（common subexpression elimination）
     </h2>
   </header>
   <div class="entry-content">
-    <p>弱有序是 Sarita Adve 和 Mark Hill 在他们 1990 年的论文 Weak Ordering - A New Definition (1990) 提出。
-定义如下
-Let a synchronization model be a set of constraints on memory accesses that specify how and when synchronization needs to be done.
-同步模型是对内存访问的一组约束，这些约束指定了何时以及如何进行同步。
-硬件相对于同步模型是弱有序的，当且仅当它在顺序上与遵守同步模型的所有软件一致时。
-Adve和Hill提出了一种同步模型，他们称之为无数据竞争(data-race-free，DRF)。该模型假设硬件具有独立于普通内存读写的内存同步操作。普通的内存读写可以在同步操作之间重新排序，但不能在跨它们移动。(也就是说，同步操作也可用来做重新排序的内存屏障。)如果对于所有理想化的顺序一致的执行，从不同线程对同一位置的任何两个普通存储器访问要么都是读取，要么通过同步操作强制一个在另一个之前发生而分开执行，则程序被称为无数据竞争的。</p>
+    <p>// p and q may or may not point at the same object. int i = p.x; // ... maybe another thread writes p.x at this point ... int j = q.x; int k = p.x; 在这个程序中，公共子表达式消除（common subexpression elimination）会注意到 p.x 被计算了两次，并将最后一行优化为 k = i 。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 16:43:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 弱有序和无数据竞争（DRF）" href="https://notes.0081800.xyz/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 20:10:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 编译器公共子表达式消除（common subexpression elimination）" href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>ARM/POWER Relaxed Memory Model
+    <h2>原始 Java 内存模型（1996）
     </h2>
   </header>
   <div class="entry-content">
-    <p>ARM和POWER系统的概念模型是，每个处理器从其自己的完整内存副本中读取和向其写入，每个写入独立地传播到其他处理器，随着写入的传播，允许重新排序。
-在这个宽松的(relaxed)模型中，我们迄今为止所看到的每一个litmus test的答案都是“yes，这真的可能发生。”
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no....</p>
+    <p> tags: Java 内存模型,Java Java 是第一个试图写下多线程程序保证的主流语言。它包括：
+互斥体（mutex），并定义了它们隐含的内存排序要求。 “volatile” 原子变量: volatile 变量的所有读和写都需要直接在主内存中按程序顺序执行，使得对 volatile 变量的操作以顺序一致的方式进行。 制定了（或者至少试图制定）具有数据竞争的程序的行为。 缺陷 Atomic 需要同步：volatile 原子变量是不同步的，所以它们无助于消除程序其余部分的竞争。不能用于构建新的同步原语。 一致性与编译器优化不兼容：Java 编译器公共子表达式消除（common subexpression elimination）会导致其他线程写入新值无法对消除后表达式生效。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 16:29:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to ARM/POWER Relaxed Memory Model" href="https://notes.0081800.xyz/notes/20210712162917-arm_power_relaxed_memory_model/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 20:05:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原始 Java 内存模型（1996）" href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>内存屏障
+    <h2>DRF-SC 系统同步指令
     </h2>
   </header>
   <div class="entry-content">
-    <p>内存屏障（或栅栏）是非顺序一致性的硬件提供的一种显式指令，用于控制排序提供更强的内存排序，修复同步算法。
-添加内存屏障，确保每个线程在开始读取之前都会刷新其先前对内存的写入：
-// Thread 1 // Thread 2 x = 1 y = 1 barrier barrier r1 = y r2 = x x86 总存储有序（x86-TSO) 加上内存屏障之后 r1=0, r2=0 就会变得不可能。</p>
+    <p>保证了弱有序和无数据竞争（DRF）的系统会提供称为同步的特定指令，提供一种协调不同处理器（相当于硬件线程）的属性。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 16:21:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 内存屏障" href="https://notes.0081800.xyz/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 19:51:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to DRF-SC 系统同步指令" href="https://notes.0081800.xyz/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>x86 总存储有序（x86-TSO)
+    <h2>同步原子（synchronizing atomic）
     </h2>
   </header>
   <div class="entry-content">
-    <p>x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
-重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
-写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
-基于以上下面 litmus test 的答案依然是 no ，这种情况与顺序一致性模型结果一致：
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. 但其他测试则并不一致区分与顺序一致性的常用例子:
-Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0, r2 = 0?...</p>
+    <p>原子变量（atomic variable）或原子操作（tomic operation）更好的解释。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:58:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to x86 总存储有序（x86-TSO)" href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/"></a>
+  <footer class="entry-footer"><span title='2021-07-13 19:44:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 同步原子（synchronizing atomic）" href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

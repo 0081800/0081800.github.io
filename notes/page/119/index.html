@@ -148,67 +148,68 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>二叉树的遍历
+    <h2>《数据密集型应用系统设计》读书笔记
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Algorithm,Data Structures,Binary Search Tree 分为三种：前序、后序和中序，其中最容易用栈改写的是后序。
-前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector....</p>
+    <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
+扩展：
+垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
+复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 20:32:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 二叉树的遍历" href="https://notes.0081800.xyz/notes/20210220203210-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"></a>
+  <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>OX-HUGO 批量导出 Markdown
+    <h2>项目代号
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Taking Notes, Org Mode 方案一：通过 Emacs 批处理模式 emacs file.org --batch -f org-hugo-export-wim-to-md --kill --batch 默认不启用配置文件，可以使用 -l
-emacs file.org --batch -l ~/.emacs.d/init.el -f org-hugo-export-wim-to-md --kill 方案二：通过 LISP 遍历 (mapc (lambda (x) (with-current-buffer (find-file-noselect x) (org-hugo-export-wim-to-md t))) (directory-files &#34;/Users/wh/codes/notes/roam-research-notes-hugo/journal&#34; nil &#34;^[0-9]&#43;$&#34; t)) </p>
+    <p> tags: 技术随想 几何结构 mobius Klein Trefoil knot Penrose triangle 植物 bonsai broccoli 科幻 tardis dalek 消灭 神话 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 17:55:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to OX-HUGO 批量导出 Markdown" href="https://notes.0081800.xyz/notes/20210220175534-ox_hugo_%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA_markdown/"></a>
+  <footer class="entry-footer"><span title='2021-05-25 11:32:00 +0800 +0800'>May 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 项目代号" href="https://notes.0081800.xyz/notes/20210525113247-%E9%A1%B9%E7%9B%AE%E4%BB%A3%E5%8F%B7/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>中间件
+    <h2>macOS 问题解决三板斧
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: 技术，技术概念 中间件可以对系统进行解耦，比如上层系统对下层系统进行网络请求，考虑下面结构
-- U - / | \ /--- | ---\ / | \ A B C 如果下层系统增加节点的话就需要重启 U。
-引入 HAProxy 或者 Nginx 之类的中间件可以对两层系统进行解耦：
-U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这样上层和下层系统都依赖中间件，但是系统之间不再强耦合，下层系统可以依赖中间件随意的进行所扩容而不用被上层系统感知。 这时候中间件只要保证中间件稳定即可，可以在中间件上进行热重启。</p>
+    <p> tags: macOS,macOS Cheatsheet 通常你沟通苹果的官方支持一般都会给你三板斧：
+重启：按住电源键 10 秒中，然后等几秒钟后再开机 重置 SMC：关机然后按住：Ctrl &#43; Option &#43; 右侧Shift &#43; 电源键 7 秒钟关机，等待几秒钟后开机。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 中间件" href="https://notes.0081800.xyz/notes/20210220165816-%E4%B8%AD%E9%97%B4%E4%BB%B6/"></a>
+  <footer class="entry-footer"><span title='2021-03-22 14:59:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS 问题解决三板斧" href="https://notes.0081800.xyz/notes/20210322145956-macos_%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E4%B8%89%E6%9D%BF%E6%96%A7/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>技术随想
+    <h2>macOS TimeMachine 日志
     </h2>
   </header>
   <div class="entry-content">
-    <p> 项目代号 技术概念 </p>
+    <p> tags: macOS 查看 TimeMachine 日志：
+printf &#39;\e[3J&#39; &amp;&amp; log show --predicate &#39;subsystem == &#34;com.apple.TimeMachine&#34;&#39; --debug --last 6m </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 技术随想" href="https://notes.0081800.xyz/notes/20210220165806-%E6%8A%80%E6%9C%AF%E9%9A%8F%E6%83%B3/"></a>
+  <footer class="entry-footer"><span title='2021-03-22 14:58:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS TimeMachine 日志" href="https://notes.0081800.xyz/notes/20210322145854-macos_timemachine_%E6%97%A5%E5%BF%97/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>C/C&#43;&#43; thread-local storage
+    <h2>English IPA
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: C/C&#43;&#43; source: All about thread-local storage </p>
+    <p>tags: Learning English 一些通用的规则：
+音标后面的 ː 提示拖长音。 元音 大而圆 音标 中文 发音技巧 常见单词 拼读规则 /​æ​/ 爱 张大嘴发中文的「爱」,发音短促有力。 bag map dad sad a /​e​/ 爱 音同 /​æ​/ 但是嘴形要小一些。 get let pen yes e /​ɔː​/ 哦 嘴巴轮圆了发音，并拖长音 floor door store sport oor,ore,or /​ɔ​/ 哦 /​ɔː​/ 的短音 lot dog hot shop o 扁扁扁 音标 中文 发音技巧 常见单词 拼读规则 /iː​/ 一 相比一嘴要扁一些，稍稍更用力一些 see meet he she ee, e /​i​/ 一 /iː​/ 短音 happy daddy honey 词尾的 y 或 ey /​I​/ 一 用 /​e​/ 的嘴形发 /​i​/ this give it city i /əː​/ 呃 相比中文嘴要扁一些，稍稍更用力一些 work girl dirt sir or, ir /​ə​/ 呃 /əː​/ 的短音 again a father weather 单独的 a 及词尾的 er 需要额外注意的：...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-19 20:09:00 +0800 +0800'>February 19, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to C/C&#43;&#43; thread-local storage" href="https://notes.0081800.xyz/notes/20210219200958-c_c_thread_local_storage/"></a>
+  <footer class="entry-footer"><span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to English IPA" href="https://notes.0081800.xyz/notes/20210317141647-english_ipa/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

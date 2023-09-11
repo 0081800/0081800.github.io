@@ -148,65 +148,68 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Uniswap V3 Tick
+    <h2>Cheatsheet
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Uniswap V3 source: Shao, 田少谷. “Uniswap v3 Features Explained in Depth.” Taipei Ethereum Meetup (blog), July 20, 2021. https://medium.com/taipei-ethereum-meetup/uniswap-v3-features-explained-in-depth-178cfe45f223. Tick is a price range Each tick is a price range with upper bound and lower bound.
-Tick price from index: \(p(i) = 1.0001 ^ i\)
-1.0001 ** 138162 # 999_998 Tick index from price: \(log_{1.0001}p\)
-import math math.log(1000_000, base=1.0001) # 138162.01321981344 </p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-25 15:14:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Uniswap V3 Tick" href="https://notes.0081800.xyz/notes/20220825151409-uniswap_v3_tick/"></a>
+  <footer class="entry-footer"><span title='2022-09-13 10:54:00 +0800 +0800'>September 13, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Cheatsheet" href="https://notes.0081800.xyz/notes/20220913105435-cheatsheet/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Uniswap V3
+    <h2>PostgresQL
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Uniswap The Graph: Uniswap V3 Subgraph </p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-25 15:11:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Uniswap V3" href="https://notes.0081800.xyz/notes/20220825151116-uniswap_v3/"></a>
+  <footer class="entry-footer"><span title='2022-09-13 10:54:00 +0800 +0800'>September 13, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to PostgresQL" href="https://notes.0081800.xyz/notes/20220913105411-postgresql/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>DeFi
+    <h2>PostgresQL Cheatsheet
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Blockchain </p>
+    <p> tags: PostgresQL, Cheatsheet Create User and Role Docs: Examples of Create Role
+CREATE ROLE whoami WITH LOGIN PASSWORD &#39;P@ssw0rd&#39;; Create Database Docs: Examples of Create Database
+CREATE DATABASE sales OWNER whoami; </p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-25 15:10:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to DeFi" href="https://notes.0081800.xyz/notes/20220825151036-defi/"></a>
+  <footer class="entry-footer"><span title='2022-09-13 10:54:00 +0800 +0800'>September 13, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to PostgresQL Cheatsheet" href="https://notes.0081800.xyz/notes/20220913105403-postgresql_cheatsheet/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Uniswap
+    <h2>GnuPG Agent Cheatsheet
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Blockchain,Ethereum,DeFi </p>
+    <p> tags: GPG, GnuPG Agent,Cheatsheet Stop GPG Agent
+gpg-connect-agent killagent /bye obsolete option “write-env-file” - it has no effect
+set -gx GPG_TTY (tty) set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) gpgconf --launch gpg-agent </p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-25 15:10:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Uniswap" href="https://notes.0081800.xyz/notes/20220825151023-uniswap/"></a>
+  <footer class="entry-footer"><span title='2022-09-08 11:15:00 +0800 +0800'>September 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to GnuPG Agent Cheatsheet" href="https://notes.0081800.xyz/notes/20220908111543-gpg_agent/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Non-Fungible Tokens vs. Fungible Tokens
+    <h2>DeFi from Scratch
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you....</p>
+    <p>tags: DeFi, Blockchain, Uniswap, Uniswap V3 I need derive price from decentralized exchanges, and I have finished some research about Uniswap v3.
+It’s brand new for me, and after that I want to share some ideas about DeFi, and I think it would be helpful for you to understand Uniswap and some other decentralized exchanges.
+DeFi from Scratch We exchange stuffs very often, and we can exchange tokens in a centralized exchange....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-23 10:59:00 +0800 +0800'>August 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Non-Fungible Tokens vs. Fungible Tokens" href="https://notes.0081800.xyz/notes/20220823105929-non_fungible_tokens_vs_fungible_tokens/"></a>
+  <footer class="entry-footer"><span title='2022-08-25 16:05:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to DeFi from Scratch" href="https://notes.0081800.xyz/notes/20220825160507-defi_from_scartch/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
