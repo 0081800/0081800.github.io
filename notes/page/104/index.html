@@ -148,6 +148,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>内存一致性（coherence）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Memory Model，一致性 FROM 硬件内存模型：
+threads in the system must agree about a total order for the writes to a single memory location. That is, threads must agree which writes overwrite other writes. This property is called called coherence.
+内存一致性的系统都所有线程都必须接受对一个内存地址所有写入的总顺序。换句话说，所有线程必须同意哪些写入可以覆盖另外的一些写入。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:09:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存一致性（coherence）" href="https://notes.0081800.xyz/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Memory coherence vs consistency
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
+Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:01:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Memory coherence vs consistency" href="https://notes.0081800.xyz/notes/20210716110147-memory_coherence_vs_consistency/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>悲观与乐观并发控制
     </h2>
   </header>
@@ -189,34 +216,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-07-16 07:48:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 两阶段加锁" href="https://notes.0081800.xyz/notes/20210716074845-%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%8A%A0%E9%94%81/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>串行化
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>实际串行执行 解决并发问题最直接的方法：在一个线程上按照顺序方式每次执行一个事务。
-为什么可行：
-内存越来越便宜，可以将事务需要的数据都放在内存中。 OLTP 事务通常执行很快，只产生少量的读写操作。通常较长时间的分析操作通常是只读。 事务为了充分利用单线程所做的调整：
-采用存储过程封装事务，Redis 采用 Lua 分区 约束 事务必须简短而高效。 事务所需数据都在内存。 写入吞吐量必须低，否则需要采用分区，最好没有跨分区事务。 要支持跨分区事务必须确保跨分区事务占比很小。 两阶段加锁 可串形化的快照隔离 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 07:41:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 串行化" href="https://notes.0081800.xyz/notes/20210716074157-%E4%B8%B2%E8%A1%8C%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>写倾斜
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>即不是脏写也不会更新丢失，事务之间的写冲突并不直接，写倾斜可以视为更广义的数据丢失。
-考虑急诊医生请假系统，核心逻辑是必须要有一个医生值班。两个医生同时请假，事务同时同时开始，那么两个医生都能查询到有两个医生值班，最后请假成功，导致无医生值班。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 07:21:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 写倾斜" href="https://notes.0081800.xyz/notes/20210716072157-%E5%86%99%E5%80%BE%E6%96%9C/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
