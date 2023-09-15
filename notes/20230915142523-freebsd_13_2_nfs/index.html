@@ -9,9 +9,9 @@
 <meta name="keywords" content="">
 <meta name="description" content="Tags: FreeBSD First, configure to start service during the bootstrap:
 sysrc nfs_server_enable=&#34;YES&#34; sysrc nfs_server_flags=&#34;-u -t -n 4&#34; sysrc rpcbind_enable=&#34;YES&#34; sysrc rpc_statd_enable=&#34;YES&#34; sysrc rpc_lockd_enable=&#34;YES&#34; sysrc mountd_flags=&#34;-r&#34; sysrc mountd_enable=&#34;YES&#34; Second, export volume to the network in /etc/exports:
-/data/warehouse -network 192.168.1.0/24 And then we can start the services:
-service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:
-service mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:">
+/data/warehouse -network 192.168.1.0/24 NOTE: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.
+And then we can start the services:
+service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
@@ -63,9 +63,9 @@ service mountd stop service rpcbind stop service nfsd restart service statd rest
 </noscript><meta property="og:title" content="FreeBSD 13.2 NFS" />
 <meta property="og:description" content="Tags: FreeBSD First, configure to start service during the bootstrap:
 sysrc nfs_server_enable=&#34;YES&#34; sysrc nfs_server_flags=&#34;-u -t -n 4&#34; sysrc rpcbind_enable=&#34;YES&#34; sysrc rpc_statd_enable=&#34;YES&#34; sysrc rpc_lockd_enable=&#34;YES&#34; sysrc mountd_flags=&#34;-r&#34; sysrc mountd_enable=&#34;YES&#34; Second, export volume to the network in /etc/exports:
-/data/warehouse -network 192.168.1.0/24 And then we can start the services:
-service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:
-service mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:" />
+/data/warehouse -network 192.168.1.0/24 NOTE: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.
+And then we can start the services:
+service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-09-15T14:25:00+08:00" />
@@ -75,9 +75,9 @@ service mountd stop service rpcbind stop service nfsd restart service statd rest
 <meta name="twitter:title" content="FreeBSD 13.2 NFS"/>
 <meta name="twitter:description" content="Tags: FreeBSD First, configure to start service during the bootstrap:
 sysrc nfs_server_enable=&#34;YES&#34; sysrc nfs_server_flags=&#34;-u -t -n 4&#34; sysrc rpcbind_enable=&#34;YES&#34; sysrc rpc_statd_enable=&#34;YES&#34; sysrc rpc_lockd_enable=&#34;YES&#34; sysrc mountd_flags=&#34;-r&#34; sysrc mountd_enable=&#34;YES&#34; Second, export volume to the network in /etc/exports:
-/data/warehouse -network 192.168.1.0/24 And then we can start the services:
-service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:
-service mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:"/>
+/data/warehouse -network 192.168.1.0/24 NOTE: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.
+And then we can start the services:
+service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:"/>
 
 
 <script type="application/ld+json">
@@ -106,12 +106,12 @@ service mountd stop service rpcbind stop service nfsd restart service statd rest
   "@type": "BlogPosting",
   "headline": "FreeBSD 13.2 NFS",
   "name": "FreeBSD 13.2 NFS",
-  "description": "Tags: FreeBSD First, configure to start service during the bootstrap:\nsysrc nfs_server_enable=\u0026#34;YES\u0026#34; sysrc nfs_server_flags=\u0026#34;-u -t -n 4\u0026#34; sysrc rpcbind_enable=\u0026#34;YES\u0026#34; sysrc rpc_statd_enable=\u0026#34;YES\u0026#34; sysrc rpc_lockd_enable=\u0026#34;YES\u0026#34; sysrc mountd_flags=\u0026#34;-r\u0026#34; sysrc mountd_enable=\u0026#34;YES\u0026#34; Second, export volume to the network in /etc/exports:\n/data/warehouse -network 192.168.1.0/24 And then we can start the services:\nservice nfsd start service statd start service lockd start You need to stop extra services when you want to restart:\nservice mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:",
+  "description": "Tags: FreeBSD First, configure to start service during the bootstrap:\nsysrc nfs_server_enable=\u0026#34;YES\u0026#34; sysrc nfs_server_flags=\u0026#34;-u -t -n 4\u0026#34; sysrc rpcbind_enable=\u0026#34;YES\u0026#34; sysrc rpc_statd_enable=\u0026#34;YES\u0026#34; sysrc rpc_lockd_enable=\u0026#34;YES\u0026#34; sysrc mountd_flags=\u0026#34;-r\u0026#34; sysrc mountd_enable=\u0026#34;YES\u0026#34; Second, export volume to the network in /etc/exports:\n/data/warehouse -network 192.168.1.0/24 NOTE: you shouldn\u0026rsquo;t export the pool root while you are using ZFS, as it can\u0026rsquo;t show the children in a datasets of it.\nAnd then we can start the services:\nservice nfsd start service statd start service lockd start You need to stop extra services when you want to restart:",
   "keywords": [
     
   ],
-  "articleBody": " Tags: FreeBSD First, configure to start service during the bootstrap:\nsysrc nfs_server_enable=\"YES\" sysrc nfs_server_flags=\"-u -t -n 4\" sysrc rpcbind_enable=\"YES\" sysrc rpc_statd_enable=\"YES\" sysrc rpc_lockd_enable=\"YES\" sysrc mountd_flags=\"-r\" sysrc mountd_enable=\"YES\" Second, export volume to the network in /etc/exports:\n/data/warehouse -network 192.168.1.0/24 And then we can start the services:\nservice nfsd start service statd start service lockd start You need to stop extra services when you want to restart:\nservice mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:\nshowamount -e 192.168.1.x # replace 192.168.1.x to your real ip ",
-  "wordCount" : "101",
+  "articleBody": " Tags: FreeBSD First, configure to start service during the bootstrap:\nsysrc nfs_server_enable=\"YES\" sysrc nfs_server_flags=\"-u -t -n 4\" sysrc rpcbind_enable=\"YES\" sysrc rpc_statd_enable=\"YES\" sysrc rpc_lockd_enable=\"YES\" sysrc mountd_flags=\"-r\" sysrc mountd_enable=\"YES\" Second, export volume to the network in /etc/exports:\n/data/warehouse -network 192.168.1.0/24 NOTE: you shouldn’t export the pool root while you are using ZFS, as it can’t show the children in a datasets of it.\nAnd then we can start the services:\nservice nfsd start service statd start service lockd start You need to stop extra services when you want to restart:\nservice mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:\nshowamount -e 192.168.1.x # replace 192.168.1.x to your real ip ",
+  "wordCount" : "124",
   "inLanguage": "en",
   "datePublished": "2023-09-15T14:25:00+08:00",
   "dateModified": "2023-09-15T14:25:00+08:00",
@@ -219,7 +219,10 @@ service mountd stop service rpcbind stop service nfsd restart service statd rest
 </span></span><span style="display:flex;"><span>sysrc mountd_enable<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YES&#34;</span>
 </span></span></code></pre></div><p>Second, export volume to the network in <code>/etc/exports</code>:</p>
 <pre tabindex="0"><code class="language-fundamental" data-lang="fundamental">/data/warehouse -network 192.168.1.0/24
-</code></pre><p>And then we can start the services:</p>
+</code></pre><blockquote>
+<p><strong>NOTE</strong>: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.</p>
+</blockquote>
+<p>And then we can start the services:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>service nfsd start
 </span></span><span style="display:flex;"><span>service statd start
 </span></span><span style="display:flex;"><span>service lockd start
