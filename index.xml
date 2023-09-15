@@ -6,7 +6,20 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 Sep 2023 14:54:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Sep 2023 14:25:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD 13.2 NFS</title>
+      <link>https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/</link>
+      <pubDate>Fri, 15 Sep 2023 14:25:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/</guid>
+      <description>Tags: FreeBSD First, configure to start service during the bootstrap:
+sysrc nfs_server_enable=&amp;#34;YES&amp;#34; sysrc nfs_server_flags=&amp;#34;-u -t -n 4&amp;#34; sysrc rpcbind_enable=&amp;#34;YES&amp;#34; sysrc rpc_statd_enable=&amp;#34;YES&amp;#34; sysrc rpc_lockd_enable=&amp;#34;YES&amp;#34; sysrc mountd_flags=&amp;#34;-r&amp;#34; sysrc mountd_enable=&amp;#34;YES&amp;#34; Second, export volume to the network in /etc/exports:
+/data/warehouse -network 192.168.1.0/24 And then we can start the services:
+service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:
+service mountd stop service rpcbind stop service nfsd restart service statd restart service lockd restart Finally, we can use showmount command to see if it works:</description>
+    </item>
+    
     <item>
       <title>ZFS</title>
       <link>https://notes.0081800.xyz/notes/20230911145434-zfs/</link>
