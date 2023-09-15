@@ -143,19 +143,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Ethereum Wire Protocol
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum Sub-protocols, Ethereum Simulator Node Started when a RLPx session had initiated. Three main tasks before switch to PoS:
-Chain synchronization Block propagation Transaction exchange: exchange pending transaction between nodes. Only transaction exchange remit after switch to PoS.</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Wire Protocol" href="https://notes.0081800.xyz/notes/20230614091142-ethereum_wire_protocol/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>Ethereum DevP2P
     </h2>
   </header>
@@ -205,6 +192,23 @@ SendTransaction SendRawTransaction And both of them are pointing to SubmitTransa
   </div>
   <footer class="entry-footer"><span title='2023-06-12 10:08:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to How is a Transaction Broadcasted" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Ethereum Simulator Node
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
+Relay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.
+Things need to consider:
+How to limit or identify transactions that need to simulate?
+Only execute the transactions from local txpool.
+Where to execute the transction previously?...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-12 10:03:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Simulator Node" href="https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

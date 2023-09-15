@@ -148,21 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>中间件
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: 技术，技术概念 中间件可以对系统进行解耦，比如上层系统对下层系统进行网络请求，考虑下面结构
-- U - / | \ /--- | ---\ / | \ A B C 如果下层系统增加节点的话就需要重启 U。
-引入 HAProxy 或者 Nginx 之类的中间件可以对两层系统进行解耦：
-U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这样上层和下层系统都依赖中间件，但是系统之间不再强耦合，下层系统可以依赖中间件随意的进行所扩容而不用被上层系统感知。 这时候中间件只要保证中间件稳定即可，可以在中间件上进行热重启。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 中间件" href="https://notes.0081800.xyz/notes/20210220165816-%E4%B8%AD%E9%97%B4%E4%BB%B6/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>技术随想
     </h2>
   </header>
@@ -207,6 +192,19 @@ U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这�
   </div>
   <footer class="entry-footer"><span title='2021-01-18 11:47:00 +0800 +0800'>January 18, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to GDB 打出所有线程的 Backtrace" href="https://notes.0081800.xyz/notes/20210118114707-gdb_%E6%89%93%E5%87%BA%E6%89%80%E6%9C%89%E7%BA%BF%E7%A8%8B%E7%9A%84_backtrace/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>C&#43;&#43; LSP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Emacs,LSP,C/C&#43;&#43;,CMake 通过如下命令生成 clangd 识别的编译配置文件
+mkdir build cd build cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. mv compile_commands.json ../ 然后重启 M-x lsp-restart-workspace RET 即可。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-01-14 17:50:00 +0800 +0800'>January 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; LSP" href="https://notes.0081800.xyz/notes/20210114175011-lsp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

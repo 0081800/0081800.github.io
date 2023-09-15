@@ -143,18 +143,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>星型拓扑
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>通过指定一个根节点，根结点将所有的写操作转发给其他所有节点。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-15 08:41:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 星型拓扑" href="https://notes.0081800.xyz/notes/20210615084143-%E6%98%9F%E5%9E%8B%E6%8B%93%E6%89%91/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>环形拓扑
     </h2>
   </header>
@@ -206,6 +194,26 @@
   </div>
   <footer class="entry-footer"><span title='2021-06-15 08:29:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 避免冲突" href="https://notes.0081800.xyz/notes/20210615082908-%E9%81%BF%E5%85%8D%E5%86%B2%E7%AA%81/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>前缀一致读
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>对于一系列按照某个顺序发生的写请求，同时读取这些内容时也会按照当时写入的顺序。
+场景 分区数据库中出现的一个特殊问题。
+正常对话：
+P: C小姐，你能看到多远的文莱？
+C：大约 10s，P 先生。
+但是由于复制滞后，最终能被观察到的可能是：
+C：大约 10s，P 先生。
+P: C小姐，你能看到多远的文莱？
+解决方案 低效率：具有因果关系的写入都交给一个分区来完成。 新方法：跟踪事件因果关系。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 21:16:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 前缀一致读" href="https://notes.0081800.xyz/notes/20210614211632-%E5%89%8D%E7%BC%80%E4%B8%80%E8%87%B4%E8%AF%BB/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

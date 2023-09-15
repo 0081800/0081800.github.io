@@ -148,19 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>C&#43;&#43; 同步原子（atomic）
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: C&#43;&#43;11 内存模型 C&#43;&#43; 采用了顺序一致的原子变量，很像Java 同步原子（volatile）(与 C&#43;&#43; volatile 没有关系）。
-atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); while(atomic_load(&amp;done) == 0) { /* loop */ } C&#43;&#43; 弱同步原子（acquire/release atomic） </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 11:38:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to C&#43;&#43; 同步原子（atomic）" href="https://notes.0081800.xyz/notes/20210716113858-c_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_atomic/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>DRF-SC 还是着火（Catch Fire）
     </h2>
   </header>
@@ -209,6 +196,18 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 //
   </div>
   <footer class="entry-footer"><span title='2021-07-16 11:24:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Java 决定竞争读写的具体规则" href="https://notes.0081800.xyz/notes/20210716112456-java_%E5%86%B3%E5%AE%9A%E7%AB%9E%E4%BA%89%E8%AF%BB%E5%86%99%E7%9A%84%E5%85%B7%E4%BD%93%E8%A7%84%E5%88%99/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>内存顺序一致性（sequential consistency）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>See also: 顺序一致性。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:10:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存顺序一致性（sequential consistency）" href="https://notes.0081800.xyz/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

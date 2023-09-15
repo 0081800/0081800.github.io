@@ -148,18 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode: 92. Reverse Linked List II
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode source: https://leetcode.com/problems/reverse-linked-list-ii/ /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode() : val(0), next(nullptr) {} * ListNode(int x) : val(x), next(nullptr) {} * ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */ class Solution { public: ListNode* reverseBetween(ListNode* head, int left, int right) { stack&lt;int&gt; st; ListNode* cur = head; ListNode* prev_start = nullptr; if (left == 1) { prev_start = new ListNode(0, head); // dummy prev_start point to head } int i = 1; while(cur !...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-14 06:55:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 92. Reverse Linked List II" href="https://notes.0081800.xyz/notes/20210714065549-leetcode_92_reverse_linked_list_ii/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>Emacs Projectile 优化
     </h2>
   </header>
@@ -212,6 +200,19 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
   </div>
   <footer class="entry-footer"><span title='2021-07-13 20:10:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Java 编译器公共子表达式消除（common subexpression elimination）" href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>原始 Java 内存模型（1996）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Java 内存模型,Java Java 是第一个试图写下多线程程序保证的主流语言。它包括：
+互斥体（mutex），并定义了它们隐含的内存排序要求。 “volatile” 原子变量: volatile 变量的所有读和写都需要直接在主内存中按程序顺序执行，使得对 volatile 变量的操作以顺序一致的方式进行。 制定了（或者至少试图制定）具有数据竞争的程序的行为。 缺陷 Atomic 需要同步：volatile 原子变量是不同步的，所以它们无助于消除程序其余部分的竞争。不能用于构建新的同步原语。 一致性与编译器优化不兼容：Java 编译器公共子表达式消除（common subexpression elimination）会导致其他线程写入新值无法对消除后表达式生效。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:05:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原始 Java 内存模型（1996）" href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

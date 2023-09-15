@@ -148,18 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>模式匹配
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>#[derive(Debug)] enum UsState { Alabama, Alaska, } enum Coin { Penny, Nickel, Dime, Quarter(UsState), } fn value_cents(coin: Coin) -&gt; u8 { match coin { Coin::Peny =&gt; { println!(&#34;Lucy penny!&#34;); 1 }, Coin::Nickel =&gt; 5, Coin::Dime =&gt; 10, Coin::Quarter(state) =&gt; { println!(&#34;State quarter from {:?}!&#34;, state); 25 }, } } // Option fn plus_one(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; { match x { None =&gt; None, Some(i) =&gt; Some(i &#43; 1), } } let five = Some(5); let six = plus_one(five); let none = plus_one(None); 编译器会检查 match 覆盖所有情况， _ 可以用于所有未覆盖的情况。</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:01:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 模式匹配" href="https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>枚举
     </h2>
   </header>
@@ -223,6 +211,27 @@ Copy 特性（trait）注解用于将值存贮在栈栈上 Copy 特性注解不�
   </div>
   <footer class="entry-footer"><span title='2020-06-29 17:49:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 所有权" href="https://notes.0081800.xyz/notes/20200629174911-%E6%89%80%E6%9C%89%E6%9D%83/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>语句和表达式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rust 区分语句和表达式， Rust 是基于表达式的语言：
+语句：执行动作并且不返回值
+使用 let 声明变量是语句，所以 let 语句不返回值，也就不能像 Python 那样将 let 语句赋值给其他变量 函数声明也是语句 表达式：计算并返回值，不以分号（;）结尾
+5 &#43; 6 是一个表达式，计算并返回值 11
+表达式可以作为语句的一部分
+函数调用是表达式
+宏调用是表达式
+用 {} 创建的块也是表达式
+let x = { let y = 6; y &#43; 5 } if loop while for 是表达式
+在表达式后面增加分号（;）可以将一个表达式转为语句。</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 17:48:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 语句和表达式" href="https://notes.0081800.xyz/notes/20200629174820-%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
