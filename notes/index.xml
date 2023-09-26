@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Sep 2023 14:25:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Sep 2023 10:57:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sui_getTransactionBlock</title>
+      <link>https://notes.0081800.xyz/notes/20230926105739-sui_gettransactionblock/</link>
+      <pubDate>Tue, 26 Sep 2023 10:57:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20230926105739-sui_gettransactionblock/</guid>
+      <description> tags: Sui POST https://fullnode.mainnet.sui.io Content-Type: application/json { &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;id&amp;#34;: 1, &amp;#34;method&amp;#34;: &amp;#34;sui_getTransactionBlock&amp;#34;, &amp;#34;params&amp;#34;: [ &amp;#34;6wthaE4QzjWM7HnAzm6Pd4ymkNtadbHnqQkTXY7Ne1L3&amp;#34;, { &amp;#34;showInput&amp;#34;: true, &amp;#34;showRawInput&amp;#34;: false, &amp;#34;showEffects&amp;#34;: true, &amp;#34;showEvents&amp;#34;: true, &amp;#34;showObjectChanges&amp;#34;: true, &amp;#34;showBalanceChanges&amp;#34;: true } ] } </description>
+    </item>
+    
     <item>
       <title>FreeBSD 13.2 NFS</title>
       <link>https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/</link>

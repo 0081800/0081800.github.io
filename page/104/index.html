@@ -143,6 +143,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>内存顺序一致性（sequential consistency）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>See also: 顺序一致性。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:10:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存顺序一致性（sequential consistency）" href="https://notes.0081800.xyz/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>内存一致性（coherence）
     </h2>
   </header>
@@ -193,24 +205,6 @@ Memory coherence: a memory system is coherent if any read of a data item returns
   </div>
   <footer class="entry-footer"><span title='2021-07-16 07:57:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 可串形化的快照隔离" href="https://notes.0081800.xyz/notes/20210716075758-%E5%8F%AF%E4%B8%B2%E5%BD%A2%E5%8C%96%E7%9A%84%E5%BF%AB%E7%85%A7%E9%9A%94%E7%A6%BB/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>两阶段加锁
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>两阶段枷锁（two-phase locking，2PL）是近 30 年来数据库唯一一种被广泛使用的串形化算法。 多个事务可以同时读取同一个对象，但只要出现任何写操作（修改或删除），则必须加锁以独占访问。
-两阶段包括：
-事务执行之前要获得锁（第一阶段） 事务结束之后要释放锁（第二阶段） 实现 2PL 用于 MySQL（InnoDB）和 SQL Server 中的“可串形化隔离”，以及 DB2 的“可重复读”。
-每个对象通过一个「读写锁」隔离读写操作。
-共享锁进行读取。 独占锁进行修改。 读取先获取共享锁，如果要修改则升级为独占锁。 事务获得锁之后一直持有到事务结束。 性能 慢和死锁
-谓词锁 通过对区间条件加谓词锁。
-索引区间锁 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 07:48:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 两阶段加锁" href="https://notes.0081800.xyz/notes/20210716074845-%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%8A%A0%E9%94%81/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
