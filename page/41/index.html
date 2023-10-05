@@ -143,6 +143,31 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 1663. Smallest String With A Given Numeric Value
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: String,LeetCode101,Tricky Initialize a string that fills &#39;a&#39; in it. Then we turn it to the expected string from end to start.
+The maximal value of each position in the string is 26. If we start from all elements is &#39;a&#39; in the string. Then the represent value of the string is n. If it’s not equal to k. Then we need turn the last character of string to r = k - n....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-22 16:22:00 +0800 +0800'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 1663. Smallest String With A Given Numeric Value" href="https://notes.0081800.xyz/notes/20220322162250-leetcode101_1663_smallest_string_with_a_given_numeric_value/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode101: 12. Integer to Roman
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Math,Hash Table,LeetCode101 class Solution { public: string intToRoman(int num) { vector&lt;string&gt; roman {&#34;M&#34;, &#34;CM&#34;, &#34;D&#34;, &#34;CD&#34;, &#34;C&#34;, &#34;XC&#34;, &#34;L&#34;, &#34;XL&#34;, &#34;X&#34;, &#34;IX&#34;, &#34;V&#34;, &#34;IV&#34;, &#34;I&#34;}; vector&lt;int&gt; integers {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 }; string r; int times = 0; for (int i = 0; i &lt; integers.size(); &#43;&#43;i) { if (num &gt;= integers[i]) { times = num / integers[i]; num -= times * integers[i]; for (int j = times; j &gt; 0; --j) { r....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-22 15:59:00 +0800 +0800'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 12. Integer to Roman" href="https://notes.0081800.xyz/notes/20220322155933-leetcode101_12_integer_to_roman/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 11. Container With Most Water
     </h2>
   </header>
@@ -178,31 +203,6 @@ class Solution { public: vector&lt;int&gt; partitionLabels(string s) { unordered
   </div>
   <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 763. Partition Labels" href="https://notes.0081800.xyz/notes/20220321174504-leetcode101_763_partition_labels/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>String
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Algorithm </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to String" href="https://notes.0081800.xyz/notes/20220321174510-string/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 9. Palindrome Number
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode101,Math The key idea is:
-To use \(log10(10^n) = n\) to get how many digits in the number. Then we need iterate \(n &#43; 1\) times to compare each side. The digit in the left is \(\frac{x}{10^{n-i}} \mod 10\). The digit in the right is \(\frac{x}{10^i} \mod 10\). class Solution { public: bool isPalindrome(int x) { if (x &lt; 0) { return false; } // failed at here if (x &lt; 10) { return true; } int n = log10(x); int ld = pow(10, n); // left div int rd = 1; // right div for (int i = 0; i &lt; (n &#43; 1) / 2; i&#43;&#43;) { // left right if (x / ld % 10 !...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-18 08:44:00 +0800 +0800'>March 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 9. Palindrome Number" href="https://notes.0081800.xyz/notes/20220318084438-leetcode101_9_palindrome_number/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

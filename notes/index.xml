@@ -6,7 +6,26 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 26 Sep 2023 10:57:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Oct 2023 20:20:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YubiKey-Guide</title>
+      <link>https://notes.0081800.xyz/notes/20231005202026-yubikey_guide/</link>
+      <pubDate>Thu, 05 Oct 2023 20:20:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231005202026-yubikey_guide/</guid>
+      <description> tags: GPG, Yubikey source: https://github.com/drduh/YubiKey-Guide </description>
+    </item>
+    
+    <item>
+      <title>A Visual Explanation of GPG Subkeys</title>
+      <link>https://notes.0081800.xyz/notes/20231005201518-a_visual_explanation_of_gpg_subkeys/</link>
+      <pubDate>Thu, 05 Oct 2023 20:15:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231005201518-a_visual_explanation_of_gpg_subkeys/</guid>
+      <description> tags: GPG, Yubikey source: “A Visual Explanation of GPG Subkeys - Richard Goulter’s Blog.” Accessed October 5, 2023. https://rgoulter.com/blog/posts/programming/2022-06-10-a-visual-explanation-of-gpg-subkeys.html. What does the [SC] or [E] mean in the output of gpt --list-keys:
+E = encrypt/descript S = sign C = certify(sign another key, establishing a trust relation) A = authentication(log in to SSH with a PG key) </description>
+    </item>
+    
     <item>
       <title>sui_getTransactionBlock</title>
       <link>https://notes.0081800.xyz/notes/20230926105739-sui_gettransactionblock/</link>
@@ -4024,7 +4043,10 @@ With a hash function, let&amp;rsquo;s say SHA-1. For example, to do PoW, we need
       <pubDate>Sat, 01 Jan 2022 08:06:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20220101080622-paper_time_clocks_and_the_ordering_of_events_in_a_distributed_system/</guid>
-      <description> tags: 分布式,一致性 source: https://lamport.azurewebsites.net/pubs/time-clocks.pdf </description>
+      <description> tags: 分布式,一致性 source: https://lamport.azurewebsites.net/pubs/time-clocks.pdf The Big Problem The event order in a distributed system.
+The defination of a distributed system: the order of its events occurred is unpredictable, sometimes it&amp;rsquo;s impossiable to say a event occurred before another.
+How this paper try to solve this problem: use a &amp;ldquo;happened before&amp;rdquo; relation to define a partial ordering and distributed algorithm.
+Background </description>
     </item>
     
     <item>
