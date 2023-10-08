@@ -6,7 +6,17 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Oct 2023 20:20:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Oct 2023 09:18:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making Hard Things Easy</title>
+      <link>https://notes.0081800.xyz/notes/20231008091859-making_hard_things_easy/</link>
+      <pubDate>Sun, 08 Oct 2023 09:18:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231008091859-making_hard_things_easy/</guid>
+      <description> source: Evans, Julia. “New Talk: Making Hard Things Easy.” Julia Evans, October 6, 2023. https://jvns.ca/blog/2023/10/06/new-talk--making-hard-things-easy/. How to:
+Reusable tools: shellcheck Find Good Documentation in that field, for example, HTTP: MDN RFC(rfc9110) Big list to small list, focus on the core: Only learn a few arguments about grep Only know a few fields about the output of dig Understand how computer executed chronologically: SQL Understand the hidden parts: DNS (resolve, library, servers) Communication with each other </description>
+    </item>
+    
     <item>
       <title>YubiKey-Guide</title>
       <link>https://notes.0081800.xyz/notes/20231005202026-yubikey_guide/</link>

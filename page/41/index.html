@@ -143,6 +143,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 991. Broken Calculator
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Math,backtracking,LeetCode101 Backtracking and stack overflow Intuition:
+We can abstract all the operations to a Tree, then apply DFS on it.
+For example: startValue=2, target=3, the tree looks like:
+/* 2 /\ / \ / \ 1(-1) 4(x2) /\ /\--&#43; / \ / \ 0(-1) 2(x2) 3(-1) 8(x2) */ class Solution { public: int brokenCalc(int startValue, int target) { unordered_set&lt;int&gt; visited; return backtracking(0, startValue, target, visited); } int backtracking(int count, int val, int target, unordered_set&lt;int&gt; &amp; visited) { if (val == target) { return count; } if (visited....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-23 17:58:00 +0800 +0800'>March 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 991. Broken Calculator" href="https://notes.0081800.xyz/notes/20220323175835-leetcode101_991_broken_calculator/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 1663. Smallest String With A Given Numeric Value
     </h2>
   </header>
@@ -190,19 +205,6 @@ The key idea is not only about stack, but also required a map to record how many
   </div>
   <footer class="entry-footer"><span title='2022-03-21 17:47:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 316. Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 763. Partition Labels
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: String,LeetCode101,Hash Set,Hash Table,Stack The key idea is similar to LeetCode101: 316. Remove Duplicate Letters, we use a HashMap to track how many letters which is same in the string. Then we use a HashSet to store appeared letters. When there is no more letters appeared in the HashSet, it’s time to partition.
-class Solution { public: vector&lt;int&gt; partitionLabels(string s) { unordered_map&lt;char, int&gt; cntOfLetters; unordered_set&lt;char&gt; appearedLetters; vector&lt;int&gt; r; int count = 0; for (auto iter = s....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 763. Partition Labels" href="https://notes.0081800.xyz/notes/20220321174504-leetcode101_763_partition_labels/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

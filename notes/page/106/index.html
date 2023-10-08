@@ -148,6 +148,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>写倾斜
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>即不是脏写也不会更新丢失，事务之间的写冲突并不直接，写倾斜可以视为更广义的数据丢失。
+考虑急诊医生请假系统，核心逻辑是必须要有一个医生值班。两个医生同时请假，事务同时同时开始，那么两个医生都能查询到有两个医生值班，最后请假成功，导致无医生值班。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:21:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 写倾斜" href="https://notes.0081800.xyz/notes/20210716072157-%E5%86%99%E5%80%BE%E6%96%9C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>写倾斜与幻读
     </h2>
   </header>
@@ -197,22 +210,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-07-15 06:44:00 +0800 +0800'>July 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode: 25. Reverse Nodes in k-Group" href="https://notes.0081800.xyz/notes/20210715064442-leetcode_25_reverse_nodes_in_k_group/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>事务隔离级别
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>读-未提交 读数据时，会读到未成功提交的数据（未防止“脏读”） 写数据时，只会覆盖已成功提交的数据（防止“脏写”） 读-提交 读数据时，只会读到已成功提交的数据（防止“脏读”） 写数据时，只会覆盖已成功提交的数据（防止“脏写”） 防止脏写 通常通过推迟第二个写请求（行锁），直到前面的事务完成提交（或者终止）。
-防止脏读 通过行锁同样可以避免脏读，但是实际中不可行（性能太差），一般采用类似 MVCC 的方式：对于待更新的对象，数据库都会维护其旧值和当前持锁事务将要设置的新值两个版本。 事务提交之前，其他所有读操作读旧值；仅当写事务提交之后，才会切换到读取新值。
-可重复读（快照级别隔离） 在同一个事务中，反复读取总能获得一致性的结果，而不会读取到其他事务提交修改的新值。总体性想法是：每个事务都从数据库的一致性快照中读取，事务一开始所看到的是最近提交的数据，即使数据随后可能被另外一个事务更改，但保证每个事务都只看到特定时间点的旧数据。
-实现快照级别隔离 MVCC
-串行化 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-14 07:49:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 事务隔离级别" href="https://notes.0081800.xyz/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
