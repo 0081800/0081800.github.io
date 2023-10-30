@@ -143,6 +143,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 1249. Minimum Remove to Make Valid Parentheses
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Stack,LeetCode101 Stack class Solution { public: string minRemoveToMakeValid(string s) { stack&lt;char&gt; st; char open = &#39;(&#39;, close = &#39;)&#39;; int open_count = 0; string res; // forward to remove unnecessary close parentheses for (auto iter = s.begin(); iter != s.end(); &#43;&#43;iter) { if (*iter == open) { open_count&#43;&#43;; } if (open_count == 0 &amp;&amp; *iter == close) { continue; } if (*iter == close) { open_count--; } st.push(*iter); } int close_count = 0; // backward to remove unnecessary open parentheses while (!...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-16 08:00:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 1249. Minimum Remove to Make Valid Parentheses" href="https://notes.0081800.xyz/notes/20220316080026-leetcode101_1249_minimum_remove_to_make_valid_parentheses/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 769. Max Chunks To Make Sorted
     </h2>
   </header>
@@ -190,19 +202,6 @@ The largest number is the root, that we can observe in by iteration. We must cle
   </div>
   <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 581. Shortest Unsorted Continuous Subarray
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Monotonic Stack,LeetCode101 Mono-increasing stack Key:
-Some case should move backward as the new value we meeted is larger than it. When we meet 2 in the stack, and here we need move backward. Some case we need move forward, as the following values are the mono-increaing stack: [1, 2, 5, 3, 4] class Solution { public: int findUnsortedSubarray(vector&lt;int&gt;&amp; nums) { stack&lt;int&gt; st; // mono-increasing int left = -1, right = -2; for (int i = 0; i &lt; nums....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-15 07:13:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 581. Shortest Unsorted Continuous Subarray" href="https://notes.0081800.xyz/notes/20220315071351-leetcode101_581_shortest_unsorted_continuous_subarray/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -148,6 +148,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>FreeBSD LiveCD Import ZFS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: ZFS, FreeBSD $ mkdir /tmp/zroot $ zpool import -fR /tmp/zroot zroot $ zfs mount zroot/ROOT/default </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-10-20 16:05:00 +0800 +0800'>October 20, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to FreeBSD LiveCD Import ZFS" href="https://notes.0081800.xyz/notes/20231020160536-freebsd_livecd_import_zfs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Making Hard Things Easy
     </h2>
   </header>
@@ -194,21 +206,6 @@ E = encrypt/descript S = sign C = certify(sign another key, establishing a trust
   </div>
   <footer class="entry-footer"><span title='2023-09-26 10:57:00 +0800 +0800'>September 26, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to sui_getTransactionBlock" href="https://notes.0081800.xyz/notes/20230926105739-sui_gettransactionblock/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>FreeBSD 13.2 NFS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Tags: FreeBSD First, configure to start service during the bootstrap:
-sysrc nfs_server_enable=&#34;YES&#34; sysrc nfs_server_flags=&#34;-u -t -n 4&#34; sysrc rpcbind_enable=&#34;YES&#34; sysrc rpc_statd_enable=&#34;YES&#34; sysrc rpc_lockd_enable=&#34;YES&#34; sysrc mountd_flags=&#34;-r&#34; sysrc mountd_enable=&#34;YES&#34; Second, export volume to the network in /etc/exports:
-/data/warehouse -mapall=root -network 192.168.1.0/24 NOTE: you shouldn’t export the pool root while you are using ZFS, as it can’t show the children in a datasets of it.
-And then we can start the services:...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-09-15 14:25:00 +0800 +0800'>September 15, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to FreeBSD 13.2 NFS" href="https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

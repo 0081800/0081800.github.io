@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Oct 2023 09:18:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Oct 2023 16:05:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD LiveCD Import ZFS</title>
+      <link>https://notes.0081800.xyz/notes/20231020160536-freebsd_livecd_import_zfs/</link>
+      <pubDate>Fri, 20 Oct 2023 16:05:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231020160536-freebsd_livecd_import_zfs/</guid>
+      <description> tags: ZFS, FreeBSD $ mkdir /tmp/zroot $ zpool import -fR /tmp/zroot zroot $ zfs mount zroot/ROOT/default </description>
+    </item>
+    
     <item>
       <title>Making Hard Things Easy</title>
       <link>https://notes.0081800.xyz/notes/20231008091859-making_hard_things_easy/</link>

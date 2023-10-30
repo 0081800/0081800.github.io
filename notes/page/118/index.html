@@ -148,6 +148,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Avro
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>两种模式语言：IDL 用于人工编辑，另一种更易于机器读取。
+Avro 编码数据中只有对应字段的长度和具体的数据，不包含字段的类型信息。
+写模式与读模式 写模式：使用所知道的模式的任何版本来编码数据（可以编译到代码中） 读模式：解码时期望数据符合某个模式，可能是构建过程中基于模式生成 Avro 的关键思想是写模式和读不必完全一样，只需要保持兼容，由读取端解决差异：通过对比查看写模式和读模式并将数据从写模式转换为读模式。
+读取数据的代码中遇到出现在写模式但是不在读模式的字段，则忽略。 如果读数据的带代码需要某个字段，但是写模式不包含该字段的名称，则使用在读模式中声明的默认值填充。 模式演化 向前兼容：新版本的模式作为 writer，旧版本的模式作为 reader。 向后兼容：新版本的模式作为 reader，旧版本的模式作为 writer。 同时为了保持兼容性，只能添加莫删除具有默认值的字段。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Avro" href="https://notes.0081800.xyz/notes/20210610222725-avro/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Thrift 与 Protocol Buffers
     </h2>
   </header>
@@ -197,25 +212,6 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
   </div>
   <footer class="entry-footer"><span title='2021-06-10 21:43:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to OLTP" href="https://notes.0081800.xyz/notes/20210610214348-oltp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>B-trees
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>B-tree 是最广泛使用的索引结构。和排序字符串表：SSTables一样，B-tree 保留按键排序的 key-value 对， 这样可以实现高效的 key-value 查找和区间查询。
-结构 B-tree 将数据库分解成固定大小的页或块，传统上 4KB，这种设计更接近底层硬件，磁盘也是以固定大小的块排列的。
-分页因子 B-tree 中一个页所包含的子页引用数量称为分支因子。
-添加新键 找到其范围新键的页 如果页没有足够的可用空间来容纳新键，则将其分裂为两个半满的页，并更新父页以包含新的键范围。 算法确保树保持平衡：具有 n 个键的 B-tree 总是具有 \(O(log n)\) 的深度。大多数据库适合 3~4 层的 B-tree。 分支因子为 500 的 4KB 页的四级树可以存储高达 256TB。
-可靠性：WAL B-tree 底层的基本写操作是使用新的数据覆盖磁盘上的旧页。
-如果发生页分裂则需要覆盖多个不同的页，同时更新父页，这个操作比较危险，如果此时发生崩溃则会破坏索引。 常见的 B-tree 使用额外的数据结构：预写日志(WAL)：
-追加的写 WAL； 每个 B-tree 必须先更新 WAL 然后再修改树本身的页。 通过使用「锁存器」保护进行并发控制，保护 B-tree 页被多个线程访问而看到树不一样的状态。
-优化 通过复制方案替代 WAL 进行崩溃恢复，修改的页被写入不同的位置，树中父页的新版本被创建，并指向新的位置。 保存键的缩略信息，可以压入更多的键，保持更高的分支因子，减少层数。 对树进行布局，相邻叶子页按顺序保存在磁盘。 添加额外的指针到树中，如左右兄弟页。 变体，如分形树：借鉴日志结构减少磁盘寻道。 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to B-trees" href="https://notes.0081800.xyz/notes/20210606143901-b_trees/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
