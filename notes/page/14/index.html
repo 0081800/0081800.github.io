@@ -148,6 +148,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Decode input data of Ethereum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Ethereum,Blockchain,Tron source: https://ethereum.stackexchange.com/a/110498 const data = &#39;0x7ff36ab50000000000000000000000000000000000000000000000bc18ba4144048bbab00000000000000000000000000000000000000000000000000000000000000080000000000000000000000000c0c5eb43e2df059e3be6e4fb0284c283caa5991900000000000000000000000000000000000000000000000000000000614d87a80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c00000000000000000000000008ba0619b1e7a582e0bce5bbe9843322c954c340&#39;; ethers.utils.defaultAbiCoder.decode( [&#39;uint256&#39;, &#39;address[]&#39;, &#39;address&#39;, &#39;uint256&#39;], ethers.utils.hexDataSlice(data, 4) ) // gives: [e, [&#34;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&#34;, &#34;0x08ba0619b1e7A582E0BCe5BBE9843322C954C340&#34;], &#34;0xC0C5eb43E2dF059e3Be6E4fb0284C283CAa59919&#34;, e] (4) Online tools: Playground.</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-02-03 13:38:00 +0800 +0800'>February 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Decode input data of Ethereum" href="https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Tron
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Blockchain </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-02-03 13:38:00 +0800 +0800'>February 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Tron" href="https://notes.0081800.xyz/notes/20230203133859-tron/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Hypertext in Emacs: find-file-at-point
     </h2>
   </header>
@@ -182,30 +206,6 @@ location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_up
   </div>
   <footer class="entry-footer"><span title='2022-12-24 15:30:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Reverse Proxy to bypass Network Issue of Solana RPC Node" href="https://notes.0081800.xyz/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Nginx
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Linux </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-24 15:29:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Nginx" href="https://notes.0081800.xyz/notes/20221224152920-nginx/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Nginx One Endpoint for Both WebSocket and Normal Requests
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Nginx source: https://serverfault.com/a/923254 server { # ... location / { # If &#34;Websocket&#34; is in Upgrade header, then @websocket will take effect, # otherwise @ will take effect. try_files /nonexistent @$http_upgrade; } location @websocket { # websocket related stuff } location @ { # web related stuff } } </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-24 15:29:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Nginx One Endpoint for Both WebSocket and Normal Requests" href="https://notes.0081800.xyz/notes/20221224152905-nginx_one_endpoint_for_both_websocket_and_normal_requests/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

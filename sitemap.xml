@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2023-10-31T08:25:00+08:00</lastmod>
+    <loc>https://notes.0081800.xyz/notes/20231031084640-bpf/</loc>
+    <lastmod>2023-10-31T08:46:00+08:00</lastmod>
   </url><url>
-    <loc>https://notes.0081800.xyz/notes/20231031082500-speeding_up_cython_with_simd/</loc>
-    <lastmod>2023-10-31T08:25:00+08:00</lastmod>
+    <loc>https://notes.0081800.xyz/notes/</loc>
+    <lastmod>2023-10-31T08:46:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2023-10-31T08:46:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20231031084456-porting_openbsd_pledge_to_linux/</loc>
+    <lastmod>2023-10-31T08:44:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20231031082500-speeding_up_cython_with_simd/</loc>
     <lastmod>2023-10-31T08:25:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20231020160536-freebsd_livecd_import_zfs/</loc>

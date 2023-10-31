@@ -6,7 +6,25 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 31 Oct 2023 08:25:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Oct 2023 08:46:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BPF</title>
+      <link>https://notes.0081800.xyz/notes/20231031084640-bpf/</link>
+      <pubDate>Tue, 31 Oct 2023 08:46:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231031084640-bpf/</guid>
+      <description> tags: High Performance, Linux </description>
+    </item>
+    
+    <item>
+      <title>Porting OpenBSD pledge() to Linux</title>
+      <link>https://notes.0081800.xyz/notes/20231031084456-porting_openbsd_pledge_to_linux/</link>
+      <pubDate>Tue, 31 Oct 2023 08:44:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231031084456-porting_openbsd_pledge_to_linux/</guid>
+      <description> tags: Linux, Tools, BPF source: “Porting OpenBSD Pledge() to Linux.” Accessed October 31, 2023. https://justine.lol/pledge/. $ ./pledge.com &amp;#39;stdio rpath&amp;#39; ls # read only list files </description>
+    </item>
+    
     <item>
       <title>Speeding up Cython with SIMD</title>
       <link>https://notes.0081800.xyz/notes/20231031082500-speeding_up_cython_with_simd/</link>

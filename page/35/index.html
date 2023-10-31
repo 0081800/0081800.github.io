@@ -143,6 +143,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 27. Remove Element
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode101,In-place Travel array in reverse order, and record how many times need to swap, which is how many elements not equal val.
+class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val) { int k = 0; for (int j = nums.size() - 1; j &gt;= 0; --j) { if (nums[j] == val) { for (int i = 0; i &lt; k; &#43;&#43;i) { swap(nums[i &#43; j], nums[j &#43; i &#43; 1]); } } else { k&#43;&#43;; } } return k; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-08 13:11:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 27. Remove Element" href="https://notes.0081800.xyz/notes/20220408131130-leetcode101_27_remove_element/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode101: 18. 4Sum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Two Pointers,Three Pointers,LeetCode101,Sorting Based on:
+LeetCode101: 167. Two Sum II - Input Array Is Sorted LeetCode101: 15. 3Sum We create a new loop:
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt;&amp; nums, int target) { sort(nums.begin(), nums.end()); vector&lt;vector&lt;int&gt;&gt; res; int T, S, r, l; for (int i = 0; i &lt; nums.size(); &#43;&#43;i) { if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) { continue; } for (int j = i &#43; 1; j &lt; nums....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-08 12:50:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 18. 4Sum" href="https://notes.0081800.xyz/notes/20220408125015-leetcode101_18_4sum/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 703. Kth Largest Element in a Stream
     </h2>
   </header>
@@ -179,32 +206,6 @@ Move both sides to inwards. If the sum value less than target, move left pointer
   </div>
   <footer class="entry-footer"><span title='2022-04-07 08:19:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 167. Two Sum II - Input Array Is Sorted" href="https://notes.0081800.xyz/notes/20220407081954-leetcode101_167_two_sum_ii_input_array_is_sorted/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 16. 3Sum Closest
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: LeetCode101,Sorting,Two Pointers,Three Pointers Key ideas see LeetCode101: 15. 3Sum
-class Solution { public: int threeSumClosest(vector&lt;int&gt;&amp; nums, int target) { sort(nums.begin(), nums.end()); int closest = INT_MAX, l, r, sum, T, res; for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { l = i &#43; 1; r = nums.size() - 1; T = target - nums[i]; while (l &lt; r) { sum = nums[l] &#43; nums[r]; if (abs(sum - T) &lt; closest) { res = sum &#43; nums[i]; closest = abs(sum - T); } if (sum == T) { return target; } if (sum &lt; T) { l&#43;&#43;; } else { r--; } } } return res; } }; </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-07 08:10:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 16. 3Sum Closest" href="https://notes.0081800.xyz/notes/20220407081015-leetcode101_16_3sum_closest/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 15. 3Sum
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode101,Sorting,Two Pointers,Three Pointers Key ideas:
-Sort the nums first. Then, we travel the nums, pick current element as nums[i], and apply LeetCode101: 167. Two Sum II - Input Array Is Sorted to the remains. We skip the same numbers to avoid duplicate. class Solution { public: vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) { sort(nums.begin(), nums.end()); int l, r, sum, T; vector&lt;vector&lt;int&gt;&gt; res; for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { // Skip same numbers to avoid duplicate if(i &gt; 0 &amp;&amp; nums[i] == nums[i-1]) { continue; } l = i &#43; 1; r = nums....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 15. 3Sum" href="https://notes.0081800.xyz/notes/20220407080010-leetcode101_15_3sum/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
