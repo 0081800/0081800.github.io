@@ -148,6 +148,44 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Hypertext in Emacs: find-file-at-point
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Emacs source: http://bjornwestergard.com/log/2022-04-19-hypertext-emacs.gmi C-x C-f M-n to find-file-at-point.</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-31 10:51:00 +0800 +0800'>January 31, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Hypertext in Emacs: find-file-at-point" href="https://notes.0081800.xyz/notes/20230131105103-hypertext_in_emacs_find_file_at_point/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Solana PDA
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Solana, Solana 101: 2. Anchor What is Program Derived Address(PDA)?1 A Program Derived Address is simply an account owned by the program, but has no private key. Instead it’s signature is obtained by a set of seeds and a bump (a nonce which makes sure it’s off curve). “Generating” a Program Address is different from “creating” it.
+Generating One can generate a PDA using Pubkey::find_program_address in Rust or PublicKey....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-26 15:46:00 +0800 +0800'>December 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Solana PDA" href="https://notes.0081800.xyz/notes/20221226154617-solana_pda/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Reverse Proxy to bypass Network Issue of Solana RPC Node
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Nginx One Endpoint for Both WebSocket and Normal Requests,Solana,Solana 101: Create an Escrow dApp I met a lot network issues about connecting to RPC node of Solana, so I’m using a nginx server as a reverse proxy to bypass this problem:
+location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_upgrade; } location @ { proxy_pass https://api.testnet.solana.com; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Host &#34;api.testnet.solana.com&#34;; } location @websocket { proxy_redirect off; proxy_pass https://api....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-24 15:30:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Reverse Proxy to bypass Network Issue of Solana RPC Node" href="https://notes.0081800.xyz/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Nginx
     </h2>
   </header>
@@ -168,45 +206,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-12-24 15:29:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Nginx One Endpoint for Both WebSocket and Normal Requests" href="https://notes.0081800.xyz/notes/20221224152905-nginx_one_endpoint_for_both_websocket_and_normal_requests/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Decoration
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>参考 https://github.com/RobbieXie/2020DecorationNote Ideas 在马桶旁边要留一个插座，用于智能马桶垫； 厨房油烟机机一个光滑斜面可以在餐厅坐着看锅里的情况； 全屋六类线预留 AP 和插座，最好能扩大弱电箱能放进去个 NAS； 面向扫地机器人装修； </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-24 11:08:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Decoration" href="https://notes.0081800.xyz/notes/20221224110813-decoration/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Ethereum Layer 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum Knowning Layer 2 Chain Rollup(or bundle) transactions off-chain to reduce fee and scale capacity, such as Bitcoin Lightning.
-Two layer 2 rollups Optimistic Rollups Zero-Knowledge Rollups Record on-chain state by writing calldata to L1(Ethereum), which more cheaper than change state on L1 chain.
-Fees Some layer 2 chain like Optimism should plus l1 fee when executing transaction on layer 1.1
-Many Ethereum applications display estimated fees to users by multiplying the gas price by the gas limit....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-23 10:08:00 +0800 +0800'>December 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Layer 2" href="https://notes.0081800.xyz/notes/20221223100819-ethereum_layer_2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Go Reflect
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Go Elem() Returns Value type T struct { } t := &amp;T{} v := reflect.New(reflect.TypeOf(t)).Elem() // type of v is `T` Interface() Returns Pointer type T struct { } t := &amp;T{} v := reflect.New(reflect.TypeOf(t)).Interface() // type of v is `&amp;T` </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-11-23 10:47:00 +0800 +0800'>November 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Go Reflect" href="https://notes.0081800.xyz/notes/20221123104729-go_reflect/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

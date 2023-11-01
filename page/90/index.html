@@ -143,6 +143,56 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Linux kernel
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Linux Linux I/O Linux I/O 演进 阻塞式：read()/write() 非阻塞式：select()/poll()/epoll()，不支持文件 I/O Thread Pool Direct I/O（数据软件）：绕过 page cache 异步 IO（Linux AIO）：早起进支持文件 I/O，近期支持了 epoll 支持非文件 I/O Linux io_uring [译] Linux 异步 I/O 框架 io_uring：基本原理、程序示例与性能压测 对比 Linux AIO：
+重新设计实现真正的是不。 支持任何类型的 I/O：cached files、direct-access files 甚至 blocking sockets。 灵活、可扩展：基于 io_uring 能够重写 Linux 的每个系统调用。 原理及核心数据结构：SQ/CQ/SQE/CQE 每个 io_uring 实例都有两个环形队列，在内核和应用程序之间共享：
+提交队列：submission queue（SQ） 完成队列：completion queue（CQ） 这两个队列：
+都是单生产者、单消费者，size 是 2 的幂次； 提供无锁接口（lock-less access interface），内部使用内存屏障做同步（coordinated with memory barrers）。 使用方式：
+请求 应用创建 SQ entries（SQE），更新 SQ tail； 内核消费 SQE，更新 SQ head 完成 内核为完成一个或多个请求创建 CQ enries（CQE），更新 CQ tail； 应用消费 CQE，更新 CQ head 完成事件（completion events）可能以任意顺序到达，到总是与特定的 SQE 相关联的。 消费 CQE 过程无需切换到内核态 带来的好处 支持批处理 支持文件 I/O 系统调用：read、write、send、recv、accept、opentat、stat、专用的一些系统调用，如 fallocate 不再局限于数据库应用 应对现在硬件架构：将硬件架构本身作为一个网络（多核多 CPU 是一个基础网络、CPU 之间是一个网络、CPU 和磁盘 I/O 之间又是一个网络） 三种工作模式 中断驱动模式（interrupt driven）：默认模式。可通过 io_uring_enter() 提交 I/O 请求，然后直接检查 CQ 状态判断是否完成。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-07 14:28:00 +0800 +0800'>September 7, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Linux kernel" href="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Scala lsp-metals
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Emacs,LSP 如果无法正常补全三方库，应该是 bloop 服务没有正常启动：
+创建 ~/Library/Caches/org.scalameta.metals/bsp.trace.json 开启跟踪 查看项目目录下 metals.log </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-06 15:19:00 +0800 +0800'>September 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Scala lsp-metals" href="https://notes.0081800.xyz/notes/20210906151915-scala_lsp_metals/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>领域模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: DDD,《领域驱动设计》读书笔记 领域基础模式 模式：UBIQUITOUS LANGUAGE 在同领域专家、开发人员和项目管理沟通的过程中建立并使用 UBIQUITOUS LANGUAGE，，并在模型实现时依然使用 UBIQUITOUS LANGUAGE 来让设计与沟通相一致（中文语境下稍显困难），UBIQUITOUS LANGUAGE 让知识消化后直接驱动变更模型。
+应用 UBIQUITOUS LANGUAGE 需要大声的建模。
+模式：MODEL-DRIVEN DESIGN 严格按照模型来编写代码，让模型与实际系统相结合。 不再分离「分析模型」和程序设计，而是寻求一种能够满足这两方面需求的单一模型。 工具：面向对象编程语言、UML等。 更好的支持 UBIQUITOUS LANGUAGE. 模式：HANDS-ON MODELER 开发设计和模型设计紧密合作，避免模型设计者不参与编写和程序设计者不参与模型设计。 每一个开发人员都必须不同程度的参与模型讨论并且与领域专家保持联系，模型设计者及时通过 UBIQUITOUS LANGUAGE 与接触代码的人及时交换关于模型的想法。 领域模式构造块 模式：LAYERED ARCHITECTURE 分层架构是实现 DDD 的基础，分层架构将不同的层次的实现分开，自上倒下应分为：
+用户界面层 应用层 领域层（模型的精髓） 基础设施层 核心在于要将领域层单独出来实现 MODEL-DRIVEN DESIGN，对业务进行建模封装业务规则。调用规则也只能自上而下的调用，不能反向调用。
+领域层（或模型层）分离出来之后使得模型足够丰富，结构足够清晰，可以捕捉到基本的业务知识，并有效的使用这些知识。
+模式：ENTITY 用于跟踪对象的状态，有唯一标识符，在系统中是可变的，两个对象是否一个通过唯一标识来判断，不是靠它们的属性定义。
+模式：VALUE OBJECT 区别与 ENTITY ，没有唯一标识，仅记录状态，一般设计为不可变用于共享 VALUE OBJECT，两个对象是否一个通过对象属性的值来判断。
+模式：SERVICE 没有状态，但又需要建模的对象，只包含动作。用于一些不适合建模为对象的领域概念。
+与领域概念相关的操作不是 ENTITY 或 VALUE OBJECT 的一个自然组成部署 接口是根据领域模型的其他元素定义的。 操作是无状态的 模式：MODULE（或 PACKAGE） 根据对象的意义划分领域模型，低耦合高内聚。按照模式或者对象生命周期或者其他方式划分都是错误的。
+模式：AGGREGATE 划分模型边界，统一对关联模型的创建、修改、复制和销毁。一般选定一个 ENTITY 对象作为 AGGREGATE 的「根」，同时对事务应用一组规则：...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-03 08:00:00 +0800 +0800'>September 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 领域模式" href="https://notes.0081800.xyz/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Airflow
     </h2>
   </header>
@@ -169,46 +219,6 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
   </div>
   <footer class="entry-footer"><span title='2021-08-27 08:05:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Spark" href="https://notes.0081800.xyz/notes/20210827080540-spark/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Scala
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Programming Language Scala 学习资源 Scala Book Scala 这么好的语言为什么不流行 HN：Scala 为什么不流行 Reddit：Scala 为什么不流行 结论：Java 人才更多且成本更低。
-Scala 工具 sbt sbt new 无法处理替换过的 SSH 会导致 Auth fail，一个 workaround 就是手动 clone 项目然后：
-sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
-[repositories] local nexus-aliyun:https://maven.aliyun.com/nexus/content/groups/public nexus-aliyun-ivy:https://maven.aliyun.com/nexus/content/groups/public/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext] typesafe: https://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly Unique Scala Rust from Scala Rust 和 Scala 有很多想通的地方，Rust 应该从 Scala 借鉴了很多：
-可变量和不可变量 模式匹配 Trait 内置类型 val b: Byte = 1 val x: Int = 1 val l: Long = 1 val s: Short = 1 val d: Double = 2....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-27 07:36:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Scala" href="https://notes.0081800.xyz/notes/20210827073626-scala/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>SVG 绘制工具
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> https://inkscape.org/ </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-25 08:15:00 +0800 +0800'>August 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to SVG 绘制工具" href="https://notes.0081800.xyz/notes/20210825081520-svg_%E7%BB%98%E5%88%B6%E5%B7%A5%E5%85%B7/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>设计
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>SVG SVG 绘制工具</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-25 08:14:00 +0800 +0800'>August 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 设计" href="https://notes.0081800.xyz/notes/20210825081459-%E8%AE%BE%E8%AE%A1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

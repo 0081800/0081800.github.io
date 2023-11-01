@@ -6,7 +6,44 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 31 Oct 2023 08:46:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Nov 2023 15:55:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logrotate</title>
+      <link>https://notes.0081800.xyz/notes/20231101155522-logrotate/</link>
+      <pubDate>Wed, 01 Nov 2023 15:55:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231101155522-logrotate/</guid>
+      <description> tags: Linux,Tools </description>
+    </item>
+    
+    <item>
+      <title>Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd</title>
+      <link>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</link>
+      <pubDate>Wed, 01 Nov 2023 15:54:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</guid>
+      <description>tags: Linux,Systemd,Supervisor,Logrotate Background I usually use supervisor1 to deploy my services, and capture the stdout/stderr to the log files, and then use logrotate to rotate the logs, which the configuration likes:
+/data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;amp;&amp;amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &amp;gt; /tmp/kill.log 2&amp;gt;&amp;amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs.</description>
+    </item>
+    
+    <item>
+      <title>Supervisor</title>
+      <link>https://notes.0081800.xyz/notes/20231101155445-supervisor/</link>
+      <pubDate>Wed, 01 Nov 2023 15:54:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231101155445-supervisor/</guid>
+      <description> tags: Tools </description>
+    </item>
+    
+    <item>
+      <title>Systemd</title>
+      <link>https://notes.0081800.xyz/notes/20231101155430-systemd/</link>
+      <pubDate>Wed, 01 Nov 2023 15:54:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20231101155430-systemd/</guid>
+      <description> tags: Linux </description>
+    </item>
+    
     <item>
       <title>BPF</title>
       <link>https://notes.0081800.xyz/notes/20231031084640-bpf/</link>

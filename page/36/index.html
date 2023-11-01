@@ -143,6 +143,46 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 703. Kth Largest Element in a Stream
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Priority Queue,LeetCode101 Using a min heap to keep k elements, top is the Kth largest element.
+class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;, std::greater&lt;int&gt;&gt; pq; int K; public: KthLargest(int k, vector&lt;int&gt;&amp; nums) { K = k; for (auto n: nums) { add(n); } } int add(int val) { pq.push(val); while (pq.size() &gt; K) { pq.pop(); } return pq.top(); } }; /** * Your KthLargest object will be instantiated and called as such: * KthLargest* obj = new KthLargest(k, nums); * int param_1 = obj-&gt;add(val); */ </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-08 12:39:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 703. Kth Largest Element in a Stream" href="https://notes.0081800.xyz/notes/20220408123913-leetcode101_703_kth_largest_element_in_a_stream/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode101: 1046. Last Stone Weight
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Heap (data structure),LeetCode101 Find top k values, classical heap problems.
+Here we need find top 2 values, and pop them from heap, then we will meet two cases:
+If they are not same, put back the differ between them, continue. Otherwise, continue directly. </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-08 07:09:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 1046. Last Stone Weight" href="https://notes.0081800.xyz/notes/20220408070926-leetcode101_1046_last_stone_weight/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode101: 167. Two Sum II - Input Array Is Sorted
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode101,Sorting,Two Pointers Key ideas:
+Move both sides to inwards. If the sum value less than target, move left pointer. Otherwise move right poinger. class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) { int S, l = 0, r = numbers.size() - 1; vector&lt;int&gt; res(2, 0); while (l &lt; r) { S = numbers[l] &#43; numbers[r]; if (S == target) { break; } if (S &lt; target) { l&#43;&#43;; } else { r--; } } res[0] = l &#43; 1; res[1] = r &#43; 1; return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-07 08:19:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 167. Two Sum II - Input Array Is Sorted" href="https://notes.0081800.xyz/notes/20220407081954-leetcode101_167_two_sum_ii_input_array_is_sorted/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 16. 3Sum Closest
     </h2>
   </header>
@@ -165,47 +205,6 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
   </div>
   <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 15. 3Sum" href="https://notes.0081800.xyz/notes/20220407080010-leetcode101_15_3sum/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Three Pointers
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Two Pointers </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Three Pointers" href="https://notes.0081800.xyz/notes/20220407080033-three_pointers/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 680. Valid Palindrome II
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: String,Two Pointers,LeetCode101 Two pointers move inwards, when we meet two different characters:
-Remove left character to see if the remains string still satisfied a valid palindrome. Remove right character to see if the remains string still satisfied a valid palindrome. Returns true if either one above two is true.
-class Solution { public: bool validPalindrome(string s) { for (int i = 0, j = s.size() -1; i &lt; j; i&#43;&#43;,j--) { if (s[i] !...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-02 14:37:00 +0800 +0800'>April 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 680. Valid Palindrome II" href="https://notes.0081800.xyz/notes/20220402143729-leetcode101_680_valid_palindrome_ii/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>In-place Reverse
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: In-place WikiPedia: https://en.wikipedia.org/wiki/In-place%5Falgorithm Let see two examples before we go further:
-As above we can see, to reverse a array in-place, we just need swap each two elements in the array from both side to middle.
-The pseudo code from WikiPedia:
-function reverse_in_place(a[0..n-1]) for i from 0 to floor((n-2)/2) tmp := a[i] a[i] := a[n − 1 − i] a[n − 1 − i] := tmp The loop travels the array to the middle and swap each other in the list, two points we must be noticed:...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-01 10:43:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to In-place Reverse" href="https://notes.0081800.xyz/notes/20220401104307-in_place_reverse/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

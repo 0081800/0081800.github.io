@@ -6,7 +6,17 @@
     <description>Recent content in Articles on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Oct 2022 10:12:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Nov 2023 15:54:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd</title>
+      <link>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</link>
+      <pubDate>Wed, 01 Nov 2023 15:54:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</guid>
+      <description>tags: Linux,Systemd,Supervisor,Logrotate Background I usually use supervisor1 to deploy my services, and capture the stdout/stderr to the log files, and then use logrotate to rotate the logs, which the configuration likes:
+/data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;amp;&amp;amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &amp;gt; /tmp/kill.log 2&amp;gt;&amp;amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs.</description>
+    </item>
+    
     <item>
       <title>Wrap &amp; Unwrap errors in Go</title>
       <link>https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/</link>

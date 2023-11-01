@@ -148,6 +148,42 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Memory Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Model </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:18:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Memory Management" href="https://notes.0081800.xyz/notes/20230407181835-memory_management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Heap Fragmentation
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Management </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:17:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Heap Fragmentation" href="https://notes.0081800.xyz/notes/20230407181757-heap_fragmentation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Spotting and Avoiding Heap Fragmentation in Rust Applications
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Heap Fragmentation, jemalloc source:Svix Blog. “Spotting and Avoiding Heap Fragmentation in Rust Applications,” April 4, 2023. https://www.svix.com/blog/heap-fragmentation-in-rust-applications/. Heap fragmentation cause stair-step memeory usage, use jemalloc to solve heap fragmentation.</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:17:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Spotting and Avoiding Heap Fragmentation in Rust Applications" href="https://notes.0081800.xyz/notes/20230407181742-spotting_and_avoiding_heap_fragmentation_in_rust_applications/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Sign Message
     </h2>
   </header>
@@ -171,45 +207,6 @@ TIP 104 ↩︎</p>
   </div>
   <footer class="entry-footer"><span title='2023-04-07 18:04:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Tron Signing Data" href="https://notes.0081800.xyz/notes/20230407180424-tron_signing_data/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Ethereum Signing Data
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum, Sign Message source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn’t support but V4 does:
-Custom type array Custom type with null input Some input types that V4 doesn’t support but V3 does:...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-06 09:09:00 +0800 +0800'>April 6, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Signing Data" href="https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Use GDB to Debug Cgo Segmentation Fault
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Go, GDB Enable Core Dumps ulimit -S -c unlimited Confirm or Change The Location of Core Dumps sysctl -w kernel.core_pattern=/tmp/core.%e.%p # Or echo &#39;/tmp/core.%e.%p&#39; | tee /proc/sys/kernel/core_pattern Set GOTRACEBACK Environment Variable to Let Go Program Core Dumps when Panic export GOTRACEBACK=crash Run Go Program and Wait Segmentation Fault Use GDB to Debug gdb /path/to/goprogram /tmp/core-xx-xx Then use thread apply all bt to see all backtraces, include compiled C code....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-05 20:05:00 +0800 +0800'>April 5, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Use GDB to Debug Cgo Segmentation Fault" href="https://notes.0081800.xyz/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>ScrollL2: How to Caculate L1Fee
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum Layer 2 Background You may meet the below error when you’re trying to transfer all your ETH from one address to another address:
-invalid transaction: insufficient funds for l1fee &#43; gas * price &#43; value
-The reason is that the Layer 1 fee are included in Scroll’s gas fee system, but the wallet only exclude the Layer 2 gas fee to do so when you transfer all your ETH....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-03-23 08:36:00 +0800 +0800'>March 23, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to ScrollL2: How to Caculate L1Fee" href="https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

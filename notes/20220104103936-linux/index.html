@@ -216,6 +216,22 @@
    
 
    
+
+   
+      
+   
+
+   
+
+   
+      
+   
+
+   
+      
+   
+
+   
       
    
 
@@ -365,8 +381,6 @@
 
    
       
-   
-
    
 
    
@@ -1791,6 +1805,43 @@
     <br />
     <div class="backlinks">
       <ul>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Logrotate
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: Linux,Tools </p>
+            </div>
+            <footer class="entry-footer"><span title='2023-11-01 15:55:00 +0800 +0800'>November 1, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Logrotate" href="https://notes.0081800.xyz/notes/20231101155522-logrotate/"></a>
+          </article>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p>tags: Linux,Systemd,Supervisor,Logrotate Background I usually use supervisor1 to deploy my services, and capture the stdout/stderr to the log files, and then use logrotate to rotate the logs, which the configuration likes:
+/data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;&amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &gt; /tmp/kill.log 2&gt;&amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs....</p>
+            </div>
+            <footer class="entry-footer"><span title='2023-11-01 15:54:00 +0800 +0800'>November 1, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd" href="https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/"></a>
+          </article>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Systemd
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: Linux </p>
+            </div>
+            <footer class="entry-footer"><span title='2023-11-01 15:54:00 +0800 +0800'>November 1, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Systemd" href="https://notes.0081800.xyz/notes/20231101155430-systemd/"></a>
+          </article>
        
           <article class="post-entry"> 
             <header class="entry-header">
