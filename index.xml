@@ -7938,6 +7938,15 @@ Rust 并发
 fn do(f: fn(i32) -&amp;gt; i32, arg: i32) -&amp;gt; i32 { f(arg) + f(arg) } </description>
     </item>
     
+    <item>
+      <title>About</title>
+      <link>https://notes.0081800.xyz/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notes.0081800.xyz/about/</guid>
+      <description>Some information about me.</description>
+    </item>
+    
     
   </channel>
 </rss>
