@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.111.3"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.120.4"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -148,6 +148,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Ethereum Execution Layer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking Layer </p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2023-06-14 09:18:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Execution Layer" href="https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Ethereum Sub-protocols
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking, Ethereum Execution Layer </p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2023-06-14 09:11:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Sub-protocols" href="https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Ethereum Wire Protocol
     </h2>
   </header>
@@ -155,7 +179,7 @@
     <p>tags: Ethereum Sub-protocols, Ethereum Simulator Node Started when a RLPx session had initiated. Three main tasks before switch to PoS:
 Chain synchronization Block propagation Transaction exchange: exchange pending transaction between nodes. Only transaction exchange remit after switch to PoS.</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2023-06-14 09:11:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Ethereum Wire Protocol" href="https://notes.0081800.xyz/notes/20230614091142-ethereum_wire_protocol/"></a>
 </article>
 
@@ -168,7 +192,7 @@ Chain synchronization Block propagation Transaction exchange: exchange pending t
     <p>tags: Ethereum Networking, Ethereum Execution Layer Basic stack for p2p networking. Initiating RLPx Session.
 RLPX Session Communicate messages that encoded in RLP between peers.</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:08:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2023-06-14 09:08:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Ethereum DevP2P" href="https://notes.0081800.xyz/notes/20230614090850-ethereum_devp2p/"></a>
 </article>
 
@@ -180,36 +204,8 @@ RLPX Session Communicate messages that encoded in RLP between peers.</p>
   <div class="entry-content">
     <p> tags: Ethereum source: https://ethereum.org/en/developers/docs/networking-layer/ </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:01:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2023-06-14 09:01:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Ethereum Networking Layer" href="https://notes.0081800.xyz/notes/20230614090110-ethereum_networking/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Ethereum Discovery Nodes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum Networking, Ethereum Simulator Node Boot nodes Using a small set that hardcoded bootnodes to bootstrap.
-Protocol Kademlia a modified form of Distributed Hash Table.
-Steps to join the network start client –&gt; connect to bootnode –&gt; bond to bootnode –&gt; find neighbours –&gt; bond to neighbours</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:00:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Discovery Nodes" href="https://notes.0081800.xyz/notes/20230614090056-ethereum_discovery_nodes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>How is a Transaction Broadcasted
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum Simulator Node, Ethereum Execution Layer Node Side: Receive pending transactions If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
-https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let’s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
-SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-06-12 10:08:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How is a Transaction Broadcasted" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

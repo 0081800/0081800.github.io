@@ -200,7 +200,7 @@ HDFS 包含一个在每台机器上运行的守护进程，并会开放一个网
     <h1 class="post-title">
       Hadoop Distributed File System
     </h1>
-    <div class="post-meta"><span title='2021-08-08 07:55:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">&lt;span title=&#39;2021-08-08 07:55:00 &#43;0800 &#43;0800&#39;&gt;August 8, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -240,6 +240,10 @@ HDFS 包含一个在每台机器上运行的守护进程，并会开放一个网
     </ul>
   </footer>
 
+
+   
+
+   
 
    
 
@@ -1824,7 +1828,7 @@ Understanding the working of Spark Driver and Executor Cluster Mode Overview Spa
 以下代码是在 Executor 上执行的：
 Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-27 08:05:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-27 08:05:00 &#43;0800 &#43;0800&#39;&gt;August 27, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Spark" href="https://notes.0081800.xyz/notes/20210827080540-spark/"></a>
           </article>
        
@@ -1838,7 +1842,7 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
 MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
 输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-09 07:34:00 &#43;0800 &#43;0800&#39;&gt;August 9, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
           </article>
        
@@ -1856,7 +1860,7 @@ MapReduce 工作流 将 MapReduce 作业链接到工作流是非常普遍的，�
 第一个作业必须配置将其输出写入 HDFS 中指定目录； 第二个作业必须配置读取相同的目录名作为输入。 目前已经开发了处理依赖管理的 MapReduce 工作流调度器。
 Reduce 端的 join 与分组 批处理的背景下讨论 join，主要解决数据集内存在关联的所有事件。 假设 join 两张表：用户和活动事件。...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-05 07:43:00 +0800 +0800'>August 5, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-05 07:43:00 &#43;0800 &#43;0800&#39;&gt;August 5, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 批处理系统" href="https://notes.0081800.xyz/notes/20210805074336-%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"></a>
           </article>
        

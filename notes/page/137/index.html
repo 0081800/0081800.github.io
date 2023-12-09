@@ -153,13 +153,46 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>动态规划
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Algorithm 状态转移方程 无后效性 如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前各段状态的影响。
+一旦 \(f(n)\) 确定，“我们如何凑出 \(f(n)\) ”就再也用不着了：
+要求出 \(f(15)\)，只需要知道 \(f(14)\),\(f(10)\),\(f(4)\) 的值， 而 \(f(14)\),\(f(10)\),\(f(4)\) 是如何算出来的，对之后的问题没有影响。 “未来与过去无关”，这就是无后效性。
+最优子结构 大问题的最优解可以由小问题的最优解推出，这个性质叫做“最优子结构性质”：
+\(f(n)\) 的定义需要蕴含“最优”，利用 \(f(14)\),\(f(10)\),\(f(4)\) 的最优解，我们即可算出 \(f(15)\) 的最优解。
+能将大问题拆成几个小问题，且满足无后效性、最优子结构性质。 DP 思路 参见 LeetCode 讨论：
+先写出穷举的方法 找出不必要的重复计算 写出 DP 练习 0x00 硬币找零 描述 假设有几种硬币，如1、3、5，并且数量无限。请找出能够组成某个数目的找零所使用最少的硬币数。
+状态转移公式 公式 \(f(n)=min\{f(n-1),f(n-3),f(n-5)\} &#43; 1\)
+检查是否满足上面提到的两个特性：
+无后效性：对于 \(n\)，一旦 \(f(n)\) 确定，以后只关心 \(f(n)\) 的值，不关心怎么计算的； 最优子结构：对于 \(n\)，只要 \(n - 1\) \(n - 3\) \(n - 5\) 能是最优解，那么就能计算出 n; 推导过程 假设找零 15：...</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 动态规划" href="https://notes.0081800.xyz/notes/20200320171538_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>归并排序
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Algorithm,Sorting Wikipedia: 归并排序</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 归并排序" href="https://notes.0081800.xyz/notes/20200320173033_%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>算法
     </h2>
   </header>
   <div class="entry-content">
     <p> alias: Algorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 算法" href="https://notes.0081800.xyz/notes/20200320171501_%E7%AE%97%E6%B3%95/"></a>
 </article>
 
@@ -174,7 +207,7 @@
 server { listen 80; server_name vd.linuxzen.com; include /etc/nginx/snippets/letsencrypt-acme-challenge.conf; } 新增签发证书 $ acme.sh --force --issue -d linuxzen.com -d www.linuxzen.com -d cwiki.linuxzen.com -d monitor.linuxzen.com -d v.linuxzen.com -d vd.linuxzen.com -d d.linuxzen.com -d piwik.linuxzen.com -d t.linuxzen.com -d wiki.linuxzen.com -d note.linuxzen.com -w /var/www/letsencrypt/ 安装证书
 $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen....</p>
   </div>
-  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2020-03-19 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 19, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Let&#39;s Encrypt" href="https://notes.0081800.xyz/notes/20200319221212_let_s_encrypt/"></a>
 </article>
 
@@ -186,37 +219,8 @@ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen..
   <div class="entry-content">
     <p></p>
   </div>
-  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2020-03-19 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 19, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;0 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Over the Wall" href="https://notes.0081800.xyz/notes/20200319224041_%E7%BF%BB%E5%A2%99/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>V2Ray
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Over the Wall,Tools 架构 Client -&gt; DIDIYun(HAProxy) -&gt; HK
-滴滴云 HAPorxy 配置 117.51.146.119
-frontend v_linuxzen_com bind *:6697 option tcplog mode tcp default_backend v_linuxzen_com_nodes backend v_linuxzen_com_nodes mode tcp balance roundrobin option ssl-hello-chk server webserver1 45.115.36.35:443 check 客户端改动 需要调整 hosts
-$ echo &#39;117.51.146.119 v.linuxzen.com&#39; | sudo tee -a /etc/hosts HK V2Ray Docker 启动 $ docker run -d -p 127.0.0.1:25001:25001 --name v2ray --restart always -v /etc/v2ray:/etc/v2ray v2ray/official HK Let’s Encrypt 证书 $ acme....</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to V2Ray" href="https://notes.0081800.xyz/notes/20200319215535_v2ray/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>xinetd
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Over the Wall,Network xinetd 代理 SMTP 和 IMAP 通过 xinetd 代理 SMTP 和 IMAP 实现 gmail 翻墙。
-配置服务端
-service imap { type = UNLISTED port = 993 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = imap.gmail.com 993 per_source = UNLIMITED cps = 100 2 } service smtp-465 { type = UNLISTED port = 465 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = smtp....</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to xinetd" href="https://notes.0081800.xyz/notes/20200319223026_xinetd/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

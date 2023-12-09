@@ -203,7 +203,7 @@
     <h1 class="post-title">
       内存一致性模型
     </h1>
-    <div class="post-meta"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">&lt;span title=&#39;2021-07-12 15:05:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -259,6 +259,10 @@
     </ul>
   </footer>
 
+
+   
+
+   
 
    
 
@@ -1842,7 +1846,7 @@
 // Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
 Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-13 19:32:00 &#43;0800 &#43;0800&#39;&gt;July 13, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
           </article>
        
@@ -1856,7 +1860,7 @@ Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的�
 litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而是一个线程本地寄存器。
 Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-12 15:39:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
           </article>
        
@@ -1868,7 +1872,7 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
             <div class="entry-content">
               <p>tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-12 14:32:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-12 14:32:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 硬件内存模型" href="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
           </article>
        

@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.111.3"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.120.4"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -148,6 +148,36 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Airflow
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>案例 Airflow powers AI。
+Airflow SSO 接入 公司 SSO 系统不是基于开源标准，而是一套自定义的方式，目前网上没有成熟的解决方案，通过查看 Flask-AppBuilder 和 Airflow 的代码发现可以扩展 flask_appbuilder.security.views.AuthRemoteUserView 并通过自定义的 SecurityManager 指定 authremoteuserview 来实现，去掉具体 SSO 逻辑后的代码如下：
+from urllib.parse import urlencode from urllib.parse import urljoin import requests from flask import flash from flask import redirect from flask import request from flask_appbuilder.baseviews import expose from flask_appbuilder.security.views import AuthRemoteUserView try: from airflow.www.security import AirflowSecurityManager except ImportError: AirflowSecurityManager = None __version__ = &#34;0.1.0&#34; AUTHORIZE_URL = &#34;https://example.com/sso/login&#34; ACCESS_TOKEN_URL = &#34;https://example....</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-09-02 15:32:00 &#43;0800 &#43;0800&#39;&gt;September 2, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Airflow" href="https://notes.0081800.xyz/notes/20210902153221-airflow/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Spark
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
+Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
+Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
+以下代码是在 Executor 上执行的：
+Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：...</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-08-27 08:05:00 &#43;0800 &#43;0800&#39;&gt;August 27, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Spark" href="https://notes.0081800.xyz/notes/20210827080540-spark/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Scala
     </h2>
   </header>
@@ -158,7 +188,7 @@ sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
 [repositories] local nexus-aliyun:https://maven.aliyun.com/nexus/content/groups/public nexus-aliyun-ivy:https://maven.aliyun.com/nexus/content/groups/public/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext] typesafe: https://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly Unique Scala Rust from Scala Rust 和 Scala 有很多想通的地方，Rust 应该从 Scala 借鉴了很多：
 可变量和不可变量 模式匹配 Trait 内置类型 val b: Byte = 1 val x: Int = 1 val l: Long = 1 val s: Short = 1 val d: Double = 2....</p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-27 07:36:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2021-08-27 07:36:00 &#43;0800 &#43;0800&#39;&gt;August 27, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;4 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Scala" href="https://notes.0081800.xyz/notes/20210827073626-scala/"></a>
 </article>
 
@@ -170,7 +200,7 @@ sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
   <div class="entry-content">
     <p> https://inkscape.org/ </p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-25 08:15:00 +0800 +0800'>August 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2021-08-25 08:15:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to SVG 绘制工具" href="https://notes.0081800.xyz/notes/20210825081520-svg_%E7%BB%98%E5%88%B6%E5%B7%A5%E5%85%B7/"></a>
 </article>
 
@@ -182,33 +212,8 @@ sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
   <div class="entry-content">
     <p>SVG SVG 绘制工具</p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-25 08:14:00 +0800 +0800'>August 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2021-08-25 08:14:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 设计" href="https://notes.0081800.xyz/notes/20210825081459-%E8%AE%BE%E8%AE%A1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Graphviz
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Graphviz 教程 https://www2.eecs.berkeley.edu/Pubs/TechRpts/2013/EECS-2013-176.pdf Graphviz Examples https://graphviz.org/gallery/ Graphviz 绘制思维导图 Graphviz Online Tools 一个手绘风格的在线绘图工具：https://sketchviz.com/new Gaphviz Playground：http://magjac.com/graphviz-visual-editor/ </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-24 06:53:00 +0800 +0800'>August 24, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Graphviz" href="https://notes.0081800.xyz/notes/20210824065326-graphviz/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode: 98. Validate Binary Search Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode https://leetcode.com/problems/validate-binary-search-tree/
-/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: bool isValidBST(TreeNode* root) { if (root == nullptr || (root-&gt;left == nullptr &amp;&amp; root-&gt;right == nullptr)) { return true; } if (root-&gt;left !...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-18 07:09:00 +0800 +0800'>August 18, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 98. Validate Binary Search Tree" href="https://notes.0081800.xyz/notes/20210818070934-leetcode_98_validate_binary_search_tree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

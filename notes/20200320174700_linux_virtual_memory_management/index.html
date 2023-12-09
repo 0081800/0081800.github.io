@@ -212,7 +212,7 @@ ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，�
     <h1 class="post-title">
       Linux Virtual Memory Management
     </h1>
-    <div class="post-meta"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;4 min&amp;nbsp;·&amp;nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -553,6 +553,10 @@ ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，�
     </ul>
   </footer>
 
+
+   
+
+   
 
    
 
@@ -2133,7 +2137,7 @@ ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，�
 都是单生产者、单消费者，size 是 2 的幂次； 提供无锁接口（lock-less access interface），内部使用内存屏障做同步（coordinated with memory barrers）。 使用方式：
 请求 应用创建 SQ entries（SQE），更新 SQ tail； 内核消费 SQE，更新 SQ head 完成 内核为完成一个或多个请求创建 CQ enries（CQE），更新 CQ tail； 应用消费 CQE，更新 CQ head 完成事件（completion events）可能以任意顺序到达，到总是与特定的 SQE 相关联的。 消费 CQE 过程无需切换到内核态 带来的好处 支持批处理 支持文件 I/O 系统调用：read、write、send、recv、accept、opentat、stat、专用的一些系统调用，如 fallocate 不再局限于数据库应用 应对现在硬件架构：将硬件架构本身作为一个网络（多核多 CPU 是一个基础网络、CPU 之间是一个网络、CPU 和磁盘 I/O 之间又是一个网络） 三种工作模式 中断驱动模式（interrupt driven）：默认模式。可通过 io_uring_enter() 提交 I/O 请求，然后直接检查 CQ 状态判断是否完成。...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-07 14:28:00 +0800 +0800'>September 7, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-09-07 14:28:00 &#43;0800 &#43;0800&#39;&gt;September 7, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Linux kernel" href="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/"></a>
           </article>
        

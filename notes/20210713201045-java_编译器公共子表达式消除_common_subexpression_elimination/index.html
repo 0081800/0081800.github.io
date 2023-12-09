@@ -194,16 +194,16 @@
     <h1 class="post-title">
       Java 编译器公共子表达式消除（common subexpression elimination）
     </h1>
-    <div class="post-meta"><span title='2021-07-13 20:10:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">&lt;span title=&#39;2021-07-13 20:10:00 &#43;0800 &#43;0800&#39;&gt;July 13, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
 
 </div>
   </header> 
 
-  <div class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// p and q may or may not point at the same object.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">x</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... maybe another thread writes p.x at this point ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">x</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">x</span><span style="color:#f92672">;</span>
+  <div class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// p and q may or may not point at the same object.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> p.<span style="color:#a6e22e">x</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... maybe another thread writes p.x at this point ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> q.<span style="color:#a6e22e">x</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> p.<span style="color:#a6e22e">x</span>;
 </span></span></code></pre></div><p>在这个程序中，公共子表达式消除（common subexpression elimination）会注意到 <code>p.x</code> 被计算了两次，并将最后一行优化为 <code>k = i</code> 。</p>
 
 
@@ -214,6 +214,10 @@
     </ul>
   </footer>
 
+
+   
+
+   
 
    
 
@@ -1791,7 +1795,7 @@
               <p> tags: Java 内存模型,Java Java 是第一个试图写下多线程程序保证的主流语言。它包括：
 互斥体（mutex），并定义了它们隐含的内存排序要求。 “volatile” 原子变量: volatile 变量的所有读和写都需要直接在主内存中按程序顺序执行，使得对 volatile 变量的操作以顺序一致的方式进行。 制定了（或者至少试图制定）具有数据竞争的程序的行为。 缺陷 Atomic 需要同步：volatile 原子变量是不同步的，所以它们无助于消除程序其余部分的竞争。不能用于构建新的同步原语。 一致性与编译器优化不兼容：Java 编译器公共子表达式消除（common subexpression elimination）会导致其他线程写入新值无法对消除后表达式生效。 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-13 20:05:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-13 20:05:00 &#43;0800 &#43;0800&#39;&gt;July 13, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 原始 Java 内存模型（1996）" href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"></a>
           </article>
        

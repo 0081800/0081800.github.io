@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.111.3"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.120.4"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -148,13 +148,40 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Uniswap V3 Tick
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Uniswap V3 source: Shao, 田少谷. “Uniswap v3 Features Explained in Depth.” Taipei Ethereum Meetup (blog), July 20, 2021. https://medium.com/taipei-ethereum-meetup/uniswap-v3-features-explained-in-depth-178cfe45f223. Tick is a price range Each tick is a price range with upper bound and lower bound.
+Tick price from index: \(p(i) = 1.0001 ^ i\)
+1.0001 ** 138162 # 999_998 Tick index from price: \(log_{1.0001}p\)
+import math math.log(1000_000, base=1.0001) # 138162.01321981344 </p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2022-08-25 15:14:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Uniswap V3 Tick" href="https://notes.0081800.xyz/notes/20220825151409-uniswap_v3_tick/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Uniswap V3
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Uniswap The Graph: Uniswap V3 Subgraph </p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2022-08-25 15:11:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Uniswap V3" href="https://notes.0081800.xyz/notes/20220825151116-uniswap_v3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>DeFi
     </h2>
   </header>
   <div class="entry-content">
     <p> tags: Blockchain </p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-25 15:10:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2022-08-25 15:10:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to DeFi" href="https://notes.0081800.xyz/notes/20220825151036-defi/"></a>
 </article>
 
@@ -166,7 +193,7 @@
   <div class="entry-content">
     <p> tags: Blockchain,Ethereum,DeFi </p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-25 15:10:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2022-08-25 15:10:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Uniswap" href="https://notes.0081800.xyz/notes/20220825151023-uniswap/"></a>
 </article>
 
@@ -178,32 +205,8 @@
   <div class="entry-content">
     <p>tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-08-23 10:59:00 +0800 +0800'>August 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2022-08-23 10:59:00 &#43;0800 &#43;0800&#39;&gt;August 23, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Non-Fungible Tokens vs. Fungible Tokens" href="https://notes.0081800.xyz/notes/20220823105929-non_fungible_tokens_vs_fungible_tokens/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Your Makefiles are wrong
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Makefile source: Davis-Hansson, Jacob. “Your Makefiles Are Wrong.” Jacob Davis-Hansson on Tech, December 15, 2019. https://tech.davis-hansson.com/p/make/. Best Makefile Defaults # Always use bash as the shell. SHELL := bash # Enable bash strict mode. .SHELLFLAGS := -eu -o pipefail -c ## Change some Defaults of Make. # Ensures each Make recipe is ran as one single shell session, # rather than one new shell per line. .ONESHELL: # Delete it&#39;s target file if a Make rule fails....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-22 11:26:00 +0800 +0800'>August 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Your Makefiles are wrong" href="https://notes.0081800.xyz/notes/20220822112621-your_makefiles_are_wrong/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Podcasts RSS Feed Validator
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Online Tools website: https://www.castfeedvalidator.com/ </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-17 14:21:00 +0800 +0800'>August 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Podcasts RSS Feed Validator" href="https://notes.0081800.xyz/notes/20220817142152-podcasts_rss_feed_validator/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

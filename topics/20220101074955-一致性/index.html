@@ -194,7 +194,7 @@
     <h1 class="post-title">
       一致性
     </h1>
-    <div class="post-meta"><span title='2022-01-01 07:49:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">&lt;span title=&#39;2022-01-01 07:49:00 &#43;0800 &#43;0800&#39;&gt;January 1, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
 
 </div>
   </header> 
@@ -211,6 +211,10 @@
     </ul>
   </footer>
 
+
+   
+
+   
 
    
 
@@ -1799,7 +1803,7 @@
             <div class="entry-content">
               <p> tags: quorum,一致性，Distributed Systems,Patterns of Distributed Systems,Paxos,Patterns of Distributed Systems: Paxos source: martinfowler.com. “Quorum.” Accessed January 7, 2022. https://martinfowler.com/articles/patterns-of-distributed-systems/quorum.html. </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-07 11:39:00 +0800 +0800'>January 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2022-01-07 11:39:00 &#43;0800 &#43;0800&#39;&gt;January 7, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Patterns of Distributed Systems: Quorum" href="https://notes.0081800.xyz/notes/20220107113911-patterns_of_distributed_systems_quorum/"></a>
           </article>
        
@@ -1814,7 +1818,7 @@ The defination of a distributed system: the order of its events occurred is unpr
 How this paper try to solve this problem: use a “happened before” relation to define a partial ordering and distributed algorithm.
 Background </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-01 08:06:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2022-01-01 08:06:00 &#43;0800 &#43;0800&#39;&gt;January 1, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to PAPER: Time, Clocks, and the Ordering of Events in a Distributed System" href="https://notes.0081800.xyz/notes/20220101080622-paper_time_clocks_and_the_ordering_of_events_in_a_distributed_system/"></a>
           </article>
        
@@ -1827,7 +1831,7 @@ Background </p>
               <p>tags: 分布式,一致性,Clock Synchronization,Multicast source: https://signalsandthreads.com/clock-synchronization/ Electronic Oscillator: Computer itself to Dervie its Notion of Time Computer’s clock are based on a 1 MHz electronic oscillator circuit, that is oscillating at some frequency, and driving an interrupt. So the operating system can use it to derive its notion of time. It helps computer to keep the time correct.
 But a bad oscillator could be influenced by the heat of CPU, like compiling Linux kernel, etc....</p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-09 10:38:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-09 10:38:00 &#43;0800 &#43;0800&#39;&gt;August 9, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;4 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Clock Synchronization with Chris Perl" href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/"></a>
           </article>
        
@@ -1852,7 +1856,7 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 节点 ID：每个节点都有一个唯一标志符。 计数器：每个节点都有一个计数器记录各自处理的请求总数。 优点：
 两个节点可能存在相同的计数器，但是时间戳中的节点 ID 可以确保每个时间戳都是唯一的。 保证全序：比较两个 Lamport 时间戳，计数器较大的时间戳越大，计数器相同则节点 ID 大的那个时间戳越大。 通过节点排序保证了全局因果关系。Lamport 不同于版本矢量：...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-25 07:26:00 +0800 +0800'>July 25, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-25 07:26:00 &#43;0800 &#43;0800&#39;&gt;July 25, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 一致性与共识" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/"></a>
           </article>
        
@@ -1866,7 +1870,7 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 threads in the system must agree about a total order for the writes to a single memory location. That is, threads must agree which writes overwrite other writes. This property is called called coherence.
 内存一致性的系统都所有线程都必须接受对一个内存地址所有写入的总顺序。换句话说，所有线程必须同意哪些写入可以覆盖另外的一些写入。</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-16 11:09:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-16 11:09:00 &#43;0800 &#43;0800&#39;&gt;July 16, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 内存一致性（coherence）" href="https://notes.0081800.xyz/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/"></a>
           </article>
        
@@ -1881,7 +1885,7 @@ threads in the system must agree about a total order for the writes to a single 
 例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
 // Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-07-12 15:05:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 内存一致性模型" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"></a>
           </article>
        
@@ -1897,7 +1901,7 @@ n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至�
 可容忍的失效节点数 仲裁条件 \(w&#43;r&gt;n\) 定义了系统可容忍的失效节点数。
 \(w&lt;n\) ，如果一个节点不可用，仍然可以处理写入。 \(r&lt;n\) ，如果一个节点不可用，仍然可以处理读取。 \(n=3\),\(w=2\),\(r=2\)，则可以容忍一个节点不可用 \(n=5\),\(w=3\),\(r=3\), 则可以容忍两个节点不可用 局限性 如果采用了 sloppy quorum，写操作的 w 节点和读取的 r 节点可能完全不同，因此无法保证写请求一定存在重叠的节点。 并发无法明确顺序，需要进行合并并发写入。如最后写入者获胜。 同时读写，写操作在一部分节点上完成，则读取新值还是旧值存在不确定性。 部分节点写入成功，但是最终写入失败无法回滚。 新值的节点失效，但恢复数据来自某个旧值，则总的新值节点数低于 w 边界情况 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-06-15 21:17:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-06-15 21:17:00 &#43;0800 &#43;0800&#39;&gt;June 15, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Quorum 一致性" href="https://notes.0081800.xyz/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
           </article>
        

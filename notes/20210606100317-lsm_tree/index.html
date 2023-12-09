@@ -203,7 +203,7 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
     <h1 class="post-title">
       LSM-Tree
     </h1>
-    <div class="post-meta"><span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">&lt;span title=&#39;2021-06-06 10:03:00 &#43;0800 &#43;0800&#39;&gt;June 6, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -249,6 +249,10 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
     </ul>
   </footer>
 
+
+   
+
+   
 
    
 
@@ -1835,7 +1839,7 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
 Merkel tree fits pretty well as an authenticated key-value store holding a huge amount of data in a tamper-proof way.
 Two major concerns where people have been trying to achieve some enhnacements:...</p>
             </div>
-            <footer class="entry-footer"><span title='2022-06-02 10:24:00 +0800 +0800'>June 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2022-06-02 10:24:00 &#43;0800 &#43;0800&#39;&gt;June 2, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Jellyfish Merkle Tree" href="https://notes.0081800.xyz/notes/20220602102439-jellyfish_merkle_tree/"></a>
           </article>
        
@@ -1857,7 +1861,7 @@ Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 
 代理为每个消息分区分配了一个单调递增的序列号或偏移量，保证了分区内的消息完全有序。
 消费者偏移量：记录哪些消息已经被处理，减少 ACK 开销 磁盘空间：分段，定期删除 消费者跟不上生产者：增加 LAG 报警 重新处理消息：重置偏移量 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-13 07:28:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-13 07:28:00 &#43;0800 &#43;0800&#39;&gt;August 13, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 消息队列" href="https://notes.0081800.xyz/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"></a>
           </article>
        
@@ -1869,7 +1873,7 @@ Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 
             <div class="entry-content">
               <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。</p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-10 07:14:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-10 07:14:00 &#43;0800 &#43;0800&#39;&gt;August 10, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to HBase" href="https://notes.0081800.xyz/notes/20210810071455-hbase/"></a>
           </article>
        
@@ -1883,7 +1887,7 @@ Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 
 MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
 输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-08-09 07:34:00 &#43;0800 &#43;0800&#39;&gt;August 9, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
           </article>
        
@@ -1901,7 +1905,7 @@ MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现�
 事务处理与分析处理 事务处理：OLTP 分析处理：OLAP 对比 属性 OLTP OLAP 主要读属性 基于键，每次查询返回少量记录 对于大量记录进行汇总 主要写属性 随机访问，低延迟写入用户的输入 批量导入（ETL）或事件流 典型使用场景 终端用户，通过网络应用程序 内部分析师，为决策提供支持 数据表征 最新的数据状态（当前时间点） 随着事件而变化的所有事件历史 数据规模 GB 到 TB TB 到 PB 数据仓库 星型与雪花型分析模式 星型模型也称为维度建模。
 列式存储 列压缩 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">&lt;span title=&#39;2021-06-06 09:55:00 &#43;0800 &#43;0800&#39;&gt;June 6, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 数据存储与检索" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/"></a>
           </article>
        
