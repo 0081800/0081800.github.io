@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -160,7 +160,7 @@
     <p>对所有数据构建全局索引，为了避免瓶颈，对索引本身进行分区，比如：
 将 a～r 开始的关键字放在分区 0 将 s～z 开始的关键字放在分区 1 优点 可以支持高效的区间查询 读取更为高效 缺点 写入速度慢，会引入明显的写入放大 写入逻辑复杂 难以保证索引时刻最新，需要跨多个相关分区的分布式事务支持 实践 对全局二级索引的更新往往都是异步的。</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-12 07:15:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-07-12 07:15:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 基于词条的二级索引分区" href="https://notes.0081800.xyz/notes/20210712071502-%E5%9F%BA%E4%BA%8E%E8%AF%8D%E6%9D%A1%E7%9A%84%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95%E5%88%86%E5%8C%BA/"></a>
 </article>
 
@@ -173,7 +173,7 @@
     <p>每个分区各自维护自身的二级索引，读取时需要对所有分区节点进行查询然后对结果进行合并。
 这种方法虽然二级索引查询代价高，但依然广泛用于实践：MongoDB、Riak、Cassandra、ElasticSearch、SolrCloud 和 VoltDB。</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-12 07:11:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-07-12 07:11:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 基于文档分区的二级索引" href="https://notes.0081800.xyz/notes/20210712071105-%E5%9F%BA%E4%BA%8E%E6%96%87%E6%A1%A3%E5%88%86%E5%8C%BA%E7%9A%84%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95/"></a>
 </article>
 
@@ -187,7 +187,7 @@
 优点 这种方法可以很好的将关键字均匀分配到多个分区中。
 缺点 丧失良好的区间查询性能。即使关键字相邻，也会分布在不同的分区上。</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-11 17:11:00 &#43;0800 &#43;0800&#39;&gt;July 11, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-07-11 17:11:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 基于关键字哈希值分区" href="https://notes.0081800.xyz/notes/20210711171149-%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%93%88%E5%B8%8C%E5%80%BC%E5%88%86%E5%8C%BA/"></a>
 </article>
 
@@ -199,7 +199,7 @@
   <div class="entry-content">
     <p>为每个分区分配一段连续的关键字或者关键字区间范围。</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-11 15:42:00 &#43;0800 &#43;0800&#39;&gt;July 11, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-07-11 15:42:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 基于关键字区间分区" href="https://notes.0081800.xyz/notes/20210711154220-%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%8C%BA%E9%97%B4%E5%88%86%E5%8C%BA/"></a>
 </article>
 
@@ -213,7 +213,7 @@
 应用层解决 即使通过基于关键字哈希值分区和基于关键字区间分区等策略解决了大部分热点问题，但是极端情况下依然会出现热点，比如社交媒体的热点时间都会导致热点，只能通过应用层解决，一个简单的技术：
 关键字开头或结尾添加一个随机数，两位随机数就可以将关键字的写操作分布到 100 个不同的分区上； 读取就必须从所有的 1000 个关键字中读取数据然后进行合并； 通过额外的元数据标记哪些关键字进行了特殊处理。 由于对读取造成的额外开销，所以通常只有对少量的热点关键词附加随机数才有意义。</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-11 15:39:00 &#43;0800 &#43;0800&#39;&gt;July 11, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-07-11 15:39:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 系统热点" href="https://notes.0081800.xyz/notes/20210711153934-%E7%B3%BB%E7%BB%9F%E7%83%AD%E7%82%B9/"></a>
 </article>
 <footer class="page-footer">

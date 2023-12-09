@@ -10,7 +10,7 @@
 <meta name="description" content="Articles - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/articles/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -160,7 +160,7 @@
     <p>tags: Linux,Systemd,Supervisor,Logrotate Background I usually use supervisor1 to deploy my services, and capture the stdout/stderr to the log files, and then use logrotate to rotate the logs, which the configuration likes:
 /data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;&amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &gt; /tmp/kill.log 2&gt;&amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs....</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2023-11-01 15:54:00 &#43;0800 &#43;0800&#39;&gt;November 1, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2023-11-01 15:54:00 +0800 +0800'>November 1, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd" href="https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/"></a>
 </article>
 
@@ -173,7 +173,7 @@
     <p>tags: Go source: “Wrap and Unwrap Errors in Go (Golang) | Gosamples.Dev.” Accessed October 12, 2022. https://gosamples.dev/wrap-unwrap-errors/. Overview Since Go1.13, there is a new feature about error add to go: Wrap &amp; Unwrap errors. Let’s start from a simple example:
 package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep = errors.New(&#34;rolling in the deep&#34;) func doSomeActualJob() error { return errRollingInTheDeep } func someFrameworkCaller() error { // We use fmt.Errorf to wrap error....</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-10-12 10:12:00 &#43;0800 &#43;0800&#39;&gt;October 12, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2022-10-12 10:12:00 +0800 +0800'>October 12, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Wrap &amp; Unwrap errors in Go" href="https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/"></a>
 </article>
 
@@ -188,7 +188,7 @@ package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep =
 use actix_web::{get, web, App, HttpServer, Responder}; #[get(&#34;/{id}/{name}/index.html&#34;)] async fn index(web::Path((id, name)): web::Path&lt;(u32, String)&gt;) -&gt; impl Responder { format!(&#34;Hello {}! id:{}&#34;, name, id) } #[actix_web::main] async fn main() -&gt; std::io::Result&lt;()&gt; { HttpServer::new(|| App::new().service(index)) .bind(&#34;127.0.0.1:8080&#34;)? .run() .await } 初看之下觉得很神奇，但细想通过宏实现应该不是特别困难，然后发现其官网还有不是基于宏的运行时调用：
 use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(req: HttpRequest) -&gt; impl Responder { let name = req.match_info().get(&#34;name&#34;).unwrap_or(&#34;World&#34;); format!(&#34;Hello {}!...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-12-21 17:46:00 &#43;0800 &#43;0800&#39;&gt;December 21, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-12-21 17:46:00 +0800 +0800'>December 21, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to actix-web extractors 支持提取任意长度的参数" href="https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/"></a>
 </article>
 
@@ -207,7 +207,7 @@ Make DAG Great Again!
 Airflow 介绍 架构 概念 DAG Operator Connection Providers packages See also: Provider packages.
 Spark 介绍 架构 Spark 编程 Spark SQL Hive Table 示例 Airflow &#43; Spark 平台化 Celery Worker as a Spark Driver Celery Worker running on specific platform Windows Bigdata Hive client DAGs 分发 提交 DAG Python 依赖解决 Spark Airflow 外部依赖？ 未来 承接更多的报告需求 对内承接分析任务 可编程、平台化的分析 </p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-08-26 07:40:00 &#43;0800 &#43;0800&#39;&gt;August 26, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-08-26 07:40:00 +0800 +0800'>August 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Airflow powers AI" href="https://notes.0081800.xyz/articles/20210826074053-airflow_powers_ai/"></a>
 </article>
 
@@ -225,7 +225,7 @@ Spark 介绍 架构 Spark 编程 Spark SQL Hive Table 示例 Airflow &#43; Spark
 $ cargo new waytoodeep Created binary (application) `waytoodeep` package 我们需要安装 cargo-edit 如果之前没有安装过的话，接下来就可以直接 cargo add ：
 $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0 Downloaded 1 crate (57.6 KB) in 0.47s Ignored package `cargo-edit v0.7.0` is already installed, use --force to override 因为 cargo-edit 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像 cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中， 但是 cargo add 没有。...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-26 10:57:00 &#43;0800 &#43;0800&#39;&gt;July 26, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;44 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;44 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Understanding Rust futures by going way too deep" href="https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/"></a>
 </article>
 <footer class="page-footer">

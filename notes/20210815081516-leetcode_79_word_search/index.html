@@ -11,7 +11,7 @@
 class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board.">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
@@ -197,7 +197,7 @@ class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board,
     <h1 class="post-title">
       LeetCode: 79. Word Search
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2021-08-15 08:15:00 &#43;0800 &#43;0800&#39;&gt;August 15, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;8 min&amp;nbsp;·&amp;nbsp;Gray King
+    <div class="post-meta"><span title='2021-08-15 08:15:00 +0800 +0800'>August 15, 2021</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Gray King
 
 </div>
   </header> 

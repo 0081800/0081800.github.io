@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -161,7 +161,7 @@ Partition 保证同一分区的有序性 Connector
 设计 持久化 基于文件系统
 基于队列是顺序的和磁盘的顺序访问要比内存的随机访问要快（参见 The Pathologies of Big Data）， Kafka 采用在磁盘文件系统上尾部写头部读的方式。 Kafka 没有采用 BTree 存储数据因为 BTree 的操作是 O(log N) ，而且对磁盘的 seek 操作要慢，且同时只能进行一次限制了并行，所以实际操作比 O(log N) 要慢 基于磁盘的顺序访问进行在尾部写和头部读，可以实现读写都是 O(1) 的时间复杂度，并且读写互不干扰 基于以上实现，Kafka 可以不必在消息一经消费就删除，而是可以保留消息一段相对较长的时间（比如一周） 高效...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Kafka" href="https://notes.0081800.xyz/notes/20200320172022_kafka/"></a>
 </article>
 
@@ -173,7 +173,7 @@ Partition 保证同一分区的有序性 Connector
   <div class="entry-content">
     <p> tags: Learning,Algorithm </p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode" href="https://notes.0081800.xyz/notes/20200320172132_leetcode/"></a>
 </article>
 
@@ -185,7 +185,7 @@ Partition 保证同一分区的有序性 Connector
   <div class="entry-content">
     <p> tags: LeetCode </p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode: Trapping Tain Water" href="https://notes.0081800.xyz/notes/20200320172219_leetcode_trapping_tain_water/"></a>
 </article>
 
@@ -203,7 +203,7 @@ VM 中普遍（prevlent）认为第一重要（principal）的概念是 NUMA。
 每一个节点都被分割成多个块（block）称为分区（zone）用于表示内存中的范围。分区使用 struct zone_struct(typedef zone_t) 结构体描述，每一个分区都是以下三种类型的一种
 ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，由内核直接映射到线性地址空间的上部区域（将在第四章讨论） ZONE_HIGHMEM 896MB - END，剩余不由内核直接映射的系统可用内存， 大部分内核操作都只能使用这种类型的分区，所以这里也是这里也是最关键的性能区域（most performance critical zone） 每一个物理页帧（physical page frame）都使用结构体 struct page 表示，所有的结构体都保存在全局数组 mem_map 中，mem_map 通常存储在 ZONE_NORMAL 的开始处；...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;4 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Linux Virtual Memory Management" href="https://notes.0081800.xyz/notes/20200320174700_linux_virtual_memory_management/"></a>
 </article>
 
@@ -224,7 +224,7 @@ ZONE_DMA 开始 16MB 内存，供 ISA 设备使用 ZONE_NORMAL 16MB - 896MB，�
 检查是否满足上面提到的两个特性：
 无后效性：对于 \(n\)，一旦 \(f(n)\) 确定，以后只关心 \(f(n)\) 的值，不关心怎么计算的； 最优子结构：对于 \(n\)，只要 \(n - 1\) \(n - 3\) \(n - 5\) 能是最优解，那么就能计算出 n; 推导过程 假设找零 15：...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2020-03-20 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 20, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 动态规划" href="https://notes.0081800.xyz/notes/20200320171538_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"></a>
 </article>
 <footer class="page-footer">

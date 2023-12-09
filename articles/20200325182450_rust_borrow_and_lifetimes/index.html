@@ -17,7 +17,7 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 资源回收 Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，当：">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
@@ -215,7 +215,7 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
     <h1 class="post-title">
       Rust Borrow and Lifetimes
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2020-03-25 00:00:00 &#43;0800 &#43;0800&#39;&gt;March 25, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;6 min&amp;nbsp;·&amp;nbsp;Gray King
+    <div class="post-meta"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -2182,7 +2182,7 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
 标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
 结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2020-06-29 18:04:00 &#43;0800 &#43;0800&#39;&gt;June 29, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 生命周期" href="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
           </article>
        

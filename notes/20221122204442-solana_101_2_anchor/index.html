@@ -11,7 +11,7 @@
 PDA 只有一个类似公钥的地址，但是没有对应的私钥； 链下生成：通过 PublicKey.findProgramAddress 生成 PDA，seeds 用于生成多个 PDA； 链上创建：将 PDA 作为账号传递给 Program 进行链上创建：填充足够的 lamports 用于支付租金、开辟空间、指定 program 作为 Owner。 创建一个计数器 部署智能合约； 生成一个 PDA 并进行链上创建； 增加计数器； 其他账号获取 PDA，并增加计数器； 使用 Anchor 重写计数器 安装 Anchor 安装 Yarn 安装 avm cargo install --git https://github.com/project-serum/anchor avm --locked --force 使用 avm 安装 anchor avm install latest avm use latest 创建 anchor 项目 anchor init hello-anchor anchor 项目结构 Understanding Program Derived Addresses&#160;&#x21a9;&#xfe0e;">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20221122204442-solana_101_2_anchor/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
@@ -197,7 +197,7 @@ PDA 只有一个类似公钥的地址，但是没有对应的私钥； 链下生
     <h1 class="post-title">
       Solana 101: 2. Anchor
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2022-11-22 20:44:00 &#43;0800 &#43;0800&#39;&gt;November 22, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
+    <div class="post-meta"><span title='2022-11-22 20:44:00 +0800 +0800'>November 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -1873,7 +1873,7 @@ PDA 只有一个类似公钥的地址，但是没有对应的私钥； 链下生
               <p>tags: Solana, Solana 101: 2. Anchor What is Program Derived Address(PDA)?1 A Program Derived Address is simply an account owned by the program, but has no private key. Instead it’s signature is obtained by a set of seeds and a bump (a nonce which makes sure it’s off curve). “Generating” a Program Address is different from “creating” it.
 Generating One can generate a PDA using Pubkey::find_program_address in Rust or PublicKey....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-12-26 15:46:00 &#43;0800 &#43;0800&#39;&gt;December 26, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-12-26 15:46:00 +0800 +0800'>December 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Solana PDA" href="https://notes.0081800.xyz/notes/20221226154617-solana_pda/"></a>
           </article>
        

@@ -18,7 +18,7 @@
 Cassandra HBase ">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
@@ -218,7 +218,7 @@ Cassandra HBase "/>
     <h1 class="post-title">
       排序字符串表：SSTables
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2021-06-06 10:31:00 &#43;0800 &#43;0800&#39;&gt;June 6, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
+    <div class="post-meta"><span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
 </div>
   </header> <div class="toc">
@@ -1883,7 +1883,7 @@ Cassandra HBase "/>
             <div class="entry-content">
               <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2021-08-10 07:14:00 &#43;0800 &#43;0800&#39;&gt;August 10, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2021-08-10 07:14:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to HBase" href="https://notes.0081800.xyz/notes/20210810071455-hbase/"></a>
           </article>
        
@@ -1897,7 +1897,7 @@ Cassandra HBase "/>
 MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
 输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2021-08-09 07:34:00 &#43;0800 &#43;0800&#39;&gt;August 9, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
           </article>
        
@@ -1916,7 +1916,7 @@ MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现�
 追加的写 WAL； 每个 B-tree 必须先更新 WAL 然后再修改树本身的页。 通过使用「锁存器」保护进行并发控制，保护 B-tree 页被多个线程访问而看到树不一样的状态。
 优化 通过复制方案替代 WAL 进行崩溃恢复，修改的页被写入不同的位置，树中父页的新版本被创建，并指向新的位置。 保存键的缩略信息，可以压入更多的键，保持更高的分支因子，减少层数。 对树进行布局，相邻叶子页按顺序保存在磁盘。 添加额外的指针到树中，如左右兄弟页。 变体，如分形树：借鉴日志结构减少磁盘寻道。 </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2021-06-06 14:39:00 &#43;0800 &#43;0800&#39;&gt;June 6, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to B-trees" href="https://notes.0081800.xyz/notes/20210606143901-b_trees/"></a>
           </article>
        
@@ -1931,7 +1931,7 @@ MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现�
 LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
 性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2021-06-06 10:03:00 &#43;0800 &#43;0800&#39;&gt;June 6, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LSM-Tree" href="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/"></a>
           </article>
        

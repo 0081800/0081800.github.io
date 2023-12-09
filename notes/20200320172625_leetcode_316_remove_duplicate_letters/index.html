@@ -14,7 +14,7 @@ Input: &ldquo;cbacdcbc&rdquo; Output: &ldquo;acdb&rdquo; 解法之一:
 通过一个数组对每一个出现的字母进行计数 遍历每一个字母放入栈，并将该字母的计数减 1 查看栈底的字母有没有比当前字母大且该字母的计数不为 0 的（有比当前更小的字典序），从栈底弹出该字母 func removeDuplicateLetters(s string) string { var countOfEachLetter [26]int var visited [26]bool stack := make([]byte, 0) stackBottom := 0 bytesArr := []byte(s) for _, c := range bytesArr { countOfEachLetter[getIndex(c)]&#43;&#43; } for _, c := range bytesArr { index := getIndex(c) countOfEachLetter[index]-- if visited[index] { continue } // countOfEachLetter[getIndex(stack[stackBottom])] &gt; 0 后面还有该字符 for len(stack[stackBottom:]) &gt; 0 &amp;&amp; stack[stackBottom] &gt; c &amp;&amp; countOfEachLetter[getIndex(stack[stackBottom])] &gt; 0 { // 标记为未访问用于后面的字符加入结果 visited[getIndex(stack[stackBottom])] = false // 移动栈底 stackBottom&#43;&#43; } // 加入到结果栈 stack = append(stack, c) visited[index] = true } return string(stack[stackBottom:]) } func getIndex(b byte) int { return int(b - &#39;a&#39;) } 通过上面解法遇到如下错误：">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200320172625_leetcode_316_remove_duplicate_letters/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
@@ -206,7 +206,7 @@ Input: &ldquo;cbacdcbc&rdquo; Output: &ldquo;acdb&rdquo; 解法之一:
     <h1 class="post-title">
       LeetCode: 316.Remove Duplicate Letters
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2019-05-01 00:00:00 &#43;0800 &#43;0800&#39;&gt;May 1, 2019&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King
+    <div class="post-meta"><span title='2019-05-01 00:00:00 +0800 +0800'>May 1, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King
 
 </div>
   </header> 
@@ -1957,7 +1957,7 @@ Input: &ldquo;cbacdcbc&rdquo; Output: &ldquo;acdb&rdquo; 解法之一:
               <p>tags: String,LeetCode101,Stack,Hash Table,Hash Set I have solved this problem years before, LeetCode: 316.Remove Duplicate Letters, but still stuck on it.
 The key idea is not only about stack, but also required a map to record how many same letters behind current one. Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-21 17:47:00 &#43;0800 &#43;0800&#39;&gt;March 21, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-21 17:47:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 316. Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/"></a>
           </article>
        

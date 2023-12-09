@@ -12,7 +12,7 @@
 尝试不同的遍历顺序可能是解题关键，正序遍历不行试一下反序遍历，反之亦然！ 以上到达一定量之后在 LeetCode 创建一个新的 session 重新刷起。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220311065137-leetcode101/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
@@ -200,7 +200,7 @@
     <h1 class="post-title">
       LeetCode101
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2022-03-11 06:51:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King
+    <div class="post-meta"><span title='2022-03-11 06:51:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
 
 </div>
   </header> 
@@ -1893,7 +1893,7 @@
             <div class="entry-content">
               <p>tags: Algorithm,Data Structures Make my best effort to move to Nanjing for my son. This is a successor of LeetCode101.</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-06-06 07:10:00 &#43;0800 &#43;0800&#39;&gt;June 6, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-06-06 07:10:00 +0800 +0800'>June 6, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCodeNJ" href="https://notes.0081800.xyz/notes/20220606071040-leetcodenj/"></a>
           </article>
        
@@ -1905,7 +1905,7 @@
             <div class="entry-content">
               <p>tags: Hash Table,Heap (data structure),LeetCode101,Priority Queue,C&#43;&#43; Lambda class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { vector&lt;int&gt; res; unordered_map&lt;int, int&gt; freq; // Note that: we need caputre a map by reference, // otherwise we can&#39;t use the operator[]. // See also: https://stackoverflow.com/a/6281071 auto comp_by_map = [&amp;freq](const int&amp; a, const int&amp; b) { return freq[a] &lt; freq[b]; }; // Note that: here we need pass our lambda /comp_by_map/ to the // constructor of std::priority_queue....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-09 08:28:00 &#43;0800 &#43;0800&#39;&gt;April 9, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-09 08:28:00 +0800 +0800'>April 9, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 347. Top K Frequent Elements" href="https://notes.0081800.xyz/notes/20220409082813-leetcode101_347_top_k_frequent_elements/"></a>
           </article>
        
@@ -1918,7 +1918,7 @@
               <p> tags: LeetCode101,In-place Travel array in reverse order, and record how many times need to swap, which is how many elements not equal val.
 class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val) { int k = 0; for (int j = nums.size() - 1; j &gt;= 0; --j) { if (nums[j] == val) { for (int i = 0; i &lt; k; &#43;&#43;i) { swap(nums[i &#43; j], nums[j &#43; i &#43; 1]); } } else { k&#43;&#43;; } } return k; } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-08 13:11:00 &#43;0800 &#43;0800&#39;&gt;April 8, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-08 13:11:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 27. Remove Element" href="https://notes.0081800.xyz/notes/20220408131130-leetcode101_27_remove_element/"></a>
           </article>
        
@@ -1932,7 +1932,7 @@ class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val)
 LeetCode101: 167. Two Sum II - Input Array Is Sorted LeetCode101: 15. 3Sum We create a new loop:
 class Solution { public: vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt;&amp; nums, int target) { sort(nums.begin(), nums.end()); vector&lt;vector&lt;int&gt;&gt; res; int T, S, r, l; for (int i = 0; i &lt; nums.size(); &#43;&#43;i) { if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) { continue; } for (int j = i &#43; 1; j &lt; nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-08 12:50:00 &#43;0800 &#43;0800&#39;&gt;April 8, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-08 12:50:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 18. 4Sum" href="https://notes.0081800.xyz/notes/20220408125015-leetcode101_18_4sum/"></a>
           </article>
        
@@ -1945,7 +1945,7 @@ class Solution { public: vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&g
               <p> tags: Priority Queue,LeetCode101 Using a min heap to keep k elements, top is the Kth largest element.
 class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;, std::greater&lt;int&gt;&gt; pq; int K; public: KthLargest(int k, vector&lt;int&gt;&amp; nums) { K = k; for (auto n: nums) { add(n); } } int add(int val) { pq.push(val); while (pq.size() &gt; K) { pq.pop(); } return pq.top(); } }; /** * Your KthLargest object will be instantiated and called as such: * KthLargest* obj = new KthLargest(k, nums); * int param_1 = obj-&gt;add(val); */ </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-08 12:39:00 &#43;0800 &#43;0800&#39;&gt;April 8, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-08 12:39:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 703. Kth Largest Element in a Stream" href="https://notes.0081800.xyz/notes/20220408123913-leetcode101_703_kth_largest_element_in_a_stream/"></a>
           </article>
        
@@ -1959,7 +1959,7 @@ class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;
 Here we need find top 2 values, and pop them from heap, then we will meet two cases:
 If they are not same, put back the differ between them, continue. Otherwise, continue directly. </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-08 07:09:00 &#43;0800 &#43;0800&#39;&gt;April 8, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-08 07:09:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 1046. Last Stone Weight" href="https://notes.0081800.xyz/notes/20220408070926-leetcode101_1046_last_stone_weight/"></a>
           </article>
        
@@ -1972,7 +1972,7 @@ If they are not same, put back the differ between them, continue. Otherwise, con
               <p> tags: LeetCode101,Sorting,Two Pointers Key ideas:
 Move both sides to inwards. If the sum value less than target, move left pointer. Otherwise move right poinger. class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) { int S, l = 0, r = numbers.size() - 1; vector&lt;int&gt; res(2, 0); while (l &lt; r) { S = numbers[l] &#43; numbers[r]; if (S == target) { break; } if (S &lt; target) { l&#43;&#43;; } else { r--; } } res[0] = l &#43; 1; res[1] = r &#43; 1; return res; } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-07 08:19:00 &#43;0800 &#43;0800&#39;&gt;April 7, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-07 08:19:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 167. Two Sum II - Input Array Is Sorted" href="https://notes.0081800.xyz/notes/20220407081954-leetcode101_167_two_sum_ii_input_array_is_sorted/"></a>
           </article>
        
@@ -1985,7 +1985,7 @@ Move both sides to inwards. If the sum value less than target, move left pointer
               <p> tags: LeetCode101,Sorting,Two Pointers,Three Pointers Key ideas see LeetCode101: 15. 3Sum
 class Solution { public: int threeSumClosest(vector&lt;int&gt;&amp; nums, int target) { sort(nums.begin(), nums.end()); int closest = INT_MAX, l, r, sum, T, res; for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { l = i &#43; 1; r = nums.size() - 1; T = target - nums[i]; while (l &lt; r) { sum = nums[l] &#43; nums[r]; if (abs(sum - T) &lt; closest) { res = sum &#43; nums[i]; closest = abs(sum - T); } if (sum == T) { return target; } if (sum &lt; T) { l&#43;&#43;; } else { r--; } } } return res; } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-07 08:10:00 &#43;0800 &#43;0800&#39;&gt;April 7, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-07 08:10:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 16. 3Sum Closest" href="https://notes.0081800.xyz/notes/20220407081015-leetcode101_16_3sum_closest/"></a>
           </article>
        
@@ -1998,7 +1998,7 @@ class Solution { public: int threeSumClosest(vector&lt;int&gt;&amp; nums, int ta
               <p>tags: LeetCode101,Sorting,Two Pointers,Three Pointers Key ideas:
 Sort the nums first. Then, we travel the nums, pick current element as nums[i], and apply LeetCode101: 167. Two Sum II - Input Array Is Sorted to the remains. We skip the same numbers to avoid duplicate. class Solution { public: vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) { sort(nums.begin(), nums.end()); int l, r, sum, T; vector&lt;vector&lt;int&gt;&gt; res; for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { // Skip same numbers to avoid duplicate if(i &gt; 0 &amp;&amp; nums[i] == nums[i-1]) { continue; } l = i &#43; 1; r = nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-07 08:00:00 &#43;0800 &#43;0800&#39;&gt;April 7, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 15. 3Sum" href="https://notes.0081800.xyz/notes/20220407080010-leetcode101_15_3sum/"></a>
           </article>
        
@@ -2012,7 +2012,7 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
 Remove left character to see if the remains string still satisfied a valid palindrome. Remove right character to see if the remains string still satisfied a valid palindrome. Returns true if either one above two is true.
 class Solution { public: bool validPalindrome(string s) { for (int i = 0, j = s.size() -1; i &lt; j; i&#43;&#43;,j--) { if (s[i] !...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-02 14:37:00 &#43;0800 &#43;0800&#39;&gt;April 2, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-02 14:37:00 +0800 +0800'>April 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 680. Valid Palindrome II" href="https://notes.0081800.xyz/notes/20220402143729-leetcode101_680_valid_palindrome_ii/"></a>
           </article>
        
@@ -2024,7 +2024,7 @@ class Solution { public: bool validPalindrome(string s) { for (int i = 0, j = s.
             <div class="entry-content">
               <p> tags: In-place,LeetCode101,In-place Reverse class Solution { public: void reverseString(vector&lt;char&gt;&amp; s) { if (s.size() == 1) { return; } for (int i = 0; i &lt;= (s.size() - 2) / 2; &#43;&#43;i) { swap(s[s.size() - 1 - i], s[i]); } } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-04-01 10:42:00 &#43;0800 &#43;0800&#39;&gt;April 1, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-04-01 10:42:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 344. Reverse String" href="https://notes.0081800.xyz/notes/20220401104229-leetcode101_344_reverse_string/"></a>
           </article>
        
@@ -2037,7 +2037,7 @@ class Solution { public: bool validPalindrome(string s) { for (int i = 0, j = s.
               <p>tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don’t find target in nums:
 Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l !...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-30 16:55:00 &#43;0800 &#43;0800&#39;&gt;March 30, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-30 16:55:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 35. Search Insert Position" href="https://notes.0081800.xyz/notes/20220330165507-leetcode101_35_search_insert_position/"></a>
           </article>
        
@@ -2049,7 +2049,7 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
             <div class="entry-content">
               <p> tags: Divide-and-Conquer,LeetCode101,Binary Search class Solution { public: bool searchMatrix(vector&lt;vector&lt;int&gt; &gt; &amp;matrix, int target) { int n = matrix.size(); int m = matrix[0].size(); int l = 0, r = m * n - 1; while (l != r){ int mid = l &#43; (r - l) / 2; if (matrix[mid / m][mid % m] &lt; target) l = mid &#43; 1; else r = mid; } return matrix[r / m][r % m] == target; } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-30 16:01:00 &#43;0800 &#43;0800&#39;&gt;March 30, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-30 16:01:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 74. Search a 2D Matrix" href="https://notes.0081800.xyz/notes/20220330160157-leetcode101_74_search_a_2d_matrix/"></a>
           </article>
        
@@ -2064,7 +2064,7 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
 1(0) -&gt; 3(1) -&gt; 2(3) -&gt; 4(3) -&gt; 2(4) -&gt; 4(3)
 We can see there is a circle in it, so:...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-29 18:14:00 &#43;0800 &#43;0800&#39;&gt;March 29, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-29 18:14:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 287. Find the Duplicate Number" href="https://notes.0081800.xyz/notes/20220329181423-leetcode101_287_find_the_duplicate_number/"></a>
           </article>
        
@@ -2076,7 +2076,7 @@ We can see there is a circle in it, so:...</p>
             <div class="entry-content">
               <p>tags: Cycle detection,Fast &amp; Slow Pointers,LeetCode101 /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode *detectCycle(ListNode *head) { if (head == nullptr || head-&gt;next == nullptr) { return nullptr; } // tortoise move 1 step auto slow = head-&gt;next; // hare move 2 steps auto fast = head-&gt;next-&gt;next; while (slow !...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-29 18:02:00 &#43;0800 &#43;0800&#39;&gt;March 29, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-29 18:02:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 142. Linked List Cycle II" href="https://notes.0081800.xyz/notes/20220329180222-leetcode101_142_linked_list_cycle_ii/"></a>
           </article>
        
@@ -2088,7 +2088,7 @@ We can see there is a circle in it, so:...</p>
             <div class="entry-content">
               <p> tags: Priority Queue,LeetCode101 Max heap priority queue class Solution { public: int findKthLargest(vector&lt;int&gt;&amp; nums, int k) { // max heap priority_queue&lt;int&gt; pq; for (auto iter = nums.begin(); iter != nums.end(); &#43;&#43;iter) { pq.push(*iter); } // The Kth largest element should let k &gt; 1 not k &gt; 0 for (; k &gt; 1; --k) { pq.pop(); } return pq.top(); } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-29 07:23:00 &#43;0800 &#43;0800&#39;&gt;March 29, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-29 07:23:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 215. Kth Largest Element in an Array" href="https://notes.0081800.xyz/notes/20220329072317-leetcode101_215_kth_largest_element_in_an_array/"></a>
           </article>
        
@@ -2101,7 +2101,7 @@ We can see there is a circle in it, so:...</p>
               <p>tags: Priority Queue,LeetCode101 The key ideas:
 Use a std::pair to hold {count, index}, so it can compare count first then the index. Use a min heap priority queue to get the K weakest rows. class Solution { public: vector&lt;int&gt; kWeakestRows(vector&lt;vector&lt;int&gt;&gt;&amp; mat, int k) { // min heap priority_queue&lt; std::pair&lt;int, int&gt;, vector&lt;std::pair&lt;int, int&gt; &gt;, std::greater&lt;std::pair&lt;int, int&gt; &gt; &gt; pq; for (auto iter = mat.begin(); iter != mat.end(); &#43;&#43;iter) { int c = count((*iter)....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-29 07:14:00 &#43;0800 &#43;0800&#39;&gt;March 29, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-29 07:14:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 1337. The K Weakest Rows in a Matrix" href="https://notes.0081800.xyz/notes/20220329071403-leetcode101_1337_the_k_weakest_rows_in_a_matrix/"></a>
           </article>
        
@@ -2113,7 +2113,7 @@ Use a std::pair to hold {count, index}, so it can compare count first then the i
             <div class="entry-content">
               <p>tags: Hash Table,LeetCode101,Sorting,Two Pointers Intuition with HashMap class Solution { public: int numRescueBoats(vector&lt;int&gt;&amp; people, int limit) { unordered_map&lt;int, int&gt; cntOfWeights; for (auto iter = people.begin(); iter != people.end(); &#43;&#43;iter) { cntOfWeights[*iter]&#43;&#43;; } int r = 0; for (int i = 0; i &lt; people.size(); i&#43;&#43;) { if (cntOfWeights[people[i]] == 0) { continue; } cntOfWeights[people[i]]--; for (int j = (limit - people[i]); j &gt; 0; --j) { if (cntOfWeights.find(j) != cntOfWeights....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-24 11:43:00 &#43;0800 &#43;0800&#39;&gt;March 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-24 11:43:00 +0800 +0800'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 881. Boats to Save People" href="https://notes.0081800.xyz/notes/20220324114305-881_boats_to_save_people/"></a>
           </article>
        
@@ -2128,7 +2128,7 @@ We can abstract all the operations to a Tree, then apply DFS on it.
 For example: startValue=2, target=3, the tree looks like:
 /* 2 /\ / \ / \ 1(-1) 4(x2) /\ /\--&#43; / \ / \ 0(-1) 2(x2) 3(-1) 8(x2) */ class Solution { public: int brokenCalc(int startValue, int target) { unordered_set&lt;int&gt; visited; return backtracking(0, startValue, target, visited); } int backtracking(int count, int val, int target, unordered_set&lt;int&gt; &amp; visited) { if (val == target) { return count; } if (visited....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-23 17:58:00 &#43;0800 &#43;0800&#39;&gt;March 23, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-23 17:58:00 +0800 +0800'>March 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 991. Broken Calculator" href="https://notes.0081800.xyz/notes/20220323175835-leetcode101_991_broken_calculator/"></a>
           </article>
        
@@ -2141,7 +2141,7 @@ For example: startValue=2, target=3, the tree looks like:
               <p>tags: String,LeetCode101,Tricky Initialize a string that fills &#39;a&#39; in it. Then we turn it to the expected string from end to start.
 The maximal value of each position in the string is 26. If we start from all elements is &#39;a&#39; in the string. Then the represent value of the string is n. If it’s not equal to k. Then we need turn the last character of string to r = k - n....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-22 16:22:00 &#43;0800 &#43;0800&#39;&gt;March 22, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-22 16:22:00 +0800 +0800'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 1663. Smallest String With A Given Numeric Value" href="https://notes.0081800.xyz/notes/20220322162250-leetcode101_1663_smallest_string_with_a_given_numeric_value/"></a>
           </article>
        
@@ -2153,7 +2153,7 @@ The maximal value of each position in the string is 26. If we start from all ele
             <div class="entry-content">
               <p>tags: Math,Hash Table,LeetCode101 class Solution { public: string intToRoman(int num) { vector&lt;string&gt; roman {&#34;M&#34;, &#34;CM&#34;, &#34;D&#34;, &#34;CD&#34;, &#34;C&#34;, &#34;XC&#34;, &#34;L&#34;, &#34;XL&#34;, &#34;X&#34;, &#34;IX&#34;, &#34;V&#34;, &#34;IV&#34;, &#34;I&#34;}; vector&lt;int&gt; integers {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 }; string r; int times = 0; for (int i = 0; i &lt; integers.size(); &#43;&#43;i) { if (num &gt;= integers[i]) { times = num / integers[i]; num -= times * integers[i]; for (int j = times; j &gt; 0; --j) { r....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-22 15:59:00 &#43;0800 &#43;0800&#39;&gt;March 22, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-22 15:59:00 +0800 +0800'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 12. Integer to Roman" href="https://notes.0081800.xyz/notes/20220322155933-leetcode101_12_integer_to_roman/"></a>
           </article>
        
@@ -2166,7 +2166,7 @@ The maximal value of each position in the string is 26. If we start from all ele
               <p> tags: Two Pointers,Tricky,LeetCode101 The key ideas are:
 We start from two edges and move to the middle with two pointers. Move the pointer to the middle which side is smaller. class Solution { public: int maxArea(vector&lt;int&gt;&amp; height) { int i = 0, j = height.size() - 1; int water = 0; while (i &lt; j) { water = max(water, (j - i) * min(height[i], height[j])); if (height[i] &gt; height[j]) { --j; } else { &#43;&#43;i; } } return water; } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-21 18:38:00 &#43;0800 &#43;0800&#39;&gt;March 21, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-21 18:38:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 11. Container With Most Water" href="https://notes.0081800.xyz/notes/20220321183809-leetcode_11_container_with_most_water/"></a>
           </article>
        
@@ -2179,7 +2179,7 @@ We start from two edges and move to the middle with two pointers. Move the point
               <p>tags: String,LeetCode101,Stack,Hash Table,Hash Set I have solved this problem years before, LeetCode: 316.Remove Duplicate Letters, but still stuck on it.
 The key idea is not only about stack, but also required a map to record how many same letters behind current one. Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-21 17:47:00 &#43;0800 &#43;0800&#39;&gt;March 21, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-21 17:47:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 316. Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/"></a>
           </article>
        
@@ -2192,7 +2192,7 @@ The key idea is not only about stack, but also required a map to record how many
               <p>tags: String,LeetCode101,Hash Set,Hash Table,Stack The key idea is similar to LeetCode101: 316. Remove Duplicate Letters, we use a HashMap to track how many letters which is same in the string. Then we use a HashSet to store appeared letters. When there is no more letters appeared in the HashSet, it’s time to partition.
 class Solution { public: vector&lt;int&gt; partitionLabels(string s) { unordered_map&lt;char, int&gt; cntOfLetters; unordered_set&lt;char&gt; appearedLetters; vector&lt;int&gt; r; int count = 0; for (auto iter = s....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-21 17:45:00 &#43;0800 &#43;0800&#39;&gt;March 21, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 763. Partition Labels" href="https://notes.0081800.xyz/notes/20220321174504-leetcode101_763_partition_labels/"></a>
           </article>
        
@@ -2205,7 +2205,7 @@ class Solution { public: vector&lt;int&gt; partitionLabels(string s) { unordered
               <p>tags: LeetCode101,Math The key idea is:
 To use \(log10(10^n) = n\) to get how many digits in the number. Then we need iterate \(n &#43; 1\) times to compare each side. The digit in the left is \(\frac{x}{10^{n-i}} \mod 10\). The digit in the right is \(\frac{x}{10^i} \mod 10\). class Solution { public: bool isPalindrome(int x) { if (x &lt; 0) { return false; } // failed at here if (x &lt; 10) { return true; } int n = log10(x); int ld = pow(10, n); // left div int rd = 1; // right div for (int i = 0; i &lt; (n &#43; 1) / 2; i&#43;&#43;) { // left right if (x / ld % 10 !...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-18 08:44:00 &#43;0800 &#43;0800&#39;&gt;March 18, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-18 08:44:00 +0800 +0800'>March 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 9. Palindrome Number" href="https://notes.0081800.xyz/notes/20220318084438-leetcode101_9_palindrome_number/"></a>
           </article>
        
@@ -2218,7 +2218,7 @@ To use \(log10(10^n) = n\) to get how many digits in the number. Then we need it
               <p>tags: Tricky,LeetCode101,Integer Overflow The key idea is how to detect integer overflow, it’s same to: LeetCode101: 7. Reverse Integer.
 class Solution { public: int myAtoi(string s) { auto iter = s.begin(); int base = 1, r = 0, p = 0; // Skip whitespace for (; iter != s.end() &amp;&amp; *iter == &#39; &#39;; &#43;&#43;iter) { } // negative or positive if (*iter == &#39;-&#39; || *iter == &#39;&#43;&#39;) { if (*iter == &#39;-&#39;) { base = -1; } &#43;&#43;iter; } for (; iter !...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-18 07:23:00 &#43;0800 &#43;0800&#39;&gt;March 18, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-18 07:23:00 +0800 +0800'>March 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 8. String to Integer (atoi)" href="https://notes.0081800.xyz/notes/20220318072345-leetcode101_8_string_to_integer_atoi/"></a>
           </article>
        
@@ -2233,7 +2233,7 @@ R = total required rows d = R - 2 2 is contains head line and tail line that not
 For example, &#34;PAYPALISHIRING&#34;, numRows=3:
 P A H N A P L S I I G Y I R The columns only the head and tail rows is correct should be:...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-17 07:33:00 &#43;0800 &#43;0800&#39;&gt;March 17, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-17 07:33:00 +0800 +0800'>March 17, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 6. Zigzag Conversion" href="https://notes.0081800.xyz/notes/20220317073333-leetcode101_6_zigzag_conversion/"></a>
           </article>
        
@@ -2248,7 +2248,7 @@ For this purpose, we could detect integer overflow before carry:
 The maximal of INT_MAX before carry is \(\frac{INT\_MAX}{10}\). We continue compare pop with the suffix of INT_MAX, 7, if maximal before carry is equal to \(\frac{INT\_MAX}{10}\).
 The minimal of INT_MIN before carry is \(\frac{INT\_MIN}{10}\) too. We continue compare pop with the suffix of INT_MIN, -8, if minimal before carry is equal to \(\frac{INT\_MIN}{10}\)....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-16 21:53:00 &#43;0800 &#43;0800&#39;&gt;March 16, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-16 21:53:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 7. Reverse Integer" href="https://notes.0081800.xyz/notes/20220316215304-leetcode101_7_reverse_integer/"></a>
           </article>
        
@@ -2260,7 +2260,7 @@ The minimal of INT_MIN before carry is \(\frac{INT\_MIN}{10}\) too. We continue 
             <div class="entry-content">
               <p>tags: Stack,LeetCode101 Stack class Solution { public: string minRemoveToMakeValid(string s) { stack&lt;char&gt; st; char open = &#39;(&#39;, close = &#39;)&#39;; int open_count = 0; string res; // forward to remove unnecessary close parentheses for (auto iter = s.begin(); iter != s.end(); &#43;&#43;iter) { if (*iter == open) { open_count&#43;&#43;; } if (open_count == 0 &amp;&amp; *iter == close) { continue; } if (*iter == close) { open_count--; } st.push(*iter); } int close_count = 0; // backward to remove unnecessary open parentheses while (!...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-16 08:00:00 &#43;0800 &#43;0800&#39;&gt;March 16, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-16 08:00:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 1249. Minimum Remove to Make Valid Parentheses" href="https://notes.0081800.xyz/notes/20220316080026-leetcode101_1249_minimum_remove_to_make_valid_parentheses/"></a>
           </article>
        
@@ -2274,7 +2274,7 @@ The minimal of INT_MIN before carry is \(\frac{INT\_MIN}{10}\) too. We continue 
 As shown above, the position of break point is same to the position of max value of chunks. So here:
 We track chunks’s max value. Break at the position of max value lives in sorted array, which means the index in this case....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-15 15:21:00 &#43;0800 &#43;0800&#39;&gt;March 15, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-15 15:21:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 769. Max Chunks To Make Sorted" href="https://notes.0081800.xyz/notes/20220315152142-leetcode101_769_max_chunks_to_make_sorted/"></a>
           </article>
        
@@ -2286,7 +2286,7 @@ We track chunks’s max value. Break at the position of max value lives in sorte
             <div class="entry-content">
               <p>tags: Monotonic Stack,LeetCode101,LeetCode101: 496. Next Greater Element I Mono-descreasing stack class Solution { public: vector&lt;int&gt; dailyTemperatures(vector&lt;int&gt;&amp; temperatures) { vector&lt;int&gt; res(temperatures.size(), 0); stack&lt;int&gt; st; for (int i = 0; i &lt; temperatures.size(); i&#43;&#43;) { while (!st.empty() &amp;&amp; temperatures[st.top()] &lt; temperatures[i]) { res[st.top()] = i - st.top(); st.pop(); } st.push(i); } return res; } }; [73,74,75,71,69,72,76,73]</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-15 11:23:00 &#43;0800 &#43;0800&#39;&gt;March 15, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-15 11:23:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 739. Daily Temperatures" href="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/"></a>
           </article>
        
@@ -2299,7 +2299,7 @@ We track chunks’s max value. Break at the position of max value lives in sorte
               <p>tags: Monotonic Stack,LeetCode101,Binary Search Tree Mono-descreasing stack Key:
 The largest number is the root, that we can observe in by iteration. We must clear the stack to fill the right side of BST after loop. The last popped element is the left of current node. From top to bottom, the top element is the right side of the element that under the top. class Solution { public: TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) { vector&lt;TreeNode*&gt; res(nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-15 10:51:00 &#43;0800 &#43;0800&#39;&gt;March 15, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
           </article>
        
@@ -2312,7 +2312,7 @@ The largest number is the root, that we can observe in by iteration. We must cle
               <p>tags: Monotonic Stack,LeetCode101 Mono-increasing stack Key:
 Some case should move backward as the new value we meeted is larger than it. When we meet 2 in the stack, and here we need move backward. Some case we need move forward, as the following values are the mono-increaing stack: [1, 2, 5, 3, 4] class Solution { public: int findUnsortedSubarray(vector&lt;int&gt;&amp; nums) { stack&lt;int&gt; st; // mono-increasing int left = -1, right = -2; for (int i = 0; i &lt; nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-15 07:13:00 &#43;0800 &#43;0800&#39;&gt;March 15, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-15 07:13:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 581. Shortest Unsorted Continuous Subarray" href="https://notes.0081800.xyz/notes/20220315071351-leetcode101_581_shortest_unsorted_continuous_subarray/"></a>
           </article>
        
@@ -2324,7 +2324,7 @@ Some case should move backward as the new value we meeted is larger than it. Whe
             <div class="entry-content">
               <p>tags: Monotonic Stack,LeetCode101 related: LeetCode101: 496. Next Greater Element I Mono-descreasing stack / normal order loop twice Loop twice to solve circular interger array Mono-descreasing stack to store index, avoid HashMap in Next Greater Element I, as there is a cicular array. class Solution { public: vector&lt;int&gt; nextGreaterElements(vector&lt;int&gt;&amp; nums) { vector&lt;int&gt; res(nums.size(), -1); stack&lt;int&gt; st; for (int j = 0, i = 0; j &lt; nums.size() * 2; &#43;&#43;j) { i = j &gt;= nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-15 06:30:00 &#43;0800 &#43;0800&#39;&gt;March 15, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-15 06:30:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 503. Next Greater Element II" href="https://notes.0081800.xyz/notes/20220315063008-leetcode101_503_next_greater_element_ii/"></a>
           </article>
        
@@ -2336,7 +2336,7 @@ Some case should move backward as the new value we meeted is larger than it. Whe
             <div class="entry-content">
               <p>tags: Monotonic Stack,Hash Table,LeetCode101 Mono-descreasing and reverse order travel class Solution { public: vector&lt;int&gt; nextGreaterElement(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { // Mono-descreasing and reverse order travel. // The next greater of the popped value is the top of the stack, if it has any. // // For example: [1,3,4,2] // the stack goes: // [2] // [4] -&gt; 2 // [4, 3, 1] stack&lt;int&gt; st; vector&lt;int&gt; res; unordered_map&lt;int, int&gt; m; for (int i = nums2....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-14 08:58:00 &#43;0800 &#43;0800&#39;&gt;March 14, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-14 08:58:00 +0800 +0800'>March 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 496. Next Greater Element I" href="https://notes.0081800.xyz/notes/20220314085847-leetcode101_496_next_greater_element_i/"></a>
           </article>
        
@@ -2350,7 +2350,7 @@ Some case should move backward as the new value we meeted is larger than it. Whe
 We attempt to remove the most large numbers in the left, first, we use the right n numbers to meet the requirements, which is num.length - k and then, using a monotonic increasing stack to keep the result as samller as we can. (A monotonic increasing stack will remove larger elements before pushing.)
 Also note that: the result’s length is not actually equal num....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-14 07:43:00 &#43;0800 &#43;0800&#39;&gt;March 14, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-14 07:43:00 +0800 +0800'>March 14, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 402. Remove K Digits" href="https://notes.0081800.xyz/notes/20220314074324-leetcode101_402_remove_k_digits/"></a>
           </article>
        
@@ -2363,7 +2363,7 @@ Also note that: the result’s length is not actually equal num....</p>
               <p>tags: Monotonic Stack,LeetCode101,Tricky We travel the numbers in the reverse order:
 Use a mono-increasing stack to find the largest number(3 in the 132 pattern), the value popped from stack is the second large number(2 in the 132 pattern), if any value less than the second large number, returns true. // Note: // // - subsequence is not contiguous, is i &lt; j &lt; k, not i &#43; 1 = j, j &#43; 1 = k // class Solution { public: bool find132pattern(vector&lt;int&gt;&amp; nums) { int K = INT_MIN; stack&lt;int&gt; mst; // mono-increasing stack for (int i = nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-13 15:32:00 &#43;0800 &#43;0800&#39;&gt;March 13, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-13 15:32:00 +0800 +0800'>March 13, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 456. 132 Pattern" href="https://notes.0081800.xyz/notes/20220313153222-456_132_pattern/"></a>
           </article>
        
@@ -2378,7 +2378,7 @@ And using a HashTable to indicate that two values in the different position are 
 The steps is following:
 Find two values at each side of window are equal. Return true if the offset between their indices is less than or equal k. Otherwise set left to the new position and continue....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-12 07:37:00 &#43;0800 &#43;0800&#39;&gt;March 12, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-12 07:37:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 219. Contains Duplicate II" href="https://notes.0081800.xyz/notes/20220312073726-219_contains_duplicate_ii/"></a>
           </article>
        
@@ -2391,7 +2391,7 @@ Find two values at each side of window are equal. Return true if the offset betw
               <p>tags: Sliding Window,LeetCode101 Key:
 sum is greater than or equal to target Compute minimal must above slide left window, as decrease may cause sum less than target. See also 1695. Maximum Erasure Value class Solution { public: int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) { int left = 0; int sum = 0; int minimal = INT_MAX; for (auto right = 0; right &lt; nums.size(); right&#43;&#43;) { sum &#43;= nums[right]; while (sum &gt;= target) { minimal = min(minimal, right - left &#43; 1); sum -= nums[left&#43;&#43;]; } } return minimal == INT_MAX ?...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-11 22:08:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-11 22:08:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 209. Minimum Size Subarray Sum" href="https://notes.0081800.xyz/notes/20220311220839-209_minimum_size_subarray_sum/"></a>
           </article>
        
@@ -2404,7 +2404,7 @@ sum is greater than or equal to target Compute minimal must above slide left win
               <p> tags: Sliding Window,LeetCode101,Hash Set Key:
 Fixed size window, right should start from 9 class Solution { public: vector&lt;string&gt; findRepeatedDnaSequences(string s) { int left = 0; unordered_set&lt;string&gt; results; unordered_set&lt;string&gt; hset; for (auto right = 9; right &lt; s.size(); right&#43;&#43;) { string sub(s, left, 10); if (hset.find(sub) != hset.end()) { results.insert(sub); } hset.insert(sub); left&#43;&#43;; } return vector&lt;string&gt;(results.begin(), results.end()); } }; </p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-11 21:30:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-11 21:30:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 187. Repeated DNA Sequences" href="https://notes.0081800.xyz/notes/20220311213045-187_repeated_dna_sequences/"></a>
           </article>
        
@@ -2417,7 +2417,7 @@ Fixed size window, right should start from 9 class Solution { public: vector&lt;
               <p>tags: Sliding Window,LeetCode101,Hash Set Use HashMap to store indices See also: 3. Longest Substring Without Repeating Characters
 class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) { int maximum = 0; int left = 0, right = 0; unordered_map&lt;int, int&gt; indices; for (; right &lt; nums.size(); right&#43;&#43;) { int n = nums[right]; if (indices.find(n) != indices.end() &amp;&amp; indices[n] &#43; 1 &gt; left) { left = indices[n] &#43; 1; } maximum = max(maximum, std::accumulate(nums....</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-11 18:38:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-11 18:38:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 1695. Maximum Erasure Value" href="https://notes.0081800.xyz/notes/20220311183843-1695_maximum_erasure_value/"></a>
           </article>
        
@@ -2434,7 +2434,7 @@ Wrong
 left&#43;&#43;; counts[s[left]]--; Correct
 counts[s[left]]--; left&#43;&#43;; The full code see:...</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-11 07:48:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-11 07:48:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 3. Longest Substring Without Repeating Characters" href="https://notes.0081800.xyz/notes/20220311074801-3_longest_substring_without_repeating_characters/"></a>
           </article>
        
@@ -2446,7 +2446,7 @@ counts[s[left]]--; left&#43;&#43;; The full code see:...</p>
             <div class="entry-content">
               <p>tags: Linked List,Stack, LeetCode101,2. Add Two Numbers 两数之和的进阶版，位高的数字在链表的头部，常规解法是通过「栈」进行反转链表，然后回退到2. Add Two Numbers的解法。</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-11 07:38:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-11 07:38:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 445. Add Two Numbers II" href="https://notes.0081800.xyz/notes/20220311073810-445_add_two_numbers_ii/"></a>
           </article>
        
@@ -2458,7 +2458,7 @@ counts[s[left]]--; left&#43;&#43;; The full code see:...</p>
             <div class="entry-content">
               <p>tags: Linked List, LeetCode101 正常的「链表」遍历操作，需要注意的就是不要在末尾忘记处理进位，如果 carry 大于 0 需要追加到结果链表末尾。</p>
             </div>
-            <footer class="entry-footer">&lt;span title=&#39;2022-03-11 07:07:00 &#43;0800 &#43;0800&#39;&gt;March 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+            <footer class="entry-footer"><span title='2022-03-11 07:07:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to LeetCode101: 2. Add Two Numbers" href="https://notes.0081800.xyz/notes/20220311070727-2_add_two_numbers/"></a>
           </article>
        
