@@ -153,20 +153,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>收敛于一致的状态
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>多个主节点看到的执行顺序不一致，病了同时按照各自看到的写入顺序执行，那么数据库最终将处于不一致状态。
-数据库必须以一种趋同的方式来解决冲突。
-可能的解决方式 给每个写入分配唯一的 ID，如基于时间戳的最后写入者获胜。 为每个主节点分配一个唯一 ID，序列号高的优先于序列号低的主节点，可能导致数据丢失 以某种方式合并值，如按照字母顺序拼接在一起 利用预定义号的格式记录，然后依靠应用层逻辑，事后解决冲突（可能会提示用户） </p>
-  </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-06-15 08:32:00 &#43;0800 &#43;0800&#39;&gt;June 15, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 收敛于一致的状态" href="https://notes.0081800.xyz/notes/20210615083221-%E6%94%B6%E6%95%9B%E4%BA%8E%E4%B8%80%E8%87%B4%E7%9A%84%E7%8A%B6%E6%80%81/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>避免冲突
     </h2>
   </header>
@@ -224,6 +210,20 @@ P: C小姐，你能看到多远的文莱？
   </div>
   <footer class="entry-footer">&lt;span title=&#39;2021-06-14 21:09:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;0 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 强一致性" href="https://notes.0081800.xyz/notes/20210614210953-%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>读写一致性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>也称为「写后读一致性」，解决用户主节点写入后立马从从节点读取不到到情况。只能解决单用户的一致性，但是解决不了多用户的一致性。
+场景 用户新提交了评论，但是自己看不到，需要等一会才能看到。
+解决方案 记录更新时间戳，在指定时间内从主节点读取。</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-06-14 21:07:00 &#43;0800 &#43;0800&#39;&gt;June 14, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 读写一致性" href="https://notes.0081800.xyz/notes/20210614210755-%E8%AF%BB%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

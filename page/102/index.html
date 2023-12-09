@@ -148,18 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>链式复制
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 分布式,Incomplete </p>
-  </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-28 07:15:00 &#43;0800 &#43;0800&#39;&gt;July 28, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 链式复制" href="https://notes.0081800.xyz/notes/20210728071508-%E9%93%BE%E5%BC%8F%E5%A4%8D%E5%88%B6/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>比较-设置
     </h2>
   </header>
@@ -210,6 +198,24 @@ See also: 偏序关系</p>
   </div>
   <footer class="entry-footer">&lt;span title=&#39;2021-07-26 08:03:00 &#43;0800 &#43;0800&#39;&gt;July 26, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 偏序" href="https://notes.0081800.xyz/notes/20210726080332-%E5%81%8F%E5%BA%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CAP 理论
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>CAP 最初作为一个经验法则提出（20 世纪 70 年代），并没有准确的定义，目的也只是帮助大家深入探讨数据库设计的权衡之道。它由 Eric Brewer 于 2000 年正式命名。
+解释一 CAP 定理：不要求线性化的应用更能容忍网络故障。
+只要不可靠才诶黄哦，都会发生违背线性化的风险。我们可以做如下权衡：
+如果应用要求线性化，一旦发生网络分区，则必须等待网络修复，或者直接返回错误。结果为服务不可用（保证一致性或者线性化）。 如果应用不要求线性化，且每个可副本独立处理请求。此时服务可用，但结果行为不符合线性化（保证高可用）。 解释二 一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）。系统只能支持两个特性。
+这里的分区指网络分区（即网络故障）。
+不过，这种理解存在误导性，网络分区是一种故障，不管喜欢还是不喜欢，它都可能发生，所以无法选择或逃避分区问题。
+网络正常的时候，系统可以同时保证一致性（线性化）和可用性。而一旦发生了网络故障，必须要么选择线性（一致性），要么可用性。 也就是“网络分区的情况下”是选择一致还是可用。</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-07-26 07:29:00 &#43;0800 &#43;0800&#39;&gt;July 26, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to CAP 理论" href="https://notes.0081800.xyz/notes/20210726072940-cap_%E7%90%86%E8%AE%BA/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

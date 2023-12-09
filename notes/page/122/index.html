@@ -153,21 +153,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>《数据密集型应用系统设计》读书笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
-扩展：
-垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
-复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
-  </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-06-04 22:14:00 &#43;0800 &#43;0800&#39;&gt;June 4, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>项目代号
     </h2>
   </header>
@@ -215,6 +200,19 @@ printf &#39;\e[3J&#39; &amp;&amp; log show --predicate &#39;subsystem == &#34;co
   </div>
   <footer class="entry-footer">&lt;span title=&#39;2021-03-17 14:16:00 &#43;0800 &#43;0800&#39;&gt;March 17, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to English IPA" href="https://notes.0081800.xyz/notes/20210317141647-english_ipa/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>二叉树的遍历
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Algorithm,Data Structures,Binary Search Tree 分为三种：前序、后序和中序，其中最容易用栈改写的是后序。
+前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector....</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-02-20 20:32:00 &#43;0800 &#43;0800&#39;&gt;February 20, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 二叉树的遍历" href="https://notes.0081800.xyz/notes/20210220203210-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

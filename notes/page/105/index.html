@@ -153,22 +153,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>C&#43;&#43; 弱同步原子（acquire/release atomic）
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
-较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
-atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
-来看下面 litmus test：
-Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?...</p>
-  </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-16 11:59:00 &#43;0800 &#43;0800&#39;&gt;July 16, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to C&#43;&#43; 弱同步原子（acquire/release atomic）" href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>C&#43;&#43; 非同步原子（Relaxed atomic）
     </h2>
   </header>
@@ -215,6 +199,20 @@ C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供�
   </div>
   <footer class="entry-footer">&lt;span title=&#39;2021-07-16 11:32:00 &#43;0800 &#43;0800&#39;&gt;July 16, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Java 同步原子（volatile）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>线程的创建前置于（happens bofere）线程的第一个动作。 互斥体 m 的解锁前置于（happens before）任何 后续（subsequent） 对互斥体 m 的锁定。 volatile 变量 v 的写入前置于（happens bofere）任何 后续（subsequent） 对变量 v 的读取。 “后续（subsequent）” 意味着什么？Java 定义了所有锁定、解锁和 volatile 变量访问的行为，给出了整个程序中所有这些操作的总顺序，就像它们发生在某个顺序一致的交错中一样。“后续（subsequent）”指在总顺序中较晚执行。也就是说：锁定、解锁和 volatile 变量的访问的“总顺序”定义了“后续”的含义，“后续”定义了由特定执行创建的“前置于（happens before）”关系，最终“前置于（happens before）”关系定义了该特定执行是否存在数据竞争。如果没有数据竞争，那么执行就会以顺序一致的方式进行。
+事实上， volatile 访问必须表现得像在某种总排序一样，意味这在下面 litmus test 中，不能出现 r1=0 和 r2=0 的结果:
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no....</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-07-16 11:28:00 &#43;0800 &#43;0800&#39;&gt;July 16, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 同步原子（volatile）" href="https://notes.0081800.xyz/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

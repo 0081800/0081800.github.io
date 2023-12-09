@@ -148,20 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Airflow
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>案例 Airflow powers AI。
-Airflow SSO 接入 公司 SSO 系统不是基于开源标准，而是一套自定义的方式，目前网上没有成熟的解决方案，通过查看 Flask-AppBuilder 和 Airflow 的代码发现可以扩展 flask_appbuilder.security.views.AuthRemoteUserView 并通过自定义的 SecurityManager 指定 authremoteuserview 来实现，去掉具体 SSO 逻辑后的代码如下：
-from urllib.parse import urlencode from urllib.parse import urljoin import requests from flask import flash from flask import redirect from flask import request from flask_appbuilder.baseviews import expose from flask_appbuilder.security.views import AuthRemoteUserView try: from airflow.www.security import AirflowSecurityManager except ImportError: AirflowSecurityManager = None __version__ = &#34;0.1.0&#34; AUTHORIZE_URL = &#34;https://example.com/sso/login&#34; ACCESS_TOKEN_URL = &#34;https://example....</p>
-  </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-09-02 15:32:00 &#43;0800 &#43;0800&#39;&gt;September 2, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Airflow" href="https://notes.0081800.xyz/notes/20210902153221-airflow/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>Spark
     </h2>
   </header>
@@ -214,6 +200,18 @@ sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
   </div>
   <footer class="entry-footer">&lt;span title=&#39;2021-08-25 08:14:00 &#43;0800 &#43;0800&#39;&gt;August 25, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 设计" href="https://notes.0081800.xyz/notes/20210825081459-%E8%AE%BE%E8%AE%A1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Graphviz
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Graphviz 教程 https://www2.eecs.berkeley.edu/Pubs/TechRpts/2013/EECS-2013-176.pdf Graphviz Examples https://graphviz.org/gallery/ Graphviz 绘制思维导图 Graphviz Online Tools 一个手绘风格的在线绘图工具：https://sketchviz.com/new Gaphviz Playground：http://magjac.com/graphviz-visual-editor/ </p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-08-24 06:53:00 &#43;0800 &#43;0800&#39;&gt;August 24, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Graphviz" href="https://notes.0081800.xyz/notes/20210824065326-graphviz/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

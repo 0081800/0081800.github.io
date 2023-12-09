@@ -148,27 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>动态再平衡策略
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>为什么不用取模？ 节点数发生变化时，会导致很多关键字需要做节点数据迁移，会大大增加再平衡的成本。
-固定数量的分区 创建远超实际节点数的分区数量，然后再为每个节点分配多个分区。
-新加入节点 从现有的节点上匀走几个分区，直到分区再次达到平衡。
-删除节点 采取和上面相反的过程。
-优点 分区总数量不变，也不会改变关键字的分区映射关系。 唯一需要调整的分区与节点的映射关系。 分区和节点的映射关系调整可以逐步完成。 缺点 分区数量需要数据库创建时确定，并不能更改 动态分区 分区数据增长超过一个可配参数的阈值（HBase 10GB），它就拆分为两个分区，相反则合并相邻的分区。过程类似B-trees 的分裂操作。
-每个分区总是分配一个节点，一个节点可以承载多个分区。
-分区分裂 将其中的一半转移到其他节点以平衡负载。
-优点 分区数量可以自动适配数据总量。 空数据库可以配置初始分区解决少量数据集就一个分区避免系统热点（HBase 和 MongoDB） 按节点比例分区 使分区数与集群节点数成正比关系（Cassandra 和 Ketama），就是每个节点具有固定数量的分区。 当节点数不变时，每个分区的大小与数据集大小保持正比增长关系。
-新加入节点 随机选择固定数量的现有分区进行分裂，然后拿走这些分区的一半数据量。
-优点 较大的数据可以使每个分区的大小保持稳定。 缺点 存在不公平分裂。 </p>
-  </div>
-  <footer class="entry-footer">&lt;span title=&#39;2021-07-12 07:22:00 &#43;0800 &#43;0800&#39;&gt;July 12, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 动态再平衡策略" href="https://notes.0081800.xyz/notes/20210712072221-%E5%8A%A8%E6%80%81%E5%86%8D%E5%B9%B3%E8%A1%A1%E7%AD%96%E7%95%A5/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>基于词条的二级索引分区
     </h2>
   </header>
@@ -217,6 +196,20 @@
   </div>
   <footer class="entry-footer">&lt;span title=&#39;2021-07-11 15:42:00 &#43;0800 &#43;0800&#39;&gt;July 11, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 基于关键字区间分区" href="https://notes.0081800.xyz/notes/20210711154220-%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%8C%BA%E9%97%B4%E5%88%86%E5%8C%BA/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>系统热点
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>负载倾斜会导致所有负载都集中在一个分区节点上，这种负载严重不成比例的分区即称为系统热点。
+应用层解决 即使通过基于关键字哈希值分区和基于关键字区间分区等策略解决了大部分热点问题，但是极端情况下依然会出现热点，比如社交媒体的热点时间都会导致热点，只能通过应用层解决，一个简单的技术：
+关键字开头或结尾添加一个随机数，两位随机数就可以将关键字的写操作分布到 100 个不同的分区上； 读取就必须从所有的 1000 个关键字中读取数据然后进行合并； 通过额外的元数据标记哪些关键字进行了特殊处理。 由于对读取造成的额外开销，所以通常只有对少量的热点关键词附加随机数才有意义。</p>
+  </div>
+  <footer class="entry-footer">&lt;span title=&#39;2021-07-11 15:39:00 &#43;0800 &#43;0800&#39;&gt;July 11, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 系统热点" href="https://notes.0081800.xyz/notes/20210711153934-%E7%B3%BB%E7%BB%9F%E7%83%AD%E7%82%B9/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

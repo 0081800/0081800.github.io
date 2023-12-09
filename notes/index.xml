@@ -17,17 +17,6 @@
     </item>
     
     <item>
-      <title>Windows10 Can&#39;t Access Samba that Installed On FreeBSD</title>
-      <link>https://notes.0081800.xyz/notes/20231209105233-windows10_can_t_access_samba_that_installed_on_freebsd/</link>
-      <pubDate>Sat, 09 Dec 2023 10:52:00 +0800</pubDate>
-      
-      <guid>https://notes.0081800.xyz/notes/20231209105233-windows10_can_t_access_samba_that_installed_on_freebsd/</guid>
-      <description>tags: NAS, FreeBSD, Windows By default the Windows10 only enabled SMBv2 protocol, that cannot access to the samba server that installed on Unix system, because it currently only support SMBv1 protocol.
-To make it works, we need to disable SMBv2 and enable SMBv1 on Windows 10, execute those commands in Power Shell:
-Detect which protocol are used sc.exe qc lanmanworkstation Notices the output, mrxsmb10 indicates SMBv1 is enabled, mrxsmb20 indicates SMBv2 is enabled for client connections.</description>
-    </item>
-    
-    <item>
       <title>Logrotate</title>
       <link>https://notes.0081800.xyz/notes/20231101155522-logrotate/</link>
       <pubDate>Wed, 01 Nov 2023 15:55:00 +0800</pubDate>
