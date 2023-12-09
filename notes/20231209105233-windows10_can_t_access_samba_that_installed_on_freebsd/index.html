@@ -104,8 +104,8 @@ Detect which protocol are used sc.exe qc lanmanworkstation Notices the output, m
   "keywords": [
     
   ],
-  "articleBody": " tags: NAS, FreeBSD, Windows By default the Windows10 only enabled SMBv2 protocol, that cannot access to the samba server that installed on Unix system, because it currently only support SMBv1 protocol.\nTo make it works, we need to disable SMBv2 and enable SMBv1 on Windows 10, execute those commands in Power Shell:\nDetect which protocol are used sc.exe qc lanmanworkstation Notices the output, mrxsmb10 indicates SMBv1 is enabled, mrxsmb20 indicates SMBv2 is enabled for client connections. Disable SMBv2 and Enable SMBv1 sc.exe config lanmanworkstation depend= bowser/mrxsmb10/nsi sc.exe config mrxsmb20 start= disabled sc.exe config mrxsmb10 start= disabled Restart the computer, and then it works. See also How to detect, enable and disable SMBv1, SMBv2, and SMBv3 in Windows ",
-  "wordCount" : "117",
+  "articleBody": " tags: NAS, FreeBSD, Windows By default the Windows10 only enabled SMBv2 protocol, that cannot access to the samba server that installed on Unix system, because it currently only support SMBv1 protocol.\nTo make it works, we need to disable SMBv2 and enable SMBv1 on Windows 10, execute those commands in Power Shell:\nDetect which protocol are used sc.exe qc lanmanworkstation Notices the output, mrxsmb10 indicates SMBv1 is enabled, mrxsmb20 indicates SMBv2 is enabled for client connections. Enable SMBv1 sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi sc.exe config mrxsmb10 start= auto Restart the computer, and then it works. See also How to detect, enable and disable SMBv1, SMBv2, and SMBv3 in Windows ",
+  "wordCount" : "109",
   "inLanguage": "en",
   "datePublished": "2023-12-09T10:52:00+08:00",
   "dateModified": "2023-12-09T10:52:00+08:00",
@@ -228,10 +228,9 @@ because it currently only support SMBv1 protocol.</p>
 <li>Detect which protocol are used
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sc.exe qc lanmanworkstation
 </span></span></code></pre></div>Notices the output, <code>mrxsmb10</code> indicates SMBv1 is enabled, <code>mrxsmb20</code> indicates SMBv2 is enabled for client connections.</li>
-<li>Disable SMBv2 and Enable SMBv1
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sc.exe config lanmanworkstation depend<span style="color:#f92672">=</span> bowser/mrxsmb10/nsi
-</span></span><span style="display:flex;"><span>sc.exe config mrxsmb20 start<span style="color:#f92672">=</span> disabled
-</span></span><span style="display:flex;"><span>sc.exe config mrxsmb10 start<span style="color:#f92672">=</span> disabled
+<li>Enable SMBv1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sc.exe config lanmanworkstation depend<span style="color:#f92672">=</span> bowser/mrxsmb10/mrxsmb20/nsi
+</span></span><span style="display:flex;"><span>sc.exe config mrxsmb10 start<span style="color:#f92672">=</span> auto
 </span></span></code></pre></div></li>
 </ol>
 <!-- raw HTML omitted -->
