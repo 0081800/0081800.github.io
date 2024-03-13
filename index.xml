@@ -6,7 +6,27 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 09 Dec 2023 10:52:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Feb 2024 12:36:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>systemd by example</title>
+      <link>https://notes.0081800.xyz/notes/20240218123608-systemd_by_example/</link>
+      <pubDate>Sun, 18 Feb 2024 12:36:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240218123608-systemd_by_example/</guid>
+      <description>tags: Linux, Systemd source: “Systemd by Example - Part 1: Minimization - Sebastian Jambor’s Blog.” Accessed February 18, 2024. https://seb.jambor.dev/posts/systemd-by-example-part-1-minimization/. systemd unit types There are 11 different unit types, the most common 3 of them:
+targets: activated by different system state, it&amp;rsquo;s useful as a dependency, e.g. sleep.target:do something when system is going to sleep.
+Of course, we can use systemctl to list the units that dependant on a specific unit.</description>
+    </item>
+    
+    <item>
+      <title>Use Podman to Run Systemd in a Container</title>
+      <link>https://notes.0081800.xyz/notes/20240218123120-use_podman_to_run_systemd_in_a_container/</link>
+      <pubDate>Sun, 18 Feb 2024 12:31:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240218123120-use_podman_to_run_systemd_in_a_container/</guid>
+      <description>tags: Linux,Systemd source: Walsh, Daniel. “How to Run Systemd in a Container.” Red Hat Developer, April 24, 2019. https://developers.redhat.com/blog/2019/04/24/how-to-run-systemd-in-a-container. Podmand is a container engine which is published by Red Hat, has the same command-line interface(CLI) as Docker.</description>
+    </item>
+    
     <item>
       <title>Windows</title>
       <link>https://notes.0081800.xyz/notes/20231209105248-windows/</link>

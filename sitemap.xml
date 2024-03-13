@@ -3,10 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2023-12-09T10:52:00+08:00</lastmod>
+    <lastmod>2024-02-18T12:36:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240218123608-systemd_by_example/</loc>
+    <lastmod>2024-02-18T12:36:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
-    <lastmod>2023-12-09T10:52:00+08:00</lastmod>
+    <lastmod>2024-02-18T12:36:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240218123120-use_podman_to_run_systemd_in_a_container/</loc>
+    <lastmod>2024-02-18T12:31:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20231209105248-windows/</loc>
     <lastmod>2023-12-09T10:52:00+08:00</lastmod>
