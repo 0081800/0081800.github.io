@@ -153,6 +153,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>主从复制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>主从模式下主节点进行写入，可以从从节点进行读取。
+同步复制 主节点写入，并等待从节点写入后再返回写入成功。
+半同步复制 主节点写入，选举一个从节点进行同步复制，其他从节点进行异步复制，一旦同步复制的从节点出现性能下降或故障则选用一个新的从节点进行同步复制。
+异步复制 主节点写入，不等待从节点写入直接返回写入成功。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 20:32:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 主从复制" href="https://notes.0081800.xyz/notes/20210614203213-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>数据复制
     </h2>
   </header>
@@ -208,20 +223,6 @@ Avro 编码数据中只有对应字段的长度和具体的数据，不包含字
   </div>
   <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Avro" href="https://notes.0081800.xyz/notes/20210610222725-avro/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Thrift 与 Protocol Buffers
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>每个字段一个标记号码，字段名可以随意调整因为编码信息中只有标记号码，没有字段名称，但是标记号码不能随意调整，基于此可以实现：
-向前兼容 旧代码忽略不能识别的标记号码，并根据类型的注释来通知解析器跳过特定的字节数。 向后兼容 标记号码不变的情况下新的代码总是能够解析旧代码序列化的数据，但是新添加的字段不能标记为 required，不然会触发运行时错误。 同时为了保证前后兼容，删除字段也不能删除设置为 required 的字段，同时再次新添字段标记号码不能被再次使用。
-改变类型同时也会导致前后兼容问题。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Thrift 与 Protocol Buffers" href="https://notes.0081800.xyz/notes/20210610222754-thrift_%E4%B8%8E_protocol_buffers/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
