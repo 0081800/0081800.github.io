@@ -153,64 +153,66 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>AVL Tree
+    <h2>LeetCode101: 654. Maximum Binary Tree
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Binary Search Tree,Binary Tree,Tree </p>
+    <p>tags: Monotonic Stack,LeetCode101,Binary Search Tree Mono-descreasing stack Key:
+The largest number is the root, that we can observe in by iteration. We must clear the stack to fill the right side of BST after loop. The last popped element is the left of current node. From top to bottom, the top element is the right side of the element that under the top. class Solution { public: TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) { vector&lt;TreeNode*&gt; res(nums....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:53:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to AVL Tree" href="https://notes.0081800.xyz/notes/20220312215308-avl_tree/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Binary Search Tree
+    <h2>LeetCode101: 581. Shortest Unsorted Continuous Subarray
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Data Structures,Binary Tree,Tree </p>
+    <p>tags: Monotonic Stack,LeetCode101 Mono-increasing stack Key:
+Some case should move backward as the new value we meeted is larger than it. When we meet 2 in the stack, and here we need move backward. Some case we need move forward, as the following values are the mono-increaing stack: [1, 2, 5, 3, 4] class Solution { public: int findUnsortedSubarray(vector&lt;int&gt;&amp; nums) { stack&lt;int&gt; st; // mono-increasing int left = -1, right = -2; for (int i = 0; i &lt; nums....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:51:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Binary Search Tree" href="https://notes.0081800.xyz/notes/20220312215158-binary_search_tree/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 07:13:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 581. Shortest Unsorted Continuous Subarray" href="https://notes.0081800.xyz/notes/20220315071351-leetcode101_581_shortest_unsorted_continuous_subarray/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Red-Black Tree
+    <h2>LeetCode101: 503. Next Greater Element II
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Binary Search Tree, AVL Tree,Tree </p>
+    <p>tags: Monotonic Stack,LeetCode101 related: LeetCode101: 496. Next Greater Element I Mono-descreasing stack / normal order loop twice Loop twice to solve circular interger array Mono-descreasing stack to store index, avoid HashMap in Next Greater Element I, as there is a cicular array. class Solution { public: vector&lt;int&gt; nextGreaterElements(vector&lt;int&gt;&amp; nums) { vector&lt;int&gt; res(nums.size(), -1); stack&lt;int&gt; st; for (int j = 0, i = 0; j &lt; nums.size() * 2; &#43;&#43;j) { i = j &gt;= nums....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:51:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Red-Black Tree" href="https://notes.0081800.xyz/notes/20220312215140-red_black_tree/"></a>
+  <footer class="entry-footer"><span title='2022-03-15 06:30:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 503. Next Greater Element II" href="https://notes.0081800.xyz/notes/20220315063008-leetcode101_503_next_greater_element_ii/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>set vs unordered_set in C&#43;&#43; STL
+    <h2>LeetCode101: 496. Next Greater Element I
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: C/C&#43;&#43; source: GeeksforGeeks. “Set vs Unordered_set in C&#43;&#43; STL,” May 28, 2018. https://www.geeksforgeeks.org/set-vs-unordered_set-c-stl/. set Ordered set that implemented by a “Self balancing BST” like Red-Black Tree.
-Extra find operations equal_range returns range of elements matching a specific key lower_bound returns an iterator to the first element not less than the given key upper_bound returns an iterator to the first element greater than the given key #include &lt;iostream&gt; #include &lt;set&gt; #include &lt;assert....</p>
+    <p>tags: Monotonic Stack,Hash Table,LeetCode101 Mono-descreasing and reverse order travel class Solution { public: vector&lt;int&gt; nextGreaterElement(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { // Mono-descreasing and reverse order travel. // The next greater of the popped value is the top of the stack, if it has any. // // For example: [1,3,4,2] // the stack goes: // [2] // [4] -&gt; 2 // [4, 3, 1] stack&lt;int&gt; st; vector&lt;int&gt; res; unordered_map&lt;int, int&gt; m; for (int i = nums2....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:50:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to set vs unordered_set in C&#43;&#43; STL" href="https://notes.0081800.xyz/notes/20220312215003-set_vs_unordered_set_in_c_stl/"></a>
+  <footer class="entry-footer"><span title='2022-03-14 08:58:00 +0800 +0800'>March 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 496. Next Greater Element I" href="https://notes.0081800.xyz/notes/20220314085847-leetcode101_496_next_greater_element_i/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>OrderedSet
+    <h2>LeetCode101: 402. Remove K Digits
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: C/C&#43;&#43;,Java,Data Structures In C&#43;&#43; the set container is an ordered or sorted set, unordered_set is the normal set in C&#43;&#43;. Differences between them please check set vs unordered_set in C&#43;&#43; STL.
-In Java there is an java.util.SortedSet interface.</p>
+    <p>tags: Monotonic Stack,LeetCode101 Mono-increasing stack and reverse order travel (Not Work) Notes:
+We attempt to remove the most large numbers in the left, first, we use the right n numbers to meet the requirements, which is num.length - k and then, using a monotonic increasing stack to keep the result as samller as we can. (A monotonic increasing stack will remove larger elements before pushing.)
+Also note that: the result’s length is not actually equal num....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-12 21:37:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to OrderedSet" href="https://notes.0081800.xyz/notes/20220312213701-orderedset/"></a>
+  <footer class="entry-footer"><span title='2022-03-14 07:43:00 +0800 +0800'>March 14, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 402. Remove K Digits" href="https://notes.0081800.xyz/notes/20220314074324-leetcode101_402_remove_k_digits/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

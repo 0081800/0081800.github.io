@@ -153,77 +153,66 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>智能指针
+    <h2>汇编
     </h2>
   </header>
   <div class="entry-content">
-    <p>智能指针 表现的像一个指针，拥有数据并允许在对数据进行维护。
-通常通过 struct 实现并实现两个特性 Deref 和 Drop
-Deref 允许智能指针实例行为像一个引用，让代码可以同时处理引用和智能指针 Drop 允许自定义智能指针超出作用域的行为。 标准库常见的智能指针
-Box&lt;T&gt; 用于在堆分配值 Rc&lt;T&gt; 引用计数类型，允许多个拥有者 Ref&lt;T&gt; 和 RefMut&lt;T&gt; 和通过 RefCell&lt;T&gt; 访问，运行时取代编译期强制检查借用规则 Box&lt;T&gt; 场景：
-编译期未知大小的类型（递归类型（自己包含自己类型的类型，如链表）编译期无法确定大小）
-// 递归类型 enum List { Cons(i32, Box&lt;List&gt;), Nil, } fn main() { let b = Box::new(5); println!(&#34;b = {}&#34;, b); let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); } 避免大量数据转移所有权时发生拷贝
-拥有一个实现特定特性的值（不关心具体类型）的所有权
-Deref 用于自定义解引用操作符（ * ） 的行为，智能指针通过实现该特性来模拟普通引用的行为。
-对比
-fn main() { let x = 5; let y = &amp;x; assert_eq!...</p>
+    <p>tags: Computer Systems,《深入理解计算机系统》读书笔记 程序编码 $ gcc -Og -S mstore.c # outputs mstore.s $ gcc -Og -c mstore.c # outptus mstore.o $ objdump -d mstore.o 所有以 ‘.’ 开头额行都是指导汇编器和链接器工作额伪指令。
+数据格式 C 声明 Intel 数据类型 汇编代码后缀 大小（字节） char 字节 b 1 short 字 w 2 int 双字 l 4 long 四字 q 8 char* 四字 q 8 float 单精度 l 4 double 双精度 q 8 访问信息 寄存器 一个 x86-64 的中央处理单元（CPU）包含一组 16 个存储 64 位值的 通用目的寄存器 。...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 智能指针" href="https://notes.0081800.xyz/notes/20200629180545-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"></a>
+  <footer class="entry-footer"><span title='2020-08-02 15:50:00 +0800 +0800'>August 2, 2020</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 汇编" href="https://notes.0081800.xyz/notes/20200802155053-%E6%B1%87%E7%BC%96/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>迭代器
+    <h2>IEEE 浮点数
     </h2>
   </header>
   <div class="entry-content">
-    <p>迭代器 所有的迭代器都实现了 Iterator 特性：
-pub trait Iterator { type Item; // 关联类型 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;; // 返回 None 结束循环 } </p>
+    <p>tags: Computer Systems,《深入理解计算机系统》读书笔记 浮点数小数表示形式 .0111 = \(0x2^{-1}&#43;2^{-2}&#43;2^{-3}&#43;2^{-4}\)
+IEEE 浮点数表示形式 \[ V=(-1)^s X M X 2^E \]
+s = 0 表示负数， s = 1 表示正数 M 是二进制表示的小数 E 是阶码 浮点数二进制组成 一个单独符号位 s 表吗符合 k 位阶码字段 exp 编码阶码 E n 位小数字段 frac 编码尾数 M 两种常见的格式 float s = 1 k = 8 n = 23 double s = 1 k = 11 n = 52 三种计算方式 前置的一些值
+e 是 exp 位表示的无符号数 f 是 frac 位表示的小数 \(Bias = 2^{k-1} -1\) 规格化的值 规则：阶码字段 exp 的位模式即不全为 0，也不全为 1（单精度 255，双精度 2047） 计算方式 \(E = e - Bias\) $M = 1 &#43; f $ 非规格化的值 规则：阶码字段 exp 全是 0（用于表示 0） 计算方式 \(E = 1 - Bias\) \(M = f\) 可以表示 &#43;0 和 -0。...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 迭代器" href="https://notes.0081800.xyz/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/"></a>
+  <footer class="entry-footer"><span title='2020-08-02 15:15:00 +0800 +0800'>August 2, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to IEEE 浮点数" href="https://notes.0081800.xyz/notes/20200802151523-ieee_%E6%B5%AE%E7%82%B9%E6%95%B0/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>生命周期
+    <h2>Choosing a Rust web framework, 2020 edition
     </h2>
   </header>
   <div class="entry-content">
-    <p>生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
-fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
-标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
-结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。...</p>
+    <p> tags: Rust source: Choosing a Rust web framework, 2020 edition </p>
   </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 生命周期" href="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
+  <footer class="entry-footer"><span title='2020-07-10 10:12:00 +0800 +0800'>July 10, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Choosing a Rust web framework, 2020 edition" href="https://notes.0081800.xyz/notes/20200710101214-web/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>闭包
+    <h2>SSH
     </h2>
   </header>
   <div class="entry-content">
-    <p>let add_one = | num | { num &#43; 1 }; 由于闭包和当前上下文相关联，所以 Rust 可以进行类型推导，类型注解也就不是必要的，但是依然可以自己添加：
-let add_one = | num: i32 | { num &#43; 1 }; fn add_one_v1 (x: u32) -&gt; u32 { x &#43; 1 } let add_one_v2 = |x: u32| -&gt; u32 { x &#43; 1 }; let add_one_v3 = |x| { x &#43; 1 }; let add_one_v4 = |x| x &#43; 1 ; 使用 Fn 存储闭包类型
-struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Option&lt;u32&gt;, } impl Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { fn new(calculation: T) -&gt; Cacher&lt;T&gt; { Cacher { calculation, value: None, } } fn value(&amp;mut self, arg: u32) -&gt; u32 { if let Some(value) = self....</p>
+    <p>SSH Port Forwarding -L 将远端机器的端口映射到本地 -R 将本地端口映射到远端 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 闭包" href="https://notes.0081800.xyz/notes/20200629180436-%E9%97%AD%E5%8C%85/"></a>
+  <footer class="entry-footer"><span title='2020-07-07 21:46:00 +0800 +0800'>July 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to SSH" href="https://notes.0081800.xyz/notes/20200707214623-ssh/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Traits
+    <h2>Fearless Concurrency with Rust
     </h2>
   </header>
   <div class="entry-content">
-    <p>Traits 定义行为在多个类型中共享。 可以定义默认行为在实现者中间共享。 可以用于定义参数的行为，同样可以定义返回值行为，当用 trait 限定返回值类型时，不能同时（if/else）返回多种实现了该 trait 的类型。 pub trait Summary { fn summarize(&amp;self) -&gt; String; } pub struct Article{ pub title: String, } impl Summary for Article { fn summarize(&amp;self) -&gt; String { format!(&#34;{}&#34;, self.title) } } pub fn notify(item: impl Summary) { println!(&#34;{}&#34;, item.summarize()); } // trait bound 语法糖版本 pub fn notify&lt;T: Summary&gt;(item: T) { println!(&#34;{}&#34;, item.summarize()); } 定义参数行为 通过 impl ： fn notify(item: impl TraitName) ，用于简单明了的场景，比如一个参数 通过 trait bound ： fn notify&lt;T: TraitName&gt; (item: T) ，用于更复杂的场景，比如多个参数用于减少代码 可以通过 &#43; 连接： fn notify(T: TraitName &#43; Display) (item: T)...</p>
+    <p> tags: Rust 原文链接：https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html </p>
   </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:03:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Traits" href="https://notes.0081800.xyz/notes/20200629180345-traits/"></a>
+  <footer class="entry-footer"><span title='2020-07-03 10:40:00 +0800 +0800'>July 3, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Fearless Concurrency with Rust" href="https://notes.0081800.xyz/notes/20200703104039-fearless_concurrency_with_rust/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

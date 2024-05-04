@@ -148,70 +148,75 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Quorum 一致性
+    <h2>负载倾斜
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: 一致性 确定读写成功 确定读写节点在多少节点成功才可以认为写入成功：需要保证读取时至少一个包含新值。
-n 个副本的情况下，写入需要 \(w\) 个节点确认，读取必须至少查询 \(r\) 个节点，则只要 \(w &#43; r &gt; n\) ，读取的节点中一定会包含最新值。
-\(w\) 仲裁写（法定票数写） \(r\) 仲裁读（法定票说读） 一般 \(n\) 设置为奇数： \(w=r=(n&#43;1)/2\) （向上取整）。
-可容忍的失效节点数 仲裁条件 \(w&#43;r&gt;n\) 定义了系统可容忍的失效节点数。
-\(w&lt;n\) ，如果一个节点不可用，仍然可以处理写入。 \(r&lt;n\) ，如果一个节点不可用，仍然可以处理读取。 \(n=3\),\(w=2\),\(r=2\)，则可以容忍一个节点不可用 \(n=5\),\(w=3\),\(r=3\), 则可以容忍两个节点不可用 局限性 如果采用了 sloppy quorum，写操作的 w 节点和读取的 r 节点可能完全不同，因此无法保证写请求一定存在重叠的节点。 并发无法明确顺序，需要进行合并并发写入。如最后写入者获胜。 同时读写，写操作在一部分节点上完成，则读取新值还是旧值存在不确定性。 部分节点写入成功，但是最终写入失败无法回滚。 新值的节点失效，但恢复数据来自某个旧值，则总的新值节点数低于 w 边界情况 </p>
+    <p>分区不均匀时出现某些分区节点比其他分区承担更多的数据量和查询负载。倾斜会导致分区效率严重下降。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-15 21:17:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Quorum 一致性" href="https://notes.0081800.xyz/notes/20210615211745-quorum_%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+  <footer class="entry-footer"><span title='2021-07-11 15:36:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 负载倾斜" href="https://notes.0081800.xyz/notes/20210711153606-%E8%B4%9F%E8%BD%BD%E5%80%BE%E6%96%9C/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>无主节点复制
+    <h2>数据分区
     </h2>
   </header>
   <div class="entry-content">
-    <p>没有主节点，允许任何节点接受来自客户端的写请求。
-实现方式 客户端直接将其写请求发送到多节点 一个协调者代表客户端进行写入，与主节点的数据库不同，协调者并不负责写入顺序的维护。 节点失效时写入数据库 客户端将写请求并行发送给三个节点，两个可用节点接受写请求，而不可用副本则无法处理该请求。
-现在失效的节点重新上线，客户端可能会读取到旧的值。
-为了解决这个问题客户端并行的向多个节点发送读请求，并通过版本号来确定哪个值更新。
-读修复与反熵 读修复；客户端并行读取多个节点，检测到过期的返回值，然后用新的返回值写入到返回旧值的副本。 反熵过程：后台不断查找副本之间的差异，将任何缺少的数据从一个节点复制到另一个节点。不保证特定顺序的复制写入，并且会引入明显的复制滞后问题。 Quorum 一致性 检测并发写 </p>
+    <p>每一条数据都属于特定的分区，每个分区都是一个小型数据库。
+目的 提高扩展性，分散大的数据集和查询负载。
+目标 将数据和查询负载均匀的分步在所有节点上。如果分布不均匀会出现负载倾斜和系统热点。
+数据分区与数据复制 结合数据复制每个分区在多个节点都有副本，进行冗余提高可用性。
+键-值数据的分区 避免系统热点最简单的方法是将记录随机分配给所有节点上，缺点是：没办法知道数据保存在哪个节点上，所以读取时需要查询所有节点。
+基于关键字区间分区 基于关键字哈希值分区 负载倾斜与系统热点 分区与二级索引 二级索引不能唯一标识一条记录，比如查询颜色为红色的汽车。二级索引带来的主要挑战是它们不能规整的映射到分区中。
+有两种方法来支持对二级索引进行分区：
+基于文档分区的二级索引 基于词条的二级索引分区 分区再平衡 动态再平衡策略 自动与手动再平衡操作 请求路由 策略 客户端可以连接任意节点，并由节点做转发不在当前节点的分区请求。 由路由层来充当分区感知的负载均衡器。 客户端直接感知分区和节点分配关系，客户端直连目标节点。 做出路由决策的组件 Zookeeper gossip 协议 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-15 21:02:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 无主节点复制" href="https://notes.0081800.xyz/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/"></a>
+  <footer class="entry-footer"><span title='2021-07-11 15:30:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 数据分区" href="https://notes.0081800.xyz/notes/20210711153015-%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>全部-至-全部型拓扑
+    <h2>syn
     </h2>
   </header>
   <div class="entry-content">
-    <p>最常见的拓扑结构，提供更好的容错。每个节点从其他所有节点同步写入。</p>
+    <p> syn::Span 代码位置 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-15 08:43:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 全部-至-全部型拓扑" href="https://notes.0081800.xyz/notes/20210615084309-%E5%85%A8%E9%83%A8_%E8%87%B3_%E5%85%A8%E9%83%A8%E5%9E%8B%E6%8B%93%E6%89%91/"></a>
+  <footer class="entry-footer"><span title='2021-06-16 14:46:00 +0800 +0800'>June 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to syn" href="https://notes.0081800.xyz/notes/20210616144616-syn/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>星型拓扑
+    <h2>quote
     </h2>
   </header>
   <div class="entry-content">
-    <p>通过指定一个根节点，根结点将所有的写操作转发给其他所有节点。</p>
+    <p>循环展开 let fields = vec![ syn::Ident::new(&#34;foo&#34;, syn::Span::call_site()), syn::Ident::new(&#34;bar&#34;, syn::Span::call_site()), ]; let token = quote!{ #(#fields),* }; // -&gt; foo,bar </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-15 08:41:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 星型拓扑" href="https://notes.0081800.xyz/notes/20210615084143-%E6%98%9F%E5%9E%8B%E6%8B%93%E6%89%91/"></a>
+  <footer class="entry-footer"><span title='2021-06-16 14:43:00 +0800 +0800'>June 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to quote" href="https://notes.0081800.xyz/notes/20210616144334-quote/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>环形拓扑
+    <h2>Rust 属性宏解析
     </h2>
   </header>
   <div class="entry-content">
-    <p>每个节点接收来自前序节点的写入，并将这些写入（加上字节的写入）转发后后序节点。同时通过唯一 ID 防止无限循环。</p>
+    <p>准备 解析宏通过两个 crate 进行：
+quote = “1.0” syn = “1.0” Derive 属性宏 探讨 Rust 宏系统中带属性（Attributes）的 Derive 宏的几种变体，以及如何进行解析。
+属性宏的变体 函数调用
+#[derive(Custom)] struct Demo { #[attr(arg)] a: i8, } 关键字参数调用
+#[derive(Custom)] struct Demo { #[args(name = &#34;val&#34;)] b: i8, } 直接赋值
+#[derive(Custom)] struct Demo { #[meta = &#34;val&#34;] c: i8, } 函数调用 关键字参数调用 可以从 Struct 解析出各个字段，通过解析各个字段的 attrs 属性，并对 attrs 进行遍历，使用 attr.parse_args()? 即可解析出对应的关键字参数，咱们以前面的代码为例:
+#[derive(Custom)] struct Demo { #[args(name = &#34;val&#34;)] b: i8, } 对应的解析代码为：...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-15 08:40:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 环形拓扑" href="https://notes.0081800.xyz/notes/20210615084010-%E7%8E%AF%E5%BD%A2%E6%8B%93%E6%89%91/"></a>
+  <footer class="entry-footer"><span title='2021-06-16 14:15:00 +0800 +0800'>June 16, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Rust 属性宏解析" href="https://notes.0081800.xyz/notes/20210616141500-rust_%E5%B1%9E%E6%80%A7%E5%AE%8F%E8%A7%A3%E6%9E%90/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

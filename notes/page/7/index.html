@@ -153,75 +153,67 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Ethereum Networking Layer
+    <h2>Should I read papers
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Ethereum source: https://ethereum.org/en/developers/docs/networking-layer/ </p>
+    <p>tags: Papers source: “Mrb: Should I Read Papers?” Accessed February 20, 2023. https://michaelrbernste.in/2014/10/21/should-i-read-papers.html. Yes, but reading a paper isn’t the same as reading a blogpost or a novel.
+A paper could be an idea captured by someone, or the result of a life’s work, or anything in between.
+You might need to read it bit by bit, again and again.</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:01:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Networking Layer" href="https://notes.0081800.xyz/notes/20230614090110-ethereum_networking/"></a>
+  <footer class="entry-footer"><span title='2023-07-19 09:11:00 +0800 +0800'>July 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Should I read papers" href="https://notes.0081800.xyz/notes/20230719091127-should_i_read_papers/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Ethereum Discovery Nodes
+    <h2>Software Engineers Should Read Academic Papers
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Ethereum Networking, Ethereum Simulator Node Boot nodes Using a small set that hardcoded bootnodes to bootstrap.
-Protocol Kademlia a modified form of Distributed Hash Table.
-Steps to join the network start client –&gt; connect to bootnode –&gt; bond to bootnode –&gt; find neighbours –&gt; bond to neighbours</p>
+    <p>tags: Papers source: Al-Ansari, Khaled. “Software Engineers Should Read Academic Papers.” Medium (blog), July 15, 2023. https://medium.com/@KhaledElAnsari/software-engineers-should-read-academic-papers-9a6ee6ebc40d. There are some benefits of reading academic papers:
+Structured content can enhance your technical writing, you can learn structured writing.
+(Reading - Writing - Reviewing) cycle making you a better reader and reviewer.
+Reading to gain information. Structured writing make review easier. Better deading and writing make you a better reviewer. Bridge the industry and the academic field....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:00:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Discovery Nodes" href="https://notes.0081800.xyz/notes/20230614090056-ethereum_discovery_nodes/"></a>
+  <footer class="entry-footer"><span title='2023-07-17 11:17:00 +0800 +0800'>July 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Software Engineers Should Read Academic Papers" href="https://notes.0081800.xyz/notes/20230717111715-software_engineers_should_read_academic_papers/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>How is a Transaction Broadcasted
+    <h2>Solana Off-Chain Message Signing
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Ethereum Simulator Node, Ethereum Execution Layer Node Side: Receive pending transactions If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
-https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let’s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
-SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:...</p>
+    <p> tags: Solana source: https://github.com/solana-labs/solana/blob/eabe1070667e87f447b9cb892e2d916ca5b68e34/sdk/src/offchain_message.rs#L237-L240 /// Serialize the off-chain message to bytes including full header pub fn serialize(&amp;self) -&gt; Result&lt;Vec&lt;u8&gt;, SanitizeError&gt; { // serialize signing domain let mut data = Self::SIGNING_DOMAIN.to_vec(); // serialize version and call version specific serializer match self { Self::V0(msg) =&gt; { data.push(0); msg.serialize(&amp;mut data)?; } } Ok(data) } </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-12 10:08:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How is a Transaction Broadcasted" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/"></a>
+  <footer class="entry-footer"><span title='2023-06-15 18:03:00 +0800 +0800'>June 15, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Solana Off-Chain Message Signing" href="https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Ethereum Simulator Node
+    <h2>Ethereum Execution Layer
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
-Relay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.
-Things need to consider:
-How to limit or identify transactions that need to simulate?
-Only execute the transactions from local txpool.
-Where to execute the transction previously?...</p>
+    <p> tags: Ethereum Networking Layer </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-12 10:03:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Simulator Node" href="https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:18:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Execution Layer" href="https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>How to Write a Technical Article
+    <h2>Ethereum Sub-protocols
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Essay Writing Guide
-List outlines
-Explore the resources and documentation to understand
-Taking notes during the exploring
-Use the method of How to Take Smart Notes</p>
+    <p> tags: Ethereum Networking, Ethereum Execution Layer </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-08 22:37:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How to Write a Technical Article" href="https://notes.0081800.xyz/notes/20230608223754-how_to_write_a_technical_article/"></a>
+  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Sub-protocols" href="https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

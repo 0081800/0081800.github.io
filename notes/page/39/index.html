@@ -153,71 +153,67 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Divide-and-Conquer
+    <h2>Three Pointers
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Algorithm WIKIEPEDIA: https://en.wikipedia.org/wiki/Divide-and-conquer%5Falgorithm The points should been noted:
-The middle position is not (right - left) / 2, it must be left &#43; ((right - left) / 2). </p>
+    <p> tags: Two Pointers </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-30 15:58:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Divide-and-Conquer" href="https://notes.0081800.xyz/notes/20220330155829-divide_and_conquer/"></a>
+  <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Three Pointers" href="https://notes.0081800.xyz/notes/20220407080033-three_pointers/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 136. Single Number
+    <h2>LeetCode101: 680. Valid Palindrome II
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Bit Manipulation,Bitwise Operator: XOR According to bitwise operator XOR:
-x ^ x = 0 y ^ 0 = y We apply the XOR operator to all the nums, all the same numbers will apply x ^ x = 0, and then y ^ 0 = y will result the single number.
-class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int xorN = 0; for (auto iter = nums.begin(); iter !...</p>
+    <p>tags: String,Two Pointers,LeetCode101 Two pointers move inwards, when we meet two different characters:
+Remove left character to see if the remains string still satisfied a valid palindrome. Remove right character to see if the remains string still satisfied a valid palindrome. Returns true if either one above two is true.
+class Solution { public: bool validPalindrome(string s) { for (int i = 0, j = s.size() -1; i &lt; j; i&#43;&#43;,j--) { if (s[i] !...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-30 07:09:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 136. Single Number" href="https://notes.0081800.xyz/notes/20220330070916-leetcode101_136_single_number/"></a>
+  <footer class="entry-footer"><span title='2022-04-02 14:37:00 +0800 +0800'>April 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 680. Valid Palindrome II" href="https://notes.0081800.xyz/notes/20220402143729-leetcode101_680_valid_palindrome_ii/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Bit Manipulation
+    <h2>In-place Reverse
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: In-place WikiPedia: https://en.wikipedia.org/wiki/In-place%5Falgorithm Let see two examples before we go further:
+As above we can see, to reverse a array in-place, we just need swap each two elements in the array from both side to middle.
+The pseudo code from WikiPedia:
+function reverse_in_place(a[0..n-1]) for i from 0 to floor((n-2)/2) tmp := a[i] a[i] := a[n − 1 − i] a[n − 1 − i] := tmp The loop travels the array to the middle and swap each other in the list, two points we must be noticed:...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-01 10:43:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to In-place Reverse" href="https://notes.0081800.xyz/notes/20220401104307-in_place_reverse/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>In-place
     </h2>
   </header>
   <div class="entry-content">
     <p> tags: Algorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-30 07:05:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Bit Manipulation" href="https://notes.0081800.xyz/notes/20220330070500-bit_manipulation/"></a>
+  <footer class="entry-footer"><span title='2022-04-01 10:42:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to In-place" href="https://notes.0081800.xyz/notes/20220401104238-in_place/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Bitwise Operator: XOR
+    <h2>LeetCode101: 344. Reverse String
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Bitwise Operators 0101 (decimal 5) XOR 0011 (decimal 3) = 0110 (decimal 6)
-0010 (decimal 2) XOR 1010 (decimal 10) = 1000 (decimal 8)
-Useful features:
-1 ^ 1 = 0 2 ^ 0 = 2 </p>
+    <p> tags: In-place,LeetCode101,In-place Reverse class Solution { public: void reverseString(vector&lt;char&gt;&amp; s) { if (s.size() == 1) { return; } for (int i = 0; i &lt;= (s.size() - 2) / 2; &#43;&#43;i) { swap(s[s.size() - 1 - i], s[i]); } } }; </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-30 07:05:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Bitwise Operator: XOR" href="https://notes.0081800.xyz/notes/20220330070545-bitwise_operator_xor/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 287. Find the Duplicate Number
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Cycle detection,Fast &amp; Slow Pointers,LeetCode101 Treat as A Linked List with circle According to the length of nums is n &#43; 1, and integer range is [1, n], so we can treat each element as a index that point to some next value. For example:
-[1,3,4,2,2] It can be treated as(format is element(index)):
-1(0) -&gt; 3(1) -&gt; 2(3) -&gt; 4(3) -&gt; 2(4) -&gt; 4(3)
-We can see there is a circle in it, so:...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-29 18:14:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 287. Find the Duplicate Number" href="https://notes.0081800.xyz/notes/20220329181423-leetcode101_287_find_the_duplicate_number/"></a>
+  <footer class="entry-footer"><span title='2022-04-01 10:42:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 344. Reverse String" href="https://notes.0081800.xyz/notes/20220401104229-leetcode101_344_reverse_string/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

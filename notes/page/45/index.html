@@ -153,72 +153,66 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 8. String to Integer (atoi)
+    <h2>LeetCode101: 11. Container With Most Water
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Tricky,LeetCode101,Integer Overflow The key idea is how to detect integer overflow, it’s same to: LeetCode101: 7. Reverse Integer.
-class Solution { public: int myAtoi(string s) { auto iter = s.begin(); int base = 1, r = 0, p = 0; // Skip whitespace for (; iter != s.end() &amp;&amp; *iter == &#39; &#39;; &#43;&#43;iter) { } // negative or positive if (*iter == &#39;-&#39; || *iter == &#39;&#43;&#39;) { if (*iter == &#39;-&#39;) { base = -1; } &#43;&#43;iter; } for (; iter !...</p>
+    <p> tags: Two Pointers,Tricky,LeetCode101 The key ideas are:
+We start from two edges and move to the middle with two pointers. Move the pointer to the middle which side is smaller. class Solution { public: int maxArea(vector&lt;int&gt;&amp; height) { int i = 0, j = height.size() - 1; int water = 0; while (i &lt; j) { water = max(water, (j - i) * min(height[i], height[j])); if (height[i] &gt; height[j]) { --j; } else { &#43;&#43;i; } } return water; } }; </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-18 07:23:00 +0800 +0800'>March 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 8. String to Integer (atoi)" href="https://notes.0081800.xyz/notes/20220318072345-leetcode101_8_string_to_integer_atoi/"></a>
+  <footer class="entry-footer"><span title='2022-03-21 18:38:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 11. Container With Most Water" href="https://notes.0081800.xyz/notes/20220321183809-leetcode_11_container_with_most_water/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 6. Zigzag Conversion
+    <h2>LeetCode101: 316. Remove Duplicate Letters
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Tricky,LeetCode101 Make
-R = total required rows d = R - 2 2 is contains head line and tail line that not need insert a character between two columns. r = current row offset, which starts from 0. c = current column offset, which starts from 0. We can use a formula to make columns, which is \(c(R&#43;d)&#43;r\).
-For example, &#34;PAYPALISHIRING&#34;, numRows=3:
-P A H N A P L S I I G Y I R The columns only the head and tail rows is correct should be:...</p>
+    <p>tags: String,LeetCode101,Stack,Hash Table,Hash Set I have solved this problem years before, LeetCode: 316.Remove Duplicate Letters, but still stuck on it.
+The key idea is not only about stack, but also required a map to record how many same letters behind current one. Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-17 07:33:00 +0800 +0800'>March 17, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 6. Zigzag Conversion" href="https://notes.0081800.xyz/notes/20220317073333-leetcode101_6_zigzag_conversion/"></a>
+  <footer class="entry-footer"><span title='2022-03-21 17:47:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 316. Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 7. Reverse Integer
+    <h2>LeetCode101: 763. Partition Labels
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Tricky,Stack,LeetCode101,Integer Overflow The key is how to detect integer overflow without store to a larger size integer.
-For this purpose, we could detect integer overflow before carry:
-The maximal of INT_MAX before carry is \(\frac{INT\_MAX}{10}\). We continue compare pop with the suffix of INT_MAX, 7, if maximal before carry is equal to \(\frac{INT\_MAX}{10}\).
-The minimal of INT_MIN before carry is \(\frac{INT\_MIN}{10}\) too. We continue compare pop with the suffix of INT_MIN, -8, if minimal before carry is equal to \(\frac{INT\_MIN}{10}\)....</p>
+    <p>tags: String,LeetCode101,Hash Set,Hash Table,Stack The key idea is similar to LeetCode101: 316. Remove Duplicate Letters, we use a HashMap to track how many letters which is same in the string. Then we use a HashSet to store appeared letters. When there is no more letters appeared in the HashSet, it’s time to partition.
+class Solution { public: vector&lt;int&gt; partitionLabels(string s) { unordered_map&lt;char, int&gt; cntOfLetters; unordered_set&lt;char&gt; appearedLetters; vector&lt;int&gt; r; int count = 0; for (auto iter = s....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-16 21:53:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 7. Reverse Integer" href="https://notes.0081800.xyz/notes/20220316215304-leetcode101_7_reverse_integer/"></a>
+  <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 763. Partition Labels" href="https://notes.0081800.xyz/notes/20220321174504-leetcode101_763_partition_labels/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 946. Validate Stack Sequences
+    <h2>String
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Stack Intuition for (int i = 0; i &lt; pushed.size(); i&#43;&#43;) { if (pushed[i] != popped[pushed.size() - 1 - i]) { return false; } } But the pop/push operations can happend in any sequence.
-Stack Using a stack. Returns false, IF the next value neither the popped nor pushed.
-In each sequence we must do a operation: push or pop. When to push:
-stack is empty, or top of stack is not current popped value When to pop:...</p>
+    <p> tags: Algorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-16 08:52:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 946. Validate Stack Sequences" href="https://notes.0081800.xyz/notes/20220316085247-leetcode101_946_validate_stack_sequences/"></a>
+  <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to String" href="https://notes.0081800.xyz/notes/20220321174510-string/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 1249. Minimum Remove to Make Valid Parentheses
+    <h2>LeetCode101: 9. Palindrome Number
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Stack,LeetCode101 Stack class Solution { public: string minRemoveToMakeValid(string s) { stack&lt;char&gt; st; char open = &#39;(&#39;, close = &#39;)&#39;; int open_count = 0; string res; // forward to remove unnecessary close parentheses for (auto iter = s.begin(); iter != s.end(); &#43;&#43;iter) { if (*iter == open) { open_count&#43;&#43;; } if (open_count == 0 &amp;&amp; *iter == close) { continue; } if (*iter == close) { open_count--; } st.push(*iter); } int close_count = 0; // backward to remove unnecessary open parentheses while (!...</p>
+    <p>tags: LeetCode101,Math The key idea is:
+To use \(log10(10^n) = n\) to get how many digits in the number. Then we need iterate \(n &#43; 1\) times to compare each side. The digit in the left is \(\frac{x}{10^{n-i}} \mod 10\). The digit in the right is \(\frac{x}{10^i} \mod 10\). class Solution { public: bool isPalindrome(int x) { if (x &lt; 0) { return false; } // failed at here if (x &lt; 10) { return true; } int n = log10(x); int ld = pow(10, n); // left div int rd = 1; // right div for (int i = 0; i &lt; (n &#43; 1) / 2; i&#43;&#43;) { // left right if (x / ld % 10 !...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-16 08:00:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 1249. Minimum Remove to Make Valid Parentheses" href="https://notes.0081800.xyz/notes/20220316080026-leetcode101_1249_minimum_remove_to_make_valid_parentheses/"></a>
+  <footer class="entry-footer"><span title='2022-03-18 08:44:00 +0800 +0800'>March 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 9. Palindrome Number" href="https://notes.0081800.xyz/notes/20220318084438-leetcode101_9_palindrome_number/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
