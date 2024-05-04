@@ -148,6 +148,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Ethereum Sub-protocols
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking, Ethereum Execution Layer </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Sub-protocols" href="https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Ethereum Wire Protocol
     </h2>
   </header>
@@ -196,20 +208,6 @@ Steps to join the network start client –&gt; connect to bootnode –&gt; bond 
   </div>
   <footer class="entry-footer"><span title='2023-06-14 09:00:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Ethereum Discovery Nodes" href="https://notes.0081800.xyz/notes/20230614090056-ethereum_discovery_nodes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>How is a Transaction Broadcasted
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Ethereum Simulator Node, Ethereum Execution Layer Node Side: Receive pending transactions If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
-https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let’s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
-SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-06-12 10:08:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How is a Transaction Broadcasted" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -153,6 +153,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>数据编码与演化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>模式演化要保证：
+向后兼容 较新的代码可以读取旧代码编写的数据 向前兼容 较旧的代码可以读取较新代码编写的数据 数据编码格式 语言特定格式 Python pickle Java java.io.Serializable Ruby Marshal JSON、XML与二进制变体 二进制变体
+Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模式 基于数据库的数据流 不同是写写入不同的值 归档存储 基于服务的数据流：REST 和 RPC RPC 的问题 给人一种本地调用的错觉，却需要面临网络的不确定性：延迟和超时。
+基于消息传递的数据流 消息中间件：RabbitMQ、Kafka 分布式Actor 框架：Akka、Erlang OTP </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 21:53:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 数据编码与演化" href="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>OLAP
     </h2>
   </header>
@@ -208,26 +223,6 @@ key-value 索引通常使用 hash map 来实现，最简单的索引策略：保
   </div>
   <footer class="entry-footer"><span title='2021-06-06 10:33:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 哈希索引" href="https://notes.0081800.xyz/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>排序字符串表：SSTables
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>SSTables 通过按照键的顺序存储在日志段文件中来解决哈希索引面临的一些问题。它要求每个键在每个合并的段文件中只能出现一次（通过压缩确保）。
-对比哈希索引的日志段 优点 合并段更加高效，即使文件大于可用内存。类似于归并排序算法中使用的方法。并发读取多个输入段文件，比较每个文件的第一个键，把最小的键拷贝到输出文件，并重复。
-解决多个段文件重复：保留最新的值，因为每个段包含在某段时间内写入数据库的所有值，意味着肯定有一个值比其他所有值更新。
-基于键有序的特性可以采用稀疏索引避免内存中包含所有键的索引。
-将一定范围内的所有键存储到一个块中，便于需要请求范围内多个 key-value，降低磁盘 I/O。
-构建和维护 保证顺序 内存中痛哦红黑树或者 AVL 树支持任意顺序插入并以排序后的顺序读取它们。
-写入时，将其添加到内存中的平衡树数据结构中，成为内存表。 内存表大于某个阈值（MB级别），将其作为 SSTable 文件写入磁盘。写入同时，写入可以继续添加到一个新的内存表实例中。 处理请求顺序：首先从内存表中查找键 -&gt; 最新的磁盘段文件 -&gt; 次新磁盘段文件，以此类推。 后台进程周期性执行段合并与压缩，合并多个段文件并丢弃被覆盖或着删除的值。 崩溃处理 为了避免数据库崩溃最近的写入（在内存表中尚未写入磁盘）将会丢失的问题：
-在磁盘上保留单独的日志，每个写入都会立即追加到该日志。并且无需排序。 内存表写入 SSTable 时，丢弃相应的日志。 使用此技术的数据库 LevelDB RocksDB 类似的
-Cassandra HBase </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 排序字符串表：SSTables" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
