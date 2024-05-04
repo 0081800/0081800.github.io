@@ -153,6 +153,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>预写日志
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>预写日志（write-ahead log，WAL），也称为重做日志。
+一个仅支持追加修改的文件，每个 B-tree 的修改必须先更新 WAL 然后再修改数本身的页。 当数据库在崩溃后恢复时，该日志用于将 B-tree 恢复到最近一致的状态。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:43:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 预写日志" href="https://notes.0081800.xyz/notes/20210813074328-%E9%A2%84%E5%86%99%E6%97%A5%E5%BF%97/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>RabbitMQ
     </h2>
   </header>
@@ -207,20 +220,6 @@ Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 
   </div>
   <footer class="entry-footer"><span title='2021-08-13 07:28:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 消息队列" href="https://notes.0081800.xyz/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Networking 101: Building Blocks of TCP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: TCP,High Performance Browser Networking 原文链接：https://hpbn.co/building-blocks-of-tcp/。 Overview The 4th version of RFC 675, and final two seperate RFCs:
-RFC 791 - Internet Protocol(IPv4) RFC 793 - Transmission Control Protocol TCP provides:
-Effective abstraction. A reliable network running over unreliable channel. Hiding most the complexity of network communication: retransmission of lost data, in-order delivery, congestion control and avoidance, data integrity, and more. Three-Way Handhsake Sequence numbers are important for keep in-order delivery, and they are picked randomly from both sides for security reasons....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-13 07:17:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Networking 101: Building Blocks of TCP" href="https://notes.0081800.xyz/notes/20210813071739-networking_101_building_blocks_of_tcp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

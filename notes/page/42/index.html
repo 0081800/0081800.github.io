@@ -153,6 +153,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 142. Linked List Cycle II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Cycle detection,Fast &amp; Slow Pointers,LeetCode101 /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode *detectCycle(ListNode *head) { if (head == nullptr || head-&gt;next == nullptr) { return nullptr; } // tortoise move 1 step auto slow = head-&gt;next; // hare move 2 steps auto fast = head-&gt;next-&gt;next; while (slow !...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-29 18:02:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 142. Linked List Cycle II" href="https://notes.0081800.xyz/notes/20220329180222-leetcode101_142_linked_list_cycle_ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Fast &amp; Slow Pointers
     </h2>
   </header>
@@ -199,18 +211,6 @@ We put tortoise back to the beginning they both started....</p>
   </div>
   <footer class="entry-footer"><span title='2022-03-29 16:07:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Binary Tree" href="https://notes.0081800.xyz/notes/20220329160754-binary_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Complete Binary Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Binary Tree,Tree A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible.</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-29 16:07:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Complete Binary Tree" href="https://notes.0081800.xyz/notes/20220329160738-complete_binary_tree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

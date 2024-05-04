@@ -153,6 +153,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>macOS 签名 GDB
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: GDB,macOS macOS 下通过 GDB 调试程序会出现：
+Unable to find Mach task port for process-id 1375: (os/kern) failure (0x5). (please check gdb is codesigned - see taskgated(8)) 需要通过 Keychain Access Application 创建证书： code-sign-cert
+需要对 gdb 进行签名，首先创建 gdb-entitlement.xml ：
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;com.apple.security.cs.debugger&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; 运行签名
+codesign --entitlements gdb-entitlement.xml -fs code-sign-cert $(which gdb) See also: PermissionsDarwin。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-26 18:10:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS 签名 GDB" href="https://notes.0081800.xyz/notes/20210726181021-macos_%E7%AD%BE%E5%90%8D_gdb/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>偏序
     </h2>
   </header>
@@ -217,19 +233,6 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
   </div>
   <footer class="entry-footer"><span title='2021-07-22 08:02:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 拜占庭故障" href="https://notes.0081800.xyz/notes/20210722080226-%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%95%85%E9%9A%9C/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Fencing 令牌
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Fencing（围栏）锁，每次锁服务授予锁时，同时返回 fencing 令牌，每次客户端发送写请求，都必须包含所持有的 fencing 令牌。
-fencing 令牌单调递增，如果低版本的写入后到达，发现已经有高版本的 fencing 令牌写入，则拒绝此次写入。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-22 07:59:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Fencing 令牌" href="https://notes.0081800.xyz/notes/20210722075942-fencing_%E4%BB%A4%E7%89%8C/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

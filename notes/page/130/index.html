@@ -153,6 +153,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust Asynchronous Programming
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Rust Future async fn 将一个代码块转换为一个 Future 对象， Future 对象维护一个状态机 Future 对象必须运行在一个 Executor 上 Executor futures::executor::block_on 阻塞当前线程直到 future 完成
+// `block_on` blocks the current thread until the provided future has run to // completion. Other executors provide more complex behavior, like scheduling // multiple futures onto the same thread. use futures::executor::block_on; async fn hello_world() { println!(&#34;hello, world!&#34;); } fn main() { let future = hello_world(); // Nothing is printed block_on(future); // `future` is run and &#34;hello, world!...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-08-28 16:08:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Rust Asynchronous Programming" href="https://notes.0081800.xyz/notes/20200828160809-rust_asynchronous_programming/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Go Swagger 实现代码即文档
     </h2>
   </header>
@@ -208,18 +221,6 @@ MySQL 授权用户子网段需要使用:
   </div>
   <footer class="entry-footer"><span title='2020-08-27 19:56:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to MySQL grant subnet" href="https://notes.0081800.xyz/notes/20200827195621-mysql_grant_subnet/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Network
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-27 18:06:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Network" href="https://notes.0081800.xyz/notes/20200827180638-network/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

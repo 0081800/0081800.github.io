@@ -148,6 +148,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Fencing 令牌
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Fencing（围栏）锁，每次锁服务授予锁时，同时返回 fencing 令牌，每次客户端发送写请求，都必须包含所持有的 fencing 令牌。
+fencing 令牌单调递增，如果低版本的写入后到达，发现已经有高版本的 fencing 令牌写入，则拒绝此次写入。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-22 07:59:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Fencing 令牌" href="https://notes.0081800.xyz/notes/20210722075942-fencing_%E4%BB%A4%E7%89%8C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>单调时钟与墙上时钟
     </h2>
   </header>
@@ -210,19 +223,6 @@ Value: 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, Index: 2, 1, 0, 1, 0, 2, 1, 
   </div>
   <footer class="entry-footer"><span title='2021-07-19 07:31:00 +0800 +0800'>July 19, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode: 46. Permutations" href="https://notes.0081800.xyz/notes/20210719073125-leetcode_46_permutations/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>JavaScript 内存模型 (2017)
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 编程语言内存模型,JavaScript litmus test
-Litmus Test: ES2017 racy reads on ARMv8 Can this program (using atomics) see r1 = 0, r2 = 1? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y x = 2 (non-atomic) r2 = x C&#43;&#43;: yes (data race, can do anything at all). Java: the program cannot be written. ARMv8 using ldar/stlr: yes. ES2017: no! (contradicting ARMv8) </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-16 12:03:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to JavaScript 内存模型 (2017)" href="https://notes.0081800.xyz/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

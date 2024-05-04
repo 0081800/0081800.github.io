@@ -6,7 +6,16 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 04 May 2024 16:42:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 May 2024 16:59:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我现在的笔记记录方式</title>
+      <link>https://notes.0081800.xyz/notes/20240504165922-%E6%88%91%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Sat, 04 May 2024 16:59:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240504165922-%E6%88%91%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%E6%96%B9%E5%BC%8F/</guid>
+      <description> ref: 收集和整理笔记：临时笔记、阅读笔记和正式笔记, How to Take Smart Notes, 书写比键盘输入更有利于记忆 收集：阅读笔记写到纸质的笔记本上； 整理：通过 org-roam 整理成正式笔记。 </description>
+    </item>
+    
     <item>
       <title>收集和整理笔记：临时笔记、阅读笔记和正式笔记</title>
       <link>https://notes.0081800.xyz/notes/20240504164207-%E6%94%B6%E9%9B%86%E7%AC%94%E8%AE%B0/</link>
