@@ -152,7 +152,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>ref: Rust, Rust Borrow and Lifetimes 发现一个 Cow 用处，可以让变量支持同时赋值引用类型和值类型，场景就是我们可能接收到一个引用，但是不要把它变成值类型做一些处理，我们可以通过 clone 或 to_owned 统一变成值类型：
+    <p>ref: Rust, Rust Borrow and Lifetimes 发现一个 Cow 用处，可以让变量支持同时赋值引用类型和值类型，场景就是我们可能接收到一个引用，同时可能需要把它变成值类型做一些处理，我们可以通过 clone 或 to_owned 统一变成值类型：
 fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) { manipulate(s) } else { s.to_owned() } take_reference(&amp;s); } fn manipulate(s: &amp;str) -&gt; String { s.to_owned() } fn take_reference(s: &amp;str) { } 另外一种方式就是通过 Cow 避免不必要的 clone 开销：
 fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) { Cow::from(manipulate(s)) } else { Cow::from(s) } take_reference(&amp;s); } fn manipulate(s: &amp;str) -&gt; String { s....</p>
   </div>
