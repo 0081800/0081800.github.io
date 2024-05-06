@@ -14,8 +14,8 @@
       
       <guid>https://notes.0081800.xyz/notes/20240506115111-rust_std_borrow_cow/</guid>
       <description>ref: Rust, Rust Borrow and Lifetimes 发现一个 Cow 用处，可以让变量支持同时赋值引用类型和值类型，场景就是我们可能接收到一个引用，同时可能需要把它变成值类型做一些处理，我们可以通过 clone 或 to_owned 统一变成值类型：
-fn maybe_need_to_change(s: &amp;amp;str) { let s = if s.starts_with(&amp;#34;xxx&amp;#34;) { manipulate(s) } else { s.to_owned() } take_reference(&amp;amp;s); } fn manipulate(s: &amp;amp;str) -&amp;gt; String { s.to_owned() } fn take_reference(s: &amp;amp;str) { } 另外一种方式就是通过 Cow 避免不必要的 clone 开销：
-fn maybe_need_to_change(s: &amp;amp;str) { let s = if s.starts_with(&amp;#34;xxx&amp;#34;) { Cow::from(manipulate(s)) } else { Cow::from(s) } take_reference(&amp;amp;s); } fn manipulate(s: &amp;amp;str) -&amp;gt; String { s.</description>
+fn maybe_need_to_change(s: &amp;amp;str) { let s = if s.starts_with(&amp;#34;xxx&amp;#34;) { manipulate(s) } else { s.to_owned() } take_reference(&amp;amp;s); // s.into_owned() 可以得到 String 类型的值 } fn manipulate(s: &amp;amp;str) -&amp;gt; String { s.to_owned() } fn take_reference(s: &amp;amp;str) { } 另外一种方式就是通过 Cow 避免不必要的 clone 开销：
+fn maybe_need_to_change(s: &amp;amp;str) { let s = if s.starts_with(&amp;#34;xxx&amp;#34;) { Cow::from(manipulate(s)) } else { Cow::from(s) // 没有额外的开销 } take_reference(&amp;amp;s); } fn manipulate(s: &amp;amp;str) -&amp;gt; String { s.</description>
     </item>
     
     <item>
