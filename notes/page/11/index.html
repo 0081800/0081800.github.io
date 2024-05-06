@@ -153,6 +153,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>PostgresQL autovacuum &amp; ANALYZE
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: PostgresQL Recently, I met a problem in PostgresQL: the index mismatched after batch rows inserted.
+Run ANALYZE on the table solved this problem after batch rows inerted.
+Turns out autovacuum has been disabled on the PostgresQL instance:
+show autovacuum_analyze_scale_factor; show autovacuum_analyze_threshold ; SELECT * FROM pg_settings WHERE name LIKE &#39;%autovacuum%&#39;; </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-29 09:33:00 +0800 +0800'>May 29, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to PostgresQL autovacuum &amp; ANALYZE" href="https://notes.0081800.xyz/notes/20230529093313-postgresql_autovacuum_analyze/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Met Eddie
     </h2>
   </header>
@@ -201,18 +216,6 @@ cd ~/nltk_data/path unzip xx.zip </p>
   </div>
   <footer class="entry-footer"><span title='2023-04-18 15:11:00 +0800 +0800'>April 18, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to NLTK Data" href="https://notes.0081800.xyz/notes/20230418151139-nltk_data/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Bash
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Linux </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-17 09:50:00 +0800 +0800'>April 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Bash" href="https://notes.0081800.xyz/notes/20230417095019-bash/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
