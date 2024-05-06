@@ -4271,7 +4271,7 @@ With a hash function, let&amp;rsquo;s say SHA-1. For example, to do PoW, we need
       <pubDate>Tue, 04 Jan 2022 07:04:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/projects/20220104070432-solana/</guid>
-      <description> tags: 区块链 </description>
+      <description> tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &amp;#34;id&amp;#34;: 1, &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;method&amp;#34;: &amp;#34;getSignaturesForAddress&amp;#34;, &amp;#34;params&amp;#34;: [&amp;#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&amp;#34;] } </description>
     </item>
     
     <item>
