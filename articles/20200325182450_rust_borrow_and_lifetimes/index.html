@@ -27,6 +27,7 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/">
 <noscript>
     <style>
         #theme-toggle,
@@ -63,7 +64,10 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
         }
 
     </style>
-</noscript><meta property="og:title" content="Rust Borrow and Lifetimes" />
+</noscript>
+  
+
+<meta property="og:title" content="Rust Borrow and Lifetimes" />
 <meta property="og:description" content="tags: Rust,Translate,Rust Wrapper Types 原文链接：Rust Borrow and Lifetimes。
 Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布，目前最新稳定版本 1.42）。 我必须再写一篇关于我为什么觉得 Rust 牛逼的新博客，但是今天我将关注在它的借用（borrow） 和生命周期（lifetimes）系统，这也是常常让包括我在内的 Rust 新手陷入困境的地方。这篇文章假设 你基本了解 Rust，如果还没推荐你先阅读指南和指针指南。
 资源所有权和借用 Rust 通过一个难缠的（sophisticated）借用系统在不用 GC 的情况下达到内存安全。对于任何资源 （栈内存、堆内存、文件句柄等），他们都对应一个唯一的所有者（owner）在需要的情况下处理资源回收。 你可以通过 &amp; 或者 &amp;mut 创建一个新的绑定指向该资源，这被称之为借用或可变借用。编译器确保 所有的所有者（owners）和借用者（borrowers）行为正确。
@@ -181,6 +185,8 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -605,9 +611,11 @@ C. 每一个独立的借用者或被借用的指针的生命周期</p>
    
 
    
-      
+
    
 
+   
+      
    
 
    

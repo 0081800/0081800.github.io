@@ -22,6 +22,7 @@ SendTransaction SendRawTransaction And both of them are pointing to SubmitTransa
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ SendTransaction SendRawTransaction And both of them are pointing to SubmitTransa
         }
 
     </style>
-</noscript><meta property="og:title" content="How is a Transaction Broadcasted" />
+</noscript>
+  
+
+<meta property="og:title" content="How is a Transaction Broadcasted" />
 <meta property="og:description" content="tags: Ethereum Simulator Node, Ethereum Execution Layer Node Side: Receive pending transactions If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
 https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let&rsquo;s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
 SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:" />
@@ -166,6 +170,8 @@ SendTransaction SendRawTransaction And both of them are pointing to SubmitTransa
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -353,6 +359,8 @@ Which peers anwsered <a href="https://github.com/ethereum/go-ethereum/blob/8bbaf
     </ul>
   </footer>
 
+
+   
 
    
 

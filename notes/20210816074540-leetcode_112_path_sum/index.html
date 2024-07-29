@@ -22,6 +22,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210816074540-leetcode_112_path_sum/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 112. Path Sum" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 112. Path Sum" />
 <meta property="og:description" content="tags: LeetCode https://leetcode.com/problems/path-sum/
 递归版
 /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: bool hasPathSum(TreeNode* root, int targetSum) { if (root == nullptr) { return false; } return pathSum(root, 0, targetSum); } bool pathSum(TreeNode* node, int sum, int targetSum) { sum &#43;= node-&gt;val; if (node-&gt;left == nullptr &amp;&amp; node-&gt;right == nullptr) { if (sum == targetSum) { return true; } } if (node-&gt;left !" />
@@ -166,6 +170,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -294,6 +300,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

@@ -21,6 +21,7 @@ Fixed size window, right should start from 9 class Solution { public: vector&lt;
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220311213045-187_repeated_dna_sequences/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ Fixed size window, right should start from 9 class Solution { public: vector&lt;
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 187. Repeated DNA Sequences" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 187. Repeated DNA Sequences" />
 <meta property="og:description" content=" tags: Sliding Window,LeetCode101,Hash Set Key:
 Fixed size window, right should start from 9 class Solution { public: vector&lt;string&gt; findRepeatedDnaSequences(string s) { int left = 0; unordered_set&lt;string&gt; results; unordered_set&lt;string&gt; hset; for (auto right = 9; right &lt; s.size(); right&#43;&#43;) { string sub(s, left, 10); if (hset.find(sub) != hset.end()) { results.insert(sub); } hset.insert(sub); left&#43;&#43;; } return vector&lt;string&gt;(results.begin(), results.end()); } }; " />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ Fixed size window, right should start from 9 class Solution { public: vector&lt;
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -238,6 +244,8 @@ Fixed size window, right should start from 9 class Solution { public: vector&lt;
     </ul>
   </footer>
 
+
+   
 
    
 

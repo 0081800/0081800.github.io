@@ -23,6 +23,7 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +60,10 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
         }
 
     </style>
-</noscript><meta property="og:title" content="actix-web extractors 支持提取任意长度的参数" />
+</noscript>
+  
+
+<meta property="og:title" content="actix-web extractors 支持提取任意长度的参数" />
 <meta property="og:description" content="tags: Rust 背景 今天看了一下 actix-web 发现该框架支持基于参数的 Extractor，可以非常方便地解析参数（包括 URI、Query、JSON 和 FormData）。
 先来看一个在项目 README.md 中的例子：
 use actix_web::{get, web, App, HttpServer, Responder}; #[get(&#34;/{id}/{name}/index.html&#34;)] async fn index(web::Path((id, name)): web::Path&lt;(u32, String)&gt;) -&gt; impl Responder { format!(&#34;Hello {}! id:{}&#34;, name, id) } #[actix_web::main] async fn main() -&gt; std::io::Result&lt;()&gt; { HttpServer::new(|| App::new().service(index)) .bind(&#34;127.0.0.1:8080&#34;)? .run() .await } 初看之下觉得很神奇，但细想通过宏实现应该不是特别困难，然后发现其官网还有不是基于宏的运行时调用：
@@ -169,6 +173,8 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -401,6 +407,8 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
     </ul>
   </footer>
 
+
+   
 
    
 

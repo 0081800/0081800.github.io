@@ -21,6 +21,7 @@ To use \(log10(10^n) = n\) to get how many digits in the number. Then we need it
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220318084438-leetcode101_9_palindrome_number/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ To use \(log10(10^n) = n\) to get how many digits in the number. Then we need it
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 9. Palindrome Number" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 9. Palindrome Number" />
 <meta property="og:description" content="tags: LeetCode101,Math The key idea is:
 To use \(log10(10^n) = n\) to get how many digits in the number. Then we need iterate \(n &#43; 1\) times to compare each side. The digit in the left is \(\frac{x}{10^{n-i}} \mod 10\). The digit in the right is \(\frac{x}{10^i} \mod 10\). class Solution { public: bool isPalindrome(int x) { if (x &lt; 0) { return false; } // failed at here if (x &lt; 10) { return true; } int n = log10(x); int ld = pow(10, n); // left div int rd = 1; // right div for (int i = 0; i &lt; (n &#43; 1) / 2; i&#43;&#43;) { // left right if (x / ld % 10 !" />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ To use \(log10(10^n) = n\) to get how many digits in the number. Then we need it
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -246,6 +252,8 @@ To use \(log10(10^n) = n\) to get how many digits in the number. Then we need it
     </ul>
   </footer>
 
+
+   
 
    
 

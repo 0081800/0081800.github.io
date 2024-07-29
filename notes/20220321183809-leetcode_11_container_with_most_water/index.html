@@ -21,6 +21,7 @@ We start from two edges and move to the middle with two pointers. Move the point
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220321183809-leetcode_11_container_with_most_water/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ We start from two edges and move to the middle with two pointers. Move the point
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 11. Container With Most Water" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 11. Container With Most Water" />
 <meta property="og:description" content=" tags: Two Pointers,Tricky,LeetCode101 The key ideas are:
 We start from two edges and move to the middle with two pointers. Move the pointer to the middle which side is smaller. class Solution { public: int maxArea(vector&lt;int&gt;&amp; height) { int i = 0, j = height.size() - 1; int water = 0; while (i &lt; j) { water = max(water, (j - i) * min(height[i], height[j])); if (height[i] &gt; height[j]) { --j; } else { &#43;&#43;i; } } return water; } }; " />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ We start from two edges and move to the middle with two pointers. Move the point
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -236,6 +242,8 @@ We start from two edges and move to the middle with two pointers. Move the point
     </ul>
   </footer>
 
+
+   
 
    
 

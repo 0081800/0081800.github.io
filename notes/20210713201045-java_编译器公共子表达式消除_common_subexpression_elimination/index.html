@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Java 编译器公共子表达式消除（common subexpression elimination）" />
+</noscript>
+  
+
+<meta property="og:title" content="Java 编译器公共子表达式消除（common subexpression elimination）" />
 <meta property="og:description" content="// p and q may or may not point at the same object. int i = p.x; // ... maybe another thread writes p.x at this point ... int j = q.x; int k = p.x; 在这个程序中，公共子表达式消除（common subexpression elimination）会注意到 p.x 被计算了两次，并将最后一行优化为 k = i 。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -214,6 +220,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

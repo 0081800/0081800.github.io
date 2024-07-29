@@ -21,6 +21,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd" />
+</noscript>
+  
+
+<meta property="og:title" content="Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd" />
 <meta property="og:description" content="tags: Linux,Systemd,Supervisor,Logrotate Background I usually use supervisor1 to deploy my services, and capture the stdout/stderr to the log files, and then use logrotate to rotate the logs, which the configuration likes:
 /data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;&amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &gt; /tmp/kill.log 2&gt;&amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -282,6 +288,8 @@ Takes a boolean argument. If true, sets up a new file system namespace for the e
     </ul>
   </footer>
 
+
+   
 
    
 

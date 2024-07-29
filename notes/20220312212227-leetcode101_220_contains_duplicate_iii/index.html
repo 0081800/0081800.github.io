@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220312212227-leetcode101_220_contains_duplicate_iii/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 220. Contains Duplicate III" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 220. Contains Duplicate III" />
 <meta property="og:description" content="tags: Sliding Window,OrderedSet Use HashSet to attempt to meet the requirements in the window class Solution { public: bool containsNearbyAlmostDuplicate(vector&lt;int&gt;&amp; nums, int k, int t) { auto left = 0; auto K = 0; set&lt;long&gt; hset; // set in cpp is an sorted set for (auto right = 0; right &lt; nums.size(); right&#43;&#43;) { K = right - left; if (K &gt; k) { hset.erase(nums[left]); left&#43;&#43;; } hset.insert(nums[right]); // some numbers are the same." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20220312212227-leetcode101_220_contains_duplicate_iii/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -310,6 +316,8 @@ of <em>nums[i]</em> is meeting the requirement. Then we can find it in the Order
     </ul>
   </footer>
 
+
+   
 
    
 

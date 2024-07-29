@@ -22,6 +22,7 @@ func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200320172433_leetcode_153_find_minimum_in_rotated_sorted_array/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 153.Find Minimum in Rotated Sorted Array" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 153.Find Minimum in Rotated Sorted Array" />
 <meta property="og:description" content="tags: LeetCode 解法 1 找到中间节点依次往左右扩散：
 向左边扩散，如果左边的大于当前元素，那么当前元素即为最小值 向右边扩散，如果右边的小于当前元素，那么右边元素即为最小值 如果以上不成立则第一个元素为最小元素（未旋转），以下是代码
 func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[0] } // 从中间开始确定方向 mid := length / 2 - 1 left, right := mid, mid for left - 1 &gt;= 0 || right &#43; 1 &lt; length { if left - 1 &gt;= 0 { if nums[left - 1] &gt; nums[left] { return nums[left]; } left-- } if right &#43; 1 &lt; length { if nums[right] &gt; nums[right &#43; 1] { return nums[right &#43; 1] } right&#43;&#43; } } return nums[0] } 优化 参考答案后可通过二分查找做如下优化，首先判断是否被旋转：" />
@@ -166,6 +170,8 @@ func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -308,6 +314,8 @@ func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[
     </ul>
   </footer>
 
+
+   
 
    
 

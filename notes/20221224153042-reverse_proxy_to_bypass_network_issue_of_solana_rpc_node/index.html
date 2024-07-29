@@ -21,6 +21,7 @@ location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_up
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_up
         }
 
     </style>
-</noscript><meta property="og:title" content="Reverse Proxy to bypass Network Issue of Solana RPC Node" />
+</noscript>
+  
+
+<meta property="og:title" content="Reverse Proxy to bypass Network Issue of Solana RPC Node" />
 <meta property="og:description" content="tags: Nginx One Endpoint for Both WebSocket and Normal Requests,Solana,Solana 101: Create an Escrow dApp I met a lot network issues about connecting to RPC node of Solana, so I&rsquo;m using a nginx server as a reverse proxy to bypass this problem:
 location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_upgrade; } location @ { proxy_pass https://api.testnet.solana.com; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Host &#34;api.testnet.solana.com&#34;; } location @websocket { proxy_redirect off; proxy_pass https://api." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_up
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -237,6 +243,8 @@ location @websocket {
     </ul>
   </footer>
 
+
+   
 
    
 

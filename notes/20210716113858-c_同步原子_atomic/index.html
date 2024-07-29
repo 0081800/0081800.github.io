@@ -21,6 +21,7 @@ atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); whil
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210716113858-c_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_atomic/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); whil
         }
 
     </style>
-</noscript><meta property="og:title" content="C&#43;&#43; 同步原子（atomic）" />
+</noscript>
+  
+
+<meta property="og:title" content="C&#43;&#43; 同步原子（atomic）" />
 <meta property="og:description" content=" tags: C&#43;&#43;11 内存模型 C&#43;&#43; 采用了顺序一致的原子变量，很像Java 同步原子（volatile）(与 C&#43;&#43; volatile 没有关系）。
 atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); while(atomic_load(&amp;done) == 0) { /* loop */ } C&#43;&#43; 弱同步原子（acquire/release atomic） " />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); whil
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -233,6 +239,8 @@ atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); whil
     </ul>
   </footer>
 
+
+   
 
    
 

@@ -24,6 +24,7 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210827080540-spark/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +61,10 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
         }
 
     </style>
-</noscript><meta property="og:title" content="Spark" />
+</noscript>
+  
+
+<meta property="og:title" content="Spark" />
 <meta property="og:description" content="tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
 Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
 Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
@@ -172,6 +176,8 @@ Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transforma
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -382,6 +388,8 @@ spark.sql.orc.impl=hive
     </ul>
   </footer>
 
+
+   
 
    
 

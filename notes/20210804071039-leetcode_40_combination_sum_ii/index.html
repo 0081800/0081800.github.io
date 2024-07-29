@@ -21,6 +21,7 @@ class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210804071039-leetcode_40_combination_sum_ii/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 40. Combination Sum II" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 40. Combination Sum II" />
 <meta property="og:description" content="tags: LeetCode source: https://leetcode.com/problems/combination-sum-ii/ LeetCode: 39. Combination Sum 的进阶。元素不在唯一且每一个元素只能出现一次。对结果进行排序然后通过 set 对结果进行去重：
 class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&lt;int&gt;&amp; candidates, int target) { sort(candidates.begin(), candidates.end()); backtracking(candidates, 0, 0, target); vector&lt;vector&lt;int&gt;&gt; r; for (auto t : res) { r.push_back(t); } return r; } private: set&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; track; map&lt;int, bool&gt; visited; void backtracking(vector&lt;int&gt;&amp; condidates, int start, int n, int target) { if (n == target) { res.insert(track); return; } if (n &gt; target) { return; } int c = 0; int sz = condidates." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -295,6 +301,8 @@ class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&
     </ul>
   </footer>
 
+
+   
 
    
 

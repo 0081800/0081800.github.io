@@ -6,7 +6,18 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 May 2024 11:51:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Jul 2024 11:19:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD Flushing Network Cache Solved Samba Writing Issue</title>
+      <link>https://notes.0081800.xyz/notes/20240711111932-freebsd_flushing_network_cache_solved_samba_writing_issue/</link>
+      <pubDate>Thu, 11 Jul 2024 11:19:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240711111932-freebsd_flushing_network_cache_solved_samba_writing_issue/</guid>
+      <description> tags: FreeBSD source: https://forums.freebsd.org/threads/samba-share-permission-privilege-changed-since-update.90685/post-626157 I&amp;rsquo;m running a Samba4 on the FreeBSD 14 system. I couldn&amp;rsquo;t write content to that share filesystem after a system rebooting.
+After running the below command, the write permission is back:
+service samba_server stop net cache flush # -&amp;gt; tdb(/var/db/samba4/gencache.tdb): tdb_rec_read bad magic 0x10878 at offset=67584 service samba_server start </description>
+    </item>
+    
     <item>
       <title>Rust std::borrow::Cow</title>
       <link>https://notes.0081800.xyz/notes/20240506115111-rust_std_borrow_cow/</link>
@@ -607,7 +618,7 @@ const msg = `0x${Buffer.from(exampleMessage, &amp;#39;utf8&amp;#39;).toString(&a
       <pubDate>Tue, 11 Apr 2023 18:01:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/notes/20230411180124-speedup_python_installation_of_pyenv/</guid>
-      <description> tags: Python, pyenv export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=1 export PYTHON_BUILD_MIRROR_URL=&amp;#34;https://npm.taobao.org/mirrors/python/&amp;#34; </description>
+      <description> tags: Python, pyenv export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=1 export PYTHON_BUILD_MIRROR_URL=&amp;#34;https://mirrors.huaweicloud.com/python/&amp;#34; </description>
     </item>
     
     <item>

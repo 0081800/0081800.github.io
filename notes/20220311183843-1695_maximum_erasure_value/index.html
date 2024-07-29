@@ -21,6 +21,7 @@ class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) 
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220311183843-1695_maximum_erasure_value/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) 
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 1695. Maximum Erasure Value" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 1695. Maximum Erasure Value" />
 <meta property="og:description" content="tags: Sliding Window,LeetCode101,Hash Set Use HashMap to store indices See also: 3. Longest Substring Without Repeating Characters
 class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) { int maximum = 0; int left = 0, right = 0; unordered_map&lt;int, int&gt; indices; for (; right &lt; nums.size(); right&#43;&#43;) { int n = nums[right]; if (indices.find(n) != indices.end() &amp;&amp; indices[n] &#43; 1 &gt; left) { left = indices[n] &#43; 1; } maximum = max(maximum, std::accumulate(nums." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -277,6 +283,8 @@ class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) 
     </ul>
   </footer>
 
+
+   
 
    
 

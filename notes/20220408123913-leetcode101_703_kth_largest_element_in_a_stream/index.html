@@ -21,6 +21,7 @@ class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220408123913-leetcode101_703_kth_largest_element_in_a_stream/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 703. Kth Largest Element in a Stream" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 703. Kth Largest Element in a Stream" />
 <meta property="og:description" content=" tags: Priority Queue,LeetCode101 Using a min heap to keep k elements, top is the Kth largest element.
 class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;, std::greater&lt;int&gt;&gt; pq; int K; public: KthLargest(int k, vector&lt;int&gt;&amp; nums) { K = k; for (auto n: nums) { add(n); } } int add(int val) { pq.push(val); while (pq.size() &gt; K) { pq.pop(); } return pq.top(); } }; /** * Your KthLargest object will be instantiated and called as such: * KthLargest* obj = new KthLargest(k, nums); * int param_1 = obj-&gt;add(val); */ " />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -242,6 +248,8 @@ class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;
     </ul>
   </footer>
 
+
+   
 
    
 

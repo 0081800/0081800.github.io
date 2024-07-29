@@ -22,6 +22,7 @@ struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Optio
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200629180436-%E9%97%AD%E5%8C%85/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Optio
         }
 
     </style>
-</noscript><meta property="og:title" content="闭包" />
+</noscript>
+  
+
+<meta property="og:title" content="闭包" />
 <meta property="og:description" content="let add_one = | num | { num &#43; 1 }; 由于闭包和当前上下文相关联，所以 Rust 可以进行类型推导，类型注解也就不是必要的，但是依然可以自己添加：
 let add_one = | num: i32 | { num &#43; 1 }; fn add_one_v1 (x: u32) -&gt; u32 { x &#43; 1 } let add_one_v2 = |x: u32| -&gt; u32 { x &#43; 1 }; let add_one_v3 = |x| { x &#43; 1 }; let add_one_v4 = |x| x &#43; 1 ; 使用 Fn 存储闭包类型
 struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Option&lt;u32&gt;, } impl Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { fn new(calculation: T) -&gt; Cacher&lt;T&gt; { Cacher { calculation, value: None, } } fn value(&amp;mut self, arg: u32) -&gt; u32 { if let Some(value) = self." />
@@ -166,6 +170,8 @@ struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Optio
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -268,6 +274,8 @@ struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Optio
     </ul>
   </footer>
 
+
+   
 
    
 

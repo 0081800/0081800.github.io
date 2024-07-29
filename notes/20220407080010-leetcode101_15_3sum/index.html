@@ -21,6 +21,7 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220407080010-leetcode101_15_3sum/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 15. 3Sum" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 15. 3Sum" />
 <meta property="og:description" content="tags: LeetCode101,Sorting,Two Pointers,Three Pointers Key ideas:
 Sort the nums first. Then, we travel the nums, pick current element as nums[i], and apply LeetCode101: 167. Two Sum II - Input Array Is Sorted to the remains. We skip the same numbers to avoid duplicate. class Solution { public: vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) { sort(nums.begin(), nums.end()); int l, r, sum, T; vector&lt;vector&lt;int&gt;&gt; res; for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { // Skip same numbers to avoid duplicate if(i &gt; 0 &amp;&amp; nums[i] == nums[i-1]) { continue; } l = i &#43; 1; r = nums." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -258,6 +264,8 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
     </ul>
   </footer>
 
+
+   
 
    
 

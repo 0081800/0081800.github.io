@@ -28,6 +28,7 @@ Cassandra HBase ">
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/">
 <noscript>
     <style>
         #theme-toggle,
@@ -64,7 +65,10 @@ Cassandra HBase ">
         }
 
     </style>
-</noscript><meta property="og:title" content="排序字符串表：SSTables" />
+</noscript>
+  
+
+<meta property="og:title" content="排序字符串表：SSTables" />
 <meta property="og:description" content="SSTables 通过按照键的顺序存储在日志段文件中来解决哈希索引面临的一些问题。它要求每个键在每个合并的段文件中只能出现一次（通过压缩确保）。
 对比哈希索引的日志段 优点 合并段更加高效，即使文件大于可用内存。类似于归并排序算法中使用的方法。并发读取多个输入段文件，比较每个文件的第一个键，把最小的键拷贝到输出文件，并重复。
 解决多个段文件重复：保留最新的值，因为每个段包含在某段时间内写入数据库的所有值，意味着肯定有一个值比其他所有值更新。
@@ -184,6 +188,8 @@ Cassandra HBase "/>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -299,6 +305,8 @@ Cassandra HBase "/>
     </ul>
   </footer>
 
+
+   
 
    
 

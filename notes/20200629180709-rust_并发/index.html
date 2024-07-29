@@ -25,6 +25,7 @@ Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实�
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200629180709-rust_%E5%B9%B6%E5%8F%91/">
 <noscript>
     <style>
         #theme-toggle,
@@ -61,7 +62,10 @@ Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实�
         }
 
     </style>
-</noscript><meta property="og:title" content="Rust 并发" />
+</noscript>
+  
+
+<meta property="og:title" content="Rust 并发" />
 <meta property="og:description" content="并发 std::marker::Send 允许跨线程转移所有权 Send 标记特性用于标识实现该特性的类型的所有权可以在线程中间转移，几乎所有 Rust 类型都实现了 Send ，但是也有一些例外如：
 Rc&lt;T&gt; ，如果克隆后在多个线程中转移所有权可能会多个线程同时增加计数器，可以使用 Arc&lt;T&gt; 替代 如果一个新的类型组合的类型都实现了 Send 那么该类型也自动实现了 Send ，几乎所有原始类型都实现了 Send .
 std::marker::Sync 允许多个线程同时访问 Sync 标记特性用于标识实现该特性的类型可以在多个线程中引用，任何类型 T 是 Sync 并且 T 的引用 &amp;T 是 Send 则意味着引用可以安全的发送给其他线程。
@@ -175,6 +179,8 @@ Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -261,6 +267,8 @@ Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实�
     </ul>
   </footer>
 
+
+   
 
    
 

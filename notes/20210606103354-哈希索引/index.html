@@ -24,6 +24,7 @@ key-value 索引通常使用 hash map 来实现，最简单的索引策略：保
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +61,10 @@ key-value 索引通常使用 hash map 来实现，最简单的索引策略：保
         }
 
     </style>
-</noscript><meta property="og:title" content="哈希索引" />
+</noscript>
+  
+
+<meta property="og:title" content="哈希索引" />
 <meta property="og:description" content="索引 先来看一个世界上由 Bash 实现的最简单的数据库实现：
 #!/bin/bash db_set() { echo &#34;$1,$2&#34; &gt;&gt; database } db_get() { grep &#34;^$1,&#34; database | sed -e &#34;s/^$1,//&#34; | tail -n 1 } 这种数据库通过追加文件尾部的方式高效写入，许多数据库内部都是用日志，日志是一个仅支持追加更新的数据文件。但是 db_get 的性能会随着数据量的变大而下降，为了解决这个问题就需要引入新的数据结构： 索引 。
 索引是基于原始数据而派生而来的额外数据结构：适当的索引可以加速读取查询，但是回减慢写速度。
@@ -172,6 +176,8 @@ key-value 索引通常使用 hash map 来实现，最简单的索引策略：保
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -280,6 +286,8 @@ key-value 索引通常使用 hash map 来实现，最简单的索引策略：保
     </ul>
   </footer>
 
+
+   
 
    
 

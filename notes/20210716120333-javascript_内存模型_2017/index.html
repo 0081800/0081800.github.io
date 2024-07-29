@@ -21,6 +21,7 @@ Litmus Test: ES2017 racy reads on ARMv8 Can this program (using atomics) see r1 
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ Litmus Test: ES2017 racy reads on ARMv8 Can this program (using atomics) see r1 
         }
 
     </style>
-</noscript><meta property="og:title" content="JavaScript 内存模型 (2017)" />
+</noscript>
+  
+
+<meta property="og:title" content="JavaScript 内存模型 (2017)" />
 <meta property="og:description" content=" tags: 编程语言内存模型,JavaScript litmus test
 Litmus Test: ES2017 racy reads on ARMv8 Can this program (using atomics) see r1 = 0, r2 = 1? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y x = 2 (non-atomic) r2 = x C&#43;&#43;: yes (data race, can do anything at all). Java: the program cannot be written. ARMv8 using ldar/stlr: yes. ES2017: no! (contradicting ARMv8) " />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ Litmus Test: ES2017 racy reads on ARMv8 Can this program (using atomics) see r1 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -225,6 +231,8 @@ ES2017: no! (contradicting ARMv8)
     </ul>
   </footer>
 
+
+   
 
    
 

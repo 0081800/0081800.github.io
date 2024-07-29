@@ -22,6 +22,7 @@ For example:
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220318072424-integer_overflow/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ For example:
         }
 
     </style>
-</noscript><meta property="og:title" content="Integer Overflow" />
+</noscript>
+  
+
+<meta property="og:title" content="Integer Overflow" />
 <meta property="og:description" content="tags: C/C&#43;&#43; In some problems, we need to detect is our result overflow in a 32-bit integer. The key ideas is check our value before it becomes bigger.
 For example:
 // INT_MAX 2147483647 // INT_MIN -2147483648 // INT_MAX&#39;s suffix is 7 if (res &gt; INT_MAX / 10 || (res == INT_MAX / 10 &amp;&amp; pop &gt; 7)) { return 0; } // INT_MIN&#39;s suffix is -8 if (res &lt; INT_MIN / 10 || (res == INT_MIN / 10 &amp;&amp; pop &lt; -8)) { return 0; } res = res * 10 &#43; pop; Our final result need a 10 times current value and plus a value, then we check:" />
@@ -166,6 +170,8 @@ For example:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -237,6 +243,8 @@ For example:
     </ul>
   </footer>
 
+
+   
 
    
 

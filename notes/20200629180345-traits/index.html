@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200629180345-traits/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Traits" />
+</noscript>
+  
+
+<meta property="og:title" content="Traits" />
 <meta property="og:description" content="Traits 定义行为在多个类型中共享。 可以定义默认行为在实现者中间共享。 可以用于定义参数的行为，同样可以定义返回值行为，当用 trait 限定返回值类型时，不能同时（if/else）返回多种实现了该 trait 的类型。 pub trait Summary { fn summarize(&amp;self) -&gt; String; } pub struct Article{ pub title: String, } impl Summary for Article { fn summarize(&amp;self) -&gt; String { format!(&#34;{}&#34;, self.title) } } pub fn notify(item: impl Summary) { println!(&#34;{}&#34;, item.summarize()); } // trait bound 语法糖版本 pub fn notify&lt;T: Summary&gt;(item: T) { println!(&#34;{}&#34;, item.summarize()); } 定义参数行为 通过 impl ： fn notify(item: impl TraitName) ，用于简单明了的场景，比如一个参数 通过 trait bound ： fn notify&lt;T: TraitName&gt; (item: T) ，用于更复杂的场景，比如多个参数用于减少代码 可以通过 &#43; 连接： fn notify(T: TraitName &#43; Display) (item: T)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20200629180345-traits/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -310,6 +316,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

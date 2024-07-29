@@ -23,6 +23,7 @@ Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的�
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +60,10 @@ Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的�
         }
 
     </style>
-</noscript><meta property="og:title" content="原子变量（atomic variable）或原子操作（tomic operation）" />
+</noscript>
+  
+
+<meta property="og:title" content="原子变量（atomic variable）或原子操作（tomic operation）" />
 <meta property="og:description" content="现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
 代码示例
 // Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
@@ -169,6 +173,8 @@ Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -234,6 +240,8 @@ done = 1;             print(x);
     </ul>
   </footer>
 
+
+   
 
    
 

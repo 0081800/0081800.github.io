@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220324114305-881_boats_to_save_people/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 881. Boats to Save People" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 881. Boats to Save People" />
 <meta property="og:description" content="tags: Hash Table,LeetCode101,Sorting,Two Pointers Intuition with HashMap class Solution { public: int numRescueBoats(vector&lt;int&gt;&amp; people, int limit) { unordered_map&lt;int, int&gt; cntOfWeights; for (auto iter = people.begin(); iter != people.end(); &#43;&#43;iter) { cntOfWeights[*iter]&#43;&#43;; } int r = 0; for (int i = 0; i &lt; people.size(); i&#43;&#43;) { if (cntOfWeights[people[i]] == 0) { continue; } cntOfWeights[people[i]]--; for (int j = (limit - people[i]); j &gt; 0; --j) { if (cntOfWeights.find(j) != cntOfWeights." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20220324114305-881_boats_to_save_people/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -268,6 +274,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/notes/index.xml">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/">
 <noscript>
     <style>
         #theme-toggle,
@@ -55,7 +56,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Notes" />
+</noscript>
+  
+
+<meta property="og:title" content="Notes" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/" />
@@ -118,6 +122,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -150,6 +156,21 @@
     Notes
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>LeetCode101: 946. Validate Stack Sequences
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Stack Intuition for (int i = 0; i &lt; pushed.size(); i&#43;&#43;) { if (pushed[i] != popped[pushed.size() - 1 - i]) { return false; } } But the pop/push operations can happend in any sequence.
+Stack Using a stack. Returns false, IF the next value neither the popped nor pushed.
+In each sequence we must do a operation: push or pop. When to push:
+stack is empty, or top of stack is not current popped value When to pop:...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-16 08:52:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 946. Validate Stack Sequences" href="https://notes.0081800.xyz/notes/20220316085247-leetcode101_946_validate_stack_sequences/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -199,19 +220,6 @@ We track chunks’s max value. Break at the position of max value lives in sorte
   </div>
   <footer class="entry-footer"><span title='2022-03-15 11:23:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 739. Daily Temperatures" href="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 654. Maximum Binary Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Monotonic Stack,LeetCode101,Binary Search Tree Mono-descreasing stack Key:
-The largest number is the root, that we can observe in by iteration. We must clear the stack to fill the right side of BST after loop. The last popped element is the left of current node. From top to bottom, the top element is the right side of the element that under the top. class Solution { public: TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) { vector&lt;TreeNode*&gt; res(nums....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

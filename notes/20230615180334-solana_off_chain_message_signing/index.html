@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Solana Off-Chain Message Signing" />
+</noscript>
+  
+
+<meta property="og:title" content="Solana Off-Chain Message Signing" />
 <meta property="og:description" content=" tags: Solana source: https://github.com/solana-labs/solana/blob/eabe1070667e87f447b9cb892e2d916ca5b68e34/sdk/src/offchain_message.rs#L237-L240 /// Serialize the off-chain message to bytes including full header pub fn serialize(&amp;self) -&gt; Result&lt;Vec&lt;u8&gt;, SanitizeError&gt; { // serialize signing domain let mut data = Self::SIGNING_DOMAIN.to_vec(); // serialize version and call version specific serializer match self { Self::V0(msg) =&gt; { data.push(0); msg.serialize(&amp;mut data)?; } } Ok(data) } " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -227,6 +233,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

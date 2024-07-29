@@ -24,6 +24,7 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?">
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +61,10 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?">
         }
 
     </style>
-</noscript><meta property="og:title" content="C&#43;&#43; 弱同步原子（acquire/release atomic）" />
+</noscript>
+  
+
+<meta property="og:title" content="C&#43;&#43; 弱同步原子（acquire/release atomic）" />
 <meta property="og:description" content="tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
 较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
 atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
@@ -172,6 +176,8 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?"/>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -242,6 +248,8 @@ On C++11 (acquire/release atomics): yes!
     </ul>
   </footer>
 
+
+   
 
    
 

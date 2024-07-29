@@ -24,6 +24,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210716070457-%E9%98%B2%E6%AD%A2%E6%9B%B4%E6%96%B0%E4%B8%A2%E5%A4%B1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +61,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="防止更新丢失" />
+</noscript>
+  
+
+<meta property="og:title" content="防止更新丢失" />
 <meta property="og:description" content="读事务遇到并发写会出现脏读（读-提交和可重复读可以解决），写事务并发会带来一些冲突，最值得关注的就是更新丢失问题。 应用程序从数据库读取某些值，然后应用逻辑做出修改，然后写回新值。
 原子写操作 UPDATE counters SET value=value&#43;1 WHERE key = &#39;foo&#39;; 原子操作通常采用方式：
 对读取对象加独占加锁，这种技术有时被称为「游标稳定性」。 强制所有原子操作都在单线程上执行。 显式枷锁 BEGIN TRANSACTION; SELECT * FROM figures WHERE name = &#39;robot&#39; AND game_id = 222 FOR UPDATE; -- 指示数据库对返回的所有结果行要加锁。 缺点：侵入应用逻辑、容易引发死锁（竞争冲突）。
@@ -172,6 +176,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -265,6 +271,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

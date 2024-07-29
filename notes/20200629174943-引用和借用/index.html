@@ -23,6 +23,7 @@ fn main() { let s = dangling_string(); } fn dangling_string() -&gt; &amp;String 
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200629174943-%E5%BC%95%E7%94%A8%E5%92%8C%E5%80%9F%E7%94%A8/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +60,10 @@ fn main() { let s = dangling_string(); } fn dangling_string() -&gt; &amp;String 
         }
 
     </style>
-</noscript><meta property="og:title" content="引用和借用" />
+</noscript>
+  
+
+<meta property="og:title" content="引用和借用" />
 <meta property="og:description" content="类型前置 &amp; 表示引用，引用允许变量指向一个值但是不发生所有权转移。 引用不占有所有权，所以变量超出作用域之后不会触发 drop 调用。 引用作为函数形参被成为借用（borrowing） 可变引用 针对特定作用域下的特定数据只能创建一个可变引用。如果要创建多个可变引用可以通过大括号创建新的作用域
 let mut s = String::from(&#34;hello&#34;); { let s1 = mut &amp;s; } let s2 = mut &amp;s; 当已经存在不可变引用时，则无法再创建可变引用，下面代码无法编译通过
 let mut s = String::from(&#34;hello&#34;); let s1 = &amp;s; // OK let s2 = &amp;s; // OK let s3 = mut &amp;s; // BIG PROBLEM 悬空引用 以下代码是不允许的，无法编译通过
@@ -169,6 +173,8 @@ fn main() { let s = dangling_string(); } fn dangling_string() -&gt; &amp;String 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -309,6 +315,8 @@ fn main() { let s = dangling_string(); } fn dangling_string() -&gt; &amp;String 
     </ul>
   </footer>
 
+
+   
 
    
 

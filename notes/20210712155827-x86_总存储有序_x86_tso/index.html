@@ -25,6 +25,7 @@ Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0,
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/">
 <noscript>
     <style>
         #theme-toggle,
@@ -61,7 +62,10 @@ Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0,
         }
 
     </style>
-</noscript><meta property="og:title" content="x86 总存储有序（x86-TSO)" />
+</noscript>
+  
+
+<meta property="og:title" content="x86 总存储有序（x86-TSO)" />
 <meta property="og:description" content="x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
 重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
 写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
@@ -175,6 +179,8 @@ Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0,
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -257,6 +263,8 @@ On x86 (or other TSO): no.
     </ul>
   </footer>
 
+
+   
 
    
 

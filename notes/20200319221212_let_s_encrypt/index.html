@@ -23,6 +23,7 @@ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen."
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200319221212_let_s_encrypt/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +60,10 @@ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen."
         }
 
     </style>
-</noscript><meta property="og:title" content="Let&#39;s Encrypt" />
+</noscript>
+  
+
+<meta property="og:title" content="Let&#39;s Encrypt" />
 <meta property="og:description" content="tags: Over the Wall,HTTPs 这里以新增 vd.linuxzen.com 为例。
 新增 DNS 解析 通过 DNSPOD 新增 DNS 解析 A 记录 调整 Nginx 新增 HTTP 站点 Nginx 参考配置
 server { listen 80; server_name vd.linuxzen.com; include /etc/nginx/snippets/letsencrypt-acme-challenge.conf; } 新增签发证书 $ acme.sh --force --issue -d linuxzen.com -d www.linuxzen.com -d cwiki.linuxzen.com -d monitor.linuxzen.com -d v.linuxzen.com -d vd.linuxzen.com -d d.linuxzen.com -d piwik.linuxzen.com -d t.linuxzen.com -d wiki.linuxzen.com -d note.linuxzen.com -w /var/www/letsencrypt/ 安装证书
@@ -169,6 +173,8 @@ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen."
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -298,6 +304,8 @@ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen."
     </ul>
   </footer>
 
+
+   
 
    
 

@@ -22,6 +22,7 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210712162917-arm_power_relaxed_memory_model/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
         }
 
     </style>
-</noscript><meta property="og:title" content="ARM/POWER Relaxed Memory Model" />
+</noscript>
+  
+
+<meta property="og:title" content="ARM/POWER Relaxed Memory Model" />
 <meta property="og:description" content="ARM和POWER系统的概念模型是，每个处理器从其自己的完整内存副本中读取和向其写入，每个写入独立地传播到其他处理器，随着写入的传播，允许重新排序。
 在这个宽松的(relaxed)模型中，我们迄今为止所看到的每一个litmus test的答案都是“yes，这真的可能发生。”
 Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no." />
@@ -166,6 +170,8 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -254,6 +260,8 @@ On ARM/POWER: yes!
     </ul>
   </footer>
 
+
+   
 
    
 

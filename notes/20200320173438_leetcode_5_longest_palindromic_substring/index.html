@@ -22,6 +22,7 @@ func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200320173438_leetcode_5_longest_palindromic_substring/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 5.Longest Palindromic Substring" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 5.Longest Palindromic Substring" />
 <meta property="og:description" content="tags: LeetCode &gt; https://leetcode.com/problems/longest-palindromic-substring/description/
 思路 直接暴力往两边搜索
 func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if length == 0 { return s } start, end := 0, 0 for ci, _ := range buf { i, j := ci, ci // 无法处理 &#34;aaaa&#34; 和 &#34;noon&#34; 这种情况 for i &gt; 0 &amp;&amp; j &lt; length - 1 &amp;&amp; buf[i - 1] == buf[j &#43; 1] { i-- j&#43;&#43; } // 考虑 &#34;bba&#34; 这种情况 if i == j &amp;&amp; ci &gt; 0 &amp;&amp; buf[ci] == buf[ci - 1] { i, j = ci-1, ci } // 考虑 &#34;abb&#34; 这种情况 if i == j &amp;&amp; ci &lt; length - 1 &amp;&amp; buf[ci] == buf[ci &#43; 1] { i, j = ci, ci &#43; 1 } if i !" />
@@ -166,6 +170,8 @@ func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -338,6 +344,8 @@ func longestPalindrome(s string) string { buf := []byte(s) length := len(buf) if
     </ul>
   </footer>
 
+
+   
 
    
 

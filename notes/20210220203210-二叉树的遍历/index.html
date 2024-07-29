@@ -21,6 +21,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210220203210-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="二叉树的遍历" />
+</noscript>
+  
+
+<meta property="og:title" content="二叉树的遍历" />
 <meta property="og:description" content="tags: Algorithm,Data Structures,Binary Search Tree 分为三种：前序、后序和中序，其中最容易用栈改写的是后序。
 前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -299,6 +305,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

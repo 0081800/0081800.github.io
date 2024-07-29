@@ -21,6 +21,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Emacs on Macos: Too Many Files Open" />
+</noscript>
+  
+
+<meta property="og:title" content="Emacs on Macos: Too Many Files Open" />
 <meta property="og:description" content="tags: Emacs, macOS source: Simon, Ben. “Gotcha: Emacs on Mac OS: Too Many Files Open.” Accessed April 18, 2023. https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html. Add below code snippet to your init.el:
 (defun file-notify-rm-all-watches () &#34;Remove all existing file notification watches from Emacs.&#34; (interactive) (maphash (lambda (key _value) (file-notify-rm-watch key)) file-notify-descriptors)) Then just execute M-x file-notify-rm-all-watches when you meet this problem next time." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -224,6 +230,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

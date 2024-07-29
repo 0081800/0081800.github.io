@@ -26,6 +26,7 @@ Solana 的 Program 可以被更新。
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20221122204241-solana_101_develop_model/">
 <noscript>
     <style>
         #theme-toggle,
@@ -62,7 +63,10 @@ Solana 的 Program 可以被更新。
         }
 
     </style>
-</noscript><meta property="og:title" content="Solana 101: 1. Develop Model" />
+</noscript>
+  
+
+<meta property="og:title" content="Solana 101: 1. Develop Model" />
 <meta property="og:description" content="tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.
 EVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
 Solana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：
@@ -178,6 +182,8 @@ Solana 的 Program 可以被更新。
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -375,6 +381,8 @@ Solana 的 Program 可以被更新。
     </ul>
   </footer>
 
+
+   
 
    
 

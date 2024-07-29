@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 739. Daily Temperatures" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 739. Daily Temperatures" />
 <meta property="og:description" content="tags: Monotonic Stack,LeetCode101,LeetCode101: 496. Next Greater Element I Mono-descreasing stack class Solution { public: vector&lt;int&gt; dailyTemperatures(vector&lt;int&gt;&amp; temperatures) { vector&lt;int&gt; res(temperatures.size(), 0); stack&lt;int&gt; st; for (int i = 0; i &lt; temperatures.size(); i&#43;&#43;) { while (!st.empty() &amp;&amp; temperatures[st.top()] &lt; temperatures[i]) { res[st.top()] = i - st.top(); st.pop(); } st.push(i); } return res; } }; [73,74,75,71,69,72,76,73]" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -241,6 +247,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

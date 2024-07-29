@@ -22,6 +22,7 @@ class Foo { public: Foo(int n) : n {n} { }; ~Foo() { }; private: int n; }; class
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200628183417-member_initialize/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ class Foo { public: Foo(int n) : n {n} { }; ~Foo() { }; private: int n; }; class
         }
 
     </style>
-</noscript><meta property="og:title" content="Member initialize" />
+</noscript>
+  
+
+<meta property="og:title" content="Member initialize" />
 <meta property="og:description" content=" tags: C/C&#43;&#43; 如果类成员属性是值类型或者引用类型则需要改对象有无参数构造方法，否则类无法实例化， 这是因为这类成员属性在构造函数调用之前就需要进行初始化。
 下面代码无法通过编译
 class Foo { public: Foo(int n) : n {n} { }; ~Foo() { }; private: int n; }; class Bar { public: Bar(int n) { this-&gt;foo = Foo(n); }; ~Bar(); private: Foo &amp; foo; }; " />
@@ -166,6 +170,8 @@ class Foo { public: Foo(int n) : n {n} { }; ~Foo() { }; private: int n; }; class
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -243,6 +249,8 @@ class Foo { public: Foo(int n) : n {n} { }; ~Foo() { }; private: int n; }; class
     </ul>
   </footer>
 
+
+   
 
    
 

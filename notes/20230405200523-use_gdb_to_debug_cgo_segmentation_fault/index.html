@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Use GDB to Debug Cgo Segmentation Fault" />
+</noscript>
+  
+
+<meta property="og:title" content="Use GDB to Debug Cgo Segmentation Fault" />
 <meta property="og:description" content="tags: Go, GDB Enable Core Dumps ulimit -S -c unlimited Confirm or Change The Location of Core Dumps sysctl -w kernel.core_pattern=/tmp/core.%e.%p # Or echo &#39;/tmp/core.%e.%p&#39; | tee /proc/sys/kernel/core_pattern Set GOTRACEBACK Environment Variable to Let Go Program Core Dumps when Panic export GOTRACEBACK=crash Run Go Program and Wait Segmentation Fault Use GDB to Debug gdb /path/to/goprogram /tmp/core-xx-xx Then use thread apply all bt to see all backtraces, include compiled C code." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -247,6 +253,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

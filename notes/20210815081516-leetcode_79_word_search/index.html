@@ -21,6 +21,7 @@ class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board,
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board,
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 79. Word Search" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 79. Word Search" />
 <meta property="og:description" content="tags: LeetCode 79. Word Search
 class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board,
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -805,6 +811,8 @@ class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board,
     </ul>
   </footer>
 
+
+   
 
    
 

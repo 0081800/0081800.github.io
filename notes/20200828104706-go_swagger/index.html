@@ -24,6 +24,7 @@ paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 �
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +61,10 @@ paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 �
         }
 
     </style>
-</noscript><meta property="og:title" content="Go Swagger 实现代码即文档" />
+</noscript>
+  
+
+<meta property="og:title" content="Go Swagger 实现代码即文档" />
 <meta property="og:description" content="tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
 代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
 //go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
@@ -172,6 +176,8 @@ paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 �
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -674,6 +680,8 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
     </ul>
   </footer>
 
+
+   
 
    
 

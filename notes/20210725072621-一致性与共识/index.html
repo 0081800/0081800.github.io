@@ -33,6 +33,7 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">
 <noscript>
     <style>
         #theme-toggle,
@@ -69,7 +70,10 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
         }
 
     </style>
-</noscript><meta property="og:title" content="一致性与共识" />
+</noscript>
+  
+
+<meta property="og:title" content="一致性与共识" />
 <meta property="og:description" content="tags: 分布式共识,一致性 一致性保证 分布式一致性主要针对延迟和故障等问题来协调副本之间的状态。
 线性化：最强一致性模型 顺序保证：保证时间顺序，特别是因果关系和全局顺序 最终一致性：一种非常弱的保证，参见最终一致性效应 可线性化 分布式语义下对寄存器（单个对象）顺序的读写。应区别与可串行化。
 可串行化针对不同事务的隔离，用来确保事务执行的结果与串形执行的结果相同 可线性化是读写寄存器（单个对象）的最新值的保证。 线性化依赖的条件 加锁与主节点选举 每个启动节点都试图获得锁，其中只有一个可以成功成为主节点。通过加锁来保证主节点选举「线性化」。
@@ -199,6 +203,8 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -567,6 +573,8 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
     </ul>
   </footer>
 
+
+   
 
    
 

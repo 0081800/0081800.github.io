@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220316080026-leetcode101_1249_minimum_remove_to_make_valid_parentheses/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 1249. Minimum Remove to Make Valid Parentheses" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 1249. Minimum Remove to Make Valid Parentheses" />
 <meta property="og:description" content="tags: Stack,LeetCode101 Stack class Solution { public: string minRemoveToMakeValid(string s) { stack&lt;char&gt; st; char open = &#39;(&#39;, close = &#39;)&#39;; int open_count = 0; string res; // forward to remove unnecessary close parentheses for (auto iter = s.begin(); iter != s.end(); &#43;&#43;iter) { if (*iter == open) { open_count&#43;&#43;; } if (open_count == 0 &amp;&amp; *iter == close) { continue; } if (*iter == close) { open_count--; } st.push(*iter); } int close_count = 0; // backward to remove unnecessary open parentheses while (!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20220316080026-leetcode101_1249_minimum_remove_to_make_valid_parentheses/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -269,6 +275,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

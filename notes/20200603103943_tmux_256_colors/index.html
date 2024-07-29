@@ -22,6 +22,7 @@ $ env TERM=xterm-24bits emacs Emacs 通过 list-color-display 查看效果。">
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200603103943_tmux_256_colors/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ $ env TERM=xterm-24bits emacs Emacs 通过 list-color-display 查看效果。">
         }
 
     </style>
-</noscript><meta property="og:title" content="Emacs Tmux 256 colors" />
+</noscript>
+  
+
+<meta property="og:title" content="Emacs Tmux 256 colors" />
 <meta property="og:description" content="tags: Emacs 生成 terminfo
 $ cat &lt;&lt;EOF &gt; terminfo-24bits.src # Use semicolon separators. xterm-24bits|xterm with 24-bit direct color mode, use=xterm-256color, Tc, setb24=\E[48;2;%p1%{65536}%/%d;%p1%{256}%/%{255}%&amp;%d;%p1%{255}%&amp;%dm, setf24=\E[38;2;%p1%{65536}%/%d;%p1%{256}%/%{255}%&amp;%d;%p1%{255}%&amp;%dm,]] EOF $ tic -x -o ~/.terminfo terminfo-24bits.src 通过 xterm-24bits 启动 Emacs
 $ env TERM=xterm-24bits emacs Emacs 通过 list-color-display 查看效果。" />
@@ -166,6 +170,8 @@ $ env TERM=xterm-24bits emacs Emacs 通过 list-color-display 查看效果。"/>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -231,6 +237,8 @@ $ env TERM=xterm-24bits emacs Emacs 通过 list-color-display 查看效果。"/>
     </ul>
   </footer>
 
+
+   
 
    
 

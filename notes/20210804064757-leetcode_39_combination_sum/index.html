@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210804064757-leetcode_39_combination_sum/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 39. Combination Sum" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 39. Combination Sum" />
 <meta property="og:description" content="tags: LeetCode source: https://leetcode.com/problems/combination-sum/ class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) { backtracking(candidates, 0, target); return res; } private: vector&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; track; void backtracking(vector&lt;int&gt; &amp; candidates, int n, int target) { if (n == target) { res.push_back(track); return; } // this is new if (n &gt; target) { return; } for (auto c : candidates) { track.push_back(c); backtracking(candidates, n &#43; c, target); track.pop_back(); } } }; 问题：会有不同顺序但是元素相同的数组，如何快速高效的进行过滤？" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20210804064757-leetcode_39_combination_sum/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -278,6 +284,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

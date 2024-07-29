@@ -22,6 +22,7 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200629180301-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
         }
 
     </style>
-</noscript><meta property="og:title" content="错误处理" />
+</noscript>
+  
+
+<meta property="og:title" content="错误处理" />
 <meta property="og:description" content="enum Result&lt;T, E&gt; { Ok(T), Err(E), } ? 操作符 对比
 use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; { let f = File::open(&#34;hello.txt&#34;); let mut f = match f { Ok(file) =&gt; file, Err(e) =&gt; return Err(e), }; let mut s = String::new(); match f.read_to_string(&amp;mut s) { Ok(_) =&gt; Ok(s), Err(e) =&gt; Err(e), } } 和
 use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; { let mut f = File::open(&#34;hello." />
@@ -166,6 +170,8 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -283,6 +289,8 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
     </ul>
   </footer>
 
+
+   
 
    
 

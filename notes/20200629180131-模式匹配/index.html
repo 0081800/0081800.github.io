@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="模式匹配" />
+</noscript>
+  
+
+<meta property="og:title" content="模式匹配" />
 <meta property="og:description" content="#[derive(Debug)] enum UsState { Alabama, Alaska, } enum Coin { Penny, Nickel, Dime, Quarter(UsState), } fn value_cents(coin: Coin) -&gt; u8 { match coin { Coin::Peny =&gt; { println!(&#34;Lucy penny!&#34;); 1 }, Coin::Nickel =&gt; 5, Coin::Dime =&gt; 10, Coin::Quarter(state) =&gt; { println!(&#34;State quarter from {:?}!&#34;, state); 25 }, } } // Option fn plus_one(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; { match x { None =&gt; None, Some(i) =&gt; Some(i &#43; 1), } } let five = Some(5); let six = plus_one(five); let none = plus_one(None); 编译器会检查 match 覆盖所有情况， _ 可以用于所有未覆盖的情况。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -249,6 +255,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

@@ -22,6 +22,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210615083221-%E6%94%B6%E6%95%9B%E4%BA%8E%E4%B8%80%E8%87%B4%E7%9A%84%E7%8A%B6%E6%80%81/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="收敛于一致的状态" />
+</noscript>
+  
+
+<meta property="og:title" content="收敛于一致的状态" />
 <meta property="og:description" content="多个主节点看到的执行顺序不一致，病了同时按照各自看到的写入顺序执行，那么数据库最终将处于不一致状态。
 数据库必须以一种趋同的方式来解决冲突。
 可能的解决方式 给每个写入分配唯一的 ID，如基于时间戳的最后写入者获胜。 为每个主节点分配一个唯一 ID，序列号高的优先于序列号低的主节点，可能导致数据丢失 以某种方式合并值，如按照字母顺序拼接在一起 利用预定义号的格式记录，然后依靠应用层逻辑，事后解决冲突（可能会提示用户） " />
@@ -166,6 +170,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -236,6 +242,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

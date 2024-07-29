@@ -22,6 +22,7 @@ from urllib.parse import urlencode from urllib.parse import urljoin import reque
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20210902153221-airflow/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +59,10 @@ from urllib.parse import urlencode from urllib.parse import urljoin import reque
         }
 
     </style>
-</noscript><meta property="og:title" content="Airflow" />
+</noscript>
+  
+
+<meta property="og:title" content="Airflow" />
 <meta property="og:description" content="案例 Airflow powers AI。
 Airflow SSO 接入 公司 SSO 系统不是基于开源标准，而是一套自定义的方式，目前网上没有成熟的解决方案，通过查看 Flask-AppBuilder 和 Airflow 的代码发现可以扩展 flask_appbuilder.security.views.AuthRemoteUserView 并通过自定义的 SecurityManager 指定 authremoteuserview 来实现，去掉具体 SSO 逻辑后的代码如下：
 from urllib.parse import urlencode from urllib.parse import urljoin import requests from flask import flash from flask import redirect from flask import request from flask_appbuilder.baseviews import expose from flask_appbuilder.security.views import AuthRemoteUserView try: from airflow.www.security import AirflowSecurityManager except ImportError: AirflowSecurityManager = None __version__ = &#34;0.1.0&#34; AUTHORIZE_URL = &#34;https://example.com/sso/login&#34; ACCESS_TOKEN_URL = &#34;https://example." />
@@ -166,6 +170,8 @@ from urllib.parse import urlencode from urllib.parse import urljoin import reque
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -305,6 +311,8 @@ from urllib.parse import urlencode from urllib.parse import urljoin import reque
     </ul>
   </footer>
 
+
+   
 
    
 

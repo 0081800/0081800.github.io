@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220330160157-leetcode101_74_search_a_2d_matrix/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 74. Search a 2D Matrix" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 74. Search a 2D Matrix" />
 <meta property="og:description" content=" tags: Divide-and-Conquer,LeetCode101,Binary Search class Solution { public: bool searchMatrix(vector&lt;vector&lt;int&gt; &gt; &amp;matrix, int target) { int n = matrix.size(); int m = matrix[0].size(); int l = 0, r = m * n - 1; while (l != r){ int mid = l &#43; (r - l) / 2; if (matrix[mid / m][mid % m] &lt; target) l = mid &#43; 1; else r = mid; } return matrix[r / m][r % m] == target; } }; " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notes.0081800.xyz/notes/20220330160157-leetcode101_74_search_a_2d_matrix/" /><meta property="article:section" content="notes" />
@@ -160,6 +164,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -228,6 +234,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

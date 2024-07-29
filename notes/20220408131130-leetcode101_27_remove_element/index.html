@@ -21,6 +21,7 @@ class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val)
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20220408131130-leetcode101_27_remove_element/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val)
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode101: 27. Remove Element" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode101: 27. Remove Element" />
 <meta property="og:description" content=" tags: LeetCode101,In-place Travel array in reverse order, and record how many times need to swap, which is how many elements not equal val.
 class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val) { int k = 0; for (int j = nums.size() - 1; j &gt;= 0; --j) { if (nums[j] == val) { for (int i = 0; i &lt; k; &#43;&#43;i) { swap(nums[i &#43; j], nums[j &#43; i &#43; 1]); } } else { k&#43;&#43;; } } return k; } }; " />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ class Solution { public: int removeElement(vector&lt;int&gt;&amp; nums, int val)
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -232,6 +238,8 @@ which is how many elements not equal <em>val</em>.</p>
     </ul>
   </footer>
 
+
+   
 
    
 

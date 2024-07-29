@@ -21,6 +21,7 @@ package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep =
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@ package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep =
         }
 
     </style>
-</noscript><meta property="og:title" content="Wrap &amp; Unwrap errors in Go" />
+</noscript>
+  
+
+<meta property="og:title" content="Wrap &amp; Unwrap errors in Go" />
 <meta property="og:description" content="tags: Go source: “Wrap and Unwrap Errors in Go (Golang) | Gosamples.Dev.” Accessed October 12, 2022. https://gosamples.dev/wrap-unwrap-errors/. Overview Since Go1.13, there is a new feature about error add to go: Wrap &amp; Unwrap errors. Let&rsquo;s start from a simple example:
 package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep = errors.New(&#34;rolling in the deep&#34;) func doSomeActualJob() error { return errRollingInTheDeep } func someFrameworkCaller() error { // We use fmt.Errorf to wrap error." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@ package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep =
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -383,6 +389,8 @@ the invocation stacktrace of error. I&rsquo;m wonder if this help.</p>
     </ul>
   </footer>
 
+
+   
 
    
 

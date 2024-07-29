@@ -21,6 +21,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20200320172945_leetcode_4_median_of_two_sorted_arrays/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +58,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="LeetCode: 4.Median of Two Sorted Arrays" />
+</noscript>
+  
+
+<meta property="og:title" content="LeetCode: 4.Median of Two Sorted Arrays" />
 <meta property="og:description" content="tags: LeetCode 思路 归并排序
 代码 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 { nums := mergeSort(nums1, nums2) length := len(nums) if length % 2 != 0 { return float64(nums[(length - 1) / 2]) } i := length / 2 return (float64(nums[i]) &#43; float64(nums[i - 1])) / 2 } func mergeSort(nums1 []int, nums2 []int) []int { l1 := len(nums1) l2 := len(nums2) result := make([]int, 0, l1 &#43; l2) i, j := 0, 0 for i &lt; l1 &amp;&amp; j &lt; l2 { if nums1[i] &lt; nums2[j] { result = append(result, nums1[i]) i&#43;&#43; } else { result = append(result, nums2[j]) j&#43;&#43; } } result = append(result, nums1[i:]." />
 <meta property="og:type" content="article" />
@@ -163,6 +167,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -263,6 +269,8 @@
     </ul>
   </footer>
 
+
+   
 
    
 

@@ -27,6 +27,7 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/">
 <noscript>
     <style>
         #theme-toggle,
@@ -63,7 +64,10 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
         }
 
     </style>
-</noscript><meta property="og:title" content="Python behind the scenes #2: how the CPython compiler works" />
+</noscript>
+  
+
+<meta property="og:title" content="Python behind the scenes #2: how the CPython compiler works" />
 <meta property="og:description" content="tags: Translate,Incomplete,Python Python 幕后 #2: CPython 编译器如何工作 今天的主题（Today&rsquo;s subject） 在本系列的第一篇文章中我们研究了 Python 虚拟机。我们学了解到它通过执行一系列叫做字节码（bytecode）的指令。 我们也看到 Python 字节码没有完全描述代码片段的行为。这也是为什么存在一个代码对象（code object）的概念。 执行诸如函数或模块的代码块也就是执行对应的代码对象。代码对象包含了代码块的字节码，包含代码中使用的常量和变量名， 还有代码块的一些属性。
 通常，一个 Python 程序员不用编写字节码，并且也不用创建代码对象，而是编写正常的 Python 代码。所有 CPython 必须 能够将源代码转换成代码对象。CPython 编译器就负责这部分工作。我们将通过这部分内容探索它是如何工作的。
 Note: 本文参考 CPython 3.9。一些实现细节将必然会随着 CPython 的演进而改变。 我将会尝试关注一些重要的改变并添加更新备注。
@@ -181,6 +185,8 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -543,6 +549,8 @@ Python 代码问题的更优雅的方案。</p>
     </ul>
   </footer>
 
+
+   
 
    
 
