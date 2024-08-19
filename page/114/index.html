@@ -154,6 +154,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>同步原子（synchronizing atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>原子变量（atomic variable）或原子操作（tomic operation）更好的解释。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:44:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 同步原子（synchronizing atomic）" href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>原子变量（atomic variable）或原子操作（tomic operation）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
+代码示例
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
+Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>弱有序和无数据竞争（DRF）
     </h2>
   </header>
@@ -195,37 +222,6 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   </div>
   <footer class="entry-footer"><span title='2021-07-12 16:21:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 内存屏障" href="https://notes.0081800.xyz/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>x86 总存储有序（x86-TSO)
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
-重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
-写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
-基于以上下面 litmus test 的答案依然是 no ，这种情况与顺序一致性模型结果一致：
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. 但其他测试则并不一致区分与顺序一致性的常用例子:
-Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0, r2 = 0?...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:58:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to x86 总存储有序（x86-TSO)" href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>litmus test
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>下面这种关于样本结果的问题被称为 litmus test 。它只有两个答案：可能还是不可能？为我们提供了一种区分内存一致性模型的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。
-litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而是一个线程本地寄存器。
-Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

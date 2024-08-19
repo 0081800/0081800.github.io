@@ -159,6 +159,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Fast &amp; Slow Pointers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Algorithm,Two Pointers </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-29 17:13:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Fast &amp; Slow Pointers" href="https://notes.0081800.xyz/notes/20220329171337-fast_slow_pointers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Cycle detection
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Algorithm,Linked List,Fast &amp; Slow Pointers source: https://en.wikipedia.org/wiki/Cycle%5Fdetection Floyd’s tortoise and hare With two pointers:
+tortoise move slow: move 1 step in each loop. hare move fast: move 2 steps in each loop. If there is a circle existed, tortoise and hare will meet eventually in the circle. Now both tortoise and hare are in the circle, how to figure out the beginning of the circle?
+We put tortoise back to the beginning they both started....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-29 17:12:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Cycle detection" href="https://notes.0081800.xyz/notes/20220329171237-cycle_detection/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Tree
     </h2>
   </header>
@@ -191,32 +217,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-03-29 16:07:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Complete Binary Tree" href="https://notes.0081800.xyz/notes/20220329160738-complete_binary_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Binary heap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Heap (data structure),Data Structures,Complete Binary Tree,Tree source: https://en.wikipedia.org/wiki/Binary%5Fheap Binary tree with two additional constraints:
-Shape property: complete binary tree. Heap property: the key stored in each node is greater or equal(max-heaps) to or less than or equal to(min-heaps) the keys in the node’s children, according to some total order. Heap operations Insert Steps to add an element to a heap:
-Add element to the bottom level of the heap at the leftmost open space....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-29 16:04:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Binary heap" href="https://notes.0081800.xyz/notes/20220329160438-binary_heap/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 215. Kth Largest Element in an Array
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Priority Queue,LeetCode101 Max heap priority queue class Solution { public: int findKthLargest(vector&lt;int&gt;&amp; nums, int k) { // max heap priority_queue&lt;int&gt; pq; for (auto iter = nums.begin(); iter != nums.end(); &#43;&#43;iter) { pq.push(*iter); } // The Kth largest element should let k &gt; 1 not k &gt; 0 for (; k &gt; 1; --k) { pq.pop(); } return pq.top(); } }; </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-29 07:23:00 +0800 +0800'>March 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 215. Kth Largest Element in an Array" href="https://notes.0081800.xyz/notes/20220329072317-leetcode101_215_kth_largest_element_in_an_array/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
