@@ -154,62 +154,68 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 445. Add Two Numbers II
+    <h2>Brute Force Approach
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Linked List,Stack, LeetCode101,2. Add Two Numbers 两数之和的进阶版，位高的数字在链表的头部，常规解法是通过「栈」进行反转链表，然后回退到2. Add Two Numbers的解法。</p>
+    <p> tags: Algorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:38:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 445. Add Two Numbers II" href="https://notes.0081800.xyz/notes/20220311073810-445_add_two_numbers_ii/"></a>
+  <footer class="entry-footer"><span title='2022-03-11 08:15:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Brute Force Approach" href="https://notes.0081800.xyz/notes/20220311081528-brute_force_approach/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Stack
+    <h2>Two Pointers
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Data Structures </p>
+    <p> tags: Algorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:38:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Stack" href="https://notes.0081800.xyz/notes/20220311073821-stack/"></a>
+  <footer class="entry-footer"><span title='2022-03-11 07:54:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Two Pointers" href="https://notes.0081800.xyz/notes/20220311075423-two_pointer/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Linked List
+    <h2>Differences between Sliding Window and Two Pointers
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Data Structures </p>
+    <p>tags: Sliding Window,Two Pointers source: 力扣 LeetCode. “题解：借这个问题科普一下「滑动窗口」和「双指针」的区别 - 力扣（LeetCode）.” Accessed March 11, 2022. https://leetcode-cn.com/problems/get-equal-substrings-within-budget/solution/jie-zhe-ge-wen-ti-ke-pu-yi-xia-hua-dong-6128z/. https://stackoverflow.com/a/64078338 Two Pointer to slove the problem of two elements that two pointes pointed.
+Sliding Window to slove the problem of all elements that in the window.</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:08:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Linked List" href="https://notes.0081800.xyz/notes/20220311070813-linked_list/"></a>
+  <footer class="entry-footer"><span title='2022-03-11 07:53:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Differences between Sliding Window and Two Pointers" href="https://notes.0081800.xyz/notes/20220311075357-differences_between_sliding_window_and_two_pointer/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 2. Add Two Numbers
+    <h2>LeetCode101: 3. Longest Substring Without Repeating Characters
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Linked List, LeetCode101 正常的「链表」遍历操作，需要注意的就是不要在末尾忘记处理进位，如果 carry 大于 0 需要追加到结果链表末尾。</p>
+    <p>tags: Sliding Window,LeetCode101,Hash Table Use HashMap to store counts of letters Two points we should be noticed:
+The length of substring should be (right - left) &#43; 1, as one side must be counted.
+We must decrese the number in the counts first, and then slide the left window, or we must decrese the wrong one, please compare between Wrong and Correct.
+Wrong
+left&#43;&#43;; counts[s[left]]--; Correct
+counts[s[left]]--; left&#43;&#43;; The full code see:...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:07:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 2. Add Two Numbers" href="https://notes.0081800.xyz/notes/20220311070727-2_add_two_numbers/"></a>
+  <footer class="entry-footer"><span title='2022-03-11 07:48:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 3. Longest Substring Without Repeating Characters" href="https://notes.0081800.xyz/notes/20220311074801-3_longest_substring_without_repeating_characters/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Linked List
+    <h2>Sliding Window
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p> tags: Algorithm Slide right to move forward to find the solution. Slide left to keep the solution, and collect to the results. Must avoid left go to backward. </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:07:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Linked List" href="https://notes.0081800.xyz/notes/20220311070749-linked_list/"></a>
+  <footer class="entry-footer"><span title='2022-03-11 07:48:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Sliding Window" href="https://notes.0081800.xyz/notes/20220311074820-sliding_window/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

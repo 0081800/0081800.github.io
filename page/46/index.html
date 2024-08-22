@@ -154,66 +154,65 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 1663. Smallest String With A Given Numeric Value
+    <h2>How to Speak and Write Correctly
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: String,LeetCode101,Tricky Initialize a string that fills &#39;a&#39; in it. Then we turn it to the expected string from end to start.
-The maximal value of each position in the string is 26. If we start from all elements is &#39;a&#39; in the string. Then the represent value of the string is n. If it’s not equal to k. Then we need turn the last character of string to r = k - n....</p>
+    <p>tags: Learning English,读书笔记 source: Joseph Devlin. How to Speak and Write Correctly, 2007. http://archive.org/details/how_to_speak_and_write_correctly_librivox. I found this book in my Kindle on the subway to work this morning. And remembered that I downloaded it free from the Kindle store years ago. For some reasons, maybe my English was not good enough to read it, I haven’t read it yet. After read a little, I think it’s prefect for me for now....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-22 16:22:00 +0800 +0800'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 1663. Smallest String With A Given Numeric Value" href="https://notes.0081800.xyz/notes/20220322162250-leetcode101_1663_smallest_string_with_a_given_numeric_value/"></a>
+  <footer class="entry-footer"><span title='2022-03-28 11:06:00 +0800 +0800'>March 28, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How to Speak and Write Correctly" href="https://notes.0081800.xyz/notes/20220328110642-how_to_speak_and_write_correctly/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 12. Integer to Roman
+    <h2>Heapsort
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Math,Hash Table,LeetCode101 class Solution { public: string intToRoman(int num) { vector&lt;string&gt; roman {&#34;M&#34;, &#34;CM&#34;, &#34;D&#34;, &#34;CD&#34;, &#34;C&#34;, &#34;XC&#34;, &#34;L&#34;, &#34;XL&#34;, &#34;X&#34;, &#34;IX&#34;, &#34;V&#34;, &#34;IV&#34;, &#34;I&#34;}; vector&lt;int&gt; integers {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 }; string r; int times = 0; for (int i = 0; i &lt; integers.size(); &#43;&#43;i) { if (num &gt;= integers[i]) { times = num / integers[i]; num -= times * integers[i]; for (int j = times; j &gt; 0; --j) { r....</p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-22 15:59:00 +0800 +0800'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 12. Integer to Roman" href="https://notes.0081800.xyz/notes/20220322155933-leetcode101_12_integer_to_roman/"></a>
+  <footer class="entry-footer"><span title='2022-03-28 07:40:00 +0800 +0800'>March 28, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Heapsort" href="https://notes.0081800.xyz/notes/20220328074013-heapsort/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 11. Container With Most Water
+    <h2>Heap (data structure)
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Two Pointers,Tricky,LeetCode101 The key ideas are:
-We start from two edges and move to the middle with two pointers. Move the pointer to the middle which side is smaller. class Solution { public: int maxArea(vector&lt;int&gt;&amp; height) { int i = 0, j = height.size() - 1; int water = 0; while (i &lt; j) { water = max(water, (j - i) * min(height[i], height[j])); if (height[i] &gt; height[j]) { --j; } else { &#43;&#43;i; } } return water; } }; </p>
+    <p>tags: Data Structures,Tree WHAT is a heap? Tree-based data structure which is essentially an almost complete tree that statifies the heap property.
+Max heap For any given node C, if P is a parent node of C, then the key(the value) of P is greater than or equal to the key of C.
+Min heap The P is less than or equal to the key C.
+When to use a heap?...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-21 18:38:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 11. Container With Most Water" href="https://notes.0081800.xyz/notes/20220321183809-leetcode_11_container_with_most_water/"></a>
+  <footer class="entry-footer"><span title='2022-03-28 07:38:00 +0800 +0800'>March 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Heap (data structure)" href="https://notes.0081800.xyz/notes/20220328073805-heap_data_structure/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 316. Remove Duplicate Letters
+    <h2>Sorting
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: String,LeetCode101,Stack,Hash Table,Hash Set I have solved this problem years before, LeetCode: 316.Remove Duplicate Letters, but still stuck on it.
-The key idea is not only about stack, but also required a map to record how many same letters behind current one. Which helps us to decide if drop current letter or not, when the new letter is less than the top of stack, which means smaller in lexicographical order....</p>
+    <p> tags: Algorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-21 17:47:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 316. Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20220321174725-leetcode101_316_remove_duplicate_letters/"></a>
+  <footer class="entry-footer"><span title='2022-03-24 12:02:00 +0800 +0800'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Sorting" href="https://notes.0081800.xyz/notes/20220324120212-sorting/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 763. Partition Labels
+    <h2>LeetCode101: 881. Boats to Save People
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: String,LeetCode101,Hash Set,Hash Table,Stack The key idea is similar to LeetCode101: 316. Remove Duplicate Letters, we use a HashMap to track how many letters which is same in the string. Then we use a HashSet to store appeared letters. When there is no more letters appeared in the HashSet, it’s time to partition.
-class Solution { public: vector&lt;int&gt; partitionLabels(string s) { unordered_map&lt;char, int&gt; cntOfLetters; unordered_set&lt;char&gt; appearedLetters; vector&lt;int&gt; r; int count = 0; for (auto iter = s....</p>
+    <p>tags: Hash Table,LeetCode101,Sorting,Two Pointers Intuition with HashMap class Solution { public: int numRescueBoats(vector&lt;int&gt;&amp; people, int limit) { unordered_map&lt;int, int&gt; cntOfWeights; for (auto iter = people.begin(); iter != people.end(); &#43;&#43;iter) { cntOfWeights[*iter]&#43;&#43;; } int r = 0; for (int i = 0; i &lt; people.size(); i&#43;&#43;) { if (cntOfWeights[people[i]] == 0) { continue; } cntOfWeights[people[i]]--; for (int j = (limit - people[i]); j &gt; 0; --j) { if (cntOfWeights.find(j) != cntOfWeights....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-21 17:45:00 +0800 +0800'>March 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 763. Partition Labels" href="https://notes.0081800.xyz/notes/20220321174504-leetcode101_763_partition_labels/"></a>
+  <footer class="entry-footer"><span title='2022-03-24 11:43:00 +0800 +0800'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 881. Boats to Save People" href="https://notes.0081800.xyz/notes/20220324114305-881_boats_to_save_people/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

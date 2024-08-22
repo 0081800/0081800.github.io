@@ -159,68 +159,67 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>State Backends
+    <h2>Flink: Exactly Once Guarantees
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Flink State Snapshots,Fault Tolerance via State Snapshots,Stateful Stream Processing Two implementations of state backends are available:
-RocksDB An embedded key/value store keeps its working state on disk.
-Overhead Accesses and updates involve serialization and deserialization.
-Java heap-based state backend Keeps its working state in memory, on the Java heap.
-Risk Large amount state will cause OOM.
-Conclusion Both of these state backends are able to do asynchronous snapshotting, meaning that they can take a snapshot without impeding the ongoing stream processing....</p>
+    <p>tags: Flink State Snapshots,Fault Tolerance via State Snapshots source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/fault%5Ftolerance/#exactly-once-guarantees Depending on the choices you make, Flink possiable outcomes:
+Flink makes no effort to recover from failures (at most once) Nothing is lost, but you may experience duplicated results (at least once) Nothing is lost or duplicated (exactly once) Given that Flink recovers from faults by rewinding and replaying the source data streams, when the ideal situation is described as exactly once this does not mean that every event will be processed exactly once....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 11:14:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to State Backends" href="https://notes.0081800.xyz/notes/20220104111432-state_backends/"></a>
+  <footer class="entry-footer"><span title='2022-01-04 11:36:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Flink: Exactly Once Guarantees" href="https://notes.0081800.xyz/notes/20220104113644-flink_exactly_once_guarantees/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Fault Tolerance via State Snapshots
+    <h2>Wikipedia: Chandy–Lamport algorithm
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Flink State Snapshots,Stateful Stream Processing source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/fault%5Ftolerance/ </p>
+    <p> tags: 分布式 source: https://en.wikipedia.org/wiki/Chandy%E2%80%93Lamport%5Falgorithm </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 11:13:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Fault Tolerance via State Snapshots" href="https://notes.0081800.xyz/notes/20220104111325-fault_tolerance_via_state_snapshots/"></a>
+  <footer class="entry-footer"><span title='2022-01-04 11:26:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Wikipedia: Chandy–Lamport algorithm" href="https://notes.0081800.xyz/notes/20220104112626-wikipedia_chandy_lamport_algorithm/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Flink State Snapshots
+    <h2>Flink: How does State Snapshotting Work?
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Stateful Stream Processing </p>
+    <p>tags: Fault Tolerance via State Snapshots,Flink State Snapshots,Wikipedia: Chandy–Lamport algorithm source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/fault%5Ftolerance/#how-does-state-snapshotting-work Workflow:
+Checkpoint coordinator (part of the job manager) instructs a task manager to begin a checkpoint.
+Insert numbered checkpoint barriers into their streams of all the sources record their offsets.
+checkpoint barriers flow through the job graph, indicating the part of the stream before and after each checkpoint.
+Checkpoint n will contain the state of each operator that resulted from having consumed every event before checkpoint barrier n, and none of the events after it....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 11:11:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Flink State Snapshots" href="https://notes.0081800.xyz/notes/20220104111119-flink_state_snapshots/"></a>
+  <footer class="entry-footer"><span title='2022-01-04 11:25:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Flink: How does State Snapshotting Work?" href="https://notes.0081800.xyz/notes/20220104112527-flink_how_does_state_snapshotting_work/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Stateful Stream Processing
+    <h2>Flink Checkpoint
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Stream processing,Flink source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/overview/#stateful-stream-processing https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/concepts/stateful-stream-processing/ This means that how one event is handled can depend on the accumulated effect of all the events that came before it.
-How the stateful streaming processing works on a distributed cluster? The set of parallel instances of a stateful operator is effectively a sharded key-value store. Each parallel instance is responsible for handling events for a specific group of keys, and the state for those keys is kept locally....</p>
+    <p>tags: Flink State Snapshots,Fault Tolerance via State Snapshots a snapshot taken automatically by Flink for the purpose of being able to recover from faults. Checkpoints can be incremental, and are optimized for being restored quickly.</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:58:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Stateful Stream Processing" href="https://notes.0081800.xyz/notes/20220104105853-stateful_stream_processing/"></a>
+  <footer class="entry-footer"><span title='2022-01-04 11:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Flink Checkpoint" href="https://notes.0081800.xyz/notes/20220104112356-flink_checkpoint/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Timely Stream Processing
+    <h2>Flink Savepoint
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Stream processing,Flink source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/overview/#timely-stream-processing Flink timely stream processing support by using event timestamps that are recorded in data stream, rather than using the clocks of the machines processing the data.</p>
+    <p>tags: Flink State Snapshots a snapshot triggered manually by a user (or an API call) for some operational purpose, such as a stateful redeploy/upgrade/rescaling operation. Savepoints are always complete, and are optimized for operational flexibility.</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:58:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Timely Stream Processing" href="https://notes.0081800.xyz/notes/20220104105829-timely_stream_processing/"></a>
+  <footer class="entry-footer"><span title='2022-01-04 11:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Flink Savepoint" href="https://notes.0081800.xyz/notes/20220104112301-flink_savepoint/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

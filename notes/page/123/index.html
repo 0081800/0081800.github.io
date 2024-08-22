@@ -159,74 +159,79 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Thrift 与 Protocol Buffers
+    <h2>复制日志实现
     </h2>
   </header>
   <div class="entry-content">
-    <p>每个字段一个标记号码，字段名可以随意调整因为编码信息中只有标记号码，没有字段名称，但是标记号码不能随意调整，基于此可以实现：
-向前兼容 旧代码忽略不能识别的标记号码，并根据类型的注释来通知解析器跳过特定的字节数。 向后兼容 标记号码不变的情况下新的代码总是能够解析旧代码序列化的数据，但是新添加的字段不能标记为 required，不然会触发运行时错误。 同时为了保证前后兼容，删除字段也不能删除设置为 required 的字段，同时再次新添字段标记号码不能被再次使用。
-改变类型同时也会导致前后兼容问题。</p>
+    <p>基于语句复制 优点：简单 缺点：语句副作用，或者随时间改变返回值的函数的使用会导致复制的数据产生改变。
+基于预写日志（WAL）传输 优点：解决基于语句复制的问题。 缺点：日志描述过于底层：哪些磁盘块的哪些字节发生了改变，和引擎实现高度耦合，不利于模式演进。
+基于行的逻辑日志复制 用一系列记录来描述数据表行级别的写请求：
+对于插入行，日志包含所有相关列的新值。 对于删除行，标记主键删除。 对于行货更新，记录主键和对应列的新值。 MySQL binlog 基于此模式。
+优点：更利于模式演进，支持向后兼容，同时解耦特性引擎便于外部解析。
+基于触发器的复制 触发器支持注册自己的应用层代码并在数据发生改变时被调用。
+优点：将复制控制交给应用层，支持更高的灵活性。 缺点：开销更大，更容易出错。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Thrift 与 Protocol Buffers" href="https://notes.0081800.xyz/notes/20210610222754-thrift_%E4%B8%8E_protocol_buffers/"></a>
+  <footer class="entry-footer"><span title='2021-06-14 20:52:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 复制日志实现" href="https://notes.0081800.xyz/notes/20210614205249-%E5%A4%8D%E5%88%B6%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>数据编码与演化
+    <h2>主从复制
     </h2>
   </header>
   <div class="entry-content">
-    <p>模式演化要保证：
-向后兼容 较新的代码可以读取旧代码编写的数据 向前兼容 较旧的代码可以读取较新代码编写的数据 数据编码格式 语言特定格式 Python pickle Java java.io.Serializable Ruby Marshal JSON、XML与二进制变体 二进制变体
-Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模式 基于数据库的数据流 不同是写写入不同的值 归档存储 基于服务的数据流：REST 和 RPC RPC 的问题 给人一种本地调用的错觉，却需要面临网络的不确定性：延迟和超时。
-基于消息传递的数据流 消息中间件：RabbitMQ、Kafka 分布式Actor 框架：Akka、Erlang OTP </p>
+    <p>主从模式下主节点进行写入，可以从从节点进行读取。
+同步复制 主节点写入，并等待从节点写入后再返回写入成功。
+半同步复制 主节点写入，选举一个从节点进行同步复制，其他从节点进行异步复制，一旦同步复制的从节点出现性能下降或故障则选用一个新的从节点进行同步复制。
+异步复制 主节点写入，不等待从节点写入直接返回写入成功。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 21:53:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 数据编码与演化" href="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/"></a>
+  <footer class="entry-footer"><span title='2021-06-14 20:32:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 主从复制" href="https://notes.0081800.xyz/notes/20210614203213-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>OLAP
+    <h2>数据复制
     </h2>
   </header>
   <div class="entry-content">
-    <p>在线分析处理（Online Analytic Processing，OLAP）。</p>
+    <p>主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。
+配置新从节点 可以通过快照来加速新从节点复制：
+对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换
+确认失效 选举新的主节点 使主节点生效 挑战
+从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：
+性能 容忍数据中心失效 容忍网络问题 缺点：写冲突
+离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 21:45:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to OLAP" href="https://notes.0081800.xyz/notes/20210610214521-olap/"></a>
+  <footer class="entry-footer"><span title='2021-06-14 20:31:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 数据复制" href="https://notes.0081800.xyz/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>OLTP
+    <h2>认同的话
     </h2>
   </header>
   <div class="entry-content">
-    <p>在线事务处理（Online Transaction Processing，OLTP）。</p>
+    <p>当一个不可能出错的事物出错了，通常也就意味着不可修复 – Douglas Adams，《基本无害》（1992） 关于写文档 There is a secret that needs to be understood in order to write good software documentation: there isn’t one thing called documentation, there are four.
+They are: tutorials, how-to guides, technical reference and explanation. They represent four different purposes or functions, and require four different approaches to their creation. Understanding the implications of this will help improve most documentation - often immensely.</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 21:43:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to OLTP" href="https://notes.0081800.xyz/notes/20210610214348-oltp/"></a>
+  <footer class="entry-footer"><span title='2021-06-12 09:28:00 +0800 +0800'>June 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 认同的话" href="https://notes.0081800.xyz/notes/20210612092853-%E8%AE%A4%E5%90%8C%E7%9A%84%E8%AF%9D/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>B-trees
+    <h2>Actor
     </h2>
   </header>
   <div class="entry-content">
-    <p>B-tree 是最广泛使用的索引结构。和排序字符串表：SSTables一样，B-tree 保留按键排序的 key-value 对， 这样可以实现高效的 key-value 查找和区间查询。
-结构 B-tree 将数据库分解成固定大小的页或块，传统上 4KB，这种设计更接近底层硬件，磁盘也是以固定大小的块排列的。
-分页因子 B-tree 中一个页所包含的子页引用数量称为分支因子。
-添加新键 找到其范围新键的页 如果页没有足够的可用空间来容纳新键，则将其分裂为两个半满的页，并更新父页以包含新的键范围。 算法确保树保持平衡：具有 n 个键的 B-tree 总是具有 \(O(log n)\) 的深度。大多数据库适合 3~4 层的 B-tree。 分支因子为 500 的 4KB 页的四级树可以存储高达 256TB。
-可靠性：WAL B-tree 底层的基本写操作是使用新的数据覆盖磁盘上的旧页。
-如果发生页分裂则需要覆盖多个不同的页，同时更新父页，这个操作比较危险，如果此时发生崩溃则会破坏索引。 常见的 B-tree 使用额外的数据结构：预写日志(WAL)：
-追加的写 WAL； 每个 B-tree 必须先更新 WAL 然后再修改树本身的页。 通过使用「锁存器」保护进行并发控制，保护 B-tree 页被多个线程访问而看到树不一样的状态。
-优化 通过复制方案替代 WAL 进行崩溃恢复，修改的页被写入不同的位置，树中父页的新版本被创建，并指向新的位置。 保存键的缩略信息，可以压入更多的键，保持更高的分支因子，减少层数。 对树进行布局，相邻叶子页按顺序保存在磁盘。 添加额外的指针到树中，如左右兄弟页。 变体，如分形树：借鉴日志结构减少磁盘寻道。 </p>
+    <p>Actor 模型是用于单个进程中的并发模型。逻辑被封装在 Actor 中。每个 Actor 通常代表一个客户端或实体，可以具备本地状态（不共享），通过发送和接收异步消息与其他 Actor 通信。不保证消息传送：某些错误情况下，消息将丢失。每个 Actor 只处理一条消息，因此可以由框架独立调度。
+Actor 框架集成了任务调度和消息流的框架。</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to B-trees" href="https://notes.0081800.xyz/notes/20210606143901-b_trees/"></a>
+  <footer class="entry-footer"><span title='2021-06-12 09:18:00 +0800 +0800'>June 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Actor" href="https://notes.0081800.xyz/notes/20210612091808-actor/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

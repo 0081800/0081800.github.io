@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://notes.0081800.xyz/notes/20240819100449-ffmpeg/</loc>
-    <lastmod>2024-08-19T10:04:00+08:00</lastmod>
+    <loc>https://notes.0081800.xyz/notes/20240822200040-hf_speech_bench/</loc>
+    <lastmod>2024-08-22T20:00:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2024-08-19T10:04:00+08:00</lastmod>
+    <lastmod>2024-08-22T20:00:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2024-08-22T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240822195513-whisper/</loc>
+    <lastmod>2024-08-22T19:55:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240822195459-fine_tune/</loc>
+    <lastmod>2024-08-22T19:54:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240822195449-fine_tune_whisper_for_multilingual_asr_with_transformers/</loc>
+    <lastmod>2024-08-22T19:54:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240822195224-finetune/</loc>
+    <lastmod>2024-08-22T19:52:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240822195215-finetune_whisper/</loc>
+    <lastmod>2024-08-22T19:52:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20240819100449-ffmpeg/</loc>
     <lastmod>2024-08-19T10:04:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20240819100420-ubuntu_ffmpeg4_ppa/</loc>

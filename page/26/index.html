@@ -154,63 +154,65 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>openssl
+    <h2>Rust Opaque Types: Static Dispatch vs. Dynamic Dispatch
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Tools </p>
+    <p> tags: Rust source: Johnston, Dylan R. “Formally Verifying Rust’s Opaque Types,” August 1, 2022. https://dylanj.xyz/posts/rust-coq-opaque-types/. Prelude trait ToString { fn to_string(&amp;self) -&gt; String; } Static Dispatch fn yell&lt;S: ToString&gt;(stringable: S) { println!(stringable.to_string().to_uppercase()) } Dynamic Dispatch fn yell(stringable: &amp;dyn ToString) { println!(stringable.to_string().to_uppercase()) } impl Trait fn yell(stringable: impl ToString) { println!(stringable.to_string().to_uppercase()) } </p>
   </div>
-  <footer class="entry-footer"><span title='2022-07-15 14:04:00 +0800 +0800'>July 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to openssl" href="https://notes.0081800.xyz/notes/20220715140459-openssl/"></a>
+  <footer class="entry-footer"><span title='2022-08-02 10:41:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Rust Opaque Types: Static Dispatch vs. Dynamic Dispatch" href="https://notes.0081800.xyz/notes/20220802104148-rust_opaque_types_static_dispatch_vs_dynamic_dispatch/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>openssl unknown ca
+    <h2>error: is only available in macOS 10.15 or newer
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: openssl This problem is caused about the ca certs are different between client and server.</p>
+    <p>tags: Flutter,GUI,macOS souce: https://github.com/flutter/flutter/issues/73122 To solve this problem we should specify MACOSX_DEPLOYMENT_TARGET：
+I would imagine that there is Apple documentation on managing build settings in Xcode, but I don’t have a link offhand. There’s no Flutter-specific documentation of the process, if that’s what you mean; it isn’t any different in a Flutter macOS application as it would be any other macOS application.
+If you don’t want to use Xcode, you can change MACOSX_DEPLOYMENT_TARGET directly in Runner....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-07-15 14:04:00 +0800 +0800'>July 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to openssl unknown ca" href="https://notes.0081800.xyz/notes/20220715140444-openssl_unknown_ca/"></a>
+  <footer class="entry-footer"><span title='2022-07-28 07:19:00 +0800 +0800'>July 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to error: is only available in macOS 10.15 or newer" href="https://notes.0081800.xyz/notes/20220728071920-error_is_only_available_in_macos_10_15_or_newer/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Move Resources Permissions
+    <h2>Wecom Debug Mode
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Move,Starcoin Web3 StarTrek Bedrock – Object-capability model In my words, Move is kind of a Resource-Oriented Programming language. The resource is represented by struct in Move, aka object in other programming language. By the way, the resource in Move is the struct which cannot be copied and cannot be dropped1.
-Distinct from other programming language, objects are stored in memory, resource in Move can store to the chain’s global storage....</p>
+    <p>macOS Press Command &#43; Shift &#43; Control &#43; D to enter debug mod.
+Then you can open url in brower: Help -&gt; Debug -&gt; 「浏览器 webview 相关-系统浏览器打开网页」</p>
   </div>
-  <footer class="entry-footer"><span title='2022-07-05 07:16:00 +0800 +0800'>July 5, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Move Resources Permissions" href="https://notes.0081800.xyz/notes/20220705071653-move_resources_permissions/"></a>
+  <footer class="entry-footer"><span title='2022-07-25 16:18:00 +0800 +0800'>July 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Wecom Debug Mode" href="https://notes.0081800.xyz/notes/20220725161801-wecom_debug_mode/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Brevity 500: 500 mini-games to help you learn powerful writing skills
+    <h2>Flutter
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: How to Write,Online Tools source: https://brevity500.com/ </p>
+    <p> tags: GUI </p>
   </div>
-  <footer class="entry-footer"><span title='2022-06-30 12:00:00 +0800 +0800'>June 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Brevity 500: 500 mini-games to help you learn powerful writing skills" href="https://notes.0081800.xyz/notes/20220630120053-brevity_500_500_mini_games_to_help_you_learn_powerful_writing_skills/"></a>
+  <footer class="entry-footer"><span title='2022-07-25 08:33:00 +0800 +0800'>July 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Flutter" href="https://notes.0081800.xyz/notes/20220725083304-flutter/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>GitHub: hackclub/some-assembly-required
+    <h2>iOS
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Assembly source: https://github.com/hackclub/some-assembly-required What do we mean by an abstraction? Well, an abstraction is a layer above something else that makes that thing easier to do.</p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2022-06-29 07:14:00 +0800 +0800'>June 29, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to GitHub: hackclub/some-assembly-required" href="https://notes.0081800.xyz/notes/20220629071413-github_hackclub_some_assembly_required/"></a>
+  <footer class="entry-footer"><span title='2022-07-25 08:33:00 +0800 +0800'>July 25, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to iOS" href="https://notes.0081800.xyz/notes/20220725083317-ios/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

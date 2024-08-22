@@ -6,7 +6,61 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2024 10:04:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Aug 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hf-speech-bench</title>
+      <link>https://notes.0081800.xyz/notes/20240822200040-hf_speech_bench/</link>
+      <pubDate>Thu, 22 Aug 2024 20:00:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240822200040-hf_speech_bench/</guid>
+      <description> tags: Fine-Tune, AI source: https://huggingface.co/spaces/huggingface/hf-speech-bench </description>
+    </item>
+    
+    <item>
+      <title>Whisper</title>
+      <link>https://notes.0081800.xyz/notes/20240822195513-whisper/</link>
+      <pubDate>Thu, 22 Aug 2024 19:55:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240822195513-whisper/</guid>
+      <description> tags: AI </description>
+    </item>
+    
+    <item>
+      <title>Fine-Tune</title>
+      <link>https://notes.0081800.xyz/notes/20240822195459-fine_tune/</link>
+      <pubDate>Thu, 22 Aug 2024 19:54:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240822195459-fine_tune/</guid>
+      <description> tags: AI </description>
+    </item>
+    
+    <item>
+      <title>Fine-Tune Whisper For Multilingual ASR with 🤗 Transformers</title>
+      <link>https://notes.0081800.xyz/notes/20240822195449-fine_tune_whisper_for_multilingual_asr_with_transformers/</link>
+      <pubDate>Thu, 22 Aug 2024 19:54:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240822195449-fine_tune_whisper_for_multilingual_asr_with_transformers/</guid>
+      <description> tags: AI, Fine-Tune, Whisper source: “Fine-Tune Whisper For Multilingual ASR with 🤗 Transformers.” Accessed August 22, 2024. https://huggingface.co/blog/fine-tune-whisper. </description>
+    </item>
+    
+    <item>
+      <title>Finetune</title>
+      <link>https://notes.0081800.xyz/notes/20240822195224-finetune/</link>
+      <pubDate>Thu, 22 Aug 2024 19:52:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240822195224-finetune/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Finetune Whisper</title>
+      <link>https://notes.0081800.xyz/notes/20240822195215-finetune_whisper/</link>
+      <pubDate>Thu, 22 Aug 2024 19:52:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240822195215-finetune_whisper/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>FFmpeg</title>
       <link>https://notes.0081800.xyz/notes/20240819100449-ffmpeg/</link>
