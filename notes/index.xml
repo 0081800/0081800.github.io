@@ -6,7 +6,27 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 22 Aug 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Aug 2024 20:34:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HuggingFace</title>
+      <link>https://notes.0081800.xyz/notes/20240826203458-huggingface/</link>
+      <pubDate>Mon, 26 Aug 2024 20:34:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240826203458-huggingface/</guid>
+      <description> tags: AI </description>
+    </item>
+    
+    <item>
+      <title>Set cache_file_name to avoid running Dataset.map every time</title>
+      <link>https://notes.0081800.xyz/notes/20240826203444-set_cache_file_name_to_avoid_running_dataset_map_every_time/</link>
+      <pubDate>Mon, 26 Aug 2024 20:34:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20240826203444-set_cache_file_name_to_avoid_running_dataset_map_every_time/</guid>
+      <description> tags: AI, HuggingFace, Fine-Tune source: https://discuss.huggingface.co/t/how-to-save-a-mapped-dataset/42303/4 I have a Dataset.map that runs every time I run the script:
+train_ds.map(prepare_dataset, num_proc=1) I solved it by setting cache_file_name :
+train_ds = train_ds.map(prepare_dataset, num_proc=1, cache_file_name=&amp;#34;trans.ds.cache&amp;#34;) </description>
+    </item>
+    
     <item>
       <title>hf-speech-bench</title>
       <link>https://notes.0081800.xyz/notes/20240822200040-hf_speech_bench/</link>

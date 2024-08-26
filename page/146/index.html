@@ -154,6 +154,31 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>复利
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Wikipedia: https://zh.wikipedia.org/wiki/%E5%A4%8D%E5%88%A9</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-07 00:00:00 +0800 +0800'>March 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 复利" href="https://notes.0081800.xyz/notes/20200307114233_%E5%A4%8D%E5%88%A9/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>夏普比率
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>它是用来衡量金融资产绩效基金表现的一个指标，核心思想就是选择收益率相近的基金承担的风险越小越好，选择风险水平相同的基金则收益率越高越好。总之，夏普比率越大，说明这只基金的绩效越好。
+&gt; 0 基金报酬大于风险 &lt; 0 基金风险大过报酬 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-07 00:00:00 +0800 +0800'>March 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 夏普比率" href="https://notes.0081800.xyz/notes/20200224140348_/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>标准差（Standard Deviation）
     </h2>
   </header>
@@ -204,36 +229,6 @@ AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
   </div>
   <footer class="entry-footer"><span title='2019-06-15 00:00:00 +0800 +0800'>June 15, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 《领域驱动设计》读书笔记" href="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode: 316.Remove Duplicate Letters
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode 移除小写字母中重复的字母，让所有字母都只出现一次，并且结果是所有结果中按照字典序排序最小的那个。
-Example 1
-Input: “bcabc” Output: “abc” Example 2
-Input: “cbacdcbc” Output: “acdb” 解法之一:
-通过一个数组对每一个出现的字母进行计数 遍历每一个字母放入栈，并将该字母的计数减 1 查看栈底的字母有没有比当前字母大且该字母的计数不为 0 的（有比当前更小的字典序），从栈底弹出该字母 func removeDuplicateLetters(s string) string { var countOfEachLetter [26]int var visited [26]bool stack := make([]byte, 0) stackBottom := 0 bytesArr := []byte(s) for _, c := range bytesArr { countOfEachLetter[getIndex(c)]&#43;&#43; } for _, c := range bytesArr { index := getIndex(c) countOfEachLetter[index]-- if visited[index] { continue } // countOfEachLetter[getIndex(stack[stackBottom])] &gt; 0 后面还有该字符 for len(stack[stackBottom:]) &gt; 0 &amp;&amp; stack[stackBottom] &gt; c &amp;&amp; countOfEachLetter[getIndex(stack[stackBottom])] &gt; 0 { // 标记为未访问用于后面的字符加入结果 visited[getIndex(stack[stackBottom])] = false // 移动栈底 stackBottom&#43;&#43; } // 加入到结果栈 stack = append(stack, c) visited[index] = true } return string(stack[stackBottom:]) } func getIndex(b byte) int { return int(b - &#39;a&#39;) } 通过上面解法遇到如下错误：...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-01 00:00:00 +0800 +0800'>May 1, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 316.Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20200320172625_leetcode_316_remove_duplicate_letters/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode: 153.Find Minimum in Rotated Sorted Array
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: LeetCode 解法 1 找到中间节点依次往左右扩散：
-向左边扩散，如果左边的大于当前元素，那么当前元素即为最小值 向右边扩散，如果右边的小于当前元素，那么右边元素即为最小值 如果以上不成立则第一个元素为最小元素（未旋转），以下是代码
-func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[0] } // 从中间开始确定方向 mid := length / 2 - 1 left, right := mid, mid for left - 1 &gt;= 0 || right &#43; 1 &lt; length { if left - 1 &gt;= 0 { if nums[left - 1] &gt; nums[left] { return nums[left]; } left-- } if right &#43; 1 &lt; length { if nums[right] &gt; nums[right &#43; 1] { return nums[right &#43; 1] } right&#43;&#43; } } return nums[0] } 优化 参考答案后可通过二分查找做如下优化，首先判断是否被旋转：...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 153.Find Minimum in Rotated Sorted Array" href="https://notes.0081800.xyz/notes/20200320172433_leetcode_153_find_minimum_in_rotated_sorted_array/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

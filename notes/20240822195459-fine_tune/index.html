@@ -219,11 +219,17 @@
 
 
    
+
+   
+
+   
       
    
 
    
 
+   
+      
    
 
    
@@ -1838,6 +1844,20 @@
     <br />
     <div class="backlinks">
       <ul>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Set cache_file_name to avoid running Dataset.map every time
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: AI, HuggingFace, Fine-Tune source: https://discuss.huggingface.co/t/how-to-save-a-mapped-dataset/42303/4 I have a Dataset.map that runs every time I run the script:
+train_ds.map(prepare_dataset, num_proc=1) I solved it by setting cache_file_name :
+train_ds = train_ds.map(prepare_dataset, num_proc=1, cache_file_name=&#34;trans.ds.cache&#34;) </p>
+            </div>
+            <footer class="entry-footer"><span title='2024-08-26 20:34:00 +0800 +0800'>August 26, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Set cache_file_name to avoid running Dataset.map every time" href="https://notes.0081800.xyz/notes/20240826203444-set_cache_file_name_to_avoid_running_dataset_map_every_time/"></a>
+          </article>
        
           <article class="post-entry"> 
             <header class="entry-header">
