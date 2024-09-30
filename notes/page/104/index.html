@@ -159,6 +159,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode: 40. Combination Sum II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: LeetCode source: https://leetcode.com/problems/combination-sum-ii/ LeetCode: 39. Combination Sum 的进阶。元素不在唯一且每一个元素只能出现一次。对结果进行排序然后通过 set 对结果进行去重：
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&lt;int&gt;&amp; candidates, int target) { sort(candidates.begin(), candidates.end()); backtracking(candidates, 0, 0, target); vector&lt;vector&lt;int&gt;&gt; r; for (auto t : res) { r.push_back(t); } return r; } private: set&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; track; map&lt;int, bool&gt; visited; void backtracking(vector&lt;int&gt;&amp; condidates, int start, int n, int target) { if (n == target) { res.insert(track); return; } if (n &gt; target) { return; } int c = 0; int sz = condidates....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-04 07:10:00 +0800 +0800'>August 4, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 40. Combination Sum II" href="https://notes.0081800.xyz/notes/20210804071039-leetcode_40_combination_sum_ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode: 39. Combination Sum
     </h2>
   </header>
@@ -203,18 +216,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-08-02 19:34:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 工业云" href="https://notes.0081800.xyz/notes/20210802193422-%E5%B7%A5%E4%B8%9A%E4%BA%91/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>云原生
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 技术概念 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-02 19:30:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 云原生" href="https://notes.0081800.xyz/notes/20210802193059-%E4%BA%91%E5%8E%9F%E7%94%9F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

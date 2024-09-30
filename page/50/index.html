@@ -154,6 +154,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 7. Reverse Integer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Tricky,Stack,LeetCode101,Integer Overflow The key is how to detect integer overflow without store to a larger size integer.
+For this purpose, we could detect integer overflow before carry:
+The maximal of INT_MAX before carry is \(\frac{INT\_MAX}{10}\). We continue compare pop with the suffix of INT_MAX, 7, if maximal before carry is equal to \(\frac{INT\_MAX}{10}\).
+The minimal of INT_MIN before carry is \(\frac{INT\_MIN}{10}\) too. We continue compare pop with the suffix of INT_MIN, -8, if minimal before carry is equal to \(\frac{INT\_MIN}{10}\)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-16 21:53:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 7. Reverse Integer" href="https://notes.0081800.xyz/notes/20220316215304-leetcode101_7_reverse_integer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 946. Validate Stack Sequences
     </h2>
   </header>
@@ -203,18 +218,6 @@ We track chunks’s max value. Break at the position of max value lives in sorte
   </div>
   <footer class="entry-footer"><span title='2022-03-15 15:21:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Tricky" href="https://notes.0081800.xyz/notes/20220315152159-tricky/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 739. Daily Temperatures
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Monotonic Stack,LeetCode101,LeetCode101: 496. Next Greater Element I Mono-descreasing stack class Solution { public: vector&lt;int&gt; dailyTemperatures(vector&lt;int&gt;&amp; temperatures) { vector&lt;int&gt; res(temperatures.size(), 0); stack&lt;int&gt; st; for (int i = 0; i &lt; temperatures.size(); i&#43;&#43;) { while (!st.empty() &amp;&amp; temperatures[st.top()] &lt; temperatures[i]) { res[st.top()] = i - st.top(); st.pop(); } st.push(i); } return res; } }; [73,74,75,71,69,72,76,73]</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-15 11:23:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 739. Daily Temperatures" href="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

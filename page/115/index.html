@@ -154,6 +154,25 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>新的 Java 内存模型（2004）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
+Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
+同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
+有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
+happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 新的 Java 内存模型（2004）" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Java 编译器公共子表达式消除（common subexpression elimination）
     </h2>
   </header>
@@ -199,21 +218,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-07-13 19:44:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 同步原子（synchronizing atomic）" href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>原子变量（atomic variable）或原子操作（tomic operation）
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
-代码示例
-// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
-Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

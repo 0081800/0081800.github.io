@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.0081800.xyz/notes/20240923193245-%E7%94%9F%E6%80%81%E7%BC%B8/</loc>
+    <lastmod>2024-09-23T19:32:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/</loc>
+    <lastmod>2024-09-23T19:32:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2024-09-23T19:32:00+08:00</lastmod>
+  </url><url>
     <loc>https://notes.0081800.xyz/notes/20240826203458-huggingface/</loc>
     <lastmod>2024-08-26T20:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2024-08-26T20:34:00+08:00</lastmod>
-  </url><url>
     <loc>https://notes.0081800.xyz/notes/20240826203444-set_cache_file_name_to_avoid_running_dataset_map_every_time/</loc>
-    <lastmod>2024-08-26T20:34:00+08:00</lastmod>
-  </url><url>
-    <loc>https://notes.0081800.xyz/</loc>
     <lastmod>2024-08-26T20:34:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20240822200040-hf_speech_bench/</loc>

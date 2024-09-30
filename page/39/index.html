@@ -154,6 +154,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Multi-queue NICs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Linux,High Performance,Network,ethtool source: The Cloudflare Blog. “How to Receive a Million Packets per Second,” June 16, 2015. http://blog.cloudflare.com/how-to-receive-a-million-packets/. What are Multi-queue NICs RX queue was used to pass packets between hardware and kernel. Now days NICs support multiple RX queues: Each RX queue is pinned to a separate CPU.
+Multi-queue hashing algorithms Use a hash from packet to decide the RX queue number. The hash is usually counted from a tuple (src IP, dst IP, src port, dst port)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-16 07:37:00 +0800 +0800'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Multi-queue NICs" href="https://notes.0081800.xyz/notes/20220416073757-multi_queue_nics/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>iptables
     </h2>
   </header>
@@ -200,18 +213,6 @@ iptables -I INPUT 1 -p udp --dport 4321 -j ACCEPT iptables -t raw -I PREROUTING 
   </div>
   <footer class="entry-footer"><span title='2022-04-14 18:50:00 +0800 +0800'>April 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to UDP" href="https://notes.0081800.xyz/notes/20220414185017-udp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Multicast
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Network </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-14 16:14:00 +0800 +0800'>April 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Multicast" href="https://notes.0081800.xyz/notes/20220414161423-multicast/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

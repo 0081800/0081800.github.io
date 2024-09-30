@@ -159,6 +159,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Solana 101: 3. SPL Token
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Solana 101: Create an Escrow dApp 连接钱包 安装 Phantom 钱包； 使用 @solana/wallet-adapter 连接钱包。官方提供了 React 相关的实现，Vue 可以通过社区提供的库：https://github.com/lorisleiva/solana-wallets-vue。 npm install solana-wallets-vue @solana/wallet-adapter-wallets 创建 SPL Token 安装依赖 npm install --save @solana/spl-token 创建代币 通过 Token Program 创建 Token，Solana 通过其特有的账号机制，通过创建一个账号并将 Owner 设置为一个统一的 Token Program 即可发行一种代币。1
+发行代币 要持有代币必须创建一个对应的 Associated Token Account（ATA），也就是要接收一个代币首先要检查有没有对应代币的 ATA，没有则创建，然后给对应的 ATA 转移代币。
+代币转帐 燃烧代币 SPL Token 交互：授权 Program 转帐 Libraries:
+spl_associated_token_account Steps:
+Delegate token to Program – in frontend. Create a Associated Token Account for Program to hold token....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-11-22 20:45:00 +0800 +0800'>November 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Solana 101: 3. SPL Token" href="https://notes.0081800.xyz/notes/20221122204508-solana_101_3_create_a_spl_token/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Solana 101: 4. SPL NFT
     </h2>
   </header>
@@ -211,18 +227,6 @@ Solana 的 Program 可以被更新。
   </div>
   <footer class="entry-footer"><span title='2022-11-21 16:07:00 +0800 +0800'>November 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Solana 101: 0. Prelude" href="https://notes.0081800.xyz/notes/20221121160749-solana_101_prelude/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Solana 101: Create an Escrow dApp
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Solana </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-11-19 10:43:00 +0800 +0800'>November 19, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Solana 101: Create an Escrow dApp" href="https://notes.0081800.xyz/notes/20221119104334-solana_101_create_a_escrow_dapp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
