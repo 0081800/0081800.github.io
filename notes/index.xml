@@ -6,7 +6,28 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 23 Sep 2024 19:32:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Nov 2024 16:36:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beancount</title>
+      <link>https://notes.0081800.xyz/notes/20241102163604-beancount/</link>
+      <pubDate>Sat, 02 Nov 2024 16:36:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20241102163604-beancount/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How Precision in Beancount is Determined</title>
+      <link>https://notes.0081800.xyz/notes/20241102163556-how_precision_in_beancount_is_determined/</link>
+      <pubDate>Sat, 02 Nov 2024 16:35:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20241102163556-how_precision_in_beancount_is_determined/</guid>
+      <description>source: https://beancount.github.io/docs/precision_tolerances.html#how-precision-is-determined
+tags: Beancount The sum value for some day is incorrect after I imported my records into beancount. Then I realised that&amp;rsquo;s the pricision problem. The problem was solved after I turn all my amounts to accurate to two decimal places.
+For each Transaction:
+Derive Automatically. </description>
+    </item>
+    
     <item>
       <title>30 生态缸开缸</title>
       <link>https://notes.0081800.xyz/notes/20240923193245-%E7%94%9F%E6%80%81%E7%BC%B8/</link>
