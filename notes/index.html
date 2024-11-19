@@ -159,6 +159,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Uniswap Tick To Price
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Uniswap V3 def tick_to_price(tick: int) -&gt; float: return 1.0001 ** tick def uint32_tick_to_price(bits: int) -&gt; float: # https://stackoverflow.com/a/20766900 u = bits &amp; ((1 &lt;&lt; 32) - 1) tick = (u &amp; ((1 &lt;&lt; 31) - 1)) - (u &amp; (1 &lt;&lt; 31)) return 1.0001 ** tick q96 = 2**96 def price_to_sqrtp(p): return int(math.sqrt(p) * q96) </p>
+  </div>
+  <footer class="entry-footer"><span title='2024-11-19 16:53:00 +0800 +0800'>November 19, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Uniswap Tick To Price" href="https://notes.0081800.xyz/notes/20241119165345-uniswap_tick_to_price/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Beancount
     </h2>
   </header>
@@ -212,20 +224,6 @@ Derive Automatically. </p>
   </div>
   <footer class="entry-footer"><span title='2024-08-26 20:34:00 +0800 +0800'>August 26, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to HuggingFace" href="https://notes.0081800.xyz/notes/20240826203458-huggingface/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Set cache_file_name to avoid running Dataset.map every time
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: AI, HuggingFace, Fine-Tune source: https://discuss.huggingface.co/t/how-to-save-a-mapped-dataset/42303/4 I have a Dataset.map that runs every time I run the script:
-train_ds.map(prepare_dataset, num_proc=1) I solved it by setting cache_file_name :
-train_ds = train_ds.map(prepare_dataset, num_proc=1, cache_file_name=&#34;trans.ds.cache&#34;) </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-08-26 20:34:00 +0800 +0800'>August 26, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Set cache_file_name to avoid running Dataset.map every time" href="https://notes.0081800.xyz/notes/20240826203444-set_cache_file_name_to_avoid_running_dataset_map_every_time/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
