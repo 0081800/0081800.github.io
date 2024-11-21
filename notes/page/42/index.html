@@ -159,6 +159,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 703. Kth Largest Element in a Stream
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Priority Queue,LeetCode101 Using a min heap to keep k elements, top is the Kth largest element.
+class KthLargest { private: // min heap priority_queue&lt;int, vector&lt;int&gt;, std::greater&lt;int&gt;&gt; pq; int K; public: KthLargest(int k, vector&lt;int&gt;&amp; nums) { K = k; for (auto n: nums) { add(n); } } int add(int val) { pq.push(val); while (pq.size() &gt; K) { pq.pop(); } return pq.top(); } }; /** * Your KthLargest object will be instantiated and called as such: * KthLargest* obj = new KthLargest(k, nums); * int param_1 = obj-&gt;add(val); */ </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-08 12:39:00 +0800 +0800'>April 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 703. Kth Largest Element in a Stream" href="https://notes.0081800.xyz/notes/20220408123913-leetcode101_703_kth_largest_element_in_a_stream/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 1046. Last Stone Weight
     </h2>
   </header>
@@ -208,18 +221,6 @@ Sort the nums first. Then, we travel the nums, pick current element as nums[i], 
   </div>
   <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 15. 3Sum" href="https://notes.0081800.xyz/notes/20220407080010-leetcode101_15_3sum/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Three Pointers
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Two Pointers </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-07 08:00:00 +0800 +0800'>April 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Three Pointers" href="https://notes.0081800.xyz/notes/20220407080033-three_pointers/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -154,6 +154,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust Wrapper Types
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Rust Wrapper Types" href="https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>《架构整洁之道》读书笔记
     </h2>
   </header>
@@ -237,25 +249,6 @@ public class LiskovSub { public static main(String[] args) { T o1 = new S(); T o
   </div>
   <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 《百箭穿杨》读书笔记" href="https://notes.0081800.xyz/notes/20200320180837_%E7%99%BE%E7%AE%AD%E7%A9%BF%E6%9D%A8/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Kafka
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Bigdata 相关知识点 概念组成 Producer 消息产生者，往指定 Topic 的指定 Partition 发送消息
-Consumer Group 消费指定 Topic 的消息
-Consumer 消费指定 Topic 下某一分区的消息 Topic 区分不同消息主题
-Partition 保证同一分区的有序性 Connector
-消息可被不同的 Consumer Group 重复消费（广播或订阅）。同一 Consumer Group 下的不同 Consumer 分别消费不同的 Partition，Consumer 数量不能超过 Partition 数量。
-数据被持久化并分片成功后发送 ACK 保证里数据不被丢失。
-设计 持久化 基于文件系统
-基于队列是顺序的和磁盘的顺序访问要比内存的随机访问要快（参见 The Pathologies of Big Data）， Kafka 采用在磁盘文件系统上尾部写头部读的方式。 Kafka 没有采用 BTree 存储数据因为 BTree 的操作是 O(log N) ，而且对磁盘的 seek 操作要慢，且同时只能进行一次限制了并行，所以实际操作比 O(log N) 要慢 基于磁盘的顺序访问进行在尾部写和头部读，可以实现读写都是 O(1) 的时间复杂度，并且读写互不干扰 基于以上实现，Kafka 可以不必在消息一经消费就删除，而是可以保留消息一段相对较长的时间（比如一周） 高效...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Kafka" href="https://notes.0081800.xyz/notes/20200320172022_kafka/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

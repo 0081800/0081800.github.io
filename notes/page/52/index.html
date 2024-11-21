@@ -159,6 +159,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>LeetCode101: 654. Maximum Binary Tree
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tags: Monotonic Stack,LeetCode101,Binary Search Tree Mono-descreasing stack Key:
+The largest number is the root, that we can observe in by iteration. We must clear the stack to fill the right side of BST after loop. The last popped element is the left of current node. From top to bottom, the top element is the right side of the element that under the top. class Solution { public: TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) { vector&lt;TreeNode*&gt; res(nums....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>LeetCode101: 581. Shortest Unsorted Continuous Subarray
     </h2>
   </header>
@@ -206,19 +219,6 @@ Also note that: the result’s length is not actually equal num....</p>
   </div>
   <footer class="entry-footer"><span title='2022-03-14 07:43:00 +0800 +0800'>March 14, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 402. Remove K Digits" href="https://notes.0081800.xyz/notes/20220314074324-leetcode101_402_remove_k_digits/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 456. 132 Pattern
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Monotonic Stack,LeetCode101,Tricky We travel the numbers in the reverse order:
-Use a mono-increasing stack to find the largest number(3 in the 132 pattern), the value popped from stack is the second large number(2 in the 132 pattern), if any value less than the second large number, returns true. // Note: // // - subsequence is not contiguous, is i &lt; j &lt; k, not i &#43; 1 = j, j &#43; 1 = k // class Solution { public: bool find132pattern(vector&lt;int&gt;&amp; nums) { int K = INT_MIN; stack&lt;int&gt; mst; // mono-increasing stack for (int i = nums....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-13 15:32:00 +0800 +0800'>March 13, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 456. 132 Pattern" href="https://notes.0081800.xyz/notes/20220313153222-456_132_pattern/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

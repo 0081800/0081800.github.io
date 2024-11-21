@@ -154,6 +154,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>避免冲突
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>应用层保证对特定记录的写请求总是通过同一个主节点，来避免发生些冲突。
+如用户更新自己的配置总是路由到特定的数据中心。
+缺点 特定数据中心发生故障不得不改变事先指定的主节点。</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-15 08:29:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 避免冲突" href="https://notes.0081800.xyz/notes/20210615082908-%E9%81%BF%E5%85%8D%E5%86%B2%E7%AA%81/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>前缀一致读
     </h2>
   </header>
@@ -211,19 +225,6 @@ P: C小姐，你能看到多远的文莱？
   </div>
   <footer class="entry-footer"><span title='2021-06-14 21:07:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 读写一致性" href="https://notes.0081800.xyz/notes/20210614210755-%E8%AF%BB%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>最终一致性效应
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>主从异步复制的情况下会导致数据库中出现明显不一致，此时从不同的从节点读取就会得到不一样的结果。这种不一致只是一个暂时状态，如果停止写入数据，经过一段时间之后，从节点最终会赶上并与主节点保持一致。
-这种效应被称为最终一致性。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-14 21:00:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 最终一致性效应" href="https://notes.0081800.xyz/notes/20210614210005-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%E6%95%88%E5%BA%94/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

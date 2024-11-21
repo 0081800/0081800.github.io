@@ -6,7 +6,16 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Nov 2024 16:53:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Nov 2024 17:00:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uniswap Tick Boundary To Liquidity Amounts</title>
+      <link>https://notes.0081800.xyz/notes/20241119170025-uniswap_tick_boundary_to_liquidity_amounts/</link>
+      <pubDate>Tue, 19 Nov 2024 17:00:00 +0800</pubDate>
+      
+      <guid>https://notes.0081800.xyz/notes/20241119170025-uniswap_tick_boundary_to_liquidity_amounts/</guid>
+      <description> tags: Uniswap Tick To Price, Uniswap V3 import math tick_upper_bits = 4294945516 tick_lower_bits = 4294931656 tick_curre_bits = 4294938547 sqrtp_low = price_to_sqrtp(uint32_tick_to_price(tick_lower_bits)) sqrtp_cur = price_to_sqrtp(uint32_tick_to_price(tick_curre_bits)) sqrtp_upp = price_to_sqrtp(uint32_tick_to_price(tick_upper_bits)) def calc_amount0(liq, pa, pb): if pa &amp;gt; pb: pa, pb = pb, pa return int(liq * q96 * (pb - pa) / pa / pb) def calc_amount1(liq, pa, pb): if pa &amp;gt; pb: pa, pb = pb, pa return int(liq * (pb - pa) / q96) liq = 8599967722 amount0 = calc_amount0(liq, sqrtp_upp, sqrtp_cur) amount1 = calc_amount1(liq, sqrtp_low, sqrtp_cur) </description>
+    </item>
+    
     <item>
       <title>Uniswap Tick To Price</title>
       <link>https://notes.0081800.xyz/notes/20241119165345-uniswap_tick_to_price/</link>
