@@ -76,7 +76,7 @@
       <pubDate>Tue, 04 Jan 2022 07:04:00 +0800</pubDate>
       
       <guid>https://notes.0081800.xyz/projects/20220104070432-solana/</guid>
-      <description> tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &amp;#34;id&amp;#34;: 1, &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;method&amp;#34;: &amp;#34;getSignaturesForAddress&amp;#34;, &amp;#34;params&amp;#34;: [&amp;#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&amp;#34;] } </description>
+      <description> tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &amp;#34;id&amp;#34;: 1, &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;method&amp;#34;: &amp;#34;getSignaturesForAddress&amp;#34;, &amp;#34;params&amp;#34;: [&amp;#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&amp;#34;] } TX POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7 Content-Type: application/json { &amp;#34;id&amp;#34;: 1, &amp;#34;jsonrpc&amp;#34;: &amp;#34;2.0&amp;#34;, &amp;#34;method&amp;#34;: &amp;#34;getTransaction&amp;#34;, &amp;#34;params&amp;#34;: [&amp;#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&amp;#34;, {&amp;#34;encoding&amp;#34;: &amp;#34;jsonParsed&amp;#34;, &amp;#34;maxSupportedTransactionVersion&amp;#34;: 0}] } </description>
     </item>
     
     <item>
