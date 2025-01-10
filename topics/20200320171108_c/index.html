@@ -7,12 +7,12 @@
 <meta name="robots" content="index, follow">
 <title>C/C&#43;&#43; | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content=" tags: Programming Language ">
+<meta name="description" content="
+tags: Programming Language
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/topics/20200320171108_c/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +57,20 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="C/C&#43;&#43;" />
-<meta property="og:description" content=" tags: Programming Language " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/topics/20200320171108_c/" /><meta property="article:section" content="topics" />
-<meta property="article:published_time" content="2020-03-20T00:00:00+08:00" />
-<meta property="article:modified_time" content="2020-03-20T00:00:00+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="C/C&#43;&#43;"/>
-<meta name="twitter:description" content=" tags: Programming Language "/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/topics/20200320171108_c/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="C/C&#43;&#43;">
+  <meta property="og:description" content=" tags: Programming Language ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="topics">
+    <meta property="article:published_time" content="2020-03-20T00:00:00+08:00">
+    <meta property="article:modified_time" content="2020-03-20T00:00:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C/C&#43;&#43;">
+<meta name="twitter:description" content="
+tags: Programming Language
+">
 
 
 <script type="application/ld+json">
@@ -164,8 +165,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +196,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/topics/">Topics</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       C/C&#43;&#43;
     </h1>
     <div class="post-meta"><span title='2020-03-20 00:00:00 +0800 +0800'>March 20, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -217,6 +216,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1898,9 +1903,10 @@ unordered_map&lt;int, int&gt; freq; // Won&#39;t compile // auto comp_by_map = [
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43; In some problems, we need to detect is our result overflow in a 32-bit integer. The key ideas is check our value before it becomes bigger.
+              <p> tags: C/C&#43;&#43; In some problems, we need to detect is our result overflow in a 32-bit integer. The key ideas is check our value before it becomes bigger.
 For example:
-// INT_MAX 2147483647 // INT_MIN -2147483648 // INT_MAX&#39;s suffix is 7 if (res &gt; INT_MAX / 10 || (res == INT_MAX / 10 &amp;&amp; pop &gt; 7)) { return 0; } // INT_MIN&#39;s suffix is -8 if (res &lt; INT_MIN / 10 || (res == INT_MIN / 10 &amp;&amp; pop &lt; -8)) { return 0; } res = res * 10 &#43; pop; Our final result need a 10 times current value and plus a value, then we check:...</p>
+// INT_MAX 2147483647 // INT_MIN -2147483648 // INT_MAX&#39;s suffix is 7 if (res &gt; INT_MAX / 10 || (res == INT_MAX / 10 &amp;&amp; pop &gt; 7)) { return 0; } // INT_MIN&#39;s suffix is -8 if (res &lt; INT_MIN / 10 || (res == INT_MIN / 10 &amp;&amp; pop &lt; -8)) { return 0; } res = res * 10 &#43; pop; Our final result need a 10 times current value and plus a value, then we check:
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-03-18 07:24:00 +0800 +0800'>March 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Integer Overflow" href="https://notes.0081800.xyz/notes/20220318072424-integer_overflow/"></a>
@@ -1912,8 +1918,9 @@ For example:
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43; source: GeeksforGeeks. “Set vs Unordered_set in C&#43;&#43; STL,” May 28, 2018. https://www.geeksforgeeks.org/set-vs-unordered_set-c-stl/. set Ordered set that implemented by a “Self balancing BST” like Red-Black Tree.
-Extra find operations equal_range returns range of elements matching a specific key lower_bound returns an iterator to the first element not less than the given key upper_bound returns an iterator to the first element greater than the given key #include &lt;iostream&gt; #include &lt;set&gt; #include &lt;assert....</p>
+              <p> tags: C/C&#43;&#43; source: GeeksforGeeks. “Set vs Unordered_set in C&#43;&#43; STL,” May 28, 2018. https://www.geeksforgeeks.org/set-vs-unordered_set-c-stl/. set Ordered set that implemented by a “Self balancing BST” like Red-Black Tree.
+Extra find operations equal_range returns range of elements matching a specific key lower_bound returns an iterator to the first element not less than the given key upper_bound returns an iterator to the first element greater than the given key #include &lt;iostream&gt; #include &lt;set&gt; #include &lt;assert.h&gt; using namespace std; int main(void) { set&lt;int&gt; hset; hset.insert(5); hset.insert(8); hset.insert(13); { // Lower bound equal or greater than auto iter = hset.lower_bound(5); assert(*iter == 5); // 5&#39;s lower bound is 5 itself in the set } { // Upper bound greater than 5 auto iter = hset.upper_bound(5); assert(*iter == 8); // 5&#39;s upper bound is the first value greater than itself } } unordered_set Set that implemented by Hash Table.
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-03-12 21:50:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to set vs unordered_set in C&#43;&#43; STL" href="https://notes.0081800.xyz/notes/20220312215003-set_vs_unordered_set_in_c_stl/"></a>
@@ -1925,8 +1932,9 @@ Extra find operations equal_range returns range of elements matching a specific 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43;,Java,Data Structures In C&#43;&#43; the set container is an ordered or sorted set, unordered_set is the normal set in C&#43;&#43;. Differences between them please check set vs unordered_set in C&#43;&#43; STL.
-In Java there is an java.util.SortedSet interface.</p>
+              <p> tags: C/C&#43;&#43;,Java,Data Structures In C&#43;&#43; the set container is an ordered or sorted set, unordered_set is the normal set in C&#43;&#43;. Differences between them please check set vs unordered_set in C&#43;&#43; STL.
+In Java there is an java.util.SortedSet interface.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-03-12 21:37:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to OrderedSet" href="https://notes.0081800.xyz/notes/20220312213701-orderedset/"></a>
@@ -1938,7 +1946,8 @@ In Java there is an java.util.SortedSet interface.</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43; 只能通过抽象类的指针或引用调用动态解析子类函数，虚函数表示需要动态解析，纯虚函数必须被子类覆盖，否则无法实例化。</p>
+              <p> tags: C/C&#43;&#43; 只能通过抽象类的指针或引用调用动态解析子类函数，虚函数表示需要动态解析，纯虚函数必须被子类覆盖，否则无法实例化。
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-02 07:45:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to C/C&#43;&#43; 多态" href="https://notes.0081800.xyz/notes/20220102074500-c_c_%E5%A4%9A%E6%80%81/"></a>
@@ -1950,11 +1959,11 @@ In Java there is an java.util.SortedSet interface.</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
+              <p> tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
 较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
 atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
 来看下面 litmus test：
-Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?...</p>
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! On ARM/POWER: yes! On Java (using volatiles): no. On C&#43;&#43;11 (sequentially consistent atomics): no. On C&#43;&#43;11 (acquire/release atomics): yes! </p>
             </div>
             <footer class="entry-footer"><span title='2021-07-16 11:59:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to C&#43;&#43; 弱同步原子（acquire/release atomic）" href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/"></a>
@@ -1966,7 +1975,8 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?...</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 并没有仅仅停留在内存一致性（coherence）的C&#43;&#43; 弱同步原子（acquire/release atomic）。它还引入了非同步原子，称为 relaxed 原子（memory_order_relaxed）。这些原子根本没有同步效果——它们没有创建先发生的边——并且它们根本没有排序保证。事实上，宽松原子读_写和普通读_写没有区别，除了宽松原子上的竞争不被认为是竞争， 不能着火 。</p>
+              <p> tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 并没有仅仅停留在内存一致性（coherence）的C&#43;&#43; 弱同步原子（acquire/release atomic）。它还引入了非同步原子，称为 relaxed 原子（memory_order_relaxed）。这些原子根本没有同步效果——它们没有创建先发生的边——并且它们根本没有排序保证。事实上，宽松原子读_写和普通读_写没有区别，除了宽松原子上的竞争不被认为是竞争， 不能着火 。
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-07-16 11:42:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to C&#43;&#43; 非同步原子（Relaxed atomic）" href="https://notes.0081800.xyz/notes/20210716114242-c_%E9%9D%9E%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_relaxed_atomic/"></a>
@@ -1978,8 +1988,9 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0?...</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
-C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。</p>
+              <p> tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
+C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
@@ -2015,8 +2026,9 @@ C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供�
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Emacs,LSP,C/C&#43;&#43;,CMake 通过如下命令生成 clangd 识别的编译配置文件
-mkdir build cd build cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. mv compile_commands.json ../ 然后重启 M-x lsp-restart-workspace RET 即可。</p>
+              <p> tags: Emacs,LSP,C/C&#43;&#43;,CMake 通过如下命令生成 clangd 识别的编译配置文件
+mkdir build cd build cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. mv compile_commands.json ../ 然后重启 M-x lsp-restart-workspace RET 即可。
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-01-14 17:50:00 +0800 +0800'>January 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to C&#43;&#43; LSP" href="https://notes.0081800.xyz/notes/20210114175011-lsp/"></a>
@@ -2069,9 +2081,10 @@ Iterator class 重载的操作符：
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43;,Programming Tools
+              <p> tags: C/C&#43;&#43;,Programming Tools
 安装的头文件必须包含在目标的源代码中，否则构建如 iOS 的 Framework 时无法正确包含头文件
-ADD_LIBRARY(test test.h) CMake 生成 C&#43;&#43; LSP 配置文件</p>
+ADD_LIBRARY(test test.h) CMake 生成 C&#43;&#43; LSP 配置文件
+</p>
             </div>
             <footer class="entry-footer"><span title='2020-06-28 12:30:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to CMake" href="https://notes.0081800.xyz/notes/20200628123035-cmake/"></a>
@@ -2086,7 +2099,8 @@ ADD_LIBRARY(test test.h) CMake 生成 C&#43;&#43; LSP 配置文件</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

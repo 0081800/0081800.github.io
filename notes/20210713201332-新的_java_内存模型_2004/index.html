@@ -7,19 +7,31 @@
 <meta name="robots" content="index, follow">
 <title>新的 Java 内存模型（2004） | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content=" tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+<meta name="description" content="
+tags: Java 内存模型
+
+新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
+
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
-同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
-有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
-支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+同步原子（volatile）和其它操作
+参见：Java 同步原子（volatile）。
+有数据竞争的程序语义
+弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+
+支持Java的一般安全（security）和安全保障（safety guarantee）。
+让程序员更容易发现错误。
+使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。
+让程序员更清楚他们的程序是做什么的
+
+新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
 具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
-happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） ">
+happens-before 不排除语无伦次（incoherence）
+以前发生的事不排除无用性（acausality）">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -45,7 +57,7 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -64,33 +76,46 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="新的 Java 内存模型（2004）" />
-<meta property="og:description" content=" tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="新的 Java 内存模型（2004）">
+  <meta property="og:description" content=" tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
 同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
 有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
 支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
 具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
-happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2021-07-13T20:13:00+08:00" />
-<meta property="article:modified_time" content="2021-07-13T20:13:00+08:00" />
+happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality）">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2021-07-13T20:13:00+08:00">
+    <meta property="article:modified_time" content="2021-07-13T20:13:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新的 Java 内存模型（2004）">
+<meta name="twitter:description" content="
+tags: Java 内存模型
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="新的 Java 内存模型（2004）"/>
-<meta name="twitter:description" content=" tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
+
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
-同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
-有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
-支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+同步原子（volatile）和其它操作
+参见：Java 同步原子（volatile）。
+有数据竞争的程序语义
+弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+
+支持Java的一般安全（security）和安全保障（safety guarantee）。
+让程序员更容易发现错误。
+使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。
+让程序员更清楚他们的程序是做什么的
+
+新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
 具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
-happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） "/>
+happens-before 不排除语无伦次（incoherence）
+以前发生的事不排除无用性（acausality）">
 
 
 <script type="application/ld+json">
@@ -119,7 +144,7 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
   "@type": "BlogPosting",
   "headline": "新的 Java 内存模型（2004）",
   "name": "新的 Java 内存模型（2004）",
-  "description": " tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。\nJSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。\nJava 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：\n同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。\n有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：\n支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。\n具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。\nhappens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality） ",
+  "description": " tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。\nJSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。\nJava 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：\n同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。\n有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：\n支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。\n具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。\nhappens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality）",
   "keywords": [
     
   ],
@@ -185,8 +210,6 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -218,7 +241,7 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       新的 Java 内存模型（2004）
     </h1>
     <div class="post-meta"><span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -276,6 +299,12 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1916,8 +1945,9 @@ happens-before 不排除语无伦次（incoherence） 以前发生的事不排�
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
-C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。</p>
+              <p> tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
+C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
@@ -1932,7 +1962,8 @@ C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

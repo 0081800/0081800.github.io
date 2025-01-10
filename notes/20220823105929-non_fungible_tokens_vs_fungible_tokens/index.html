@@ -7,12 +7,15 @@
 <meta name="robots" content="index, follow">
 <title>Non-Fungible Tokens vs. Fungible Tokens | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you.">
+<meta name="description" content="
+tags: Blockchain,Ethereum
+source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/.
+
+
+ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you. In the same way, if I have 100 of the same ERC20 token, it doesn’t matter which one I give you. This contrasts with ERC721 tokens which are non-fungible tokens (NFTs) such as cryptokitties.">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220823105929-non_fungible_tokens_vs_fungible_tokens/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +41,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +60,23 @@
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20220823105929-non_fungible_tokens_vs_fungible_tokens/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Non-Fungible Tokens vs. Fungible Tokens">
+  <meta property="og:description" content=" tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you. In the same way, if I have 100 of the same ERC20 token, it doesn’t matter which one I give you. This contrasts with ERC721 tokens which are non-fungible tokens (NFTs) such as cryptokitties.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-08-23T10:59:00+08:00">
+    <meta property="article:modified_time" content="2022-08-23T10:59:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Non-Fungible Tokens vs. Fungible Tokens">
+<meta name="twitter:description" content="
+tags: Blockchain,Ethereum
+source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/.
 
-<meta property="og:title" content="Non-Fungible Tokens vs. Fungible Tokens" />
-<meta property="og:description" content="tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20220823105929-non_fungible_tokens_vs_fungible_tokens/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-08-23T10:59:00+08:00" />
-<meta property="article:modified_time" content="2022-08-23T10:59:00+08:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Non-Fungible Tokens vs. Fungible Tokens"/>
-<meta name="twitter:description" content="tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you."/>
+ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you. In the same way, if I have 100 of the same ERC20 token, it doesn’t matter which one I give you. This contrasts with ERC721 tokens which are non-fungible tokens (NFTs) such as cryptokitties.">
 
 
 <script type="application/ld+json">
@@ -98,7 +105,7 @@
   "@type": "BlogPosting",
   "headline": "Non-Fungible Tokens vs. Fungible Tokens",
   "name": "Non-Fungible Tokens vs. Fungible Tokens",
-  "description": "tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you.",
+  "description": " tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you. In the same way, if I have 100 of the same ERC20 token, it doesn’t matter which one I give you. This contrasts with ERC721 tokens which are non-fungible tokens (NFTs) such as cryptokitties.\n",
   "keywords": [
     
   ],
@@ -164,8 +171,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +202,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Non-Fungible Tokens vs. Fungible Tokens
     </h1>
     <div class="post-meta"><span title='2022-08-23 10:59:00 +0800 +0800'>August 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -246,6 +251,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1886,9 +1897,11 @@
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: DeFi, Blockchain, Uniswap, Uniswap V3 I need derive price from decentralized exchanges, and I have finished some research about Uniswap v3.
+              <p> tags: DeFi, Blockchain, Uniswap, Uniswap V3 I need derive price from decentralized exchanges, and I have finished some research about Uniswap v3.
 It’s brand new for me, and after that I want to share some ideas about DeFi, and I think it would be helpful for you to understand Uniswap and some other decentralized exchanges.
-DeFi from Scratch We exchange stuffs very often, and we can exchange tokens in a centralized exchange....</p>
+DeFi from Scratch We exchange stuffs very often, and we can exchange tokens in a centralized exchange.
+For example, Alice owns some ETH, and Bob owns some DAI. Now, Alice want to swap some ETH for DAI, and Bob want to swap some DAI for ETH. How could they do?
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-08-25 16:05:00 +0800 +0800'>August 25, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to DeFi from Scratch" href="https://notes.0081800.xyz/notes/20220825160507-defi_from_scartch/"></a>
@@ -1903,7 +1916,8 @@ DeFi from Scratch We exchange stuffs very often, and we can exchange tokens in a
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

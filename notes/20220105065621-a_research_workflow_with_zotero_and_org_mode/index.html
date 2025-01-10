@@ -7,14 +7,21 @@
 <meta name="robots" content="index, follow">
 <title>A research workflow with Zotero and Org mode | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Org Mode,Taking Notes,Zotero,Research,Emacs source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/. Gluing zotero and Org mode together with zotxt(zotxt-emacs).
+<meta name="description" content="
+tags: Org Mode,Taking Notes,Zotero,Research,Emacs
+source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/.
+
+Gluing zotero and Org mode together with zotxt(zotxt-emacs).
 Workflow:
-Store papers into zotero by its browser plugin, that may also download the PDF. Create a page in Emacs and link to zotero via zotxt-emacs C-c &quot; &quot;. When I want to read the paper. Go to the page in Emacs and type C-c &quot; a.">
+
+Store papers into zotero by its browser plugin, that may also download the PDF.
+Create a page in Emacs and link to zotero via zotxt-emacs C-c &quot; &quot;.
+When I want to read the paper. Go to the page in Emacs and type C-c &quot; a.
+When I&rsquo;m reading a paper and see a citation that might be useful, I look it up on the internet and repeat this process to store a note linking to it.
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220105065621-a_research_workflow_with_zotero_and_org_mode/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -40,7 +47,7 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -59,23 +66,31 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="A research workflow with Zotero and Org mode" />
-<meta property="og:description" content="tags: Org Mode,Taking Notes,Zotero,Research,Emacs source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/. Gluing zotero and Org mode together with zotxt(zotxt-emacs).
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20220105065621-a_research_workflow_with_zotero_and_org_mode/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="A research workflow with Zotero and Org mode">
+  <meta property="og:description" content=" tags: Org Mode,Taking Notes,Zotero,Research,Emacs source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/. Gluing zotero and Org mode together with zotxt(zotxt-emacs).
 Workflow:
-Store papers into zotero by its browser plugin, that may also download the PDF. Create a page in Emacs and link to zotero via zotxt-emacs C-c &quot; &quot;. When I want to read the paper. Go to the page in Emacs and type C-c &quot; a." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20220105065621-a_research_workflow_with_zotero_and_org_mode/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-01-05T06:56:00+08:00" />
-<meta property="article:modified_time" content="2022-01-05T06:56:00+08:00" />
+Store papers into zotero by its browser plugin, that may also download the PDF. Create a page in Emacs and link to zotero via zotxt-emacs C-c &#34; &#34;. When I want to read the paper. Go to the page in Emacs and type C-c &#34; a. When I’m reading a paper and see a citation that might be useful, I look it up on the internet and repeat this process to store a note linking to it. ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-01-05T06:56:00+08:00">
+    <meta property="article:modified_time" content="2022-01-05T06:56:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A research workflow with Zotero and Org mode">
+<meta name="twitter:description" content="
+tags: Org Mode,Taking Notes,Zotero,Research,Emacs
+source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/.
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="A research workflow with Zotero and Org mode"/>
-<meta name="twitter:description" content="tags: Org Mode,Taking Notes,Zotero,Research,Emacs source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/. Gluing zotero and Org mode together with zotxt(zotxt-emacs).
+Gluing zotero and Org mode together with zotxt(zotxt-emacs).
 Workflow:
-Store papers into zotero by its browser plugin, that may also download the PDF. Create a page in Emacs and link to zotero via zotxt-emacs C-c &quot; &quot;. When I want to read the paper. Go to the page in Emacs and type C-c &quot; a."/>
+
+Store papers into zotero by its browser plugin, that may also download the PDF.
+Create a page in Emacs and link to zotero via zotxt-emacs C-c &quot; &quot;.
+When I want to read the paper. Go to the page in Emacs and type C-c &quot; a.
+When I&rsquo;m reading a paper and see a citation that might be useful, I look it up on the internet and repeat this process to store a note linking to it.
+">
 
 
 <script type="application/ld+json">
@@ -104,7 +119,7 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
   "@type": "BlogPosting",
   "headline": "A research workflow with Zotero and Org mode",
   "name": "A research workflow with Zotero and Org mode",
-  "description": "tags: Org Mode,Taking Notes,Zotero,Research,Emacs source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/. Gluing zotero and Org mode together with zotxt(zotxt-emacs).\nWorkflow:\nStore papers into zotero by its browser plugin, that may also download the PDF. Create a page in Emacs and link to zotero via zotxt-emacs C-c \u0026quot; \u0026quot;. When I want to read the paper. Go to the page in Emacs and type C-c \u0026quot; a.",
+  "description": " tags: Org Mode,Taking Notes,Zotero,Research,Emacs source: “A Research Workflow with Zotero and Org Mode | Mkbehr.Com.” Accessed January 5, 2022. http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/. Gluing zotero and Org mode together with zotxt(zotxt-emacs).\nWorkflow:\nStore papers into zotero by its browser plugin, that may also download the PDF. Create a page in Emacs and link to zotero via zotxt-emacs C-c \u0026quot; \u0026quot;. When I want to read the paper. Go to the page in Emacs and type C-c \u0026quot; a. When I\u0026rsquo;m reading a paper and see a citation that might be useful, I look it up on the internet and repeat this process to store a note linking to it. ",
   "keywords": [
     
   ],
@@ -170,8 +185,6 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -203,7 +216,7 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       A research workflow with Zotero and Org mode
     </h1>
     <div class="post-meta"><span title='2022-01-05 06:56:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -1855,6 +1868,12 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
 
    
 
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -1867,7 +1886,8 @@ Store papers into zotero by its browser plugin, that may also download the PDF. 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -37,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Notes" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Notes">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -159,13 +154,57 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>xinetd
+    <h2 class="entry-hint-parent">Let&#39;s Encrypt
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Over the Wall,Network xinetd 代理 SMTP 和 IMAP 通过 xinetd 代理 SMTP 和 IMAP 实现 gmail 翻墙。
+    <p> tags: Over the Wall,HTTPs 这里以新增 vd.linuxzen.com 为例。
+新增 DNS 解析 通过 DNSPOD 新增 DNS 解析 A 记录 调整 Nginx 新增 HTTP 站点 Nginx 参考配置
+server { listen 80; server_name vd.linuxzen.com; include /etc/nginx/snippets/letsencrypt-acme-challenge.conf; } 新增签发证书 $ acme.sh --force --issue -d linuxzen.com -d www.linuxzen.com -d cwiki.linuxzen.com -d monitor.linuxzen.com -d v.linuxzen.com -d vd.linuxzen.com -d d.linuxzen.com -d piwik.linuxzen.com -d t.linuxzen.com -d wiki.linuxzen.com -d note.linuxzen.com -w /var/www/letsencrypt/ 安装证书
+$ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen.com/cert.pem --key-file /etc/nginx/certs/linuxzen.com/privkey.pem --fullchain-file /etc/nginx/certs/linuxzen.com/fullchain.pem --reloadcmd &#34;sudo service nginx reload &amp;&amp; docker restart ipsec-vpn-ssl &amp;&amp; docker restart v2ray &amp;&amp; docker restart v2ray2&#34; 调整 Nginx 配置文件应用证书 server { listen 80; server_name vd.linuxzen.com; return 301 https://$server_name$request_uri; } server { listen 443 http2 ssl fastopen=3 reuseport; server_name vd.linuxzen.com; ssl_certificate /etc/nginx/certs/linuxzen.com/fullchain.pem; ssl_certificate_key /etc/nginx/certs/linuxzen.com/privkey.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_prefer_server_ciphers on; ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH&#43;AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ssl_session_timeout 1d; ssl_session_cache shared:SSL:50m; ssl_stapling on; ssl_stapling_verify on; add_header Strict-Transport-Security max-age=15768000; access_log /var/log/nginx/vd.linuxzen.com.log; location / { root /srv/www/vd.linuxzen.com; index index.html index.htm; } location /passport { proxy_redirect off; proxy_pass http://v2ray; proxy_http_version 1.1; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &#34;Upgrade&#34;; proxy_set_header Host $http_host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } include /etc/nginx/snippets/letsencrypt-acme-challenge.conf; } </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Let&#39;s Encrypt" href="https://notes.0081800.xyz/notes/20200319221212_let_s_encrypt/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Over the Wall
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Over the Wall" href="https://notes.0081800.xyz/notes/20200319224041_%E7%BF%BB%E5%A2%99/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">V2Ray
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Over the Wall,Tools 架构 Client -&gt; DIDIYun(HAProxy) -&gt; HK
+滴滴云 HAPorxy 配置 117.51.146.119
+frontend v_linuxzen_com bind *:6697 option tcplog mode tcp default_backend v_linuxzen_com_nodes backend v_linuxzen_com_nodes mode tcp balance roundrobin option ssl-hello-chk server webserver1 45.115.36.35:443 check 客户端改动 需要调整 hosts
+$ echo &#39;117.51.146.119 v.linuxzen.com&#39; | sudo tee -a /etc/hosts HK V2Ray Docker 启动 $ docker run -d -p 127.0.0.1:25001:25001 --name v2ray --restart always -v /etc/v2ray:/etc/v2ray v2ray/official HK Let’s Encrypt 证书 $ acme.sh --issue -d linuxzen.com -d www.linuxzen.com -d cwiki.linuxzen.com -d monitor.linuxzen.com -d v.linuxzen.com -d d.linuxzen.com -d piwik.linuxzen.com -d t.linuxzen.com -d wiki.linuxzen.com -d note.linuxzen.com -w /var/www/letsencrypt/ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen.com/cert.pem --key-file /etc/nginx/certs/linuxzen.com/privkey.pem --fullchain-file /etc/nginx/certs/linuxzen.com/fullchain.pem --reloadcmd &#34;sudo service nginx reload &amp;&amp; docker restart ipsec-vpn-ssl &amp;&amp; docker restart v2ray &amp;&amp; docker restart v2ray2&#34; HK V2Ray 配置 { &#34;log&#34;: { &#34;loglevel&#34;: &#34;debug&#34;, &#34;access&#34;: &#34;/var/log/v2ray/access.log&#34;, &#34;error&#34;: &#34;/var/log/v2ray/error.log&#34; }, &#34;inbounds&#34;: [ { &#34;port&#34;: 25001, &#34;listen&#34;:&#34;0.0.0.0&#34;, &#34;protocol&#34;: &#34;vmess&#34;, &#34;settings&#34;: { &#34;clients&#34;: [ { &#34;id&#34;: &#34;1fde12b8-0cfd-11ea-a4b3-acde48001122&#34;, &#34;alterId&#34;: 64 } ] }, &#34;streamSettings&#34;: { &#34;network&#34;: &#34;ws&#34;, &#34;wsSettings&#34;: { &#34;path&#34;: &#34;/passport&#34; } } } ], &#34;outbounds&#34;: [ { &#34;protocol&#34;: &#34;freedom&#34;, &#34;settings&#34;: {} } ] } HK Nginx 配置 server { listen 80; server_name v.linuxzen.com; return 301 https://$server_name$request_uri; } upstream v2ray { server 127.0.0.1:25001; server 127.0.0.1:25002; } server{ listen 443 http2 ssl fastopen=3 reuseport; # listen 80; server_name v.linuxzen.com; ssl_certificate /etc/nginx/certs/linuxzen.com/fullchain.pem; ssl_certificate_key /etc/nginx/certs/linuxzen.com/privkey.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_prefer_server_ciphers on; ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH&#43;AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ssl_session_timeout 1d; ssl_session_cache shared:SSL:50m; ssl_stapling on; ssl_stapling_verify on; add_header Strict-Transport-Security max-age=15768000; access_log /var/log/nginx/v.linuxzen.com.log; location / { root /srv/www/v.linuxzen.com; index index.html index.htm; } location /passport { proxy_redirect off; proxy_pass http://v2ray; proxy_http_version 1.1; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &#34;Upgrade&#34;; proxy_set_header Host $http_host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } include /etc/nginx/snippets/letsencrypt-acme-challenge.conf; } 新增一个域名用于单独的滴滴云加速 使用一个单独的域名 vd.linuxzen.com 用于滴滴云加速，参见Let’s Encrypt。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to V2Ray" href="https://notes.0081800.xyz/notes/20200319215535_v2ray/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">xinetd
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Over the Wall,Network xinetd 代理 SMTP 和 IMAP 通过 xinetd 代理 SMTP 和 IMAP 实现 gmail 翻墙。
 配置服务端
-service imap { type = UNLISTED port = 993 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = imap.gmail.com 993 per_source = UNLIMITED cps = 100 2 } service smtp-465 { type = UNLISTED port = 465 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = smtp....</p>
+service imap { type = UNLISTED port = 993 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = imap.gmail.com 993 per_source = UNLIMITED cps = 100 2 } service smtp-465 { type = UNLISTED port = 465 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = smtp.gmail.com 465 per_source = UNLIMITED cps = 100 2 } service smtp-587 { type = UNLISTED port = 587 bind = 0.0.0.0 socket_type = stream wait = no user = nobody redirect = smtp.gmail.com 587 per_source = UNLIMITED cps = 100 2 } 本机修改 hosts
+...</p>
   </div>
   <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to xinetd" href="https://notes.0081800.xyz/notes/20200319223026_xinetd/"></a>
@@ -173,7 +212,7 @@ service imap { type = UNLISTED port = 993 bind = 0.0.0.0 socket_type = stream wa
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>股市相关概念
+    <h2 class="entry-hint-parent">股市相关概念
     </h2>
   </header>
   <div class="entry-content">
@@ -196,58 +235,6 @@ Wikipedia: https://zh.wikipedia.org/wiki/%E5%B8%82%E7%9B%88%E7%8E%87
   <footer class="entry-footer"><span title='2020-03-18 00:00:00 +0800 +0800'>March 18, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 股市相关概念" href="https://notes.0081800.xyz/notes/20200318160435_%E8%82%A1%E5%B8%82%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>基金定投
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 适合人群：穷人、笨人、忙人、好人
-为什么
-通胀太高，股票战胜通胀的重要工具 绝大多数人不具备择时能力 避免高点买入 核心逻辑：放弃择时，持续小额买入，降低成本
-缺点：在市场上涨、高位震荡过程中，虽然盈利大幅提高，但持仓成本也在快速提高。一旦市场转向熊市，整体会迅速亏本。
-单边上涨：定投盈利少于一次性投资 先震荡后上涨：定投盈利少于一次性投资 先上涨后下跌：定投亏损多于一次性投资 单边下跌：定投亏损少于一次性投资 震荡：定投与一次性投资持平 先下跌再震荡：定投亏损少于一次性投资 除了坚持，还在于止盈策略，牛市中成本不断提高，需要及时止盈，防止下跌时候的亏损 错误理念
-定投不是万能，需要防止“倒微笑曲线周期” 巴菲特说指数基金难以超越仅限于美股，A 股与之相反 定投组合包含债券基金：定投适合波动较大的权益类资产（股票、商品），债卷等固定收益类产品本身波动小，一次性买入和定投基本没区别 月定投不够还要周定投：基本没差别 定投是懒人投资，坚持即可：还需要主动管理，如定投的标的不再适合定投，该换要换。 一次性投资止损不止赢，定投止赢不止损。 定投只买开放式基金：还可以宽基指数基金、主题指数基金、行业指数基金、风格指数基金、策略指数基金、QDII 指数基金、商品指数基金。此外，还有折价的封闭式基金、定增基金，适当的配置会非常好玩。 策略
-定投买入，止盈不止损： 需要在可能出现的“倒微笑曲线周期”及时止盈。 制订量化估值标准 技术分析
-通过MA、MACD、RSI等各种技术指标，判断目前市场从长期看，是相对低位还是高位
-趋势上涨原则：MA(30)&gt;MA(60)&gt;MA(120)； 趋势下跌原则：MA(30)&lt;MA(60)&lt;MA(120)。 均线偏离法：根据指数价格对均线偏离的程度决定投资额度的多少。
-P&gt;MA(120)：正偏离，减少投资额度； P&lt;MA(120)：负偏离，增加投资额度。 基本面分析
-根据指数相关基本面指标，判断股市处于高估或者低估。如市盈率、市净率、整体ROI等地。在股市高估时，降低投资额度，在股市低估时，增加投资额度。
-定期不定额策略
-在上述策略的基础上，如目前市场明显在历史地点，原来每个月投1000的，这时不妨投2000。如市场明显高估，每个月投1000的可以投500。如果涨的都害怕了，可以不投甚至卖出一部分。
-产品池管理
-构建“核心——卫星”组合
-技巧
-部分基金可以场内购买（炒股账号购买），交易时间短手续费低 Links 基金定投，看这篇就够了 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-11 00:00:00 +0800 +0800'>March 11, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 基金定投" href="https://notes.0081800.xyz/notes/20200311093314_%E5%9F%BA%E9%87%91%E5%AE%9A%E6%8A%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Deep Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: AI What is the Difference Between CNN and RNN? </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-10 00:00:00 +0800 +0800'>March 10, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Deep Learning" href="https://notes.0081800.xyz/notes/20200310093014_deep_learning/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Machine Learning Deep Learning 《机器学习实战》读书笔记 How to Train Really Large Models on Many GPUs? </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to AI" href="https://notes.0081800.xyz/notes/20200309112015_ai/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://notes.0081800.xyz/notes/page/143/">
@@ -260,7 +247,8 @@ P&gt;MA(120)：正偏离，减少投资额度； P&lt;MA(120)：负偏离，增�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

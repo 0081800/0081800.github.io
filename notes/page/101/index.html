@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -37,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Notes" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Notes">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -159,7 +154,47 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>流处理系统
+    <h2 class="entry-hint-parent">Networking 101: Building Blocks of TCP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: TCP,High Performance Browser Networking 原文链接：https://hpbn.co/building-blocks-of-tcp/。 Overview The 4th version of RFC 675, and final two seperate RFCs:
+RFC 791 - Internet Protocol(IPv4) RFC 793 - Transmission Control Protocol TCP provides:
+Effective abstraction. A reliable network running over unreliable channel. Hiding most the complexity of network communication: retransmission of lost data, in-order delivery, congestion control and avoidance, data integrity, and more. Three-Way Handhsake Sequence numbers are important for keep in-order delivery, and they are picked randomly from both sides for security reasons.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:17:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Networking 101: Building Blocks of TCP" href="https://notes.0081800.xyz/notes/20210813071739-networking_101_building_blocks_of_tcp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">TCP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Network </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:16:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to TCP" href="https://notes.0081800.xyz/notes/20210813071635-tcp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">背压
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>阻止生产者发送更多的消息。使用背压的场景：
+Unix 管道 TCP </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:14:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 背压" href="https://notes.0081800.xyz/notes/20210813071452-%E8%83%8C%E5%8E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">流处理系统
     </h2>
   </header>
   <div class="entry-content">
@@ -172,8 +207,7 @@
 对变更流的 API 支持 数据库开始支持将变更流作为标准接口。
 事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：
 CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。
-从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。
-状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。...</p>
+...</p>
   </div>
   <footer class="entry-footer"><span title='2021-08-13 06:54:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 流处理系统" href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/"></a>
@@ -181,50 +215,15 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Why MapReduce is making a comeback
+    <h2 class="entry-hint-parent">Why MapReduce is making a comeback
     </h2>
   </header>
   <div class="entry-content">
-    <p>原文链接：Why MapReduce is making a comeback。</p>
+    <p>原文链接：Why MapReduce is making a comeback。
+</p>
   </div>
   <footer class="entry-footer"><span title='2021-08-11 11:19:00 +0800 +0800'>August 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Why MapReduce is making a comeback" href="https://notes.0081800.xyz/notes/20210811111926-why_mapreduce_is_making_a_comeback/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>When Zero Cost Abstractions Aren&#39;t Zero Cost
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Rust 原文：When Zero Cost Abstractions Aren’t Zero Cost </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-10 15:17:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to When Zero Cost Abstractions Aren&#39;t Zero Cost" href="https://notes.0081800.xyz/notes/20210810151736-when_zero_cost_abstractions_aren_t_zero_cost/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>弹性分布式数据集
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-10 07:26:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 弹性分布式数据集" href="https://notes.0081800.xyz/notes/20210810072604-%E5%BC%B9%E6%80%A7%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>HBase
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-10 07:14:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to HBase" href="https://notes.0081800.xyz/notes/20210810071455-hbase/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -238,7 +237,8 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

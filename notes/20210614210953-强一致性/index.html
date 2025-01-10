@@ -10,9 +10,7 @@
 <meta name="description" content="强一致性 - Taking Smart Notes With Org-mode">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210614210953-%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +55,17 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="强一致性" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210614210953-%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2021-06-14T21:09:00+08:00" />
-<meta property="article:modified_time" content="2021-06-14T21:09:00+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="强一致性"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210614210953-%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="强一致性">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2021-06-14T21:09:00+08:00">
+    <meta property="article:modified_time" content="2021-06-14T21:09:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强一致性">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -164,8 +160,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +191,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       强一致性
     </h1>
     <div class="post-meta"><span title='2021-06-14 21:09:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King
@@ -211,6 +205,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1854,7 +1854,8 @@
               <p>是一种比强一致性弱但是比最终一致性效应强的保证，单调读保证：
 如果某个用户依次进行多次读取，则绝不会看到回滚的现象，即在读取到较新的值之后又发生读旧值的情况。
 场景 用户刷新网络，读请求被随机路由到某个从节点，先后从两个不同的从节点读取到了不同的内容，比如看到一个新添加的评论一次出现，一次消失。
-解决方案 按照用户 ID 进行哈希方法取代随机路由。</p>
+解决方案 按照用户 ID 进行哈希方法取代随机路由。
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-06-14 21:09:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 单调读一致性" href="https://notes.0081800.xyz/notes/20210614210918-%E5%8D%95%E8%B0%83%E8%AF%BB%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
@@ -1869,7 +1870,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

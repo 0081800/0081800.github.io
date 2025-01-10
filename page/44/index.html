@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.125.4"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.139.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -39,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,17 +58,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Taking Smart Notes With Org-mode" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Taking Smart Notes With Org-mode"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Taking Smart Notes With Org-mode">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Taking Smart Notes With Org-mode">
+<meta name="twitter:description" content="">
 
 <script type="application/ld+json">
 {
@@ -77,7 +74,7 @@
   "name": "Taking Smart Notes With Org-mode",
   "url": "https://notes.0081800.xyz/",
   "description": "",
-  "thumbnailUrl": "https://notes.0081800.xyz/favicon.ico",
+  "logo": "https://notes.0081800.xyz/favicon.ico",
   "sameAs": [
       
   ]
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -154,12 +149,52 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 35. Search Insert Position
+    <h2 class="entry-hint-parent">In-place Reverse
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don’t find target in nums:
-Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l !...</p>
+    <p> tags: In-place WikiPedia: https://en.wikipedia.org/wiki/In-place%5Falgorithm Let see two examples before we go further:
+As above we can see, to reverse a array in-place, we just need swap each two elements in the array from both side to middle.
+The pseudo code from WikiPedia:
+function reverse_in_place(a[0..n-1]) for i from 0 to floor((n-2)/2) tmp := a[i] a[i] := a[n − 1 − i] a[n − 1 − i] := tmp The loop travels the array to the middle and swap each other in the list, two points we must be noticed:
+We stop the element at(not before): floor((n - 2) / 2), It’s both 1 of the two above figures. We swap current element with n - 1 - i. </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-01 10:43:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to In-place Reverse" href="https://notes.0081800.xyz/notes/20220401104307-in_place_reverse/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">In-place
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Algorithm </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-01 10:42:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to In-place" href="https://notes.0081800.xyz/notes/20220401104238-in_place/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode101: 344. Reverse String
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: In-place,LeetCode101,In-place Reverse class Solution { public: void reverseString(vector&lt;char&gt;&amp; s) { if (s.size() == 1) { return; } for (int i = 0; i &lt;= (s.size() - 2) / 2; &#43;&#43;i) { swap(s[s.size() - 1 - i], s[i]); } } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-04-01 10:42:00 +0800 +0800'>April 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 344. Reverse String" href="https://notes.0081800.xyz/notes/20220401104229-leetcode101_344_reverse_string/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode101: 35. Search Insert Position
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don’t find target in nums:
+Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l != r) { mid = l &#43; (r - l) / 2; if (target == nums[mid]) { return mid; } if (target &lt; nums[mid]) { r = mid; } else { l = mid &#43; 1; } } if (target &gt; nums[r]) { return r &#43; 1; } if (target &gt; nums[mid]) { return mid &#43; 1; } return mid; } }; </p>
   </div>
   <footer class="entry-footer"><span title='2022-03-30 16:55:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 35. Search Insert Position" href="https://notes.0081800.xyz/notes/20220330165507-leetcode101_35_search_insert_position/"></a>
@@ -167,7 +202,7 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>LeetCode101: 74. Search a 2D Matrix
+    <h2 class="entry-hint-parent">LeetCode101: 74. Search a 2D Matrix
     </h2>
   </header>
   <div class="entry-content">
@@ -175,45 +210,6 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
   </div>
   <footer class="entry-footer"><span title='2022-03-30 16:01:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 74. Search a 2D Matrix" href="https://notes.0081800.xyz/notes/20220330160157-leetcode101_74_search_a_2d_matrix/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Divide-and-Conquer
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Algorithm WIKIEPEDIA: https://en.wikipedia.org/wiki/Divide-and-conquer%5Falgorithm The points should been noted:
-The middle position is not (right - left) / 2, it must be left &#43; ((right - left) / 2). </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-30 15:58:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Divide-and-Conquer" href="https://notes.0081800.xyz/notes/20220330155829-divide_and_conquer/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>LeetCode101: 136. Single Number
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Bit Manipulation,Bitwise Operator: XOR According to bitwise operator XOR:
-x ^ x = 0 y ^ 0 = y We apply the XOR operator to all the nums, all the same numbers will apply x ^ x = 0, and then y ^ 0 = y will result the single number.
-class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int xorN = 0; for (auto iter = nums.begin(); iter !...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-30 07:09:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 136. Single Number" href="https://notes.0081800.xyz/notes/20220330070916-leetcode101_136_single_number/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Bit Manipulation
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Algorithm </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-30 07:05:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Bit Manipulation" href="https://notes.0081800.xyz/notes/20220330070500-bit_manipulation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -227,7 +223,8 @@ class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int xor
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

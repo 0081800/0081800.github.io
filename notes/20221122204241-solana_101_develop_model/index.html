@@ -7,18 +7,49 @@
 <meta name="robots" content="index, follow">
 <title>Solana 101: 1. Develop Model | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.
-EVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
-Solana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：
-Signers 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）； Read-only 交易里对该账号只读； Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）； Programs or Smart Contract3 账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：
-Native Programs &ndash; 区块链系统提供的标准库； On Chain Programs &ndash; 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
+<meta name="description" content="
+tags: Solana 101: Create an Escrow dApp
+
+Account
+UTXO
+Unspend Transaction Output.
+EVM Accounts1
+
+EOA(Externally-owned acount) - 用户用私钥控制的账号；
+合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。
+
+账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）；
+这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
+Solana Account Model
+Accounts2
+
+账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统；
+包含元数据（metadata）说明谁有权限访问这些状态；
+Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收；
+
+一笔交易里可以参与的账号类型有：
+
+Signers 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）；
+Read-only 交易里对该账号只读；
+Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）；
+
+Programs or Smart Contract3
+账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：
+
+Native Programs &ndash; 区块链系统提供的标准库；
+On Chain Programs &ndash; 用户开发部署到链上的智能合约。
+
+同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
 Solana 的 Program 可以被更新。
-搭建开发环境 命令行钱包 sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34; 连接到测试节点 solana config set --url https://api.">
+搭建开发环境
+命令行钱包
+sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34;
+连接到测试节点
+solana config set --url https://api.testnet.solana.com
+官方文档是连接到本地节点，这里不太推荐，因为使用测试节点可以结合链浏览器比较直观的观测结果。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20221122204241-solana_101_develop_model/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -44,7 +75,7 @@ Solana 的 Program 可以被更新。
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -63,31 +94,63 @@ Solana 的 Program 可以被更新。
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Solana 101: 1. Develop Model" />
-<meta property="og:description" content="tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20221122204241-solana_101_develop_model/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Solana 101: 1. Develop Model">
+  <meta property="og:description" content=" tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.
 EVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
 Solana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：
 Signers 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）； Read-only 交易里对该账号只读； Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）； Programs or Smart Contract3 账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：
-Native Programs &ndash; 区块链系统提供的标准库； On Chain Programs &ndash; 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
+Native Programs – 区块链系统提供的标准库； On Chain Programs – 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
 Solana 的 Program 可以被更新。
-搭建开发环境 命令行钱包 sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34; 连接到测试节点 solana config set --url https://api." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20221122204241-solana_101_develop_model/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-11-22T20:42:00+08:00" />
-<meta property="article:modified_time" content="2022-11-22T20:42:00+08:00" />
+搭建开发环境 命令行钱包 sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34; 连接到测试节点 solana config set --url https://api.testnet.solana.com 官方文档是连接到本地节点，这里不太推荐，因为使用测试节点可以结合链浏览器比较直观的观测结果。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-11-22T20:42:00+08:00">
+    <meta property="article:modified_time" content="2022-11-22T20:42:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solana 101: 1. Develop Model">
+<meta name="twitter:description" content="
+tags: Solana 101: Create an Escrow dApp
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Solana 101: 1. Develop Model"/>
-<meta name="twitter:description" content="tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.
-EVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
-Solana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：
-Signers 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）； Read-only 交易里对该账号只读； Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）； Programs or Smart Contract3 账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：
-Native Programs &ndash; 区块链系统提供的标准库； On Chain Programs &ndash; 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
+Account
+UTXO
+Unspend Transaction Output.
+EVM Accounts1
+
+EOA(Externally-owned acount) - 用户用私钥控制的账号；
+合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。
+
+账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）；
+这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
+Solana Account Model
+Accounts2
+
+账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统；
+包含元数据（metadata）说明谁有权限访问这些状态；
+Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收；
+
+一笔交易里可以参与的账号类型有：
+
+Signers 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）；
+Read-only 交易里对该账号只读；
+Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）；
+
+Programs or Smart Contract3
+账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：
+
+Native Programs &ndash; 区块链系统提供的标准库；
+On Chain Programs &ndash; 用户开发部署到链上的智能合约。
+
+同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
 Solana 的 Program 可以被更新。
-搭建开发环境 命令行钱包 sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34; 连接到测试节点 solana config set --url https://api."/>
+搭建开发环境
+命令行钱包
+sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34;
+连接到测试节点
+solana config set --url https://api.testnet.solana.com
+官方文档是连接到本地节点，这里不太推荐，因为使用测试节点可以结合链浏览器比较直观的观测结果。">
 
 
 <script type="application/ld+json">
@@ -116,7 +179,7 @@ Solana 的 Program 可以被更新。
   "@type": "BlogPosting",
   "headline": "Solana 101: 1. Develop Model",
   "name": "Solana 101: 1. Develop Model",
-  "description": "tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.\nEVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。\nSolana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：\nSigners 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）； Read-only 交易里对该账号只读； Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）； Programs or Smart Contract3 账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：\nNative Programs \u0026ndash; 区块链系统提供的标准库； On Chain Programs \u0026ndash; 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。\nSolana 的 Program 可以被更新。\n搭建开发环境 命令行钱包 sh -c \u0026#34;$(curl -sSfL https://release.solana.com/stable/install)\u0026#34; 连接到测试节点 solana config set --url https://api.",
+  "description": " tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.\nEVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。\nSolana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：\nSigners 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）； Read-only 交易里对该账号只读； Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）； Programs or Smart Contract3 账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：\nNative Programs \u0026ndash; 区块链系统提供的标准库； On Chain Programs \u0026ndash; 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。\nSolana 的 Program 可以被更新。\n搭建开发环境 命令行钱包 sh -c \u0026#34;$(curl -sSfL https://release.solana.com/stable/install)\u0026#34; 连接到测试节点 solana config set --url https://api.testnet.solana.com 官方文档是连接到本地节点，这里不太推荐，因为使用测试节点可以结合链浏览器比较直观的观测结果。\n",
   "keywords": [
     
   ],
@@ -182,8 +245,6 @@ Solana 的 Program 可以被更新。
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -215,7 +276,7 @@ Solana 的 Program 可以被更新。
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Solana 101: 1. Develop Model
     </h1>
     <div class="post-meta"><span title='2022-11-22 20:42:00 +0800 +0800'>November 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -234,14 +295,14 @@ Solana 的 Program 可以被更新。
                 <li>
                     <a href="#utxo" aria-label="UTXO">UTXO</a></li>
                 <li>
-                    <a href="#evm-accounts" aria-label="EVM Accounts1">EVM Accounts<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></a></li>
+                    <a href="#evm-accounts" aria-label="EVM Accounts1">EVM Accounts1</a></li>
                 <li>
                     <a href="#solana-account-model" aria-label="Solana Account Model">Solana Account Model</a><ul>
                         
                 <li>
-                    <a href="#accounts" aria-label="Accounts2">Accounts<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></a></li>
+                    <a href="#accounts" aria-label="Accounts2">Accounts2</a></li>
                 <li>
-                    <a href="#programs-or-smart-contract" aria-label="Programs or Smart Contract3">Programs or Smart Contract<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></a></li></ul>
+                    <a href="#programs-or-smart-contract" aria-label="Programs or Smart Contract3">Programs or Smart Contract3</a></li></ul>
                 </li></ul>
                 </li>
                 <li>
@@ -252,7 +313,7 @@ Solana 的 Program 可以被更新。
                 <li>
                     <a href="#%e8%bf%9e%e6%8e%a5%e5%88%b0%e6%b5%8b%e8%af%95%e8%8a%82%e7%82%b9" aria-label="连接到测试节点">连接到测试节点</a></li>
                 <li>
-                    <a href="#%e9%80%9a%e8%bf%87%e6%b0%b4%e9%be%99%e5%a4%b4-faucet-%e9%a2%86%e5%8f%96%e6%b5%8b%e8%af%95%e5%b8%81" aria-label="通过水龙头（Faucet）领取测试币5">通过水龙头（Faucet）领取测试币<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></a></li>
+                    <a href="#%e9%80%9a%e8%bf%87%e6%b0%b4%e9%be%99%e5%a4%b4-faucet-%e9%a2%86%e5%8f%96%e6%b5%8b%e8%af%95%e5%b8%81" aria-label="通过水龙头（Faucet）领取测试币5">通过水龙头（Faucet）领取测试币5</a></li>
                 <li>
                     <a href="#rust-%e5%ae%89%e8%a3%85%e5%92%8c%e7%ae%80%e4%bb%8b" aria-label="Rust 安装和简介">Rust 安装和简介</a><ul>
                         
@@ -261,7 +322,7 @@ Solana 的 Program 可以被更新。
                 </li></ul>
                 </li>
                 <li>
-                    <a href="#%e5%bc%80%e5%8f%91%e6%99%ba%e8%83%bd%e5%90%88%e7%ba%a6" aria-label="开发智能合约7">开发智能合约<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></a><ul>
+                    <a href="#%e5%bc%80%e5%8f%91%e6%99%ba%e8%83%bd%e5%90%88%e7%ba%a6" aria-label="开发智能合约7">开发智能合约7</a><ul>
                         
                 <li>
                     <a href="#%e7%bc%96%e5%86%99%e9%83%a8%e7%bd%b2%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%99%ba%e8%83%bd%e5%90%88%e7%ba%a6" aria-label="编写部署第一个智能合约">编写部署第一个智能合约</a></li>
@@ -381,6 +442,12 @@ Solana 的 Program 可以被更新。
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -2023,9 +2090,10 @@ Solana 的 Program 可以被更新。
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Solana, Solana 101: 1. Develop Model Account: a Memory region The solana term for a memory region is “account”. Some programs own thousands of independent accounts.
+              <p> tags: Solana, Solana 101: 1. Develop Model Account: a Memory region The solana term for a memory region is “account”. Some programs own thousands of independent accounts.
 Programs own accounts, aka the owner of accounts.
-Transactions and Accounts You can make a program read and write data by sending transactions. Programs provide endpoints that can be called via transactions (In reality it’s a bit more complex than that but frameworks like Anchor abstract away this complexity)....</p>
+Transactions and Accounts You can make a program read and write data by sending transactions. Programs provide endpoints that can be called via transactions (In reality it’s a bit more complex than that but frameworks like Anchor abstract away this complexity). A function signature usually takes the following arguments:
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-08-02 18:12:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Solana Account" href="https://notes.0081800.xyz/notes/20220802181223-solana_account/"></a>
@@ -2037,9 +2105,10 @@ Transactions and Accounts You can make a program read and write data by sending 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Solana, Solana 101: 1. Develop Model Program Owns Accounts And each memory region has a program that manages it (sometimes called the “owner”).
+              <p> tags: Solana, Solana 101: 1. Develop Model Program Owns Accounts And each memory region has a program that manages it (sometimes called the “owner”).
 How to Communicate with Solana Programs? Off-chain This means your programs aren’t on-chain program, you can submit transactions with instructions to the network, it could be done via the JSON RPC API or any SDK built on top this API.
-On-chain TODO</p>
+On-chain TODO
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-08-02 17:47:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Solana Program" href="https://notes.0081800.xyz/notes/20220802174748-solana_program/"></a>
@@ -2054,7 +2123,8 @@ On-chain TODO</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -4,30 +4,276 @@
     <title>Cs on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/tags/cs/</link>
     <description>Recent content in Cs on Taking Smart Notes With Org-mode</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.139.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 02 Aug 2020 15:50:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Aug 2020 15:50:00 +0800</lastBuildDate>
+    <atom:link href="https://notes.0081800.xyz/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>汇编</title>
       <link>https://notes.0081800.xyz/notes/20200802155053-%E6%B1%87%E7%BC%96/</link>
       <pubDate>Sun, 02 Aug 2020 15:50:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/notes/20200802155053-%E6%B1%87%E7%BC%96/</guid>
-      <description>tags: Computer Systems,《深入理解计算机系统》读书笔记 程序编码 $ gcc -Og -S mstore.c # outputs mstore.s $ gcc -Og -c mstore.c # outptus mstore.o $ objdump -d mstore.o 所有以 ‘.’ 开头额行都是指导汇编器和链接器工作额伪指令。
-数据格式 C 声明 Intel 数据类型 汇编代码后缀 大小（字节） char 字节 b 1 short 字 w 2 int 双字 l 4 long 四字 q 8 char* 四字 q 8 float 单精度 l 4 double 双精度 q 8 访问信息 寄存器 一个 x86-64 的中央处理单元（CPU）包含一组 16 个存储 64 位值的 通用目的寄存器 。</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200802151319-computer_systems/&#34;&gt;Computer Systems&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20220102072835-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/&#34;&gt;《深入理解计算机系统》读书笔记&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;程序编码&#34;&gt;程序编码&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gcc -Og -S mstore.c  &lt;span style=&#34;color:#75715e&#34;&gt;# outputs mstore.s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gcc -Og -c mstore.c  &lt;span style=&#34;color:#75715e&#34;&gt;# outptus mstore.o&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ objdump -d mstore.o
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;所有以 ‘.’ 开头额行都是指导汇编器和链接器工作额伪指令。&lt;/p&gt;
+&lt;h2 id=&#34;数据格式&#34;&gt;数据格式&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;C 声明&lt;/th&gt;
+          &lt;th&gt;Intel 数据类型&lt;/th&gt;
+          &lt;th&gt;汇编代码后缀&lt;/th&gt;
+          &lt;th&gt;大小（字节）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;char&lt;/td&gt;
+          &lt;td&gt;字节&lt;/td&gt;
+          &lt;td&gt;b&lt;/td&gt;
+          &lt;td&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;short&lt;/td&gt;
+          &lt;td&gt;字&lt;/td&gt;
+          &lt;td&gt;w&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;int&lt;/td&gt;
+          &lt;td&gt;双字&lt;/td&gt;
+          &lt;td&gt;l&lt;/td&gt;
+          &lt;td&gt;4&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;long&lt;/td&gt;
+          &lt;td&gt;四字&lt;/td&gt;
+          &lt;td&gt;q&lt;/td&gt;
+          &lt;td&gt;8&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;char*&lt;/td&gt;
+          &lt;td&gt;四字&lt;/td&gt;
+          &lt;td&gt;q&lt;/td&gt;
+          &lt;td&gt;8&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;float&lt;/td&gt;
+          &lt;td&gt;单精度&lt;/td&gt;
+          &lt;td&gt;l&lt;/td&gt;
+          &lt;td&gt;4&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;double&lt;/td&gt;
+          &lt;td&gt;双精度&lt;/td&gt;
+          &lt;td&gt;q&lt;/td&gt;
+          &lt;td&gt;8&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;访问信息&#34;&gt;访问信息&lt;/h2&gt;
+&lt;h3 id=&#34;寄存器&#34;&gt;寄存器&lt;/h3&gt;
+&lt;p&gt;一个 x86-64 的中央处理单元（CPU）包含一组 16 个存储 64 位值的 &lt;code&gt;通用目的寄存器&lt;/code&gt; 。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;四字&lt;/th&gt;
+          &lt;th&gt;双字&lt;/th&gt;
+          &lt;th&gt;字&lt;/th&gt;
+          &lt;th&gt;字节&lt;/th&gt;
+          &lt;th&gt;用途&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rax&lt;/td&gt;
+          &lt;td&gt;%eax&lt;/td&gt;
+          &lt;td&gt;%ax&lt;/td&gt;
+          &lt;td&gt;%al&lt;/td&gt;
+          &lt;td&gt;返回值&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rbx&lt;/td&gt;
+          &lt;td&gt;%ebx&lt;/td&gt;
+          &lt;td&gt;%bx&lt;/td&gt;
+          &lt;td&gt;%bl&lt;/td&gt;
+          &lt;td&gt;被调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rcx&lt;/td&gt;
+          &lt;td&gt;%ecx&lt;/td&gt;
+          &lt;td&gt;%cx&lt;/td&gt;
+          &lt;td&gt;%cl&lt;/td&gt;
+          &lt;td&gt;第四个参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rdx&lt;/td&gt;
+          &lt;td&gt;%edx&lt;/td&gt;
+          &lt;td&gt;%dx&lt;/td&gt;
+          &lt;td&gt;%dl&lt;/td&gt;
+          &lt;td&gt;第三个参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rsi&lt;/td&gt;
+          &lt;td&gt;%esi&lt;/td&gt;
+          &lt;td&gt;%si&lt;/td&gt;
+          &lt;td&gt;%sil&lt;/td&gt;
+          &lt;td&gt;第二个参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rdi&lt;/td&gt;
+          &lt;td&gt;%edi&lt;/td&gt;
+          &lt;td&gt;%di&lt;/td&gt;
+          &lt;td&gt;%dil&lt;/td&gt;
+          &lt;td&gt;第一个参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rbp&lt;/td&gt;
+          &lt;td&gt;%ebp&lt;/td&gt;
+          &lt;td&gt;%bp&lt;/td&gt;
+          &lt;td&gt;%bpl&lt;/td&gt;
+          &lt;td&gt;被调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%rsp&lt;/td&gt;
+          &lt;td&gt;%esp&lt;/td&gt;
+          &lt;td&gt;%sp&lt;/td&gt;
+          &lt;td&gt;%spl&lt;/td&gt;
+          &lt;td&gt;栈指针&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r8&lt;/td&gt;
+          &lt;td&gt;%r8d&lt;/td&gt;
+          &lt;td&gt;%r8w&lt;/td&gt;
+          &lt;td&gt;%r8b&lt;/td&gt;
+          &lt;td&gt;第五个参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r9&lt;/td&gt;
+          &lt;td&gt;%r9d&lt;/td&gt;
+          &lt;td&gt;%r9w&lt;/td&gt;
+          &lt;td&gt;%r9b&lt;/td&gt;
+          &lt;td&gt;第六个参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r10&lt;/td&gt;
+          &lt;td&gt;%r10d&lt;/td&gt;
+          &lt;td&gt;%r10w&lt;/td&gt;
+          &lt;td&gt;%r10b&lt;/td&gt;
+          &lt;td&gt;调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r11&lt;/td&gt;
+          &lt;td&gt;%r11d&lt;/td&gt;
+          &lt;td&gt;%r11w&lt;/td&gt;
+          &lt;td&gt;%r11b&lt;/td&gt;
+          &lt;td&gt;调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r12&lt;/td&gt;
+          &lt;td&gt;%r12d&lt;/td&gt;
+          &lt;td&gt;%r12w&lt;/td&gt;
+          &lt;td&gt;%r11b&lt;/td&gt;
+          &lt;td&gt;被调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r13&lt;/td&gt;
+          &lt;td&gt;%r13d&lt;/td&gt;
+          &lt;td&gt;%r13w&lt;/td&gt;
+          &lt;td&gt;%r13b&lt;/td&gt;
+          &lt;td&gt;被调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r14&lt;/td&gt;
+          &lt;td&gt;%r14d&lt;/td&gt;
+          &lt;td&gt;%r14w&lt;/td&gt;
+          &lt;td&gt;%r14&lt;/td&gt;
+          &lt;td&gt;被调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%r15&lt;/td&gt;
+          &lt;td&gt;%r15d&lt;/td&gt;
+          &lt;td&gt;%r15w&lt;/td&gt;
+          &lt;td&gt;%r15&lt;/td&gt;
+          &lt;td&gt;被调用者保存&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;相关规则：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>IEEE 浮点数</title>
       <link>https://notes.0081800.xyz/notes/20200802151523-ieee_%E6%B5%AE%E7%82%B9%E6%95%B0/</link>
       <pubDate>Sun, 02 Aug 2020 15:15:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/notes/20200802151523-ieee_%E6%B5%AE%E7%82%B9%E6%95%B0/</guid>
-      <description>tags: Computer Systems,《深入理解计算机系统》读书笔记 浮点数小数表示形式 .0111 = \(0x2^{-1}+2^{-2}+2^{-3}+2^{-4}\)
-IEEE 浮点数表示形式 \[ V=(-1)^s X M X 2^E \]
-s = 0 表示负数， s = 1 表示正数 M 是二进制表示的小数 E 是阶码 浮点数二进制组成 一个单独符号位 s 表吗符合 k 位阶码字段 exp 编码阶码 E n 位小数字段 frac 编码尾数 M 两种常见的格式 float s = 1 k = 8 n = 23 double s = 1 k = 11 n = 52 三种计算方式 前置的一些值
-e 是 exp 位表示的无符号数 f 是 frac 位表示的小数 \(Bias = 2^{k-1} -1\) 规格化的值 规则：阶码字段 exp 的位模式即不全为 0，也不全为 1（单精度 255，双精度 2047） 计算方式 \(E = e - Bias\) $M = 1 + f $ 非规格化的值 规则：阶码字段 exp 全是 0（用于表示 0） 计算方式 \(E = 1 - Bias\) \(M = f\) 可以表示 +0 和 -0。</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200802151319-computer_systems/&#34;&gt;Computer Systems&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20220102072835-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/&#34;&gt;《深入理解计算机系统》读书笔记&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;浮点数小数表示形式&#34;&gt;浮点数小数表示形式&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;.0111&lt;/code&gt; = \(0x2^{-1}+2^{-2}+2^{-3}+2^{-4}\)&lt;/p&gt;
+&lt;h2 id=&#34;ieee-浮点数表示形式&#34;&gt;IEEE 浮点数表示形式&lt;/h2&gt;
+&lt;p&gt;\[ V=(-1)^s X M X 2^E \]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;s = 0&lt;/code&gt; 表示负数， &lt;code&gt;s = 1&lt;/code&gt; 表示正数&lt;/li&gt;
+&lt;li&gt;M 是二进制表示的小数&lt;/li&gt;
+&lt;li&gt;E 是阶码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;浮点数二进制组成&#34;&gt;浮点数二进制组成&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;一个单独符号位 s 表吗符合&lt;/li&gt;
+&lt;li&gt;k 位阶码字段 exp 编码阶码 E&lt;/li&gt;
+&lt;li&gt;n 位小数字段 frac 编码尾数 M&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;两种常见的格式&#34;&gt;两种常见的格式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;float&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;s = 1&lt;/li&gt;
+&lt;li&gt;k = 8&lt;/li&gt;
+&lt;li&gt;n = 23&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;double&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;s = 1&lt;/li&gt;
+&lt;li&gt;k = 11&lt;/li&gt;
+&lt;li&gt;n = 52&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;三种计算方式&#34;&gt;三种计算方式&lt;/h3&gt;
+&lt;p&gt;前置的一些值&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;e 是 exp 位表示的无符号数&lt;/li&gt;
+&lt;li&gt;f 是 frac 位表示的小数&lt;/li&gt;
+&lt;li&gt;\(Bias = 2^{k-1} -1\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;规格化的值&#34;&gt;规格化的值&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;规则：阶码字段 exp 的位模式即不全为 0，也不全为 1（单精度 255，双精度 2047）&lt;/li&gt;
+&lt;li&gt;计算方式
+&lt;ul&gt;
+&lt;li&gt;\(E = e - Bias\)&lt;/li&gt;
+&lt;li&gt;$M = 1 + f $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;非规格化的值&#34;&gt;非规格化的值&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;规则：阶码字段 exp 全是 0（用于表示 0）&lt;/li&gt;
+&lt;li&gt;计算方式
+&lt;ul&gt;
+&lt;li&gt;\(E = 1 - Bias\)&lt;/li&gt;
+&lt;li&gt;\(M = f\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以表示 +0 和 -0。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

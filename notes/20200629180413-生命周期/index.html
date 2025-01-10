@@ -7,15 +7,58 @@
 <meta name="robots" content="index, follow">
 <title>生命周期 | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
-fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
-标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
-结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。">
+<meta name="description" content="生命周期
+
+Rust 中的每一个引用都有其生命周期：引用有效的作用域。
+大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。
+生命周期的主要目标是避免悬空指针。
+生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期
+
+
+&amp;i32        // a reference
+&amp;&#39;a i32     // a reference with an explicit lifetime
+&amp;&#39;a mut i32 // a mutable reference with an explicit lifetime
+参考以下代码
+fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str {
+		if x.len() &gt; y.len() {
+				x
+		} else {
+				y
+		}
+}
+以上代码
+
+标注生命周期 &#39;a
+函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长）
+函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致
+以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。
+也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期
+
+思考
+当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。
+也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
+结构体生命周期
+如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。
+如果结构体声明了生命周期参数，那么 impl 同样也要声明。
+struct ImportantExcerpt&lt;&#39;a&gt; {
+		part: &amp;&#39;a str,
+}
+
+impl&lt;&#39;a&gt; ImportantExcerpt&lt;&#39;a&gt; {
+		fn announce_and_return_part(&amp;self, announcement: &amp;str) -&gt; &amp;str {
+				println!(&#34;Attention please: {}&#34;, announcement);
+				self.part
+		}
+}
+生命周期省略（elision）规则
+
+函数参数的生命周期为输入生命周期
+函数返回值的生命周期为输出生命周期
+
+3 个规则用于 fn 和 impl ：">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -41,7 +84,7 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -60,25 +103,71 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="生命周期" />
-<meta property="og:description" content="生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="生命周期">
+  <meta property="og:description" content="生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
 fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
 标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
-结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-06-29T18:04:00+08:00" />
-<meta property="article:modified_time" content="2020-06-29T18:04:00+08:00" />
+结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。
+如果结构体声明了生命周期参数，那么 impl 同样也要声明。
+struct ImportantExcerpt&lt;&#39;a&gt; { part: &amp;&#39;a str, } impl&lt;&#39;a&gt; ImportantExcerpt&lt;&#39;a&gt; { fn announce_and_return_part(&amp;self, announcement: &amp;str) -&gt; &amp;str { println!(&#34;Attention please: {}&#34;, announcement); self.part } } 生命周期省略（elision）规则 函数参数的生命周期为输入生命周期 函数返回值的生命周期为输出生命周期 3 个规则用于 fn 和 impl ：">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2020-06-29T18:04:00+08:00">
+    <meta property="article:modified_time" content="2020-06-29T18:04:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="生命周期">
+<meta name="twitter:description" content="生命周期
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="生命周期"/>
-<meta name="twitter:description" content="生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
-fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
-标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
-结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。"/>
+Rust 中的每一个引用都有其生命周期：引用有效的作用域。
+大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。
+生命周期的主要目标是避免悬空指针。
+生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期
+
+
+&amp;i32        // a reference
+&amp;&#39;a i32     // a reference with an explicit lifetime
+&amp;&#39;a mut i32 // a mutable reference with an explicit lifetime
+参考以下代码
+fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str {
+		if x.len() &gt; y.len() {
+				x
+		} else {
+				y
+		}
+}
+以上代码
+
+标注生命周期 &#39;a
+函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长）
+函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致
+以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。
+也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期
+
+思考
+当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。
+也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
+结构体生命周期
+如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。
+如果结构体声明了生命周期参数，那么 impl 同样也要声明。
+struct ImportantExcerpt&lt;&#39;a&gt; {
+		part: &amp;&#39;a str,
+}
+
+impl&lt;&#39;a&gt; ImportantExcerpt&lt;&#39;a&gt; {
+		fn announce_and_return_part(&amp;self, announcement: &amp;str) -&gt; &amp;str {
+				println!(&#34;Attention please: {}&#34;, announcement);
+				self.part
+		}
+}
+生命周期省略（elision）规则
+
+函数参数的生命周期为输入生命周期
+函数返回值的生命周期为输出生命周期
+
+3 个规则用于 fn 和 impl ：">
 
 
 <script type="application/ld+json">
@@ -107,7 +196,7 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
   "@type": "BlogPosting",
   "headline": "生命周期",
   "name": "生命周期",
-  "description": "生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 \u0026amp;i32 // a reference \u0026amp;\u0026#39;a i32 // a reference with an explicit lifetime \u0026amp;\u0026#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码\nfn longest\u0026lt;\u0026#39;a\u0026gt;(x: \u0026amp;\u0026#39;a str, y: \u0026amp;\u0026#39;a str) -\u0026gt; \u0026amp;\u0026#39;a str { if x.len() \u0026gt; y.len() { x } else { y } } 以上代码\n标注生命周期 'a 函数有两个引用参数，都使用生命周期 'a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 'a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。\n结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。",
+  "description": "生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 \u0026amp;i32 // a reference \u0026amp;\u0026#39;a i32 // a reference with an explicit lifetime \u0026amp;\u0026#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码\nfn longest\u0026lt;\u0026#39;a\u0026gt;(x: \u0026amp;\u0026#39;a str, y: \u0026amp;\u0026#39;a str) -\u0026gt; \u0026amp;\u0026#39;a str { if x.len() \u0026gt; y.len() { x } else { y } } 以上代码\n标注生命周期 'a 函数有两个引用参数，都使用生命周期 'a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 'a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。\n结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。\n如果结构体声明了生命周期参数，那么 impl 同样也要声明。\nstruct ImportantExcerpt\u0026lt;\u0026#39;a\u0026gt; { part: \u0026amp;\u0026#39;a str, } impl\u0026lt;\u0026#39;a\u0026gt; ImportantExcerpt\u0026lt;\u0026#39;a\u0026gt; { fn announce_and_return_part(\u0026amp;self, announcement: \u0026amp;str) -\u0026gt; \u0026amp;str { println!(\u0026#34;Attention please: {}\u0026#34;, announcement); self.part } } 生命周期省略（elision）规则 函数参数的生命周期为输入生命周期 函数返回值的生命周期为输出生命周期 3 个规则用于 fn 和 impl ：\n",
   "keywords": [
     
   ],
@@ -173,8 +262,6 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -206,7 +293,7 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       生命周期
     </h1>
     <div class="post-meta"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -1920,6 +2007,12 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
    
 
    
+
+   
+
+   
+
+   
       
    
 
@@ -1977,7 +2070,8 @@ fn do(f: fn(i32) -&gt; i32, arg: i32) -&gt; i32 { f(arg) &#43; f(arg) } </p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

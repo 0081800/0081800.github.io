@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>缠论 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
+<meta name="description" content="缠论 - Taking Smart Notes With Org-mode">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20250109094402-%E7%BC%A0%E8%AE%BA/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20250109094402-%E7%BC%A0%E8%AE%BA/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20250109094402-%E7%BC%A0%E8%AE%BA/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="缠论">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-01-09T09:44:00+08:00">
+    <meta property="article:modified_time" content="2025-01-09T09:44:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="缠论">
+<meta name="twitter:description" content="">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "缠论",
+      "item": "https://notes.0081800.xyz/notes/20250109094402-%E7%BC%A0%E8%AE%BA/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "缠论",
+  "name": "缠论",
+  "description": "",
+  "keywords": [
+    
+  ],
+  "articleBody": "",
+  "wordCount" : "0",
+  "inLanguage": "en",
+  "datePublished": "2025-01-09T09:44:00+08:00",
+  "dateModified": "2025-01-09T09:44:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20250109094402-%E7%BC%A0%E8%AE%BA/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      缠论
+    </h1>
+    <div class="post-meta"><span title='2025-01-09 09:44:00 +0800 +0800'>January 9, 2025</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King
+
+</div>
+  </header> 
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr />
+
+  <div class="bl-section">
+    <h3>Links to this note</h3>
+    <br />
+    <div class="backlinks">
+      <ul>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>背驰
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 缠论 source: GPT-4o「怎么判断股票背驰」 股票背驰是指股价和某些技术指标（如相对强弱指数RSI、MACD、KDJ等）之间的走势出现不一致的现象，通常是指股价的走势与这些指标的走势方向相反。背驰常常用来判断市场的转折点或潜在的价格反转。
+判断股票背驰的方式 股价和技术指标的背驰背驰通常分为两种类型：顶背驰和底背驰。 顶背驰（Bearish Divergence）：股价创出新高，但技术指标未能创出相应的新高，表示市场可能已经过热，反转的风险增加。此时，尽管价格继续上涨，但买盘动能在减弱，市场可能出现顶部，并有下跌的风险。 底背驰（Bullish Divergence）：股价创出新低，但技术指标未能创出新低，表示市场可能过于悲观，反转的可能性增大。此时，尽管价格继续下跌，但卖压在减弱，市场可能出现底部，反弹的概率较大。 判断背驰的关键指标在实际操作中，常用的几个技术指标来判断背驰现象，包括： MACD（指数平滑异同移动平均线）：MACD线和信号线的背驰是判断股价背驰的重要工具。例如，当股价创出新高时，MACD未能创出新高时，就是典型的顶背驰信号；反之，当股价创出新低，而MACD未创新低时，形成底背驰信号。 RSI（相对强弱指数）：RSI通常用于衡量市场是否过度买入或卖出。当股价创出新高，而RSI未能同步创出新高时，形成顶背驰；股价创出新低，而RSI未能创出新低时，形成底背驰。 KDJ指标：KDJ指标中的K线和D线的背驰也是常用的背驰判断工具。顶背驰和底背驰的判断方式与MACD和RSI类似。 股价与技术指标的背驰判断例子： 顶背驰实例：假设股价持续上涨并创出新高，但是MACD的快线（DIF）却没有创出新的高点，而是逐渐回落。这表明虽然股价创新高，但上涨的动能在减弱，这可能是市场顶部即将到来的信号。 底背驰实例：假设股价持续下跌并创出新低，但RSI却没有创出新的低点，而是逐渐上升。这表示尽管股价下行，但市场的卖压已经减弱，可能意味着市场即将反弹。 背驰的警示信号：背驰并不是一种立刻就能执行交易的信号，它通常作为市场反转的警示信号。真正的反转信号可能需要结合其他技术分析工具（如支撑位、阻力位、成交量等）来确认。如果仅仅依赖背驰，可能会在一些假信号中误操作。 背驰与趋势的关系： 在趋势市场中，背驰的出现并不一定意味着马上会反转。反转信号需要时间确认，背驰信号可能只是一种短期调整的表现。 在震荡市场中，背驰的信号更加有效，因为市场的波动较大，技术指标的背驰可以更早地给出转折的暗示。 总结 股票背驰是股价和技术指标之间的反向信号，通常用于预示市场的潜在反转。背驰的判断通常依赖于常用的技术指标，如MACD、RSI、KDJ等。当股价与技术指标的走势不一致时，背驰现象可能预示着市场的顶点或底点即将到来，但背驰信号需要结合其他因素进一步确认。
+MACD MACD（移动平均收敛/发散指标，Moving Average Convergence Divergence）是由杰拉尔德·阿佩尔（Gerald Appel）在1970年代发明的一个技术分析工具，主要用于判断股价的趋势、反转点、以及趋势的强弱。它的核心思想是利用两个不同周期的移动平均线之间的关系，来揭示市场的潜在变化。
+MACD的构成 MACD指标主要由三个部分组成：
+DIF线（快线）：是短期指数平滑移动平均（EMA）和长期EMA之间的差值。常见的设置是： 短期EMA：12日 长期EMA：26日计算公式为：\[DIF = EMA_{12}(Close) - EMA_{26}(Close)\] DEA线（慢线）：是DIF线的9日指数平滑移动平均，用来进一步平滑DIF线，减少噪音。计算公式为：\[DEA = EMA_{9}(DIF)\] MACD柱状图：是DIF线与DEA线之间的差值，表示两者之间的发散或收敛情况，柱状图通常用于衡量买卖力量的变化。其计算公式为：\[MACD = DIF - DEA\] MACD的应用和解读 MACD的核心是分析DIF线、DEA线及其柱状图的变化，下面是常见的应用方式：
+金叉与死叉
+金叉（Bullish Cross）：当DIF线从下向上穿越DEA线时，形成金叉，通常被视为买入信号，意味着市场趋势可能由下行转为上涨。 死叉（Bearish Cross）：当DIF线从上向下穿越DEA线时，形成死叉，通常被视为卖出信号，意味着市场趋势可能由上涨转为下跌。 MACD柱状图
+柱状图的增长：当柱状图逐渐变长且向上增长时，表示市场的多头力量在增强，可能会有上涨的趋势。 柱状图的缩短或倒转：当柱状图的长度逐渐变短或反转为负值时，意味着市场的空头力量在增强，可能会有下跌的趋势。 DIF与DEA的发散/收敛
+发散：如果DIF和DEA的差距越来越大，表示趋势可能会加速，当前趋势强烈。 收敛：如果DIF和DEA的差距逐渐缩小，表示趋势的动能减弱，市场可能会进入整理或反转阶段。 背离（Divergence）
+顶背离（Bearish Divergence）：股价创出新高，但MACD未能同步创出新高，可能暗示上涨动能减弱，市场可能即将反转下跌。 底背离（Bullish Divergence）：股价创出新低，但MACD未能同步创出新低，可能暗示下跌动能减弱，市场可能即将反弹上涨。 实际使用中的注意事项
+滞后性：MACD是基于移动平均线计算的，因此其反应比股价滞后，不能即时捕捉到市场的变化。对于快速变化的市场，MACD的反应较慢，可能错失一些短期的交易机会。 确认信号：MACD金叉和死叉是非常常见的信号，但为了减少假信号，通常需要配合其他技术指标或市场的整体趋势进行确认，例如：支撑/阻力位、成交量等。 适用于趋势市场：MACD在趋势市场中效果较好，能够有效地捕捉到趋势的反转信号；但在震荡市场中，可能会出现多次金叉和死叉的信号，导致误判。 总结 MACD是一个相对直观、实用的技术指标，能够帮助交易者识别市场趋势、潜在的反转点以及趋势的强弱。通过分析DIF线与DEA线的交叉、柱状图的变化以及背离现象，MACD可以为交易决策提供有力的技术依据。然而，在使用MACD时，需要注意其滞后性和假信号，最好与其他分析工具结合使用，才能提高准确性。
+...</p>
+            </div>
+            <footer class="entry-footer"><span title='2025-01-09 10:13:00 +0800 +0800'>January 9, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 背驰" href="https://notes.0081800.xyz/notes/20250109101330-%E8%83%8C%E9%A9%B0/"></a>
+          </article>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>投资的关键是成本
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: 缠论 波动造就机会 成本低于市场则风险最低，成本做到 0 或者接近 0 基本就利于不败之地，如何降低成本？利用波动，高抛低吸。波动同时代表了风险和利润。
+喜好是自我的死亡陷阱，别人会利用你的喜好制造陷阱产生波动，空头陷阱造成下跌，就会带来买入的机会，相反多都陷阱造成的上涨，会带来卖出的机会。
+无波动不操作。
+牛市 最简单的跟盘 所有放量突破上市首日最高价的新股 放量突破年线然后缩量回调年线的老股 趋势明确才是操作时机 也可以利用中间短期波动进行降低成本。
+两种卖出时机：
+长时间短线推升突然出现加速上扬 第二波（第一波火爆上涨调整后）出现背驰或放巨量（有人太高价格出货） 成分股（包含在特定指数内的个股） 选股入场 选择躁动的，也就是可能会产生波动的股票，可操作的。
+入场机会：
+成交量压力线 新股用上市日最高价作为标准 空头陷阱 敏感股票及时退场 如果股票特别容易被扰动，说明盘子不扎实，这种情况执行严格的资金管理管理，发现不对必须马上退出，不理会后续的诱入。
+建立符合自己的有效的操作程序 避免依赖路径 用眼睛看，用心去感受，不要受消息和情绪的干扰 赚钱是一辈子的事情，而不是一锤子的买卖。全仓短线就是赌博 建立自己买卖（出入）的标准，而不是随大溜 技术指标的作用是分类 均线缠绕 任何技术指标、系统，本质上都是一个评价系统，也就是告诉你在这个系统的标准下，评价对象的强弱 任何技术指标系统的应用，首要的选择标准都和应用的资金量和操作时间有关 短线看分钟均线 大资金看 5/10 日均线 分类：
+短期均线高于长期均线：多头市场，在不能做空的市场里，这就是赚钱市场。 长期均线高于短期均线：空头市场，寻找买入时机 缠绕强弱：
+弱：短期均线略略走平后继续按原来趋势进行下去。（几率低） 中：短期均线靠近长期均线但不跌破或升破,然后按原来趋势继续下去。（空头市场中出现几率高，反弹结束出现于多头市场） 强：短期均线跌破或升破长期均线甚至出现反复缠绕,如胶似漆。（震荡紧随其后出现，会引发行情转折） 一旦多头市场出现缠绕较强的情况，则预示着行情转折，可能会出现陷阱，紧随其后出现震荡行情，甚至空头市场。任何行情的转折一般都是由于缠绕较强引起的。
+缠绕构成介入机会 新手建议看 5/10 日线（MA5/MA10）
+买入点
+第一个买入点：空头市场最后一次交叉后背弛构成的空头陷阱抄底进入 第二个买入或加码的位置：多头市场后第一次交叉形成的低位。 卖出点
+多头市场（短期均线高于长期均线）短期均线与长期均线交叉的时候。
+买应该在第二个买点，卖应该尽量在第一个卖点。 </p>
+            </div>
+            <footer class="entry-footer"><span title='2025-01-09 09:43:00 +0800 +0800'>January 9, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to 投资的关键是成本" href="https://notes.0081800.xyz/notes/20250109094348-%E6%8A%95%E8%B5%84%E7%9A%84%E5%85%B3%E9%94%AE%E6%98%AF%E6%88%90%E6%9C%AC/"></a>
+          </article>
+       
+     </ul>
+    </div>
+  </div>
+
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

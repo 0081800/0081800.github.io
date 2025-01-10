@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -37,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Notes" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Notes">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -159,11 +154,47 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Rust Means Never Having to Close a Socket
+    <h2 class="entry-hint-parent">Choosing a Rust web framework, 2020 edition
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Translate,Rust,Rust Wrapper Types 原文链接：Rust Means Never Having to Close a Socket
+    <p> tags: Rust source: Choosing a Rust web framework, 2020 edition </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-07-10 10:12:00 +0800 +0800'>July 10, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Choosing a Rust web framework, 2020 edition" href="https://notes.0081800.xyz/notes/20200710101214-web/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SSH
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SSH Port Forwarding -L 将远端机器的端口映射到本地 -R 将本地端口映射到远端 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-07-07 21:46:00 +0800 +0800'>July 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to SSH" href="https://notes.0081800.xyz/notes/20200707214623-ssh/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Fearless Concurrency with Rust
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust 原文链接：https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-07-03 10:40:00 +0800 +0800'>July 3, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Fearless Concurrency with Rust" href="https://notes.0081800.xyz/notes/20200703104039-fearless_concurrency_with_rust/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Rust Means Never Having to Close a Socket
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Translate,Rust,Rust Wrapper Types 原文链接：Rust Means Never Having to Close a Socket
 Rust 最酷的特性之一就是它可以自动地帮助你管理资源，同时在仍能保持安全（没有段错误）和高性能。
 这是因为 Rust 是一门与众不同地编程语言，要理解我说的可能有点困难，让我来更近一步说明：
 Rust 就像带垃圾回收的编程语言，你无需手动释放内存 Rust 不同于其他带垃圾回收的编程语言，你无需1手动关闭或者释放像文件、套接字和锁这样的资源 Rust 达到以上这些特性不附带任何运行时开销（垃圾回收或者引用计数），并且不牺牲安全性。 如果你曾经造成过一个套接字或者文件泄漏，或者使用过一些抽象方法造成了这些资源的泄漏，那么你就会知道这有多重要。
@@ -172,7 +203,8 @@ Rust 就像带垃圾回收的编程语言，你无需手动释放内存 Rust 不
 Rust 的许多特性都是从其他语言借鉴而来。Rust 之所以变得有趣是因为它把所有的这些特性放在了一起，并且在编程语言层面实现了更严格地保证。 实际上，这种编程语言层面的保证让这些特性更加实用。
 所有权系统（The Ownership System） 让这种保证工作的方式是通过 Rust 的「所有权（ownership）」系统。不管任何时候你创建一个新的对象，都被创建它的「作用域（scope）」所拥有。
 让我们通过一个例子来进一步说明：我们定义一个函数，函数拷贝输入文件到临时文件去处理它，然后拷贝输入文件到输出文件。
-fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&#34;skylight&#34;)); // open the input file let mut from_file = try!...</p>
+fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&#34;skylight&#34;)); // open the input file let mut from_file = try!(File::open(from)); // create a temporary file inside the tempdir let mut tempfile = try!(File::create(&amp;tempdir.path().join(&#34;tmp1&#34;))); // copy the input file into the tempfile try!(io::util::copy(&amp;mut from_file, &amp;mut tempfile)); // use an external program to process the tmpfile in place // after processing, copy the tempfile into the output file let mut out = try!(File::create(to)); io::util::copy(&amp;mut tempfile, &amp;mut out) } 在这个例子中，函数 process 的作用域再第一行创建了 TempDir 是其初始拥有者。在这个例子中， process 函数从未放弃所有权，所以当函数完成调用， 它就会自动被丢弃（dropped），也就是会删除 Tempfile 。
+...</p>
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:17:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Rust Means Never Having to Close a Socket" href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/"></a>
@@ -180,7 +212,7 @@ fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Rust 并发
+    <h2 class="entry-hint-parent">Rust 并发
     </h2>
   </header>
   <div class="entry-content">
@@ -189,58 +221,10 @@ Rc&lt;T&gt; ，如果克隆后在多个线程中转移所有权可能会多个�
 std::marker::Sync 允许多个线程同时访问 Sync 标记特性用于标识实现该特性的类型可以在多个线程中引用，任何类型 T 是 Sync 并且 T 的引用 &amp;T 是 Send 则意味着引用可以安全的发送给其他线程。
 同 Send 类似，几乎所有原始类型都实现了 Sync ，组合了所有类型都是 Sync 的类型自动实现 Sync 。
 以下只能指针没有实现 Sync
-Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实现 Sync 和 Send 是不安全的 </p>
+Rc&lt;T&gt; 同样没有实现 Sync RcCell&lt;T&gt; 和 Cell&lt;T&gt; 自己实现 Sync 和 Send 是不安全的</p>
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:07:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Rust 并发" href="https://notes.0081800.xyz/notes/20200629180709-rust_%E5%B9%B6%E5%8F%91/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust 宏
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>三种宏 自定义 #[derive] 属性行为（attribute-like）宏，Rust 属性宏解析 函数行为（function-like）宏 宏 实现元编程，代码生成代码，必须带入当前命名空间内才能使用（不能使用 mod::sub::macro! 这种方式调用）。
-#[macro_export] macro_rules! vec { ( $($x:expr), *) =&gt; { // $() 用于捕捉值，$x:expr 匹配 Rust 表达式并绑定到 $x，逗号（,）表明一个逗号可能出现在表达式后面，* 表明表达式匹配一次或多次 { let mut temp_vec = Vec::new(); ${ temp_vec.push($x); }* temp_vec } }; } 调用宏用于从属性生成代码 有点像编译期的装饰器：
-use proc_macro; #[some_attribute] pub fn some_name(input: TokenStream) -&gt; TokenStream { // --snip-- } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:06:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Rust 宏" href="https://notes.0081800.xyz/notes/20200629180623-rust_%E5%AE%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>智能指针
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>智能指针 表现的像一个指针，拥有数据并允许在对数据进行维护。
-通常通过 struct 实现并实现两个特性 Deref 和 Drop
-Deref 允许智能指针实例行为像一个引用，让代码可以同时处理引用和智能指针 Drop 允许自定义智能指针超出作用域的行为。 标准库常见的智能指针
-Box&lt;T&gt; 用于在堆分配值 Rc&lt;T&gt; 引用计数类型，允许多个拥有者 Ref&lt;T&gt; 和 RefMut&lt;T&gt; 和通过 RefCell&lt;T&gt; 访问，运行时取代编译期强制检查借用规则 Box&lt;T&gt; 场景：
-编译期未知大小的类型（递归类型（自己包含自己类型的类型，如链表）编译期无法确定大小）
-// 递归类型 enum List { Cons(i32, Box&lt;List&gt;), Nil, } fn main() { let b = Box::new(5); println!(&#34;b = {}&#34;, b); let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); } 避免大量数据转移所有权时发生拷贝
-拥有一个实现特定特性的值（不关心具体类型）的所有权
-Deref 用于自定义解引用操作符（ * ） 的行为，智能指针通过实现该特性来模拟普通引用的行为。
-对比
-fn main() { let x = 5; let y = &amp;x; assert_eq!...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 智能指针" href="https://notes.0081800.xyz/notes/20200629180545-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>迭代器
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>迭代器 所有的迭代器都实现了 Iterator 特性：
-pub trait Iterator { type Item; // 关联类型 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;; // 返回 None 结束循环 } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 迭代器" href="https://notes.0081800.xyz/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -254,7 +238,8 @@ pub trait Iterator { type Item; // 关联类型 fn next(&amp;mut self) -&gt; Opt
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

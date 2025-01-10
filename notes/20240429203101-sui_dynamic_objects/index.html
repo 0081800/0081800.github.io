@@ -7,12 +7,31 @@
 <meta name="robots" content="index, follow">
 <title>Sui Dynamic Objects | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content=" tags: Sui POST https://api.shinami.com/node/v1/sui_mainnet_bb70bc6a7d6d04694c4c719f0b6f27aa Content-Type: application/json Origin: https://app.turbos.finance Referer: https://app.turbos.finance/ { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;suix_getDynamicFieldObject&#34;, &#34;params&#34;: [ &#34;0xd836ea2a159743a568fe29e8f42672a1b88414ab21be5411f8f6331e66b218d3&#34;, { &#34;type&#34;: &#34;0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1::i32::I32&#34;, &#34;value&#34;: 4294899946 } ] } ">
+<meta name="description" content="
+tags: Sui
+
+
+POST https://api.shinami.com/node/v1/sui_mainnet_bb70bc6a7d6d04694c4c719f0b6f27aa
+Content-Type: application/json
+Origin: https://app.turbos.finance
+Referer: https://app.turbos.finance/
+
+{
+  &#34;id&#34;: 1,
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;method&#34;: &#34;suix_getDynamicFieldObject&#34;,
+  &#34;params&#34;: [
+    &#34;0xd836ea2a159743a568fe29e8f42672a1b88414ab21be5411f8f6331e66b218d3&#34;,
+    {
+      &#34;type&#34;: &#34;0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1::i32::I32&#34;,
+      &#34;value&#34;: 4294899946
+    }
+  ]
+}
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20240429203101-sui_dynamic_objects/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +57,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +76,39 @@
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20240429203101-sui_dynamic_objects/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Sui Dynamic Objects">
+  <meta property="og:description" content=" tags: Sui POST https://api.shinami.com/node/v1/sui_mainnet_bb70bc6a7d6d04694c4c719f0b6f27aa Content-Type: application/json Origin: https://app.turbos.finance Referer: https://app.turbos.finance/ { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;suix_getDynamicFieldObject&#34;, &#34;params&#34;: [ &#34;0xd836ea2a159743a568fe29e8f42672a1b88414ab21be5411f8f6331e66b218d3&#34;, { &#34;type&#34;: &#34;0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1::i32::I32&#34;, &#34;value&#34;: 4294899946 } ] } ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-04-29T20:31:00+08:00">
+    <meta property="article:modified_time" content="2024-04-29T20:31:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sui Dynamic Objects">
+<meta name="twitter:description" content="
+tags: Sui
 
-<meta property="og:title" content="Sui Dynamic Objects" />
-<meta property="og:description" content=" tags: Sui POST https://api.shinami.com/node/v1/sui_mainnet_bb70bc6a7d6d04694c4c719f0b6f27aa Content-Type: application/json Origin: https://app.turbos.finance Referer: https://app.turbos.finance/ { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;suix_getDynamicFieldObject&#34;, &#34;params&#34;: [ &#34;0xd836ea2a159743a568fe29e8f42672a1b88414ab21be5411f8f6331e66b218d3&#34;, { &#34;type&#34;: &#34;0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1::i32::I32&#34;, &#34;value&#34;: 4294899946 } ] } " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20240429203101-sui_dynamic_objects/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-04-29T20:31:00+08:00" />
-<meta property="article:modified_time" content="2024-04-29T20:31:00+08:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Sui Dynamic Objects"/>
-<meta name="twitter:description" content=" tags: Sui POST https://api.shinami.com/node/v1/sui_mainnet_bb70bc6a7d6d04694c4c719f0b6f27aa Content-Type: application/json Origin: https://app.turbos.finance Referer: https://app.turbos.finance/ { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;suix_getDynamicFieldObject&#34;, &#34;params&#34;: [ &#34;0xd836ea2a159743a568fe29e8f42672a1b88414ab21be5411f8f6331e66b218d3&#34;, { &#34;type&#34;: &#34;0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1::i32::I32&#34;, &#34;value&#34;: 4294899946 } ] } "/>
+POST https://api.shinami.com/node/v1/sui_mainnet_bb70bc6a7d6d04694c4c719f0b6f27aa
+Content-Type: application/json
+Origin: https://app.turbos.finance
+Referer: https://app.turbos.finance/
+
+{
+  &#34;id&#34;: 1,
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;method&#34;: &#34;suix_getDynamicFieldObject&#34;,
+  &#34;params&#34;: [
+    &#34;0xd836ea2a159743a568fe29e8f42672a1b88414ab21be5411f8f6331e66b218d3&#34;,
+    {
+      &#34;type&#34;: &#34;0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1::i32::I32&#34;,
+      &#34;value&#34;: 4294899946
+    }
+  ]
+}
+">
 
 
 <script type="application/ld+json">
@@ -164,8 +203,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +234,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Sui Dynamic Objects
     </h1>
     <div class="post-meta"><span title='2024-04-29 20:31:00 +0800 +0800'>April 29, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -1858,6 +1895,12 @@ Referer: https://app.turbos.finance/
 
    
 
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -1870,7 +1913,8 @@ Referer: https://app.turbos.finance/
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

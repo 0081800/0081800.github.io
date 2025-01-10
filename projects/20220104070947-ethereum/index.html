@@ -7,12 +7,12 @@
 <meta name="robots" content="index, follow">
 <title>Ethereum | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content=" tags: Blockchain ">
+<meta name="description" content="
+tags: Blockchain
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/projects/20220104070947-ethereum/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +57,20 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Ethereum" />
-<meta property="og:description" content=" tags: Blockchain " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/projects/20220104070947-ethereum/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2022-01-04T07:09:00+08:00" />
-<meta property="article:modified_time" content="2022-01-04T07:09:00+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ethereum"/>
-<meta name="twitter:description" content=" tags: Blockchain "/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/projects/20220104070947-ethereum/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Ethereum">
+  <meta property="og:description" content=" tags: Blockchain ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2022-01-04T07:09:00+08:00">
+    <meta property="article:modified_time" content="2022-01-04T07:09:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ethereum">
+<meta name="twitter:description" content="
+tags: Blockchain
+">
 
 
 <script type="application/ld+json">
@@ -164,8 +165,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +196,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/projects/">Projects</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Ethereum
     </h1>
     <div class="post-meta"><span title='2022-01-04 07:09:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -217,6 +216,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1927,12 +1932,13 @@
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
+              <p> tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
 Relay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.
 Things need to consider:
 How to limit or identify transactions that need to simulate?
 Only execute the transactions from local txpool.
-Where to execute the transction previously?...</p>
+Where to execute the transction previously?
+...</p>
             </div>
             <footer class="entry-footer"><span title='2023-06-12 10:03:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Ethereum Simulator Node" href="https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/"></a>
@@ -1944,8 +1950,9 @@ Where to execute the transction previously?...</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum, Sign Message source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn’t support but V4 does:
-Custom type array Custom type with null input Some input types that V4 doesn’t support but V3 does:...</p>
+              <p> tags: Ethereum, Sign Message source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn’t support but V4 does:
+Custom type array Custom type with null input Some input types that V4 doesn’t support but V3 does:
+...</p>
             </div>
             <footer class="entry-footer"><span title='2023-04-06 09:09:00 +0800 +0800'>April 6, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Ethereum Signing Data" href="https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/"></a>
@@ -1957,9 +1964,10 @@ Custom type array Custom type with null input Some input types that V4 doesn’t
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum Before EIP 1559 The miner receive both fees and block reward.
+              <p> tags: Ethereum Before EIP 1559 The miner receive both fees and block reward.
 After EIP 1559 The fee divide to 2 parts:
-Base Fee Priority Fee The miner receive priority fee and block reward, the base fee will be burned.</p>
+Base Fee Priority Fee The miner receive priority fee and block reward, the base fee will be burned.
+</p>
             </div>
             <footer class="entry-footer"><span title='2023-02-21 09:45:00 +0800 +0800'>February 21, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to EIP 1559" href="https://notes.0081800.xyz/notes/20230221094510-eip_1559/"></a>
@@ -1971,7 +1979,8 @@ Base Fee Priority Fee The miner receive priority fee and block reward, the base 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum,Blockchain,Tron source: https://ethereum.stackexchange.com/a/110498 const data = &#39;0x7ff36ab50000000000000000000000000000000000000000000000bc18ba4144048bbab00000000000000000000000000000000000000000000000000000000000000080000000000000000000000000c0c5eb43e2df059e3be6e4fb0284c283caa5991900000000000000000000000000000000000000000000000000000000614d87a80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c00000000000000000000000008ba0619b1e7a582e0bce5bbe9843322c954c340&#39;; ethers.utils.defaultAbiCoder.decode( [&#39;uint256&#39;, &#39;address[]&#39;, &#39;address&#39;, &#39;uint256&#39;], ethers.utils.hexDataSlice(data, 4) ) // gives: [e, [&#34;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&#34;, &#34;0x08ba0619b1e7A582E0BCe5BBE9843322C954C340&#34;], &#34;0xC0C5eb43E2dF059e3Be6E4fb0284C283CAa59919&#34;, e] (4) Online tools: Playground.</p>
+              <p> tags: Ethereum,Blockchain,Tron source: https://ethereum.stackexchange.com/a/110498 const data = &#39;0x7ff36ab50000000000000000000000000000000000000000000000bc18ba4144048bbab00000000000000000000000000000000000000000000000000000000000000080000000000000000000000000c0c5eb43e2df059e3be6e4fb0284c283caa5991900000000000000000000000000000000000000000000000000000000614d87a80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c00000000000000000000000008ba0619b1e7a582e0bce5bbe9843322c954c340&#39;; ethers.utils.defaultAbiCoder.decode( [&#39;uint256&#39;, &#39;address[]&#39;, &#39;address&#39;, &#39;uint256&#39;], ethers.utils.hexDataSlice(data, 4) ) // gives: [e, [&#34;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&#34;, &#34;0x08ba0619b1e7A582E0BCe5BBE9843322C954C340&#34;], &#34;0xC0C5eb43E2dF059e3Be6E4fb0284C283CAa59919&#34;, e] (4) Online tools: Playground.
+</p>
             </div>
             <footer class="entry-footer"><span title='2023-02-03 13:38:00 +0800 +0800'>February 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Decode input data of Ethereum" href="https://notes.0081800.xyz/notes/20230203133843-decode_input_data_of_ethereum/"></a>
@@ -1983,10 +1992,11 @@ Base Fee Priority Fee The miner receive priority fee and block reward, the base 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum Knowning Layer 2 Chain Rollup(or bundle) transactions off-chain to reduce fee and scale capacity, such as Bitcoin Lightning.
+              <p> tags: Ethereum Knowning Layer 2 Chain Rollup(or bundle) transactions off-chain to reduce fee and scale capacity, such as Bitcoin Lightning.
 Two layer 2 rollups Optimistic Rollups Zero-Knowledge Rollups Record on-chain state by writing calldata to L1(Ethereum), which more cheaper than change state on L1 chain.
 Fees Some layer 2 chain like Optimism should plus l1 fee when executing transaction on layer 1.1
-Many Ethereum applications display estimated fees to users by multiplying the gas price by the gas limit....</p>
+Many Ethereum applications display estimated fees to users by multiplying the gas price by the gas limit. However, as discussed earlier, users on Optimism are charged both an L2 execution fee and an L1 data fee. As a result, you should display the sum of both of these fees to give users the most accurate estimate of the total cost of a transaction.
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-12-23 10:08:00 +0800 +0800'>December 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Ethereum Layer 2" href="https://notes.0081800.xyz/notes/20221223100819-ethereum_layer_2/"></a>
@@ -2010,7 +2020,8 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you....</p>
+              <p> tags: Blockchain,Ethereum source: “Graphical Guide to Understanding Uniswap - EthHub.” Accessed August 23, 2022. https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/. ERC20 tokens are the most common type of token built on top of Ethereum. They are fungible in nature, meaning that there isn’t a distinction between individual tokens. For example, if I have 100 metal marbles in my hand that are all the same size and color, it doesn’t matter which one I give you. In the same way, if I have 100 of the same ERC20 token, it doesn’t matter which one I give you. This contrasts with ERC721 tokens which are non-fungible tokens (NFTs) such as cryptokitties.
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-08-23 10:59:00 +0800 +0800'>August 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Non-Fungible Tokens vs. Fungible Tokens" href="https://notes.0081800.xyz/notes/20220823105929-non_fungible_tokens_vs_fungible_tokens/"></a>
@@ -2034,7 +2045,8 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Starcoin Web3 StarTrek,Merkle tree,Ethereum Powers the widely known Ethereum network.</p>
+              <p> tags: Starcoin Web3 StarTrek,Merkle tree,Ethereum Powers the widely known Ethereum network.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-06-07 18:48:00 +0800 +0800'>June 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Patricia Merkle Tree" href="https://notes.0081800.xyz/notes/20220607184852-patricia_merkle_tree/"></a>
@@ -2058,13 +2070,13 @@ Many Ethereum applications display estimated fees to users by multiplying the ga
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Smart contracts,Ethereum,Ethereum development source: ethereum.org. “Ethereum Local Development Setup.” Accessed January 7, 2022. https://ethereum.org. Local development node:
+              <p> tags: Smart contracts,Ethereum,Ethereum development source: ethereum.org. “Ethereum Local Development Setup.” Accessed January 7, 2022. https://ethereum.org. Local development node:
 Use Hardhat to build the ethereum development environment.
 And also there are some tools that based on Hardhat:
 scaffold-eth: forkable Ethereum dev stack focused on fast product iterations Ganache: A tool for creating a local blockchain for fast Ethereum development.
 Tools that based on Ganache:
 Python based: brownie Testing tools:
-Waffle: ethers....</p>
+Waffle: ethers.js Truffle: Web3.js </p>
             </div>
             <footer class="entry-footer"><span title='2022-01-07 07:08:00 +0800 +0800'>January 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Set up your local development environment" href="https://notes.0081800.xyz/notes/20220107070826-set_up_your_local_development_environment/"></a>
@@ -2112,7 +2124,8 @@ Waffle: ethers....</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Blockchain,Ethereum source: https://ethereum.org/en/developers/docs/smart-contracts/ A type of Ethereum account. Some code deployed and running in some VM, like Ethereum Virtual Machine.</p>
+              <p> tags: Blockchain,Ethereum source: https://ethereum.org/en/developers/docs/smart-contracts/ A type of Ethereum account. Some code deployed and running in some VM, like Ethereum Virtual Machine.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-05 11:38:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Smart contracts" href="https://notes.0081800.xyz/notes/20220105113810-smart_contracts/"></a>
@@ -2124,7 +2137,8 @@ Waffle: ethers....</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum,Smart contracts,Blockchain,Web3 source: https://ethereum.org/en/dao/ Based on smart contracts and use tokens for voting. Tokens can be exchanged in the market.</p>
+              <p> tags: Ethereum,Smart contracts,Blockchain,Web3 source: https://ethereum.org/en/dao/ Based on smart contracts and use tokens for voting. Tokens can be exchanged in the market.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-05 11:26:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Decentralized autonomous organizations (DAOs)" href="https://notes.0081800.xyz/notes/20220105112648-decentralized_autonomous_organizations_daos/"></a>
@@ -2136,8 +2150,9 @@ Waffle: ethers....</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum,Proof-of-stake source: https://ethereum.org/en/eth2/shard-chains/ Sharding is the process of splitting a database horizontally to spread the load – it’s a common concept in computer science. In an Ethereum context, sharding will reduce network congestion and increase transactions per second by creating new chains, known as “shards”.
-This is important for reasons other than scalability.</p>
+              <p> tags: Ethereum,Proof-of-stake source: https://ethereum.org/en/eth2/shard-chains/ Sharding is the process of splitting a database horizontally to spread the load – it’s a common concept in computer science. In an Ethereum context, sharding will reduce network congestion and increase transactions per second by creating new chains, known as “shards”.
+This is important for reasons other than scalability.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 08:30:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Ethereum: Shard chains" href="https://notes.0081800.xyz/notes/20220104083051-ethereum_shard_chains/"></a>
@@ -2149,8 +2164,9 @@ This is important for reasons other than scalability.</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum,Proof-of-stake source: https://ethereum.org/en/eth2/beacon-chain/ Extra coordination for the Ethereum: Shard chains.
-The beacon chain receives state information from shards and makes it available for other shards, allowing the network to stay in sync. The beacon chain will also manage the validators from registering their stake deposits to issuing their rewards and penalties.</p>
+              <p> tags: Ethereum,Proof-of-stake source: https://ethereum.org/en/eth2/beacon-chain/ Extra coordination for the Ethereum: Shard chains.
+The beacon chain receives state information from shards and makes it available for other shards, allowing the network to stay in sync. The beacon chain will also manage the validators from registering their stake deposits to issuing their rewards and penalties.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 08:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Ethereum: The Beacon Chain" href="https://notes.0081800.xyz/notes/20220104082350-ethereum_the_beacon_chain/"></a>
@@ -2162,9 +2178,10 @@ The beacon chain receives state information from shards and makes it available f
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Ethereum,Proof-of-stake source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#how-does-pos-work When you submit a transaction on a shard, a validator will be responsible for adding your transaction to a shard block. Validators are algorithmically chosen by Ethereum: The Beacon Chain to propose new blocks.
+              <p> tags: Ethereum,Proof-of-stake source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#how-does-pos-work When you submit a transaction on a shard, a validator will be responsible for adding your transaction to a shard block. Validators are algorithmically chosen by Ethereum: The Beacon Chain to propose new blocks.
 Attestation
-If a validator isn’t chosen to propose a new shard block, they’ll have to attest to another validator’s proposal and confirm that everything looks as it should. It’s the attestation that is recorded in the beacon chain rather than the transaction itself....</p>
+If a validator isn’t chosen to propose a new shard block, they’ll have to attest to another validator’s proposal and confirm that everything looks as it should. It’s the attestation that is recorded in the beacon chain rather than the transaction itself.
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 08:21:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to How does Ethereum&#39;s proof-of-stake work?" href="https://notes.0081800.xyz/notes/20220104082123-how_does_ehtereum_s_proof_of_stake_work/"></a>
@@ -2188,10 +2205,11 @@ If a validator isn’t chosen to propose a new shard block, they’ll have to at
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Blockchain,Blockchain Proof,Ethereum,Solana source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/ Proof workflow:
+              <p> tags: Blockchain,Blockchain Proof,Ethereum,Solana source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/ Proof workflow:
 Users stake money(ETH) to become a validator.
 Validators are chosen at random to create blocks and are responsible for checking and confirming blocks they don’t create.
-user’s stake is also used as a way to incentivise good validator behavior. For example, a user can lose a portion of their stake for things like going offline (failing to validate) or their entire stake for deliberate collusion....</p>
+user’s stake is also used as a way to incentivise good validator behavior. For example, a user can lose a portion of their stake for things like going offline (failing to validate) or their entire stake for deliberate collusion.
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 07:10:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Proof-of-stake" href="https://notes.0081800.xyz/notes/20220104071052-proof_of_stake/"></a>
@@ -2203,8 +2221,9 @@ user’s stake is also used as a way to incentivise good validator behavior. For
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Blockchain Proof,Blockchain,Ethereum source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/ Wikipedia: https://en.wikipedia.org/wiki/Proof%5Fof%5Fwork A key feature of proof-of-work schemes is their asymmetry: the work – the computation – must be moderately hard (yet feasible) on the prover or requester side but easy to check for the verifier or service provider.
-With a hash function, let’s say SHA-1. For example, to do PoW, we need to generate a SHA-1 hash of the given data that must begins 52 binary zeros, that is 13 hexadecimal zeros:...</p>
+              <p> tags: Blockchain Proof,Blockchain,Ethereum source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/ Wikipedia: https://en.wikipedia.org/wiki/Proof%5Fof%5Fwork A key feature of proof-of-work schemes is their asymmetry: the work – the computation – must be moderately hard (yet feasible) on the prover or requester side but easy to check for the verifier or service provider.
+With a hash function, let’s say SHA-1. For example, to do PoW, we need to generate a SHA-1 hash of the given data that must begins 52 binary zeros, that is 13 hexadecimal zeros:
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 07:08:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Proof-of-work" href="https://notes.0081800.xyz/notes/20220104070857-proof_of_work/"></a>
@@ -2219,7 +2238,8 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

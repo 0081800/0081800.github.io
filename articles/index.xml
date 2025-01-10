@@ -4,145 +4,394 @@
     <title>Articles on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/articles/</link>
     <description>Recent content in Articles on Taking Smart Notes With Org-mode</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.139.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Nov 2023 15:54:00 +0800</lastBuildDate><atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Nov 2023 15:54:00 +0800</lastBuildDate>
+    <atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd</title>
       <link>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</link>
       <pubDate>Wed, 01 Nov 2023 15:54:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</guid>
-      <description>tags: Linux,Systemd,Supervisor,Logrotate Background I usually use supervisor1 to deploy my services, and capture the stdout/stderr to the log files, and then use logrotate to rotate the logs, which the configuration likes:
-/data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;amp;&amp;amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &amp;gt; /tmp/kill.log 2&amp;gt;&amp;amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs.</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20220104103936-linux/&#34;&gt;Linux&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20231101155430-systemd/&#34;&gt;Systemd&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20231101155445-supervisor/&#34;&gt;Supervisor&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20231101155522-logrotate/&#34;&gt;Logrotate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;I usually use supervisor&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; to deploy my services, and capture the stdout/stderr to the log files,
+and then use logrotate to rotate the logs, which the configuration likes:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-fundamental&#34; data-lang=&#34;fundamental&#34;&gt;/data/log/app/*/*.log {
+    daily
+    missingok
+    rotate 180
+    dateext
+    compress
+    delaycompress
+    notifempty
+    create 640 nobody adm
+    sharedscripts
+    postrotate
+      /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;amp;&amp;amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &amp;gt; /tmp/kill.log 2&amp;gt;&amp;amp;1
+    endscript
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Wrap &amp; Unwrap errors in Go</title>
       <link>https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/</link>
       <pubDate>Wed, 12 Oct 2022 10:12:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/</guid>
-      <description>tags: Go source: “Wrap and Unwrap Errors in Go (Golang) | Gosamples.Dev.” Accessed October 12, 2022. https://gosamples.dev/wrap-unwrap-errors/. Overview Since Go1.13, there is a new feature about error add to go: Wrap &amp;amp; Unwrap errors. Let&amp;rsquo;s start from a simple example:
-package main import ( &amp;#34;errors&amp;#34; &amp;#34;fmt&amp;#34; ) var errRollingInTheDeep = errors.New(&amp;#34;rolling in the deep&amp;#34;) func doSomeActualJob() error { return errRollingInTheDeep } func someFrameworkCaller() error { // We use fmt.Errorf to wrap error.</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200218115725/&#34;&gt;Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: “Wrap and Unwrap Errors in Go (Golang) | Gosamples.Dev.” Accessed October 12, 2022. &lt;a href=&#34;https://gosamples.dev/wrap-unwrap-errors/&#34;&gt;https://gosamples.dev/wrap-unwrap-errors/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Since Go1.13, there is a new feature about error add to go: Wrap &amp;amp; Unwrap errors.
+Let&amp;rsquo;s start from a simple example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;errors&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errRollingInTheDeep&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rolling in the deep&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;doSomeActualJob&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errRollingInTheDeep&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;someFrameworkCaller&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// We use fmt.Errorf to wrap error.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Notice the &amp;#34;%w&amp;#34; formater here and content surround the &amp;#34;[...]&amp;#34;.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Errorf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[someFrameworkCaller] %w&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;doSomeActualJob&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;someEntrance&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Errorf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[someUpperCaller] %w&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;someFrameworkCaller&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;someEntrance&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Is&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;errRollingInTheDeep&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This should be&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    panic(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Oooops!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The final error: %v\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Unwrap: %v\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Unwrap&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Its output:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>actix-web extractors 支持提取任意长度的参数</title>
       <link>https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/</link>
       <pubDate>Tue, 21 Dec 2021 17:46:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/</guid>
-      <description>tags: Rust 背景 今天看了一下 actix-web 发现该框架支持基于参数的 Extractor，可以非常方便地解析参数（包括 URI、Query、JSON 和 FormData）。
-先来看一个在项目 README.md 中的例子：
-use actix_web::{get, web, App, HttpServer, Responder}; #[get(&amp;#34;/{id}/{name}/index.html&amp;#34;)] async fn index(web::Path((id, name)): web::Path&amp;lt;(u32, String)&amp;gt;) -&amp;gt; impl Responder { format!(&amp;#34;Hello {}! id:{}&amp;#34;, name, id) } #[actix_web::main] async fn main() -&amp;gt; std::io::Result&amp;lt;()&amp;gt; { HttpServer::new(|| App::new().service(index)) .bind(&amp;#34;127.0.0.1:8080&amp;#34;)? .run() .await } 初看之下觉得很神奇，但细想通过宏实现应该不是特别困难，然后发现其官网还有不是基于宏的运行时调用：
-use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(req: HttpRequest) -&amp;gt; impl Responder { let name = req.match_info().get(&amp;#34;name&amp;#34;).unwrap_or(&amp;#34;World&amp;#34;); format!(&amp;#34;Hello {}!</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;今天看了一下 actix-web 发现该框架支持基于参数的 Extractor，可以非常方便地解析参数（包括 URI、Query、JSON 和 FormData）。&lt;/p&gt;
+&lt;p&gt;先来看一个在项目 &lt;code&gt;README.md&lt;/code&gt; 中的例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;use&lt;/span&gt; actix_web::{get, web, App, HttpServer, Responder};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#[get(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/{id}/{name}/index.html&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;)]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;index&lt;/span&gt;(web::Path((id, name)): &lt;span style=&#34;color:#a6e22e&#34;&gt;web&lt;/span&gt;::Path&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;u32&lt;/span&gt;, String)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;impl&lt;/span&gt; Responder {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	format!(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! id:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, name, id)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#[actix_web::main]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() -&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;std&lt;/span&gt;::io::Result&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;()&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	HttpServer::new(&lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; App::new().service(index))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		.bind(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:8080&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		.run()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		.&lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;初看之下觉得很神奇，但细想通过宏实现应该不是特别困难，然后发现其官网还有不是基于宏的运行时调用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;use&lt;/span&gt; actix_web::{web, App, HttpRequest, HttpServer, Responder};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(req: &lt;span style=&#34;color:#a6e22e&#34;&gt;HttpRequest&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;impl&lt;/span&gt; Responder {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; req.match_info().get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;).unwrap_or(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;World&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	format!(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;!&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#[actix_web::main]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() -&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;std&lt;/span&gt;::io::Result&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;()&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	HttpServer::new(&lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		App::new()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			.route(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, web::get().to(greet))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			.route(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/{name}&amp;#34;&lt;/span&gt;, web::get().to(greet))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	.bind((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;8080&lt;/span&gt;))&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	.run()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	.&lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看下来方法 &lt;code&gt;to&lt;/code&gt; 的签名，实现一个参数的提取也不困难：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Airflow powers AI</title>
       <link>https://notes.0081800.xyz/articles/20210826074053-airflow_powers_ai/</link>
       <pubDate>Thu, 26 Aug 2021 07:40:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20210826074053-airflow_powers_ai/</guid>
-      <description>背景介绍 最近接手了一个项目，经过需求调研决定尝试使用 Airflow 调度数据生产，过程涉及：
-从大数据 Hive 数据库整合数据宽表； 在 Spark 上运行 IRT 算法模型汇总 ADS 表。 从中学习了很多关于大数据的知识，同时也积累了如何通过 Airflow 提交 Spark 任务的经验，应当抽时间总结一下。
-冰山之下 如「冰山理论」所描述，我们所做的只是冰山露在水面的一角，隐藏在冰山之下更大的一部份是：
-Airflow + Celery Docker Hadoop(Hive) 集群 YARN 集群（Spark over YARN） 接下来我们将关注在「冰山水面上的一角」来阐述我们如何利用这些已有的技术连结了整个系统。
-Make DAG great again 之前部门里有位算法大佬用 DAG（大佬念做「戴格」）实现了一套非常牛逼的文本和识别处理算法，然后每次讨论方案必谈 DAG， 所以 DAG 成了部门里都知道的一个梗，虽然大佬走了之后很少再有人提起 DAG，但是接下来我们会进行文艺复兴，让 DAG 再次出现在我们的日常技术讨论中。
-Make DAG Great Again!
-Airflow 介绍 架构 概念 DAG Operator Connection Providers packages See also: Provider packages.
-Spark 介绍 架构 Spark 编程 Spark SQL Hive Table 示例 Airflow + Spark 平台化 Celery Worker as a Spark Driver Celery Worker running on specific platform Windows Bigdata Hive client DAGs 分发 提交 DAG Python 依赖解决 Spark Airflow 外部依赖？ 未来 承接更多的报告需求 对内承接分析任务 可编程、平台化的分析 </description>
+      <description>&lt;h2 id=&#34;背景介绍&#34;&gt;背景介绍&lt;/h2&gt;
+&lt;p&gt;最近接手了一个项目，经过需求调研决定尝试使用 Airflow 调度数据生产，过程涉及：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从大数据 Hive 数据库整合数据宽表；&lt;/li&gt;
+&lt;li&gt;在 Spark 上运行 IRT 算法模型汇总 ADS 表。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;从中学习了很多关于大数据的知识，同时也积累了如何通过 Airflow 提交 Spark 任务的经验，应当抽时间总结一下。&lt;/p&gt;
+&lt;h3 id=&#34;冰山之下&#34;&gt;冰山之下&lt;/h3&gt;
+&lt;p&gt;如「冰山理论」所描述，我们所做的只是冰山露在水面的一角，隐藏在冰山之下更大的一部份是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Airflow + Celery&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Hadoop(Hive) 集群&lt;/li&gt;
+&lt;li&gt;YARN 集群（Spark over YARN）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来我们将关注在「冰山水面上的一角」来阐述我们如何利用这些已有的技术连结了整个系统。&lt;/p&gt;
+&lt;h3 id=&#34;make-dag-great-again&#34;&gt;Make DAG great again&lt;/h3&gt;
+&lt;p&gt;之前部门里有位算法大佬用 DAG（大佬念做「戴格」）实现了一套非常牛逼的文本和识别处理算法，然后每次讨论方案必谈 DAG，
+所以 DAG 成了部门里都知道的一个梗，虽然大佬走了之后很少再有人提起 DAG，但是接下来我们会进行文艺复兴，让 DAG 再次出现在我们的日常技术讨论中。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Make DAG Great Again&lt;/strong&gt;!&lt;/p&gt;
+&lt;h2 id=&#34;airflow-介绍&#34;&gt;Airflow 介绍&lt;/h2&gt;
+&lt;h3 id=&#34;架构&#34;&gt;架构&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://notes.0081800.xyz/ox-hugo/2021-08-30_11-37-00_arch-diag-basic.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;概念&#34;&gt;概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DAG&lt;/li&gt;
+&lt;li&gt;Operator&lt;/li&gt;
+&lt;li&gt;Connection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;providers-packages&#34;&gt;Providers packages&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://notes.0081800.xyz/ox-hugo/2021-08-30_11-34-20_screenshot.png&#34;&gt;
+See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-providers/index.html&#34;&gt;Provider packages&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;spark-介绍&#34;&gt;Spark 介绍&lt;/h2&gt;
+&lt;h3 id=&#34;架构&#34;&gt;架构&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://notes.0081800.xyz/ox-hugo/2021-08-30_08-04-43_cluster-overview.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;spark-编程&#34;&gt;Spark 编程&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://notes.0081800.xyz/ox-hugo/2021-08-30_08-06-05_Spark%20RDD.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;spark-sql-hive-table-示例&#34;&gt;Spark SQL Hive Table 示例&lt;/h3&gt;
+&lt;h2 id=&#34;airflow-plus-spark-平台化&#34;&gt;Airflow + Spark 平台化&lt;/h2&gt;
+&lt;h3 id=&#34;celery-worker-as-a-spark-driver&#34;&gt;Celery Worker as a Spark Driver&lt;/h3&gt;
+&lt;h3 id=&#34;celery-worker-running-on-specific-platform&#34;&gt;Celery Worker running on specific platform&lt;/h3&gt;
+&lt;h4 id=&#34;windows&#34;&gt;Windows&lt;/h4&gt;
+&lt;h4 id=&#34;bigdata-hive-client&#34;&gt;Bigdata Hive client&lt;/h4&gt;
+&lt;h3 id=&#34;dags-分发&#34;&gt;DAGs 分发&lt;/h3&gt;
+&lt;h3 id=&#34;提交-dag&#34;&gt;提交 DAG&lt;/h3&gt;
+&lt;h3 id=&#34;python-依赖解决&#34;&gt;Python 依赖解决&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Spark&lt;/li&gt;
+&lt;li&gt;Airflow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;外部依赖&#34;&gt;外部依赖？&lt;/h2&gt;
+&lt;h2 id=&#34;未来&#34;&gt;未来&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;承接更多的报告需求&lt;/li&gt;
+&lt;li&gt;对内承接分析任务&lt;/li&gt;
+&lt;li&gt;可编程、平台化的分析&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Understanding Rust futures by going way too deep</title>
       <link>https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/</link>
       <pubDate>Mon, 26 Jul 2021 10:57:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/</guid>
-      <description>tags: Translate,Rust,Tokio 原文链接：Understanding Rust futures by going way too deep。
-译者注：原文大量的引入了有趣的对话，迫于排版问题这里不进行翻译，必要的对话通过引用块来解释。
-深入理解 Rust future 用 Rust future！就是这么简单！直到我们发现并非如此。所以我们先探索简单的部分，然后继续探索困难部分而不是等它慢慢靠近我们。
-起步 Choo choo here comes the easy part 🚂💨
-我们创建一个新的项目：
-$ cargo new waytoodeep Created binary (application) `waytoodeep` package 我们需要安装 cargo-edit 如果之前没有安装过的话，接下来就可以直接 cargo add ：
-$ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0 Downloaded 1 crate (57.6 KB) in 0.47s Ignored package `cargo-edit v0.7.0` is already installed, use --force to override 因为 cargo-edit 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像 cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中， 但是 cargo add 没有。</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20210808083146-tokio/&#34;&gt;Tokio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;原文链接：&lt;a href=&#34;https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep&#34;&gt;Understanding Rust futures by going way too deep&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;译者注：原文大量的引入了有趣的对话，迫于排版问题这里不进行翻译，必要的对话通过引用块来解释。&lt;/p&gt;
+&lt;h2 id=&#34;深入理解-rust-future&#34;&gt;深入理解 Rust future&lt;/h2&gt;
+&lt;p&gt;用 Rust future！就是这么简单！直到我们发现并非如此。所以我们先探索简单的部分，然后继续探索困难部分而不是等它慢慢靠近我们。&lt;/p&gt;
+&lt;h2 id=&#34;起步&#34;&gt;起步&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Choo choo here comes the easy part 🚂💨&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们创建一个新的项目：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;$ cargo new waytoodeep
+	 Created binary (application) `waytoodeep` package
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们需要安装 &lt;code&gt;cargo-edit&lt;/code&gt; 如果之前没有安装过的话，接下来就可以直接 &lt;code&gt;cargo add&lt;/code&gt; ：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;$ cargo install cargo-edit
+	Updating crates.io index
+  Downloaded cargo-edit v0.7.0
+  Downloaded 1 crate (57.6 KB) in 0.47s
+	 Ignored package `cargo-edit v0.7.0` is already installed, use --force to override
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;因为 &lt;code&gt;cargo-edit&lt;/code&gt; 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像
+&lt;code&gt;cargo new&lt;/code&gt;, &lt;code&gt;cargo build&lt;/code&gt;, &lt;code&gt;cargo test&lt;/code&gt;, &lt;code&gt;cargo run&lt;/code&gt; 等子命令都内置在 cargo 中，
+但是 &lt;code&gt;cargo add&lt;/code&gt; 没有。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Surgical Reading: How to Read 12 Books at Once</title>
       <link>https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/</link>
       <pubDate>Sun, 28 Jun 2020 13:46:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/</guid>
-      <description>tags: Translate,Incomplete 原文链接：https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books
-手术阅读法：如何同时阅读 12 本书 译者注：这篇文章让我想起了《如何阅读一本书》这本书，文章中的大部分技巧都能在这本书中找出来，阅读是一门需要学习的技能。
-当有人问我如何阅读时我总是会有点尴尬，因为我一般都是同时阅读十几本书。
-但是我这样阅读并不是为了炫耀 &amp;ndash; 我这么做是因为我觉得这种阅读方式更好，最起码对我来说。
-这是一个我开发一个叫做 手术阅读法（surgical reading） 的过程，它意味着当我读一本非小说的书籍时，我会专注于尽可能快的从书中找到最有价值的部分并将之剔除。 这样允许我在一个主题上同时阅读许多不同的书籍，并从多个角度来观察这一主题。我的目标是快速地找到有价值的知识，并使用现实中获得的信息去解决问题。
-这种方法有很多隐藏的好处。首先，我可以快速了解自己对一本书是否有兴趣，并因此去花更多的时间读我真正感兴趣书籍。当我对一本书不感兴趣时我就可以将其放下并转到其他事情上，因为我知道我将它放回去是有原因的。 阅读不应该是将书籍在 ToDo 事项完成，而是应该解释什么吸引了你。
-其次，我可以从多个角度观察一个主题，并真正理解问题。我可以看到有多少不同的人讨论同一个时间和想法，而不是依靠一位作者的陈述。 这使我对当前感兴趣的的任何主题都有更细微的了解。
-最后，它将书籍转变为更主动和更积极的事物。我的书架（library）已经不再是死板的存储空间，而是一个与我不断互动的鲜活的事物。
-当然，当我找到一本我真正喜欢的书（现在也越来越频繁），我也可以充分的利用它。
-我是谁（Who I Am） 我的名字是 Brian Tobal，我耗费了我的大部分时间来思考如何学习。在过去 15 年，我在教育界获得了很多头衔（hats）。 我曾是一名小学科学老师、一家教育公司的研究员、六家教育科技初创公司的产品负责人，本人也是一些初创公司的创始人， 包括我于 2018 年出售的一家名为 Hickory 的公司。
-我喜欢初创公司。从学习角度来看，它们使你可以完全沉浸于新的领域，并根据其性质迫使你解决实际问题。 这为我自己的学习方法和阅读方法提供了动力。我不是为了仅仅积累知识来建立知识库，通常我建立它是为了尽快使用它。
-手术阅读法就是设计用来帮助我这么做的。
-所以你准备好试一试了吗？请从书架上拿出一些已经搁置了一段时间的书，希望您还没有读过。跟着我，亲眼看看手术阅读法的感觉。
-让我们开始吧！
-把书当作其自身的地图（Use the Book Itself as a Map） 以下是一份我如何阅读一本书的步骤分解：
-了解一本书 通过封面评判这本书 索引（index）包含了一切 把目录（TOC）当作骨架 通过前言（preface）进行预览 此过程的重点是获得在大约 15 分钟内对任何书籍进行“地图绘制”的能力。你希望对有价值的知识位于何处、什么地方打动你以及要花费多少时间来阅读它有基本的了解。
-下面，我们将逐步完成从一本书中提取要点（或者说知识块）的过程，如何增加阅读一本书的价值，以及如何结合所有内容以便您可以轻松的一次提取多本书。
-了解一本书（Approaching a Book ） 当我开始阅读一本非小说的书籍之前，我会话费 5-10 分钟的时间尝试去了解他对我具有什么价值以及它的结构。当我们决定要阅读此书时我们可以通过很多方式做到这一点。 也许通过亚马逊阅读一些评论和反馈或者随机浏览其中一部分。我更喜欢使用这本书本身。
-同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。 你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 &amp;ndash; 根据你自己的喜好就行。</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20211231172037-incomplete/&#34;&gt;Incomplete&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;原文链接：&lt;a href=&#34;https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books&#34;&gt;https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;手术阅读法-如何同时阅读-12-本书&#34;&gt;手术阅读法：如何同时阅读 12 本书&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;译者注：这篇文章让我想起了《如何阅读一本书》这本书，文章中的大部分技巧都能在这本书中找出来，阅读是一门需要学习的技能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当有人问我如何阅读时我总是会有点尴尬，因为我一般都是同时阅读十几本书。&lt;/p&gt;
+&lt;p&gt;但是我这样阅读并不是为了炫耀 &amp;ndash; 我这么做是因为我觉得这种阅读方式更好，最起码对我来说。&lt;/p&gt;
+&lt;p&gt;这是一个我开发一个叫做 &lt;strong&gt;&lt;strong&gt;手术阅读法（surgical reading）&lt;/strong&gt;&lt;/strong&gt; 的过程，它意味着当我读一本非小说的书籍时，我会专注于尽可能快的从书中找到最有价值的部分并将之剔除。
+这样允许我在一个主题上同时阅读许多不同的书籍，并从多个角度来观察这一主题。我的目标是快速地找到有价值的知识，并使用现实中获得的信息去解决问题。&lt;/p&gt;
+&lt;p&gt;这种方法有很多隐藏的好处。首先，我可以快速了解自己对一本书是否有兴趣，并因此去花更多的时间读我真正感兴趣书籍。当我对一本书不感兴趣时我就可以将其放下并转到其他事情上，因为我知道我将它放回去是有原因的。
+阅读不应该是将书籍在 ToDo 事项完成，而是应该解释什么吸引了你。&lt;/p&gt;
+&lt;p&gt;其次，我可以从多个角度观察一个主题，并真正理解问题。我可以看到有多少不同的人讨论同一个时间和想法，而不是依靠一位作者的陈述。
+这使我对当前感兴趣的的任何主题都有更细微的了解。&lt;/p&gt;
+&lt;p&gt;最后，它将书籍转变为更主动和更积极的事物。我的书架（library）已经不再是死板的存储空间，而是一个与我不断互动的鲜活的事物。&lt;/p&gt;
+&lt;p&gt;当然，当我找到一本我真正喜欢的书（现在也越来越频繁），我也可以充分的利用它。&lt;/p&gt;
+&lt;h3 id=&#34;我是谁-who-i-am&#34;&gt;我是谁（Who I Am）&lt;/h3&gt;
+&lt;p&gt;我的名字是 Brian Tobal，我耗费了我的大部分时间来思考如何学习。在过去 15 年，我在教育界获得了很多头衔（hats）。
+我曾是一名小学科学老师、一家教育公司的研究员、六家教育科技初创公司的产品负责人，本人也是一些初创公司的创始人，
+包括我于 2018 年出售的一家名为 Hickory 的公司。&lt;/p&gt;
+&lt;p&gt;我喜欢初创公司。从学习角度来看，它们使你可以完全沉浸于新的领域，并根据其性质迫使你解决实际问题。
+这为我自己的学习方法和阅读方法提供了动力。我不是为了仅仅积累知识来建立知识库，通常我建立它是为了尽快使用它。&lt;/p&gt;
+&lt;p&gt;手术阅读法就是设计用来帮助我这么做的。&lt;/p&gt;
+&lt;p&gt;所以你准备好试一试了吗？请从书架上拿出一些已经搁置了一段时间的书，希望您还没有读过。跟着我，亲眼看看手术阅读法的感觉。&lt;/p&gt;
+&lt;p&gt;让我们开始吧！&lt;/p&gt;
+&lt;h3 id=&#34;把书当作其自身的地图-use-the-book-itself-as-a-map&#34;&gt;把书当作其自身的地图（Use the Book Itself as a Map）&lt;/h3&gt;
+&lt;p&gt;以下是一份我如何阅读一本书的步骤分解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;了解一本书&lt;/li&gt;
+&lt;li&gt;通过封面评判这本书&lt;/li&gt;
+&lt;li&gt;索引（index）包含了一切&lt;/li&gt;
+&lt;li&gt;把目录（TOC）当作骨架&lt;/li&gt;
+&lt;li&gt;通过前言（preface）进行预览&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此过程的重点是获得在大约 15 分钟内对任何书籍进行“地图绘制”的能力。你希望对有价值的知识位于何处、什么地方打动你以及要花费多少时间来阅读它有基本的了解。&lt;/p&gt;
+&lt;p&gt;下面，我们将逐步完成从一本书中提取要点（或者说知识块）的过程，如何增加阅读一本书的价值，以及如何结合所有内容以便您可以轻松的一次提取多本书。&lt;/p&gt;
+&lt;h4 id=&#34;了解一本书-approaching-a-book&#34;&gt;了解一本书（Approaching a Book ）&lt;/h4&gt;
+&lt;p&gt;当我开始阅读一本非小说的书籍之前，我会话费 5-10 分钟的时间尝试去了解他对我具有什么价值以及它的结构。当我们决定要阅读此书时我们可以通过很多方式做到这一点。
+也许通过亚马逊阅读一些评论和反馈或者随机浏览其中一部分。我更喜欢使用这本书本身。&lt;/p&gt;
+&lt;p&gt;同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。
+你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 &amp;ndash; 根据你自己的喜好就行。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rust Borrow and Lifetimes</title>
       <link>https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/</guid>
-      <description>tags: Rust,Translate,Rust Wrapper Types 原文链接：Rust Borrow and Lifetimes。
-Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布，目前最新稳定版本 1.42）。 我必须再写一篇关于我为什么觉得 Rust 牛逼的新博客，但是今天我将关注在它的借用（borrow） 和生命周期（lifetimes）系统，这也是常常让包括我在内的 Rust 新手陷入困境的地方。这篇文章假设 你基本了解 Rust，如果还没推荐你先阅读指南和指针指南。
-资源所有权和借用 Rust 通过一个难缠的（sophisticated）借用系统在不用 GC 的情况下达到内存安全。对于任何资源 （栈内存、堆内存、文件句柄等），他们都对应一个唯一的所有者（owner）在需要的情况下处理资源回收。 你可以通过 &amp;amp; 或者 &amp;amp;mut 创建一个新的绑定指向该资源，这被称之为借用或可变借用。编译器确保 所有的所有者（owners）和借用者（borrowers）行为正确。
-拷贝和转移（Copy and move） 在我们开始进入借用系统之前，我们需要知道 Rust 如何处理拷贝和转移。这个 StackOverflow 答案非常值得一读。 基本上，在赋值和函数调用上：
-如果值是可拷贝的（copyable）（仅涉及原始（primitive）类型，不涉及如内存或文件句柄的资源），编译器默认进行拷贝。 其他情况，编译器转移（moves）所有权（ownership）并使原来的绑定无效。 简而言之，POD（Plan Old Data） =&amp;gt; 拷贝，Non-POD（线性类型（linear types））=&amp;gt; 转移。
-以下是一些额外的注释供你参考：
-Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷贝（通过 memcpy 浅拷贝），而不是语义上的拷贝或克隆。 如果想要让一个 POD 结构体变成不可拷贝的，你可以使用一个 NoCopy 标记，或者实现 Drop 特性（trait）。 转移之后，所有权就转移到了下一个所有者那。
-资源回收 Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，当：</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200307191429_rust/&#34;&gt;Rust&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/&#34;&gt;Rust Wrapper Types&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;原文链接：&lt;a href=&#34;http://arthurtw.github.io/2014/11/30/rust-borrow-lifetimes.html&#34;&gt;Rust Borrow and Lifetimes&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Rust 是一门处于往 1.0 活跃开发的新语言（译注：1.0 早已发布，目前最新稳定版本 &lt;a href=&#34;https://github.com/rust-lang/rust/releases/tag/1.42.0&#34;&gt;1.42&lt;/a&gt;）。
+我必须再写一篇关于我为什么觉得 Rust 牛逼的新博客，但是今天我将关注在它的借用（borrow）
+和生命周期（lifetimes）系统，这也是常常让包括我在内的 Rust 新手陷入困境的地方。这篇文章假设
+你基本了解 Rust，如果还没推荐你先阅读&lt;a href=&#34;http://doc.rust-lang.org/guide.html&#34;&gt;指南&lt;/a&gt;和&lt;a href=&#34;http://doc.rust-lang.org/guide-pointers.html&#34;&gt;指针指南&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;资源所有权和借用&#34;&gt;资源所有权和借用&lt;/h2&gt;
+&lt;p&gt;Rust 通过一个难缠的（sophisticated）借用系统在不用 GC 的情况下达到内存安全。对于任何资源
+（栈内存、堆内存、文件句柄等），他们都对应一个唯一的所有者（owner）在需要的情况下处理资源回收。
+你可以通过 &lt;code&gt;&amp;amp;&lt;/code&gt; 或者 &lt;code&gt;&amp;amp;mut&lt;/code&gt; 创建一个新的绑定指向该资源，这被称之为借用或可变借用。编译器确保
+所有的所有者（owners）和借用者（borrowers）行为正确。&lt;/p&gt;
+&lt;h2 id=&#34;拷贝和转移-copy-and-move&#34;&gt;拷贝和转移（Copy and move）&lt;/h2&gt;
+&lt;p&gt;在我们开始进入借用系统之前，我们需要知道 Rust 如何处理拷贝和转移。这个 &lt;a href=&#34;https://stackoverflow.com/questions/24253344/is-it-possible-to-make-a-type-only-movable-and-not-copyable/24253573#24253573&#34;&gt;StackOverflow 答案&lt;/a&gt;非常值得一读。
+基本上，在赋值和函数调用上：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果值是可拷贝的（copyable）（仅涉及原始（primitive）类型，不涉及如内存或文件句柄的资源），编译器默认进行拷贝。&lt;/li&gt;
+&lt;li&gt;其他情况，编译器转移（moves）所有权（ownership）并使原来的绑定无效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;简而言之，POD（Plan Old Data） =&amp;gt; 拷贝，Non-POD（线性类型（linear types））=&amp;gt; 转移。&lt;/p&gt;
+&lt;p&gt;以下是一些额外的注释供你参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷贝（通过 &lt;code&gt;memcpy&lt;/code&gt; 浅拷贝），而不是语义上的拷贝或克隆。&lt;/li&gt;
+&lt;li&gt;如果想要让一个 POD 结构体变成不可拷贝的，你可以使用一个 &lt;a href=&#34;http://doc.rust-lang.org/std/kinds/marker/struct.NoCopy.html&#34;&gt;NoCopy&lt;/a&gt; 标记，或者实现 &lt;a href=&#34;http://doc.rust-lang.org/std/ops/trait.Drop.html&#34;&gt;Drop&lt;/a&gt; 特性（trait）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;转移之后，所有权就转移到了下一个所有者那。&lt;/p&gt;
+&lt;h2 id=&#34;资源回收&#34;&gt;资源回收&lt;/h2&gt;
+&lt;p&gt;Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，当：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;所有者超出作用域，或&lt;/li&gt;
+&lt;li&gt;正在持有的所有者改变绑定（原始绑定变成 void）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;所有者和借用者的权限-privileges-和限制&#34;&gt;所有者和借用者的权限（privileges）和限制&lt;/h2&gt;
+&lt;p&gt;这一节基于 &lt;a href=&#34;http://doc.rust-lang.org/guide.html&#34;&gt;Rust Guide&lt;/a&gt; 在权限（privileges）一部分提到拷贝和转移。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>译：深度学习算法：完整指南</title>
       <link>https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/</link>
       <pubDate>Mon, 09 Mar 2020 00:00:00 +0800</pubDate>
-      
       <guid>https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/</guid>
-      <description>tags: Translate,Deep Learning,AI,Incomplete 原文链接：Deep Learning Algorithms : The Complete Guide。
-深度学习正在影响整个世界。
-深度学习的炒作始于 2012 年：一个神经网络（Neural Network）在图片识别任务上表现出超人的性能，并且只有少数人能预测将会发生什么。
-在过去 10 年，越来越多的算法落地到我们生活中。越来越多的公司开始将其加入到日常业务中。
-这里，我尝试覆盖近几年各种应用如计算机视觉和自然语言处理（Natural Language Processing）中所涉及的所有最重要的算法和构思。
-其中有一些算法比其他一些使用的更加频繁并且每一种都有其自身的优点和缺点。
-我的主要目标是给你一个当前领域通用的思路去帮助你理解每一种情况应该使用什么算法。 因我知道它看起来会对一些从零开始的人造成一定程度的混乱。
-但是通过阅读这份指南，我有信心你会认识到什么是什么并且你可以准备好去立即使用他们。
-所以如果你正在寻找一份深度学习真正的完整指南，那就让我们开始吧。
-Contents 但是什么是深度学习?
-神经网络
-前馈神经网络（FNN）
-卷积神经网络（CNN）
-循环神经网络（RNN）
-递归神经网络（Recurisive Neural Network）
-自编码器（AutoEncoders）
-深度信念网络 (Deep belief network)和受限玻尔兹曼机 (Restricted Boltzmann machine)
-生成对抗网络（GAN）
-Transformers
-图神经网络（GNN）
-自然语言处理中的深度学习
-词嵌入 (Word embedding) 序列建模（Sequence Modeling） 计算机视觉中的机器学习
-本地化和物体识别 单发探测器（Single shot detectors） 语义分割（Semantic Segmentation） 姿势估计（Pose Estimation） 深度学习在科学和企业界取得了疯狂的人气。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，每年都出现了越来越多的研究论文并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181.</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20200309112105_translate/&#34;&gt;Translate&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20200310093014_deep_learning/&#34;&gt;Deep Learning&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;,&lt;a href=&#34;https://notes.0081800.xyz/topics/20211231172037-incomplete/&#34;&gt;Incomplete&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;原文链接：&lt;a href=&#34;https://theaisummer.com/Deep-Learning-Algorithms/&#34;&gt;Deep Learning Algorithms : The Complete Guide&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;深度学习正在影响整个世界。&lt;/p&gt;
+&lt;p&gt;深度学习的炒作始于 2012 年：一个神经网络（Neural Network）在图片识别任务上表现出超人的性能，并且只有少数人能预测将会发生什么。&lt;/p&gt;
+&lt;p&gt;在过去 10 年，越来越多的算法落地到我们生活中。越来越多的公司开始将其加入到日常业务中。&lt;/p&gt;
+&lt;p&gt;这里，我尝试覆盖近几年各种应用如计算机视觉和自然语言处理（Natural Language Processing）中所涉及的所有最重要的算法和构思。&lt;/p&gt;
+&lt;p&gt;其中有一些算法比其他一些使用的更加频繁并且每一种都有其自身的优点和缺点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;我的主要目标是给你一个当前领域通用的思路去帮助你理解每一种情况应该使用什么算法。&lt;/strong&gt;&lt;/strong&gt; 因我知道它看起来会对一些从零开始的人造成一定程度的混乱。&lt;/p&gt;
+&lt;p&gt;但是通过阅读这份指南，我有信心你会认识到什么是什么并且你可以准备好去立即使用他们。&lt;/p&gt;
+&lt;p&gt;所以如果你正在寻找一份深度学习真正的完整指南，那就让我们开始吧。&lt;/p&gt;
+&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E4%BD%86%E6%98%AF%E4%BB%80%E4%B9%88%E6%98%AF%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&#34;&gt;但是什么是深度学习?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C&#34;&gt;神经网络&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-fnn&#34;&gt;前馈神经网络（FNN）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-cnn&#34;&gt;卷积神经网络（CNN）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-rnn&#34;&gt;循环神经网络（RNN）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C&#34;&gt;递归神经网络&lt;/a&gt;（Recurisive Neural Network）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8-autoencoders&#34;&gt;自编码器（AutoEncoders）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C--deep-belief-network--%E5%92%8C%E5%8F%97%E9%99%90%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA--restricted-boltzmann-machine&#34;&gt;深度信念网络 (Deep belief network)和受限玻尔兹曼机 (Restricted Boltzmann machine)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C-gan&#34;&gt;生成对抗网络（GAN）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#transformers&#34;&gt;Transformers&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-gnn&#34;&gt;图神经网络（GNN）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&#34;&gt;自然语言处理中的深度学习&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%AF%8D%E5%B5%8C%E5%85%A5--word-embedding&#34;&gt;词嵌入 (Word embedding)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%BA%8F%E5%88%97%E5%BB%BA%E6%A8%A1-sequence-modeling&#34;&gt;序列建模（Sequence Modeling）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E4%B8%AD%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&#34;&gt;计算机视觉中的机器学习&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%92%8C%E7%89%A9%E4%BD%93%E8%AF%86%E5%88%AB&#34;&gt;本地化和物体识别&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8D%95%E5%8F%91%E6%8E%A2%E6%B5%8B%E5%99%A8-single-shot-detectors&#34;&gt;单发探测器（Single shot detectors）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-semantic-segmentation&#34;&gt;语义分割（Semantic Segmentation）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%A7%BF%E5%8A%BF%E4%BC%B0%E8%AE%A1-pose-estimation&#34;&gt;姿势估计（Pose Estimation）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;深度学习在科学和企业界取得了&lt;a href=&#34;https://theaisummer.com/Deep_learning/&#34;&gt;疯狂的人气&lt;/a&gt;。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，&lt;a href=&#34;https://www.technologyreview.com/s/612768/we-analyzed-16625-papers-to-figure-out-where-ai-is-headed-next/&#34;&gt;每年都出现了越来越多的研究论文&lt;/a&gt;并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181.6 亿。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

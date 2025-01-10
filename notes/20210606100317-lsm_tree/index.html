@@ -7,15 +7,28 @@
 <meta name="robots" content="index, follow">
 <title>LSM-Tree | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content=" tags: Tree 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+<meta name="description" content="
+tags: Tree
+
+
+日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+
 压缩排序文件基于排序字符串表：SSTables。
-LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
-性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 ">
+LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。
+基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
+性能优化
+
+通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。
+通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。
+
+大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。
+分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。
+
+
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -41,7 +54,7 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -60,25 +73,39 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="LSM-Tree" />
-<meta property="og:description" content=" tags: Tree 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="LSM-Tree">
+  <meta property="og:description" content=" tags: Tree 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
 压缩排序文件基于排序字符串表：SSTables。
 LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
-性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2021-06-06T10:03:00+08:00" />
-<meta property="article:modified_time" content="2021-06-06T10:03:00+08:00" />
+性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2021-06-06T10:03:00+08:00">
+    <meta property="article:modified_time" content="2021-06-06T10:03:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LSM-Tree">
+<meta name="twitter:description" content="
+tags: Tree
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="LSM-Tree"/>
-<meta name="twitter:description" content=" tags: Tree 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+
+日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+
 压缩排序文件基于排序字符串表：SSTables。
-LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
-性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 "/>
+LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。
+基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
+性能优化
+
+通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。
+通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。
+
+大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。
+分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。
+
+
+">
 
 
 <script type="application/ld+json">
@@ -173,8 +200,6 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -206,7 +231,7 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       LSM-Tree
     </h1>
     <div class="post-meta"><span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -255,6 +280,12 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1903,9 +1934,10 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Starcoin Web3 StarTrek,Sparse Merkle Tree,Merkle tree,LSM-Tree,Account-Model Blockchain Systems source: Gao, Zhenhuan, Yuxuan Hu, and Qinfan Wu. “Jellyfish Merkle Tree,” n.d., 12. JMT(Jellyfish Merkle Tree) a LSM-tree based Implementation of Sparse Merkle Tree Inspired by Patricia Merkle Tree and has been implemented in Rust, but it is language-independent.
+              <p> tags: Starcoin Web3 StarTrek,Sparse Merkle Tree,Merkle tree,LSM-Tree,Account-Model Blockchain Systems source: Gao, Zhenhuan, Yuxuan Hu, and Qinfan Wu. “Jellyfish Merkle Tree,” n.d., 12. JMT(Jellyfish Merkle Tree) a LSM-tree based Implementation of Sparse Merkle Tree Inspired by Patricia Merkle Tree and has been implemented in Rust, but it is language-independent.
 Merkel tree fits pretty well as an authenticated key-value store holding a huge amount of data in a tamper-proof way.
-Two major concerns where people have been trying to achieve some enhnacements:...</p>
+Two major concerns where people have been trying to achieve some enhnacements:
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-06-02 10:24:00 +0800 +0800'>June 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Jellyfish Merkle Tree" href="https://notes.0081800.xyz/notes/20220602102439-jellyfish_merkle_tree/"></a>
@@ -1927,7 +1959,7 @@ RabbitMQ ActiveMQ HornetQ Qpid TIBCO Enterprise MEssage Service IBM MQ Azure Ser
 Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 参照 LSM-Tree 和 B-tree 的 WAL，可以使用相同的结构来实现消息代理： 生产者通过将消息追加到日志的末尾来发送消息，消费者通过依次读取日志来接收消息。 如果消费者读到日志的末尾，它就开始等待新消息被追加的通知。
 通过对日志进行分区突破单个磁盘所能体能的带宽吞吐上线。
 代理为每个消息分区分配了一个单调递增的序列号或偏移量，保证了分区内的消息完全有序。
-消费者偏移量：记录哪些消息已经被处理，减少 ACK 开销 磁盘空间：分段，定期删除 消费者跟不上生产者：增加 LAG 报警 重新处理消息：重置偏移量 </p>
+消费者偏移量：记录哪些消息已经被处理，减少 ACK 开销 磁盘空间：分段，定期删除 消费者跟不上生产者：增加 LAG 报警 重新处理消息：重置偏移量</p>
             </div>
             <footer class="entry-footer"><span title='2021-08-13 07:28:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 消息队列" href="https://notes.0081800.xyz/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"></a>
@@ -1939,7 +1971,8 @@ Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 
               </h2>
             </header>
             <div class="entry-content">
-              <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。</p>
+              <p>基于 Hadoop 分布式文件系统使用 SSTables 和 LSM-Tree 实现随机访问的 OLTP 数据库。
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-08-10 07:14:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to HBase" href="https://notes.0081800.xyz/notes/20210810071455-hbase/"></a>
@@ -1951,9 +1984,10 @@ Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Bigdata Hadoop Distributed File System MapReduce MapReduce shuffle 按照 reducer 分区，排序和将数据分区从 mapper 复制到 reducer。（令人困惑的术语，并不完全与洗牌一样，在 MapReduce 中其实没有随机性）。
+              <p> tags: Bigdata Hadoop Distributed File System MapReduce MapReduce shuffle 按照 reducer 分区，排序和将数据分区从 mapper 复制到 reducer。（令人困惑的术语，并不完全与洗牌一样，在 MapReduce 中其实没有随机性）。
 MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现：
-输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。...</p>
+输入：通常是 HDFS 中的一个目录。 分区：每个文件或文件块都被视为一个单独的分区。 处理：每个分区由单独的 map 任务来处理。 每个 mapper 都会尽量实现计算靠近数据。 代码复制：JAR 文件。 Reduce 任务的计算也被分隔成块，可以不必与 mapper 任务数量相同，MapReduce 框架使用关键字的哈希值来确保具有相同关键字的键值对都在相同的 reduce 任务中处理。 键值对必须进行排序，排序是分阶段进行的： 每个 map 任务都基于关键字哈希值，按照 reducer 对输出进行分块。 每个分区都被写入 mapper 程序所在的本地磁盘上的已排序文件，参见 SSTables 和 LSM-Tree。 reducer 与每个 mapper 相连接：MapReduce 调度器会在 mapper 写入经过排序的输出文件后，通知 reducer 开始从 mapper 中获取输出文件，框架进行 MapReduce shuffle。 reducer 任务从 mapper 中获取文件并将它们合并在一起，同时保持数据的排序。不同 mapper 使用相同的关键字生成记录，会在合并后的 reducer 输入中位于相邻的位置。 reducer 可以使用任意逻辑来处理这些记录，并且生成任意数量的输出记录。记录被写入分布式文件系统中的文件。 MapReduce 工作流调度器 Oozie Azkaban Luigi Airflow Pinball 对比分布式数据库 MapReduce 中的并行处理和并行 join 算法已经在十多年前所谓的大规模并行处理（MPP）数据库中实现了。
+...</p>
             </div>
             <footer class="entry-footer"><span title='2021-08-09 07:34:00 +0800 +0800'>August 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Hadoop" href="https://notes.0081800.xyz/notes/20210809073407-hadoop/"></a>
@@ -1971,7 +2005,7 @@ MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现�
 在内存中保存所有内容
 优点：可以支持更复杂的数据结构，而无需考虑数据存储结构。
 事务处理与分析处理 事务处理：OLTP 分析处理：OLAP 对比 属性 OLTP OLAP 主要读属性 基于键，每次查询返回少量记录 对于大量记录进行汇总 主要写属性 随机访问，低延迟写入用户的输入 批量导入（ETL）或事件流 典型使用场景 终端用户，通过网络应用程序 内部分析师，为决策提供支持 数据表征 最新的数据状态（当前时间点） 随着事件而变化的所有事件历史 数据规模 GB 到 TB TB 到 PB 数据仓库 星型与雪花型分析模式 星型模型也称为维度建模。
-列式存储 列压缩 </p>
+列式存储 列压缩</p>
             </div>
             <footer class="entry-footer"><span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 数据存储与检索" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/"></a>
@@ -1986,7 +2020,8 @@ MapReduce 的分布式执行 Hadoop MapReduce 并行化基于数据分区实现�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

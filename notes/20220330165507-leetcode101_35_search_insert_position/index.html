@@ -7,13 +7,46 @@
 <meta name="robots" content="index, follow">
 <title>LeetCode101: 35. Search Insert Position | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don&rsquo;t find target in nums:
-Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l !">
+<meta name="description" content="
+tags: Binary Search,LeetCode101
+
+There is three corner cases must be handled if we don&rsquo;t find target in nums:
+
+Return r &#43; 1 if target is greater than right.
+Or return mid &#43; 1 if target is greater than mid.
+Otherwise return mid.
+
+
+class Solution {
+public:
+	int searchInsert(vector&lt;int&gt;&amp; nums, int target) {
+		int l = 0, r = nums.size() - 1;
+		int mid = r / 2;
+		while (l != r) {
+			mid = l &#43; (r - l) / 2;
+			if (target == nums[mid]) {
+				return mid;
+			}
+
+			if (target &lt; nums[mid]) {
+				r = mid;
+			} else {
+				l = mid &#43; 1;
+			}
+		}
+		if (target &gt; nums[r]) {
+			return r &#43; 1;
+		}
+		if (target &gt; nums[mid]) {
+			return mid &#43; 1;
+		}
+		return mid;
+	}
+};
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220330165507-leetcode101_35_search_insert_position/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -39,7 +72,7 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,21 +91,55 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20220330165507-leetcode101_35_search_insert_position/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="LeetCode101: 35. Search Insert Position">
+  <meta property="og:description" content=" tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don’t find target in nums:
+Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l != r) { mid = l &#43; (r - l) / 2; if (target == nums[mid]) { return mid; } if (target &lt; nums[mid]) { r = mid; } else { l = mid &#43; 1; } } if (target &gt; nums[r]) { return r &#43; 1; } if (target &gt; nums[mid]) { return mid &#43; 1; } return mid; } }; ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-03-30T16:55:00+08:00">
+    <meta property="article:modified_time" content="2022-03-30T16:55:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode101: 35. Search Insert Position">
+<meta name="twitter:description" content="
+tags: Binary Search,LeetCode101
 
-<meta property="og:title" content="LeetCode101: 35. Search Insert Position" />
-<meta property="og:description" content="tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don&rsquo;t find target in nums:
-Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l !" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20220330165507-leetcode101_35_search_insert_position/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-03-30T16:55:00+08:00" />
-<meta property="article:modified_time" content="2022-03-30T16:55:00+08:00" />
+There is three corner cases must be handled if we don&rsquo;t find target in nums:
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="LeetCode101: 35. Search Insert Position"/>
-<meta name="twitter:description" content="tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don&rsquo;t find target in nums:
-Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l !"/>
+Return r &#43; 1 if target is greater than right.
+Or return mid &#43; 1 if target is greater than mid.
+Otherwise return mid.
+
+
+class Solution {
+public:
+	int searchInsert(vector&lt;int&gt;&amp; nums, int target) {
+		int l = 0, r = nums.size() - 1;
+		int mid = r / 2;
+		while (l != r) {
+			mid = l &#43; (r - l) / 2;
+			if (target == nums[mid]) {
+				return mid;
+			}
+
+			if (target &lt; nums[mid]) {
+				r = mid;
+			} else {
+				l = mid &#43; 1;
+			}
+		}
+		if (target &gt; nums[r]) {
+			return r &#43; 1;
+		}
+		if (target &gt; nums[mid]) {
+			return mid &#43; 1;
+		}
+		return mid;
+	}
+};
+">
 
 
 <script type="application/ld+json">
@@ -101,7 +168,7 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
   "@type": "BlogPosting",
   "headline": "LeetCode101: 35. Search Insert Position",
   "name": "LeetCode101: 35. Search Insert Position",
-  "description": "tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don\u0026rsquo;t find target in nums:\nReturn r + 1 if target is greater than right. Or return mid + 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector\u0026lt;int\u0026gt;\u0026amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l !",
+  "description": " tags: Binary Search,LeetCode101 There is three corner cases must be handled if we don\u0026rsquo;t find target in nums:\nReturn r + 1 if target is greater than right. Or return mid + 1 if target is greater than mid. Otherwise return mid. class Solution { public: int searchInsert(vector\u0026lt;int\u0026gt;\u0026amp; nums, int target) { int l = 0, r = nums.size() - 1; int mid = r / 2; while (l != r) { mid = l + (r - l) / 2; if (target == nums[mid]) { return mid; } if (target \u0026lt; nums[mid]) { r = mid; } else { l = mid + 1; } } if (target \u0026gt; nums[r]) { return r + 1; } if (target \u0026gt; nums[mid]) { return mid + 1; } return mid; } }; ",
   "keywords": [
     
   ],
@@ -167,8 +234,6 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -200,7 +265,7 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       LeetCode101: 35. Search Insert Position
     </h1>
     <div class="post-meta"><span title='2022-03-30 16:55:00 +0800 +0800'>March 30, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -1876,6 +1941,12 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
 
    
 
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -1888,7 +1959,8 @@ Return r &#43; 1 if target is greater than right. Or return mid &#43; 1 if targe
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

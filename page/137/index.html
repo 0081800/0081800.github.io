@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.125.4"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.139.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -39,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,17 +58,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Taking Smart Notes With Org-mode" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Taking Smart Notes With Org-mode"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Taking Smart Notes With Org-mode">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Taking Smart Notes With Org-mode">
+<meta name="twitter:description" content="">
 
 <script type="application/ld+json">
 {
@@ -77,7 +74,7 @@
   "name": "Taking Smart Notes With Org-mode",
   "url": "https://notes.0081800.xyz/",
   "description": "",
-  "thumbnailUrl": "https://notes.0081800.xyz/favicon.ico",
+  "logo": "https://notes.0081800.xyz/favicon.ico",
   "sameAs": [
       
   ]
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -154,14 +149,66 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>生命周期
+    <h2 class="entry-hint-parent">Rust 宏
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>三种宏 自定义 #[derive] 属性行为（attribute-like）宏，Rust 属性宏解析 函数行为（function-like）宏 宏 实现元编程，代码生成代码，必须带入当前命名空间内才能使用（不能使用 mod::sub::macro! 这种方式调用）。
+#[macro_export] macro_rules! vec { ( $($x:expr), *) =&gt; { // $() 用于捕捉值，$x:expr 匹配 Rust 表达式并绑定到 $x，逗号（,）表明一个逗号可能出现在表达式后面，* 表明表达式匹配一次或多次 { let mut temp_vec = Vec::new(); ${ temp_vec.push($x); }* temp_vec } }; } 调用宏用于从属性生成代码 有点像编译期的装饰器：
+use proc_macro; #[some_attribute] pub fn some_name(input: TokenStream) -&gt; TokenStream { // --snip-- } </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:06:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Rust 宏" href="https://notes.0081800.xyz/notes/20200629180623-rust_%E5%AE%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">智能指针
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>智能指针 表现的像一个指针，拥有数据并允许在对数据进行维护。
+通常通过 struct 实现并实现两个特性 Deref 和 Drop
+Deref 允许智能指针实例行为像一个引用，让代码可以同时处理引用和智能指针 Drop 允许自定义智能指针超出作用域的行为。 标准库常见的智能指针
+Box&lt;T&gt; 用于在堆分配值 Rc&lt;T&gt; 引用计数类型，允许多个拥有者 Ref&lt;T&gt; 和 RefMut&lt;T&gt; 和通过 RefCell&lt;T&gt; 访问，运行时取代编译期强制检查借用规则 Box&lt;T&gt; 场景：
+编译期未知大小的类型（递归类型（自己包含自己类型的类型，如链表）编译期无法确定大小）
+// 递归类型 enum List { Cons(i32, Box&lt;List&gt;), Nil, } fn main() { let b = Box::new(5); println!(&#34;b = {}&#34;, b); let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); } 避免大量数据转移所有权时发生拷贝
+拥有一个实现特定特性的值（不关心具体类型）的所有权
+Deref 用于自定义解引用操作符（ * ） 的行为，智能指针通过实现该特性来模拟普通引用的行为。
+对比
+fn main() { let x = 5; let y = &amp;x; assert_eq!(5, x); assert_eq!(5, *y); // must dereference } 和
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 智能指针" href="https://notes.0081800.xyz/notes/20200629180545-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">迭代器
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>迭代器 所有的迭代器都实现了 Iterator 特性：
+pub trait Iterator { type Item; // 关联类型 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;; // 返回 None 结束循环 } </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:05:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 迭代器" href="https://notes.0081800.xyz/notes/20200629180506-%E8%BF%AD%E4%BB%A3%E5%99%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">生命周期
     </h2>
   </header>
   <div class="entry-content">
     <p>生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
 fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
 标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
-结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。...</p>
+结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。
+如果结构体声明了生命周期参数，那么 impl 同样也要声明。
+struct ImportantExcerpt&lt;&#39;a&gt; { part: &amp;&#39;a str, } impl&lt;&#39;a&gt; ImportantExcerpt&lt;&#39;a&gt; { fn announce_and_return_part(&amp;self, announcement: &amp;str) -&gt; &amp;str { println!(&#34;Attention please: {}&#34;, announcement); self.part } } 生命周期省略（elision）规则 函数参数的生命周期为输入生命周期 函数返回值的生命周期为输出生命周期 3 个规则用于 fn 和 impl ：
+...</p>
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 生命周期" href="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
@@ -169,54 +216,17 @@ fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>闭包
+    <h2 class="entry-hint-parent">闭包
     </h2>
   </header>
   <div class="entry-content">
     <p>let add_one = | num | { num &#43; 1 }; 由于闭包和当前上下文相关联，所以 Rust 可以进行类型推导，类型注解也就不是必要的，但是依然可以自己添加：
 let add_one = | num: i32 | { num &#43; 1 }; fn add_one_v1 (x: u32) -&gt; u32 { x &#43; 1 } let add_one_v2 = |x: u32| -&gt; u32 { x &#43; 1 }; let add_one_v3 = |x| { x &#43; 1 }; let add_one_v4 = |x| x &#43; 1 ; 使用 Fn 存储闭包类型
-struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Option&lt;u32&gt;, } impl Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { fn new(calculation: T) -&gt; Cacher&lt;T&gt; { Cacher { calculation, value: None, } } fn value(&amp;mut self, arg: u32) -&gt; u32 { if let Some(value) = self....</p>
+struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Option&lt;u32&gt;, } impl Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { fn new(calculation: T) -&gt; Cacher&lt;T&gt; { Cacher { calculation, value: None, } } fn value(&amp;mut self, arg: u32) -&gt; u32 { if let Some(value) = self.value { value } else { let value = (self.calculation)(arg); self.value = Some(value); value } } } 闭包和函数的区别：闭包会捕捉当前环境，但是函数不会。
+...</p>
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 闭包" href="https://notes.0081800.xyz/notes/20200629180436-%E9%97%AD%E5%8C%85/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Traits
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Traits 定义行为在多个类型中共享。 可以定义默认行为在实现者中间共享。 可以用于定义参数的行为，同样可以定义返回值行为，当用 trait 限定返回值类型时，不能同时（if/else）返回多种实现了该 trait 的类型。 pub trait Summary { fn summarize(&amp;self) -&gt; String; } pub struct Article{ pub title: String, } impl Summary for Article { fn summarize(&amp;self) -&gt; String { format!(&#34;{}&#34;, self.title) } } pub fn notify(item: impl Summary) { println!(&#34;{}&#34;, item.summarize()); } // trait bound 语法糖版本 pub fn notify&lt;T: Summary&gt;(item: T) { println!(&#34;{}&#34;, item.summarize()); } 定义参数行为 通过 impl ： fn notify(item: impl TraitName) ，用于简单明了的场景，比如一个参数 通过 trait bound ： fn notify&lt;T: TraitName&gt; (item: T) ，用于更复杂的场景，比如多个参数用于减少代码 可以通过 &#43; 连接： fn notify(T: TraitName &#43; Display) (item: T)...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:03:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Traits" href="https://notes.0081800.xyz/notes/20200629180345-traits/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>错误处理
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>enum Result&lt;T, E&gt; { Ok(T), Err(E), } ? 操作符 对比
-use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; { let f = File::open(&#34;hello.txt&#34;); let mut f = match f { Ok(file) =&gt; file, Err(e) =&gt; return Err(e), }; let mut s = String::new(); match f.read_to_string(&amp;mut s) { Ok(_) =&gt; Ok(s), Err(e) =&gt; Err(e), } } 和
-use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; { let mut f = File::open(&#34;hello....</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:03:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 错误处理" href="https://notes.0081800.xyz/notes/20200629180301-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>if let
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>let some_u8_value = Some(0u8); // Without `if let` match some_u8_value { Some(3) =&gt; println!(&#34;three&#34;); - =&gt; (), } // With `if let` if let Some(3) = some_u8_value { println!(&#34;three&#34;); } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to if let" href="https://notes.0081800.xyz/notes/20200629180202-if_let/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -230,7 +240,8 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

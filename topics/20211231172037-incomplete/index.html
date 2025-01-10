@@ -10,9 +10,7 @@
 <meta name="description" content="Incomplete - Taking Smart Notes With Org-mode">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/topics/20211231172037-incomplete/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +55,17 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Incomplete" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/topics/20211231172037-incomplete/" /><meta property="article:section" content="topics" />
-<meta property="article:published_time" content="2021-12-31T17:20:00+08:00" />
-<meta property="article:modified_time" content="2021-12-31T17:20:00+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Incomplete"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/topics/20211231172037-incomplete/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Incomplete">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="topics">
+    <meta property="article:published_time" content="2021-12-31T17:20:00+08:00">
+    <meta property="article:modified_time" content="2021-12-31T17:20:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Incomplete">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -164,8 +160,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +191,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/topics/">Topics</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Incomplete
     </h1>
     <div class="post-meta"><span title='2021-12-31 17:20:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King
@@ -211,6 +205,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1883,14 +1883,15 @@
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Translate,Incomplete,Python Python 幕后 #2: CPython 编译器如何工作 今天的主题（Today’s subject） 在本系列的第一篇文章中我们研究了 Python 虚拟机。我们学了解到它通过执行一系列叫做字节码（bytecode）的指令。 我们也看到 Python 字节码没有完全描述代码片段的行为。这也是为什么存在一个代码对象（code object）的概念。 执行诸如函数或模块的代码块也就是执行对应的代码对象。代码对象包含了代码块的字节码，包含代码中使用的常量和变量名， 还有代码块的一些属性。
+              <p> tags: Translate,Incomplete,Python Python 幕后 #2: CPython 编译器如何工作 今天的主题（Today’s subject） 在本系列的第一篇文章中我们研究了 Python 虚拟机。我们学了解到它通过执行一系列叫做字节码（bytecode）的指令。 我们也看到 Python 字节码没有完全描述代码片段的行为。这也是为什么存在一个代码对象（code object）的概念。 执行诸如函数或模块的代码块也就是执行对应的代码对象。代码对象包含了代码块的字节码，包含代码中使用的常量和变量名， 还有代码块的一些属性。
 通常，一个 Python 程序员不用编写字节码，并且也不用创建代码对象，而是编写正常的 Python 代码。所有 CPython 必须 能够将源代码转换成代码对象。CPython 编译器就负责这部分工作。我们将通过这部分内容探索它是如何工作的。
 Note: 本文参考 CPython 3.9。一些实现细节将必然会随着 CPython 的演进而改变。 我将会尝试关注一些重要的改变并添加更新备注。
 什么是 CPython 编译器（What CPython compiler is） 我们已经了解了 CPython 编译器的职责，但是在我们进入到它是如何实现的之前，让我们首先来搞清楚为什么我们称之为编译器？
 在通常情况加，编译器是一个将一个程序语言翻译到另一个与之等价的程序语言的程序。编译器有许多种类，但是通常情况下我们 讨论的都是静态编译：将一个高级语言的程序翻译成机器码。CPython 编译器也是这样吗？要回答这个问题，我们先看一下静态编 译器的传统三阶段设计（three-stage design）。
 编译器前端（frontend）将源代码转换成一种中间语言（IR,intermediate representation）。然后优化器（optimzer）拿到中间语言 对其进行优化并把优化过的中间语言传递给编译器后端生成机器码。如果我们选择一种源语言和目标机器无关的中间语言，我们就 得到了三阶段设计的关键益处：对于一个编译器来说，支持一种新的源语言仅仅需要新增一个对应的编译器前端，支持一种新的目标机器 仅仅需要新增一个对应的编译器后端。
 LLVM 工具集（toolchain）就是这个模型的一个很好的成功的例子。有很多编译器前端如 C、Rust、Swift 等其他很多编程语言基于 LLVM 提供给编译器更加复杂的部分。LLVM 的创建者 Chris Latter 提供了一个很好的 LLVM 架构概览。
-CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支持 Python 代码和 CPython 虚拟机。不过，CPython 同样实现了三阶段设计。 如果想知道为什么，我们需要更加详细的解释编译器的三阶段的每个阶段。...</p>
+CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支持 Python 代码和 CPython 虚拟机。不过，CPython 同样实现了三阶段设计。 如果想知道为什么，我们需要更加详细的解释编译器的三阶段的每个阶段。
+...</p>
             </div>
             <footer class="entry-footer"><span title='2020-10-15 18:28:00 +0800 +0800'>October 15, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Python behind the scenes #2: how the CPython compiler works" href="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/"></a>
@@ -1902,7 +1903,7 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Translate,Incomplete 原文链接：https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books
+              <p> tags: Translate,Incomplete 原文链接：https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books
 手术阅读法：如何同时阅读 12 本书 译者注：这篇文章让我想起了《如何阅读一本书》这本书，文章中的大部分技巧都能在这本书中找出来，阅读是一门需要学习的技能。
 当有人问我如何阅读时我总是会有点尴尬，因为我一般都是同时阅读十几本书。
 但是我这样阅读并不是为了炫耀 – 我这么做是因为我觉得这种阅读方式更好，最起码对我来说。
@@ -1920,7 +1921,8 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
 了解一本书 通过封面评判这本书 索引（index）包含了一切 把目录（TOC）当作骨架 通过前言（preface）进行预览 此过程的重点是获得在大约 15 分钟内对任何书籍进行“地图绘制”的能力。你希望对有价值的知识位于何处、什么地方打动你以及要花费多少时间来阅读它有基本的了解。
 下面，我们将逐步完成从一本书中提取要点（或者说知识块）的过程，如何增加阅读一本书的价值，以及如何结合所有内容以便您可以轻松的一次提取多本书。
 了解一本书（Approaching a Book ） 当我开始阅读一本非小说的书籍之前，我会话费 5-10 分钟的时间尝试去了解他对我具有什么价值以及它的结构。当我们决定要阅读此书时我们可以通过很多方式做到这一点。 也许通过亚马逊阅读一些评论和反馈或者随机浏览其中一部分。我更喜欢使用这本书本身。
-同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。 你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 – 根据你自己的喜好就行。...</p>
+同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。 你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 – 根据你自己的喜好就行。
+...</p>
             </div>
             <footer class="entry-footer"><span title='2020-06-28 13:46:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Surgical Reading: How to Read 12 Books at Once" href="https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/"></a>
@@ -1932,7 +1934,7 @@ CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Translate,Deep Learning,AI,Incomplete 原文链接：Deep Learning Algorithms : The Complete Guide。
+              <p> tags: Translate,Deep Learning,AI,Incomplete 原文链接：Deep Learning Algorithms : The Complete Guide。
 深度学习正在影响整个世界。
 深度学习的炒作始于 2012 年：一个神经网络（Neural Network）在图片识别任务上表现出超人的性能，并且只有少数人能预测将会发生什么。
 在过去 10 年，越来越多的算法落地到我们生活中。越来越多的公司开始将其加入到日常业务中。
@@ -1954,7 +1956,8 @@ Transformers
 图神经网络（GNN）
 自然语言处理中的深度学习
 词嵌入 (Word embedding) 序列建模（Sequence Modeling） 计算机视觉中的机器学习
-本地化和物体识别 单发探测器（Single shot detectors） 语义分割（Semantic Segmentation） 姿势估计（Pose Estimation） 深度学习在科学和企业界取得了疯狂的人气。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，每年都出现了越来越多的研究论文并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181....</p>
+本地化和物体识别 单发探测器（Single shot detectors） 语义分割（Semantic Segmentation） 姿势估计（Pose Estimation） 深度学习在科学和企业界取得了疯狂的人气。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，每年都出现了越来越多的研究论文并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181.6 亿。
+...</p>
             </div>
             <footer class="entry-footer"><span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 译：深度学习算法：完整指南" href="https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/"></a>
@@ -1969,7 +1972,8 @@ Transformers
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

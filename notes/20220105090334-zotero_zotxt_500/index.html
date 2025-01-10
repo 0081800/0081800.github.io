@@ -7,14 +7,17 @@
 <meta name="robots" content="index, follow">
 <title>Zotero zotxt&#39;s api 500 as the specify style is not installed | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Zotero,Emacs I got an error when I&rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET
-[error] request--callback: peculiar error: 500 I got the error of zotxt by follow the instruction Debug Output Logging:
-(5)(&#43;0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:547:13 module.">
+<meta name="description" content="
+tags: Zotero,Emacs
+
+I got an error when I&rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET
+[error] request--callback: peculiar error: 500
+I got the error of zotxt by follow the instruction Debug Output Logging:
+(5)(&#43;0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:547:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:604:13 module.exports/Promise.prototype._settlePromise0@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:649:5 module.exports/Promise.prototype._settlePromises@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:729:13 module.exports/Promise.prototype._fulfill@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:673:13 module.exports/PromiseArray.prototype._resolve@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise_array.js:127:5 module.exports/MappingPromiseArray.prototype._promiseFulfilled@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/map.js:108:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:609:17 module.exports/Promise… (3613 chars)
+And I found this issue:  zotxt api does not work for non-latin references. By looking at the reply, I think it&rsquo;s the same issue I&rsquo;m got: I did&rsquo;nt install the style which I setted in my Emacs config:">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220105090334-zotero_zotxt_500/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -40,7 +43,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -59,23 +62,27 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Zotero zotxt&#39;s api 500 as the specify style is not installed" />
-<meta property="og:description" content="tags: Zotero,Emacs I got an error when I&rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20220105090334-zotero_zotxt_500/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Zotero zotxt&#39;s api 500 as the specify style is not installed">
+  <meta property="og:description" content=" tags: Zotero,Emacs I got an error when I’m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET
 [error] request--callback: peculiar error: 500 I got the error of zotxt by follow the instruction Debug Output Logging:
-(5)(&#43;0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:547:13 module." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20220105090334-zotero_zotxt_500/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-01-05T09:03:00+08:00" />
-<meta property="article:modified_time" content="2022-01-05T09:03:00+08:00" />
+(5)(&#43;0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:547:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:604:13 module.exports/Promise.prototype._settlePromise0@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:649:5 module.exports/Promise.prototype._settlePromises@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:729:13 module.exports/Promise.prototype._fulfill@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:673:13 module.exports/PromiseArray.prototype._resolve@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise_array.js:127:5 module.exports/MappingPromiseArray.prototype._promiseFulfilled@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/map.js:108:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:609:17 module.exports/Promise… (3613 chars) And I found this issue: zotxt api does not work for non-latin references. By looking at the reply, I think it’s the same issue I’m got: I did’nt install the style which I setted in my Emacs config:">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-01-05T09:03:00+08:00">
+    <meta property="article:modified_time" content="2022-01-05T09:03:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zotero zotxt&#39;s api 500 as the specify style is not installed">
+<meta name="twitter:description" content="
+tags: Zotero,Emacs
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Zotero zotxt&#39;s api 500 as the specify style is not installed"/>
-<meta name="twitter:description" content="tags: Zotero,Emacs I got an error when I&rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET
-[error] request--callback: peculiar error: 500 I got the error of zotxt by follow the instruction Debug Output Logging:
-(5)(&#43;0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:547:13 module."/>
+I got an error when I&rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET
+[error] request--callback: peculiar error: 500
+I got the error of zotxt by follow the instruction Debug Output Logging:
+(5)(&#43;0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/&lt;@resource://gre/modules/addons/XPIProvider.jsm -&gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:547:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:604:13 module.exports/Promise.prototype._settlePromise0@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:649:5 module.exports/Promise.prototype._settlePromises@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:729:13 module.exports/Promise.prototype._fulfill@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:673:13 module.exports/PromiseArray.prototype._resolve@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise_array.js:127:5 module.exports/MappingPromiseArray.prototype._promiseFulfilled@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/map.js:108:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -&gt; resource://zotero/bluebird/promise.js:609:17 module.exports/Promise… (3613 chars)
+And I found this issue:  zotxt api does not work for non-latin references. By looking at the reply, I think it&rsquo;s the same issue I&rsquo;m got: I did&rsquo;nt install the style which I setted in my Emacs config:">
 
 
 <script type="application/ld+json">
@@ -104,7 +111,7 @@
   "@type": "BlogPosting",
   "headline": "Zotero zotxt's api 500 as the specify style is not installed",
   "name": "Zotero zotxt\u0027s api 500 as the specify style is not installed",
-  "description": "tags: Zotero,Emacs I got an error when I\u0026rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET\n[error] request--callback: peculiar error: 500 I got the error of zotxt by follow the instruction Debug Output Logging:\n(5)(+0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData\u0026lt;@resource://gre/modules/addons/XPIProvider.jsm -\u0026gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -\u0026gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/\u0026lt;@resource://gre/modules/addons/XPIProvider.jsm -\u0026gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:547:13 module.",
+  "description": " tags: Zotero,Emacs I got an error when I\u0026rsquo;m inserting Zotero ref to Emacs by M-x org-zotxt-insert-reference-link RET\n[error] request--callback: peculiar error: 500 I got the error of zotxt by follow the instruction Debug Output Logging:\n(5)(+0000003): HTTP/1.0 500 Internal Server Error X-Zotero-Version: 5.0.96.3 X-Zotero-Connector-API-Version: 2 Content-Type: text/plain; charset=UTF-8 csl is nullTypeError: csl is null buildBibliographyResponse/responseData\u0026lt;@resource://gre/modules/addons/XPIProvider.jsm -\u0026gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:220:9 buildBibliographyResponse@resource://gre/modules/addons/XPIProvider.jsm -\u0026gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:219:24 buildResponse/\u0026lt;@resource://gre/modules/addons/XPIProvider.jsm -\u0026gt; jar:file:///Users/wanghui/Library/Application%20Support/Zotero/Profiles/34hkbjfm.default/extensions/zotxt@e6h.org.xpi!/bootstrap.js:156:20 tryCatcher@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/util.js:16:16 module.exports/Promise.prototype._settlePromiseFromHandler@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:547:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:604:13 module.exports/Promise.prototype._settlePromise0@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:649:5 module.exports/Promise.prototype._settlePromises@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:729:13 module.exports/Promise.prototype._fulfill@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:673:13 module.exports/PromiseArray.prototype._resolve@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise_array.js:127:5 module.exports/MappingPromiseArray.prototype._promiseFulfilled@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/map.js:108:13 module.exports/Promise.prototype._settlePromise@resource://zotero/loader.jsm -\u0026gt; resource://zotero/bluebird/promise.js:609:17 module.exports/Promise… (3613 chars) And I found this issue: zotxt api does not work for non-latin references. By looking at the reply, I think it\u0026rsquo;s the same issue I\u0026rsquo;m got: I did\u0026rsquo;nt install the style which I setted in my Emacs config:\n",
   "keywords": [
     
   ],
@@ -170,8 +177,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -203,7 +208,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Zotero zotxt&#39;s api 500 as the specify style is not installed
     </h1>
     <div class="post-meta"><span title='2022-01-05 09:03:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -1870,6 +1875,12 @@
 
    
 
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -1882,7 +1893,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

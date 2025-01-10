@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.125.4"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.139.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -39,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,17 +58,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Taking Smart Notes With Org-mode" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Taking Smart Notes With Org-mode"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Taking Smart Notes With Org-mode">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Taking Smart Notes With Org-mode">
+<meta name="twitter:description" content="">
 
 <script type="application/ld+json">
 {
@@ -77,7 +74,7 @@
   "name": "Taking Smart Notes With Org-mode",
   "url": "https://notes.0081800.xyz/",
   "description": "",
-  "thumbnailUrl": "https://notes.0081800.xyz/favicon.ico",
+  "logo": "https://notes.0081800.xyz/favicon.ico",
   "sameAs": [
       
   ]
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -154,7 +149,45 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Amazon Kinesis Streams
+    <h2 class="entry-hint-parent">预写日志
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>预写日志（write-ahead log，WAL），也称为重做日志。
+一个仅支持追加修改的文件，每个 B-tree 的修改必须先更新 WAL 然后再修改数本身的页。 当数据库在崩溃后恢复时，该日志用于将 B-tree 恢复到最近一致的状态。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:43:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 预写日志" href="https://notes.0081800.xyz/notes/20210813074328-%E9%A2%84%E5%86%99%E6%97%A5%E5%BF%97/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RabbitMQ
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:34:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to RabbitMQ" href="https://notes.0081800.xyz/notes/20210813073438-rabbitmq/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Twitter DistributedLog
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 07:34:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Twitter DistributedLog" href="https://notes.0081800.xyz/notes/20210813073412-twitter_distributedlog/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Amazon Kinesis Streams
     </h2>
   </header>
   <div class="entry-content">
@@ -166,7 +199,7 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>消息队列
+    <h2 class="entry-hint-parent">消息队列
     </h2>
   </header>
   <div class="entry-content">
@@ -180,49 +213,10 @@ RabbitMQ ActiveMQ HornetQ Qpid TIBCO Enterprise MEssage Service IBM MQ Azure Ser
 Kafka Amazon Kinesis Streams Twitter DistributedLog 基于日志的消息存储 参照 LSM-Tree 和 B-tree 的 WAL，可以使用相同的结构来实现消息代理： 生产者通过将消息追加到日志的末尾来发送消息，消费者通过依次读取日志来接收消息。 如果消费者读到日志的末尾，它就开始等待新消息被追加的通知。
 通过对日志进行分区突破单个磁盘所能体能的带宽吞吐上线。
 代理为每个消息分区分配了一个单调递增的序列号或偏移量，保证了分区内的消息完全有序。
-消费者偏移量：记录哪些消息已经被处理，减少 ACK 开销 磁盘空间：分段，定期删除 消费者跟不上生产者：增加 LAG 报警 重新处理消息：重置偏移量 </p>
+消费者偏移量：记录哪些消息已经被处理，减少 ACK 开销 磁盘空间：分段，定期删除 消费者跟不上生产者：增加 LAG 报警 重新处理消息：重置偏移量</p>
   </div>
   <footer class="entry-footer"><span title='2021-08-13 07:28:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 消息队列" href="https://notes.0081800.xyz/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Networking 101: Building Blocks of TCP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: TCP,High Performance Browser Networking 原文链接：https://hpbn.co/building-blocks-of-tcp/。 Overview The 4th version of RFC 675, and final two seperate RFCs:
-RFC 791 - Internet Protocol(IPv4) RFC 793 - Transmission Control Protocol TCP provides:
-Effective abstraction. A reliable network running over unreliable channel. Hiding most the complexity of network communication: retransmission of lost data, in-order delivery, congestion control and avoidance, data integrity, and more. Three-Way Handhsake Sequence numbers are important for keep in-order delivery, and they are picked randomly from both sides for security reasons....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-13 07:17:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Networking 101: Building Blocks of TCP" href="https://notes.0081800.xyz/notes/20210813071739-networking_101_building_blocks_of_tcp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>TCP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Network </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-13 07:16:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to TCP" href="https://notes.0081800.xyz/notes/20210813071635-tcp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>背压
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>阻止生产者发送更多的消息。使用背压的场景：
-Unix 管道 TCP </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-13 07:14:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 背压" href="https://notes.0081800.xyz/notes/20210813071452-%E8%83%8C%E5%8E%8B/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -236,7 +230,8 @@ Unix 管道 TCP </p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

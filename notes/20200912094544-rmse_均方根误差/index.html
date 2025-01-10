@@ -10,12 +10,24 @@
 <meta name="description" content="测量预测过程中的预测错误的标准差。
 公式
 \[RMSE(X,h)=\sqrt{\frac{1}{m}\sum_{i=1}^{m}(h(x^{(i)}) - y^{(i)})^2}\]
-m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。&#160;&#x21a9;&#xfe0e;">
+
+m 是你在测量 RMSE 时，所使用的数据集中实例的数量
+\(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值）
+X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\)
+h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\)
+RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。
+
+
+
+
+
+转置运算符会将列向量转换成行向量。&#160;&#x21a9;&#xfe0e;
+
+
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200912094544-rmse_%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -41,7 +53,7 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -60,25 +72,38 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="RMSE（均方根误差）" />
-<meta property="og:description" content="测量预测过程中的预测错误的标准差。
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20200912094544-rmse_%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="RMSE（均方根误差）">
+  <meta property="og:description" content="测量预测过程中的预测错误的标准差。
 公式
 \[RMSE(X,h)=\sqrt{\frac{1}{m}\sum_{i=1}^{m}(h(x^{(i)}) - y^{(i)})^2}\]
-m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。&#160;&#x21a9;&#xfe0e;" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20200912094544-rmse_%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-09-12T09:45:00+08:00" />
-<meta property="article:modified_time" content="2020-09-12T09:45:00+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RMSE（均方根误差）"/>
+m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。 ↩︎">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2020-09-12T09:45:00+08:00">
+    <meta property="article:modified_time" content="2020-09-12T09:45:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RMSE（均方根误差）">
 <meta name="twitter:description" content="测量预测过程中的预测错误的标准差。
 公式
 \[RMSE(X,h)=\sqrt{\frac{1}{m}\sum_{i=1}^{m}(h(x^{(i)}) - y^{(i)})^2}\]
-m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。&#160;&#x21a9;&#xfe0e;"/>
+
+m 是你在测量 RMSE 时，所使用的数据集中实例的数量
+\(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值）
+X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\)
+h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\)
+RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。
+
+
+
+
+
+转置运算符会将列向量转换成行向量。&#160;&#x21a9;&#xfe0e;
+
+
+">
 
 
 <script type="application/ld+json">
@@ -107,7 +132,7 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
   "@type": "BlogPosting",
   "headline": "RMSE（均方根误差）",
   "name": "RMSE（均方根误差）",
-  "description": "测量预测过程中的预测错误的标准差。\n公式\n\\[RMSE(X,h)=\\sqrt{\\frac{1}{m}\\sum_{i=1}^{m}(h(x^{(i)}) - y^{(i)})^2}\\]\nm 是你在测量 RMSE 时，所使用的数据集中实例的数量 \\(x^{(i)}\\) 是数据集中第 \\(i\\) 个实例的所有特征值的向量（标签特征除外），\\(y{(i)}\\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \\(i\\) 行等于 \\(x^{(i)}\\) 的转置矩阵1，记作 \\((x^{(i)})^T\\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \\(x^{(i)}\\) ，他会输出一个预测值 \\(\\hat{y}=h(x^{(i)})\\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。\u0026#160;\u0026#x21a9;\u0026#xfe0e;",
+  "description": "测量预测过程中的预测错误的标准差。\n公式\n\\[RMSE(X,h)=\\sqrt{\\frac{1}{m}\\sum_{i=1}^{m}(h(x^{(i)}) - y^{(i)})^2}\\]\nm 是你在测量 RMSE 时，所使用的数据集中实例的数量 \\(x^{(i)}\\) 是数据集中第 \\(i\\) 个实例的所有特征值的向量（标签特征除外），\\(y{(i)}\\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \\(i\\) 行等于 \\(x^{(i)}\\) 的转置矩阵1，记作 \\((x^{(i)})^T\\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \\(x^{(i)}\\) ，他会输出一个预测值 \\(\\hat{y}=h(x^{(i)})\\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。\u0026#160;\u0026#x21a9;\u0026#xfe0e;\n",
   "keywords": [
     
   ],
@@ -173,8 +198,6 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -206,7 +229,7 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       RMSE（均方根误差）
     </h1>
     <div class="post-meta"><span title='2020-09-12 09:45:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -241,6 +264,12 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1881,7 +1910,7 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
               </h2>
             </header>
             <div class="entry-content">
-              <p>公式 RMSE（均方根误差） MAE（平均绝对误差） 概念 标准差（Std Dev） 范数 方差 皮尔逊相关系数（标准相关系数） 线性相关性 </p>
+              <p>公式 RMSE（均方根误差） MAE（平均绝对误差） 概念 标准差（Std Dev） 范数 方差 皮尔逊相关系数（标准相关系数） 线性相关性</p>
             </div>
             <footer class="entry-footer"><span title='2020-09-12 09:38:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 机器学习涉及数学概念" href="https://notes.0081800.xyz/notes/20200912093811-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B6%89%E5%8F%8A%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"></a>
@@ -1896,7 +1925,8 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

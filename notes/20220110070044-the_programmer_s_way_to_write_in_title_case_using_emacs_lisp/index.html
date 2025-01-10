@@ -7,18 +7,29 @@
 <meta name="robots" content="index, follow">
 <title>The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Learning English,Title Case source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case. Genernal correct title cased phrase:
-Uppercase the first letter of most words
+<meta name="description" content="
+tags: Learning English,Title Case
+source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case.
+
+Genernal correct title cased phrase:
+
+
+Uppercase the first letter  of most words
 e.g. &ldquo;There Is No Spoon&rdquo;
+
+
 Not capitalize &lsquo;small&rsquo; and &lsquo;unimportant&rsquo; words
 e.g. &ldquo;Long Live the King&rdquo;
+
+
 Always capitalize the first and the last words, even if they&rsquo;re small
-e.g. &ldquo;The Land and Save We Live On&rdquo;">
+e.g. &ldquo;The Land and Save We Live On&rdquo;
+
+
+Capitalize sub-phrase as if they were their own title">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220110070044-the_programmer_s_way_to_write_in_title_case_using_emacs_lisp/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -44,7 +55,7 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;">
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -63,31 +74,44 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;">
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp" />
-<meta property="og:description" content="tags: Learning English,Title Case source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case. Genernal correct title cased phrase:
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20220110070044-the_programmer_s_way_to_write_in_title_case_using_emacs_lisp/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp">
+  <meta property="og:description" content=" tags: Learning English,Title Case source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case. Genernal correct title cased phrase:
 Uppercase the first letter of most words
+e.g. “There Is No Spoon”
+Not capitalize ‘small’ and ‘unimportant’ words
+e.g. “Long Live the King”
+Always capitalize the first and the last words, even if they’re small
+e.g. “The Land and Save We Live On”
+Capitalize sub-phrase as if they were their own title">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-01-10T07:00:00+08:00">
+    <meta property="article:modified_time" content="2022-01-10T07:00:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp">
+<meta name="twitter:description" content="
+tags: Learning English,Title Case
+source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case.
+
+Genernal correct title cased phrase:
+
+
+Uppercase the first letter  of most words
 e.g. &ldquo;There Is No Spoon&rdquo;
+
+
 Not capitalize &lsquo;small&rsquo; and &lsquo;unimportant&rsquo; words
 e.g. &ldquo;Long Live the King&rdquo;
-Always capitalize the first and the last words, even if they&rsquo;re small
-e.g. &ldquo;The Land and Save We Live On&rdquo;" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20220110070044-the_programmer_s_way_to_write_in_title_case_using_emacs_lisp/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-01-10T07:00:00+08:00" />
-<meta property="article:modified_time" content="2022-01-10T07:00:00+08:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp"/>
-<meta name="twitter:description" content="tags: Learning English,Title Case source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case. Genernal correct title cased phrase:
-Uppercase the first letter of most words
-e.g. &ldquo;There Is No Spoon&rdquo;
-Not capitalize &lsquo;small&rsquo; and &lsquo;unimportant&rsquo; words
-e.g. &ldquo;Long Live the King&rdquo;
+
 Always capitalize the first and the last words, even if they&rsquo;re small
-e.g. &ldquo;The Land and Save We Live On&rdquo;"/>
+e.g. &ldquo;The Land and Save We Live On&rdquo;
+
+
+Capitalize sub-phrase as if they were their own title">
 
 
 <script type="application/ld+json">
@@ -116,7 +140,7 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;"/>
   "@type": "BlogPosting",
   "headline": "The Programmer's Way to Write in Title Case Using Emacs Lisp",
   "name": "The Programmer\u0027s Way to Write in Title Case Using Emacs Lisp",
-  "description": "tags: Learning English,Title Case source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case. Genernal correct title cased phrase:\nUppercase the first letter of most words\ne.g. \u0026ldquo;There Is No Spoon\u0026rdquo;\nNot capitalize \u0026lsquo;small\u0026rsquo; and \u0026lsquo;unimportant\u0026rsquo; words\ne.g. \u0026ldquo;Long Live the King\u0026rdquo;\nAlways capitalize the first and the last words, even if they\u0026rsquo;re small\ne.g. \u0026ldquo;The Land and Save We Live On\u0026rdquo;",
+  "description": " tags: Learning English,Title Case source: “The Programmer’s Way to Write in Title Case Using Emacs Lisp.” Accessed January 10, 2022. https://hungyi.net/posts/programmers-way-to-title-case. Genernal correct title cased phrase:\nUppercase the first letter of most words\ne.g. \u0026ldquo;There Is No Spoon\u0026rdquo;\nNot capitalize \u0026lsquo;small\u0026rsquo; and \u0026lsquo;unimportant\u0026rsquo; words\ne.g. \u0026ldquo;Long Live the King\u0026rdquo;\nAlways capitalize the first and the last words, even if they\u0026rsquo;re small\ne.g. \u0026ldquo;The Land and Save We Live On\u0026rdquo;\nCapitalize sub-phrase as if they were their own title\n",
   "keywords": [
     
   ],
@@ -182,8 +206,6 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;"/>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -215,7 +237,7 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;"/>
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp
     </h1>
     <div class="post-meta"><span title='2022-01-10 07:00:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -1878,6 +1900,12 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;"/>
 
    
 
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -1890,7 +1918,8 @@ e.g. &ldquo;The Land and Save We Live On&rdquo;"/>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -37,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Notes" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Notes">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -159,14 +154,55 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>An Introduction to Sliding Window Algorithms
+    <h2 class="entry-hint-parent">LeetCode101: 187. Repeated DNA Sequences
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Sliding Window source: Moore, Jordan. “An Introduction to Sliding Window Algorithms.” Medium, July 26, 2020. https://levelup.gitconnected.com/an-introduction-to-sliding-window-algorithms-5533c4fe1cc7. Efficientive algorithm:
+    <p> tags: Sliding Window,LeetCode101,Hash Set Key:
+Fixed size window, right should start from 9 class Solution { public: vector&lt;string&gt; findRepeatedDnaSequences(string s) { int left = 0; unordered_set&lt;string&gt; results; unordered_set&lt;string&gt; hset; for (auto right = 9; right &lt; s.size(); right&#43;&#43;) { string sub(s, left, 10); if (hset.find(sub) != hset.end()) { results.insert(sub); } hset.insert(sub); left&#43;&#43;; } return vector&lt;string&gt;(results.begin(), results.end()); } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-11 21:30:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 187. Repeated DNA Sequences" href="https://notes.0081800.xyz/notes/20220311213045-187_repeated_dna_sequences/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Hash Set
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Data Structures </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-11 18:39:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Hash Set" href="https://notes.0081800.xyz/notes/20220311183913-hash_set/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode101: 1695. Maximum Erasure Value
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Sliding Window,LeetCode101,Hash Set Use HashMap to store indices See also: 3. Longest Substring Without Repeating Characters
+class Solution { public: int maximumUniqueSubarray(vector&lt;int&gt;&amp; nums) { int maximum = 0; int left = 0, right = 0; unordered_map&lt;int, int&gt; indices; for (; right &lt; nums.size(); right&#43;&#43;) { int n = nums[right]; if (indices.find(n) != indices.end() &amp;&amp; indices[n] &#43; 1 &gt; left) { left = indices[n] &#43; 1; } maximum = max(maximum, std::accumulate(nums.begin() &#43; left, nums.begin() &#43; right &#43; 1, 0)); indices[n] = right; } return maximum; } }; It is too slow, as there is a \(O(n^2)\) time complexity(std::accmulate is the embed \(O(n)\) ).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-11 18:38:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 1695. Maximum Erasure Value" href="https://notes.0081800.xyz/notes/20220311183843-1695_maximum_erasure_value/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">An Introduction to Sliding Window Algorithms
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Sliding Window source: Moore, Jordan. “An Introduction to Sliding Window Algorithms.” Medium, July 26, 2020. https://levelup.gitconnected.com/an-introduction-to-sliding-window-algorithms-5533c4fe1cc7. Efficientive algorithm:
 Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. – Antoine de Saint-Exupéry
 The following return values can use a sliding window:
-Minimum value Maximum value Longest value Shortest value K-sized value And contiguous is one of the biggest clues....</p>
+Minimum value Maximum value Longest value Shortest value K-sized value And contiguous is one of the biggest clues.
+Common data structures are strings, arrays and even linked lists.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2022-03-11 08:38:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to An Introduction to Sliding Window Algorithms" href="https://notes.0081800.xyz/notes/20220311083843-an_introduction_to_sliding_window_algorithms/"></a>
@@ -174,51 +210,15 @@ Minimum value Maximum value Longest value Shortest value K-sized value And conti
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Window Sliding Technique
+    <h2 class="entry-hint-parent">Window Sliding Technique
     </h2>
   </header>
   <div class="entry-content">
-    <p>tags: Sliding Window,Brute Force Approach source: GeeksforGeeks. “Window Sliding Technique,” April 16, 2017. https://www.geeksforgeeks.org/window-sliding-technique/. Use a Sliding Window to instead Brute Force Approach, improve time complexity big O from \(O(n^2)\) to \(O(n)\).</p>
+    <p> tags: Sliding Window,Brute Force Approach source: GeeksforGeeks. “Window Sliding Technique,” April 16, 2017. https://www.geeksforgeeks.org/window-sliding-technique/. Use a Sliding Window to instead Brute Force Approach, improve time complexity big O from \(O(n^2)\) to \(O(n)\).
+</p>
   </div>
   <footer class="entry-footer"><span title='2022-03-11 08:16:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Window Sliding Technique" href="https://notes.0081800.xyz/notes/20220311081613-window_sliding_technique/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Brute Force Approach
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Algorithm </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-11 08:15:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Brute Force Approach" href="https://notes.0081800.xyz/notes/20220311081528-brute_force_approach/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Two Pointers
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Algorithm </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:54:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Two Pointers" href="https://notes.0081800.xyz/notes/20220311075423-two_pointer/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Differences between Sliding Window and Two Pointers
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tags: Sliding Window,Two Pointers source: 力扣 LeetCode. “题解：借这个问题科普一下「滑动窗口」和「双指针」的区别 - 力扣（LeetCode）.” Accessed March 11, 2022. https://leetcode-cn.com/problems/get-equal-substrings-within-budget/solution/jie-zhe-ge-wen-ti-ke-pu-yi-xia-hua-dong-6128z/. https://stackoverflow.com/a/64078338 Two Pointer to slove the problem of two elements that two pointes pointed.
-Sliding Window to slove the problem of all elements that in the window.</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-11 07:53:00 +0800 +0800'>March 11, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Differences between Sliding Window and Two Pointers" href="https://notes.0081800.xyz/notes/20220311075357-differences_between_sliding_window_and_two_pointer/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -232,7 +232,8 @@ Sliding Window to slove the problem of all elements that in the window.</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

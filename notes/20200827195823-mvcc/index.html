@@ -7,16 +7,26 @@
 <meta name="robots" content="index, follow">
 <title>MVCC | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：
+<meta name="description" content="
+tags: MySQL
+https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/
+
+来自《高性能 MySQL》：
 InnoDB 在每一行都隐式的多存储两个字段：
-事务更新版本 事务删除版本 当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。
+
+事务更新版本
+事务删除版本
+
+当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。
 在可重复读隔离级别下：
-首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。">
+
+首先判断事务更新版本是否大于事务开始前的版本
+如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。
+
+可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200827195823-mvcc/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -42,7 +52,7 @@ InnoDB 在每一行都隐式的多存储两个字段：
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -61,27 +71,38 @@ InnoDB 在每一行都隐式的多存储两个字段：
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="MVCC" />
-<meta property="og:description" content="tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20200827195823-mvcc/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="MVCC">
+  <meta property="og:description" content=" tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：
 InnoDB 在每一行都隐式的多存储两个字段：
 事务更新版本 事务删除版本 当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。
 在可重复读隔离级别下：
-首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20200827195823-mvcc/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-08-27T19:58:00+08:00" />
-<meta property="article:modified_time" content="2020-08-27T19:58:00+08:00" />
+首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2020-08-27T19:58:00+08:00">
+    <meta property="article:modified_time" content="2020-08-27T19:58:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVCC">
+<meta name="twitter:description" content="
+tags: MySQL
+https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MVCC"/>
-<meta name="twitter:description" content="tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：
+来自《高性能 MySQL》：
 InnoDB 在每一行都隐式的多存储两个字段：
-事务更新版本 事务删除版本 当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。
+
+事务更新版本
+事务删除版本
+
+当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。
 在可重复读隔离级别下：
-首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。"/>
+
+首先判断事务更新版本是否大于事务开始前的版本
+如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。
+
+可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。">
 
 
 <script type="application/ld+json">
@@ -110,7 +131,7 @@ InnoDB 在每一行都隐式的多存储两个字段：
   "@type": "BlogPosting",
   "headline": "MVCC",
   "name": "MVCC",
-  "description": "tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：\nInnoDB 在每一行都隐式的多存储两个字段：\n事务更新版本 事务删除版本 当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。\n在可重复读隔离级别下：\n首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。",
+  "description": " tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：\nInnoDB 在每一行都隐式的多存储两个字段：\n事务更新版本 事务删除版本 当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。\n在可重复读隔离级别下：\n首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。\n",
   "keywords": [
     
   ],
@@ -176,8 +197,6 @@ InnoDB 在每一行都隐式的多存储两个字段：
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -209,7 +228,7 @@ InnoDB 在每一行都隐式的多存储两个字段：
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       MVCC
     </h1>
     <div class="post-meta"><span title='2020-08-27 19:58:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -243,6 +262,12 @@ InnoDB 在每一行都隐式的多存储两个字段：
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1887,7 +1912,7 @@ InnoDB 在每一行都隐式的多存储两个字段：
 防止脏读 通过行锁同样可以避免脏读，但是实际中不可行（性能太差），一般采用类似 MVCC 的方式：对于待更新的对象，数据库都会维护其旧值和当前持锁事务将要设置的新值两个版本。 事务提交之前，其他所有读操作读旧值；仅当写事务提交之后，才会切换到读取新值。
 可重复读（快照级别隔离） 在同一个事务中，反复读取总能获得一致性的结果，而不会读取到其他事务提交修改的新值。总体性想法是：每个事务都从数据库的一致性快照中读取，事务一开始所看到的是最近提交的数据，即使数据随后可能被另外一个事务更改，但保证每个事务都只看到特定时间点的旧数据。
 实现快照级别隔离 MVCC
-串行化 </p>
+串行化</p>
             </div>
             <footer class="entry-footer"><span title='2021-07-14 07:49:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 事务隔离级别" href="https://notes.0081800.xyz/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"></a>
@@ -1902,7 +1927,8 @@ InnoDB 在每一行都隐式的多存储两个字段：
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

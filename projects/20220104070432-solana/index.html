@@ -7,12 +7,33 @@
 <meta name="robots" content="index, follow">
 <title>Solana | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content=" tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getSignaturesForAddress&#34;, &#34;params&#34;: [&#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&#34;] } TX POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7 Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getTransaction&#34;, &#34;params&#34;: [&#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&#34;, {&#34;encoding&#34;: &#34;jsonParsed&#34;, &#34;maxSupportedTransactionVersion&#34;: 0}] } ">
+<meta name="description" content="
+tags: 区块链
+
+
+POST https://node.onekey.so/sol
+Content-Type: application/json
+
+{
+  &#34;id&#34;: 1,
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;method&#34;: &#34;getSignaturesForAddress&#34;,
+  &#34;params&#34;: [&#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&#34;]
+}
+TX
+POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7
+Content-Type: application/json
+
+{
+  &#34;id&#34;: 1,
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;method&#34;: &#34;getTransaction&#34;,
+  &#34;params&#34;: [&#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&#34;, {&#34;encoding&#34;: &#34;jsonParsed&#34;, &#34;maxSupportedTransactionVersion&#34;: 0}]
+}
+">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/projects/20220104070432-solana/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -38,7 +59,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,19 +78,41 @@
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/projects/20220104070432-solana/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Solana">
+  <meta property="og:description" content=" tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getSignaturesForAddress&#34;, &#34;params&#34;: [&#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&#34;] } TX POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7 Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getTransaction&#34;, &#34;params&#34;: [&#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&#34;, {&#34;encoding&#34;: &#34;jsonParsed&#34;, &#34;maxSupportedTransactionVersion&#34;: 0}] } ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2022-01-04T07:04:00+08:00">
+    <meta property="article:modified_time" content="2022-01-04T07:04:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Solana">
+<meta name="twitter:description" content="
+tags: 区块链
 
-<meta property="og:title" content="Solana" />
-<meta property="og:description" content=" tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getSignaturesForAddress&#34;, &#34;params&#34;: [&#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&#34;] } TX POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7 Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getTransaction&#34;, &#34;params&#34;: [&#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&#34;, {&#34;encoding&#34;: &#34;jsonParsed&#34;, &#34;maxSupportedTransactionVersion&#34;: 0}] } " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/projects/20220104070432-solana/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2022-01-04T07:04:00+08:00" />
-<meta property="article:modified_time" content="2022-01-04T07:04:00+08:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Solana"/>
-<meta name="twitter:description" content=" tags: 区块链 POST https://node.onekey.so/sol Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getSignaturesForAddress&#34;, &#34;params&#34;: [&#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&#34;] } TX POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7 Content-Type: application/json { &#34;id&#34;: 1, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;getTransaction&#34;, &#34;params&#34;: [&#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&#34;, {&#34;encoding&#34;: &#34;jsonParsed&#34;, &#34;maxSupportedTransactionVersion&#34;: 0}] } "/>
+POST https://node.onekey.so/sol
+Content-Type: application/json
+
+{
+  &#34;id&#34;: 1,
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;method&#34;: &#34;getSignaturesForAddress&#34;,
+  &#34;params&#34;: [&#34;35wyEANtpzPJMUvEKXkK8HRriieTxkSanQtKWk6H9ZoY&#34;]
+}
+TX
+POST https://solana-mainnet.g.alchemy.com/v2/DLTabdbSnGUoSoFBu-xjjfpplQFdqsP7
+Content-Type: application/json
+
+{
+  &#34;id&#34;: 1,
+  &#34;jsonrpc&#34;: &#34;2.0&#34;,
+  &#34;method&#34;: &#34;getTransaction&#34;,
+  &#34;params&#34;: [&#34;4emUuam8KS2ZTMQiJek9FTVM5WWU8j6FBuFGpe9Y7nQkvBhfoAwb3k6yuNBA7Nxv2qF6Mz57FuyLKPTkt84yRRB3&#34;, {&#34;encoding&#34;: &#34;jsonParsed&#34;, &#34;maxSupportedTransactionVersion&#34;: 0}]
+}
+">
 
 
 <script type="application/ld+json">
@@ -164,8 +207,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -197,7 +238,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/projects/">Projects</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Solana
     </h1>
     <div class="post-meta"><span title='2022-01-04 07:04:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -250,6 +291,12 @@ Content-Type: application/json
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1918,8 +1965,9 @@ Content-Type: application/json
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Solana, Solana 101: 2. Anchor What is Program Derived Address(PDA)?1 A Program Derived Address is simply an account owned by the program, but has no private key. Instead it’s signature is obtained by a set of seeds and a bump (a nonce which makes sure it’s off curve). “Generating” a Program Address is different from “creating” it.
-Generating One can generate a PDA using Pubkey::find_program_address in Rust or PublicKey....</p>
+              <p> tags: Solana, Solana 101: 2. Anchor What is Program Derived Address(PDA)?1 A Program Derived Address is simply an account owned by the program, but has no private key. Instead it’s signature is obtained by a set of seeds and a bump (a nonce which makes sure it’s off curve). “Generating” a Program Address is different from “creating” it.
+Generating One can generate a PDA using Pubkey::find_program_address in Rust or PublicKey.findProgramAddressSync in JavaScript; Creating a PDA essentially means to initialize the address with space and set the state to it. #&#43;end_quote
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-12-26 15:46:00 +0800 +0800'>December 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Solana PDA" href="https://notes.0081800.xyz/notes/20221226154617-solana_pda/"></a>
@@ -1931,8 +1979,8 @@ Generating One can generate a PDA using Pubkey::find_program_address in Rust or 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Nginx One Endpoint for Both WebSocket and Normal Requests,Solana,Solana 101: Create an Escrow dApp I met a lot network issues about connecting to RPC node of Solana, so I’m using a nginx server as a reverse proxy to bypass this problem:
-location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_upgrade; } location @ { proxy_pass https://api.testnet.solana.com; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Host &#34;api.testnet.solana.com&#34;; } location @websocket { proxy_redirect off; proxy_pass https://api....</p>
+              <p> tags: Nginx One Endpoint for Both WebSocket and Normal Requests,Solana,Solana 101: Create an Escrow dApp I met a lot network issues about connecting to RPC node of Solana, so I’m using a nginx server as a reverse proxy to bypass this problem:
+location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_upgrade; } location @ { proxy_pass https://api.testnet.solana.com; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Host &#34;api.testnet.solana.com&#34;; } location @websocket { proxy_redirect off; proxy_pass https://api.testnet.solana.com; proxy_http_version 1.1; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &#34;Upgrade&#34;; } </p>
             </div>
             <footer class="entry-footer"><span title='2022-12-24 15:30:00 +0800 +0800'>December 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Reverse Proxy to bypass Network Issue of Solana RPC Node" href="https://notes.0081800.xyz/notes/20221224153042-reverse_proxy_to_bypass_network_issue_of_solana_rpc_node/"></a>
@@ -1956,9 +2004,10 @@ location / { # https://serverfault.com/a/923254 try_files /nonexistent @$http_up
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Solana, Solana 101: 1. Develop Model Account: a Memory region The solana term for a memory region is “account”. Some programs own thousands of independent accounts.
+              <p> tags: Solana, Solana 101: 1. Develop Model Account: a Memory region The solana term for a memory region is “account”. Some programs own thousands of independent accounts.
 Programs own accounts, aka the owner of accounts.
-Transactions and Accounts You can make a program read and write data by sending transactions. Programs provide endpoints that can be called via transactions (In reality it’s a bit more complex than that but frameworks like Anchor abstract away this complexity)....</p>
+Transactions and Accounts You can make a program read and write data by sending transactions. Programs provide endpoints that can be called via transactions (In reality it’s a bit more complex than that but frameworks like Anchor abstract away this complexity). A function signature usually takes the following arguments:
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-08-02 18:12:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Solana Account" href="https://notes.0081800.xyz/notes/20220802181223-solana_account/"></a>
@@ -1970,9 +2019,10 @@ Transactions and Accounts You can make a program read and write data by sending 
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Solana, Solana 101: 1. Develop Model Program Owns Accounts And each memory region has a program that manages it (sometimes called the “owner”).
+              <p> tags: Solana, Solana 101: 1. Develop Model Program Owns Accounts And each memory region has a program that manages it (sometimes called the “owner”).
 How to Communicate with Solana Programs? Off-chain This means your programs aren’t on-chain program, you can submit transactions with instructions to the network, it could be done via the JSON RPC API or any SDK built on top this API.
-On-chain TODO</p>
+On-chain TODO
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-08-02 17:47:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Solana Program" href="https://notes.0081800.xyz/notes/20220802174748-solana_program/"></a>
@@ -1984,7 +2034,8 @@ On-chain TODO</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Blockchain Proof,Solana,Proof-of-stake Solana is a Proof of Stake network. This short phrase - “Proof of Stake” - represents a much larger concept with considerable complexity behind it, and even more so for Solana, which adds the unique properties of Proof of History to the mix to enable fast, low-latency transactions while still maintaining censorship resistance.</p>
+              <p> tags: Blockchain Proof,Solana,Proof-of-stake Solana is a Proof of Stake network. This short phrase - “Proof of Stake” - represents a much larger concept with considerable complexity behind it, and even more so for Solana, which adds the unique properties of Proof of History to the mix to enable fast, low-latency transactions while still maintaining censorship resistance.
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 08:13:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Proof-of-history" href="https://notes.0081800.xyz/notes/20220104081314-proof_of_history/"></a>
@@ -1996,10 +2047,11 @@ On-chain TODO</p>
               </h2>
             </header>
             <div class="entry-content">
-              <p>tags: Blockchain,Blockchain Proof,Ethereum,Solana source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/ Proof workflow:
+              <p> tags: Blockchain,Blockchain Proof,Ethereum,Solana source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/ Proof workflow:
 Users stake money(ETH) to become a validator.
 Validators are chosen at random to create blocks and are responsible for checking and confirming blocks they don’t create.
-user’s stake is also used as a way to incentivise good validator behavior. For example, a user can lose a portion of their stake for things like going offline (failing to validate) or their entire stake for deliberate collusion....</p>
+user’s stake is also used as a way to incentivise good validator behavior. For example, a user can lose a portion of their stake for things like going offline (failing to validate) or their entire stake for deliberate collusion.
+...</p>
             </div>
             <footer class="entry-footer"><span title='2022-01-04 07:10:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Proof-of-stake" href="https://notes.0081800.xyz/notes/20220104071052-proof_of_stake/"></a>
@@ -2026,7 +2078,8 @@ user’s stake is also used as a way to incentivise good validator behavior. For
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

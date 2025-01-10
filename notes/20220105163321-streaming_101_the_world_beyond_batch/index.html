@@ -7,13 +7,22 @@
 <meta name="robots" content="index, follow">
 <title>Streaming 101: The world beyond batch | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="tags: Bigdata,Flink,Streaming source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/. Streaming: a type of data processing engine that is designed with infinite data sets in mind. Other common uses of &ldquo;streaming&rdquo; that will be avoid in the rest of the post:
-Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data.">
+<meta name="description" content="
+tags: Bigdata,Flink,Streaming
+source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/.
+
+Streaming: a type of data processing engine that is designed with infinite data sets in mind.
+Other common uses of &ldquo;streaming&rdquo; that will be avoid in the rest of the post:
+
+Unbounded data: A type of ever-growing, essentially infinite data set.
+Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data.
+Low-latency, approximate, and/or speculative results: These types of results are most often associated with streaming engines.
+
+Limitations of streaming
+To beat batch at its own game, you really only need two things:">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220105163321-streaming_101_the_world_beyond_batch/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -39,7 +48,7 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,21 +67,31 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20220105163321-streaming_101_the_world_beyond_batch/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Streaming 101: The world beyond batch">
+  <meta property="og:description" content=" tags: Bigdata,Flink,Streaming source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/. Streaming: a type of data processing engine that is designed with infinite data sets in mind. Other common uses of “streaming” that will be avoid in the rest of the post:
+Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data. Low-latency, approximate, and/or speculative results: These types of results are most often associated with streaming engines. Limitations of streaming To beat batch at its own game, you really only need two things:">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2022-01-05T16:33:00+08:00">
+    <meta property="article:modified_time" content="2022-01-05T16:33:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Streaming 101: The world beyond batch">
+<meta name="twitter:description" content="
+tags: Bigdata,Flink,Streaming
+source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/.
 
-<meta property="og:title" content="Streaming 101: The world beyond batch" />
-<meta property="og:description" content="tags: Bigdata,Flink,Streaming source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/. Streaming: a type of data processing engine that is designed with infinite data sets in mind. Other common uses of &ldquo;streaming&rdquo; that will be avoid in the rest of the post:
-Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20220105163321-streaming_101_the_world_beyond_batch/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2022-01-05T16:33:00+08:00" />
-<meta property="article:modified_time" content="2022-01-05T16:33:00+08:00" />
+Streaming: a type of data processing engine that is designed with infinite data sets in mind.
+Other common uses of &ldquo;streaming&rdquo; that will be avoid in the rest of the post:
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Streaming 101: The world beyond batch"/>
-<meta name="twitter:description" content="tags: Bigdata,Flink,Streaming source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/. Streaming: a type of data processing engine that is designed with infinite data sets in mind. Other common uses of &ldquo;streaming&rdquo; that will be avoid in the rest of the post:
-Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data."/>
+Unbounded data: A type of ever-growing, essentially infinite data set.
+Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data.
+Low-latency, approximate, and/or speculative results: These types of results are most often associated with streaming engines.
+
+Limitations of streaming
+To beat batch at its own game, you really only need two things:">
 
 
 <script type="application/ld+json">
@@ -101,7 +120,7 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
   "@type": "BlogPosting",
   "headline": "Streaming 101: The world beyond batch",
   "name": "Streaming 101: The world beyond batch",
-  "description": "tags: Bigdata,Flink,Streaming source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/. Streaming: a type of data processing engine that is designed with infinite data sets in mind. Other common uses of \u0026ldquo;streaming\u0026rdquo; that will be avoid in the rest of the post:\nUnbounded data: A type of ever-growing, essentially infinite data set. Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data.",
+  "description": " tags: Bigdata,Flink,Streaming source: Akidau, Tyler. “Streaming 101: The World beyond Batch.” O’Reilly Media, August 5, 2015. https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/. Streaming: a type of data processing engine that is designed with infinite data sets in mind. Other common uses of \u0026ldquo;streaming\u0026rdquo; that will be avoid in the rest of the post:\nUnbounded data: A type of ever-growing, essentially infinite data set. Unbounded data processing: An ongoing mode of data processing, applied to the aforementioned type of unbounded data. Low-latency, approximate, and/or speculative results: These types of results are most often associated with streaming engines. Limitations of streaming To beat batch at its own game, you really only need two things:\n",
   "keywords": [
     
   ],
@@ -167,8 +186,6 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -200,7 +217,7 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Streaming 101: The world beyond batch
     </h1>
     <div class="post-meta"><span title='2022-01-05 16:33:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King
@@ -214,7 +231,7 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#streaming-a-type-of-data-processing-engine-that-is-designed-with-infinite-data-sets-in-mind-dot" aria-label="Streaming: a type of data processing engine that is designed with infinite data sets in mind.">Streaming: <em>a type of data processing engine that is designed with infinite data sets in mind.</em></a></li>
+                    <a href="#streaming-a-type-of-data-processing-engine-that-is-designed-with-infinite-data-sets-in-mind-dot" aria-label="Streaming: a type of data processing engine that is designed with infinite data sets in mind.">Streaming: a type of data processing engine that is designed with infinite data sets in mind.</a></li>
                 <li>
                     <a href="#limitations-of-streaming" aria-label="Limitations of streaming">Limitations of streaming</a><ul>
                         
@@ -1944,6 +1961,12 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
 
    
 
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -1956,7 +1979,8 @@ Unbounded data: A type of ever-growing, essentially infinite data set. Unbounded
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

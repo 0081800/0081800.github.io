@@ -7,18 +7,70 @@
 <meta name="robots" content="index, follow">
 <title>数据复制 | Taking Smart Notes With Org-mode</title>
 <meta name="keywords" content="">
-<meta name="description" content="主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。
-配置新从节点 可以通过快照来加速新从节点复制：
-对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换
-确认失效 选举新的主节点 使主节点生效 挑战
-从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：
-性能 容忍数据中心失效 容忍网络问题 缺点：写冲突
-离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制 ">
+<meta name="description" content="主节点与从节点
+复制
+单个节点可以完整存放所有数据副本，节点间进行主从复制。
+配置新从节点
+可以通过快照来加速新从节点复制：
+
+对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。
+拷贝快照到从节点
+请求快照后面的更改日志
+应用数据变更
+
+节点失效
+从节点失效：追赶式恢复
+主节点失效：节点切换
+自动切换
+
+确认失效
+选举新的主节点
+使主节点生效
+
+挑战
+
+从节点复制不完整
+各个数据层数据不一致，如 MySQL 和 Redis 之间
+多个主节点选举：脑裂
+如何有效检测主节点失效
+
+复制日志实现
+复制滞后问题
+多主节点复制
+使用场景
+多数据中心
+优点：
+
+性能
+容忍数据中心失效
+容忍网络问题
+
+缺点：写冲突
+离线客户端操作
+协作编辑
+处理写冲突
+同步与异步冲突检测
+
+同步：等待写请求完成对所有主节点的同步再通知用户写入成功。
+异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突
+
+避免冲突
+收敛于一致的状态
+自定义冲突解决逻辑
+
+写入时解决
+读取时解决
+
+拓扑结构
+
+环形拓扑
+星型拓扑
+全部-至-全部型拓扑
+
+无主节点复制">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -44,7 +96,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -63,31 +115,84 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="数据复制" />
-<meta property="og:description" content="主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="数据复制">
+  <meta property="og:description" content="主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。
 配置新从节点 可以通过快照来加速新从节点复制：
 对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换
 确认失效 选举新的主节点 使主节点生效 挑战
 从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：
 性能 容忍数据中心失效 容忍网络问题 缺点：写冲突
-离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制 " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.0081800.xyz/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2021-06-14T20:31:00+08:00" />
-<meta property="article:modified_time" content="2021-06-14T20:31:00+08:00" />
+离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2021-06-14T20:31:00+08:00">
+    <meta property="article:modified_time" content="2021-06-14T20:31:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据复制">
+<meta name="twitter:description" content="主节点与从节点
+复制
+单个节点可以完整存放所有数据副本，节点间进行主从复制。
+配置新从节点
+可以通过快照来加速新从节点复制：
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="数据复制"/>
-<meta name="twitter:description" content="主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。
-配置新从节点 可以通过快照来加速新从节点复制：
-对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换
-确认失效 选举新的主节点 使主节点生效 挑战
-从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：
-性能 容忍数据中心失效 容忍网络问题 缺点：写冲突
-离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制 "/>
+对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。
+拷贝快照到从节点
+请求快照后面的更改日志
+应用数据变更
+
+节点失效
+从节点失效：追赶式恢复
+主节点失效：节点切换
+自动切换
+
+确认失效
+选举新的主节点
+使主节点生效
+
+挑战
+
+从节点复制不完整
+各个数据层数据不一致，如 MySQL 和 Redis 之间
+多个主节点选举：脑裂
+如何有效检测主节点失效
+
+复制日志实现
+复制滞后问题
+多主节点复制
+使用场景
+多数据中心
+优点：
+
+性能
+容忍数据中心失效
+容忍网络问题
+
+缺点：写冲突
+离线客户端操作
+协作编辑
+处理写冲突
+同步与异步冲突检测
+
+同步：等待写请求完成对所有主节点的同步再通知用户写入成功。
+异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突
+
+避免冲突
+收敛于一致的状态
+自定义冲突解决逻辑
+
+写入时解决
+读取时解决
+
+拓扑结构
+
+环形拓扑
+星型拓扑
+全部-至-全部型拓扑
+
+无主节点复制">
 
 
 <script type="application/ld+json">
@@ -116,7 +221,7 @@
   "@type": "BlogPosting",
   "headline": "数据复制",
   "name": "数据复制",
-  "description": "主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。\n配置新从节点 可以通过快照来加速新从节点复制：\n对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换\n确认失效 选举新的主节点 使主节点生效 挑战\n从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：\n性能 容忍数据中心失效 容忍网络问题 缺点：写冲突\n离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制 ",
+  "description": "主节点与从节点 复制 单个节点可以完整存放所有数据副本，节点间进行主从复制。\n配置新从节点 可以通过快照来加速新从节点复制：\n对主节点的数据副本产生一个一致性快照，避免长时间锁定数据库。 拷贝快照到从节点 请求快照后面的更改日志 应用数据变更 节点失效 从节点失效：追赶式恢复 主节点失效：节点切换 自动切换\n确认失效 选举新的主节点 使主节点生效 挑战\n从节点复制不完整 各个数据层数据不一致，如 MySQL 和 Redis 之间 多个主节点选举：脑裂 如何有效检测主节点失效 复制日志实现 复制滞后问题 多主节点复制 使用场景 多数据中心 优点：\n性能 容忍数据中心失效 容忍网络问题 缺点：写冲突\n离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制",
   "keywords": [
     
   ],
@@ -182,8 +287,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -215,7 +318,7 @@
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       数据复制
     </h1>
     <div class="post-meta"><span title='2021-06-14 20:31:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
@@ -244,9 +347,9 @@
                     <a href="#%e4%b8%bb%e8%8a%82%e7%82%b9%e5%a4%b1%e6%95%88-%e8%8a%82%e7%82%b9%e5%88%87%e6%8d%a2" aria-label="主节点失效：节点切换">主节点失效：节点切换</a></li></ul>
                 </li>
                 <li>
-                    <a href="#%e5%a4%8d%e5%88%b6%e6%97%a5%e5%bf%97%e5%ae%9e%e7%8e%b0--20210614205249-%e5%a4%8d%e5%88%b6%e6%97%a5%e5%bf%97%e5%ae%9e%e7%8e%b0-dot-md" aria-label="复制日志实现"><a href="/notes/20210614205249-%E5%A4%8D%E5%88%B6%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0/">复制日志实现</a></a></li>
+                    <a href="#%e5%a4%8d%e5%88%b6%e6%97%a5%e5%bf%97%e5%ae%9e%e7%8e%b0--20210614205249-%e5%a4%8d%e5%88%b6%e6%97%a5%e5%bf%97%e5%ae%9e%e7%8e%b0-dot-md" aria-label="复制日志实现">复制日志实现</a></li>
                 <li>
-                    <a href="#%e5%a4%8d%e5%88%b6%e6%bb%9e%e5%90%8e%e9%97%ae%e9%a2%98--20210614205621-%e5%a4%8d%e5%88%b6%e6%bb%9e%e5%90%8e%e9%97%ae%e9%a2%98-dot-md" aria-label="复制滞后问题"><a href="/notes/20210614205621-%E5%A4%8D%E5%88%B6%E6%BB%9E%E5%90%8E%E9%97%AE%E9%A2%98/">复制滞后问题</a></a></li></ul>
+                    <a href="#%e5%a4%8d%e5%88%b6%e6%bb%9e%e5%90%8e%e9%97%ae%e9%a2%98--20210614205621-%e5%a4%8d%e5%88%b6%e6%bb%9e%e5%90%8e%e9%97%ae%e9%a2%98-dot-md" aria-label="复制滞后问题">复制滞后问题</a></li></ul>
                 </li>
                 <li>
                     <a href="#%e5%a4%9a%e4%b8%bb%e8%8a%82%e7%82%b9%e5%a4%8d%e5%88%b6" aria-label="多主节点复制">多主节点复制</a><ul>
@@ -267,9 +370,9 @@
                 <li>
                     <a href="#%e5%90%8c%e6%ad%a5%e4%b8%8e%e5%bc%82%e6%ad%a5%e5%86%b2%e7%aa%81%e6%a3%80%e6%b5%8b" aria-label="同步与异步冲突检测">同步与异步冲突检测</a></li>
                 <li>
-                    <a href="#%e9%81%bf%e5%85%8d%e5%86%b2%e7%aa%81--20210615082908-%e9%81%bf%e5%85%8d%e5%86%b2%e7%aa%81-dot-md" aria-label="避免冲突"><a href="/notes/20210615082908-%E9%81%BF%E5%85%8D%E5%86%B2%E7%AA%81/">避免冲突</a></a></li>
+                    <a href="#%e9%81%bf%e5%85%8d%e5%86%b2%e7%aa%81--20210615082908-%e9%81%bf%e5%85%8d%e5%86%b2%e7%aa%81-dot-md" aria-label="避免冲突">避免冲突</a></li>
                 <li>
-                    <a href="#%e6%94%b6%e6%95%9b%e4%ba%8e%e4%b8%80%e8%87%b4%e7%9a%84%e7%8a%b6%e6%80%81--20210615083221-%e6%94%b6%e6%95%9b%e4%ba%8e%e4%b8%80%e8%87%b4%e7%9a%84%e7%8a%b6%e6%80%81-dot-md" aria-label="收敛于一致的状态"><a href="/notes/20210615083221-%E6%94%B6%E6%95%9B%E4%BA%8E%E4%B8%80%E8%87%B4%E7%9A%84%E7%8A%B6%E6%80%81/">收敛于一致的状态</a></a></li>
+                    <a href="#%e6%94%b6%e6%95%9b%e4%ba%8e%e4%b8%80%e8%87%b4%e7%9a%84%e7%8a%b6%e6%80%81--20210615083221-%e6%94%b6%e6%95%9b%e4%ba%8e%e4%b8%80%e8%87%b4%e7%9a%84%e7%8a%b6%e6%80%81-dot-md" aria-label="收敛于一致的状态">收敛于一致的状态</a></li>
                 <li>
                     <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%86%b2%e7%aa%81%e8%a7%a3%e5%86%b3%e9%80%bb%e8%be%91" aria-label="自定义冲突解决逻辑">自定义冲突解决逻辑</a></li></ul>
                 </li>
@@ -277,7 +380,7 @@
                     <a href="#%e6%8b%93%e6%89%91%e7%bb%93%e6%9e%84" aria-label="拓扑结构">拓扑结构</a></li></ul>
                 </li>
                 <li>
-                    <a href="#%e6%97%a0%e4%b8%bb%e8%8a%82%e7%82%b9%e5%a4%8d%e5%88%b6--20210615210219-%e6%97%a0%e4%b8%bb%e8%8a%82%e7%82%b9%e5%a4%8d%e5%88%b6-dot-md" aria-label="无主节点复制"><a href="/notes/20210615210219-%E6%97%A0%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6/">无主节点复制</a></a>
+                    <a href="#%e6%97%a0%e4%b8%bb%e8%8a%82%e7%82%b9%e5%a4%8d%e5%88%b6--20210615210219-%e6%97%a0%e4%b8%bb%e8%8a%82%e7%82%b9%e5%a4%8d%e5%88%b6-dot-md" aria-label="无主节点复制">无主节点复制</a>
                 </li>
             </ul>
         </div>
@@ -354,6 +457,12 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
@@ -1997,7 +2106,7 @@
               <p> tags: 读书笔记,Bigdata,分布式,数据库 数据系统基础 可靠、可扩展与可维护的应用系统 数据模型与查询语言 数据存储与检索 数据编码与演化 分布式数据系统 目的：扩展性、容错和高可用、延迟考虑（多机房）
 扩展：
 垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
-复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统 </p>
+复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统</p>
             </div>
             <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
@@ -2012,7 +2121,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span>
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
