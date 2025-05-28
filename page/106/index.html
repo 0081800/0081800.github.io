@@ -149,6 +149,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 39. Combination Sum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode source: https://leetcode.com/problems/combination-sum/ class Solution { public: vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) { backtracking(candidates, 0, target); return res; } private: vector&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; track; void backtracking(vector&lt;int&gt; &amp; candidates, int n, int target) { if (n == target) { res.push_back(track); return; } // this is new if (n &gt; target) { return; } for (auto c : candidates) { track.push_back(c); backtracking(candidates, n &#43; c, target); track.pop_back(); } } }; 问题：会有不同顺序但是元素相同的数组，如何快速高效的进行过滤？
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-04 06:47:00 +0800 +0800'>August 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 39. Combination Sum" href="https://notes.0081800.xyz/notes/20210804064757-leetcode_39_combination_sum/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 52. N-Queens II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode,backtracking source: https://leetcode.com/problems/n-queens-ii/ 参见：LeetCode: 51. N-Queens
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-03 07:46:00 +0800 +0800'>August 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 52. N-Queens II" href="https://notes.0081800.xyz/notes/20210803074630-leetcode_52_n_queens_ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">回溯算法
     </h2>
   </header>
@@ -182,31 +208,6 @@
   </div>
   <footer class="entry-footer"><span title='2021-08-02 19:30:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 云原生" href="https://notes.0081800.xyz/notes/20210802193059-%E4%BA%91%E5%8E%9F%E7%94%9F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">云计算
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 技术概念 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-02 19:30:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 云计算" href="https://notes.0081800.xyz/notes/20210802193038-%E4%BA%91%E8%AE%A1%E7%AE%97/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">技术概念
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 技术 目前互联网领域里比较热门的概念和方向。
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-02 19:30:00 +0800 +0800'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 技术概念" href="https://notes.0081800.xyz/notes/20210802193020-%E6%8A%80%E6%9C%AF%E6%A6%82%E5%BF%B5/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

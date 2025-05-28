@@ -149,6 +149,38 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">负载倾斜
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>分区不均匀时出现某些分区节点比其他分区承担更多的数据量和查询负载。倾斜会导致分区效率严重下降。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-11 15:36:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 负载倾斜" href="https://notes.0081800.xyz/notes/20210711153606-%E8%B4%9F%E8%BD%BD%E5%80%BE%E6%96%9C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">数据分区
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>每一条数据都属于特定的分区，每个分区都是一个小型数据库。
+目的 提高扩展性，分散大的数据集和查询负载。
+目标 将数据和查询负载均匀的分步在所有节点上。如果分布不均匀会出现负载倾斜和系统热点。
+数据分区与数据复制 结合数据复制每个分区在多个节点都有副本，进行冗余提高可用性。
+键-值数据的分区 避免系统热点最简单的方法是将记录随机分配给所有节点上，缺点是：没办法知道数据保存在哪个节点上，所以读取时需要查询所有节点。
+基于关键字区间分区 基于关键字哈希值分区 负载倾斜与系统热点 分区与二级索引 二级索引不能唯一标识一条记录，比如查询颜色为红色的汽车。二级索引带来的主要挑战是它们不能规整的映射到分区中。
+有两种方法来支持对二级索引进行分区：
+基于文档分区的二级索引 基于词条的二级索引分区 分区再平衡 动态再平衡策略 自动与手动再平衡操作 请求路由 策略 客户端可以连接任意节点，并由节点做转发不在当前节点的分区请求。 由路由层来充当分区感知的负载均衡器。 客户端直接感知分区和节点分配关系，客户端直连目标节点。 做出路由决策的组件 Zookeeper gossip 协议 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-11 15:30:00 +0800 +0800'>July 11, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 数据分区" href="https://notes.0081800.xyz/notes/20210711153015-%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">syn
     </h2>
   </header>
@@ -188,34 +220,6 @@ quote = “1.0” syn = “1.0” Derive 属性宏 探讨 Rust 宏系统中带�
   </div>
   <footer class="entry-footer"><span title='2021-06-16 14:15:00 +0800 +0800'>June 16, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Rust 属性宏解析" href="https://notes.0081800.xyz/notes/20210616141500-rust_%E5%B1%9E%E6%80%A7%E5%AE%8F%E8%A7%A3%E6%9E%90/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Happens-before 关系和并发
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>确定前后关系 服务器为每个主键维护一个版本号，每当主键新值写入时递增版本号，并将新版本号与写入值一起保存。 当客户端读取主键时，服务器将返回所有（未被覆盖的）当前值以及最新的版本号。且要求写入之前，客户端必须先发送读请求。 客户端写主键，写请求必须包含之前读到的版本号，读到的值和新值合并后的集合。写请求的响应可以像读操作一样，会返回所有当前值，这样可以一步步链接起多个写入的值。 当服务器收到带有特定版本号的写入时，覆盖该版本号或者更低版本的所有值，但必须保存更高版本号所有值。 当写请求包含了前一次读取的版本号时，意味着修改时基于以前的状态。否则它将与所有的其他写入同时进行，不会覆盖任何已有值，其传入的值将包含在后续读请求的返回值列表中。
-合并同时写入的值 上面算法不会导致数据丢失，但是客户端需要做一些额外的工作：如果多个操作并发发生，则客户端必须通过合并并发写入的值来继承旧值。同时删除需要特殊的墓碑标记，防止被合并回去。
-版本矢量 每个副本和每个主键均定义一个版本号，每个副本在处理时增加自己的版本号，并跟踪从其他副本看到的版本号。通过这些信息来指示要覆盖那些值，该保留那些并发值。
-所有的版本号集合称为版本矢量。
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-15 21:54:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Happens-before 关系和并发" href="https://notes.0081800.xyz/notes/20210615215426-happens_before_%E5%85%B3%E7%B3%BB%E5%92%8C%E5%B9%B6%E5%8F%91/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">检测并发写
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>LWW：最后写入者获胜 Happens-before 关系和并发</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-15 21:34:00 +0800 +0800'>June 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 检测并发写" href="https://notes.0081800.xyz/notes/20210615213433-%E6%A3%80%E6%B5%8B%E5%B9%B6%E5%8F%91%E5%86%99/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

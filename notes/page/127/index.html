@@ -154,6 +154,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">OLAP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在线分析处理（Online Analytic Processing，OLAP）。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 21:45:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to OLAP" href="https://notes.0081800.xyz/notes/20210610214521-olap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OLTP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在线事务处理（Online Transaction Processing，OLTP）。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-10 21:43:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to OLTP" href="https://notes.0081800.xyz/notes/20210610214348-oltp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">B-trees
     </h2>
   </header>
@@ -205,39 +231,6 @@ Cassandra HBase </p>
   </div>
   <footer class="entry-footer"><span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 排序字符串表：SSTables" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LSM-Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Tree 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
-压缩排序文件基于排序字符串表：SSTables。
-LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
-性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LSM-Tree" href="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数据存储与检索
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>存储引擎 哈希索引 日志结构存储引擎：LSM-Tree 面向页的存储引擎：B-trees 对比 LSM-Tree 和 B-trees 项目 LSM-Tree B-trees 备注 性能 写入更快，吞吐更高 读取更快 具体场景上需要进行基准测试 存储 可变大小的段，通常 nMB 固定大小的页，传统 4KB 写入 追加，写入更多不利于 SSD 新的数据覆盖磁盘上旧的页 并发控制 后台合并进行原子替换 锁存器 其他索引结构 在索引中存储值
-多列索引
-全文索引和模糊索引
-在内存中保存所有内容
-优点：可以支持更复杂的数据结构，而无需考虑数据存储结构。
-事务处理与分析处理 事务处理：OLTP 分析处理：OLAP 对比 属性 OLTP OLAP 主要读属性 基于键，每次查询返回少量记录 对于大量记录进行汇总 主要写属性 随机访问，低延迟写入用户的输入 批量导入（ETL）或事件流 典型使用场景 终端用户，通过网络应用程序 内部分析师，为决策提供支持 数据表征 最新的数据状态（当前时间点） 随着事件而变化的所有事件历史 数据规模 GB 到 TB TB 到 PB 数据仓库 星型与雪花型分析模式 星型模型也称为维度建模。
-列式存储 列压缩</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 数据存储与检索" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

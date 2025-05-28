@@ -149,6 +149,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Fine-Tune Whisper For Multilingual ASR with 🤗 Transformers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: AI, Fine-Tune, Whisper source: “Fine-Tune Whisper For Multilingual ASR with 🤗 Transformers.” Accessed August 22, 2024. https://huggingface.co/blog/fine-tune-whisper. </p>
+  </div>
+  <footer class="entry-footer"><span title='2024-08-22 19:54:00 +0800 +0800'>August 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Fine-Tune Whisper For Multilingual ASR with 🤗 Transformers" href="https://notes.0081800.xyz/notes/20240822195449-fine_tune_whisper_for_multilingual_asr_with_transformers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Finetune
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2024-08-22 19:52:00 +0800 +0800'>August 22, 2024</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Finetune" href="https://notes.0081800.xyz/notes/20240822195224-finetune/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Finetune Whisper
     </h2>
   </header>
@@ -181,34 +205,6 @@
   </div>
   <footer class="entry-footer"><span title='2024-08-19 10:04:00 +0800 +0800'>August 19, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Ubuntu FFmpeg4 PPA" href="https://notes.0081800.xyz/notes/20240819100420-ubuntu_ffmpeg4_ppa/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">FreeBSD Flushing Network Cache Solved Samba Writing Issue
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: FreeBSD source: https://forums.freebsd.org/threads/samba-share-permission-privilege-changed-since-update.90685/post-626157 I’m running a Samba4 on the FreeBSD 14 system. I couldn’t write content to that share filesystem after a system rebooting.
-After running the below command, the write permission is back:
-service samba_server stop net cache flush # -&gt; tdb(/var/db/samba4/gencache.tdb): tdb_rec_read bad magic 0x10878 at offset=67584 service samba_server start </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-07-11 11:19:00 +0800 +0800'>July 11, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to FreeBSD Flushing Network Cache Solved Samba Writing Issue" href="https://notes.0081800.xyz/notes/20240711111932-freebsd_flushing_network_cache_solved_samba_writing_issue/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rust std::borrow::Cow
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ref: Rust, Rust Borrow and Lifetimes 发现一个 Cow 用处，可以让变量支持同时赋值引用类型和值类型，场景就是我们可能接收到一个引用，同时可能需要把它变成值类型做一些处理，我们可以通过 clone 或 to_owned 统一变成值类型：
-fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) { manipulate(s) } else { s.to_owned() // 存在额外的开销 }; take_reference(&amp;s); // s.into_owned() 可以得到 String 类型的值 } fn manipulate(s: &amp;str) -&gt; String { s.to_owned() } fn take_reference(s: &amp;str) { } 另外一种方式就是通过 Cow 避免不必要的 clone 开销：
-fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) { Cow::from(manipulate(s)) } else { Cow::from(s) // 没有额外的开销 }; take_reference(&amp;s); } fn manipulate(s: &amp;str) -&gt; String { s.to_owned() } fn take_reference(s: &amp;str) { } </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-05-06 11:51:00 +0800 +0800'>May 6, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Rust std::borrow::Cow" href="https://notes.0081800.xyz/notes/20240506115111-rust_std_borrow_cow/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

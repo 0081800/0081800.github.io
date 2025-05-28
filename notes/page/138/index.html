@@ -154,6 +154,39 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">生命周期
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>生命周期 Rust 中的每一个引用都有其生命周期：引用有效的作用域。 大部分情况下生命周期都是隐式和自举的，在无法完成的情况下就需要我们通过生命周期泛型参数帮助编译器进行注解。 生命周期的主要目标是避免悬空指针。 生命周期泛型参数定义各个引用之间（参数和参数、参数和返回值）的关系，并不改变（延长）变量原本的生命周期 &amp;i32 // a reference &amp;&#39;a i32 // a reference with an explicit lifetime &amp;&#39;a mut i32 // a mutable reference with an explicit lifetime 参考以下代码
+fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str, y: &amp;&#39;a str) -&gt; &amp;&#39;a str { if x.len() &gt; y.len() { x } else { y } } 以上代码
+标注生命周期 &#39;a 函数有两个引用参数，都使用生命周期 &#39;a 表示两个参数的生命周期必须一致（存活的周期一样长） 函数返回一个引用，并且存活的时间和生命周期 &#39;a 一致 以上指定不改变任何传入的引用的生命周期，我们只是要求借用检查器（borrow checker）检查这些约束。 也就是说借用检查器要检查传入的两个引用的生命周期必须一致，返回的引用的存活周期不能超过传入的引用的存活周期 思考 当函数返回一个引用时，返回值的生命周期注解要和参数的其中之一相匹配，否则那么引用就是指向里函数内创建的值（不能返回）。 也就是说返回引用时，引用的声明周期必须和参数（其一）相关。如果想要返回函数内创建的值最好返回一个有所有权的值类型。
+结构体生命周期 如果结构体需要持有引用，需要在定义结构体时给每一个引用都加上生命周期注解。
+如果结构体声明了生命周期参数，那么 impl 同样也要声明。
+struct ImportantExcerpt&lt;&#39;a&gt; { part: &amp;&#39;a str, } impl&lt;&#39;a&gt; ImportantExcerpt&lt;&#39;a&gt; { fn announce_and_return_part(&amp;self, announcement: &amp;str) -&gt; &amp;str { println!(&#34;Attention please: {}&#34;, announcement); self.part } } 生命周期省略（elision）规则 函数参数的生命周期为输入生命周期 函数返回值的生命周期为输出生命周期 3 个规则用于 fn 和 impl ：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 生命周期" href="https://notes.0081800.xyz/notes/20200629180413-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">闭包
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>let add_one = | num | { num &#43; 1 }; 由于闭包和当前上下文相关联，所以 Rust 可以进行类型推导，类型注解也就不是必要的，但是依然可以自己添加：
+let add_one = | num: i32 | { num &#43; 1 }; fn add_one_v1 (x: u32) -&gt; u32 { x &#43; 1 } let add_one_v2 = |x: u32| -&gt; u32 { x &#43; 1 }; let add_one_v3 = |x| { x &#43; 1 }; let add_one_v4 = |x| x &#43; 1 ; 使用 Fn 存储闭包类型
+struct Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { calculation: T, value: Option&lt;u32&gt;, } impl Cacher&lt;T&gt; where T: Fn(u32) -&gt; u32 { fn new(calculation: T) -&gt; Cacher&lt;T&gt; { Cacher { calculation, value: None, } } fn value(&amp;mut self, arg: u32) -&gt; u32 { if let Some(value) = self.value { value } else { let value = (self.calculation)(arg); self.value = Some(value); value } } } 闭包和函数的区别：闭包会捕捉当前环境，但是函数不会。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:04:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 闭包" href="https://notes.0081800.xyz/notes/20200629180436-%E9%97%AD%E5%8C%85/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Traits
     </h2>
   </header>
@@ -190,44 +223,6 @@ use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() 
   </div>
   <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to if let" href="https://notes.0081800.xyz/notes/20200629180202-if_let/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">模块化
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>包、crate 和模块 Cargo.toml 表示一个包
-包含 0 个或 1 个库 crate（ src/lib.rs ） 包含 0 个或多个可执行 crate （ src/main.rs src/bin/*.rs ） 可以同时包含以上两种 模块化系统
-模块，一种组织代码和控制路径隐私的方法
-所有的项（函数，方法，结构体，枚举，模块和常量）默认私有 不允许使用私有的子模块的代码 可以使用父模块和同级模块的代码 路径，一种命名项的方法
-use , 一个将路径带到当前作用域的关键字
-pub ，一个将项公开的关键字
-as ，一个将带到当前作用域项重命名的关键字
-super , 一个相当于文件系统里 .. 作用的关键字
-* ，通配符用于使用制定路径下的所有项
-pub use 用于重新暴露可以访问的模块
-模块可以放在一个文件，也可以按照一定规则拆分到不同文件下
-使用同一个 use 清理嵌套的 use
-use std::cmp::Ordering; use std::io; use std::{cmp::Ordering, io}; use std::io; use std::io::Write; use std::{self, Write}; mod sound { pub mod instrument { pub mod woodwind { pub fn clarinet() { super::breathe_in(); } } fn breathe_in() { } } mod voice { } } fn main() { // 绝对路径以 crate 开始，crate 表示根 crate::sound::instrument::woodwind::clarinet(); // 相对路径 sound::instrument::woodwind::clarinet(); } 上面例子 sound 模块并非公开，但是由于 main 和 sound 定义在同一模块下，所以允许在 main 中引用 sound 。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 模块化" href="https://notes.0081800.xyz/notes/20200629180233-%E6%A8%A1%E5%9D%97%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">模式匹配
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>#[derive(Debug)] enum UsState { Alabama, Alaska, } enum Coin { Penny, Nickel, Dime, Quarter(UsState), } fn value_cents(coin: Coin) -&gt; u8 { match coin { Coin::Peny =&gt; { println!(&#34;Lucy penny!&#34;); 1 }, Coin::Nickel =&gt; 5, Coin::Dime =&gt; 10, Coin::Quarter(state) =&gt; { println!(&#34;State quarter from {:?}!&#34;, state); 25 }, } } // Option fn plus_one(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; { match x { None =&gt; None, Some(i) =&gt; Some(i &#43; 1), } } let five = Some(5); let six = plus_one(five); let none = plus_one(None); 编译器会检查 match 覆盖所有情况， _ 可以用于所有未覆盖的情况。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-06-29 18:01:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 模式匹配" href="https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

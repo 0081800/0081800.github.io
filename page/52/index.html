@@ -149,6 +149,34 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode101: 946. Validate Stack Sequences
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Stack Intuition for (int i = 0; i &lt; pushed.size(); i&#43;&#43;) { if (pushed[i] != popped[pushed.size() - 1 - i]) { return false; } } But the pop/push operations can happend in any sequence.
+Stack Using a stack. Returns false, IF the next value neither the popped nor pushed.
+In each sequence we must do a operation: push or pop. When to push:
+stack is empty, or top of stack is not current popped value When to pop:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-16 08:52:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 946. Validate Stack Sequences" href="https://notes.0081800.xyz/notes/20220316085247-leetcode101_946_validate_stack_sequences/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode101: 1249. Minimum Remove to Make Valid Parentheses
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Stack,LeetCode101 Stack class Solution { public: string minRemoveToMakeValid(string s) { stack&lt;char&gt; st; char open = &#39;(&#39;, close = &#39;)&#39;; int open_count = 0; string res; // forward to remove unnecessary close parentheses for (auto iter = s.begin(); iter != s.end(); &#43;&#43;iter) { if (*iter == open) { open_count&#43;&#43;; } if (open_count == 0 &amp;&amp; *iter == close) { continue; } if (*iter == close) { open_count--; } st.push(*iter); } int close_count = 0; // backward to remove unnecessary open parentheses while (!st.empty()) { if (st.top() == close) { close_count&#43;&#43;; } if (st.top() == open) { if (close_count == 0 ) { st.pop(); continue; } close_count--; } res.push_back(st.top()); st.pop(); } reverse(res.begin(), res.end()); return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-16 08:00:00 +0800 +0800'>March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode101: 1249. Minimum Remove to Make Valid Parentheses" href="https://notes.0081800.xyz/notes/20220316080026-leetcode101_1249_minimum_remove_to_make_valid_parentheses/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">LeetCode101: 769. Max Chunks To Make Sorted
     </h2>
   </header>
@@ -184,32 +212,6 @@ As shown above, the position of break point is same to the position of max value
   </div>
   <footer class="entry-footer"><span title='2022-03-15 11:23:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode101: 739. Daily Temperatures" href="https://notes.0081800.xyz/notes/20220315112303-leetcode101_739_daily_temperatures/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCode101: 654. Maximum Binary Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Monotonic Stack,LeetCode101,Binary Search Tree Mono-descreasing stack Key:
-The largest number is the root, that we can observe in by iteration. We must clear the stack to fill the right side of BST after loop. The last popped element is the left of current node. From top to bottom, the top element is the right side of the element that under the top. class Solution { public: TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) { vector&lt;TreeNode*&gt; res(nums.size(), nullptr); stack&lt;int&gt; st; // mono-descreasing stack, remove smaller elements before pushing. TreeNode* root = nullptr; for (int i = 0;i &lt; nums.size(); i&#43;&#43;) { res[i] = new TreeNode(nums[i]); while (!st.empty() &amp;&amp; nums[st.top()] &lt; nums[i]) { int j = st.top(); st.pop(); if (!st.empty() &amp;&amp; nums[st.top()] &lt; nums[i]) { res[st.top()]-&gt;right = res[j]; } else { res[i]-&gt;left = res[j]; } } if (root == nullptr || res[i]-&gt;val &gt; root-&gt;val) { root = res[i]; } st.push(i); } while (st.size() &gt; 1) { int j = st.top(); st.pop(); res[st.top()]-&gt;right = res[j]; } return root; } }; </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-15 10:51:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 654. Maximum Binary Tree" href="https://notes.0081800.xyz/notes/20220315105116-leetcode101_654_maximum_binary_tree/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCode101: 581. Shortest Unsorted Continuous Subarray
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Monotonic Stack,LeetCode101 Mono-increasing stack Key:
-Some case should move backward as the new value we meeted is larger than it. When we meet 2 in the stack, and here we need move backward. Some case we need move forward, as the following values are the mono-increaing stack: [1, 2, 5, 3, 4] class Solution { public: int findUnsortedSubarray(vector&lt;int&gt;&amp; nums) { stack&lt;int&gt; st; // mono-increasing int left = -1, right = -2; for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { while (!st.empty() &amp;&amp; nums[st.top()] &gt; nums[i]) { // move backward if (left == -1 || st.top() &lt; left) { left = st.top(); // left should be the previous index } // move forward for (int j = i; j &lt; nums.size() &amp;&amp; nums[j] &lt; nums[st.top()]; j&#43;&#43;) { if (j &gt; right) { right = j; } } st.pop(); } st.push(i); } return (right - left) &#43; 1; } }; Failed test cases [2,6,4,8,10,9,15] [1, 2, 3, 4] [1] [2,1] [1,3,2,2,2] [1,2,3,3,3] [2,3,3,2,4] [1,2,5,3,4] [1,3,5,2,4] </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-15 07:13:00 +0800 +0800'>March 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode101: 581. Shortest Unsorted Continuous Subarray" href="https://notes.0081800.xyz/notes/20220315071351-leetcode101_581_shortest_unsorted_continuous_subarray/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
