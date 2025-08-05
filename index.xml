@@ -49,11 +49,14 @@
 &lt;p&gt;I logged in specifically to thank you for this. Although I had to put in 127.0.0.1 instead of 0.0.0.0 for the IP&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
     <item>
-      <title>macos DNS Problem</title>
+      <title>macOS DNS Problem</title>
       <link>https://notes.0081800.xyz/notes/20250613175030-macos_dns_problem/</link>
       <pubDate>Fri, 13 Jun 2025 17:50:00 +0800</pubDate>
       <guid>https://notes.0081800.xyz/notes/20250613175030-macos_dns_problem/</guid>
-      <description>&lt;h2 id=&#34;dns-issue&#34;&gt;DNS issue&lt;/h2&gt;
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102074038-macos/&#34;&gt;macOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;dns-issue&#34;&gt;DNS issue&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dig baidu.com @192.168.31.1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; baidu.com @192.168.31.1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;;; global options: +cmd
