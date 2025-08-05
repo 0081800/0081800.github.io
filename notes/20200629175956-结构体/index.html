@@ -34,7 +34,6 @@ self 占有所有权
 在 Rust 中进行方法调用，如 object.something ，Rust 会自动添加 &amp; &amp;mut 或者 * , 用以自动匹配方法签名。以下是等价的：
 
 
-
 p1.distance(&amp;p2);
 (&amp;p1).distance(&amp;p2);
 方法如果不声明 self 行参则是一个关联方法（静态方法），通过 :: 调用
@@ -53,7 +52,7 @@ let r = Rectangle::square(10);
 每一个结构体可以有多个 impl 块。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200629175956-%E7%BB%93%E6%9E%84%E4%BD%93/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -143,7 +142,6 @@ self 占有所有权
 
 自动引用和解引用
 在 Rust 中进行方法调用，如 object.something ，Rust 会自动添加 &amp; &amp;mut 或者 * , 用以自动匹配方法签名。以下是等价的：
-
 
 
 p1.distance(&amp;p2);
@@ -236,7 +234,7 @@ let r = Rectangle::square(10);
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -344,7 +342,6 @@ let r = Rectangle::square(10);
 <p>在 Rust 中进行方法调用，如 <code>object.something</code> ，Rust 会自动添加 <code>&amp;</code> <code>&amp;mut</code> 或者 <code>*</code> , 用以自动匹配方法签名。以下是等价的：</p>
 </li>
 </ul>
-<!-- raw HTML omitted -->
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>p1.distance(<span style="color:#f92672">&amp;</span>p2);
 </span></span><span style="display:flex;"><span>(<span style="color:#f92672">&amp;</span>p1).distance(<span style="color:#f92672">&amp;</span>p2);
 </span></span></code></pre></div><p>方法如果不声明 <code>self</code> 行参则是一个关联方法（静态方法），通过 <code>::</code> 调用</p>
@@ -370,6 +367,12 @@ let r = Rectangle::square(10);
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.139.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.147.2"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -99,7 +99,7 @@
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -149,69 +149,734 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Should I read papers
+    <h2 class="entry-hint-parent">Fencing 令牌
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Papers source: “Mrb: Should I Read Papers?” Accessed February 20, 2023. https://michaelrbernste.in/2014/10/21/should-i-read-papers.html. Yes, but reading a paper isn’t the same as reading a blogpost or a novel.
-A paper could be an idea captured by someone, or the result of a life’s work, or anything in between.
-You might need to read it bit by bit, again and again.
+    <p>Fencing（围栏）锁，每次锁服务授予锁时，同时返回 fencing 令牌，每次客户端发送写请求，都必须包含所持有的 fencing 令牌。
+fencing 令牌单调递增，如果低版本的写入后到达，发现已经有高版本的 fencing 令牌写入，则拒绝此次写入。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2023-07-19 09:11:00 +0800 +0800'>July 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Should I read papers" href="https://notes.0081800.xyz/notes/20230719091127-should_i_read_papers/"></a>
+  <footer class="entry-footer"><span title='2021-07-22 07:59:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Fencing 令牌" href="https://notes.0081800.xyz/notes/20210722075942-fencing_%E4%BB%A4%E7%89%8C/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Software Engineers Should Read Academic Papers
+    <h2 class="entry-hint-parent">单调时钟与墙上时钟
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Papers source: Al-Ansari, Khaled. “Software Engineers Should Read Academic Papers.” Medium (blog), July 15, 2023. https://medium.com/@KhaledElAnsari/software-engineers-should-read-academic-papers-9a6ee6ebc40d. There are some benefits of reading academic papers:
-Structured content can enhance your technical writing, you can learn structured writing.
-(Reading - Writing - Reviewing) cycle making you a better reader and reviewer.
-Reading to gain information. Structured writing make review easier. Better deading and writing make you a better reviewer. Bridge the industry and the academic field.
+    <p>墙上时钟 根据某个日历返回当前的日期与时间。
+Linux 上的 clock_gettime(CLOCK_REALTIME) Java 中的 System.currentTimeMills() 会返回 1970-01-01（UTC）的时间戳（秒和毫秒）。
+墙上时钟会和 NTP 服务器同步产生跳跃导致一些奇怪的问题。
+单调时钟 更适合测量持续时间段（时间间隔），如超时或服务的响应时间。保证总是向前（不会出现墙上时钟的回拨现象）。
+Linux 上的 clock_gettime(CLOCK_MONOTONIC) Java 中的 System.nanoTime() 单调时钟多个节点的对比没有任何意义，多路 CPU 可能有单独的计时器，且不与其他 CPU 进行同步。由操作系统进行补偿它们之间的偏差。
+NTP 检测到本地石英比时间服务器更快或者更慢，NTP 会调整本地石英的震动频率（摆动），最大幅度为 0.05%。 NTP 并不会直接调整单调时钟向前或回拨 。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-22 07:30:00 +0800 +0800'>July 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 单调时钟与墙上时钟" href="https://notes.0081800.xyz/notes/20210722073012-%E5%8D%95%E8%B0%83%E6%97%B6%E9%92%9F%E4%B8%8E%E5%A2%99%E4%B8%8A%E6%97%B6%E9%92%9F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 47. Permutations II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode,backtracking 视频解析：https://www.youtube.com/watch?v=s7AvT7cGdSo
+在 LeetCode: 46. Permutations 的基础上增加重复的元素。感觉不能依赖于 track &#43; map 的去重逻辑回溯。
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; nums) { vector&lt;vector&lt;int&gt;&gt; res; } }; 数据特征：
+Value: 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, Index: 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, 2, 1, 0, 1, 0, class Solution { public: vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; nums) { set&lt;vector&lt;int&gt;&gt; res; vector&lt;vector&lt;int&gt;&gt; ret; int n, i; vector&lt;vector&lt;int&gt;&gt; perms; if (nums.size() == 1) { ret.push_back(nums); return ret; } for (i = 0; i &lt; nums.size(); i&#43;&#43;) { n = nums.back(); nums.pop_back(); perms = permuteUnique(nums); for (auto perm : perms) { perm.push_back(n); res.insert(perm); } nums.insert(nums.begin(), n); } for (auto r : res) { ret.push_back(r); } return ret; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-21 07:36:00 +0800 +0800'>July 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 47. Permutations II" href="https://notes.0081800.xyz/notes/20210721073657-leetcode_47_permutations_ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">分布式系统挑战
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式 故障与部分失效 单节点一般是要么工作要么失效，但是分布式系统多节点面临部分失效，大大提高了分布式系统的复杂性。
+单节点软件特性：
+硬件正常工作时，相同的操作通常总会产生相同的结果，即确定性。 如果发生了某种内部错误，我们宁愿使计算机全部崩溃，而不是返回一个错误的结果。 云计算和超算 超算：垂直扩展的极端，设置检查点，一点节点故障则全部失效从上一个检查点重新开始（离线批处理），类似单机上内核崩溃。 云计算：水平扩展的极端 传统企业位于两个极端的中间 分布式可靠必然面临部分失效，需要依赖软件系统来提供容错机制。我们需要在不可靠的组件上构建可靠的系统。
+不可靠网络 分布式无共享系统：成本低廉。 互联网以及大多数 IDC 内部网络都是异步网络：不保证发送一定到达（排队），等待响应时可能出现任何错误。 现实中的网络故障非常普遍 故障检测：HA、主从切换、保活机制（ICMP，SYN） 超时与无限期的延迟 网络拥塞与排队 网络负载过高会出现拥塞。 数据在发送的过程中分别会在发送端和接收端进行排队：等待发送和等待处理。 TCP 的拥塞控制机制。 虚拟化 CPU 核切换虚拟机 同步与异步网络 同步网络：固定电话网络，一路电话分配固定的电路、有带宽保证，规定延迟内保证完成数据包发送，不会丢弃数据包，成本高，利用率低 异步网络：数据中心网络，共享带宽，无法保证延迟和数据包发送，成本低廉，利用率高 不可靠时钟 单调时钟与墙上时钟 时间同步与准确性 计算机中的石英钟不够精确 NTP 服务器不稳定（网络、防火墙或服务本身） 虚拟机中时钟是虚拟化的。 终端设备不可控：休眠、故意设置 依赖同步的时钟 时钟陷阱：
+一天可能不总是 86400 秒 回拨 多个节点上的时间完全不相同 需要精确同步的时钟：
+自己监控所有节点上的时钟偏差 某个节点时钟漂移超出上限则将其宣告失效 时间戳与时间顺序 最后写入者获胜 时钟的置信区间 通过直接安装 GPS 接收器或原子（铯）时钟，它的误差范围通常可以查询制造商手册。
+全局快照的同步时钟 Google Spanner 根据部署了 GPS 接收器或者原子时钟的 TrueTime API 返回的时钟置信区间。确保读事务足够晚发生，避免与先前事务的置信区间产生重叠。
+进程暂停 垃圾回收 虚拟化暂停虚拟机 磁盘 I/O 内存交换分区 手动暂停进程（SIGSTOP/SIGCONT） 响应时间保证 RTOS 系统 调整垃圾回收的影响 知识，真相与谎言 真相由多数决定：Quorum 一致性 主节点与锁 Fencing 令牌 拜占庭故障 理论系统模型与现实 计时方面
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-07-17 11:17:00 +0800 +0800'>July 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Software Engineers Should Read Academic Papers" href="https://notes.0081800.xyz/notes/20230717111715-software_engineers_should_read_academic_papers/"></a>
+  <footer class="entry-footer"><span title='2021-07-21 06:32:00 +0800 +0800'>July 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 分布式系统挑战" href="https://notes.0081800.xyz/notes/20210721063222-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%8C%91%E6%88%98/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Solana Off-Chain Message Signing
+    <h2 class="entry-hint-parent">LeetCode: 46. Permutations
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Solana source: https://github.com/solana-labs/solana/blob/eabe1070667e87f447b9cb892e2d916ca5b68e34/sdk/src/offchain_message.rs#L237-L240 /// Serialize the off-chain message to bytes including full header pub fn serialize(&amp;self) -&gt; Result&lt;Vec&lt;u8&gt;, SanitizeError&gt; { // serialize signing domain let mut data = Self::SIGNING_DOMAIN.to_vec(); // serialize version and call version specific serializer match self { Self::V0(msg) =&gt; { data.push(0); msg.serialize(&amp;mut data)?; } } Ok(data) } </p>
+    <p> tags: LeetCode,backtracking Keywords backtrack 回溯算法
+图解 举例： [1, 2, 3] ，顺着叶子节点和删除的节点就可以还原成全排列。
+从上面图可以看出来，叶子节点加上回溯路径上被移除的节点就是结果的一项，从左到右依次是：
+[3,R:2,R:1] -&gt; [3,2,1] [2,R:3,R:1] -&gt; [2,3,1] … class Solution { public: vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) { vector&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; track; backtrack(res, track, nums); return res; } void backtrack(vector&lt;vector&lt;int&gt;&gt; &amp; res, vector&lt;int&gt; &amp; track, vector&lt;int&gt;&amp; nums) { if (track.size() == nums.size()) { res.push_back(track); return; } for (int i = 0; i &lt; nums.size(); i&#43;&#43;) { if (visited.find(nums[i]) != visited.end() &amp;&amp; visited[nums[i]]) { continue; } track.push_back(nums[i]); visited[nums[i]] = true; // go into next level backtrack(res, track, nums); visited[nums[i]] = false; track.pop_back(); } } private: map&lt;int, bool&gt; visited; }; 根据视频解析：https://www.youtube.com/watch?v=s7AvT7cGdSo
+...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-15 18:03:00 +0800 +0800'>June 15, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Solana Off-Chain Message Signing" href="https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/"></a>
+  <footer class="entry-footer"><span title='2021-07-19 07:31:00 +0800 +0800'>July 19, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 46. Permutations" href="https://notes.0081800.xyz/notes/20210719073125-leetcode_46_permutations/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Ethereum Execution Layer
+    <h2 class="entry-hint-parent">JavaScript 内存模型 (2017)
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Ethereum Networking Layer </p>
+    <p> tags: 编程语言内存模型,JavaScript litmus test
+Litmus Test: ES2017 racy reads on ARMv8 Can this program (using atomics) see r1 = 0, r2 = 1? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y x = 2 (non-atomic) r2 = x C&#43;&#43;: yes (data race, can do anything at all). Java: the program cannot be written. ARMv8 using ldar/stlr: yes. ES2017: no! (contradicting ARMv8) </p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:18:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Execution Layer" href="https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/"></a>
+  <footer class="entry-footer"><span title='2021-07-16 12:03:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to JavaScript 内存模型 (2017)" href="https://notes.0081800.xyz/notes/20210716120333-javascript_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2017/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Ethereum Sub-protocols
+    <h2 class="entry-hint-parent">C、Rust 和 Swift 的内存模型
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Ethereum Networking, Ethereum Execution Layer </p>
+    <p> tags: Rust,Swift,编程语言内存模型 都采用C&#43;&#43;11 内存模型。
+</p>
   </div>
-  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Ethereum Sub-protocols" href="https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/"></a>
+  <footer class="entry-footer"><span title='2021-07-16 12:02:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C、Rust 和 Swift 的内存模型" href="https://notes.0081800.xyz/notes/20210716120258-c_rust_%E5%92%8C_swift_%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C&#43;&#43; 弱同步原子（acquire/release atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 还添加了较弱的原子，可以使用 atomic_store_explicit 和 atomic_load_explicit 以及附加的n内存排序参数来访问这些原子。使用 memory_order_seq_cst 使显式调用等效于C&#43;&#43; 同步原子（atomic）较短的调用。
+较弱的原子称为 acquire/release 原子，一个 release 如果被后来的 acquire 观察到，那么就创建了一个 happen-before 的关系(从 release 到 acquire)。这个术语意在唤起 mutex:release 就像 unlock mutex ， acquire 就像锁定同一个 mutex 。release 之前执行的写入必须对后续 acquire 之后执行的读取可见，就像解锁 mutex 之前执行的写入必须对后解锁 mutex 之后执行的读取可见一样。
+atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1, memory_order_release); while(atomic_load(&amp;done, memory_order_acquire) == 0) { /* loop */ } acquire/release 原子只对单个内存位置的操作进行顺序一致的交替执行，所以属于内存一致性（coherence）而非顺序一致性。
+来看下面 litmus test：
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! On ARM/POWER: yes! On Java (using volatiles): no. On C&#43;&#43;11 (sequentially consistent atomics): no. On C&#43;&#43;11 (acquire/release atomics): yes! </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:59:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; 弱同步原子（acquire/release atomic）" href="https://notes.0081800.xyz/notes/20210716115953-c_%E5%BC%B1%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_acquire_release_atomic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C&#43;&#43; 非同步原子（Relaxed atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: C&#43;&#43;11 内存模型,C/C&#43;&#43; C&#43;&#43; 并没有仅仅停留在内存一致性（coherence）的C&#43;&#43; 弱同步原子（acquire/release atomic）。它还引入了非同步原子，称为 relaxed 原子（memory_order_relaxed）。这些原子根本没有同步效果——它们没有创建先发生的边——并且它们根本没有排序保证。事实上，宽松原子读_写和普通读_写没有区别，除了宽松原子上的竞争不被认为是竞争， 不能着火 。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:42:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; 非同步原子（Relaxed atomic）" href="https://notes.0081800.xyz/notes/20210716114242-c_%E9%9D%9E%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_relaxed_atomic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C&#43;&#43; 同步原子（atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: C&#43;&#43;11 内存模型 C&#43;&#43; 采用了顺序一致的原子变量，很像Java 同步原子（volatile）(与 C&#43;&#43; volatile 没有关系）。
+atomic&lt;int&gt; done; // Thread 1 // Thread 2 atomic_store(&amp;done, 1); while(atomic_load(&amp;done) == 0) { /* loop */ } C&#43;&#43; 弱同步原子（acquire/release atomic）</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:38:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; 同步原子（atomic）" href="https://notes.0081800.xyz/notes/20210716113858-c_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_atomic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">DRF-SC 还是着火（Catch Fire）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: C&#43;&#43;11 内存模型 与 Java 不同，C&#43;&#43; 没有给有竞争的程序任何保证。任何有竞争的程序都属于“未定义的行为”。允许在程序执行的最初几微秒内进行竞争访问，从而在几小时或几天后导致任意的错误行为。这通常被称为“DRF-SC或着火”：如果程序没有数据竞争，它以顺序一致的方式运行，如果有数据竞争，它可以做任何事情，包括着火。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:36:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to DRF-SC 还是着火（Catch Fire）" href="https://notes.0081800.xyz/notes/20210716113642-drf_sc_%E8%BF%98%E6%98%AF%E7%9D%80%E7%81%AB_catch_fire/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C&#43;&#43;11 内存模型
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: C/C&#43;&#43;,Memory Model,编程语言内存模型 受新的 Java 内存模型（2004）许多同样的人开始为 C&#43;&#43; 定义一个类似的内存模型，最终在 C&#43;&#43;11 中采用。 两个重要方便的差异：
+C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 同步原子（volatile）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 线程的创建前置于（happens bofere）线程的第一个动作。 互斥体 m 的解锁前置于（happens before）任何 后续（subsequent） 对互斥体 m 的锁定。 volatile 变量 v 的写入前置于（happens bofere）任何 后续（subsequent） 对变量 v 的读取。 “后续（subsequent）” 意味着什么？Java 定义了所有锁定、解锁和 volatile 变量访问的行为，给出了整个程序中所有这些操作的总顺序，就像它们发生在某个顺序一致的交错中一样。“后续（subsequent）”指在总顺序中较晚执行。也就是说：锁定、解锁和 volatile 变量的访问的“总顺序”定义了“后续”的含义，“后续”定义了由特定执行创建的“前置于（happens before）”关系，最终“前置于（happens before）”关系定义了该特定执行是否存在数据竞争。如果没有数据竞争，那么执行就会以顺序一致的方式进行。
+事实上， volatile 访问必须表现得像在某种总排序一样，意味这在下面 litmus test 中，不能出现 r1=0 和 r2=0 的结果:
+Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! On ARM/POWER: yes! On Java using volatiles: no. Java 中对 volatile 变量 x 和 y 的读写不能被重新排序：一个线程的写入一定会同步到第二个，紧随着第二个的写入的读取就一定能看到第一个写入。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:28:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 同步原子（volatile）" href="https://notes.0081800.xyz/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 决定竞争读写的具体规则
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>对于小于等于 word 大小的变量，对变量（或字段） x 的读取必须看到对 x 的某一次写入所存储的值。 如果读取 r 观察到对 x 的写入 w ，那么 r 不发生在 w 之前。
+也就是说 r 可以观察发生在 r 之前的所有写入，并且可以观察与 r 竞争的写入。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:24:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 决定竞争读写的具体规则" href="https://notes.0081800.xyz/notes/20210716112456-java_%E5%86%B3%E5%AE%9A%E7%AB%9E%E4%BA%89%E8%AF%BB%E5%86%99%E7%9A%84%E5%85%B7%E4%BD%93%E8%A7%84%E5%88%99/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">内存顺序一致性（sequential consistency）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>See also: 顺序一致性。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:10:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存顺序一致性（sequential consistency）" href="https://notes.0081800.xyz/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">内存一致性（coherence）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Model，一致性 FROM 硬件内存模型：
+threads in the system must agree about a total order for the writes to a single memory location. That is, threads must agree which writes overwrite other writes. This property is called called coherence.
+内存一致性的系统都所有线程都必须接受对一个内存地址所有写入的总顺序。换句话说，所有线程必须同意哪些写入可以覆盖另外的一些写入。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:09:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存一致性（coherence）" href="https://notes.0081800.xyz/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Memory coherence vs consistency
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
+Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 11:01:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Memory coherence vs consistency" href="https://notes.0081800.xyz/notes/20210716110147-memory_coherence_vs_consistency/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">悲观与乐观并发控制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>悲观并发控制 两阶段加锁是一个典型的悲观并发控制。设计原则：如果某些操作可能出错，则直接放弃等待直到安全。
+乐观并发控制 如果可能发生潜在冲突，事务会继续执行而不是终止，寄希望与相安无事；而当事务提交时，数据库会检查是否发生了冲突，如果是的话，中止事务并接下来重试。
+对比 如果冲突很多则性能不佳，如果性能良好，且事务之间的竞争不大，乐观并发控制会比悲观方式性能高很多。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 08:00:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 悲观与乐观并发控制" href="https://notes.0081800.xyz/notes/20210716080024-%E6%82%B2%E8%A7%82%E4%B8%8E%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">可串形化的快照隔离
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>可串形化的快照隔离（Serializable Snapshot Isolation，SSI）近两年被研究，尚需在实践中证明其性能，但是它很有可能成为未来数据的标配。
+悲观与乐观并发控制</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:57:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 可串形化的快照隔离" href="https://notes.0081800.xyz/notes/20210716075758-%E5%8F%AF%E4%B8%B2%E5%BD%A2%E5%8C%96%E7%9A%84%E5%BF%AB%E7%85%A7%E9%9A%94%E7%A6%BB/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">两阶段加锁
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>两阶段枷锁（two-phase locking，2PL）是近 30 年来数据库唯一一种被广泛使用的串形化算法。 多个事务可以同时读取同一个对象，但只要出现任何写操作（修改或删除），则必须加锁以独占访问。
+两阶段包括：
+事务执行之前要获得锁（第一阶段） 事务结束之后要释放锁（第二阶段） 实现 2PL 用于 MySQL（InnoDB）和 SQL Server 中的“可串形化隔离”，以及 DB2 的“可重复读”。
+每个对象通过一个「读写锁」隔离读写操作。
+共享锁进行读取。 独占锁进行修改。 读取先获取共享锁，如果要修改则升级为独占锁。 事务获得锁之后一直持有到事务结束。 性能 慢和死锁
+谓词锁 通过对区间条件加谓词锁。
+索引区间锁</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:48:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 两阶段加锁" href="https://notes.0081800.xyz/notes/20210716074845-%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%8A%A0%E9%94%81/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">串行化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>实际串行执行 解决并发问题最直接的方法：在一个线程上按照顺序方式每次执行一个事务。
+为什么可行：
+内存越来越便宜，可以将事务需要的数据都放在内存中。 OLTP 事务通常执行很快，只产生少量的读写操作。通常较长时间的分析操作通常是只读。 事务为了充分利用单线程所做的调整：
+采用存储过程封装事务，Redis 采用 Lua 分区 约束 事务必须简短而高效。 事务所需数据都在内存。 写入吞吐量必须低，否则需要采用分区，最好没有跨分区事务。 要支持跨分区事务必须确保跨分区事务占比很小。 两阶段加锁 可串形化的快照隔离</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:41:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 串行化" href="https://notes.0081800.xyz/notes/20210716074157-%E4%B8%B2%E8%A1%8C%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">写倾斜
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>即不是脏写也不会更新丢失，事务之间的写冲突并不直接，写倾斜可以视为更广义的数据丢失。
+考虑急诊医生请假系统，核心逻辑是必须要有一个医生值班。两个医生同时请假，事务同时同时开始，那么两个医生都能查询到有两个医生值班，最后请假成功，导致无医生值班。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:21:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 写倾斜" href="https://notes.0081800.xyz/notes/20210716072157-%E5%86%99%E5%80%BE%E6%96%9C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">写倾斜与幻读
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>写事务并发除了需要防止更新丢失还有一些更为微妙的写冲突。
+写倾斜与幻读 定义写倾斜。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:19:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 写倾斜与幻读" href="https://notes.0081800.xyz/notes/20210716071953-%E5%86%99%E5%80%BE%E6%96%9C%E4%B8%8E%E5%B9%BB%E8%AF%BB/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">防止更新丢失
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读事务遇到并发写会出现脏读（读-提交和可重复读可以解决），写事务并发会带来一些冲突，最值得关注的就是更新丢失问题。 应用程序从数据库读取某些值，然后应用逻辑做出修改，然后写回新值。
+原子写操作 UPDATE counters SET value=value&#43;1 WHERE key = &#39;foo&#39;; 原子操作通常采用方式：
+对读取对象加独占加锁，这种技术有时被称为「游标稳定性」。 强制所有原子操作都在单线程上执行。 显式枷锁 BEGIN TRANSACTION; SELECT * FROM figures WHERE name = &#39;robot&#39; AND game_id = 222 FOR UPDATE; -- 指示数据库对返回的所有结果行要加锁。 缺点：侵入应用逻辑、容易引发死锁（竞争冲突）。
+自动检测更新丢失 数据库（Oracle 的串形化和 SQL Server 的快照级别隔离）可以自动检测何时发生了更新丢失，然后终止违规的那个事务。
+原子比较和设置 UPDATE wiki_pages SET content = &#39;new_content&#39; WHERE id = 1234 AND conetnt = &#39;old_content&#39;; 冲突解决与复制 最后写入者获胜 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 07:04:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 防止更新丢失" href="https://notes.0081800.xyz/notes/20210716070457-%E9%98%B2%E6%AD%A2%E6%9B%B4%E6%96%B0%E4%B8%A2%E5%A4%B1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">更新 Go 内存模型
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Go,Memory Model source: 更新Go内存模型 https://research.swtch.com/gomm </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-15 11:02:00 +0800 +0800'>July 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 更新 Go 内存模型" href="https://notes.0081800.xyz/notes/20210715110202-%E6%9B%B4%E6%96%B0_go_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 25. Reverse Nodes in k-Group
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode source: https://leetcode.com/problems/reverse-nodes-in-k-group/ /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode() : val(0), next(nullptr) {} * ListNode(int x) : val(x), next(nullptr) {} * ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */ class Solution { public: ListNode* reverseKGroup(ListNode* head, int k) { deque&lt;ListNode*&gt; dq; ListNode* cur = head; ListNode* top = nullptr; ListNode* tail = nullptr; bool first_k = true; while (cur != nullptr) { dq.push_front(cur); cur = cur-&gt;next; if (dq.size() == k) { // start reverse in k top = dq.front(); dq.pop_front(); // override head or connected from last k if (first_k) { head = top; first_k = false; } else { tail-&gt;next = top; } while(!dq.empty()) { top-&gt;next = dq.front(); dq.pop_front(); top = top-&gt;next; } top-&gt;next = cur; tail = top; // mark the tail of linked list } } if (!dq.empty() &amp;&amp; tail != nullptr) { tail-&gt;next = dq.back(); } return head; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-15 06:44:00 +0800 +0800'>July 15, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 25. Reverse Nodes in k-Group" href="https://notes.0081800.xyz/notes/20210715064442-leetcode_25_reverse_nodes_in_k_group/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">事务隔离级别
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读-未提交 读数据时，会读到未成功提交的数据（未防止“脏读”） 写数据时，只会覆盖已成功提交的数据（防止“脏写”） 读-提交 读数据时，只会读到已成功提交的数据（防止“脏读”） 写数据时，只会覆盖已成功提交的数据（防止“脏写”） 防止脏写 通常通过推迟第二个写请求（行锁），直到前面的事务完成提交（或者终止）。
+防止脏读 通过行锁同样可以避免脏读，但是实际中不可行（性能太差），一般采用类似 MVCC 的方式：对于待更新的对象，数据库都会维护其旧值和当前持锁事务将要设置的新值两个版本。 事务提交之前，其他所有读操作读旧值；仅当写事务提交之后，才会切换到读取新值。
+可重复读（快照级别隔离） 在同一个事务中，反复读取总能获得一致性的结果，而不会读取到其他事务提交修改的新值。总体性想法是：每个事务都从数据库的一致性快照中读取，事务一开始所看到的是最近提交的数据，即使数据随后可能被另外一个事务更改，但保证每个事务都只看到特定时间点的旧数据。
+实现快照级别隔离 MVCC
+串行化</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-14 07:49:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 事务隔离级别" href="https://notes.0081800.xyz/notes/20210714074945-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ACID
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>原子性（Atomicity） 一致性（Consistency） 一致性并不是数据所保证的，而是程序借助数据库的原子性和隔离性（AD）来达到一致性。一致性的 C 放到 ACID 中只是为了可以更加顺畅的宣传（读）。
+隔离性（Isolation） 事务隔离级别
+持久性（Durability）</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-14 07:41:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ACID" href="https://notes.0081800.xyz/notes/20210714074135-acid/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">事务
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>事务简化程序层错误处理，将多个读写捆绑成一个操作逻辑操作单元，成功则全部成功，失败则可以进行安全重试。
+深入理解事务 ACID 单对象与多对象事务操作 事务操作涉及多对象和但对象。
+多对象，如更新邮件未读数和未读邮件个数 单对象，如更新一个大的字段（20KB 的 JSON） 弱隔离级别 事务隔离级别中的「读-未提交」、「读-提交」和「快照级别隔离可重复读」。
+防止更新丢失 写倾斜与幻读 串行化</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-14 07:39:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 事务" href="https://notes.0081800.xyz/notes/20210714073909-%E4%BA%8B%E5%8A%A1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 92. Reverse Linked List II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode source: https://leetcode.com/problems/reverse-linked-list-ii/ /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode() : val(0), next(nullptr) {} * ListNode(int x) : val(x), next(nullptr) {} * ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */ class Solution { public: ListNode* reverseBetween(ListNode* head, int left, int right) { stack&lt;int&gt; st; ListNode* cur = head; ListNode* prev_start = nullptr; if (left == 1) { prev_start = new ListNode(0, head); // dummy prev_start point to head } int i = 1; while(cur != nullptr) { if (i &gt;= left &amp;&amp; i &lt;= right) { st.push(cur-&gt;val); } if ((i &#43; 1) == left) { prev_start = cur; } // move ahead i&#43;&#43;; cur = cur-&gt;next; } if (prev_start != nullptr) { cur = prev_start-&gt;next; while (st.size() &gt; 0) { cur-&gt;val = st.top(); cur = cur-&gt;next; st.pop(); } } return head; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-14 06:55:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 92. Reverse Linked List II" href="https://notes.0081800.xyz/notes/20210714065549-leetcode_92_reverse_linked_list_ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Emacs Projectile 优化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Emacs 最近换到 ivy 之后 projectile 切换项目加载 Buffer 或查找文件变得巨慢，查抄一番发现问题可以通过缓存解决：
+ivy-rich Projectile Caching </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-14 06:52:00 +0800 +0800'>July 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Emacs Projectile 优化" href="https://notes.0081800.xyz/notes/20210714065205-emacs_projectile_%E4%BC%98%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 内存模型
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Model,Java,编程语言内存模型 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:25:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 内存模型" href="https://notes.0081800.xyz/notes/20210713202541-java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">新的 Java 内存模型（2004）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
+Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
+同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
+有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
+happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality）</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 新的 Java 内存模型（2004）" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 编译器公共子表达式消除（common subexpression elimination）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>// p and q may or may not point at the same object. int i = p.x; // ... maybe another thread writes p.x at this point ... int j = q.x; int k = p.x; 在这个程序中，公共子表达式消除（common subexpression elimination）会注意到 p.x 被计算了两次，并将最后一行优化为 k = i 。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:10:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Java 编译器公共子表达式消除（common subexpression elimination）" href="https://notes.0081800.xyz/notes/20210713201045-java_%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4_common_subexpression_elimination/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">原始 Java 内存模型（1996）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Java 内存模型,Java Java 是第一个试图写下多线程程序保证的主流语言。它包括：
+互斥体（mutex），并定义了它们隐含的内存排序要求。 “volatile” 原子变量: volatile 变量的所有读和写都需要直接在主内存中按程序顺序执行，使得对 volatile 变量的操作以顺序一致的方式进行。 制定了（或者至少试图制定）具有数据竞争的程序的行为。 缺陷 Atomic 需要同步：volatile 原子变量是不同步的，所以它们无助于消除程序其余部分的竞争。不能用于构建新的同步原语。 一致性与编译器优化不兼容：Java 编译器公共子表达式消除（common subexpression elimination）会导致其他线程写入新值无法对消除后表达式生效。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 20:05:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原始 Java 内存模型（1996）" href="https://notes.0081800.xyz/notes/20210713200556-%E5%8E%9F%E5%A7%8B_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_1996/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">DRF-SC 系统同步指令
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>保证了弱有序和无数据竞争（DRF）的系统会提供称为同步的特定指令，提供一种协调不同处理器（相当于硬件线程）的属性。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:51:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to DRF-SC 系统同步指令" href="https://notes.0081800.xyz/notes/20210713195115-drf_sc_%E7%B3%BB%E7%BB%9F%E5%90%8C%E6%AD%A5%E6%8C%87%E4%BB%A4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">同步原子（synchronizing atomic）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>原子变量（atomic variable）或原子操作（tomic operation）更好的解释。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:44:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 同步原子（synchronizing atomic）" href="https://notes.0081800.xyz/notes/20210713194409-%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_synchronizing_atomic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">原子变量（atomic variable）或原子操作（tomic operation）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>现代语言以原子变量（atomic variable）或原子操作（atomic operation）的形式提供特殊能力，允许程序同步其线程(参见硬件内存一致性模型)。
+代码示例
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); 如果使用原子变量实现 done 会产生很多效果：
+Thread 1 的编译代码必须确保对 x 的写入完成，并且对 done 的写入可见之前对 x 的写入对其他线程可见。 Thread 2 的编译代码必须在循环的每次迭代中（重新）读取 done 。 Thread 2 的编译代码必须在读取 done 之后才读取 x 。 编译后的代码必须做任何必要的事情来禁用可能会重新引入这些问题的硬件优化。 使 done 原子化的最终结果是程序按照我们想要的方式运行，成功地将 x 的值从 Thread 1 传递到 Thread 2 。 上面代码如果不使用原子变量会出现 Thread 1 和 Thread 2 读取 x 的同时写 x ，从而导致数据竞争（data race)。 done 使用原子变量实现后，用于同步对 x 的访问： Thread 1 现在不可能在 Thread 2 读取 x 的同时写 x，从而避免数据竞争。 这是硬件内存模型弱有序和无数据竞争（DRF）在编程语言环境的应用。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-13 19:32:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 原子变量（atomic variable）或原子操作（tomic operation）" href="https://notes.0081800.xyz/notes/20210713193214-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F_atomic_variable_%E6%88%96%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C_tomic_operation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">弱有序和无数据竞争（DRF）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>弱有序是 Sarita Adve 和 Mark Hill 在他们 1990 年的论文 Weak Ordering - A New Definition (1990) 提出。
+定义如下
+Let a synchronization model be a set of constraints on memory accesses that specify how and when synchronization needs to be done.
+同步模型是对内存访问的一组约束，这些约束指定了何时以及如何进行同步。
+硬件相对于同步模型是弱有序的，当且仅当它在顺序上与遵守同步模型的所有软件一致时。
+Adve和Hill提出了一种同步模型，他们称之为无数据竞争(data-race-free，DRF)。该模型假设硬件具有独立于普通内存读写的内存同步操作。普通的内存读写可以在同步操作之间重新排序，但不能在跨它们移动。(也就是说，同步操作也可用来做重新排序的内存屏障。)如果对于所有理想化的顺序一致的执行，从不同线程对同一位置的任何两个普通存储器访问要么都是读取，要么通过同步操作强制一个在另一个之前发生而分开执行，则程序被称为无数据竞争的。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 16:43:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 弱有序和无数据竞争（DRF）" href="https://notes.0081800.xyz/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ARM/POWER Relaxed Memory Model
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ARM和POWER系统的概念模型是，每个处理器从其自己的完整内存副本中读取和向其写入，每个写入独立地传播到其他处理器，随着写入的传播，允许重新排序。
+在这个宽松的(relaxed)模型中，我们迄今为止所看到的每一个litmus test的答案都是“yes，这真的可能发生。”
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! On ARM/POWER: yes! Litmus Test: Independent Reads of Independent Writes (IRIW) Can this program see r1 = 1, r2 = 0, r3 = 1, r4 = 0? (Can Threads 3 and 4 see x and y change in different orders?) // Thread 1 // Thread 2 // Thread 3 // Thread 4 x = 1 y = 1 r1 = x r3 = y r2 = y r4 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! Litmus Test: Load Buffering Can this program see r1 = 1, r2 = 1? (Can each thread&#39;s read happen after the other thread&#39;s write?) // Thread 1 // Thread 2 r1 = x r2 = y y = 1 x = 1 On sequentially consistent hardware: no. On x86 (or other TSO): no. On ARM/POWER: yes! </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 16:29:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ARM/POWER Relaxed Memory Model" href="https://notes.0081800.xyz/notes/20210712162917-arm_power_relaxed_memory_model/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">内存屏障
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>内存屏障（或栅栏）是非顺序一致性的硬件提供的一种显式指令，用于控制排序提供更强的内存排序，修复同步算法。
+添加内存屏障，确保每个线程在开始读取之前都会刷新其先前对内存的写入：
+// Thread 1 // Thread 2 x = 1 y = 1 barrier barrier r1 = y r2 = x x86 总存储有序（x86-TSO) 加上内存屏障之后 r1=0, r2=0 就会变得不可能。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 16:21:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存屏障" href="https://notes.0081800.xyz/notes/20210712162102-%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">x86 总存储有序（x86-TSO)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> x86 总存储有序(x86 Total Store Order, x86-TSO)：所有处理器仍然连接到一个共享内存，但是每个处理器都将对该内存的写入(write)放入到本地写入队列中。处理器继续执行新指令，同时写操作(write)会更新到这个共享内存。一个处理器上的内存读取在查询主内存之前会查询本地写队列，但它看不到其他处理器上的写队列。其效果就是当前处理器比其他处理器会先看到自己的写操作。
+重要的是： 所有处理器都保证写入（存储 store）到共享内存的（总）顺序，所以给这个模型起了个名字：总存储有序（Total Store Order，TSO）。
+写队列是一个标准的先进先出队列：内存写操作总是以与处理器执行相同顺序的应用于共享内存。
+基于以上下面 litmus test 的答案依然是 no ，这种情况与顺序一致性模型结果一致：
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): no. 但其他测试则并不一致区分与顺序一致性的常用例子:
+Litmus Test: Write Queue (also called Store Buffer) Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! TSO 系统中，线程 1和 2 可能会将它们的写操作排队，然后任何一个写操作进入内存之前从内存中读取，这两个读操作都会看到零。但是任何顺序一致的执行中， x=1 或 y=1 必会有一个首先生效。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 15:58:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to x86 总存储有序（x86-TSO)" href="https://notes.0081800.xyz/notes/20210712155827-x86_%E6%80%BB%E5%AD%98%E5%82%A8%E6%9C%89%E5%BA%8F_x86_tso/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">litmus test
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>下面这种关于样本结果的问题被称为 litmus test 。它只有两个答案：可能还是不可能？为我们提供了一种区分内存一致性模型的清晰方法：如果一个模型支持特定的执行，而另一个不支持，那么这两个模型显然不同。
+litmus test 假设所有变量都初始为 0 ， rN 表示非共享变量，而是一个线程本地寄存器。
+Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 // Thread 2 x = 1 r1 = y y = 1 r2 = x 然而不幸的是，一个特定的模型对一个特定的 litmus test 给出的答案往往令人惊讶。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">顺序一致性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
+The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program. A multiprocessor satisfying this condition will be called sequentially consistent.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 15:19:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 顺序一致性" href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">内存一致性模型
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
+最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
+例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
+// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 内存一致性模型" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">硬件内存模型
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 14:32:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 硬件内存模型" href="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Emacs 优化启动速度
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Emacs 优化 GC 参考：LSP Mode Performance
+;; Optmization ;; Sources: ;; ;; - https://www.reddit.com/r/emacs/comments/ofhket/further_boost_start_up_time_with_a_simple_tweak/ ;; - https://emacs-lsp.github.io/lsp-mode/page/performance/ ;; (setq gc-cons-threshold 32000000) ;; 32mb (setq read-process-output-max (* 1024 1024)) ;; 1mb 将启动速度优化到 3 秒左右。
+Dumping Emacs Emacs WIKI: Dumping Emacs Painless Transition to Portable Dumper </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 11:43:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Emacs 优化启动速度" href="https://notes.0081800.xyz/notes/20210712114303-emacs_%E4%BC%98%E5%8C%96%E5%90%AF%E5%8A%A8%E9%80%9F%E5%BA%A6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">动态再平衡策略
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>为什么不用取模？ 节点数发生变化时，会导致很多关键字需要做节点数据迁移，会大大增加再平衡的成本。
+固定数量的分区 创建远超实际节点数的分区数量，然后再为每个节点分配多个分区。
+新加入节点 从现有的节点上匀走几个分区，直到分区再次达到平衡。
+删除节点 采取和上面相反的过程。
+优点 分区总数量不变，也不会改变关键字的分区映射关系。 唯一需要调整的分区与节点的映射关系。 分区和节点的映射关系调整可以逐步完成。 缺点 分区数量需要数据库创建时确定，并不能更改 动态分区 分区数据增长超过一个可配参数的阈值（HBase 10GB），它就拆分为两个分区，相反则合并相邻的分区。过程类似B-trees 的分裂操作。
+每个分区总是分配一个节点，一个节点可以承载多个分区。
+分区分裂 将其中的一半转移到其他节点以平衡负载。
+优点 分区数量可以自动适配数据总量。 空数据库可以配置初始分区解决少量数据集就一个分区避免系统热点（HBase 和 MongoDB） 按节点比例分区 使分区数与集群节点数成正比关系（Cassandra 和 Ketama），就是每个节点具有固定数量的分区。 当节点数不变时，每个分区的大小与数据集大小保持正比增长关系。
+新加入节点 随机选择固定数量的现有分区进行分裂，然后拿走这些分区的一半数据量。
+优点 较大的数据可以使每个分区的大小保持稳定。 缺点 存在不公平分裂。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 07:22:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 动态再平衡策略" href="https://notes.0081800.xyz/notes/20210712072221-%E5%8A%A8%E6%80%81%E5%86%8D%E5%B9%B3%E8%A1%A1%E7%AD%96%E7%95%A5/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">基于词条的二级索引分区
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>对所有数据构建全局索引，为了避免瓶颈，对索引本身进行分区，比如：
+将 a～r 开始的关键字放在分区 0 将 s～z 开始的关键字放在分区 1 优点 可以支持高效的区间查询 读取更为高效 缺点 写入速度慢，会引入明显的写入放大 写入逻辑复杂 难以保证索引时刻最新，需要跨多个相关分区的分布式事务支持 实践 对全局二级索引的更新往往都是异步的。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 07:15:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 基于词条的二级索引分区" href="https://notes.0081800.xyz/notes/20210712071502-%E5%9F%BA%E4%BA%8E%E8%AF%8D%E6%9D%A1%E7%9A%84%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95%E5%88%86%E5%8C%BA/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">基于文档分区的二级索引
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>每个分区各自维护自身的二级索引，读取时需要对所有分区节点进行查询然后对结果进行合并。
+这种方法虽然二级索引查询代价高，但依然广泛用于实践：MongoDB、Riak、Cassandra、ElasticSearch、SolrCloud 和 VoltDB。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-12 07:11:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 基于文档分区的二级索引" href="https://notes.0081800.xyz/notes/20210712071105-%E5%9F%BA%E4%BA%8E%E6%96%87%E6%A1%A3%E5%88%86%E5%8C%BA%E7%9A%84%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

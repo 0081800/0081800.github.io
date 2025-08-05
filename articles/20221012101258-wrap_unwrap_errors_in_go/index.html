@@ -52,7 +52,7 @@ func main() {
 Its output:">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -226,7 +226,7 @@ Its output:">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -322,9 +322,9 @@ Let&rsquo;s start from a simple example:</p>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">someFrameworkCaller</span>() <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We use fmt.Errorf to wrap error.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;[someFrameworkCaller] %w&#34;</span>, <span style="color:#a6e22e">doSomeActualJob</span>())
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We use fmt.Errorf to wrap error.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;[someFrameworkCaller] %w&#34;</span>, <span style="color:#a6e22e">doSomeActualJob</span>())
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">someEntrance</span>() <span style="color:#66d9ef">error</span> {
@@ -362,9 +362,9 @@ Let&rsquo;s start from a simple example:</p>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">someFrameworkCaller</span>() <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We use fmt.Errorf to wrap error.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;[someFrameworkCaller] %w&#34;</span>, <span style="color:#a6e22e">doSomeActualJob</span>())
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We use fmt.Errorf to wrap error.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;[someFrameworkCaller] %w&#34;</span>, <span style="color:#a6e22e">doSomeActualJob</span>())
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">someEntrance</span>() <span style="color:#66d9ef">error</span> {
@@ -433,9 +433,9 @@ the invocation stacktrace of error. I&rsquo;m wonder if this help.</p>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">someFrameworkCaller</span>() <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We use fmt.Errorf to wrap error.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;[someFrameworkCaller] %w&#34;</span>, <span style="color:#a6e22e">doSomeActualJob</span>())
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We use fmt.Errorf to wrap error.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;[someFrameworkCaller] %w&#34;</span>, <span style="color:#a6e22e">doSomeActualJob</span>())
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">someEntrance</span>() <span style="color:#66d9ef">error</span> {
@@ -444,8 +444,8 @@ the invocation stacktrace of error. I&rsquo;m wonder if this help.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">logger</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">zap</span>.<span style="color:#a6e22e">NewDevelopment</span>()
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">logger</span>.<span style="color:#a6e22e">Sync</span>() <span style="color:#75715e">// flushes buffer, if any
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">someEntrance</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">logger</span>.<span style="color:#a6e22e">Sync</span>() <span style="color:#75715e">// flushes buffer, if any</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">someEntrance</span>()
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">logger</span>.<span style="color:#a6e22e">Warn</span>(<span style="color:#e6db74">&#34;ERROR&#34;</span>, <span style="color:#a6e22e">zap</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Its output:</p>
@@ -466,6 +466,12 @@ the invocation stacktrace of error. I&rsquo;m wonder if this help.</p>
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

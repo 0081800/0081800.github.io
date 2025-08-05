@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.139.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.147.2"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -99,7 +99,7 @@
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -149,67 +149,690 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">sui_getTransactionBlock
+    <h2 class="entry-hint-parent">Blockchain Demo
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Sui POST https://fullnode.mainnet.sui.io Content-Type: application/json { &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;id&#34;: 1, &#34;method&#34;: &#34;sui_getTransactionBlock&#34;, &#34;params&#34;: [ &#34;6wthaE4QzjWM7HnAzm6Pd4ymkNtadbHnqQkTXY7Ne1L3&#34;, { &#34;showInput&#34;: true, &#34;showRawInput&#34;: false, &#34;showEffects&#34;: true, &#34;showEvents&#34;: true, &#34;showObjectChanges&#34;: true, &#34;showBalanceChanges&#34;: true } ] } </p>
+    <p> tags: Video: Blockchain 101 - A Visual Demo，区块链, Online Tools source: https://andersbrownworth.com/blockchain/hash </p>
   </div>
-  <footer class="entry-footer"><span title='2023-09-26 10:57:00 +0800 +0800'>September 26, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to sui_getTransactionBlock" href="https://notes.0081800.xyz/notes/20230926105739-sui_gettransactionblock/"></a>
+  <footer class="entry-footer"><span title='2022-01-03 08:20:00 +0800 +0800'>January 3, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Blockchain Demo" href="https://notes.0081800.xyz/notes/20220103082057-blockchain_demo/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">FreeBSD 13.2 NFS
+    <h2 class="entry-hint-parent">Video: Blockchain 101 - A Visual Demo
     </h2>
   </header>
   <div class="entry-content">
-    <p> Tags: FreeBSD First, configure to start service during the bootstrap:
-sysrc nfs_server_enable=&#34;YES&#34; sysrc nfs_server_flags=&#34;-u -t -n 4&#34; sysrc rpcbind_enable=&#34;YES&#34; sysrc rpc_statd_enable=&#34;YES&#34; sysrc rpc_lockd_enable=&#34;YES&#34; sysrc mountd_flags=&#34;-r&#34; sysrc mountd_enable=&#34;YES&#34; Second, export volume to the network in /etc/exports:
-/data/warehouse -mapall=root -network 192.168.1.0/24 NOTE: you shouldn’t export the pool root while you are using ZFS, as it can’t show the children in a datasets of it.
-And then we can start the services:
-service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:
+    <p> tags: 区块链 source: https://youtu.be/%5F160oMzblY8 It’s like Git but not support merge. The progress of changing blocks like git rebase.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-03 08:19:00 +0800 +0800'>January 3, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Video: Blockchain 101 - A Visual Demo" href="https://notes.0081800.xyz/notes/20220103081929-video_blockchain_101_a_visual_demo/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C/C&#43;&#43; 多态
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: C/C&#43;&#43; 只能通过抽象类的指针或引用调用动态解析子类函数，虚函数表示需要动态解析，纯虚函数必须被子类覆盖，否则无法实例化。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-02 07:45:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to C/C&#43;&#43; 多态" href="https://notes.0081800.xyz/notes/20220102074500-c_c_%E5%A4%9A%E6%80%81/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">JavaScript
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Programming Language </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-02 07:37:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to JavaScript" href="https://notes.0081800.xyz/notes/20220102073737-javascript/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Swift
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Programming Language </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-02 07:36:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Swift" href="https://notes.0081800.xyz/notes/20220102073640-swift/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">《深入理解计算机系统》读书笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Computer Systems,读书笔记 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-02 07:28:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 《深入理解计算机系统》读书笔记" href="https://notes.0081800.xyz/notes/20220102072835-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SO: What is the difference between iter and into_iter?
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust source: https://stackoverflow.com/a/34745885/2873718 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:21:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to SO: What is the difference between iter and into_iter?" href="https://notes.0081800.xyz/notes/20220101082142-so_what_is_the_difference_between_iter_and_into_iter/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GitHub: Rust Memory Container Cheat-sheet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust Wrapper Types,Rust source: Rust Memory Container Cheat-sheet </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:20:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to GitHub: Rust Memory Container Cheat-sheet" href="https://notes.0081800.xyz/notes/20220101082045-github_rust_memory_container_cheat_sheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Wrapper Types in Rust: Choosing Your Guarantees
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust,Rust Wrapper Types source: https://manishearth.github.io/blog/2015/05/27/wrapper-types-in-rust-choosing-your-guarantees/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:19:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Wrapper Types in Rust: Choosing Your Guarantees" href="https://notes.0081800.xyz/notes/20220101081950-wrapper_types_in_rust_choosing_your_guarantees/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GitHub: Internal details of Tokio from code to designs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Tokio source: https://github.com/tony612/tokio-internals </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:17:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to GitHub: Internal details of Tokio from code to designs" href="https://notes.0081800.xyz/notes/20220101081722-github_internal_details_of_tokio_from_code_to_designs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PAPER: Raft
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Raft source: https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:07:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to PAPER: Raft" href="https://notes.0081800.xyz/notes/20220101080713-paper_raft/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PAPER: Time, Clocks, and the Ordering of Events in a Distributed System
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式,一致性 source: https://lamport.azurewebsites.net/pubs/time-clocks.pdf The Big Problem The event order in a distributed system.
+The defination of a distributed system: the order of its events occurred is unpredictable, sometimes it’s impossiable to say a event occurred before another.
+How this paper try to solve this problem: use a “happened before” relation to define a partial ordering and distributed algorithm.
+Background</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:06:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to PAPER: Time, Clocks, and the Ordering of Events in a Distributed System" href="https://notes.0081800.xyz/notes/20220101080622-paper_time_clocks_and_the_ordering_of_events_in_a_distributed_system/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CSDN:  理解这两点，也就理解了paxos协议的精髓
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Paxos source: https://blog.csdn.net/qq%5F35440678/article/details/78080431 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:03:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to CSDN:  理解这两点，也就理解了paxos协议的精髓" href="https://notes.0081800.xyz/notes/20220101080340-csdn_%E7%90%86%E8%A7%A3%E8%BF%99%E4%B8%A4%E7%82%B9_%E4%B9%9F%E5%B0%B1%E7%90%86%E8%A7%A3%E4%BA%86paxos%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%B2%BE%E9%AB%93/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GitHub: raft-rs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Rust,Raft source: https://github.com/tikv/raft-rs </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:02:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to GitHub: raft-rs" href="https://notes.0081800.xyz/notes/20220101080223-github_raft_rs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Raft Understandable Distributed Consensus
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Raft,分布式，分布式共识，Online Tools source: http://thesecretlivesofdata.com/raft/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 08:00:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Raft Understandable Distributed Consensus" href="https://notes.0081800.xyz/notes/20220101080054-raft_understandable_distributed_consensus/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Distributed consensus (blockchain) simulation and visualization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 分布式共识,Online Tools,区块链 source: https://web3scout.github.io/forcecons-sim/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-01 07:51:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Distributed consensus (blockchain) simulation and visualization" href="https://notes.0081800.xyz/notes/20220101075156-distributed_consensus_blockchain_simulation_and_visualization/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Org-roam export backlinks on Hugo
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: org-roam, Org Mode source: https://seds.nl/notes/org%5Froam%5Fexport%5Fbacklinks%5Fon%5Fhugo/ https://seds.nl/notes/export%5Forg%5Froam%5Fbacklinks%5Fwith%5Fgohugo/ 利用 hugo 的 partial template layouts/partials/backlinks.html
+{{ $re := $.File.BaseFileName }} {{ $backlinks := slice }} {{ range .Site.AllPages }} {{ if and (findRE $re .RawContent) (not (eq $re .File.BaseFileName)) }} {{ $backlinks = $backlinks | append . }} {{ end }} {{ end }} &lt;hr&gt; {{ if gt (len $backlinks) 0 }} &lt;div class=&#34;bl-section&#34;&gt; &lt;h4&gt;Links to this note&lt;/h4&gt; &lt;div class=&#34;backlinks&#34;&gt; &lt;ul&gt; {{ range $backlinks }} &lt;li&gt;&lt;a href=&#34;{{ .RelPermalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/li&gt; {{ end }} &lt;/ul&gt; &lt;/div&gt; &lt;/div&gt; {{ else }} &lt;div class=&#34;bl-section&#34;&gt; &lt;h4&gt;No notes link to this note&lt;/h4&gt; &lt;/div&gt; {{ end }} 然后插入到的 single.html 就行
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-09-15 14:25:00 +0800 +0800'>September 15, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to FreeBSD 13.2 NFS" href="https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/"></a>
+  <footer class="entry-footer"><span title='2021-12-31 14:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Org-roam export backlinks on Hugo" href="https://notes.0081800.xyz/notes/20211231142642-org_roam_export_backlinks_on_hugo/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">ZFS
+    <h2 class="entry-hint-parent">Online Tools
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Tools </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-31 12:33:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Online Tools" href="https://notes.0081800.xyz/notes/20211231123329-online_tools/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RoamResearch
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Taking Notes,Online Tools </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-31 12:32:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to RoamResearch" href="https://notes.0081800.xyz/notes/20211231123253-roamresearch/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Roam: Why I Love It and How I Use It
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning,Taking Notes source: https://www.nateliason.com/blog/roam </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-31 12:29:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Roam: Why I Love It and How I Use It" href="https://notes.0081800.xyz/notes/20211231122919-roam_why_i_love_it_and_how_i_use_it/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How To Take Smart Notes: 10 Principles to Revolutionize Your Note-Taking and Writing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning,Taking Notes,RoamResearch source: https://fortelabs.co/blog/how-to-take-smart-notes/ Luhmann’s slip-box: build second brain context – its network of associations, relationships, and connections to other information.
+But Luhmann often remarked that he never forced himself to do anything he didn’t feel like doing: “I only do what is easy. I only write when I immediately know how to do it. If I falter for a moment, I put the matter aside and do something else” (Luhmann et al., 1987, 154f).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-31 12:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How To Take Smart Notes: 10 Principles to Revolutionize Your Note-Taking and Writing" href="https://notes.0081800.xyz/notes/20211231122658-how_to_take_smart_notes_10_principles_to_revolutionize_your_note_taking_and_writing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How To Take Smart Notes With Org-mode
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning,Taking Notes,org-roam,Org Mode source: https://blog.jethro.dev/posts/how%5Fto%5Ftake%5Fsmart%5Fnotes%5Forg/ Notes aren’t a record of my thinking process. They are my thinking process. – Richard Feynman
+The primary purpose of note-taking should not be for storing ideas, but for developing them. When we take notes, we should ask: “In what context do I want to see this note again?”
+Note-taking for writing:
+Find topic/research question Research/find literature Read and take notes Draw conclusions / outline text Write Two types of notes:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-31 12:23:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How To Take Smart Notes With Org-mode" href="https://notes.0081800.xyz/notes/20211231122318-how_to_take_smart_notes_with_org_mode/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Learning
     </h2>
   </header>
   <div class="entry-content">
     <p></p>
   </div>
-  <footer class="entry-footer"><span title='2023-09-11 14:54:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to ZFS" href="https://notes.0081800.xyz/notes/20230911145434-zfs/"></a>
+  <footer class="entry-footer"><span title='2021-12-31 12:21:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Learning" href="https://notes.0081800.xyz/notes/20211231122121-learning/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">ZFS 入门指北：规划与创建存储池
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: FreeBSD, ZFS source: Shen Leo. “ZFS 入门指北：规划与创建存储池.” Leo’s Field, March 21, 2022. https://szclsya.me/zh-cn/posts/storage/zfs-setup/. </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-09-11 14:54:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to ZFS 入门指北：规划与创建存储池" href="https://notes.0081800.xyz/notes/20230911145426-zfs_%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97_%E8%A7%84%E5%88%92%E4%B8%8E%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A0/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">FreeBSD
+    <h2 class="entry-hint-parent">读书笔记
     </h2>
   </header>
   <div class="entry-content">
     <p></p>
   </div>
-  <footer class="entry-footer"><span title='2023-09-11 14:24:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to FreeBSD" href="https://notes.0081800.xyz/notes/20230911142417-freebsd/"></a>
+  <footer class="entry-footer"><span title='2021-12-10 18:12:00 +0800 +0800'>December 10, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 读书笔记" href="https://notes.0081800.xyz/notes/20211210181234-%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">加解密
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>证书 [译] 写给工程师：关于证书（certificate）和公钥基础设施（PKI）的一切（SmallStep, 2018）
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-10-09 10:49:00 +0800 +0800'>October 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 加解密" href="https://notes.0081800.xyz/notes/20211009104957-%E5%8A%A0%E8%A7%A3%E5%AF%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语读音规则
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English 一般现在时第三人称单音形规则 一般过去时音形规则</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-25 20:23:00 +0800 +0800'>September 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语读音规则" href="https://notes.0081800.xyz/notes/20210925202345-%E8%8B%B1%E8%AF%AD%E8%AF%BB%E9%9F%B3%E8%A7%84%E5%88%99/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语词法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English 比较级 形容词/副词比较级 常规单音节词 -er fast -&gt; faster small -&gt; smaller nice -&gt; nicer large -&gt; larger（删除词尾不发音的 e） -y -&gt; -ier busy -&gt; busier pretty -&gt; prettier 短元音 &#43; 辅音：重写辅音 -er big -&gt; bigger hot -&gt; hotter 多音节： more &#43; diffcult -&gt; more difficult interesting -&gt; more interesting careful /kɛəful/ -&gt; more careful -y 二音节词（-ly副词除外）：常不加 more busy -&gt; busier pretty -&gt; prettier quickly -&gt; more quickly 特殊 much/many -&gt; more little -&gt; less good/well -&gt; better bad -&gt; worse 代词比较级 more less 比较级修饰 a little/ a bit &#43; 比较级 更…一点 much / a lot / far &#43; 比较级 更…得多 英语常见词用法 open/close 静态和动态 open When do you open(v.)? 强调动态，时间点 We are open at 9 every day. When are you open(adj.)? 强调静态，时间段 We are open from 9 to 6 every day. close close v. 动态 closed adj. 静态 示例
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-21 09:22:00 +0800 +0800'>September 21, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语词法" href="https://notes.0081800.xyz/notes/20210921092250-%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">流利英语
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English 连读 变音 /d/ &#43; /j/ = /dʒj/ Would you like to try int on? /t/ &#43; /j/ = /tʃj/ What about you? 词尾辅音 &#43; 词首元音 It is A glass of water 还原 r RP
+her ideas Where is it? 语块切割 Chunking 语块（Chunk） 能表达实际含义且语义不割裂的词串。
+语块切割（Chunking） 根据说话节奏将句子自然切割为若干语块。
+语块语连读 同一语块内能连则连。
+吞音 基本原则 同一语块内，音同则吞。
+示例 Excuse me, Could you tell me how I can get to Pret A Monger?
+get to -&gt; geto
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-21 09:15:00 +0800 +0800'>September 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 流利英语" href="https://notes.0081800.xyz/notes/20210921091537-%E6%B5%81%E5%88%A9%E8%8B%B1%E8%AF%AD/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语习语
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English Give me a hand come in 有 come in all/different colors/size come on 「随意」鼓动、鼓励、催促 come to 总计 Excuse me 抱歉/引起注意 by the way/BTW 顺便说一下 shame on sb.! sb. 可耻 make it 成功达成 do/try one’s best (to do sth.) 尽最大努力做某事 sure thing no problem.
+礼貌请求 礼貌程度 please &gt; please 疑问句 &gt; 肯定句 could &gt; would &gt; can 示例：
+Show me (please) Can you show me? Can you show me please? Would you show me (please)? Could you show me (please)? 适用场景
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 08:17:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语习语" href="https://notes.0081800.xyz/notes/20210920081734-%E8%8B%B1%E8%AF%AD%E4%B9%A0%E8%AF%AD/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语语法结构
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English 双宾语 例句：I want to buy a birthday gift for my sister. 结构：buy sth. for sb. 双宾语：by sb. sth. buy my sister a birthday gift. Can I buy a drink for you? Can I buy you a drink? 双宾语限制 第二个宾语必须为名词，不能是人称代词（pron.）。
+下面语句不能使用双宾语
+I want to buy you it.(X)
+双宾语动词 bring/give/tell/sell/ask/show Bring it to me Bring me a present. Give it to me Give me the pen. tell the story to me tell me the story email the photo to me email me the photo sell the handbag to her sell her the handbag ask sb. sth. show sb. sth. take the coffee to her: 不能使用 Give me the hand：习语不能使用 宾语从句 I think (that) … 在「一句简单句有且只有一个谓语动词」的基础上实现复杂句。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 08:11:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语语法结构" href="https://notes.0081800.xyz/notes/20210920081114-%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语常用词
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English seem 表示似乎 It seems to be very popular nowdays. 用作委婉 背景：the man in the photo。 对比以下两句
+He is in good health He seems to be in good health(这句是错的 He seems in good health) 表示犹豫 That’s not right That doesn’t seem right That doesn’t seem to be right </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 07:58:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语常用词" href="https://notes.0081800.xyz/notes/20210920075833-%E8%8B%B1%E8%AF%AD%E5%B8%B8%E7%94%A8%E8%AF%8D/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语短语
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English shape ʃeip be in great/good shape stay/keep in (good) shape 英语表示次数范围 five times a month once two weeks 英语表示尺码 loose /luːs/ 松的 tight /tait/ 紧的 what/how about 提议 What/How about some coffee? What/How about you? 穿衣：try on/take off/put on n.: try on sth I’d like to try on the shoes. pron.: try sth. on I’d like to try them on. think of 认为 sth. 怎么样 What do you think of my new shirt? What does she think of me? would like 委婉表示想要 do sth. I’d like to see some casual shirts.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 07:54:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语短语" href="https://notes.0081800.xyz/notes/20210920075417-%E8%8B%B1%E8%AF%AD%E7%9F%AD%E8%AF%AD/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语词性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English 副词 adv/adverb 是指在句子中表示行为或状态特征的词，用以修饰动词、形容词、其他副词或全句，表示时间、地点、程度、方式等概念。 副词可分为：时间副词、频率副词、地点副词、方式副词、程度副词、疑问副词、连接副词、关系副词、表顺序的副词以及表完成的副词。
+频率副词 always usually often sometimes about 表示大约大约修饰数量。
+形容词 adj 形容词后缀 -ful helpful useful thankful 形容词后缀 -ed interested excited 形容词后缀 -ing interesting exciting 动词 verb 情态动词 modal verb.
+can(could)/may(might)/must/need/to/shall(should)/will(would).
+动名词 形式 v.-ing 动词的名词化。
+语法：名词 语意：动词
+形变规则 特殊 1 -e：去 e 加 ing live -&gt; living give -&gt; giving 特殊 2 短元音 &#43; 一辅音：重复最后一个字母加 ing jog -&gt; jogging swim -&gt; swimming 常规：直接加 ing do -&gt; doing study -&gt; studying 词性 I usually go swimming.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 07:34:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语词性" href="https://notes.0081800.xyz/notes/20210920073442-%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">英语时态
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English 通过动词变化来区分时间 通过动词变化来区分时间。
+I am walking in the rain. 正在 I will walk in the rain. 将要 I walk in the rain sometings. 一般状态、重复、常态 一般现在时 表示：
+当前的一般状态
+重复或习惯动作
+am/is/are（be 动词）：是，处于某状态
+do/does（实意动词）：具体动作
+(X): am/is/are &#43; do/des 一般现在时不能 am/is/are 跟动词实意动词
+一般现在时第三人称单音形规则 tags: 英语读音规则 一般现在时第三人称单数动词需要变形，需要注意变形后的读音
+清对清 /s/ works helps 非清则浊 /z/ lives sees goes does /dʌz/ 组合 /dz/ /ts/ meets needs 近似音 -es /iz/ introduces fishes 现在进行时 当前正在发生的事情或动作，表示当前正在发生或者近将来。
+I’m looking for a shirt. I’m not taking it off. Everyone is wearing the same shirt on the street! 结构 am/is/are doing
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 07:30:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 英语时态" href="https://notes.0081800.xyz/notes/20210920073034-%E8%8B%B1%E8%AF%AD%E6%97%B6%E6%80%81/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Linux kernel
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Linux Linux I/O Linux I/O 演进 阻塞式：read()/write() 非阻塞式：select()/poll()/epoll()，不支持文件 I/O Thread Pool Direct I/O（数据软件）：绕过 page cache 异步 IO（Linux AIO）：早起进支持文件 I/O，近期支持了 epoll 支持非文件 I/O Linux io_uring [译] Linux 异步 I/O 框架 io_uring：基本原理、程序示例与性能压测 对比 Linux AIO：
+重新设计实现真正的是不。 支持任何类型的 I/O：cached files、direct-access files 甚至 blocking sockets。 灵活、可扩展：基于 io_uring 能够重写 Linux 的每个系统调用。 原理及核心数据结构：SQ/CQ/SQE/CQE 每个 io_uring 实例都有两个环形队列，在内核和应用程序之间共享：
+提交队列：submission queue（SQ） 完成队列：completion queue（CQ） 这两个队列：
+都是单生产者、单消费者，size 是 2 的幂次； 提供无锁接口（lock-less access interface），内部使用内存屏障做同步（coordinated with memory barrers）。 使用方式：
+请求 应用创建 SQ entries（SQE），更新 SQ tail； 内核消费 SQE，更新 SQ head 完成 内核为完成一个或多个请求创建 CQ enries（CQE），更新 CQ tail； 应用消费 CQE，更新 CQ head 完成事件（completion events）可能以任意顺序到达，到总是与特定的 SQE 相关联的。 消费 CQE 过程无需切换到内核态 带来的好处 支持批处理 支持文件 I/O 系统调用：read、write、send、recv、accept、opentat、stat、专用的一些系统调用，如 fallocate 不再局限于数据库应用 应对现在硬件架构：将硬件架构本身作为一个网络（多核多 CPU 是一个基础网络、CPU 之间是一个网络、CPU 和磁盘 I/O 之间又是一个网络） 三种工作模式 中断驱动模式（interrupt driven）：默认模式。可通过 io_uring_enter() 提交 I/O 请求，然后直接检查 CQ 状态判断是否完成。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-07 14:28:00 +0800 +0800'>September 7, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Linux kernel" href="https://notes.0081800.xyz/notes/20210907142848-linux_kernel/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Scala lsp-metals
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Emacs,LSP 如果无法正常补全三方库，应该是 bloop 服务没有正常启动：
+创建 ~/Library/Caches/org.scalameta.metals/bsp.trace.json 开启跟踪 查看项目目录下 metals.log </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-06 15:19:00 +0800 +0800'>September 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Scala lsp-metals" href="https://notes.0081800.xyz/notes/20210906151915-scala_lsp_metals/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">领域模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: DDD,《领域驱动设计》读书笔记 领域基础模式 模式：UBIQUITOUS LANGUAGE 在同领域专家、开发人员和项目管理沟通的过程中建立并使用 UBIQUITOUS LANGUAGE，，并在模型实现时依然使用 UBIQUITOUS LANGUAGE 来让设计与沟通相一致（中文语境下稍显困难），UBIQUITOUS LANGUAGE 让知识消化后直接驱动变更模型。
+应用 UBIQUITOUS LANGUAGE 需要大声的建模。
+模式：MODEL-DRIVEN DESIGN 严格按照模型来编写代码，让模型与实际系统相结合。 不再分离「分析模型」和程序设计，而是寻求一种能够满足这两方面需求的单一模型。 工具：面向对象编程语言、UML等。 更好的支持 UBIQUITOUS LANGUAGE. 模式：HANDS-ON MODELER 开发设计和模型设计紧密合作，避免模型设计者不参与编写和程序设计者不参与模型设计。 每一个开发人员都必须不同程度的参与模型讨论并且与领域专家保持联系，模型设计者及时通过 UBIQUITOUS LANGUAGE 与接触代码的人及时交换关于模型的想法。 领域模式构造块 模式：LAYERED ARCHITECTURE 分层架构是实现 DDD 的基础，分层架构将不同的层次的实现分开，自上倒下应分为：
+用户界面层 应用层 领域层（模型的精髓） 基础设施层 核心在于要将领域层单独出来实现 MODEL-DRIVEN DESIGN，对业务进行建模封装业务规则。调用规则也只能自上而下的调用，不能反向调用。
+领域层（或模型层）分离出来之后使得模型足够丰富，结构足够清晰，可以捕捉到基本的业务知识，并有效的使用这些知识。
+模式：ENTITY 用于跟踪对象的状态，有唯一标识符，在系统中是可变的，两个对象是否一个通过唯一标识来判断，不是靠它们的属性定义。
+模式：VALUE OBJECT 区别与 ENTITY ，没有唯一标识，仅记录状态，一般设计为不可变用于共享 VALUE OBJECT，两个对象是否一个通过对象属性的值来判断。
+模式：SERVICE 没有状态，但又需要建模的对象，只包含动作。用于一些不适合建模为对象的领域概念。
+与领域概念相关的操作不是 ENTITY 或 VALUE OBJECT 的一个自然组成部署 接口是根据领域模型的其他元素定义的。 操作是无状态的 模式：MODULE（或 PACKAGE） 根据对象的意义划分领域模型，低耦合高内聚。按照模式或者对象生命周期或者其他方式划分都是错误的。
+模式：AGGREGATE 划分模型边界，统一对关联模型的创建、修改、复制和销毁。一般选定一个 ENTITY 对象作为 AGGREGATE 的「根」，同时对事务应用一组规则：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-03 08:00:00 +0800 +0800'>September 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 领域模式" href="https://notes.0081800.xyz/notes/20210903080049-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Airflow
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>案例 Airflow powers AI。
+Airflow SSO 接入 公司 SSO 系统不是基于开源标准，而是一套自定义的方式，目前网上没有成熟的解决方案，通过查看 Flask-AppBuilder 和 Airflow 的代码发现可以扩展 flask_appbuilder.security.views.AuthRemoteUserView 并通过自定义的 SecurityManager 指定 authremoteuserview 来实现，去掉具体 SSO 逻辑后的代码如下：
+from urllib.parse import urlencode from urllib.parse import urljoin import requests from flask import flash from flask import redirect from flask import request from flask_appbuilder.baseviews import expose from flask_appbuilder.security.views import AuthRemoteUserView try: from airflow.www.security import AirflowSecurityManager except ImportError: AirflowSecurityManager = None __version__ = &#34;0.1.0&#34; AUTHORIZE_URL = &#34;https://example.com/sso/login&#34; ACCESS_TOKEN_URL = &#34;https://example.com/sso/check&#34; class AuthComCasView(AuthRemoteUserView): def _get_redirect_uri(self): return urljoin(request.host_url, self.appbuilder.get_url_for_login) def get_authorize_params(self): return { &#34;callback&#34;: self._get_redirect_uri(), } @expose(&#34;/login/&#34;) def login(self): token = request.args.get(&#34;token&#34;) if not token: params = self.get_authorize_params() redirect_uri = u&#34;{}?{}&#34;.format( AUTHORIZE_URL, urlencode(params), ) return redirect(redirect_uri) data = self.exchange_token(token) if data[&#34;status&#34;] &lt; 0: flash(&#34;Invalid Token&#34;, &#34;info&#34;) return &#34;Invalid token&#34; # Set REMOTE_USER to let user login request.environ[&#34;REMOTE_USER&#34;] = data[&#34;username&#34;] return super().login() @staticmethod def get_token_params(token): return { &#34;token&#34;: token, } def exchange_token(self, token): data = self.get_token_params(token) return requests.get(ACCESS_TOKEN_URL, params=data).json() if AirflowSecurityManager is not None: class ComCasAirflowSecurityManager(AirflowSecurityManager): authremoteuserview = AuthComCasView 然后在 Airflow 的 webserver_config.py 中应用就行:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-02 15:32:00 +0800 +0800'>September 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Airflow" href="https://notes.0081800.xyz/notes/20210902153221-airflow/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spark
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
+Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
+Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
+以下代码是在 Executor 上执行的：
+Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-27 08:05:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Spark" href="https://notes.0081800.xyz/notes/20210827080540-spark/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Scala
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Programming Language Scala 学习资源 Scala Book Scala 这么好的语言为什么不流行 HN：Scala 为什么不流行 Reddit：Scala 为什么不流行 结论：Java 人才更多且成本更低。
+Scala 工具 sbt sbt new 无法处理替换过的 SSH 会导致 Auth fail，一个 workaround 就是手动 clone 项目然后：
+sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
+[repositories] local nexus-aliyun:https://maven.aliyun.com/nexus/content/groups/public nexus-aliyun-ivy:https://maven.aliyun.com/nexus/content/groups/public/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext] typesafe: https://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly Unique Scala Rust from Scala Rust 和 Scala 有很多想通的地方，Rust 应该从 Scala 借鉴了很多：
+可变量和不可变量 模式匹配 Trait 内置类型 val b: Byte = 1 val x: Int = 1 val l: Long = 1 val s: Short = 1 val d: Double = 2.0 val f: Float = 3.0 字符串拼接 Python 也支持类似的 f-string 语法，在 Scala 中是 s-string 语法。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-27 07:36:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Scala" href="https://notes.0081800.xyz/notes/20210827073626-scala/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SVG 绘制工具
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> https://inkscape.org/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-25 08:15:00 +0800 +0800'>August 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to SVG 绘制工具" href="https://notes.0081800.xyz/notes/20210825081520-svg_%E7%BB%98%E5%88%B6%E5%B7%A5%E5%85%B7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">设计
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SVG SVG 绘制工具
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-25 08:14:00 +0800 +0800'>August 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 设计" href="https://notes.0081800.xyz/notes/20210825081459-%E8%AE%BE%E8%AE%A1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Graphviz
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Graphviz 教程 https://www2.eecs.berkeley.edu/Pubs/TechRpts/2013/EECS-2013-176.pdf Graphviz Examples https://graphviz.org/gallery/ Graphviz 绘制思维导图 Graphviz Online Tools 一个手绘风格的在线绘图工具：https://sketchviz.com/new Gaphviz Playground：http://magjac.com/graphviz-visual-editor/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-24 06:53:00 +0800 +0800'>August 24, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Graphviz" href="https://notes.0081800.xyz/notes/20210824065326-graphviz/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 98. Validate Binary Search Tree
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode https://leetcode.com/problems/validate-binary-search-tree/
+/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: bool isValidBST(TreeNode* root) { if (root == nullptr || (root-&gt;left == nullptr &amp;&amp; root-&gt;right == nullptr)) { return true; } if (root-&gt;left != nullptr &amp;&amp; root-&gt;right != nullptr) { if (root-&gt;left-&gt;val &gt;= root-&gt;val || root-&gt;right-&gt;val &lt;= root-&gt;val) { return false; } return isValidBST(root-&gt;left) &amp;&amp; isValidBST(root-&gt;right); } if (root-&gt;left != nullptr) { if (root-&gt;left-&gt;val &gt;= root-&gt;val) { return false; } return isValidBST(root-&gt;left); } if (root-&gt;right != nullptr) { if (root-&gt;right-&gt;val &lt;= root-&gt;val) { return false; } return isValidBST(root-&gt;right) ; } return true; } }; 无法处理子树元素大于上一层的问题。中序遍历排序：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-18 07:09:00 +0800 +0800'>August 18, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 98. Validate Binary Search Tree" href="https://notes.0081800.xyz/notes/20210818070934-leetcode_98_validate_binary_search_tree/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 113. Path Sum II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode,backtracking https://leetcode.com/problems/path-sum-ii/
+/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: vector&lt;vector&lt;int&gt;&gt; pathSum(TreeNode* root, int targetSum) { vector&lt;vector&lt;int&gt;&gt; r; if (root == nullptr) { return r; } if (root-&gt;left != nullptr) { auto left = pathSumSide(root-&gt; left, root-&gt;val, targetSum); if (left.size() &gt; 0) { left.insert(left.begin(), root-&gt;val); r.push_back(left); } } if (root-&gt;right != nullptr) { auto right = pathSumSide(root-&gt;right, root-&gt;val, targetSum); if (right.size() &gt; 0) { right.insert(right.begin(), root-&gt;val); r.push_back(right); } } return r; } vector&lt;int&gt; pathSumSide(TreeNode* node, int sum, int targetSum) { vector&lt;int&gt; r; sum &#43;= node-&gt;val; if (node-&gt;left == nullptr &amp;&amp; node-&gt;right == nullptr) { if (sum == targetSum) { r.push_back(node-&gt;val); return r; } } if (node-&gt;left != nullptr) { auto ret = pathSumSide(node-&gt;left, sum, targetSum); if (ret.size() &gt; 0) { ret.insert(ret.begin(), node-&gt;val); return ret; } } if (node-&gt;right != nullptr) { auto ret = pathSumSide(node-&gt;right, sum, targetSum); if (ret.size() &gt; 0) { ret.insert(ret.begin(), node-&gt;val); return ret; } } return r; } }; 失败的错误用例:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-16 08:30:00 +0800 +0800'>August 16, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 113. Path Sum II" href="https://notes.0081800.xyz/notes/20210816083017-leetcode_113_path_sum_ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 112. Path Sum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode https://leetcode.com/problems/path-sum/
+递归版
+/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: bool hasPathSum(TreeNode* root, int targetSum) { if (root == nullptr) { return false; } return pathSum(root, 0, targetSum); } bool pathSum(TreeNode* node, int sum, int targetSum) { sum &#43;= node-&gt;val; if (node-&gt;left == nullptr &amp;&amp; node-&gt;right == nullptr) { if (sum == targetSum) { return true; } } if (node-&gt;left != nullptr) { if (pathSum(node-&gt;left, sum, targetSum)) { return true; } } if (node-&gt;right != nullptr) { if (pathSum(node-&gt;right, sum, targetSum)) { return true; } } return false; } }; 测试用例
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-16 07:45:00 +0800 +0800'>August 16, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 112. Path Sum" href="https://notes.0081800.xyz/notes/20210816074540-leetcode_112_path_sum/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LeetCode: 79. Word Search
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: LeetCode 79. Word Search
+class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board.size(); i&#43;&#43;) { for (int j = col; j &lt; board[i].size(); j&#43;&#43;) { auto directions = get_next_directions(board, i, j); if (directions.size() == 0) { return; } for (auto d: directions) { int r, c; track.push_back(board[i][j]); std::tie(r, c) = next_char_pos(board, row, col, d); if (word.find(track) == 0) { backtracking(board, word, r, c); } track.pop_back(); } } } } vector&lt;Direction&gt; get_next_directions(vector&lt;vector&lt;char&gt;&gt;&amp; board, int row, int col) { vector&lt;Direction&gt; r; if (col &lt; board[row].size() - 1) { r.push_back(right); } if (row &lt; board.size() - 1) { r.push_back(down); } if (row &gt; 0) { r.push_back(up); } if (col &gt; 0) { r.push_back(left); } return r; } tuple&lt;int, int&gt; next_char_pos(vector&lt;vector&lt;char&gt;&gt;&amp; board, int row, int col, Direction dir) { switch(dir) { case right: col&#43;&#43;; break; case left: col--; break; case up: row--; break; case down: row&#43;&#43;; break; } tuple&lt;int, int&gt;r(row, col); return r; } }; 失败的用例：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-15 08:15:00 +0800 +0800'>August 15, 2021</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to LeetCode: 79. Word Search" href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Event Store
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-14 07:24:00 +0800 +0800'>August 14, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Event Store" href="https://notes.0081800.xyz/notes/20210814072447-event_store/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">领域驱动设计
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 《领域驱动设计》读书笔记 </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-14 07:18:00 +0800 +0800'>August 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 领域驱动设计" href="https://notes.0081800.xyz/notes/20210814071825-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">High Performance Browser Networking
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: 计划读的书,HTTP,High Performance,Network 在线： https://hpbn.co/ source: Grigorik, Ilya. High-Performance Browser Networking. Beijing ; Sebastopol, CA: O’Reilly, 2013. “Good developers know how things work. Great developers know why things work.”
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-13 08:02:00 +0800 +0800'>August 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to High Performance Browser Networking" href="https://notes.0081800.xyz/notes/20210813080226-high_performance_browser_networking/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

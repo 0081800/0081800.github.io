@@ -44,7 +44,7 @@ Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，
 这一节基于 Rust Guide 在权限（privileges）一部分提到拷贝和转移。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -217,7 +217,7 @@ Rust 会在任何资源的所有权消失后立刻释放该资源，就这些，
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -430,7 +430,7 @@ access a.f       |   error
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> a;
 </span></span><span style="display:flex;"><span>				<span style="color:#75715e">// mutable borrow ends here
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		}
-</span></span><span style="display:flex;"><span>		println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, a.f);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, a.f);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><pre tabindex="0"><code class="language-nil" data-lang="nil">					 { a { x } * }
 	 owner a   |_________|
@@ -458,12 +458,9 @@ access x.f         |   error
 <h3 id="生命周期-lifetime">生命周期（Lifetime）<a hidden class="anchor" aria-hidden="true" href="#生命周期-lifetime">#</a></h3>
 <p>在整个借用过程中，知道借用者的借用什么时候开始和结束非常重要。在<a href="http://doc.rust-lang.org/guide-lifetimes.html">生命周期指南</a>中是这样定义生命周期的：</p>
 <blockquote>
-<p>A lifetime is a static approximation of the span of execution during which the pointer is valid: it always corresponds to some expression or block within the program.</p>
-</blockquote>
-<!-- raw HTML omitted -->
+<p>A lifetime is a static approximation of the span of execution during which the pointer is valid: it always corresponds to some expression or block within the program.</p></blockquote>
 <blockquote>
-<p>生命周期是指针有效范围的静态近似值：它始终对应程序中的某些表达式或代码块。</p>
-</blockquote>
+<p>生命周期是指针有效范围的静态近似值：它始终对应程序中的某些表达式或代码块。</p></blockquote>
 <p>然而，我更喜欢使用 <strong>借用作用域（borrow scope）</strong> 这个术语去描述借用生效的作用域。请注意它不同于上面生命周期的定义。
 （我第一次见到这个术语是在一个 Rust <a href="https://github.com/rust-lang/rfcs/pull/431">RFC 讨论</a> 中，尽管我的定义可能会有所不同。）我会在稍后给出我为什么避免使用生命周期的原因。
 现在我们先把生命周期放在一边。</p>
@@ -486,8 +483,7 @@ access x.f         |   error
 <h3 id="借用公式">借用公式<a hidden class="anchor" aria-hidden="true" href="#借用公式">#</a></h3>
 <p>根据最后一点，我们得到一个借用公式：</p>
 <blockquote>
-<p>资源作用域 &gt;= 借用作用域 = 所有借用者作用域的并集。</p>
-</blockquote>
+<p>资源作用域 &gt;= 借用作用域 = 所有借用者作用域的并集。</p></blockquote>
 <h3 id="代码示例">代码示例<a hidden class="anchor" aria-hidden="true" href="#代码示例">#</a></h3>
 <p>让我们看一些扩展作用域的代码示例。结构体 <code>struct Foo</code> 和前面的一样：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
@@ -641,8 +637,7 @@ C. 每一个独立的借用者或被借用的指针的生命周期</p>
 <p>所有权/借用概念自身已经够复杂了。我会说：对术语“生命周期”的困惑对学习这个概念造成了更多的莫名其妙。</p>
 <p>P.S. 使用上面定义的 A、B 和 C，借用公式变成：</p>
 <blockquote>
-<p>A &gt;= B = C_1,UC_2U&hellip;UC_n</p>
-</blockquote>
+<p>A &gt;= B = C_1,UC_2U&hellip;UC_n</p></blockquote>
 <h2 id="学习-rust-是值得的">学习 Rust 是值得的！<a hidden class="anchor" aria-hidden="true" href="#学习-rust-是值得的">#</a></h2>
 <p>尽管借用和所有权可能让你花一些时间来掌握（to grok），但是是一个非常有趣的学习。Rust 尝试不用 GC
 来实现内存安全，并且目前来看做的非常好。一些人说他们通过学习 Haskell 改变了他们编程的方式。
@@ -657,6 +652,12 @@ C. 每一个独立的借用者或被借用的指针的生命周期</p>
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

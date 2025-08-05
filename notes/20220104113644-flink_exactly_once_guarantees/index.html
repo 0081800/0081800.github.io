@@ -21,7 +21,7 @@ Nothing is lost or duplicated (exactly once)
 Given that Flink recovers from faults by rewinding and replaying the source data streams, when the ideal situation is described as exactly once this does not mean that every event will be processed exactly once. Instead, it means that every event will affect the state being managed by Flink exactly once.">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220104113644-flink_exactly_once_guarantees/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -164,7 +164,7 @@ Given that Flink recovers from faults by rewinding and replaying the source data
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -247,16 +247,14 @@ Given that Flink recovers from faults by rewinding and replaying the source data
 <li>Nothing is lost or duplicated (exactly once)</li>
 </ul>
 <blockquote>
-<p>Given that Flink recovers from faults by rewinding and replaying the source data streams, when the ideal situation is described as exactly once this does not mean that every event will be processed exactly once. Instead, it means that every event will affect the state being managed by Flink exactly once.</p>
-</blockquote>
+<p>Given that Flink recovers from faults by rewinding and replaying the source data streams, when the ideal situation is described as exactly once this does not mean that every event will be processed exactly once. Instead, it means that every event will affect the state being managed by Flink exactly once.</p></blockquote>
 <h2 id="exactly-once-end-to-end">Exactly Once End-to-end<a hidden class="anchor" aria-hidden="true" href="#exactly-once-end-to-end">#</a></h2>
 <blockquote>
 <p>To achieve exactly once end-to-end, so that every event from the sources affects the sinks exactly once, the following must be true:</p>
 <ol>
 <li>your sources must be replayable, and</li>
 <li>your sinks must be transactional (or idempotent)</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 
 
   </div>
@@ -266,6 +264,12 @@ Given that Flink recovers from faults by rewinding and replaying the source data
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

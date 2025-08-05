@@ -22,7 +22,7 @@ Limitations of streaming
 To beat batch at its own game, you really only need two things:">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20220105163321-streaming_101_the_world_beyond_batch/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -166,7 +166,7 @@ To beat batch at its own game, you really only need two things:">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -307,16 +307,14 @@ To beat batch at its own game, you really only need two things:">
 
 <p>If you care about event times, you cannot analyzer your data solely within the contxt of when they are abserved in your pipeline.</p>
 <blockquote>
-<p>If you care about correctness and are interested in analyzing your data in the context of their event times, you cannot define those temporal boundaries using processing time.</p>
-</blockquote>
+<p>If you care about correctness and are interested in analyzing your data in the context of their event times, you cannot define those temporal boundaries using processing time.</p></blockquote>
 <h2 id="data-processing-patterns">Data processing patterns<a hidden class="anchor" aria-hidden="true" href="#data-processing-patterns">#</a></h2>
 <h3 id="bounded-data">Bounded data<a hidden class="anchor" aria-hidden="true" href="#bounded-data">#</a></h3>
 <h3 id="unbounded-data-batch">Unbounded data — batch<a hidden class="anchor" aria-hidden="true" href="#unbounded-data-batch">#</a></h3>
 <h3 id="fixed-windows">Fixed windows<a hidden class="anchor" aria-hidden="true" href="#fixed-windows">#</a></h3>
 <h3 id="sessions">Sessions<a hidden class="anchor" aria-hidden="true" href="#sessions">#</a></h3>
 <blockquote>
-<p>Sessions are typically defined as periods of activity (e.g., for a specific user) terminated by a gap of inactivity.</p>
-</blockquote>
+<p>Sessions are typically defined as periods of activity (e.g., for a specific user) terminated by a gap of inactivity.</p></blockquote>
 <h3 id="unbounded-data-streaming">Unbounded data — streaming<a hidden class="anchor" aria-hidden="true" href="#unbounded-data-streaming">#</a></h3>
 <h2 id="four-groups-of-dealing-data">Four groups of dealing data<a hidden class="anchor" aria-hidden="true" href="#four-groups-of-dealing-data">#</a></h2>
 <h3 id="time-agnostic">Time-agnostic<a hidden class="anchor" aria-hidden="true" href="#time-agnostic">#</a></h3>
@@ -324,8 +322,7 @@ To beat batch at its own game, you really only need two things:">
 <p>Just look at each record as it arrived, and drop the records that we are not interested. We don&rsquo;t care about the time.</p>
 <h4 id="inner-joins">Inner-joins<a hidden class="anchor" aria-hidden="true" href="#inner-joins">#</a></h4>
 <blockquote>
-<p>When joining two unbounded data sources, if you only care about the results of a join when an element from both sources arrive, there’s no temporal element to the logic.</p>
-</blockquote>
+<p>When joining two unbounded data sources, if you only care about the results of a join when an element from both sources arrive, there’s no temporal element to the logic.</p></blockquote>
 <h3 id="approximation-algorithms">Approximation algorithms<a hidden class="anchor" aria-hidden="true" href="#approximation-algorithms">#</a></h3>
 <h3 id="windowing-by-processing-time">Windowing by processing time<a hidden class="anchor" aria-hidden="true" href="#windowing-by-processing-time">#</a></h3>
 <h3 id="windowing-by-event-time">Windowing by event time<a hidden class="anchor" aria-hidden="true" href="#windowing-by-event-time">#</a></h3>
@@ -338,6 +335,12 @@ To beat batch at its own game, you really only need two things:">
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

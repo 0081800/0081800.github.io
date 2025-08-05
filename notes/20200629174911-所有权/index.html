@@ -56,7 +56,7 @@ Copy 特性注解使用规则如下
 ">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200629174911-%E6%89%80%E6%9C%89%E6%9D%83/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -239,7 +239,7 @@ Copy 特性注解使用规则如下
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -346,7 +346,7 @@ Copy 特性注解使用规则如下
 <p>克隆用于深度拷贝变量：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1.clone();
-</span></span><span style="display:flex;"><span>println!(s1);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">println!</span>(s1);
 </span></span></code></pre></div><h2 id="变量项目作用-拷贝-copy">变量项目作用：拷贝（Copy）<a hidden class="anchor" aria-hidden="true" href="#变量项目作用-拷贝-copy">#</a></h2>
 <p>如果数据类型的大小在编译期能够确定都将存储在栈上，这种情况下能够进行快速的拷贝。</p>
 <ul>
@@ -379,6 +379,12 @@ Copy 特性注解使用规则如下
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

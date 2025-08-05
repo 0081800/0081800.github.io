@@ -24,13 +24,10 @@ HTTP、RPC 接口
 参见：AMQP/JMS 风格的消息代理。
 也称消息队列。
 
-
 消息对比与数据库对比
 
 
-
 多个消费者
-
 
 
 确认和重传机制
@@ -56,10 +53,24 @@ replay 日志占用空间过大，需要进行截断，截断之前的进行初�
 CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。
 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。
 
-专门的数据库 Event Store 来支持使用事件溯源的应用程序。">
+专门的数据库 Event Store 来支持使用事件溯源的应用程序。
+从事件中导出当前状态：真正对用户有意义
+命令和事件
+命令经过校验后转化为事件。
+状态，流与不可变性
+流处理
+
+事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。
+通过某种方式将事件推送给用户，如电子邮件、短信等。
+处理一个或多个输入流产生过一个或多个输出流。
+
+流处理适用场景
+复杂事件处理
+复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。
+实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210813065446-%E6%B5%81%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -115,7 +126,9 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
 日志压缩 参考哈希索引。
 对变更流的 API 支持 数据库开始支持将变更流作为标准接口。
 事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：
-CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。">
+CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。
+从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。
+状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
@@ -140,13 +153,10 @@ HTTP、RPC 接口
 参见：AMQP/JMS 风格的消息代理。
 也称消息队列。
 
-
 消息对比与数据库对比
 
 
-
 多个消费者
-
 
 
 确认和重传机制
@@ -172,7 +182,21 @@ replay 日志占用空间过大，需要进行截断，截断之前的进行初�
 CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。
 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。
 
-专门的数据库 Event Store 来支持使用事件溯源的应用程序。">
+专门的数据库 Event Store 来支持使用事件溯源的应用程序。
+从事件中导出当前状态：真正对用户有意义
+命令和事件
+命令经过校验后转化为事件。
+状态，流与不可变性
+流处理
+
+事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。
+通过某种方式将事件推送给用户，如电子邮件、短信等。
+处理一个或多个输入流产生过一个或多个输出流。
+
+流处理适用场景
+复杂事件处理
+复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。
+实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。">
 
 
 <script type="application/ld+json">
@@ -201,7 +225,7 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
   "@type": "BlogPosting",
   "headline": "流处理系统",
   "name": "流处理系统",
-  "description": "发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。\n消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。\n数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。\n实现变更数据捕获 解析复制日志，并将解析的内容发送到事件流中进行 replay。\n初始快照 replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。\n日志压缩 参考哈希索引。\n对变更流的 API 支持 数据库开始支持将变更流作为标准接口。\n事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：\nCDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。\n",
+  "description": "发送事件流 消息系统 生产者速度比消费者快：丢弃消息、将消息缓存在队列、激活背压。 节点崩溃或者暂时历险，是否会有消息丢失？ 生产者与消息系统之间的直接消息传递 UDP 组播：广泛应用于金融股票 无代理消息库：ZerroMQ 和 nanomsg StatsD 和 Brubeck 使用 UDP 传递消息 HTTP、RPC 接口 消息代理 参见：AMQP/JMS 风格的消息代理。 也称消息队列。\n消息对比与数据库对比 多个消费者 确认和重传机制 分区日志 参见： 基于日志的消息代理。\n数据库与流 保持系统同步 变更数据捕获 变更数据捕获（Change Data Capture，CDC）记录了写入数据库的所有更改，并以可复制到其他系统的形式来提取数据。 如果在写入时立即将更改作为一种流来发布，那么 CDC 就更有趣来。\n实现变更数据捕获 解析复制日志，并将解析的内容发送到事件流中进行 replay。\n初始快照 replay 日志占用空间过大，需要进行截断，截断之前的进行初始快照保存。\n日志压缩 参考哈希索引。\n对变更流的 API 支持 数据库开始支持将变更流作为标准接口。\n事件溯源 一种在领域驱动设计社区中开发的技术，与 CDC 最大的区别在于事件溯源在不同抽象层次上应用了将所有对应用程序状态的更改保存为更改事件日志：\nCDC 中：应用程序以数据可变方式来操纵数据库，从数据库中提取较低级的变更日志，从而确保从数据库提取写入顺序与实际写入顺序相匹配。写入数据库的程序不需要知道 CDC 正在发生。 事件溯源中：应用程序的写入逻辑是基于写入事件日志的不可变事件构建的。事件存储仅支持追加，不鼓励甚至禁止更新或删除操作。事件旨在反映在应用程序级别所发生的事情，而不是低级别的状态改变。 专门的数据库 Event Store 来支持使用事件溯源的应用程序。\n从事件中导出当前状态：真正对用户有意义 命令和事件 命令经过校验后转化为事件。\n状态，流与不可变性 流处理 事件中的数据写入数据库、缓存、搜索索引或类似的存储系统，提供给客户端查询。 通过某种方式将事件推送给用户，如电子邮件、短信等。 处理一个或多个输入流产生过一个或多个输出流。 流处理适用场景 复杂事件处理 复杂事件处理（Complex Event Processing，CEP）尤其适用需要搜索特定的事件模式。 实现：Esper、IBM Info Sphere Streams、Apama、TIBCO StreamBase 和 SQLstream。\n",
   "keywords": [
     
   ],
@@ -247,7 +271,7 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -425,15 +449,12 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
 <h4 id="消息代理">消息代理<a hidden class="anchor" aria-hidden="true" href="#消息代理">#</a></h4>
 <p>参见：<a href="/notes/20210813072847-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/#amqp-jms-风格的消息代理">AMQP/JMS 风格的消息代理</a>。
 也称消息队列。</p>
-<!-- raw HTML omitted -->
 <ul>
 <li>消息对比与数据库对比</li>
 </ul>
-<!-- raw HTML omitted -->
 <ul>
 <li>多个消费者</li>
 </ul>
-<!-- raw HTML omitted -->
 <ul>
 <li>确认和重传机制</li>
 </ul>
@@ -511,6 +532,12 @@ CDC 中：应用程序以数据可变方式来操纵数据库，从数据库中�
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.139.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.147.2"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -99,7 +99,7 @@
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -149,71 +149,667 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Uniswap Tick Boundary To Liquidity Amounts
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Uniswap Tick To Price, Uniswap V3 import math tick_upper_bits = 4294945516 tick_lower_bits = 4294931656 tick_curre_bits = 4294938547 sqrtp_low = price_to_sqrtp(uint32_tick_to_price(tick_lower_bits)) sqrtp_cur = price_to_sqrtp(uint32_tick_to_price(tick_curre_bits)) sqrtp_upp = price_to_sqrtp(uint32_tick_to_price(tick_upper_bits)) def calc_amount0(liq, pa, pb): if pa &gt; pb: pa, pb = pb, pa return int(liq * q96 * (pb - pa) / pa / pb) def calc_amount1(liq, pa, pb): if pa &gt; pb: pa, pb = pb, pa return int(liq * (pb - pa) / q96) liq = 8599967722 amount0 = calc_amount0(liq, sqrtp_upp, sqrtp_cur) amount1 = calc_amount1(liq, sqrtp_low, sqrtp_cur) </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-11-19 17:00:00 +0800 +0800'>November 19, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Uniswap Tick Boundary To Liquidity Amounts" href="https://notes.0081800.xyz/notes/20241119170025-uniswap_tick_boundary_to_liquidity_amounts/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Uniswap Tick To Price
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Uniswap V3 def tick_to_price(tick: int) -&gt; float: return 1.0001 ** tick def uint32_tick_to_price(bits: int) -&gt; float: # https://stackoverflow.com/a/20766900 u = bits &amp; ((1 &lt;&lt; 32) - 1) tick = (u &amp; ((1 &lt;&lt; 31) - 1)) - (u &amp; (1 &lt;&lt; 31)) return 1.0001 ** tick q96 = 2**96 def price_to_sqrtp(p): return int(math.sqrt(p) * q96) </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-11-19 16:53:00 +0800 +0800'>November 19, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Uniswap Tick To Price" href="https://notes.0081800.xyz/notes/20241119165345-uniswap_tick_to_price/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Beancount
+    <h2 class="entry-hint-parent">ZFS
     </h2>
   </header>
   <div class="entry-content">
     <p></p>
   </div>
-  <footer class="entry-footer"><span title='2024-11-02 16:36:00 +0800 +0800'>November 2, 2024</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Beancount" href="https://notes.0081800.xyz/notes/20241102163604-beancount/"></a>
+  <footer class="entry-footer"><span title='2023-09-11 14:54:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ZFS" href="https://notes.0081800.xyz/notes/20230911145434-zfs/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">How Precision in Beancount is Determined
+    <h2 class="entry-hint-parent">ZFS 入门指北：规划与创建存储池
     </h2>
   </header>
   <div class="entry-content">
-    <p>source: https://beancount.github.io/docs/precision_tolerances.html#how-precision-is-determined
-tags: Beancount The sum value for some day is incorrect after I imported my records into beancount. Then I realised that’s the pricision problem. The problem was solved after I turn all my amounts to accurate to two decimal places.
-For each Transaction:
-Derive Automatically. </p>
+    <p> tags: FreeBSD, ZFS source: Shen Leo. “ZFS 入门指北：规划与创建存储池.” Leo’s Field, March 21, 2022. https://szclsya.me/zh-cn/posts/storage/zfs-setup/. </p>
   </div>
-  <footer class="entry-footer"><span title='2024-11-02 16:35:00 +0800 +0800'>November 2, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to How Precision in Beancount is Determined" href="https://notes.0081800.xyz/notes/20241102163556-how_precision_in_beancount_is_determined/"></a>
+  <footer class="entry-footer"><span title='2023-09-11 14:54:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ZFS 入门指北：规划与创建存储池" href="https://notes.0081800.xyz/notes/20230911145426-zfs_%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97_%E8%A7%84%E5%88%92%E4%B8%8E%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A0/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">30 生态缸开缸
+    <h2 class="entry-hint-parent">FreeBSD
     </h2>
   </header>
   <div class="entry-content">
-    <p>底滤板 火山石打底 清洗 火山石冲洗2-3次。
-用量 5 斤以内
-铺设 平铺后，中间稍低，两边稍高；前低后高
-青龙石随意摆放 铺放草泥 前面薄、后面厚
-打湿水草泥种水草 种植水草 红绿3:4 前矮后高 两边绿中间红 阴性水草容易 对二氧化碳和光的要求不高。
-加水，可以用海绵垫着，防止直冲 灯光 第一天24小时开 后三天每天 5-8 小时 换水 前三天每天换水 二氧化碳 第一个礼拜加大加倍
-参考 https://youtu.be/ws89zmwJfcs?si=ig2uVxhgNnRwqy74 https://youtu.be/4weyFa3F9ws?si=aoo_XDUp0q0XPpev https://youtu.be/GxBvWuxhLrY?si=esdnaTrHllYSS5hb </p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2024-09-23 19:32:00 +0800 +0800'>September 23, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 30 生态缸开缸" href="https://notes.0081800.xyz/notes/20240923193245-%E7%94%9F%E6%80%81%E7%BC%B8/"></a>
+  <footer class="entry-footer"><span title='2023-09-11 14:24:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to FreeBSD" href="https://notes.0081800.xyz/notes/20230911142417-freebsd/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Building a FreeBSD backup server
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> TAGS: FreeBSD, NAS Source: “Building a FreeBSD Backup Server.” Accessed September 11, 2023. https://ogris.de/howtos/freebsd-backup-server.html. $ zfs create -quota=1T data/timemachine [global] workgroup = WORKGROUP security = user netbios name = backup server string = backup.your-local-domain.invalid hostname lookups = yes load printers = no show add printer wizard = no time server = yes map to guest = Bad User use mmap = yes dos charset = 850 unix charset = UTF-8 mangled names = no log level = 0 vfs objects = fruit streams_xattr zfsacl fruit:model = MacPro fruit:resource = file fruit:metadata = netatalk ; time machines [macbook] path = /data/timemachine read only = no use sendfile = yes browseable = no hosts allow = macbook.your-local-domain.invalid fe80::/10 fruit:time machine = yes fruit:time machine max size = 500G valid users = tm Then we can set our Macbook Pro to use the timemachine:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-11 14:23:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Building a FreeBSD backup server" href="https://notes.0081800.xyz/notes/20230911142350-building_a_freebsd_backup_server/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Sui
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> TAGS: Blockchain </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-11 09:31:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Sui" href="https://notes.0081800.xyz/notes/20230911093102-sui/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Sui Move Call
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> TAGS: Sui POST http://127.0.0.1:9000 Content-Type: application/json { &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;method&#34;: &#34;sui_moveCall&#34;, &#34;params&#34;: [ &#34;0x1&#34;, &#34;0xc8&#34;, &#34;obc_dao&#34;, &#34;voting_delay&#34;, &#34; ] } </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-11 09:30:00 +0800 +0800'>September 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Sui Move Call" href="https://notes.0081800.xyz/notes/20230911093008-sui_move_call/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Uniswap V3 Event Log
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Uniswap V3, Ethereum POST https://rpc.ankr.com/eth Content-Type: application/json { &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;id&#34;: 1, &#34;method&#34;: &#34;eth_getTransactionReceipt&#34;, &#34;params&#34;: [&#34;0xeedf302cc12f4b7194742694aabec075c1c229f7b9d8e57a53c44c992bc6690c&#34;] } </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-31 16:31:00 +0800 +0800'>July 31, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Uniswap V3 Event Log" href="https://notes.0081800.xyz/notes/20230731163157-uniswap_v3_event_log/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The Best Way To Launch Your Startup
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Microstartup source: The Best Way To Launch Your Startup | Startup School, 2023. https://www.youtube.com/watch?v=u36A-YTxiOw. Emphasis Launch it ASAP, and launch it again and again.
+How to Write a Pitch 1-line description
+to introduce your bussiness:
+Tell WHAT, not WHY(maybe later). What problem it it solving, and for who. X for Y may not the best sentence. Ways: Launch in Different Channels Silent Launch Launch to Friends and family Launch to Strangers Online Community Lanuch: HN Waitlist Launch: Domain/Landing Page/Email list. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-26 09:15:00 +0800 +0800'>July 26, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to The Best Way To Launch Your Startup" href="https://notes.0081800.xyz/notes/20230726091549-the_best_way_to_launch_your_startup/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Should I read papers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Papers source: “Mrb: Should I Read Papers?” Accessed February 20, 2023. https://michaelrbernste.in/2014/10/21/should-i-read-papers.html. Yes, but reading a paper isn’t the same as reading a blogpost or a novel.
+A paper could be an idea captured by someone, or the result of a life’s work, or anything in between.
+You might need to read it bit by bit, again and again.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-19 09:11:00 +0800 +0800'>July 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Should I read papers" href="https://notes.0081800.xyz/notes/20230719091127-should_i_read_papers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Software Engineers Should Read Academic Papers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Papers source: Al-Ansari, Khaled. “Software Engineers Should Read Academic Papers.” Medium (blog), July 15, 2023. https://medium.com/@KhaledElAnsari/software-engineers-should-read-academic-papers-9a6ee6ebc40d. There are some benefits of reading academic papers:
+Structured content can enhance your technical writing, you can learn structured writing.
+(Reading - Writing - Reviewing) cycle making you a better reader and reviewer.
+Reading to gain information. Structured writing make review easier. Better deading and writing make you a better reviewer. Bridge the industry and the academic field.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-17 11:17:00 +0800 +0800'>July 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Software Engineers Should Read Academic Papers" href="https://notes.0081800.xyz/notes/20230717111715-software_engineers_should_read_academic_papers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Solana Off-Chain Message Signing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Solana source: https://github.com/solana-labs/solana/blob/eabe1070667e87f447b9cb892e2d916ca5b68e34/sdk/src/offchain_message.rs#L237-L240 /// Serialize the off-chain message to bytes including full header pub fn serialize(&amp;self) -&gt; Result&lt;Vec&lt;u8&gt;, SanitizeError&gt; { // serialize signing domain let mut data = Self::SIGNING_DOMAIN.to_vec(); // serialize version and call version specific serializer match self { Self::V0(msg) =&gt; { data.push(0); msg.serialize(&amp;mut data)?; } } Ok(data) } </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-15 18:03:00 +0800 +0800'>June 15, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Solana Off-Chain Message Signing" href="https://notes.0081800.xyz/notes/20230615180334-solana_off_chain_message_signing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Execution Layer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking Layer </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:18:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Execution Layer" href="https://notes.0081800.xyz/notes/20230614091826-ethereum_execution_layer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Sub-protocols
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking, Ethereum Execution Layer </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Sub-protocols" href="https://notes.0081800.xyz/notes/20230614091155-ethereum_sub_protocols/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Wire Protocol
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Sub-protocols, Ethereum Simulator Node Started when a RLPx session had initiated. Three main tasks before switch to PoS:
+Chain synchronization Block propagation Transaction exchange: exchange pending transaction between nodes. Only transaction exchange remit after switch to PoS.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:11:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Wire Protocol" href="https://notes.0081800.xyz/notes/20230614091142-ethereum_wire_protocol/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum DevP2P
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking, Ethereum Execution Layer Basic stack for p2p networking. Initiating RLPx Session.
+RLPX Session Communicate messages that encoded in RLP between peers.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:08:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum DevP2P" href="https://notes.0081800.xyz/notes/20230614090850-ethereum_devp2p/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Networking Layer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum source: https://ethereum.org/en/developers/docs/networking-layer/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:01:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Networking Layer" href="https://notes.0081800.xyz/notes/20230614090110-ethereum_networking/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Discovery Nodes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Networking, Ethereum Simulator Node Boot nodes Using a small set that hardcoded bootnodes to bootstrap.
+Protocol Kademlia a modified form of Distributed Hash Table.
+Steps to join the network start client –&gt; connect to bootnode –&gt; bond to bootnode –&gt; find neighbours –&gt; bond to neighbours
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-14 09:00:00 +0800 +0800'>June 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Discovery Nodes" href="https://notes.0081800.xyz/notes/20230614090056-ethereum_discovery_nodes/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How is a Transaction Broadcasted
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Simulator Node, Ethereum Execution Layer Node Side: Receive pending transactions If we want to broadcast our transactions to the network in Ethereum, two RPC calls are involved:
+https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction So let’s follow those two calls to track how a transaction is broadcasted. Those two corresponding implementations are defined at internal/ethapi/api.go:
+SendTransaction SendRawTransaction And both of them are pointing to SubmitTransaction, which calls SendTx to put transaction into the txpool by calling:
+func (b *EthAPIBackend) SendTx(ctx context.Context, signedTx *types.Transaction) error { return b.eth.txPool.AddLocal(signedTx) } Miner Side: Execute pending transactions Miner start here at cmd/geth/main.go, which is calling:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-12 10:08:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How is a Transaction Broadcasted" href="https://notes.0081800.xyz/notes/20230612100850-how_is_a_transaction_broadcasted/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Simulator Node
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Simulator Only use the data of the mainnet to simulate transaction, and DONOT commit the final transaction to the mainnet.
+Relay To identify our transactions that need to simulate, if it’s failed then drop that tx, otherwise commit the final transaction to the mainnet.
+Things need to consider:
+How to limit or identify transactions that need to simulate?
+Only execute the transactions from local txpool.
+Where to execute the transction previously?
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-12 10:03:00 +0800 +0800'>June 12, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Simulator Node" href="https://notes.0081800.xyz/notes/20230612100350-ethereum_simulator_node/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How to Write a Technical Article
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Essay Writing Guide
+List outlines
+Explore the resources and documentation to understand
+Taking notes during the exploring
+Use the method of How to Take Smart Notes
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-08 22:37:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How to Write a Technical Article" href="https://notes.0081800.xyz/notes/20230608223754-how_to_write_a_technical_article/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">English Words
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Learning English, Journal </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-08 21:46:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to English Words" href="https://notes.0081800.xyz/notes/20230608214607-english_words/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Journal
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-08 21:46:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Journal" href="https://notes.0081800.xyz/notes/20230608214629-journal/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">coherent
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: English Words Adjective
+(of an argument , theory, or policy) logical and consistent: they failed to develop a coherent economic strategy. united as or forming a whole: divided into a number of geographically coherent kingdoms. Physics (of waves) having a constant phase relationship. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-08 21:45:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to coherent" href="https://notes.0081800.xyz/notes/20230608214518-coherent/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Essay Writing Guide
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> source: https://jordanbpeterson.com/wp-content/uploads/2018/02/Essay_Writing_Guide.docx tags: How to Write PART I: INTRODUCTION Why are we need to learn how to write an essay? Writing an essay is to think by writing, formulate and organize ideas. Writing an essay is also to learn or explore a new topic. How to get things done? If you don’t have a big chunk of time in your daily life, then don’t relay your success on it, take 15 minutes every day is still powerful: 「日拱一卒，功不唐捐」.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-08 21:33:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Essay Writing Guide" href="https://notes.0081800.xyz/notes/20230608213315-essay_writing_guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PostgresQL autovacuum &amp; ANALYZE
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: PostgresQL Recently, I met a problem in PostgresQL: the index mismatched after batch rows inserted.
+Run ANALYZE on the table solved this problem after batch rows inerted.
+Turns out autovacuum has been disabled on the PostgresQL instance:
+show autovacuum_analyze_scale_factor; show autovacuum_analyze_threshold ; SELECT * FROM pg_settings WHERE name LIKE &#39;%autovacuum%&#39;; </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-29 09:33:00 +0800 +0800'>May 29, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to PostgresQL autovacuum & ANALYZE" href="https://notes.0081800.xyz/notes/20230529093313-postgresql_autovacuum_analyze/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Met Eddie
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: On The Road https://www.google.com/maps/dir/New&#43;York/Joliet/Rock&#43;Island,&#43;IL/Rapids&#43;City,&#43;IL/Des&#43;Moines,&#43;IA/Adel,&#43;Iowa/Stuart,&#43;Iowa/Council&#43;Bluffs,&#43;Iowa/Omaha,&#43;NE/Grand&#43;Island,&#43;NE/@40.7489186,-96.7492412,5z/data=!3m1!4b1!4m62!4m61!1m5!1m1!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!2m2!1d-74.0059728!2d40.7127753!1m5!1m1!1s0x880e456bec363d7d:0x9f9e66f7a36bc042!2m2!1d-88.0817251!2d41.525031!1m5!1m1!1s0x87e232c357044b77:0xecc19371d71475f1!2m2!1d-90.5787476!2d41.5094771!1m5!1m1!1s0x87e23f0ad2e7aeb3:0x43aab678fe9e328d!2m2!1d-90.3434615!2d41.5817!1m5!1m1!1s0x87ee99a4c1611ee7:0x710028512691e4b2!2m2!1d-93.6249593!2d41.5868353!1m5!1m1!1s0x87ec39285c3540b9:0x84581d5d4142c1ec!2m2!1d-94.017453!2d41.6144325!1m5!1m1!1s0x87ec60c99a9a7d0f:0xb0c00a66d8103978!2m2!1d-94.3183715!2d41.5034243!1m5!1m1!1s0x879381cfa109322f:0xbe4e81fa5222799e!2m2!1d-95.8608333!2d41.2619444!1m5!1m1!1s0x87938dc8b50cfced:0x46424d4fae37b604!2m2!1d-95.9345034!2d41.2565369!1m5!1m1!1s0x87998644ec7765f7:0xa12d5b784951b17b!2m2!1d-98.3420118!2d40.9263957!3e0
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-08 15:43:00 +0800 +0800'>May 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Met Eddie" href="https://notes.0081800.xyz/notes/20230508154357-met_eddie/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">On The Road
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-08 15:43:00 +0800 +0800'>May 8, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to On The Road" href="https://notes.0081800.xyz/notes/20230508154308-on_the_road/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Emacs on Macos: Too Many Files Open
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Emacs, macOS source: Simon, Ben. “Gotcha: Emacs on Mac OS: Too Many Files Open.” Accessed April 18, 2023. https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html. Add below code snippet to your init.el:
+(defun file-notify-rm-all-watches () &#34;Remove all existing file notification watches from Emacs.&#34; (interactive) (maphash (lambda (key _value) (file-notify-rm-watch key)) file-notify-descriptors)) Then just execute M-x file-notify-rm-all-watches when you meet this problem next time.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-18 21:23:00 +0800 +0800'>April 18, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Emacs on Macos: Too Many Files Open" href="https://notes.0081800.xyz/notes/20230418212343-emacs_on_macos_too_many_files_open/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">NLTK Data
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: AI Clone nltk_data
+git clone https://github.com/nltk/nltk_data.git ~/.local/nltk_data Link nltk_data
+ln -sf ~/.local/nltk_data/packages ~/nltk_data Unzip
+cd ~/nltk_data/path unzip xx.zip </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-18 15:11:00 +0800 +0800'>April 18, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to NLTK Data" href="https://notes.0081800.xyz/notes/20230418151139-nltk_data/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bash
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Linux </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-17 09:50:00 +0800 +0800'>April 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Bash" href="https://notes.0081800.xyz/notes/20230417095019-bash/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bash scripting cheatsheet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Cheatsheet, Bash source: Devhints.io cheatsheets. “Bash Scripting Cheatsheet.” Accessed April 17, 2023. https://devhints.io/bash. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-17 09:50:00 +0800 +0800'>April 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Bash scripting cheatsheet" href="https://notes.0081800.xyz/notes/20230417095009-bash_scripting_cheatsheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Searchable Linux Syscall Table for x86 and x86_64
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Cheatsheet, Linux source: “Searchable Linux Syscall Table for X86 and X86_64 | PyTux.” Accessed April 17, 2023. https://filippo.io/linux-syscall-table/. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-17 09:49:00 +0800 +0800'>April 17, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Searchable Linux Syscall Table for x86 and x86_64" href="https://notes.0081800.xyz/notes/20230417094911-searchable_linux_syscall_table_for_x86_and_x86_64/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Starcoin Signing Message
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Starcoin Web3 StarTrek, Sign Message Invocation Path Dapp request personal_sign1
+const msg = `0x${Buffer.from(exampleMessage, &#39;utf8&#39;).toString(&#39;hex&#39;)}` console.log({ msg }) const networkId = networkDiv.innerHTML const extraParams = { networkId } const sign = await window.starcoin.request({ method: &#39;personal_sign&#39;, // params: [msg, from, &#39;Example password&#39;], // extraParams = params[2] || {}; means it should be an object: // params: [msg, from, { pwd: &#39;Example password&#39; }], params: [msg, from, extraParams], }) Starmask handling request signPersonalMessage
+keyringController.signPersonalMessage(cleanMsgParams) 2 , 3
+3 types of keyring:4
+SimpleKeyring.signPersonalMessage HdKeyring.signPersonalMessage HdKeyringAptos.signPersonalMessage utils.signedMessage.generateSignedMessage5
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-12 10:21:00 +0800 +0800'>April 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Starcoin Signing Message" href="https://notes.0081800.xyz/notes/20230412102128-starcoin_signing_message/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">pyenv
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Python </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-11 18:01:00 +0800 +0800'>April 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to pyenv" href="https://notes.0081800.xyz/notes/20230411180138-pyenv/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Speedup Python Installation of pyenv
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Python, pyenv export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=1 export PYTHON_BUILD_MIRROR_URL=&#34;https://mirrors.huaweicloud.com/python/&#34; </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-11 18:01:00 +0800 +0800'>April 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Speedup Python Installation of pyenv" href="https://notes.0081800.xyz/notes/20230411180124-speedup_python_installation_of_pyenv/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Aptos Signing Message
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Sign Message The starmask has implemented about signing message of APTOS.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-11 09:21:00 +0800 +0800'>April 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Aptos Signing Message" href="https://notes.0081800.xyz/notes/20230411092153-aptos_signing_message/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Pyright Type Stubs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Python, LSP
+source: https://emacs-lsp.github.io/lsp-pyright/#usage-notes
+Download Default Type Stubs git clone https://github.com/microsoft/python-type-stubs $HOME/.local/src/python-type-stubs Use it in Emacs (setq lsp-pyright-stub-path (concat (getenv &#34;HOME&#34;) &#34;/.local//src/python-type-stubs&#34;)) ;; example Add Django Type Stubs git clone git@github.com:typeddjango/django-stubs.git ~/.local/src/django-stubs ln -sf ~/.local/src/django-stubs/django-stubs ~/.local/src/python-type-stubs/django Add Celery Type Stubs git clone https://github.com/sbdchd/celery-types ~/.local/src/celery-types ln -sf ~/.local/src/celery-types/amqp-stubs ~/.local/src/python-type-stubs/amqp ln -sf ~/.local/src/celery-types/billiard-stubs ~/.local/src/python-type-stubs/billiard ln -sf ~/.local/src/celery-types/celery-stubs ~/.local/src/python-type-stubs/celery ln -sf ~/.local/src/celery-types/django_celery_results-stubs ~/.local/src/python-type-stubs/django_celery_results ln -sf ~/.local/src/celery-types/ephem-stubs ~/.local/src/python-type-stubs/ephem ln -sf ~/.local/src/celery-types/kombu-stubs ~/.local/src/python-type-stubs/kombu ln -sf ~/.local/src/celery-types/vine-stubs ~/.local/src/python-type-stubs/vine </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-10 16:18:00 +0800 +0800'>April 10, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Pyright Type Stubs" href="https://notes.0081800.xyz/notes/20230410161857-pyright_type_stubs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">jemalloc
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Management, Heap Fragmentation </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:19:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to jemalloc" href="https://notes.0081800.xyz/notes/20230407181930-jemalloc/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Memory Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Model </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:18:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Memory Management" href="https://notes.0081800.xyz/notes/20230407181835-memory_management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Heap Fragmentation
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Memory Management </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:17:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Heap Fragmentation" href="https://notes.0081800.xyz/notes/20230407181757-heap_fragmentation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spotting and Avoiding Heap Fragmentation in Rust Applications
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Heap Fragmentation, jemalloc source:Svix Blog. “Spotting and Avoiding Heap Fragmentation in Rust Applications,” April 4, 2023. https://www.svix.com/blog/heap-fragmentation-in-rust-applications/. Heap fragmentation cause stair-step memeory usage, use jemalloc to solve heap fragmentation.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:17:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Spotting and Avoiding Heap Fragmentation in Rust Applications" href="https://notes.0081800.xyz/notes/20230407181742-spotting_and_avoiding_heap_fragmentation_in_rust_applications/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Sign Message
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Blockchain </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:04:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Sign Message" href="https://notes.0081800.xyz/notes/20230407180408-sign_message/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Tron Signing Data
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Tron, Sign Message Three methods tronweb.trx.signMessageV11 tronweb.trx.signMessageV22 tronweb.trx._signtypeddata3, 4 https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/lib/trx.js#L727-L739 ↩︎
+https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/message.js#L8-L18 ↩︎
+https://github.com/tronprotocol/tronweb/blob/859253856c79d3aff26ec6c89afefc73840d648d/src/utils/crypto.js#L89 ↩︎
+TIP 104 ↩︎
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-07 18:04:00 +0800 +0800'>April 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Tron Signing Data" href="https://notes.0081800.xyz/notes/20230407180424-tron_signing_data/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Ethereum Signing Data
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum, Sign Message source: “Signing Data | MetaMask Docs.” Accessed April 6, 2023. https://docs.metamask.io/guide/signing-data.html#signtypeddata-v4. Five Methods1 eth_sign allow to sign arbitrary hash.2 personal_sign add prefix to data and human readable text that encoded UFT-8.3 signTypedData or signTypedData_v1 first release that lacked some later security improvements. signTypedData_v3 signTypedData_v4 compatible with V3. Differences Between V3 and V44 Some input types that V3 doesn’t support but V4 does:
+Custom type array Custom type with null input Some input types that V4 doesn’t support but V3 does:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-06 09:09:00 +0800 +0800'>April 6, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Ethereum Signing Data" href="https://notes.0081800.xyz/notes/20230406090923-ethereum_signing_data/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Use GDB to Debug Cgo Segmentation Fault
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Go, GDB Enable Core Dumps ulimit -S -c unlimited Confirm or Change The Location of Core Dumps sysctl -w kernel.core_pattern=/tmp/core.%e.%p # Or echo &#39;/tmp/core.%e.%p&#39; | tee /proc/sys/kernel/core_pattern Set GOTRACEBACK Environment Variable to Let Go Program Core Dumps when Panic export GOTRACEBACK=crash Run Go Program and Wait Segmentation Fault Use GDB to Debug gdb /path/to/goprogram /tmp/core-xx-xx Then use thread apply all bt to see all backtraces, include compiled C code.
+Note: -g option should be applied to the compiled C code to generate debug symbols.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-05 20:05:00 +0800 +0800'>April 5, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Use GDB to Debug Cgo Segmentation Fault" href="https://notes.0081800.xyz/notes/20230405200523-use_gdb_to_debug_cgo_segmentation_fault/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ScrollL2: How to Caculate L1Fee
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Ethereum Layer 2 Background You may meet the below error when you’re trying to transfer all your ETH from one address to another address:
+invalid transaction: insufficient funds for l1fee &#43; gas * price &#43; value
+The reason is that the Layer 1 fee are included in Scroll’s gas fee system, but the wallet only exclude the Layer 2 gas fee to do so when you transfer all your ETH. 1
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-03-23 08:36:00 +0800 +0800'>March 23, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to ScrollL2: How to Caculate L1Fee" href="https://notes.0081800.xyz/notes/20230323083609-scrolll2_how_to_cacluate_l1fee/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How to Yubikey: a configuration cheatsheet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Yubikey source: “How to Yubikey: A Configuration Cheatsheet,” March 1, 2023. https://debugging.works/blog/yubikey-cheatsheet/. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-03-11 08:58:00 +0800 +0800'>March 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How to Yubikey: a configuration cheatsheet" href="https://notes.0081800.xyz/notes/20230311085820-how_to_yubikey_a_configuration_cheatsheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Overhead of Python asyncio Tasks: 260K/s
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Python, High Performance source: Textual Documentation. “Textual - Overhead of Python Asyncio Tasks,” March 8, 2023. https://textual.textualize.io/blog/2023/03/08/overhead-of-python-asyncio-tasks/. Tasks of asyncio from create to run, then shutdown is about: 260K tasks per second.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-03-09 09:30:00 +0800 +0800'>March 9, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Overhead of Python asyncio Tasks: 260K/s" href="https://notes.0081800.xyz/notes/20230309093002-overhead_of_python_asyncio_tasks_260k_s/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Yubikey
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2023-02-25 09:04:00 +0800 +0800'>February 25, 2023</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Yubikey" href="https://notes.0081800.xyz/notes/20230225090409-yubikey/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How to Weaponize the Yubikey
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Yubikey source: BHIS. “How to Weaponize the Yubikey.” Black Hills Information Security (blog), May 2, 2019. https://www.blackhillsinfosec.com/how-to-weaponize-the-yubikey/. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-02-25 09:03:00 +0800 +0800'>February 25, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to How to Weaponize the Yubikey" href="https://notes.0081800.xyz/notes/20230225090358-how_to_weaponize_the_yubikey/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

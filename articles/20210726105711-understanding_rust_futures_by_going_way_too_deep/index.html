@@ -17,7 +17,6 @@ tags: Translate,Rust,Tokio
 起步
 
 Choo choo here comes the easy part 🚂💨
-
 我们创建一个新的项目：
 $ cargo new waytoodeep
 	 Created binary (application) `waytoodeep` package
@@ -33,7 +32,7 @@ cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中
 但是 cargo add 没有。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -105,7 +104,6 @@ tags: Translate,Rust,Tokio
 起步
 
 Choo choo here comes the easy part 🚂💨
-
 我们创建一个新的项目：
 $ cargo new waytoodeep
 	 Created binary (application) `waytoodeep` package
@@ -193,7 +191,7 @@ cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -301,8 +299,7 @@ cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中
 <p>用 Rust future！就是这么简单！直到我们发现并非如此。所以我们先探索简单的部分，然后继续探索困难部分而不是等它慢慢靠近我们。</p>
 <h2 id="起步">起步<a hidden class="anchor" aria-hidden="true" href="#起步">#</a></h2>
 <blockquote>
-<p>Choo choo here comes the easy part 🚂💨</p>
-</blockquote>
+<p>Choo choo here comes the easy part 🚂💨</p></blockquote>
 <p>我们创建一个新的项目：</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ cargo new waytoodeep
 	 Created binary (application) `waytoodeep` package
@@ -316,8 +313,7 @@ cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中
 <p>因为 <code>cargo-edit</code> 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像
 <code>cargo new</code>, <code>cargo build</code>, <code>cargo test</code>, <code>cargo run</code> 等子命令都内置在 cargo 中，
 但是 <code>cargo add</code> 没有。</p>
-<p>实际上，有一大堆像这样的包，如 <a href="https://lib.rs/crates/cargo-hack">cargo-hack</a>,<a href="https://lib.rs/crates/cargo-udeps">cargo-udeps</a>,<a href="https://lib.rs/crates/cargo-expand">cargo-expand</a>&hellip;<a href="https://lib.rs/keywords/cargo">等等</a>。</p>
-</blockquote>
+<p>实际上，有一大堆像这样的包，如 <a href="https://lib.rs/crates/cargo-hack">cargo-hack</a>,<a href="https://lib.rs/crates/cargo-udeps">cargo-udeps</a>,<a href="https://lib.rs/crates/cargo-expand">cargo-expand</a>&hellip;<a href="https://lib.rs/keywords/cargo">等等</a>。</p></blockquote>
 <p>然后我们需要选择一个「异步运行时」（async runtime），因为这些 future 对象不会轮询（poll）自己。。。
 我们毫无理由的选择 tokio，唯一的原因是：过去几个月我一直在用它。</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ cargo add tokio@1.9.0 --features full
@@ -328,7 +324,7 @@ cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#[tokio::main]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	println!(<span style="color:#e6db74">&#34;Hello from a (so far completely unnecessary) async runtime&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;Hello from a (so far completely unnecessary) async runtime&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><pre tabindex="0"><code class="language-nil" data-lang="nil">$ cargo run                                                                                                                                                                                          3s 209ms
    Compiling waytoodeep v0.1.0 (/Users/wh/codes/rust/waytoodeep)
@@ -350,7 +346,7 @@ Hello from a (so far completely unnecessary) async runtime
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	println!(<span style="color:#e6db74">&#34;Hello from a (so far completely unnecessary) async runtime&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;Hello from a (so far completely unnecessary) async runtime&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -384,7 +380,7 @@ Hello from a (so far completely unnecessary) async runtime
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Hello from a comfy nest we&#39;ve made for ourselves&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Hello from a comfy nest we&#39;ve made for ourselves&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -428,7 +424,7 @@ Jul 25 17:03:46.993  INFO waytoodeep: Hello from a comfy nest we&#39;ve made for
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Hello from a comfy nest we&#39;ve made for ourselves&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Hello from a comfy nest we&#39;ve made for ourselves&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> client <span style="color:#f92672">=</span> Client::new();
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://fasterthanli.me&#34;</span>;
@@ -437,7 +433,7 @@ Jul 25 17:03:46.993  INFO waytoodeep: Hello from a comfy nest we&#39;ve made for
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// the second `?` propagates &#34;we had a chat with the server and they
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// were not pleased&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
@@ -466,7 +462,7 @@ Jul 25 17:03:46.993  INFO waytoodeep: Hello from a comfy nest we&#39;ve made for
 Jul 26 16:50:57.778  INFO waytoodeep: Hello from a comfy nest we&#39;ve made for ourselves
 Jul 26 16:50:59.090  INFO waytoodeep: Got a response! url=https://fasterthanli.me content_type=Some(&#34;text/html; charset=utf-8&#34;)
 </code></pre><p>这就是我所说的「结构化日志」。嗯，其中的一部分。让我们看下这行代码：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span></code></pre></div><p>我们输出来一个消息： <code>Got a response!</code> ，一个名为 <code>url</code> 的标签：值为变量 <code>url</code> 的 <a href="https://doc.rust-lang.org/stable/std/fmt/trait.Display.html">Display</a> 格式，
 一个名为 <code>content_type</code> 的标签：值为表达式的 <a href="https://doc.rust-lang.org/stable/std/fmt/trait.Debug.html">Debug</a> 格式。</p>
 <p>就是这么简单！ <code>name = %value</code> 输出 <code>Display</code> ， <code>name = ?value</code> 输出 <code>Debug</code> 。</p>
@@ -487,7 +483,7 @@ Jul 26 16:50:59.090  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 <p>我们将创建一个函数来获取内容：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fetch_thing</span>(client: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Client</span>, url: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>并使用它：</p>
@@ -495,7 +491,7 @@ Jul 26 16:50:59.090  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Hello from a comfy nest we&#39;ve made for ourselves&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Hello from a comfy nest we&#39;ve made for ourselves&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> client <span style="color:#f92672">=</span> Client::new();
 </span></span><span style="display:flex;"><span>	fetch_thing(<span style="color:#f92672">&amp;</span>client, <span style="color:#66d9ef">URL_1</span>);
@@ -530,8 +526,7 @@ Jul 26 16:50:59.090  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 </span></span><span style="display:flex;"><span>Jul <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">17</span>:<span style="color:#ae81ff">26</span>:<span style="color:#ae81ff">31.571</span>  <span style="color:#66d9ef">INFO</span> waytoodeep: <span style="color:#a6e22e">Hello</span> from a comfy nest we<span style="color:#a6e22e">&#39;ve</span> made <span style="color:#66d9ef">for</span> ourselves
 </span></span></code></pre></div><p>奇怪的是，没有任何事情发生。</p>
 <blockquote>
-<p>黄色的波浪线和恼人的 Rust 警告已经给出了提示。</p>
-</blockquote>
+<p>黄色的波浪线和恼人的 Rust 警告已经给出了提示。</p></blockquote>
 <p>让我们来修复它：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>fetch_thing(<span style="color:#f92672">&amp;</span>client, <span style="color:#66d9ef">URL_1</span>).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>fetch_thing(<span style="color:#f92672">&amp;</span>client, <span style="color:#66d9ef">URL_2</span>).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
@@ -563,7 +558,7 @@ Jul 25 17:27:29.974  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> ();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">poll</span>(self: <span style="color:#a6e22e">Pin</span><span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">mut</span> Self<span style="color:#f92672">&gt;</span>, _cx: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Context<span style="color:#f92672">&lt;</span>&#39;_<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">Poll</span><span style="color:#f92672">&lt;</span>Self::Output<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>		info!(<span style="color:#e6db74">&#34;Hello from a dumb future!&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Hello from a dumb future!&#34;</span>);
 </span></span><span style="display:flex;"><span>		Poll::Ready(())
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
@@ -599,11 +594,11 @@ warning: 1 warning emitted
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Building that dumb future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Building that dumb future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> fut <span style="color:#f92672">=</span> dumb::DumbFuture {};
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Awaiting that dumb future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Awaiting that dumb future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	fut.<span style="color:#66d9ef">await</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Done awaiting that dumb future&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Done awaiting that dumb future&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -623,7 +618,7 @@ Jul 25 17:37:09.262  INFO waytoodeep: Done awaiting that dumb future
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> ();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">poll</span>(self: <span style="color:#a6e22e">Pin</span><span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">mut</span> Self<span style="color:#f92672">&gt;</span>, _cx: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Context<span style="color:#f92672">&lt;</span>&#39;_<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">Poll</span><span style="color:#f92672">&lt;</span>Self::Output<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>		panic!(<span style="color:#e6db74">&#34;Oh heck no&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">panic!</span>(<span style="color:#e6db74">&#34;Oh heck no&#34;</span>);
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><pre tabindex="0"><code class="language-nil" data-lang="nil">$ RUST_BACKTRACE=1 cargo run
@@ -684,7 +679,7 @@ Run with RUST_BACKTRACE=full to include source snippets.
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">unsafe</span> {
 </span></span><span style="display:flex;"><span>			<span style="color:#f92672">*</span>(<span style="color:#ae81ff">0xF00D</span> <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">mut</span> <span style="color:#66d9ef">u64</span>) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x0</span>;
 </span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		unreachable!(); <span style="color:#75715e">// pinky promise
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">unreachable!</span>(); <span style="color:#75715e">// pinky promise
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>然后就不会有一些列的崩溃处理来拯救我们：</p>
@@ -756,20 +751,19 @@ Thread 1 &#34;waytoodeep&#34; received signal SIGSEGV, Segmentation fault.
 </code></pre><p>我们再次丢失了高亮颜色，这里可以看一下：
 <img loading="lazy" src="https://fasterthanli.me/content/articles/understanding-rust-futures-by-going-way-too-deep/assets/gdb-colors.b45af429c46a37d9.webp"></p>
 <blockquote>
-<p>译注：我在本地环境并没有通过 GDB 复现带高亮的堆栈跟踪，反而是通过 LLDB 可以看到高亮的堆栈跟踪。</p>
-</blockquote>
+<p>译注：我在本地环境并没有通过 GDB 复现带高亮的堆栈跟踪，反而是通过 LLDB 可以看到高亮的堆栈跟踪。</p></blockquote>
 <p>是不是很漂亮？</p>
 <p>现在让我们回到正常有用的代码，移除所有关于自己实现的 future 代码： <code>src/dumb.rs</code> 和 <code>mod dumb</code> 。并使用一个获取 future 替代：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[tokio::main]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Building that fetch future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Building that fetch future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> client <span style="color:#f92672">=</span> Client::new();
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> fut <span style="color:#f92672">=</span> fetch_thing(<span style="color:#f92672">&amp;</span>client, <span style="color:#66d9ef">URL_1</span>);
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Awaiting that fetch future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Awaiting that fetch future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	fut.<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Done awaiting that fetch future&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Done awaiting that fetch future&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -784,7 +778,7 @@ Jul 25 17:51:49.438  INFO waytoodeep: Done awaiting that fetch future
 </code></pre><p>有两种方式考虑我们的函数，一个是语法糖层：也就是 <code>async fn</code> ：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fetch_thing</span>(client: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Client</span>, url: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>然后是核心实现层：一个普通的 <code>fn</code> 仅用来返回一个 future 对象：</p>
@@ -796,7 +790,7 @@ Jul 25 17:51:49.438  INFO waytoodeep: Done awaiting that fetch future
 </span></span><span style="display:flex;"><span>) -&gt; <span style="color:#a6e22e">impl</span> Future<span style="color:#f92672">&lt;</span>Output <span style="color:#f92672">=</span> Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">&#39;a</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">move</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>		info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>		Ok(())
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
@@ -815,16 +809,16 @@ Jul 25 17:51:49.438  INFO waytoodeep: Done awaiting that fetch future
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Building that fetch future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Building that fetch future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> client <span style="color:#f92672">=</span> Client::new();
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> fut <span style="color:#f92672">=</span> fetch_thing(<span style="color:#f92672">&amp;</span>client, <span style="color:#66d9ef">URL_1</span>);
-</span></span><span style="display:flex;"><span>	info!(
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(
 </span></span><span style="display:flex;"><span>		type_name <span style="color:#f92672">=</span> type_name_of(<span style="color:#f92672">&amp;</span>fut),
 </span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;That fetch future has a type..&#34;</span>
 </span></span><span style="display:flex;"><span>	);
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Awaiting that fetch future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Awaiting that fetch future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	fut.<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Done awaiting that fetch future&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Done awaiting that fetch future&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -890,8 +884,7 @@ Jul 25 18:06:00.122 DEBUG Connection{peer=Client}: h2::codec::framed_write: send
 Jul 25 18:06:00.122 DEBUG Connection{peer=Client}: h2::proto::connection: Connection::poll; connection error error=NO_ERROR
 Jul 25 18:06:00.122 DEBUG Connection{peer=Client}: rustls::session: Sending warning alert CloseNotify
 </code></pre><blockquote>
-<p>上面出现了 rustls，并且使用了 TLS 1.3，作者做过<a href="https://www.youtube.com/watch?v=YHIiVsFybLA">一期视频</a>介绍过 TLS 1.3。</p>
-</blockquote>
+<p>上面出现了 rustls，并且使用了 TLS 1.3，作者做过<a href="https://www.youtube.com/watch?v=YHIiVsFybLA">一期视频</a>介绍过 TLS 1.3。</p></blockquote>
 <p>这些应该足够说服你，除非你只相信内核所说的，所以让我们看看调用堆栈只为了更加确定。</p>
 <p>我们在 <code>await</code> future 对象之前增加一秒钟的休眠：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">use</span> tokio::time::sleep;
@@ -901,14 +894,14 @@ Jul 25 18:06:00.122 DEBUG Connection{peer=Client}: rustls::session: Sending warn
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Building that fetch future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Building that fetch future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> client <span style="color:#f92672">=</span> Client::new();
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> fut <span style="color:#f92672">=</span> fetch_thing(<span style="color:#f92672">&amp;</span>client, <span style="color:#66d9ef">URL_1</span>);
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Sleeping for a bit...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Sleeping for a bit...&#34;</span>);
 </span></span><span style="display:flex;"><span>	sleep(Duration::from_secs(<span style="color:#ae81ff">1</span>)).<span style="color:#66d9ef">await</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Awaiting that fetch future...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Awaiting that fetch future...&#34;</span>);
 </span></span><span style="display:flex;"><span>	fut.<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Done awaiting that fetch future&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Done awaiting that fetch future&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -955,8 +948,7 @@ connect(9, {sa_family=AF_INET, sin_port=htons(443), sin_addr=inet_addr(&#34;172.
 </code></pre><p>现在可以确认了，只有一次连接。</p>
 <p>但是，第一个请求完成后才开始了第二个请求。第一个耗费了 <code>536-396 = 140</code> 毫秒，但是第二个耗费了 <code>627-537 = 90</code> 毫秒！</p>
 <blockquote>
-<p>Emmm，现在我们运行构建的是 debug 版本不是吗？</p>
-</blockquote>
+<p>Emmm，现在我们运行构建的是 debug 版本不是吗？</p></blockquote>
 <p>这是真的。我确信我们面临的是 IO 密集型，而不是 CPU 密集型。</p>
 <p>debug 版本的构建绝对有一些额外的开销，但是我怀疑这里它不会太影响延迟。无论如何，让我们检查一下：
 （注意 &ndash;release）</p>
@@ -1013,8 +1005,7 @@ To learn more, run the command again with --verbose.
 <p>我们将「future 对象交给执行器执行」并将 future 对象转交给执行器，对吧？我们转移了它和它的内容的所有权。</p>
 <p>然后即使我们不对其进行 <code>await</code> ，future 对象因为是「执行器需要做」的一部分依然会被执行，所以即使我们从 <code>main</code> 返回 future 对象也会被轮询（polled）。</p>
 <p>但是如果我们从 <code>main</code> 返回，则整个程序都会退出。</p>
-<p>这里也可以是任何函数（这里是 <code>main</code> ）。重要的是如果函数返回了但是 future 对象借用了部分数据将无法通过借用检查器。</p>
-</blockquote>
+<p>这里也可以是任何函数（这里是 <code>main</code> ）。重要的是如果函数返回了但是 future 对象借用了部分数据将无法通过借用检查器。</p></blockquote>
 <p>这让我很高兴，因为这意味着我们不会意外访问到一些被释放的资源：<a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=use+after+free">UAF</a>。</p>
 <p>这里我们的例子没有完成。</p>
 <p>所以。。。我们需要解决这个问题。如果 <code>fetch_thing</code> 返回的 future 对象是 <code>'static</code> 的呢？或者它不借用任何东西？</p>
@@ -1027,7 +1018,7 @@ To learn more, run the command again with --verbose.
 </span></span><span style="display:flex;"><span>) -&gt; <span style="color:#a6e22e">impl</span> Future<span style="color:#f92672">&lt;</span>Output <span style="color:#f92672">=</span> Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">&#39;a</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">move</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>		info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>		Ok(())
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
@@ -1092,8 +1083,7 @@ Jul 25 18:58:16.443  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 +++ exited with 0 +++
 </code></pre><p>。。。两个 <code>connect</code> 调用！如我所料！</p>
 <blockquote>
-<p>谬论：一个 <code>connect</code> 调用都没看到？因为 Rust 构建 HTTP/2 请求的时候甚至都需要建立 TCP 连接。真是革命性的！</p>
-</blockquote>
+<p>谬论：一个 <code>connect</code> 调用都没看到？因为 Rust 构建 HTTP/2 请求的时候甚至都需要建立 TCP 连接。真是革命性的！</p></blockquote>
 <p>这当然不是真的。可能在其他线程执行了？也许 <code>strace</code> 默认仅跟踪了主线程？</p>
 <p>啊，对了， <code>-f</code> 可以跟踪所有「子进程」，就像大家知道的那样 Linux 线程仅仅是披了件风衣的进程（或者其他方式）。所以，让我们看一下：</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ cargo build --quiet --release &amp;&amp; strace -f -e &#39;connect&#39; ./target/release/waytoodeep
@@ -1203,8 +1193,7 @@ Jul 25 19:11:10.134  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 Jul 25 19:11:10.144  INFO waytoodeep: Got a response! url=https://fasterthanli.me/articles/whats-in-the-box content_type=Some(&#34;text/html; charset=utf-8&#34;)
 </code></pre><p>。。。大部分情况下“whats-in-the-box”胜出了（它确实先开始），但是“advent-of-code-2020”也首先完成了几次。这也是我们希望看到的。</p>
 <blockquote>
-<p>谬论：也就是说因为有线程请求被并行（parallel）的执行了。</p>
-</blockquote>
+<p>谬论：也就是说因为有线程请求被并行（parallel）的执行了。</p></blockquote>
 <p>不是的。但是不要相信我，让我们继续深入。</p>
 <h3 id="不是因为线程">不是因为线程<a hidden class="anchor" aria-hidden="true" href="#不是因为线程">#</a></h3>
 <p>让我们通过 GDB 运行我们的小程序，大部分原因是我还没有对 LLDB 形成肌肉记忆，我相信这是水到渠成的事。</p>
@@ -1247,8 +1236,7 @@ Thread 17 &#34;tokio-runtime-w&#34; hit Catchpoint 1 (call to syscall connect), 
 (gdb)
 </code></pre><p>不错不错，真快！我们停在了名为 <code>tokio-runtime-w</code> 的 <code>Thread 17</code> 中，因为我猜其他所有字母都被使用了。</p>
 <blockquote>
-<p><code>w</code> 意味这 <code>worker</code> ，如果你不是第一天用 Unix 就会知道什么这么简写。</p>
-</blockquote>
+<p><code>w</code> 意味这 <code>worker</code> ，如果你不是第一天用 Unix 就会知道什么这么简写。</p></blockquote>
 <p>好的， <code>Thread 17</code> ，那么其他线程在做什么呢？</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">(gdb) info threads
   Id   Target Id                                            Frame
@@ -1314,8 +1302,7 @@ Thread 13 (Thread 0x7ffff680f700 (LWP 158956)):
 是的。然后还有一些阻塞的线程，正如我们从上面 <code>strace</code> 输出看到的那样， 它会进行一些阻塞的 <code>connect</code> 调用去查询 DNS（实际是 glibc 在执行），
 所以它通过运行在工作线程之外避免阻塞其他任务。</p>
 <blockquote>
-<p>所以多个线程，这就是为什么一次可以运行多个请求的原因？</p>
-</blockquote>
+<p>所以多个线程，这就是为什么一次可以运行多个请求的原因？</p></blockquote>
 <p>实际上文档上表明这是一个单线程的执行器，我也不能确定，所以让我们试一下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">//                           👇
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#[tokio::main(flavor = </span><span style="color:#e6db74">&#34;current_thread&#34;</span><span style="color:#75715e">)]</span>
@@ -1368,7 +1355,7 @@ Jul 25 19:50:15.994  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">move</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#75715e">// luckily this  👇 only requires `&amp;self`
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>		info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>		Ok(())
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
@@ -1408,7 +1395,7 @@ Jul 25 19:50:15.994  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 </span></span><span style="display:flex;"><span>) -&gt; <span style="color:#a6e22e">impl</span> Future<span style="color:#f92672">&lt;</span>Output <span style="color:#f92672">=</span> Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">+</span> &#39;static {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">move</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>		info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>		Ok(())
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
@@ -1416,7 +1403,7 @@ Jul 25 19:50:15.994  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 <p>对了，仅供参考，更简单的 <code>async fn</code> 也可以工作了：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fetch_thing</span>(client: <span style="color:#a6e22e">Client</span>, url: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> client.get(url).send().<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>.error_for_status()<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>url, content_type <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>res.headers().get(<span style="color:#e6db74">&#34;content-type&#34;</span>), <span style="color:#e6db74">&#34;Got a response!&#34;</span>);
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>我们甚至不需要要求 <code>url</code> 的借用生命周期是 <code>'static</code> 。如果 <code>url</code> 是 <code>'static</code> 的则返回的 Future 也是，反之亦然。</p>
@@ -1457,8 +1444,7 @@ error[E0597]: `url1` does not live long enough
 28 | }
    | - `url1` dropped here while still borrowed
 </code></pre><blockquote>
-<p>你面对的考验就是：修改了一些代码，然后突然间整个 <code>Future</code> 不再实现 <code>Send</code> ，但是你需要它实现 <code>Send</code> 。参考<a href="https://fasterthanli.me/articles/getting-in-and-out-of-trouble-with-rust-futures">Getting in and out of trouble with Rust futures</a>。</p>
-</blockquote>
+<p>你面对的考验就是：修改了一些代码，然后突然间整个 <code>Future</code> 不再实现 <code>Send</code> ，但是你需要它实现 <code>Send</code> 。参考<a href="https://fasterthanli.me/articles/getting-in-and-out-of-trouble-with-rust-futures">Getting in and out of trouble with Rust futures</a>。</p></blockquote>
 <p>在我们进一步深入之前，我们还想提一下，除了通过 <code>tokio::spawn</code> 可以同时运行两个 future 并且立即等待两个 future 完成，还是使用 <code>FuturesUnordered</code> 实现相同目的。</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ cargo add futures@0.3.16
 	Updating &#39;https://github.com/rust-lang/crates.io-index&#39; index
@@ -1472,7 +1458,7 @@ error[E0597]: `url1` does not live long enough
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> client <span style="color:#f92672">=</span> Client::new();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> group <span style="color:#f92672">=</span> vec![
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> group <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec!</span>[
 </span></span><span style="display:flex;"><span>		fetch_thing(client.clone(), <span style="color:#66d9ef">URL_1</span>),
 </span></span><span style="display:flex;"><span>		fetch_thing(client, <span style="color:#66d9ef">URL_2</span>),
 </span></span><span style="display:flex;"><span>	]
@@ -1517,7 +1503,7 @@ Jul 25 20:12:37.227  INFO waytoodeep: Got a response! url=https://fasterthanli.m
 </span></span><span style="display:flex;"><span>	socket.read_to_string(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> response).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> status <span style="color:#f92672">=</span> response.lines().next().unwrap_or_default();
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>status, , <span style="color:#e6db74">&#34;Got response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>status, , <span style="color:#e6db74">&#34;Got response!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// dropping the socket will close the connection
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -1576,7 +1562,7 @@ $ cargo add webpki-roots@0.21.1
 </span></span><span style="display:flex;"><span>	socket.read_to_string(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> response).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> status <span style="color:#f92672">=</span> response.lines().next().unwrap_or_default();
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>status, , <span style="color:#e6db74">&#34;Got response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>status, , <span style="color:#e6db74">&#34;Got response!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// dropping the socket will close the connection
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -1594,8 +1580,8 @@ Jul 25 20:31:32.658  INFO waytoodeep: Got response! status=HTTP/1.1 200 OK name=
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> tokio::try_join!(fetch_thing(<span style="color:#e6db74">&#34;first&#34;</span>), fetch_thing(<span style="color:#e6db74">&#34;second&#34;</span>),)<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> tokio::<span style="color:#a6e22e">try_join!</span>(fetch_thing(<span style="color:#e6db74">&#34;first&#34;</span>), fetch_thing(<span style="color:#e6db74">&#34;second&#34;</span>),)<span style="color:#f92672">?</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -1662,7 +1648,7 @@ rtt min/avg/max/mdev = 13.748/13.748/13.748/0.000 ms
 </span></span><span style="display:flex;"><span>	A: <span style="color:#a6e22e">Future</span>,
 </span></span><span style="display:flex;"><span>	B: <span style="color:#a6e22e">Future</span>,
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	todo!(<span style="color:#e6db74">&#34;implement me!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>(<span style="color:#e6db74">&#34;implement me!&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>额。函数不应该只返回一个空元组，它需要返回一个包含成功结果的元组。或者遇到的第一个错误。</p>
 <p>所以我们需要添加一些更多的范型参数：一个错误类型（我们假设两个 future 对象返回同样的错误类型），另一个是 future 对象返回的 <code>Ok</code> 的类型。</p>
@@ -1671,7 +1657,7 @@ rtt min/avg/max/mdev = 13.748/13.748/13.748/0.000 ms
 </span></span><span style="display:flex;"><span>	A: <span style="color:#a6e22e">Future</span><span style="color:#f92672">&lt;</span>Output <span style="color:#f92672">=</span> Result<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">AR</span>, E<span style="color:#f92672">&gt;&gt;</span>,
 </span></span><span style="display:flex;"><span>	B: <span style="color:#a6e22e">Future</span><span style="color:#f92672">&lt;</span>Output <span style="color:#f92672">=</span> Result<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">BR</span>, E<span style="color:#f92672">&gt;&gt;</span>,
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	todo!(<span style="color:#e6db74">&#34;implement me!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>(<span style="color:#e6db74">&#34;implement me!&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>好了！这非常绕口，但是我相信我们已经实现了需求。</p>
 <p>需要注意的是我们使用了 <code>impl Trait</code> 语法，让我们不用暴露我们自己的 <code>try join future</code> 。这不重要，但是可以让我们用更少的 <code>pub</code> 关键字，同时我们的手指已经码累了。非常累。</p>
@@ -1711,7 +1697,7 @@ rtt min/avg/max/mdev = 13.748/13.748/13.748/0.000 ms
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Result<span style="color:#f92672">&lt;</span>(<span style="color:#66d9ef">AR</span>, <span style="color:#66d9ef">BR</span>), E<span style="color:#f92672">&gt;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">poll</span>(self: <span style="color:#a6e22e">Pin</span><span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">mut</span> Self<span style="color:#f92672">&gt;</span>, cx: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Context<span style="color:#f92672">&lt;</span>&#39;_<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">Poll</span><span style="color:#f92672">&lt;</span>Self::Output<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>		todo!()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>如果我们真正的实现了，我们将按照下面方式使用：</p>
@@ -1720,7 +1706,7 @@ rtt min/avg/max/mdev = 13.748/13.748/13.748/0.000 ms
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> tj::try_join(fetch_thing(<span style="color:#e6db74">&#34;first&#34;</span>), fetch_thing(<span style="color:#e6db74">&#34;second&#34;</span>)).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -1739,7 +1725,7 @@ Run with RUST_BACKTRACE=full to include source snippets.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">poll</span>(self: <span style="color:#a6e22e">Pin</span><span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">mut</span> Self<span style="color:#f92672">&gt;</span>, cx: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Context<span style="color:#f92672">&lt;</span>&#39;_<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">Poll</span><span style="color:#f92672">&lt;</span>Self::Output<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> self.a.poll(cx);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	todo!()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><pre tabindex="0"><code class="language-nil" data-lang="nil">$ RUST_LOG=info cargo run --quiet --release
 error[E0599]: no method named `poll` found for type parameter `A` in the current scope
@@ -1762,13 +1748,13 @@ help: consider wrapping the receiver expression with the appropriate type
 <p>方法通常通过如下方式定义接收者（receiver）：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">MyType</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">do_thing</span>(<span style="color:#f92672">&amp;</span>self) {
-</span></span><span style="display:flex;"><span>		println!(<span style="color:#e6db74">&#34;my value is </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, self.value)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;my value is </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, self.value)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>也就是下面的简写：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">MyType</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">do_thing</span>(self: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>) {
-</span></span><span style="display:flex;"><span>		println!(<span style="color:#e6db74">&#34;my value is </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, self.value)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;my value is </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, self.value)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>因为我们在 <code>impl MyType</code> 代码块中 <code>Self</code> 就是 <code>MyType</code> 。</p>
@@ -1798,7 +1784,7 @@ help: consider wrapping the receiver expression with the appropriate type
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.map_unchecked_mut(<span style="color:#f92672">|</span>this<span style="color:#f92672">|</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a) };
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> a.poll(cx);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	todo!()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>可以通过编译。但是我们在使用 <code>unsafe</code> ，也就意味着编译器正式停止 <del>照顾</del> 检查我们的代码。
 我们自己必须强制执行一些不变量（invariants），并且非常非常小心，同时让其他人审查（review）我们的工作，
@@ -1810,16 +1796,16 @@ help: consider wrapping the receiver expression with the appropriate type
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.map_unchecked_mut(<span style="color:#f92672">|</span>this<span style="color:#f92672">|</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a) };
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">match</span> a.poll(cx) {
 </span></span><span style="display:flex;"><span>		Poll::Pending <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>			info!(<span style="color:#e6db74">&#34;A is pending...&#34;</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;A is pending...&#34;</span>);
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> Poll::Pending;
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		Poll::Ready(res) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">match</span> res {
-</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> info!(<span style="color:#e6db74">&#34;A is ready!&#34;</span>),
+</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;A is ready!&#34;</span>),
 </span></span><span style="display:flex;"><span>			Err(e) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> Poll::Ready(Err(e)),
 </span></span><span style="display:flex;"><span>		},
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	todo!()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>我们通过打印日志“A is pending”知道准备完成。这可能需要几个回合：毕竟，我们正在做一些重要的事情。
 我们建立一个 TCP 连接，接着在上面进行 TLS 会话，接着是一些分开的写，最后读到 EOF（end of file）。</p>
@@ -1863,11 +1849,11 @@ Run with RUST_BACKTRACE=full to include source snippets.
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.map_unchecked_mut(<span style="color:#f92672">|</span>this<span style="color:#f92672">|</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a) };
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">match</span> a.poll(cx) {
 </span></span><span style="display:flex;"><span>		Poll::Pending <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>			info!(<span style="color:#e6db74">&#34;A is pending...&#34;</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;A is pending...&#34;</span>);
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> Poll::Pending;
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		Poll::Ready(res) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">match</span> res {
-</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> info!(<span style="color:#e6db74">&#34;A is ready!&#34;</span>),
+</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;A is ready!&#34;</span>),
 </span></span><span style="display:flex;"><span>			Err(e) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> Poll::Ready(Err(e)),
 </span></span><span style="display:flex;"><span>		},
 </span></span><span style="display:flex;"><span>	}
@@ -1875,16 +1861,16 @@ Run with RUST_BACKTRACE=full to include source snippets.
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.map_unchecked_mut(<span style="color:#f92672">|</span>this<span style="color:#f92672">|</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a) };
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">match</span> b.poll(cx) {
 </span></span><span style="display:flex;"><span>		Poll::Pending <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>			info!(<span style="color:#e6db74">&#34;B is pending...&#34;</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;B is pending...&#34;</span>);
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> Poll::Pending;
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		Poll::Ready(res) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">match</span> res {
-</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> info!(<span style="color:#e6db74">&#34;B is ready!&#34;</span>),
+</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;B is ready!&#34;</span>),
 </span></span><span style="display:flex;"><span>			Err(e) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> Poll::Ready(Err(e)),
 </span></span><span style="display:flex;"><span>		},
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	todo!()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>然后。。whoops：</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">RUST_LOG=info cargo run --quiet --release
@@ -1912,11 +1898,11 @@ note: this function takes ownership of the receiver `self`, which moves `self`
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.as_mut().map_unchecked_mut(<span style="color:#f92672">|</span>this<span style="color:#f92672">|</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a) };
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">match</span> a.poll(cx) {
 </span></span><span style="display:flex;"><span>		Poll::Pending <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>			info!(<span style="color:#e6db74">&#34;A is pending...&#34;</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;A is pending...&#34;</span>);
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> Poll::Pending;
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		Poll::Ready(res) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">match</span> res {
-</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> info!(<span style="color:#e6db74">&#34;A is ready!&#34;</span>),
+</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;A is ready!&#34;</span>),
 </span></span><span style="display:flex;"><span>			Err(e) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> Poll::Ready(Err(e)),
 </span></span><span style="display:flex;"><span>		},
 </span></span><span style="display:flex;"><span>	}
@@ -1925,16 +1911,16 @@ note: this function takes ownership of the receiver `self`, which moves `self`
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.as_mut().map_unchecked_mut(<span style="color:#f92672">|</span>this<span style="color:#f92672">|</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a) };
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">match</span> b.poll(cx) {
 </span></span><span style="display:flex;"><span>		Poll::Pending <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>			info!(<span style="color:#e6db74">&#34;B is pending...&#34;</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;B is pending...&#34;</span>);
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> Poll::Pending;
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>		Poll::Ready(res) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">match</span> res {
-</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> info!(<span style="color:#e6db74">&#34;B is ready!&#34;</span>),
+</span></span><span style="display:flex;"><span>			Ok(_) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;B is ready!&#34;</span>),
 </span></span><span style="display:flex;"><span>			Err(e) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> Poll::Ready(Err(e)),
 </span></span><span style="display:flex;"><span>		},
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	todo!()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>但是依然无法通过编译：</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ RUST_LOG=info cargo run --quiet --release
@@ -2014,7 +2000,7 @@ Run with RUST_BACKTRACE=full to include source snippets.
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	todo!()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">todo!</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>好了，这个应该能让 <code>a</code> 和 <code>b</code> 有机会在我们崩溃之前完成：</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ RUST_LOG=info cargo run --quiet --release
@@ -2064,7 +2050,7 @@ Jul 25 23:13:32.829  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span></code></pre></div><p>额，当轮询 <code>a</code> 的时候返回 <code>Poll::Pending</code> 时我们也会返回 <code>Poll::Pending</code>  。所以这就是问题。
 如果 <code>a</code> 正在等待（pending）我们不应该返回。因为如果这时候 <code>b</code> 已经准备好或者有错误呢？</p>
 <p>或者如果，我们像这样调用 <code>try_join</code> 呢：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>info!(<span style="color:#e6db74">&#34;Joining...&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Joining...&#34;</span>);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> tj::try_join(
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">move</span> {
 </span></span><span style="display:flex;"><span>		sleep(Duration::from_millis(<span style="color:#ae81ff">2000</span>)).<span style="color:#66d9ef">await</span>;
@@ -2072,7 +2058,7 @@ Jul 25 23:13:32.829  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span>	},
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">move</span> {
 </span></span><span style="display:flex;"><span>		sleep(Duration::from_millis(<span style="color:#ae81ff">10</span>)).<span style="color:#66d9ef">await</span>;
-</span></span><span style="display:flex;"><span>		Err::<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span>(color_eyre::eyre::eyre!(<span style="color:#e6db74">&#34;uh oh&#34;</span>))
+</span></span><span style="display:flex;"><span>		Err::<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span>(color_eyre::eyre::<span style="color:#a6e22e">eyre!</span>(<span style="color:#e6db74">&#34;uh oh&#34;</span>))
 </span></span><span style="display:flex;"><span>	},
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>.<span style="color:#66d9ef">await</span>;
@@ -2143,9 +2129,9 @@ Location:
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Joining...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Joining...&#34;</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> tj::try_join(fetch_thing(<span style="color:#e6db74">&#34;first&#34;</span>), fetch_thing(<span style="color:#e6db74">&#34;second&#34;</span>)).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -2190,8 +2176,7 @@ Jul 25 23:25:31.496  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 <p>实际上，甚至我们不应该再碰 <code>a</code>  。</p>
 <p>这听起来更像我们要么持有 <code>A</code> 要么持有 <code>AR</code> ，但是永远不会同时持有。</p>
 <blockquote>
-<p><code>SUM TYPES</code> : Rust 的枚举就是一个汇总类型。</p>
-</blockquote>
+<p><code>SUM TYPES</code> : Rust 的枚举就是一个汇总类型。</p></blockquote>
 <p>所以！汇总类型。Rust 枚举。这就是我们想要的。让我们创建一个叫做 <code>State</code> 的类型，然后它有两个变体：
 一个用于它还是 future 对象，一个用于它是一个结果。非常简单！</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">State</span><span style="color:#f92672">&lt;</span>F, T, E<span style="color:#f92672">&gt;</span>
@@ -2289,11 +2274,11 @@ To learn more, run the command again with --verbose.
 </span></span><span style="display:flex;"><span>	(State::Ok(_), State::Ok(_)) <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> std::mem::replace(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.a, State::Gone) {
 </span></span><span style="display:flex;"><span>			State::Ok(t) <span style="color:#f92672">=&gt;</span> t,
-</span></span><span style="display:flex;"><span>			_ <span style="color:#f92672">=&gt;</span> unreachable!(),
+</span></span><span style="display:flex;"><span>			_ <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">unreachable!</span>(),
 </span></span><span style="display:flex;"><span>		};
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> std::mem::replace(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> this.b, State::Gone) {
 </span></span><span style="display:flex;"><span>			State::Ok(t) <span style="color:#f92672">=&gt;</span> t,
-</span></span><span style="display:flex;"><span>			_ <span style="color:#f92672">=&gt;</span> unreachable!(),
+</span></span><span style="display:flex;"><span>			_ <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">unreachable!</span>(),
 </span></span><span style="display:flex;"><span>		};
 </span></span><span style="display:flex;"><span>		Ok((a, b)).into()
 </span></span><span style="display:flex;"><span>	}
@@ -2356,7 +2341,7 @@ Jul 25 23:52:25.061  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> this <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.get_unchecked_mut() };
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> (a, b) <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> this {
 </span></span><span style="display:flex;"><span>			Self::Polling { a, b } <span style="color:#f92672">=&gt;</span> (a, b),
-</span></span><span style="display:flex;"><span>			Self::Done <span style="color:#f92672">=&gt;</span> panic!(<span style="color:#e6db74">&#34;TryJoin future polled after completion&#34;</span>),
+</span></span><span style="display:flex;"><span>			Self::Done <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">panic!</span>(<span style="color:#e6db74">&#34;TryJoin future polled after completion&#34;</span>),
 </span></span><span style="display:flex;"><span>		};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> State::Future(fut) <span style="color:#f92672">=</span> a {
@@ -2377,7 +2362,7 @@ Jul 25 23:52:25.061  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span>					a: <span style="color:#a6e22e">State</span>::Ok(a),
 </span></span><span style="display:flex;"><span>					b: <span style="color:#a6e22e">State</span>::Ok(b),
 </span></span><span style="display:flex;"><span>				} <span style="color:#f92672">=&gt;</span> Ok((a, b)).into(),
-</span></span><span style="display:flex;"><span>				_ <span style="color:#f92672">=&gt;</span> unreachable!(),
+</span></span><span style="display:flex;"><span>				_ <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">unreachable!</span>(),
 </span></span><span style="display:flex;"><span>			},
 </span></span><span style="display:flex;"><span>			_ <span style="color:#f92672">=&gt;</span> Poll::Pending,
 </span></span><span style="display:flex;"><span>		}
@@ -2445,7 +2430,7 @@ Jul 25 23:52:25.061  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> this <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> { self.get_unchecked_mut() };
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> (a, b) <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> this {
 </span></span><span style="display:flex;"><span>			Self::Polling { a, b } <span style="color:#f92672">=&gt;</span> (a, b),
-</span></span><span style="display:flex;"><span>			Self::Done <span style="color:#f92672">=&gt;</span> panic!(<span style="color:#e6db74">&#34;TryJoin future polled after completion&#34;</span>),
+</span></span><span style="display:flex;"><span>			Self::Done <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">panic!</span>(<span style="color:#e6db74">&#34;TryJoin future polled after completion&#34;</span>),
 </span></span><span style="display:flex;"><span>		};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> State::Future(fut) <span style="color:#f92672">=</span> a {
@@ -2466,7 +2451,7 @@ Jul 25 23:52:25.061  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span>					a: <span style="color:#a6e22e">State</span>::Ok(a),
 </span></span><span style="display:flex;"><span>					b: <span style="color:#a6e22e">State</span>::Ok(b),
 </span></span><span style="display:flex;"><span>				} <span style="color:#f92672">=&gt;</span> Ok((a, b)).into(),
-</span></span><span style="display:flex;"><span>				_ <span style="color:#f92672">=&gt;</span> unreachable!(),
+</span></span><span style="display:flex;"><span>				_ <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">unreachable!</span>(),
 </span></span><span style="display:flex;"><span>			},
 </span></span><span style="display:flex;"><span>			_ <span style="color:#f92672">=&gt;</span> Poll::Pending,
 </span></span><span style="display:flex;"><span>		}
@@ -2492,9 +2477,9 @@ Jul 25 23:52:25.061  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Report<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>	setup()<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#e6db74">&#34;Joining...&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Joining...&#34;</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> tj::try_join(fetch_thing(<span style="color:#e6db74">&#34;first&#34;</span>), fetch_thing(<span style="color:#e6db74">&#34;second&#34;</span>)).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">?</span>res, <span style="color:#e6db74">&#34;All done!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	Ok(())
 </span></span><span style="display:flex;"><span>}
@@ -2528,7 +2513,7 @@ Jul 25 23:52:25.061  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
 </span></span><span style="display:flex;"><span>	socket.read_to_string(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> response).<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> status <span style="color:#f92672">=</span> response.lines().next().unwrap_or_default();
-</span></span><span style="display:flex;"><span>	info!(<span style="color:#f92672">%</span>status, , <span style="color:#e6db74">&#34;Got response!&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info!</span>(<span style="color:#f92672">%</span>status, , <span style="color:#e6db74">&#34;Got response!&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// dropping the socket will close the connection
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -2566,6 +2551,12 @@ Jul 26 00:08:13.710  INFO waytoodeep: All done! res=(&#34;first&#34;, &#34;secon
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

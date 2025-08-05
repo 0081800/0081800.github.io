@@ -81,7 +81,7 @@ Lamport 时间戳主要用于确保全序关系。
 某些场景下全序关系依然不能满足需求，比如用户名唯一性要求，为了确认用户名唯一，需要获取所有节点正在进行的请求，查看有没有相同的用户名请求，才能建立全序关系。">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -297,7 +297,7 @@ Lamport 时间戳主要用于确保全序关系。
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -590,8 +590,7 @@ Lamport 时间戳主要用于确保全序关系。
 <p>2PC 是一种在多节点之间实现事务原子提交的算法，用来确保所有节点要么全部提交，要么全部中止。</p>
 <p>不同于单节点上请求提交，2PC 中的提交/中止过程分为两个阶段。</p>
 <blockquote>
-<p>不要混淆 2PC 和 <a href="/notes/20210716074845-%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%8A%A0%E9%94%81/">2PL</a>。</p>
-</blockquote>
+<p>不要混淆 2PC 和 <a href="/notes/20210716074845-%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%8A%A0%E9%94%81/">2PL</a>。</p></blockquote>
 <p>2PL 引入了新的组件：协调者（也称为事务管理器）。协调者通常实现为共享库，运行在请求事务相同进程中，但也可以是单独的进程或服务。</p>
 <p>数据库节点称为事务中的参与者。当应用程序准备提交事务时，协调者开始阶段1:发送一个准备请求到所有节点，询问它们是否可以提交。协调者然后跟踪参与者的回应：</p>
 <ul>
@@ -685,6 +684,12 @@ XA 假定应用程序通过网络或者客户端库函数与参与者节点进�
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

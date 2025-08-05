@@ -13,7 +13,6 @@ tags: Java 内存模型
 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
 
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
-
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
 同步原子（volatile）和其它操作
 参见：Java 同步原子（volatile）。
@@ -31,7 +30,7 @@ happens-before 不排除语无伦次（incoherence）
 以前发生的事不排除无用性（acausality）">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -100,7 +99,6 @@ tags: Java 内存模型
 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
 
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
-
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
 同步原子（volatile）和其它操作
 参见：Java 同步原子（volatile）。
@@ -190,7 +188,7 @@ happens-before 不排除语无伦次（incoherence）
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -273,8 +271,7 @@ happens-before 不排除语无伦次（incoherence）
 </ul>
 <p>新模型遵循 DRF-SC 方法：保证<a href="/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/">弱有序和无数据竞争（DRF）</a>的 Java 程序以顺序一致的方式执行。</p>
 <blockquote>
-<p>JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：<a href="https://rsim.cs.uiuc.edu/Pubs/popl05.pdf">The Java Memory Model, 2005</a>。</p>
-</blockquote>
+<p>JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：<a href="https://rsim.cs.uiuc.edu/Pubs/popl05.pdf">The Java Memory Model, 2005</a>。</p></blockquote>
 <p>Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：</p>
 <h2 id="同步原子-volatile-和其它操作">同步原子（volatile）和其它操作<a hidden class="anchor" aria-hidden="true" href="#同步原子-volatile-和其它操作">#</a></h2>
 <p>参见：<a href="/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/">Java 同步原子（volatile）</a>。</p>
@@ -299,6 +296,12 @@ happens-before 不排除语无伦次（incoherence）
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

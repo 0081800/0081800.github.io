@@ -18,7 +18,7 @@ But a bad oscillator could be influenced by the heat of CPU, like compiling Linu
 So most computers come with fairly bad oscillators.">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210809103849-clock_synchronization_with_chris_perl/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -158,7 +158,7 @@ So most computers come with fairly bad oscillators.">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -268,8 +268,7 @@ So most computers come with fairly bad oscillators.</p>
 <h2 id="gps-external-reference">GPS: External Reference<a hidden class="anchor" aria-hidden="true" href="#gps-external-reference">#</a></h2>
 <p>Buy a GPS appliance to receive time from the signal of the GPS satellites.</p>
 <blockquote>
-<p>From the book DDIA, nearly every large data center have one in their room to synchronize time from GPS.</p>
-</blockquote>
+<p>From the book DDIA, nearly every large data center have one in their room to synchronize time from GPS.</p></blockquote>
 <p>The accuracy there is something like maybe 100 nanoseconds.</p>
 <h2 id="why-clock-synchronization-is-so-important">Why Clock Synchronization is so Important?<a hidden class="anchor" aria-hidden="true" href="#why-clock-synchronization-is-so-important">#</a></h2>
 <p>Total ordering of events in a distributed system.</p>
@@ -300,8 +299,7 @@ for chrony, the default is 12 seconds to remove one second of error.</p>
 <p>A successor to NTP that uses multicast, hardware timestamping, networking switches, and faster default update rates to achieve better synchronization.
 Which meets MiFID II<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <blockquote>
-<p>NTP is good to milliseconds. PTP is good to microseconds.</p>
-</blockquote>
+<p>NTP is good to milliseconds. PTP is good to microseconds.</p></blockquote>
 <p>Three things made PTP much more accurate than NTP:</p>
 <ul>
 <li><em>Hardware Timestamping</em>: many hardware vendors support it with PTP. So PTP get a timestamp when the packet arrives at the network card.</li>
@@ -325,12 +323,10 @@ It also good to grandmaster: NO connection need to maintain.</p>
 </ol>
 <h3 id="short-overview-of-ntp-interleaved-mode">Short Overview of NTP Interleaved Mode<a hidden class="anchor" aria-hidden="true" href="#short-overview-of-ntp-interleaved-mode">#</a></h3>
 <blockquote>
-<p>the interleaved mode is sort of a special way in which you can run NTP and that when you transmit your next NTP packet you send that hardware timestamp that you got for the previous transmission, and then the other side, each side can use those. I don’t want to get into too much of the details of how that works, but it allows you to get more accuracy and to leverage those hardware timestamps on transmission.</p>
-</blockquote>
+<p>the interleaved mode is sort of a special way in which you can run NTP and that when you transmit your next NTP packet you send that hardware timestamp that you got for the previous transmission, and then the other side, each side can use those. I don’t want to get into too much of the details of how that works, but it allows you to get more accuracy and to leverage those hardware timestamps on transmission.</p></blockquote>
 <h2 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
 <blockquote>
-<p>We are absolutely no worse error than about 35 microseconds.</p>
-</blockquote>
+<p>We are absolutely no worse error than about 35 microseconds.</p></blockquote>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -351,6 +347,12 @@ It also good to grandmaster: NO connection need to maintain.</p>
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 
