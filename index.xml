@@ -6,21 +6,32 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 05 Aug 2025 11:15:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 Aug 2025 11:16:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple</title>
+      <link>https://notes.0081800.xyz/notes/20250805111629-apple/</link>
+      <pubDate>Tue, 05 Aug 2025 11:16:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20250805111629-apple/</guid>
+      <description></description>
+    </item>
     <item>
       <title>CarPlay</title>
       <link>https://notes.0081800.xyz/notes/20250805111503-carplay/</link>
       <pubDate>Tue, 05 Aug 2025 11:15:00 +0800</pubDate>
       <guid>https://notes.0081800.xyz/notes/20250805111503-carplay/</guid>
-      <description></description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20250805111629-apple/&#34;&gt;Apple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>iPhone</title>
       <link>https://notes.0081800.xyz/notes/20250730141919-iphone/</link>
       <pubDate>Wed, 30 Jul 2025 14:19:00 +0800</pubDate>
       <guid>https://notes.0081800.xyz/notes/20250730141919-iphone/</guid>
-      <description></description>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20250805111629-apple/&#34;&gt;Apple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>No internet after connecting Carplay throught WiFi</title>
@@ -8226,7 +8237,7 @@ Content-Type: application/json
       <pubDate>Sun, 02 Jan 2022 07:40:00 +0800</pubDate>
       <guid>https://notes.0081800.xyz/topics/20220102074038-macos/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102074112-operating_system/&#34;&gt;Operating system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/topics/20220102074112-operating_system/&#34;&gt;Operating system&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20250805111629-apple/&#34;&gt;Apple&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     <item>
