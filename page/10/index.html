@@ -149,6 +149,36 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Proof-of-stake
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Blockchain,Blockchain Proof,Ethereum,Solana source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/ Proof workflow:
+Users stake money(ETH) to become a validator.
+Validators are chosen at random to create blocks and are responsible for checking and confirming blocks they don’t create.
+user’s stake is also used as a way to incentivise good validator behavior. For example, a user can lose a portion of their stake for things like going offline (failing to validate) or their entire stake for deliberate collusion.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-04 07:10:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Proof-of-stake" href="https://notes.0081800.xyz/notes/20220104071052-proof_of_stake/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Proof-of-work
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Blockchain Proof,Blockchain,Ethereum source: https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/ Wikipedia: https://en.wikipedia.org/wiki/Proof%5Fof%5Fwork A key feature of proof-of-work schemes is their asymmetry: the work – the computation – must be moderately hard (yet feasible) on the prover or requester side but easy to check for the verifier or service provider.
+With a hash function, let’s say SHA-1. For example, to do PoW, we need to generate a SHA-1 hash of the given data that must begins 52 binary zeros, that is 13 hexadecimal zeros:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-04 07:08:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to Proof-of-work" href="https://notes.0081800.xyz/notes/20220104070857-proof_of_work/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Blockchain Proof
     </h2>
   </header>
@@ -806,32 +836,6 @@ sbt new file:///path/to/template.g8 sbt 国内加速 ~/.sbt/repositories:
   </div>
   <footer class="entry-footer"><span title='2021-08-16 07:45:00 +0800 +0800'>August 16, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to LeetCode: 112. Path Sum" href="https://notes.0081800.xyz/notes/20210816074540-leetcode_112_path_sum/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCode: 79. Word Search
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: LeetCode 79. Word Search
-class Solution { public: bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) { backtracking(board, word, 0, 0); return res; } private: string track; bool res = false; enum Direction { right, down, up, left, }; /** * @param dir: 0: right, 1: down, 2: up, 3: left */ void backtracking(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word, int row, int col) { if (track == word || res) { res = true; return; } for (int i = row; i &lt; board.size(); i&#43;&#43;) { for (int j = col; j &lt; board[i].size(); j&#43;&#43;) { auto directions = get_next_directions(board, i, j); if (directions.size() == 0) { return; } for (auto d: directions) { int r, c; track.push_back(board[i][j]); std::tie(r, c) = next_char_pos(board, row, col, d); if (word.find(track) == 0) { backtracking(board, word, r, c); } track.pop_back(); } } } } vector&lt;Direction&gt; get_next_directions(vector&lt;vector&lt;char&gt;&gt;&amp; board, int row, int col) { vector&lt;Direction&gt; r; if (col &lt; board[row].size() - 1) { r.push_back(right); } if (row &lt; board.size() - 1) { r.push_back(down); } if (row &gt; 0) { r.push_back(up); } if (col &gt; 0) { r.push_back(left); } return r; } tuple&lt;int, int&gt; next_char_pos(vector&lt;vector&lt;char&gt;&gt;&amp; board, int row, int col, Direction dir) { switch(dir) { case right: col&#43;&#43;; break; case left: col--; break; case up: row--; break; case down: row&#43;&#43;; break; } tuple&lt;int, int&gt;r(row, col); return r; } }; 失败的用例：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-15 08:15:00 +0800 +0800'>August 15, 2021</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 79. Word Search" href="https://notes.0081800.xyz/notes/20210815081516-leetcode_79_word_search/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Event Store
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2021-08-14 07:24:00 +0800 +0800'>August 14, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Event Store" href="https://notes.0081800.xyz/notes/20210814072447-event_store/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

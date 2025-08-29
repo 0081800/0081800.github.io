@@ -218,6 +218,12 @@ tags: 分布式共识,技术概念
 
 
    
+      
+   
+
+   
+
+   
 
    
 
@@ -1925,6 +1931,20 @@ tags: 分布式共识,技术概念
     <br />
     <div class="backlinks">
       <ul>
+       
+          <article class="post-entry"> 
+            <header class="entry-header">
+              <h2>Compound 收益计算
+              </h2>
+            </header>
+            <div class="entry-content">
+              <p> tags: Blockchain, DeFi, ETH, AAVE 收益计算 有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益1，首先来查看 balanceOf2
+/** * @notice Query the current positive base balance of an account or zero * @dev Note: uses updated interest indices to calculate * @param account The account whose balance to query * @return The present day base balance magnitude of the account, if positive */ function balanceOf(address account) override public view returns (uint256) { (uint64 baseSupplyIndex_, ) = accruedInterestIndices(getNowInternal() - lastAccrualTime); int104 principal = userBasic[account].principal; return principal &gt; 0 ? presentValueSupply(baseSupplyIndex_, unsigned104(principal)) : 0; } 这里用到两个变量：principal 和 baseSupplyIndex，principal 可以通过 userBasic(address) 读取3，但是 baseSupplyIndex 只能通过合约读取，无法在链下获取， 仔细研究presentValueSupply4：
+...</p>
+            </div>
+            <footer class="entry-footer"><span title='2025-08-29 23:15:00 +0800 +0800'>August 29, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <a class="entry-link" aria-label="post link to Compound 收益计算" href="https://notes.0081800.xyz/notes/20250829231529-compound_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/"></a>
+          </article>
        
           <article class="post-entry"> 
             <header class="entry-header">

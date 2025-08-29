@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Compound 收益计算 | Taking Smart Notes With Org-mode</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+tags: Blockchain, DeFi, ETH, AAVE 收益计算
+
+有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益1，首先来查看 balanceOf2
+/**
+ * @notice Query the current positive base balance of an account or zero
+ * @dev Note: uses updated interest indices to calculate
+ * @param account The account whose balance to query
+ * @return The present day base balance magnitude of the account, if positive
+ */
+function balanceOf(address account) override public view returns (uint256) {
+    (uint64 baseSupplyIndex_, ) = accruedInterestIndices(getNowInternal() - lastAccrualTime);
+    int104 principal = userBasic[account].principal;
+    return principal &gt; 0 ? presentValueSupply(baseSupplyIndex_, unsigned104(principal)) : 0;
+}
+这里用到两个变量：principal 和 baseSupplyIndex，principal 可以通过 userBasic(address) 读取3，但是 baseSupplyIndex 只能通过合约读取，无法在链下获取，
+仔细研究presentValueSupply4：">
+<meta name="author" content="Gray King">
+<link rel="canonical" href="https://notes.0081800.xyz/notes/20250829231529-compound_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://notes.0081800.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/20250829231529-compound_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20250829231529-compound_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/">
+  <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
+  <meta property="og:title" content="Compound 收益计算">
+  <meta property="og:description" content=" tags: Blockchain, DeFi, ETH, AAVE 收益计算 有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益1，首先来查看 balanceOf2
+/** * @notice Query the current positive base balance of an account or zero * @dev Note: uses updated interest indices to calculate * @param account The account whose balance to query * @return The present day base balance magnitude of the account, if positive */ function balanceOf(address account) override public view returns (uint256) { (uint64 baseSupplyIndex_, ) = accruedInterestIndices(getNowInternal() - lastAccrualTime); int104 principal = userBasic[account].principal; return principal &gt; 0 ? presentValueSupply(baseSupplyIndex_, unsigned104(principal)) : 0; } 这里用到两个变量：principal 和 baseSupplyIndex，principal 可以通过 userBasic(address) 读取3，但是 baseSupplyIndex 只能通过合约读取，无法在链下获取， 仔细研究presentValueSupply4：">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-08-29T23:15:00+08:00">
+    <meta property="article:modified_time" content="2025-08-29T23:15:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Compound 收益计算">
+<meta name="twitter:description" content="
+tags: Blockchain, DeFi, ETH, AAVE 收益计算
+
+有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益1，首先来查看 balanceOf2
+/**
+ * @notice Query the current positive base balance of an account or zero
+ * @dev Note: uses updated interest indices to calculate
+ * @param account The account whose balance to query
+ * @return The present day base balance magnitude of the account, if positive
+ */
+function balanceOf(address account) override public view returns (uint256) {
+    (uint64 baseSupplyIndex_, ) = accruedInterestIndices(getNowInternal() - lastAccrualTime);
+    int104 principal = userBasic[account].principal;
+    return principal &gt; 0 ? presentValueSupply(baseSupplyIndex_, unsigned104(principal)) : 0;
+}
+这里用到两个变量：principal 和 baseSupplyIndex，principal 可以通过 userBasic(address) 读取3，但是 baseSupplyIndex 只能通过合约读取，无法在链下获取，
+仔细研究presentValueSupply4：">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://notes.0081800.xyz/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Compound 收益计算",
+      "item": "https://notes.0081800.xyz/notes/20250829231529-compound_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Compound 收益计算",
+  "name": "Compound 收益计算",
+  "description": " tags: Blockchain, DeFi, ETH, AAVE 收益计算 有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益1，首先来查看 balanceOf2\n/** * @notice Query the current positive base balance of an account or zero * @dev Note: uses updated interest indices to calculate * @param account The account whose balance to query * @return The present day base balance magnitude of the account, if positive */ function balanceOf(address account) override public view returns (uint256) { (uint64 baseSupplyIndex_, ) = accruedInterestIndices(getNowInternal() - lastAccrualTime); int104 principal = userBasic[account].principal; return principal \u0026gt; 0 ? presentValueSupply(baseSupplyIndex_, unsigned104(principal)) : 0; } 这里用到两个变量：principal 和 baseSupplyIndex，principal 可以通过 userBasic(address) 读取3，但是 baseSupplyIndex 只能通过合约读取，无法在链下获取， 仔细研究presentValueSupply4：\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " tags: Blockchain, DeFi, ETH, AAVE 收益计算 有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益1，首先来查看 balanceOf2\n/** * @notice Query the current positive base balance of an account or zero * @dev Note: uses updated interest indices to calculate * @param account The account whose balance to query * @return The present day base balance magnitude of the account, if positive */ function balanceOf(address account) override public view returns (uint256) { (uint64 baseSupplyIndex_, ) = accruedInterestIndices(getNowInternal() - lastAccrualTime); int104 principal = userBasic[account].principal; return principal \u003e 0 ? presentValueSupply(baseSupplyIndex_, unsigned104(principal)) : 0; } 这里用到两个变量：principal 和 baseSupplyIndex，principal 可以通过 userBasic(address) 读取3，但是 baseSupplyIndex 只能通过合约读取，无法在链下获取， 仔细研究presentValueSupply4：\n/** * @dev The principal amount projected forward by the supply index */ function presentValueSupply(uint64 baseSupplyIndex_, uint104 principalValue_) internal pure returns (uint256) { return uint256(principalValue_) * baseSupplyIndex_ / BASE_INDEX_SCALE; } baseSupplyIndex 可以通过 balance / principal 获取，下面给出 Go 代码获取 principal：\npackage main import ( \"context\" \"math/big\" \"github.com/ethereum/go-ethereum/common\" \"github.com/ethereum/go-ethereum/common/hexutil\" \"github.com/ethereum/go-ethereum/crypto\" \"github.com/ethereum/go-ethereum/rpc\" \"github.com/shopspring/decimal\" ) func getCompoundUserPrincipal(address string) (decimal.Decimal, error){ userAddress := common.HexToAddress(OperatorEVMAddress) fun := []byte(\"userBasic(address)\") hash := crypto.NewKeccakState() hash.Write(fun) methodID := hash.Sum(nil)[:4] var data []byte data = append(data, methodID...) data = append(data, common.LeftPadBytes(userAddress.Bytes(), 32)...) callMsg := map[string]interface{}{ \"from\": userAddress, \"to\": common.HexToAddress(sp.goal.FoundsToken), \"data\": hexutil.Bytes(data), } var result string rpcClient, err := rpc.DialHTTP(client.url) if err != nil { return decimal.Zero, err } err := rpcClient.CallContext(context.TODO(), callMsg, \u0026result, blockNumber) if err != nil { return decimal.Zero, err } // XXX: 这里不知为什么 int104 占了 uint256 的大小 principal := new(big.Int).SetBytes(common.FromHex(result[:66])) return principal, nil } 获取 balance 的代码就省略了，其实可以简单的 balance - principal 即可算出收益。\n这里计算的是收益，而不是奖励的 COMP 代币。 ↩︎\nhttps://github.com/compound-finance/comet/blob/611828beb887bd42f1ca21eaa1c293291ee12461/contracts/Comet.sol#L1346C31-L1347C31 ↩︎\nhttps://docs.compound.finance/helper-functions/ ↩︎\nhttps://github.com/compound-finance/comet/blob/611828beb887bd42f1ca21eaa1c293291ee12461/contracts/CometCore.sol#L87-L92 ↩︎\n",
+  "wordCount" : "246",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T23:15:00+08:00",
+  "dateModified": "2025-08-29T23:15:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Gray King"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://notes.0081800.xyz/notes/20250829231529-compound_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Taking Smart Notes With Org-mode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://notes.0081800.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://notes.0081800.xyz/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://notes.0081800.xyz/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Compound 收益计算
+    </h1>
+    <div class="post-meta"><span title='2025-08-29 23:15:00 +0800 +0800'>August 29, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King
+
+</div>
+  </header> 
+
+  <div class="post-content"><ul>
+<li>tags: <a href="/notes/20210804115349-%E5%8C%BA%E5%9D%97%E9%93%BE/">Blockchain</a>, <a href="/notes/20220825151036-defi/">DeFi</a>, <a href="/notes/20220104081524-eth/">ETH</a>, <a href="/notes/20250829224557-aave_%E6%94%B6%E7%9B%8A%E8%AE%A1%E7%AE%97/">AAVE 收益计算</a></li>
+</ul>
+<p>有了前面的 AAVE 收益计算，我们采用相同的思路来查看如何计算 Compound 的收益<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，首先来查看 <code>balanceOf</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @notice Query the current positive base balance of an account or zero
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @dev Note: uses updated interest indices to calculate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param account The account whose balance to query
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return The present day base balance magnitude of the account, if positive
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">balanceOf</span>(<span style="color:#66d9ef">address</span> account) <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">view</span> <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">uint256</span>) {
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">uint64</span> baseSupplyIndex_, ) <span style="color:#f92672">=</span> accruedInterestIndices(getNowInternal() <span style="color:#f92672">-</span> lastAccrualTime);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int104</span> principal <span style="color:#f92672">=</span> userBasic[account].principal;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> principal <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> presentValueSupply(baseSupplyIndex_, unsigned104(principal)) <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这里用到两个变量：<code>principal</code> 和 <code>baseSupplyIndex</code>，<code>principal</code> 可以通过 <code>userBasic(address)</code> 读取<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，但是 <code>baseSupplyIndex</code> 只能通过合约读取，无法在链下获取，
+仔细研究<code>presentValueSupply</code><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @dev The principal amount projected forward by the supply index
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">presentValueSupply</span>(<span style="color:#66d9ef">uint64</span> baseSupplyIndex_, <span style="color:#66d9ef">uint104</span> principalValue_) <span style="color:#66d9ef">internal</span> <span style="color:#66d9ef">pure</span> <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">uint256</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">uint256</span>(principalValue_) <span style="color:#f92672">*</span> baseSupplyIndex_ <span style="color:#f92672">/</span> BASE_INDEX_SCALE;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>baseSupplyIndex</code> 可以通过 <code>balance / principal</code> 获取，下面给出 Go 代码获取 <code>principal</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;math/big&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;github.com/ethereum/go-ethereum/common&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;github.com/ethereum/go-ethereum/common/hexutil&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;github.com/ethereum/go-ethereum/crypto&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;github.com/ethereum/go-ethereum/rpc&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;github.com/shopspring/decimal&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getCompoundUserPrincipal</span>(<span style="color:#a6e22e">address</span> <span style="color:#66d9ef">string</span>) (<span style="color:#a6e22e">decimal</span>.<span style="color:#a6e22e">Decimal</span>, <span style="color:#66d9ef">error</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">userAddress</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">common</span>.<span style="color:#a6e22e">HexToAddress</span>(<span style="color:#a6e22e">OperatorEVMAddress</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fun</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#e6db74">&#34;userBasic(address)&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">hash</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">NewKeccakState</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">hash</span>.<span style="color:#a6e22e">Write</span>(<span style="color:#a6e22e">fun</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">methodID</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">hash</span>.<span style="color:#a6e22e">Sum</span>(<span style="color:#66d9ef">nil</span>)[:<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> []<span style="color:#66d9ef">byte</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data</span> = append(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">methodID</span><span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data</span> = append(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">common</span>.<span style="color:#a6e22e">LeftPadBytes</span>(<span style="color:#a6e22e">userAddress</span>.<span style="color:#a6e22e">Bytes</span>(), <span style="color:#ae81ff">32</span>)<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">callMsg</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;from&#34;</span>: <span style="color:#a6e22e">userAddress</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;to&#34;</span>:   <span style="color:#a6e22e">common</span>.<span style="color:#a6e22e">HexToAddress</span>(<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">goal</span>.<span style="color:#a6e22e">FoundsToken</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;data&#34;</span>: <span style="color:#a6e22e">hexutil</span>.<span style="color:#a6e22e">Bytes</span>(<span style="color:#a6e22e">data</span>),
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">rpcClient</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rpc</span>.<span style="color:#a6e22e">DialHTTP</span>(<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">url</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">decimal</span>.<span style="color:#a6e22e">Zero</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rpcClient</span>.<span style="color:#a6e22e">CallContext</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">TODO</span>(), <span style="color:#a6e22e">callMsg</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">blockNumber</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">decimal</span>.<span style="color:#a6e22e">Zero</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// XXX: 这里不知为什么 int104 占了 uint256 的大小</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">principal</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">big</span>.<span style="color:#a6e22e">Int</span>).<span style="color:#a6e22e">SetBytes</span>(<span style="color:#a6e22e">common</span>.<span style="color:#a6e22e">FromHex</span>(<span style="color:#a6e22e">result</span>[:<span style="color:#ae81ff">66</span>]))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">principal</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>获取 <code>balance</code> 的代码就省略了，其实可以简单的 <code>balance - principal</code> 即可算出收益。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>这里计算的是收益，而不是奖励的 <code>COMP</code> 代币。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://github.com/compound-finance/comet/blob/611828beb887bd42f1ca21eaa1c293291ee12461/contracts/Comet.sol#L1346C31-L1347C31">https://github.com/compound-finance/comet/blob/611828beb887bd42f1ca21eaa1c293291ee12461/contracts/Comet.sol#L1346C31-L1347C31</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://docs.compound.finance/helper-functions/">https://docs.compound.finance/helper-functions/</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://github.com/compound-finance/comet/blob/611828beb887bd42f1ca21eaa1c293291ee12461/contracts/CometCore.sol#L87-L92">https://github.com/compound-finance/comet/blob/611828beb887bd42f1ca21eaa1c293291ee12461/contracts/CometCore.sol#L87-L92</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr />
+
+  <div class="bl-section">
+    <h4>No notes link to this note</h4>
+  </div>
+
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
