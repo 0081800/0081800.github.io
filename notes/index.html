@@ -172,7 +172,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p> tags: Blogchain, ETH, DeFi AAVE 的收益直接体现在接收的 AToken 上，比如 aEthUSDT，可以通过 balanceOf 查询代币余额，余额及本金&#43;收益， 所以思路是看下 balanceOf 的实现即可推算出计算收益的方式，其实现如下1：
+    <p> tags: Blockchain, ETH, DeFi AAVE 的收益直接体现在接收的 AToken 上，比如 aEthUSDT，可以通过 balanceOf 查询代币余额，余额及本金&#43;收益， 所以思路是看下 balanceOf 的实现即可推算出计算收益的方式，其实现如下1：
 /// @inheritdoc IERC20 function balanceOf( address user ) public view virtual override(IncentivizedERC20, IERC20) returns (uint256) { return super.balanceOf(user).rayMul(POOL.getReserveNormalizedIncome(_underlyingAsset)); } 上面代码调用标准的 IERC20 获取用户的余额，代表了用户的原始投入，然后乘了一个系数，这个系数应该就是代表了用户的收益，对应的实现2:
 /// @inheritdoc IPool function getReserveNormalizedIncome( address asset ) external view virtual override returns (uint256) { return _reserves[asset].getNormalizedIncome(); } 继续跟踪代码3：
 /** * @notice Returns the ongoing normalized income for the reserve. * @dev A value of 1e27 means there is no income. As time passes, the income is accrued * @dev A value of 2*1e27 means for each unit of asset one unit of income has been accrued * @param reserve The reserve object * @return The normalized income, expressed in ray */ function getNormalizedIncome( DataTypes.ReserveData storage reserve ) internal view returns (uint256) { uint40 timestamp = reserve.lastUpdateTimestamp; //solium-disable-next-line if (timestamp == block.timestamp) { //if the index was updated in the same block, no need to perform any calculation return reserve.liquidityIndex; } else { return MathUtils.calculateLinearInterest(reserve.currentLiquidityRate, timestamp).rayMul( reserve.liquidityIndex ); } } 可以看到这里涉及一个 reserve.liquidityIndex 的存储变量，通过查阅文档我们可以通过 Pool.getReserveData(address asset) 来获取4:
