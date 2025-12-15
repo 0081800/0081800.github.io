@@ -366,7 +366,8 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <li>输入格式支持：文本文件、<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/SequenceFileInputFormat.html">SequenceFiles</a> 和任何其他 Hadoop <a href="http://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/InputFormat.html">InputFormat</a></li>
 </ul>
 <blockquote>
-<p>如果是本地文件系统，则文件需要存在与所有 Worker 节点上。</p></blockquote>
+<p>如果是本地文件系统，则文件需要存在与所有 Worker 节点上。</p>
+</blockquote>
 <h4 id="spark-transformations-vs-actions">Spark Transformations vs Actions<a hidden class="anchor" aria-hidden="true" href="#spark-transformations-vs-actions">#</a></h4>
 <p>Spark 支持两种操作类型：</p>
 <ul>
@@ -391,7 +392,8 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 </span></span></code></pre></div><p>上面 environment 是提交的时候需要在 <code>--archives</code> 缀上的:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>spark-submit --archives pyspark_conda_env.tar.gz#environment app.py
 </span></span></code></pre></div><blockquote>
-<p>Note that <code>PYSPARK_DRIVER_PYTHON</code> above should not be set for cluster modes in YARN or Kubernetes.</p></blockquote>
+<p>Note that <code>PYSPARK_DRIVER_PYTHON</code> above should not be set for cluster modes in YARN or Kubernetes.</p>
+</blockquote>
 <h2 id="spark-管理-python-依赖">Spark 管理 Python 依赖<a hidden class="anchor" aria-hidden="true" href="#spark-管理-python-依赖">#</a></h2>
 <h3 id="yarn">YARN<a hidden class="anchor" aria-hidden="true" href="#yarn">#</a></h3>
 <p>支持 <code>--archives</code> 参数上传打包好的环境信息，主要三种方式：</p>
@@ -431,6 +433,12 @@ spark.sql.orc.impl=hive
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

@@ -790,6 +790,12 @@ tags: Binary Search Tree, AVL Tree,Tree
    
 
    
+
+   
+
+   
+
+   
       
    
 
@@ -1882,7 +1888,7 @@ tags: Binary Search Tree, AVL Tree,Tree
             <div class="entry-content">
               <p> tags: C/C&#43;&#43; source: GeeksforGeeks. “Set vs Unordered_set in C&#43;&#43; STL,” May 28, 2018. https://www.geeksforgeeks.org/set-vs-unordered_set-c-stl/. set Ordered set that implemented by a “Self balancing BST” like Red-Black Tree.
 Extra find operations equal_range returns range of elements matching a specific key lower_bound returns an iterator to the first element not less than the given key upper_bound returns an iterator to the first element greater than the given key #include &lt;iostream&gt; #include &lt;set&gt; #include &lt;assert.h&gt; using namespace std; int main(void) { set&lt;int&gt; hset; hset.insert(5); hset.insert(8); hset.insert(13); { // Lower bound equal or greater than auto iter = hset.lower_bound(5); assert(*iter == 5); // 5&#39;s lower bound is 5 itself in the set } { // Upper bound greater than 5 auto iter = hset.upper_bound(5); assert(*iter == 8); // 5&#39;s upper bound is the first value greater than itself } } unordered_set Set that implemented by Hash Table.
-...</p>
+</p>
             </div>
             <footer class="entry-footer"><span title='2022-03-12 21:50:00 +0800 +0800'>March 12, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to set vs unordered_set in C&#43;&#43; STL" href="https://notes.0081800.xyz/notes/20220312215003-set_vs_unordered_set_in_c_stl/"></a>

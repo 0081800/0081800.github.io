@@ -381,22 +381,22 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。</p>
 <p>创建 <code>swagger/swagger.go</code> 填充如下内容：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Package swagger defines API documentation.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Swagger 演示后端接口</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//    Schemes: http</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Swagger 演示后端接口</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    Schemes: http</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    Host: 10.200.242.35:8080</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    BasePath: /api/</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    Version: 0.1.0</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    Contact: 王会&lt;hui.wang.a@17zuoye.com&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//    Consumes:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    Consumes:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    - application/json</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//    Produces:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    Produces:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    - application/vnd.17zuoye.v1+json</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// swagger:meta</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// swagger:meta</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">swagger</span>
 </span></span></code></pre></div><p>上面文件通过注释来定义了一些接口相关的信息，包括：</p>
 <ul>
@@ -456,10 +456,10 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// swagger:route POST /users users-create</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 创建用户。</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Responses:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// 创建用户。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// Responses:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   default: DefaultResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   201: UserResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">CreateUser</span>)
@@ -498,22 +498,22 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>接下来调整 <code>swagger/swagger.go</code> 定义 <code>DefaultResponse</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Package swagger defines API documentation.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Swagger 演示后端接口</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//    Schemes: http</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Swagger 演示后端接口</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    Schemes: http</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    Host: 10.200.242.35:8080</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    BasePath: /api/</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    Version: 0.1.0</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    Contact: 王会&lt;hui.wang.a@17zuoye.com&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//    Consumes:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    Consumes:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    - application/json</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//    Produces:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    Produces:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//    - application/vnd.17zuoye.v1+json</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// swagger:meta</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// swagger:meta</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">swagger</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Default default entity</span>
@@ -630,19 +630,19 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// swagger:route POST /users users-create</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 创建用户。</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Responses:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// 创建用户。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// Responses:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   default: DefaultResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   201: UserResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">CreateUser</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// swagger:route GET /users users-query</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 查询用户。</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Respones:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// 查询用户。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// Respones:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   default: DefaultResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   200: UsersResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">QueryUsers</span>)
@@ -721,28 +721,28 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// swagger:route POST /users users-create</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 创建用户。</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Responses:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// 创建用户。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// Responses:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   default: DefaultResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   201: UserResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">CreateUser</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// swagger:route GET /users users-query</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 查询用户。</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Responses:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// 查询用户。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// Responses:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   default: DefaultResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   200: UsersResponse</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">QueryUsers</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// swagger:operation PATCH /users/{userId} users-update</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 更新用户信息。</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ---</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// 更新用户信息。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// ---</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// parameters:</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// - in: path</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   name: userId</span>
@@ -772,6 +772,12 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

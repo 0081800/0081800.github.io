@@ -247,14 +247,16 @@ Given that Flink recovers from faults by rewinding and replaying the source data
 <li>Nothing is lost or duplicated (exactly once)</li>
 </ul>
 <blockquote>
-<p>Given that Flink recovers from faults by rewinding and replaying the source data streams, when the ideal situation is described as exactly once this does not mean that every event will be processed exactly once. Instead, it means that every event will affect the state being managed by Flink exactly once.</p></blockquote>
+<p>Given that Flink recovers from faults by rewinding and replaying the source data streams, when the ideal situation is described as exactly once this does not mean that every event will be processed exactly once. Instead, it means that every event will affect the state being managed by Flink exactly once.</p>
+</blockquote>
 <h2 id="exactly-once-end-to-end">Exactly Once End-to-end<a hidden class="anchor" aria-hidden="true" href="#exactly-once-end-to-end">#</a></h2>
 <blockquote>
 <p>To achieve exactly once end-to-end, so that every event from the sources affects the sinks exactly once, the following must be true:</p>
 <ol>
 <li>your sources must be replayable, and</li>
 <li>your sinks must be transactional (or idempotent)</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 
 
   </div>
@@ -264,6 +266,12 @@ Given that Flink recovers from faults by rewinding and replaying the source data
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

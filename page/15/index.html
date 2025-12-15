@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.147.2"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.152.2"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -149,6 +149,60 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">模块化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>包、crate 和模块 Cargo.toml 表示一个包
+包含 0 个或 1 个库 crate（ src/lib.rs ） 包含 0 个或多个可执行 crate （ src/main.rs src/bin/*.rs ） 可以同时包含以上两种 模块化系统
+模块，一种组织代码和控制路径隐私的方法
+所有的项（函数，方法，结构体，枚举，模块和常量）默认私有 不允许使用私有的子模块的代码 可以使用父模块和同级模块的代码 路径，一种命名项的方法
+use , 一个将路径带到当前作用域的关键字
+pub ，一个将项公开的关键字
+as ，一个将带到当前作用域项重命名的关键字
+super , 一个相当于文件系统里 .. 作用的关键字
+* ，通配符用于使用制定路径下的所有项
+pub use 用于重新暴露可以访问的模块
+模块可以放在一个文件，也可以按照一定规则拆分到不同文件下
+使用同一个 use 清理嵌套的 use
+use std::cmp::Ordering; use std::io; use std::{cmp::Ordering, io}; use std::io; use std::io::Write; use std::{self, Write}; mod sound { pub mod instrument { pub mod woodwind { pub fn clarinet() { super::breathe_in(); } } fn breathe_in() { } } mod voice { } } fn main() { // 绝对路径以 crate 开始，crate 表示根 crate::sound::instrument::woodwind::clarinet(); // 相对路径 sound::instrument::woodwind::clarinet(); } 上面例子 sound 模块并非公开，但是由于 main 和 sound 定义在同一模块下，所以允许在 main 中引用 sound 。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 模块化" href="https://notes.0081800.xyz/notes/20200629180233-%E6%A8%A1%E5%9D%97%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">模式匹配
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>#[derive(Debug)] enum UsState { Alabama, Alaska, } enum Coin { Penny, Nickel, Dime, Quarter(UsState), } fn value_cents(coin: Coin) -&gt; u8 { match coin { Coin::Peny =&gt; { println!(&#34;Lucy penny!&#34;); 1 }, Coin::Nickel =&gt; 5, Coin::Dime =&gt; 10, Coin::Quarter(state) =&gt; { println!(&#34;State quarter from {:?}!&#34;, state); 25 }, } } // Option fn plus_one(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; { match x { None =&gt; None, Some(i) =&gt; Some(i &#43; 1), } } let five = Some(5); let six = plus_one(five); let none = plus_one(None); 编译器会检查 match 覆盖所有情况， _ 可以用于所有未覆盖的情况。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:01:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 模式匹配" href="https://notes.0081800.xyz/notes/20200629180131-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">枚举
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 多种类型的集合体，一个类型的变量可以存储多种类型的值，枚举的每一项都是该枚举类型的变体：
+enum IpAddrKind { V4, V6, } fn main() { route(IpAddrKind::V4); route(IpAddrkind::V6); } fn route(kind: IpAddrKind) { // ... } 枚举的每一个变体都可以直接包含数据，并且每一个变体可以包含不同的数据类型和不同的数量，甚至可以直接放结构体（也可以是匿名的）。
+struct Ipv4Addr { // --snip-- } enum IpAddr { V4(Ipv4Addr), V6(String), } let home = IpAddr::V4(127, 0, 0, 1); let loopback = IpAddr::V6(String::from(&#34;::1&#34;)); struct Message { Quit, Move{ x: i32, y: i32 }, // anonymous struct Write(String), ChangeColor(i32, i32, i32), // three i32 values } 枚举也可以通过 impl 实现方法
+impl Message { fn call(&amp;self) { match self { // ... } } } let m = Message::Write(String::from(&#34;hello&#34;)); m.call(); Option
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:00:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 枚举" href="https://notes.0081800.xyz/notes/20200629180041-%E6%9E%9A%E4%B8%BE/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">结构体
     </h2>
   </header>
@@ -163,7 +217,7 @@ struct Color(i32, i32, i32); struct Point(i32, i32, i32); let black = Color(0, 0
 在 Rust 中进行方法调用，如 object.something ，Rust 会自动添加 &amp; &amp;mut 或者 * , 用以自动匹配方法签名。以下是等价的：
 p1.distance(&amp;p2); (&amp;p1).distance(&amp;p2); 方法如果不声明 self 行参则是一个关联方法（静态方法），通过 :: 调用
 struct Rectangle { width: u32, height: u32, } impl Rectangle { fn square(size: u32) -&gt; Rectangle { Rectangle{ width: size, height: size } } } let r = Rectangle::square(10); 每一个结构体可以有多个 impl 块。
-...</p>
+</p>
   </div>
   <footer class="entry-footer"><span title='2020-06-29 17:59:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 结构体" href="https://notes.0081800.xyz/notes/20200629175956-%E7%BB%93%E6%9E%84%E4%BD%93/"></a>
@@ -595,7 +649,7 @@ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen.c
 滴滴云 HAPorxy 配置 117.51.146.119
 frontend v_linuxzen_com bind *:6697 option tcplog mode tcp default_backend v_linuxzen_com_nodes backend v_linuxzen_com_nodes mode tcp balance roundrobin option ssl-hello-chk server webserver1 45.115.36.35:443 check 客户端改动 需要调整 hosts
 $ echo &#39;117.51.146.119 v.linuxzen.com&#39; | sudo tee -a /etc/hosts HK V2Ray Docker 启动 $ docker run -d -p 127.0.0.1:25001:25001 --name v2ray --restart always -v /etc/v2ray:/etc/v2ray v2ray/official HK Let’s Encrypt 证书 $ acme.sh --issue -d linuxzen.com -d www.linuxzen.com -d cwiki.linuxzen.com -d monitor.linuxzen.com -d v.linuxzen.com -d d.linuxzen.com -d piwik.linuxzen.com -d t.linuxzen.com -d wiki.linuxzen.com -d note.linuxzen.com -w /var/www/letsencrypt/ $ acme.sh --install-cert -d linuxzen.com --cert-file /etc/nginx/certs/linuxzen.com/cert.pem --key-file /etc/nginx/certs/linuxzen.com/privkey.pem --fullchain-file /etc/nginx/certs/linuxzen.com/fullchain.pem --reloadcmd &#34;sudo service nginx reload &amp;&amp; docker restart ipsec-vpn-ssl &amp;&amp; docker restart v2ray &amp;&amp; docker restart v2ray2&#34; HK V2Ray 配置 { &#34;log&#34;: { &#34;loglevel&#34;: &#34;debug&#34;, &#34;access&#34;: &#34;/var/log/v2ray/access.log&#34;, &#34;error&#34;: &#34;/var/log/v2ray/error.log&#34; }, &#34;inbounds&#34;: [ { &#34;port&#34;: 25001, &#34;listen&#34;:&#34;0.0.0.0&#34;, &#34;protocol&#34;: &#34;vmess&#34;, &#34;settings&#34;: { &#34;clients&#34;: [ { &#34;id&#34;: &#34;1fde12b8-0cfd-11ea-a4b3-acde48001122&#34;, &#34;alterId&#34;: 64 } ] }, &#34;streamSettings&#34;: { &#34;network&#34;: &#34;ws&#34;, &#34;wsSettings&#34;: { &#34;path&#34;: &#34;/passport&#34; } } } ], &#34;outbounds&#34;: [ { &#34;protocol&#34;: &#34;freedom&#34;, &#34;settings&#34;: {} } ] } HK Nginx 配置 server { listen 80; server_name v.linuxzen.com; return 301 https://$server_name$request_uri; } upstream v2ray { server 127.0.0.1:25001; server 127.0.0.1:25002; } server{ listen 443 http2 ssl fastopen=3 reuseport; # listen 80; server_name v.linuxzen.com; ssl_certificate /etc/nginx/certs/linuxzen.com/fullchain.pem; ssl_certificate_key /etc/nginx/certs/linuxzen.com/privkey.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_prefer_server_ciphers on; ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH&#43;AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ssl_session_timeout 1d; ssl_session_cache shared:SSL:50m; ssl_stapling on; ssl_stapling_verify on; add_header Strict-Transport-Security max-age=15768000; access_log /var/log/nginx/v.linuxzen.com.log; location / { root /srv/www/v.linuxzen.com; index index.html index.htm; } location /passport { proxy_redirect off; proxy_pass http://v2ray; proxy_http_version 1.1; proxy_read_timeout 300s; proxy_send_timeout 300s; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &#34;Upgrade&#34;; proxy_set_header Host $http_host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } include /etc/nginx/snippets/letsencrypt-acme-challenge.conf; } 新增一个域名用于单独的滴滴云加速 使用一个单独的域名 vd.linuxzen.com 用于滴滴云加速，参见Let’s Encrypt。
-...</p>
+</p>
   </div>
   <footer class="entry-footer"><span title='2020-03-19 00:00:00 +0800 +0800'>March 19, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to V2Ray" href="https://notes.0081800.xyz/notes/20200319215535_v2ray/"></a>
@@ -906,57 +960,6 @@ AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
   </div>
   <footer class="entry-footer"><span title='2019-06-15 00:00:00 +0800 +0800'>June 15, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 《领域驱动设计》读书笔记" href="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCode: 316.Remove Duplicate Letters
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: LeetCode 移除小写字母中重复的字母，让所有字母都只出现一次，并且结果是所有结果中按照字典序排序最小的那个。
-Example 1
-Input: “bcabc” Output: “abc” Example 2
-Input: “cbacdcbc” Output: “acdb” 解法之一:
-通过一个数组对每一个出现的字母进行计数 遍历每一个字母放入栈，并将该字母的计数减 1 查看栈底的字母有没有比当前字母大且该字母的计数不为 0 的（有比当前更小的字典序），从栈底弹出该字母 func removeDuplicateLetters(s string) string { var countOfEachLetter [26]int var visited [26]bool stack := make([]byte, 0) stackBottom := 0 bytesArr := []byte(s) for _, c := range bytesArr { countOfEachLetter[getIndex(c)]&#43;&#43; } for _, c := range bytesArr { index := getIndex(c) countOfEachLetter[index]-- if visited[index] { continue } // countOfEachLetter[getIndex(stack[stackBottom])] &gt; 0 后面还有该字符 for len(stack[stackBottom:]) &gt; 0 &amp;&amp; stack[stackBottom] &gt; c &amp;&amp; countOfEachLetter[getIndex(stack[stackBottom])] &gt; 0 { // 标记为未访问用于后面的字符加入结果 visited[getIndex(stack[stackBottom])] = false // 移动栈底 stackBottom&#43;&#43; } // 加入到结果栈 stack = append(stack, c) visited[index] = true } return string(stack[stackBottom:]) } func getIndex(b byte) int { return int(b - &#39;a&#39;) } 通过上面解法遇到如下错误：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-01 00:00:00 +0800 +0800'>May 1, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 316.Remove Duplicate Letters" href="https://notes.0081800.xyz/notes/20200320172625_leetcode_316_remove_duplicate_letters/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCode: 153.Find Minimum in Rotated Sorted Array
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: LeetCode 解法 1 找到中间节点依次往左右扩散：
-向左边扩散，如果左边的大于当前元素，那么当前元素即为最小值 向右边扩散，如果右边的小于当前元素，那么右边元素即为最小值 如果以上不成立则第一个元素为最小元素（未旋转），以下是代码
-func findMin(nums []int) int { length := len(nums) if length == 1 { return nums[0] } // 从中间开始确定方向 mid := length / 2 - 1 left, right := mid, mid for left - 1 &gt;= 0 || right &#43; 1 &lt; length { if left - 1 &gt;= 0 { if nums[left - 1] &gt; nums[left] { return nums[left]; } left-- } if right &#43; 1 &lt; length { if nums[right] &gt; nums[right &#43; 1] { return nums[right &#43; 1] } right&#43;&#43; } } return nums[0] } 优化 参考答案后可通过二分查找做如下优化，首先判断是否被旋转：
-如果数组尾部的元素大于首部的元素则表示数组未被旋转，可以直接返回第一个元素。 由于是从一个有序数组旋转的，所以以上条件可以保证。 然后再判断方向：
-如果所取中间元素大于数组的第一个元素则最小元素在右边 否则最小元素在左边 func findMin(nums []int) int { length := len(nums) if nums[0] &lt;= nums[length - 1]{ return nums[0] } if length == 2 { return nums[1] } left, right := 0, length - 1 for left &lt; right { mid := left &#43; ((right - left) / 2) if nums[mid] &gt; nums[mid &#43; 1] { return nums[mid &#43; 1] } if nums[mid - 1] &gt; nums[mid] { return nums[mid] } if nums[mid] &gt; nums[0] { left = mid &#43; 1 } else { right = mid - 1 } } return -1 } </p>
-  </div>
-  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 153.Find Minimum in Rotated Sorted Array" href="https://notes.0081800.xyz/notes/20200320172433_leetcode_153_find_minimum_in_rotated_sorted_array/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCode: 154.Find Minimum in Rotated Sorted Array II
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: LeetCode 思路 这个是 LeetCode: 153.Find Minimum in Rotated Sorted Array 扩展，增加了以下几种边界情况：
-‘[2, 2, 2, 2, 1]’ ‘[3, 1, 3]’ ‘[1, 1, 1]’ ‘[10, 1, 10, 10, 10]’ 但核心依然是判断最小值是在左边还是右边。假设如下数组：
-‘[3, 3, 3, 1, 3]’
-left[0]=3, right[4]=3, mid[2]=3, 这时候不确定最小值在哪边但是 right– 是安全的，所以执行 right–
-left[0]=3, right[3]=1, mid[2]=3, 这时候 mid &lt; right 说明最小值在 mid 的右边，所以调整 left = mid &#43; 1
-左右两边索引一致终止循环
-实现 func findMin(nums []int) int { length := len(nums) left, right := 0, length - 1 for left &lt; right { mid := (left &#43; right) / 2 if nums[mid] &gt; nums[right] { left = mid &#43; 1 } else if nums[mid] &lt; nums[right] { right = mid } else { right-- } } return nums[right] } </p>
-  </div>
-  <footer class="entry-footer"><span title='2019-04-23 00:00:00 +0800 +0800'>April 23, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to LeetCode: 154.Find Minimum in Rotated Sorted Array II" href="https://notes.0081800.xyz/notes/20200320172319_154_find_minimum_in_rotated_sorted_array_ii/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

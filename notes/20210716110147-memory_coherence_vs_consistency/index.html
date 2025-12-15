@@ -10,7 +10,9 @@
 <meta name="description" content="
 Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
 
-Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).">
+
+Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).
+Memory consistency: A memory consistency model for a shared address space specifies constraints on the order in which memory operations must appear to be performed (i.e. to become visible to the processors) with respect to one another.(when a written value will be returned/seen by a read).">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210716110147-memory_coherence_vs_consistency/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
@@ -62,7 +64,8 @@ Memory coherence: a memory system is coherent if any read of a data item returns
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Memory coherence vs consistency">
   <meta property="og:description" content=" Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
-Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).">
+Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).
+Memory consistency: A memory consistency model for a shared address space specifies constraints on the order in which memory operations must appear to be performed (i.e. to become visible to the processors) with respect to one another.(when a written value will be returned/seen by a read).">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
@@ -73,7 +76,9 @@ Memory coherence: a memory system is coherent if any read of a data item returns
 <meta name="twitter:description" content="
 Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
 
-Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).">
+
+Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).
+Memory consistency: A memory consistency model for a shared address space specifies constraints on the order in which memory operations must appear to be performed (i.e. to become visible to the processors) with respect to one another.(when a written value will be returned/seen by a read).">
 
 
 <script type="application/ld+json">
@@ -102,7 +107,7 @@ Memory coherence: a memory system is coherent if any read of a data item returns
   "@type": "BlogPosting",
   "headline": "Memory coherence vs consistency",
   "name": "Memory coherence vs consistency",
-  "description": " Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.\nMemory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).\n",
+  "description": " Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.\nMemory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).\nMemory consistency: A memory consistency model for a shared address space specifies constraints on the order in which memory operations must appear to be performed (i.e. to become visible to the processors) with respect to one another.(when a written value will be returned/seen by a read).\n",
   "keywords": [
     
   ],
@@ -221,11 +226,13 @@ Memory coherence: a memory system is coherent if any read of a data item returns
 </div>
 
   <div class="post-content"><blockquote>
-<p>Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.</p></blockquote>
+<p>Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.</p>
+</blockquote>
 <blockquote>
 <p>Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).</p>
 <p>Memory consistency: A memory consistency model for a shared address space specifies constraints on the order in which memory operations must appear to be performed (i.e. to become visible to the processors) with respect to one another.(when a written value will be returned/seen by a read).</p>
-<p>Coherence defines the behavior of reads and writes to the same memory location, while consistency defines the behavior of reads and writes with respect to accesses to other locations.</p></blockquote>
+<p>Coherence defines the behavior of reads and writes to the same memory location, while consistency defines the behavior of reads and writes with respect to accesses to other locations.</p>
+</blockquote>
 <p>这里应该想要区分还是<a href="/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/">内存一致性（coherence）</a>和<a href="/notes/20210716111043-%E5%86%85%E5%AD%98%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7_sequential_consistency/">内存顺序一致性（sequential consistency）</a>。</p>
 <h2 id="see-also">See also<a hidden class="anchor" aria-hidden="true" href="#see-also">#</a></h2>
 <ul>
@@ -240,6 +247,12 @@ Memory coherence: a memory system is coherent if any read of a data item returns
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

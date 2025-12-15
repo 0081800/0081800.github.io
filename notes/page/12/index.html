@@ -154,6 +154,49 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">比较-设置
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>利用底层指令集实现比较设置等原子操作。
+See also：https://zh.wikipedia.org/wiki/%E6%AF%94%E8%BE%83%E5%B9%B6%E4%BA%A4%E6%8D%A2
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-28 07:04:00 +0800 +0800'>July 28, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 比较-设置" href="https://notes.0081800.xyz/notes/20210728070407-%E6%AF%94%E8%BE%83_%E8%AE%BE%E7%BD%AE/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">全序
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-27 07:35:00 +0800 +0800'>July 27, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 全序" href="https://notes.0081800.xyz/notes/20210727073548-%E5%85%A8%E5%BA%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">macOS 签名 GDB
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: GDB,macOS macOS 下通过 GDB 调试程序会出现：
+Unable to find Mach task port for process-id 1375: (os/kern) failure (0x5). (please check gdb is codesigned - see taskgated(8)) 需要通过 Keychain Access Application 创建证书： code-sign-cert
+需要对 gdb 进行签名，首先创建 gdb-entitlement.xml ：
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;com.apple.security.cs.debugger&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; 运行签名
+codesign --entitlements gdb-entitlement.xml -fs code-sign-cert $(which gdb) See also: PermissionsDarwin。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-26 18:10:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to macOS 签名 GDB" href="https://notes.0081800.xyz/notes/20210726181021-macos_%E7%AD%BE%E5%90%8D_gdb/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">偏序
     </h2>
   </header>
@@ -412,7 +455,7 @@ C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供�
     <p> 线程的创建前置于（happens bofere）线程的第一个动作。 互斥体 m 的解锁前置于（happens before）任何 后续（subsequent） 对互斥体 m 的锁定。 volatile 变量 v 的写入前置于（happens bofere）任何 后续（subsequent） 对变量 v 的读取。 “后续（subsequent）” 意味着什么？Java 定义了所有锁定、解锁和 volatile 变量访问的行为，给出了整个程序中所有这些操作的总顺序，就像它们发生在某个顺序一致的交错中一样。“后续（subsequent）”指在总顺序中较晚执行。也就是说：锁定、解锁和 volatile 变量的访问的“总顺序”定义了“后续”的含义，“后续”定义了由特定执行创建的“前置于（happens before）”关系，最终“前置于（happens before）”关系定义了该特定执行是否存在数据竞争。如果没有数据竞争，那么执行就会以顺序一致的方式进行。
 事实上， volatile 访问必须表现得像在某种总排序一样，意味这在下面 litmus test 中，不能出现 r1=0 和 r2=0 的结果:
 Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! On ARM/POWER: yes! On Java using volatiles: no. Java 中对 volatile 变量 x 和 y 的读写不能被重新排序：一个线程的写入一定会同步到第二个，紧随着第二个的写入的读取就一定能看到第一个写入。
-...</p>
+</p>
   </div>
   <footer class="entry-footer"><span title='2021-07-16 11:28:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to Java 同步原子（volatile）" href="https://notes.0081800.xyz/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/"></a>
@@ -468,6 +511,7 @@ threads in the system must agree about a total order for the writes to a single 
   <div class="entry-content">
     <p> Coherence deals with maintaining a global order in which writes to a single location or single variable are seen by all processors. Consistency deals with the ordering of operations to multiple locations with respect to all processors.
 Memory coherence: a memory system is coherent if any read of a data item returns the most recently written value of that data item (what values can be returned by a read).
+Memory consistency: A memory consistency model for a shared address space specifies constraints on the order in which memory operations must appear to be performed (i.e. to become visible to the processors) with respect to one another.(when a written value will be returned/seen by a read).
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2021-07-16 11:01:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
@@ -850,48 +894,6 @@ Litmus Test: Message Passing Can this program see r1 = 1, r2 = 0? // Thread 1 //
   </div>
   <footer class="entry-footer"><span title='2021-07-12 15:39:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to litmus test" href="https://notes.0081800.xyz/notes/20210712153952-litmus_test/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">顺序一致性
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Leslie Lamport 1979 年的论文 How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs 定义：
-The customary approach to designing and proving the correctness of multiprocess algorithms for such a computer assumes that the following condition is satisfied: the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program. A multiprocessor satisfying this condition will be called sequentially consistent.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:19:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 顺序一致性" href="https://notes.0081800.xyz/notes/20210712151942-%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">内存一致性模型
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 一致性，Memory Model 当执行给定程序时，硬件和编译器之间的契约，对编译后后的代码对存储在内存中的数据更改的可见性和一致性。 这种契约称为「内存一致性模型（Memeory Consistency Model）」或仅仅是「内存模型（Memory Model）」。
-最初目标是定义程序员编写汇编代码时硬件提供的保证，后来用来定义高级编程语言（如 C&#43;&#43; 或 Java）对该语言编写代码的程序员提供的保证。
-例如下面变量都初始为 0 的情况下，线程 1 和 2 都运行在自己专用的处理器上，都运行到完成，这个程序能打印 0 吗？
-// Thread 1 // Thread 2 x = 1; while(done == 0) { /* loop */ } done = 1; print(x); Memory coherence vs consistency 内存一致性（coherence） 内存顺序一致性（sequential consistency） 硬件 顺序一致性 x86 总存储有序（x86-TSO) ARM/POWER Relaxed Memory Model 弱有序和无数据竞争（DRF） 编程语言内存模型</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 15:05:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 内存一致性模型" href="https://notes.0081800.xyz/notes/20210712150516-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">硬件内存模型
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-07-12 14:32:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 硬件内存模型" href="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

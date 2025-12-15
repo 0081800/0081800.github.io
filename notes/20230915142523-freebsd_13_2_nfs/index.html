@@ -22,7 +22,12 @@ Second, export volume to the network in /etc/exports:
 /data/warehouse -mapall=root -network 192.168.1.0/24
 
 NOTE: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.
-And then we can start the services:">
+
+And then we can start the services:
+service nfsd start
+service statd start
+service lockd start
+You need to stop extra services when you want to restart:">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20230915142523-freebsd_13_2_nfs/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
@@ -76,7 +81,8 @@ And then we can start the services:">
   <meta property="og:description" content=" Tags: FreeBSD First, configure to start service during the bootstrap:
 sysrc nfs_server_enable=&#34;YES&#34; sysrc nfs_server_flags=&#34;-u -t -n 4&#34; sysrc rpcbind_enable=&#34;YES&#34; sysrc rpc_statd_enable=&#34;YES&#34; sysrc rpc_lockd_enable=&#34;YES&#34; sysrc mountd_flags=&#34;-r&#34; sysrc mountd_enable=&#34;YES&#34; Second, export volume to the network in /etc/exports:
 /data/warehouse -mapall=root -network 192.168.1.0/24 NOTE: you shouldn’t export the pool root while you are using ZFS, as it can’t show the children in a datasets of it.
-And then we can start the services:">
+And then we can start the services:
+service nfsd start service statd start service lockd start You need to stop extra services when you want to restart:">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
@@ -99,7 +105,12 @@ Second, export volume to the network in /etc/exports:
 /data/warehouse -mapall=root -network 192.168.1.0/24
 
 NOTE: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.
-And then we can start the services:">
+
+And then we can start the services:
+service nfsd start
+service statd start
+service lockd start
+You need to stop extra services when you want to restart:">
 
 
 <script type="application/ld+json">
@@ -128,7 +139,7 @@ And then we can start the services:">
   "@type": "BlogPosting",
   "headline": "FreeBSD 13.2 NFS",
   "name": "FreeBSD 13.2 NFS",
-  "description": " Tags: FreeBSD First, configure to start service during the bootstrap:\nsysrc nfs_server_enable=\u0026#34;YES\u0026#34; sysrc nfs_server_flags=\u0026#34;-u -t -n 4\u0026#34; sysrc rpcbind_enable=\u0026#34;YES\u0026#34; sysrc rpc_statd_enable=\u0026#34;YES\u0026#34; sysrc rpc_lockd_enable=\u0026#34;YES\u0026#34; sysrc mountd_flags=\u0026#34;-r\u0026#34; sysrc mountd_enable=\u0026#34;YES\u0026#34; Second, export volume to the network in /etc/exports:\n/data/warehouse -mapall=root -network 192.168.1.0/24 NOTE: you shouldn\u0026rsquo;t export the pool root while you are using ZFS, as it can\u0026rsquo;t show the children in a datasets of it.\nAnd then we can start the services:\n",
+  "description": " Tags: FreeBSD First, configure to start service during the bootstrap:\nsysrc nfs_server_enable=\u0026#34;YES\u0026#34; sysrc nfs_server_flags=\u0026#34;-u -t -n 4\u0026#34; sysrc rpcbind_enable=\u0026#34;YES\u0026#34; sysrc rpc_statd_enable=\u0026#34;YES\u0026#34; sysrc rpc_lockd_enable=\u0026#34;YES\u0026#34; sysrc mountd_flags=\u0026#34;-r\u0026#34; sysrc mountd_enable=\u0026#34;YES\u0026#34; Second, export volume to the network in /etc/exports:\n/data/warehouse -mapall=root -network 192.168.1.0/24 NOTE: you shouldn\u0026rsquo;t export the pool root while you are using ZFS, as it can\u0026rsquo;t show the children in a datasets of it.\nAnd then we can start the services:\nservice nfsd start service statd start service lockd start You need to stop extra services when you want to restart:\n",
   "keywords": [
     
   ],
@@ -247,7 +258,8 @@ And then we can start the services:">
 </span></span></code></pre></div><p>Second, export volume to the network in <code>/etc/exports</code>:</p>
 <pre tabindex="0"><code class="language-fundamental" data-lang="fundamental">/data/warehouse -mapall=root -network 192.168.1.0/24
 </code></pre><blockquote>
-<p><strong>NOTE</strong>: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.</p></blockquote>
+<p><strong>NOTE</strong>: you shouldn&rsquo;t export the pool root while you are using ZFS, as it can&rsquo;t show the children in a datasets of it.</p>
+</blockquote>
 <p>And then we can start the services:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>service nfsd start
 </span></span><span style="display:flex;"><span>service statd start
@@ -269,6 +281,12 @@ And then we can start the services:">
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

@@ -268,7 +268,8 @@ Also note that there is a lock contention on the UDP receive buffer side, see Ri
 <p><code>SO_REUSEPORT</code> to avoid the lock on the UDP receive buffer.</p>
 <blockquote>
 <p>When this flag is set on a socket descriptor, Linux will allow many processes to bind to the same port. In fact, any number of processes will be allowed to bind and the load will be spread across them.</p>
-<p>With SO_REUSEPORT each of the processes will have a separate socket descriptor. Therefore each will own a dedicated UDP receive buffer. This avoids the contention issues previously encountered:</p></blockquote>
+<p>With SO_REUSEPORT each of the processes will have a separate socket descriptor. Therefore each will own a dedicated UDP receive buffer. This avoids the contention issues previously encountered:</p>
+</blockquote>
 </li>
 </ol>
 
@@ -280,6 +281,12 @@ Also note that there is a lock contention on the UDP receive buffer side, see Ri
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

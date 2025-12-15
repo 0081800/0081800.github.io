@@ -4,7 +4,7 @@
     <title>Articles on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/articles/</link>
     <description>Recent content in Articles on Taking Smart Notes With Org-mode</description>
-    <generator>Hugo -- 0.147.2</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 01 Nov 2023 15:54:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
@@ -216,7 +216,8 @@ See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-provide
 &lt;p&gt;用 Rust future！就是这么简单！直到我们发现并非如此。所以我们先探索简单的部分，然后继续探索困难部分而不是等它慢慢靠近我们。&lt;/p&gt;
 &lt;h2 id=&#34;起步&#34;&gt;起步&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Choo choo here comes the easy part 🚂💨&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Choo choo here comes the easy part 🚂💨&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;我们创建一个新的项目：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;$ cargo new waytoodeep
 	 Created binary (application) `waytoodeep` package
@@ -242,7 +243,8 @@ See also: &lt;a href=&#34;https://airflow.apache.org/docs/apache-airflow-provide
 &lt;p&gt;原文链接：&lt;a href=&#34;https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books&#34;&gt;https://superorganizers.substack.com/p/surgical-reading-how-to-read-12-books&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;手术阅读法-如何同时阅读-12-本书&#34;&gt;手术阅读法：如何同时阅读 12 本书&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;译者注：这篇文章让我想起了《如何阅读一本书》这本书，文章中的大部分技巧都能在这本书中找出来，阅读是一门需要学习的技能。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;译者注：这篇文章让我想起了《如何阅读一本书》这本书，文章中的大部分技巧都能在这本书中找出来，阅读是一门需要学习的技能。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;当有人问我如何阅读时我总是会有点尴尬，因为我一般都是同时阅读十几本书。&lt;/p&gt;
 &lt;p&gt;但是我这样阅读并不是为了炫耀 &amp;ndash; 我这么做是因为我觉得这种阅读方式更好，最起码对我来说。&lt;/p&gt;
 &lt;p&gt;这是一个我开发一个叫做 &lt;strong&gt;&lt;strong&gt;手术阅读法（surgical reading）&lt;/strong&gt;&lt;/strong&gt; 的过程，它意味着当我读一本非小说的书籍时，我会专注于尽可能快的从书中找到最有价值的部分并将之剔除。

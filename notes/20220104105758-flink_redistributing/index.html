@@ -212,7 +212,8 @@ Redistributing streams (as between map() and keyBy/window above, as well as betw
 <li>tags: <a href="/notes/20220104105628-flink_parallel_dataflows/">Flink Parallel Dataflows</a></li>
 </ul>
 <blockquote>
-<p>Redistributing streams (as between map() and keyBy/window above, as well as between keyBy/window and Sink) change the partitioning of streams. Each operator subtask sends data to different target subtasks, depending on the selected transformation. Examples are keyBy() (which re-partitions by hashing the key), broadcast(), or rebalance() (which re-partitions randomly). In a redistributing exchange the ordering among the elements is only preserved within each pair of sending and receiving subtasks (for example, subtask[1] of map() and subtask[2] of keyBy/window). So, for example, the redistribution between the keyBy/window and the Sink operators shown above introduces non-determinism regarding the order in which the aggregated results for different keys arrive at the Sink.</p></blockquote>
+<p>Redistributing streams (as between map() and keyBy/window above, as well as between keyBy/window and Sink) change the partitioning of streams. Each operator subtask sends data to different target subtasks, depending on the selected transformation. Examples are keyBy() (which re-partitions by hashing the key), broadcast(), or rebalance() (which re-partitions randomly). In a redistributing exchange the ordering among the elements is only preserved within each pair of sending and receiving subtasks (for example, subtask[1] of map() and subtask[2] of keyBy/window). So, for example, the redistribution between the keyBy/window and the Sink operators shown above introduces non-determinism regarding the order in which the aggregated results for different keys arrive at the Sink.</p>
+</blockquote>
 
 
   </div>
@@ -222,6 +223,12 @@ Redistributing streams (as between map() and keyBy/window above, as well as betw
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

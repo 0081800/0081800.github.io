@@ -12,6 +12,7 @@ tags: Tree
 
 
 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+
 压缩排序文件基于排序字符串表：SSTables。
 LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。
 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
@@ -91,6 +92,7 @@ tags: Tree
 
 
 日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。
+
 压缩排序文件基于排序字符串表：SSTables。
 LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。
 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
@@ -254,7 +256,8 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
 <li>tags: <a href="/notes/20220329160804-tree/">Tree</a></li>
 </ul>
 <blockquote>
-<p>日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。</p></blockquote>
+<p>日志结构合并树（Log-Structured Merge-Tree）：基于合并和压缩排序文件原理的存储引擎通常都被称为 LSM 存储引擎。</p>
+</blockquote>
 <p>压缩排序文件基于<a href="/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/">排序字符串表：SSTables</a>。</p>
 <p>LSM-Tree 基本思想：保存在后台并合并的<a href="/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/">排序字符串表：SSTables</a>。即使数据集远远大于可用内存，仍然能够正常工作。
 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。</p>
@@ -277,6 +280,12 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

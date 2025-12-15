@@ -483,9 +483,11 @@ suite: simple_stmt | NEWLINE INDENT stmt+ DEDENT
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} parser_state;
 </span></span></code></pre></div><p>还有 <a href="https://github.com/python/cpython/blob/3.9/Parser/parser.c">Parser/parser.c</a> 中的注释总结方法：</p>
 <blockquote>
-<p>A parsing rule is represented as a Deterministic Finite-state Automaton (DFA). A node in a DFA represents a stabte of the parser; an arc represents a transition. Transitions are either labeled with terminal symbols or with nonterminals. When the parser decides to follow an arc labeled with a nonterminal, it is invoked recursively with the DFA representing the parsing rule for that as its initial state; when that DFA accepts, the parser that invoked it continues. The parse tree constructed by the recursively called parser is inserted as a child in the current parse tree.</p></blockquote>
+<p>A parsing rule is represented as a Deterministic Finite-state Automaton (DFA). A node in a DFA represents a stabte of the parser; an arc represents a transition. Transitions are either labeled with terminal symbols or with nonterminals. When the parser decides to follow an arc labeled with a nonterminal, it is invoked recursively with the DFA representing the parsing rule for that as its initial state; when that DFA accepts, the parser that invoked it continues. The parse tree constructed by the recursively called parser is inserted as a child in the current parse tree.</p>
+</blockquote>
 <blockquote>
-<p>DFA 代表解析规则。DFA 中节点代表解析器中的状态，arc 表示过渡。过渡用端点或非端点标记。当解析器决定跟随一个 arc 标记的非端点，它是以该解析规则的 DFA 作为它的初始状态递归调用；当 DFA 接受时，调用它的解析器将继续。通过递归的调用构建的解析树作为子树插入当前的解析树中。</p></blockquote>
+<p>DFA 代表解析规则。DFA 中节点代表解析器中的状态，arc 表示过渡。过渡用端点或非端点标记。当解析器决定跟随一个 arc 标记的非端点，它是以该解析规则的 DFA 作为它的初始状态递归调用；当 DFA 接受时，调用它的解析器将继续。通过递归的调用构建的解析树作为子树插入当前的解析树中。</p>
+</blockquote>
 <p>在解析输入的过程中，解析器构建了解析树，也被称作具体语法树（Concrete Syntax Tree，CST）。对比 AST，解析树直接对应输入时对应的规则。解析树的所有节点通过 <code>node</code> 结构体表示：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> _node {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">short</span>               n_type;
@@ -584,6 +586,12 @@ Python 代码问题的更优雅的方案。</p>
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
 
    
 

@@ -1429,6 +1429,12 @@ y = 1                 r2 = x
    
 
    
+
+   
+
+   
+
+   
       
    
 
@@ -1937,7 +1943,7 @@ Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 //
               <p> 线程的创建前置于（happens bofere）线程的第一个动作。 互斥体 m 的解锁前置于（happens before）任何 后续（subsequent） 对互斥体 m 的锁定。 volatile 变量 v 的写入前置于（happens bofere）任何 后续（subsequent） 对变量 v 的读取。 “后续（subsequent）” 意味着什么？Java 定义了所有锁定、解锁和 volatile 变量访问的行为，给出了整个程序中所有这些操作的总顺序，就像它们发生在某个顺序一致的交错中一样。“后续（subsequent）”指在总顺序中较晚执行。也就是说：锁定、解锁和 volatile 变量的访问的“总顺序”定义了“后续”的含义，“后续”定义了由特定执行创建的“前置于（happens before）”关系，最终“前置于（happens before）”关系定义了该特定执行是否存在数据竞争。如果没有数据竞争，那么执行就会以顺序一致的方式进行。
 事实上， volatile 访问必须表现得像在某种总排序一样，意味这在下面 litmus test 中，不能出现 r1=0 和 r2=0 的结果:
 Litmus Test: Store Buffering Can this program see r1 = 0, r2 = 0? // Thread 1 // Thread 2 x = 1 y = 1 r1 = y r2 = x On sequentially consistent hardware: no. On x86 (or other TSO): yes! On ARM/POWER: yes! On Java using volatiles: no. Java 中对 volatile 变量 x 和 y 的读写不能被重新排序：一个线程的写入一定会同步到第二个，紧随着第二个的写入的读取就一定能看到第一个写入。
-...</p>
+</p>
             </div>
             <footer class="entry-footer"><span title='2021-07-16 11:28:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to Java 同步原子（volatile）" href="https://notes.0081800.xyz/notes/20210716112805-java_%E5%90%8C%E6%AD%A5%E5%8E%9F%E5%AD%90_volatile/"></a>

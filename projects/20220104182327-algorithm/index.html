@@ -582,6 +582,12 @@ tags: Computer Systems
    
 
    
+
+   
+
+   
+
+   
       
    
 
@@ -2162,7 +2168,7 @@ We put tortoise back to the beginning they both started. Such as, the first elem
             </header>
             <div class="entry-content">
               <p> tags: Algorithm,Data Structures,Binary Search Tree 分为三种：前序、后序和中序，其中最容易用栈改写的是后序。
-前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processInorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processInorderTraversal(root, ret); return ret; } }; 后序(Postorder)：Left -&gt; Right -&gt; Root class Solution { public: void processPostorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPostorderTraversal(root-&gt;left, collector); processPostorderTraversal(root-&gt;right, collector); collector.push_back(root-&gt;val); } vector&lt;int&gt; postorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPostorderTraversal(root, ret); return ret; } }; 非递归遍历 【刷题】二叉树非递归遍历 ...</p>
+前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processInorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processInorderTraversal(root, ret); return ret; } }; 后序(Postorder)：Left -&gt; Right -&gt; Root class Solution { public: void processPostorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPostorderTraversal(root-&gt;left, collector); processPostorderTraversal(root-&gt;right, collector); collector.push_back(root-&gt;val); } vector&lt;int&gt; postorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPostorderTraversal(root, ret); return ret; } }; 非递归遍历 【刷题】二叉树非递归遍历 </p>
             </div>
             <footer class="entry-footer"><span title='2021-02-20 20:32:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
             <a class="entry-link" aria-label="post link to 二叉树的遍历" href="https://notes.0081800.xyz/notes/20210220203210-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"></a>
