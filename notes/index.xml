@@ -6,8 +6,41 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 15 Dec 2025 09:31:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Feb 2026 15:59:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vibe Coding</title>
+      <link>https://notes.0081800.xyz/notes/20260202155906-vibe_coding/</link>
+      <pubDate>Mon, 02 Feb 2026 15:59:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260202155906-vibe_coding/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Claude Code Setup Without Subscription</title>
+      <link>https://notes.0081800.xyz/notes/20260202155839-claude_code_setup_without_subscription/</link>
+      <pubDate>Mon, 02 Feb 2026 15:58:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260202155839-claude_code_setup_without_subscription/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260202155906-vibe_coding/&#34;&gt;Vibe Coding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;skip-login&#34;&gt;Skip Login&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;~/.claude/settings.json&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;apiKeyHelper&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;echo {apiKey}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;project-settings&#34;&gt;Project settings&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;/path/to/project/.claude/settings.local.json&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;env&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;ANTHROPIC_BASE_URL&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://openrouter.ai/api&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;ANTHROPIC_AUTH_TOKEN&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;FILL-WITH-API-KEY&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;ANTHROPIC_API_KEY&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>从“赚市场价差”（投机）转向“赚公司盈利”（投资）</title>
       <link>https://notes.0081800.xyz/notes/20251215093110-%E4%BB%8E_%E8%B5%9A%E5%B8%82%E5%9C%BA%E4%BB%B7%E5%B7%AE_%E6%8A%95%E6%9C%BA_%E8%BD%AC%E5%90%91_%E8%B5%9A%E5%85%AC%E5%8F%B8%E7%9B%88%E5%88%A9_%E6%8A%95%E8%B5%84/</link>

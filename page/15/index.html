@@ -149,6 +149,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">错误处理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>enum Result&lt;T, E&gt; { Ok(T), Err(E), } ? 操作符 对比
+use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; { let f = File::open(&#34;hello.txt&#34;); let mut f = match f { Ok(file) =&gt; file, Err(e) =&gt; return Err(e), }; let mut s = String::new(); match f.read_to_string(&amp;mut s) { Ok(_) =&gt; Ok(s), Err(e) =&gt; Err(e), } } 和
+use std::io; use std::io::Read; use std::fs::File; fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; { let mut f = File::open(&#34;hello.txt&#34;)?; let mut s = String::new(); f.read_to_string(&amp;mut s)?; Ok(s) } 和
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:03:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to 错误处理" href="https://notes.0081800.xyz/notes/20200629180301-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">if let
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>let some_u8_value = Some(0u8); // Without `if let` match some_u8_value { Some(3) =&gt; println!(&#34;three&#34;); - =&gt; (), } // With `if let` if let Some(3) = some_u8_value { println!(&#34;three&#34;); } </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-06-29 18:02:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <a class="entry-link" aria-label="post link to if let" href="https://notes.0081800.xyz/notes/20200629180202-if_let/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">模块化
     </h2>
   </header>
@@ -919,47 +946,6 @@ Links 〈如何买基金？基金入门，学会这几招就够了〉 </p>
   </div>
   <footer class="entry-footer"><span title='2020-03-07 00:00:00 +0800 +0800'>March 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
   <a class="entry-link" aria-label="post link to 标准差（Standard Deviation）" href="https://notes.0081800.xyz/notes/20200224141925_/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CPI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>:Tags: Financial Management
-消费者物价指数 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-02-24 00:00:00 +0800 +0800'>February 24, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to CPI" href="https://notes.0081800.xyz/notes/20200224133214/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">《领域驱动设计》读书笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: 正在读的书,读书笔记,DDD 前言和目录 好的软件需要控制复杂性，好的领域模型可以帮助控制复杂性。
-什么样的项目需要 DDD？尝试型的小型项目应该不需要 DDD，但是一旦上了规模考虑后续迭代则需要 DDD。
-本书组织方式：
-领域建模 领域建模的过程就是消化知识的过程，这个过程应该贯穿整个开发过程，需要持续学习。
-模型用来描绘人们所关注的实现或想法的某个方面，比如地图就是模型。
-模型是一种简化，是对实现的解释：把与解决问题密切相关的方面抽象出来，而忽略无关的细节。
-软件问题建模的区域就是软件的领域
-物质世界的领域：机票预订程序涉及的飞机乘客。 无形的领域：会计程序的金融领域。 领域涉及知识信息超载的问题，模型这种知识对知识进行了选择性的简化和有意的结构化。
-领域模型将领域专家头脑中的支持严格的组织且有选择的抽象，并不是尽可能建立一个符合“现实”的模型。
-模型表示 关联 规定一个遍历方向：存在双向联结时（地址 -&gt; 人 或 人 -&gt; 地址）尽量只用一种，并避免互相关联 添加一个限定符，以便有效减少多重关联 消除不必要的关联 表示方式 领域模式 实践 MODEL-DRIVEN DESIGN 隔离领域：引入应用层 应用 LAYERED ARCHITECTURE 把领域层划分出来，通过应用层类来处理应用程序功能。应用层类是协调者，负责提问，领域层负责回答。
-将 ENTITY 和 VALUE OBJECT 区分开 依次考虑对象是必须跟踪的 ENTITY 还是表示一个 VALUE OBJECT。
-AGGREGATE 边界 识别模型中的 AGGREGATE 根和对应的边界。
-选择 REPOSITORY 为 AGGREGATE 根对象建立 REPOSITORY。
-场景走查 根据应用程序特性复核建模，进行场景走查，确保能够有效地解决应用问题。可以走查一些正常和异常业务场景进行复核。
-对象创建 如果对象复杂则创建单独的 FACTORY 类进行对象创建，简单对象可以直接在 AGGREGATE 根上通过 FACTORY METHOD 进行创建。
-停一下，重构 建模和设计需要经常进行重构：利用新知识来改进模型和设计。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-06-15 00:00:00 +0800 +0800'>June 15, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 《领域驱动设计》读书笔记" href="https://notes.0081800.xyz/notes/20200320171301_%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
