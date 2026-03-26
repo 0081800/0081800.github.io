@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.0081800.xyz/notes/20260326105014-claude_mem/</loc>
+    <lastmod>2026-03-26T10:50:00+08:00</lastmod>
+  </url><url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2026-02-02T15:59:00+08:00</lastmod>
+    <lastmod>2026-03-26T10:50:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
-    <lastmod>2026-02-02T15:59:00+08:00</lastmod>
+    <lastmod>2026-03-26T10:50:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20260326104842-rtk/</loc>
+    <lastmod>2026-03-26T10:48:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20260326104738-openspec/</loc>
+    <lastmod>2026-03-26T10:47:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20260326104241-claude_relay_service/</loc>
+    <lastmod>2026-03-26T10:42:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20260202155906-vibe_coding/</loc>
     <lastmod>2026-02-02T15:59:00+08:00</lastmod>
