@@ -79,7 +79,53 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;OPENAI_API_KEY&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR Claude Relay Service API KEY&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;nginx&#34;&gt;Nginx&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-fundamental&#34; data-lang=&#34;fundamental&#34;&gt;http {
+  underscores_in_headers on;  # 避免部分带下划线的 HTTP 头被忽略
+  server {
+      # 省略基础配置
+      location ~ ^/(web|admin|api|openai) {
+              # 传递真实用户 IP
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+
+              # 支持 WebSocket / SSE 等流式通信
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection &amp;#34;upgrade&amp;#34;;
+              proxy_buffering off;
+
+              # 长连接 / 超时设置（适合 AI 聊天流式传输）
+              proxy_read_timeout 300s;
+              proxy_send_timeout 300s;
+              proxy_connect_timeout 30s;
+
+              # ---- 安全性设置 ----
+              # 严格 HTTPS 策略 (HSTS)
+              add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubDomains&amp;#34; always;
+
+              # 阻挡点击劫持与内容嗅探
+              add_header X-Frame-Options &amp;#34;DENY&amp;#34; always;
+              add_header X-Content-Type-Options &amp;#34;nosniff&amp;#34; always;
+
+              # Referrer / Permissions 限制策略
+              add_header Referrer-Policy &amp;#34;no-referrer-when-downgrade&amp;#34; always;
+              add_header Permissions-Policy &amp;#34;camera=(), microphone=(), geolocation=()&amp;#34; always;
+
+              # 隐藏服务器信息（等效于 Caddy 的 `-Server`）
+              proxy_hide_header Server;
+
+              # ---- 性能微调 ----
+              # 关闭代理端缓存，确保即时响应（SSE / Streaming）
+              proxy_cache_bypass $http_upgrade;
+              proxy_no_cache $http_upgrade;
+              proxy_request_buffering off;
+              proxy_pass http://crs;
+      }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Vibe Coding</title>
