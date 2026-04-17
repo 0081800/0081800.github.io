@@ -6,8 +6,42 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 26 Mar 2026 10:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 10:27:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agents</title>
+      <link>https://notes.0081800.xyz/notes/20260417102703-agents/</link>
+      <pubDate>Fri, 17 Apr 2026 10:27:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260417102703-agents/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw Use Case</title>
+      <link>https://notes.0081800.xyz/notes/20260417102620-openclaw_use_case/</link>
+      <pubDate>Fri, 17 Apr 2026 10:26:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260417102620-openclaw_use_case/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417102703-agents/&#34;&gt;Agents&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
+&lt;p&gt;OpenClaw 确实有人用，但偏小众，主要价值不是“全自动 agent”，而是做一个带长期记忆、聊天入口和轻量自动化的私人助手底座。&lt;/p&gt;
+&lt;h2 id=&#34;实用场景&#34;&gt;实用场景&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;个人：Obsidian/笔记记忆、待办提醒、体重/健身/药物追踪、新闻和邮件摘要、语言学习陪练&lt;/li&gt;
+&lt;li&gt;工作：软件工程辅助、低风险工作流协调、多系统之间的信息整理&lt;/li&gt;
+&lt;li&gt;家庭：家族历史归档、家庭群问答记录、homelab 价格监控、家人共享助手入口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;评论区共识&#34;&gt;评论区共识&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;适合：记忆、整理、提醒、归档、轻自动化&lt;/li&gt;
+&lt;li&gt;不适合：高权限、高可靠性、长链路自治任务&lt;/li&gt;
+&lt;li&gt;主要问题：脆弱、维护成本高、很多场景可被脚本或直接问通用 LLM 替代&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;一句话判断&#34;&gt;一句话判断&lt;/h2&gt;
+&lt;p&gt;OpenClaw 更像“个人/家庭 AI 胶水层”，不是“万能 AI 员工”。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude Mem</title>
       <link>https://notes.0081800.xyz/notes/20260326105014-claude_mem/</link>
