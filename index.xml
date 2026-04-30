@@ -6,8 +6,37 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 17 Apr 2026 11:05:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 11:15:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Assistance Reduces Persistence and Hurts Independent Performance</title>
+      <link>https://notes.0081800.xyz/notes/20260417111506-ai_assistance_reduces_persistence_and_hurts_independent_performance/</link>
+      <pubDate>Fri, 17 Apr 2026 11:15:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260417111506-ai_assistance_reduces_persistence_and_hurts_independent_performance/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417111412-the_dark_side_of_ai/&#34;&gt;The Dark Side Of AI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://arxiv.org/abs/2604.04721&#34;&gt;https://arxiv.org/abs/2604.04721&lt;/a&gt;, &lt;a href=&#34;https://www.solidot.org/story?sid=84069&#34;&gt;https://www.solidot.org/story?sid=84069&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;研究人员在预印本平台 ArXiv 上发表论文《AI assistance reduces persistence and hurts independent performance》，再次证实 AI 有害大脑。研究人员招募了 350 名美国人，任务是解决一些分数方程。半数参与者被随机分配到 AI 组，他们可从一个基于 OpenAI GPT-5 构建的专用聊天机器人获取帮助，另一半必须独立完成。考试进行到一半时，AI 组的访问权限被切断。此举导致 AI 组的正确答案数量急剧下降，很多人干脆放弃考试。这一结果——成绩和毅力双双下降——在一项包含 670 名参与者的更大规模实验中得到了重复验证。研究人员指出，AI 辅助能提高即时表现，但会带来巨大的认知代价。仅仅使用 AI 十分钟就会让人对这项技术产生依赖，一旦停止使用，会导致表现下降和倦怠。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Dark Side Of AI</title>
+      <link>https://notes.0081800.xyz/notes/20260417111412-the_dark_side_of_ai/</link>
+      <pubDate>Fri, 17 Apr 2026 11:14:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260417111412-the_dark_side_of_ai/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>AI Use Case</title>
+      <link>https://notes.0081800.xyz/notes/20260417111027-ai_use_case/</link>
+      <pubDate>Fri, 17 Apr 2026 11:10:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260417111027-ai_use_case/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>AI Rule Them All</title>
       <link>https://notes.0081800.xyz/notes/20260417110535-ai_rule_them_all/</link>
@@ -23,7 +52,7 @@
       <pubDate>Fri, 17 Apr 2026 11:05:00 +0800</pubDate>
       <guid>https://notes.0081800.xyz/notes/20260417110548-ai_%E5%BC%80%E5%BA%97/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417110535-ai_rule_them_all/&#34;&gt;AI Rule Them All&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417110535-ai_rule_them_all/&#34;&gt;AI Rule Them All&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417111027-ai_use_case/&#34;&gt;AI Use Case&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;source: &lt;a href=&#34;https://andonlabs.com/blog/andon-market-launch&#34;&gt;https://andonlabs.com/blog/andon-market-launch&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;观点&#34;&gt;观点&lt;/h2&gt;
@@ -68,7 +97,7 @@
       <guid>https://notes.0081800.xyz/notes/20260417102620-openclaw_use_case/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;SOURCE: &lt;a href=&#34;https://news.ycombinator.com/item?id=47783940&#34;&gt;https://news.ycombinator.com/item?id=47783940&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417102703-agents/&#34;&gt;Agents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417102703-agents/&#34;&gt;Agents&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417111027-ai_use_case/&#34;&gt;AI Use Case&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
 &lt;p&gt;OpenClaw 确实有人用，但偏小众，主要价值不是“全自动 agent”，而是做一个带长期记忆、聊天入口和轻量自动化的私人助手底座。&lt;/p&gt;
