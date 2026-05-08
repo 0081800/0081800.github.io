@@ -6,8 +6,85 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 17 Apr 2026 11:15:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2026 10:04:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 代劳之后，我们失去了什么？</title>
+      <link>https://notes.0081800.xyz/notes/20260508100444-ai_%E4%BB%A3%E5%8A%B3%E4%B9%8B%E5%90%8E_%E6%88%91%E4%BB%AC%E5%A4%B1%E5%8E%BB%E4%BA%86%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Fri, 08 May 2026 10:04:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260508100444-ai_%E4%BB%A3%E5%8A%B3%E4%B9%8B%E5%90%8E_%E6%88%91%E4%BB%AC%E5%A4%B1%E5%8E%BB%E4%BA%86%E4%BB%80%E4%B9%88/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260417111412-the_dark_side_of_ai/&#34;&gt;The Dark Side Of AI&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260202155906-vibe_coding/&#34;&gt;Vibe Coding&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://larsfaye.com/articles/agentic-coding-is-a-trap&#34;&gt;https://larsfaye.com/articles/agentic-coding-is-a-trap&lt;/a&gt; , &lt;a href=&#34;https://rickyyean.com/2026/05/04/what-do-we-lose-when-ai-does-our-work/&#34;&gt;https://rickyyean.com/2026/05/04/what-do-we-lose-when-ai-does-our-work/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文章一-agentic-coding-is-a-trap&#34;&gt;文章一：Agentic Coding is a Trap&lt;/h2&gt;
+&lt;h3 id=&#34;核心观点&#34;&gt;核心观点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;反对把 coding agent 当成默认主流程，不反对 AI 本身。&lt;/li&gt;
+&lt;li&gt;真正的问题不是“抽象层升级”，而是开发者与代码之间的距离被快速拉大。&lt;/li&gt;
+&lt;li&gt;AI 代理越需要强监督，就越依赖人的编码判断；但过度使用 AI 又会削弱这种判断力，形成悖论。&lt;/li&gt;
+&lt;li&gt;大规模 agentic coding 还会带来 vendor lock-in 和 token 成本失控。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;作者担心的损失&#34;&gt;作者担心的损失&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;编码、调试、问题拆解等核心能力萎缩。&lt;/li&gt;
+&lt;li&gt;初级开发者少了“直接与代码摩擦”的成长过程。&lt;/li&gt;
+&lt;li&gt;高级开发者也会失去对系统的稳定心智模型。&lt;/li&gt;
+&lt;li&gt;团队对模型供应商形成流程依赖，服务波动会直接卡住生产。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;作者给出的实践原则&#34;&gt;作者给出的实践原则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;让 AI 做辅助，而不是做主导。&lt;/li&gt;
+&lt;li&gt;用 AI 生成 spec、plan、伪代码、研究材料，但实现过程保持人深度参与。&lt;/li&gt;
+&lt;li&gt;一次只生成自己能完整 review 的代码量。&lt;/li&gt;
+&lt;li&gt;不把自己完全不会的事交给 agent 黑箱完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文章二-what-do-we-lose-when-ai-does-our-work&#34;&gt;文章二：What do we lose when AI does our work?&lt;/h2&gt;
+&lt;h3 id=&#34;核心观点&#34;&gt;核心观点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;AI 不只是减少执行摩擦，也绕过了“任务启动”本身。&lt;/li&gt;
+&lt;li&gt;但任务启动不只是开始做事，而是同时包含承诺、身份认同、上下文装载、目标澄清与风险承担。&lt;/li&gt;
+&lt;li&gt;当这些过程被 AI 跳过后，产物虽然出来了，人却更容易与工作脱节。&lt;/li&gt;
+&lt;li&gt;这种“不是我亲手长出来的成果”的感觉，会削弱意义感，甚至带来一种轻微空心化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;作者担心的损失&#34;&gt;作者担心的损失&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对工作的 ownership 下降。&lt;/li&gt;
+&lt;li&gt;对任务的情感投资减少，意义感变弱。&lt;/li&gt;
+&lt;li&gt;AI 倾向于生成“中位数答案”，容易让人过早放弃本来值得深挖的想法。&lt;/li&gt;
+&lt;li&gt;“开始”变便宜了，但“真正完成并认领成果”反而更难。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;作者给出的实践方式&#34;&gt;作者给出的实践方式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对不重要、无须投入自我的任务，尽量放心交给 AI。&lt;/li&gt;
+&lt;li&gt;对真正重要的任务，先自己启动，再让 AI 做 thought partner 或 editor。&lt;/li&gt;
+&lt;li&gt;保留“这是我的作品”那段不可替代的摩擦过程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;两文共识&#34;&gt;两文共识&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AI 最危险的地方，不是错误，而是让人逐渐失去能力与参与感。&lt;/li&gt;
+&lt;li&gt;速度不是唯一指标，理解、判断、ownership 更稀缺。&lt;/li&gt;
+&lt;li&gt;对重要工作，AI 更适合做副驾驶，而不是替身。&lt;/li&gt;
+&lt;li&gt;真正长期有价值的，不是“把人排除出流程”，而是“让人保留判断与投入”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;两文差异&#34;&gt;两文差异&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lars Faye 更偏工程治理：代码理解、调试能力、成本、组织依赖。&lt;/li&gt;
+&lt;li&gt;Ricky Yean 更偏心理体验：启动能量、意义感、人与作品的连接。&lt;/li&gt;
+&lt;li&gt;前者关注“人会不会变弱”，后者关注“人会不会变空”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;我自己的简短结论&#34;&gt;我自己的简短结论&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;这两篇文章都不是反 AI，而是反“把 AI 默认设为主脑”。&lt;/li&gt;
+&lt;li&gt;如果任务核心价值在于效率，AI 应该尽量接手。&lt;/li&gt;
+&lt;li&gt;如果任务核心价值在于思考、判断、创造与成长，人必须保留第一手参与。&lt;/li&gt;
+&lt;li&gt;一个实用原则是：把 AI 用在加速理解、润色表达、扩展选项上，而不是直接替代形成理解本身。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;可记住的一句话&#34;&gt;可记住的一句话&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对重要工作：先自己进入问题，再让 AI 放大你；不要先让 AI 替你做完，再由你回头认领。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>AI Assistance Reduces Persistence and Hurts Independent Performance</title>
       <link>https://notes.0081800.xyz/notes/20260417111506-ai_assistance_reduces_persistence_and_hurts_independent_performance/</link>
