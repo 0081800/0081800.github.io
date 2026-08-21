@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@ Hardware Memory Models
 内存一致性模型">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -45,40 +45,44 @@ Hardware Memory Models
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/notes/20210712143220-%E7%A1%AC%E4%BB%B6%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="硬件内存模型">
-  <meta property="og:description" content=" tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:description" content="tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
     <meta property="article:published_time" content="2021-07-12T14:32:00+08:00">
     <meta property="article:modified_time" content="2021-07-12T14:32:00+08:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="硬件内存模型">
-<meta name="twitter:description" content="
-tags: Memory Model,Computer Systems
-Hardware Memory Models
-硬件内存模型
 
-内存模型
-内存一致性模型">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="硬件内存模型">
+  <meta name="twitter:description" content="tags: Memory Model,Computer Systems Hardware Memory Models 硬件内存模型 内存模型 内存一致性模型">
 
 
 <script type="application/ld+json">
@@ -135,31 +139,19 @@ Hardware Memory Models
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -175,7 +167,7 @@ Hardware Memory Models
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -203,29 +195,40 @@ Hardware Memory Models
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/notes/">Notes</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       硬件内存模型
     </h1>
-    <div class="post-meta"><span title='2021-07-12 14:32:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2021-07-12 14:32:00 +0800 +0800'>July 12, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b" aria-label="内存模型">内存模型</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+    <div class="inner"><ul>
+            <li>
+                <a href="#%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b" aria-label="内存模型">内存模型</a>
+            </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><ul>
+  <div class="post-content md-content"><ul>
 <li>tags: <a href="/topics/20220102072550-memory_model/">Memory Model</a>,<a href="/topics/20200802151319-computer_systems/">Computer Systems</a></li>
 <li><a href="https://research.swtch.com/hwmm">Hardware Memory Models</a></li>
 <li><a href="https://colobu.com/2021/06/30/hwmm">硬件内存模型</a></li>
@@ -241,6 +244,14 @@ Hardware Memory Models
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -1966,7 +1977,9 @@ CAP 理论 可线性化与网络延迟 很少有系统真正满足线性化，�
 版本矢量用以区分两个操作是并发还是因果依赖。 Lamport 时间戳主要用于确保全序关系。 时间戳依然不够 某些场景下全序关系依然不能满足需求，比如用户名唯一性要求，为了确认用户名唯一，需要获取所有节点正在进行的请求，查看有没有相同的用户名请求，才能建立全序关系。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-25 07:26:00 +0800 +0800'>July 25, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-07-25 07:26:00 +0800 +0800'>July 25, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 一致性与共识" href="https://notes.0081800.xyz/notes/20210725072621-%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86/"></a>
           </article>
        
@@ -1981,7 +1994,9 @@ threads in the system must agree about a total order for the writes to a single 
 内存一致性的系统都所有线程都必须接受对一个内存地址所有写入的总顺序。换句话说，所有线程必须同意哪些写入可以覆盖另外的一些写入。
 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-16 11:09:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-07-16 11:09:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 内存一致性（coherence）" href="https://notes.0081800.xyz/notes/20210716110953-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7_coherence/"></a>
           </article>
        
@@ -1993,7 +2008,9 @@ threads in the system must agree about a total order for the writes to a single 
             <div class="entry-content">
               <p>内存模型 硬件内存模型 编程语言内存模型 </p>
             </div>
-            <footer class="entry-footer"><span title='2020-08-02 15:13:00 +0800 +0800'>August 2, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-08-02 15:13:00 +0800 +0800'>August 2, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Computer Systems" href="https://notes.0081800.xyz/topics/20200802151319-computer_systems/"></a>
           </article>
        
@@ -2008,22 +2025,31 @@ threads in the system must agree about a total order for the writes to a single 
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2050,25 +2076,25 @@ threads in the system must agree about a total order for the writes to a single 
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

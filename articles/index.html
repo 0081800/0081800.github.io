@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Articles - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/articles/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/articles/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/articles/index.xml" title="rss">
 <link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/articles/">
 <noscript>
     <style>
@@ -40,30 +40,39 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/articles/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/articles/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Articles">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Articles">
-<meta name="twitter:description" content="">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Articles">
 
 
 <script type="application/ld+json">
@@ -81,31 +90,19 @@
 }
 </script>
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -121,7 +118,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -146,7 +143,13 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a></div>
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
   <h1>
     Articles
   </h1>
@@ -162,7 +165,9 @@
 /data/log/app/*/*.log { daily missingok rotate 180 dateext compress delaycompress notifempty create 640 nobody adm sharedscripts postrotate /usr/local/bin/supervisorctl -c /etc/supervisord.conf pid &amp;&amp; kill -USR2 `/usr/local/bin/supervisorctl -c /etc/supervisord.conf pid` &gt; /tmp/kill.log 2&gt;&amp;1 endscript } As you can see, I make the logrotate to send a signal to supervisord after the logs have been rotated, to let the supervisord reopen the logs.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-11-01 15:54:00 +0800 +0800'>November 1, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2023-11-01 15:54:00 +0800 +0800'>November 1, 2023</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd" href="https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/"></a>
 </article>
 
@@ -176,7 +181,9 @@
 package main import ( &#34;errors&#34; &#34;fmt&#34; ) var errRollingInTheDeep = errors.New(&#34;rolling in the deep&#34;) func doSomeActualJob() error { return errRollingInTheDeep } func someFrameworkCaller() error { // We use fmt.Errorf to wrap error. // Notice the &#34;%w&#34; formater here and content surround the &#34;[...]&#34;. return fmt.Errorf(&#34;[someFrameworkCaller] %w&#34;, doSomeActualJob()) } func someEntrance() error { return fmt.Errorf(&#34;[someUpperCaller] %w&#34;, someFrameworkCaller()) } func main() { err := someEntrance() if errors.Is(err, errRollingInTheDeep) { fmt.Println(&#34;This should be&#34;) } else { panic(&#34;Oooops!&#34;) } fmt.Printf(&#34;The final error: %v\n&#34;, err) fmt.Printf(&#34;Unwrap: %v\n&#34;, errors.Unwrap(err)) } Its output:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-10-12 10:12:00 +0800 +0800'>October 12, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-10-12 10:12:00 +0800 +0800'>October 12, 2022</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Wrap & Unwrap errors in Go" href="https://notes.0081800.xyz/articles/20221012101258-wrap_unwrap_errors_in_go/"></a>
 </article>
 
@@ -192,7 +199,9 @@ use actix_web::{get, web, App, HttpServer, Responder}; #[get(&#34;/{id}/{name}/i
 use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(req: HttpRequest) -&gt; impl Responder { let name = req.match_info().get(&#34;name&#34;).unwrap_or(&#34;World&#34;); format!(&#34;Hello {}!&#34;, &amp;name) } #[actix_web::main] async fn main() -&gt; std::io::Result&lt;()&gt; { HttpServer::new(|| { App::new() .route(&#34;/&#34;, web::get().to(greet)) .route(&#34;/{name}&#34;, web::get().to(greet)) }) .bind((&#34;127.0.0.1&#34;, 8080))? .run() .await } 看下来方法 to 的签名，实现一个参数的提取也不困难：
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-21 17:46:00 +0800 +0800'>December 21, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-21 17:46:00 +0800 +0800'>December 21, 2021</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to actix-web extractors 支持提取任意长度的参数" href="https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/"></a>
 </article>
 
@@ -211,7 +220,9 @@ Make DAG Great Again!
 Airflow 介绍 架构 概念 DAG Operator Connection Providers packages See also: Provider packages.
 Spark 介绍 架构 Spark 编程 Spark SQL Hive Table 示例 Airflow &#43; Spark 平台化 Celery Worker as a Spark Driver Celery Worker running on specific platform Windows Bigdata Hive client DAGs 分发 提交 DAG Python 依赖解决 Spark Airflow 外部依赖？ 未来 承接更多的报告需求 对内承接分析任务 可编程、平台化的分析 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-08-26 07:40:00 +0800 +0800'>August 26, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-08-26 07:40:00 +0800 +0800'>August 26, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Airflow powers AI" href="https://notes.0081800.xyz/articles/20210826074053-airflow_powers_ai/"></a>
 </article>
 
@@ -230,7 +241,9 @@ $ cargo new waytoodeep Created binary (application) `waytoodeep` package 我们�
 $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0 Downloaded 1 crate (57.6 KB) in 0.47s Ignored package `cargo-edit v0.7.0` is already installed, use --force to override 因为 cargo-edit 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像 cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中， 但是 cargo add 没有。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;44 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;<span>44 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Understanding Rust futures by going way too deep" href="https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/"></a>
 </article>
 
@@ -261,7 +274,9 @@ $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0
 同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。 你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 – 根据你自己的喜好就行。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-06-28 13:46:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-06-28 13:46:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Surgical Reading: How to Read 12 Books at Once" href="https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/"></a>
 </article>
 
@@ -282,7 +297,9 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 所有者超出作用域，或 正在持有的所有者改变绑定（原始绑定变成 void）。 所有者和借用者的权限（privileges）和限制 这一节基于 Rust Guide 在权限（privileges）一部分提到拷贝和转移。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Rust Borrow and Lifetimes" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/"></a>
 </article>
 
@@ -317,7 +334,9 @@ Transformers
 本地化和物体识别 单发探测器（Single shot detectors） 语义分割（Semantic Segmentation） 姿势估计（Pose Estimation） 深度学习在科学和企业界取得了疯狂的人气。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，每年都出现了越来越多的研究论文并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181.6 亿。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 译：深度学习算法：完整指南" href="https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/"></a>
 </article>
     </main>
@@ -325,22 +344,31 @@ Transformers
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -367,25 +395,25 @@ Transformers
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

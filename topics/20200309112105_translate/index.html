@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@ tags: Learning,Learning English
 ">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/topics/20200309112105_translate/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -41,37 +41,45 @@ tags: Learning,Learning English
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/topics/20200309112105_translate/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/topics/20200309112105_translate/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Translate">
-  <meta property="og:description" content=" tags: Learning,Learning English ">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:description" content="tags: Learning,Learning English">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="topics">
     <meta property="article:published_time" content="2020-03-09T00:00:00+08:00">
     <meta property="article:modified_time" content="2020-03-09T00:00:00+08:00">
     <meta property="article:tag" content="Index">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Translate">
-<meta name="twitter:description" content="
-tags: Learning,Learning English
-">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Translate">
+  <meta name="twitter:description" content="tags: Learning,Learning English">
 
 
 <script type="application/ld+json">
@@ -128,31 +136,19 @@ tags: Learning,Learning English
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -168,7 +164,7 @@ tags: Learning,Learning English
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -196,16 +192,29 @@ tags: Learning,Learning English
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/topics/">Topics</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/topics/">Topics</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       Translate
     </h1>
-    <div class="post-meta"><span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
   </header> 
 
-  <div class="post-content"><ul>
+  <div class="post-content md-content"><ul>
 <li>tags: <a href="/notes/20211231122121-learning/">Learning</a>,<a href="/topics/20210317141621-learning_english/">Learning English</a></li>
 </ul>
 
@@ -218,6 +227,14 @@ tags: Learning,Learning English
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -1943,7 +1960,9 @@ $ cargo new waytoodeep Created binary (application) `waytoodeep` package 我们�
 $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0 Downloaded 1 crate (57.6 KB) in 0.47s Ignored package `cargo-edit v0.7.0` is already installed, use --force to override 因为 cargo-edit 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像 cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中， 但是 cargo add 没有。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;44 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;<span>44 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Understanding Rust futures by going way too deep" href="https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/"></a>
           </article>
        
@@ -1963,7 +1982,9 @@ LLVM 工具集（toolchain）就是这个模型的一个很好的成功的例子
 CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支持 Python 代码和 CPython 虚拟机。不过，CPython 同样实现了三阶段设计。 如果想知道为什么，我们需要更加详细的解释编译器的三阶段的每个阶段。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-10-15 18:28:00 +0800 +0800'>October 15, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-10-15 18:28:00 +0800 +0800'>October 15, 2020</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Python behind the scenes #2: how the CPython compiler works" href="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/"></a>
           </article>
        
@@ -1980,7 +2001,9 @@ $ python script.py 这篇文章将开启一个系列来尝试解答这个问题�
 CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可能是：Python 是一门编程语言。 当正确问相同的问题，那么答案将会更加明确：什么定义了 Python？Python 不像 C 语言有正式的规范， 但是与之相近的是 Python 语言参考（Python Language Reference），它以如下内容开始：
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-09-08 10:36:00 +0800 +0800'>September 8, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-09-08 10:36:00 +0800 +0800'>September 8, 2020</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Python behind the scenes #1: how the CPython VM works" href="https://notes.0081800.xyz/notes/20200908103647-python_behind_the_scenes_1_how_the_cpython_vm_works/"></a>
           </article>
        
@@ -2002,7 +2025,9 @@ Rust 的许多特性都是从其他语言借鉴而来。Rust 之所以变得有�
 fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&#34;skylight&#34;)); // open the input file let mut from_file = try!(File::open(from)); // create a temporary file inside the tempdir let mut tempfile = try!(File::create(&amp;tempdir.path().join(&#34;tmp1&#34;))); // copy the input file into the tempfile try!(io::util::copy(&amp;mut from_file, &amp;mut tempfile)); // use an external program to process the tmpfile in place // after processing, copy the tempfile into the output file let mut out = try!(File::create(to)); io::util::copy(&amp;mut tempfile, &amp;mut out) } 在这个例子中，函数 process 的作用域再第一行创建了 TempDir 是其初始拥有者。在这个例子中， process 函数从未放弃所有权，所以当函数完成调用， 它就会自动被丢弃（dropped），也就是会删除 Tempfile 。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-06-29 18:17:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-06-29 18:17:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Means Never Having to Close a Socket" href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/"></a>
           </article>
        
@@ -2033,7 +2058,9 @@ fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates
 同样，我通常对从头到尾阅读一本书籍不感兴趣，所以我需要删除我需要的信息，当然需要先找找它。我想要的是一本关于本书内容的地图（无论是思维上的还是书面上的）。 你可以使用大脑记忆、记事本、Google Doc 或某些精美的笔记记录系统作为记录机制 – 根据你自己的喜好就行。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-06-28 13:46:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-06-28 13:46:00 +0800 +0800'>June 28, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Surgical Reading: How to Read 12 Books at Once" href="https://notes.0081800.xyz/articles/20200628134657-surgical_reading_how_to_read_12_books_at_once/"></a>
           </article>
        
@@ -2054,7 +2081,9 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 所有者超出作用域，或 正在持有的所有者改变绑定（原始绑定变成 void）。 所有者和借用者的权限（privileges）和限制 这一节基于 Rust Guide 在权限（privileges）一部分提到拷贝和转移。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Borrow and Lifetimes" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/"></a>
           </article>
        
@@ -2089,7 +2118,9 @@ Transformers
 本地化和物体识别 单发探测器（Single shot detectors） 语义分割（Semantic Segmentation） 姿势估计（Pose Estimation） 深度学习在科学和企业界取得了疯狂的人气。从 2012，卷积神经网络（CNN）在图像识别竞赛（ ImageNet Large Scale Visual Recognition Challenge）中获得了惊人的准确性，每年都出现了越来越多的研究论文并且越来越多的企业将神经网络收录到他们的业务中。据估计，深度学习目前的市场规模为 25 亿，预计到 2023 年将达到 181.6 亿。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 译：深度学习算法：完整指南" href="https://notes.0081800.xyz/articles/20200309112133_deep_learning_algorithms/"></a>
           </article>
        
@@ -2104,22 +2135,31 @@ Transformers
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2146,25 +2186,25 @@ Transformers
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

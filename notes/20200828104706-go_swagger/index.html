@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +62,7 @@ package swagger
 上面文件通过注释来定义了一些接口相关的信息，包括：">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -91,91 +91,54 @@ package swagger
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20200828104706-go_swagger/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/notes/20200828104706-go_swagger/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Go Swagger 实现代码即文档">
-  <meta property="og:description" content=" tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
+  <meta property="og:description" content="tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
 代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
 //go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
 paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
 创建 swagger/swagger.go 填充如下内容：
 // Package swagger defines API documentation. // // Swagger 演示后端接口 // // Schemes: http // Host: 10.200.242.35:8080 // BasePath: /api/ // Version: 0.1.0 // Contact: 王会&lt;hui.wang.a@17zuoye.com&gt; // // Consumes: // - application/json // // Produces: // - application/vnd.17zuoye.v1&#43;json // // swagger:meta package swagger 上面文件通过注释来定义了一些接口相关的信息，包括：">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
     <meta property="article:published_time" content="2020-08-28T10:47:00+08:00">
     <meta property="article:modified_time" content="2020-08-28T10:47:00+08:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go Swagger 实现代码即文档">
-<meta name="twitter:description" content="
-tags: Go
 
-目标
-当跟随这篇文章完成后将产出如下内容：
-
-代码 http://gitlab.17zuoye.net/vgo/go-swagger-example
-文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json
-
-准备
-
-Go1.14 及以上版本
-安装 go-swagger ：参见 官方文档。
-接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架
-
-创建一个项目
-$ mkdir go-swagger-example
-$ cd go-swagger-example/
-$ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
-开始使用
-首先在你的 `main.go` 定义 go generate 像下面这样：
-//go:generate swagger generate spec -o ./swagger.yml
-package main
-
-func main() {
-		println(&#34;Hello world!&#34;);
-}
-此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
-paths: {}
-swagger: &#34;2.0&#34;
-使用单独的包托管 swagger 相关定义
-在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。
-所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Go Swagger 实现代码即文档">
+  <meta name="twitter:description" content="tags: Go 目标 当跟随这篇文章完成后将产出如下内容：
+代码 http://gitlab.17zuoye.net/vgo/go-swagger-example 文档 http://swagger.17zuoye.net/?url=http%3A%2F%2F10.200.242.61%3A9090%2Fswagger.json 准备 Go1.14 及以上版本 安装 go-swagger ：参见 官方文档。 接下来使用 gin 框架作为示例，如果之前没接触过可以先了解下该框架 创建一个项目 $ mkdir go-swagger-example $ cd go-swagger-example/ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example 开始使用 首先在你的 `main.go` 定义 go generate 像下面这样：
+//go:generate swagger generate spec -o ./swagger.yml package main func main() { println(&#34;Hello world!&#34;); } 此时如果运行 go generate 在项目目录下就会生成一个 swagger.yml 文件：
+paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。
 创建 swagger/swagger.go 填充如下内容：
-// Package swagger defines API documentation.
-//
-// Swagger 演示后端接口
-//
-//    Schemes: http
-//    Host: 10.200.242.35:8080
-//    BasePath: /api/
-//    Version: 0.1.0
-//    Contact: 王会&lt;hui.wang.a@17zuoye.com&gt;
-//
-//    Consumes:
-//    - application/json
-//
-//    Produces:
-//    - application/vnd.17zuoye.v1&#43;json
-//
-// swagger:meta
-package swagger
-上面文件通过注释来定义了一些接口相关的信息，包括：">
+// Package swagger defines API documentation. // // Swagger 演示后端接口 // // Schemes: http // Host: 10.200.242.35:8080 // BasePath: /api/ // Version: 0.1.0 // Contact: 王会&lt;hui.wang.a@17zuoye.com&gt; // // Consumes: // - application/json // // Produces: // - application/vnd.17zuoye.v1&#43;json // // swagger:meta package swagger 上面文件通过注释来定义了一些接口相关的信息，包括：">
 
 
 <script type="application/ld+json">
@@ -232,31 +195,19 @@ package swagger
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -272,7 +223,7 @@ package swagger
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -300,53 +251,64 @@ package swagger
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/notes/">Notes</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       Go Swagger 实现代码即文档
     </h1>
-    <div class="post-meta"><span title='2020-08-28 10:47:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2020-08-28 10:47:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e7%9b%ae%e6%a0%87" aria-label="目标">目标</a></li>
-                <li>
-                    <a href="#%e5%87%86%e5%a4%87" aria-label="准备">准备</a><ul>
-                        
-                <li>
-                    <a href="#%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e9%a1%b9%e7%9b%ae" aria-label="创建一个项目">创建一个项目</a></li>
-                <li>
-                    <a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" aria-label="开始使用">开始使用</a></li>
-                <li>
-                    <a href="#%e4%bd%bf%e7%94%a8%e5%8d%95%e7%8b%ac%e7%9a%84%e5%8c%85%e6%89%98%e7%ae%a1-swagger-%e7%9b%b8%e5%85%b3%e5%ae%9a%e4%b9%89" aria-label="使用单独的包托管 swagger 相关定义">使用单独的包托管 swagger 相关定义</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e7%bc%96%e5%86%99%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3" aria-label="编写接口文档">编写接口文档</a><ul>
-                        
-                <li>
-                    <a href="#%e5%87%86%e5%a4%87-service-%e5%8c%85" aria-label="准备 service 包">准备 service 包</a></li>
-                <li>
-                    <a href="#post-%e6%8f%90%e4%ba%a4%e4%bf%a1%e6%81%af" aria-label="POST 提交信息">POST 提交信息</a></li>
-                <li>
-                    <a href="#%e6%9f%a5%e8%af%a2%e5%8f%82%e6%95%b0" aria-label="查询参数">查询参数</a></li>
-                <li>
-                    <a href="#url-%e4%b8%ad-path-%e5%8f%82%e6%95%b0" aria-label="URL 中 Path 参数">URL 中 Path 参数</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e9%83%a8%e7%bd%b2" aria-label="部署">部署</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+    <div class="inner"><ul>
+            <li>
+                <a href="#%e7%9b%ae%e6%a0%87" aria-label="目标">目标</a></li>
+            <li>
+                <a href="#%e5%87%86%e5%a4%87" aria-label="准备">准备</a><ul>
+                    
+            <li>
+                <a href="#%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e9%a1%b9%e7%9b%ae" aria-label="创建一个项目">创建一个项目</a></li>
+            <li>
+                <a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" aria-label="开始使用">开始使用</a></li>
+            <li>
+                <a href="#%e4%bd%bf%e7%94%a8%e5%8d%95%e7%8b%ac%e7%9a%84%e5%8c%85%e6%89%98%e7%ae%a1-swagger-%e7%9b%b8%e5%85%b3%e5%ae%9a%e4%b9%89" aria-label="使用单独的包托管 swagger 相关定义">使用单独的包托管 swagger 相关定义</a></li></ul>
+            </li>
+            <li>
+                <a href="#%e7%bc%96%e5%86%99%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3" aria-label="编写接口文档">编写接口文档</a><ul>
+                    
+            <li>
+                <a href="#%e5%87%86%e5%a4%87-service-%e5%8c%85" aria-label="准备 service 包">准备 service 包</a></li>
+            <li>
+                <a href="#post-%e6%8f%90%e4%ba%a4%e4%bf%a1%e6%81%af" aria-label="POST 提交信息">POST 提交信息</a></li>
+            <li>
+                <a href="#%e6%9f%a5%e8%af%a2%e5%8f%82%e6%95%b0" aria-label="查询参数">查询参数</a></li>
+            <li>
+                <a href="#url-%e4%b8%ad-path-%e5%8f%82%e6%95%b0" aria-label="URL 中 Path 参数">URL 中 Path 参数</a></li></ul>
+            </li>
+            <li>
+                <a href="#%e9%83%a8%e7%bd%b2" aria-label="部署">部署</a>
+            </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><ul>
+  <div class="post-content md-content"><ul>
 <li>tags: <a href="/notes/20200218115725/">Go</a></li>
 </ul>
 <h2 id="目标">目标<a hidden class="anchor" aria-hidden="true" href="#目标">#</a></h2>
@@ -367,20 +329,20 @@ $ cd go-swagger-example/
 $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </code></pre><h3 id="开始使用">开始使用<a hidden class="anchor" aria-hidden="true" href="#开始使用">#</a></h3>
 <p>首先在你的 `main.go` 定义 <code>go generate</code> 像下面这样：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//go:generate swagger generate spec -o ./swagger.yml</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//go:generate swagger generate spec -o ./swagger.yml</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>		println(<span style="color:#e6db74">&#34;Hello world!&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>此时如果运行 <code>go generate</code> 在项目目录下就会生成一个 <code>swagger.yml</code> 文件：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">paths</span>: {}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">paths</span>: {}
 </span></span><span style="display:flex;"><span><span style="color:#f92672">swagger</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>
 </span></span></code></pre></div><h3 id="使用单独的包托管-swagger-相关定义">使用单独的包托管 swagger 相关定义<a hidden class="anchor" aria-hidden="true" href="#使用单独的包托管-swagger-相关定义">#</a></h3>
 <p>在之前实践的过程中发现，如果在多个包中定义了相同名称的结构体会到只一个结构体覆盖另外一个结构体的定义。
 所以为了解决这个问题，我把所有 swagger 相关的定义都放在同一个包下来避免相同名字的结构体。</p>
 <p>创建 <code>swagger/swagger.go</code> 填充如下内容：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Package swagger defines API documentation.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Package swagger defines API documentation.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Swagger 演示后端接口</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//
@@ -409,7 +371,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </ul>
 <p>通过 <code>swagger:meta</code> 来结束声明。</p>
 <p>此时我们再次运行 <code>go generate</code> 将会得到如下 <code>swagger.yml</code> 定义：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">basePath</span>: <span style="color:#ae81ff">/api/</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">basePath</span>: <span style="color:#ae81ff">/api/</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">consumes</span>:
 </span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">application/json</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">host</span>: <span style="color:#ae81ff">10.200.242.35</span>:<span style="color:#ae81ff">8080</span>
@@ -429,7 +391,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span></code></pre></div><h2 id="编写接口文档">编写接口文档<a hidden class="anchor" aria-hidden="true" href="#编写接口文档">#</a></h2>
 <h3 id="准备-service-包">准备 service 包<a hidden class="anchor" aria-hidden="true" href="#准备-service-包">#</a></h3>
 <p>我们打算将接口实现相关代码放在 <code>service</code> 包下，首先来创建 <code>service/service.go</code> ：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
@@ -444,7 +406,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="post-提交信息">POST 提交信息<a hidden class="anchor" aria-hidden="true" href="#post-提交信息">#</a></h3>
 <p>假设我们编写一个创建用户信息的接口，需要名字和年龄两个参数。我们在 <code>service</code> 包下创建 <code>user.go</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
@@ -468,7 +430,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 我们在注释中也声明了响应，但是我们目前还没有定义参数和对应的响应。</p>
 <p>Go Swagger 的参数定义是反向的，意思就是你需要定义一个 <code>parameter</code> 然后指明用在哪个 <code>route</code> 或
 <code>operation</code> 上（通过对应的 ID）。下面就让我们一起来看一看，我们来创建 <code>swagger/user.go</code> ：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">swagger</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">swagger</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// UserCreateForm 用于创建用户的表单，可以供 gin 使用</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserCreateForm</span> <span style="color:#66d9ef">struct</span> {
@@ -497,7 +459,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Body</span> <span style="color:#a6e22e">UserEntity</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>接下来调整 <code>swagger/swagger.go</code> 定义 <code>DefaultResponse</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Package swagger defines API documentation.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Package swagger defines API documentation.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Swagger 演示后端接口</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//
@@ -529,7 +491,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Body</span> <span style="color:#a6e22e">Default</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>现在我们运行 <code>go generate</code> 将会生成如下 <code>swagger.yml</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">basePath</span>: <span style="color:#ae81ff">/api/</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">basePath</span>: <span style="color:#ae81ff">/api/</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">consumes</span>:
 </span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">application/json</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">definitions</span>:
@@ -614,7 +576,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 <h3 id="查询参数">查询参数<a hidden class="anchor" aria-hidden="true" href="#查询参数">#</a></h3>
 <p>接下来我们来编写查询接口文档，这次和上面创建稍有不同，参数通过 Query 进行传递，
 编辑 <code>service/user.go</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
@@ -648,7 +610,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">QueryUsers</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>接下来调整 <code>swagger/user.go</code> 定义参数和响应：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">swagger</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">swagger</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// UserCreateForm 用于创建用户的表单，可以供 gin 使用</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserCreateForm</span> <span style="color:#66d9ef">struct</span> {
@@ -701,7 +663,7 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 <p>如果我们要更新用户信息，按照 RESTful 的设计方式，请求的方式应该是 <code>PATCH /api/users/:id</code> ，
 此时 <code>route</code> 已经无法满足，需要借助 <code>operation</code> 编写一些原始的 <code>YAML</code> 来实现，下面是调整
 后的 <code>service/user.go</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
@@ -2459,6 +2421,14 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 
    
 
+   
+
+   
+
+   
+
+   
+
 
 <hr />
 
@@ -2473,22 +2443,31 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2515,25 +2494,25 @@ $ go mod init gitlab.17zuoye.net/vgo/go-swagger-example
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

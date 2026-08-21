@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@ happens-before 不排除语无伦次（incoherence）
 以前发生的事不排除无用性（acausality）">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -60,26 +60,35 @@ happens-before 不排除语无伦次（incoherence）
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/notes/20210713201332-%E6%96%B0%E7%9A%84_java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_2004/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="新的 Java 内存模型（2004）">
-  <meta property="og:description" content=" tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
+  <meta property="og:description" content="tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
 同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
@@ -87,35 +96,22 @@ Java 中程序员需要同步操作建立 happens-before 关系，确保一个�
 支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
 具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
 happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality）">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
     <meta property="article:published_time" content="2021-07-13T20:13:00+08:00">
     <meta property="article:modified_time" content="2021-07-13T20:13:00+08:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新的 Java 内存模型（2004）">
-<meta name="twitter:description" content="
-tags: Java 内存模型
 
-新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
-
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="新的 Java 内存模型（2004）">
+  <meta name="twitter:description" content="tags: Java 内存模型 新模型遵循 DRF-SC 方法：保证弱有序和无数据竞争（DRF）的 Java 程序以顺序一致的方式执行。
 JSR-133，在 2004 年发布的 Java 5.0 中被采用。规范：The Java Memory Model, 2005。
-
 Java 中程序员需要同步操作建立 happens-before 关系，确保一个线程不会在另一个线程读取或写入时并发的写入非原子变量。主要的同步操作有：
-同步原子（volatile）和其它操作
-参见：Java 同步原子（volatile）。
-有数据竞争的程序语义
-弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
-
-支持Java的一般安全（security）和安全保障（safety guarantee）。
-让程序员更容易发现错误。
-使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。
-让程序员更清楚他们的程序是做什么的
-
-新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
+同步原子（volatile）和其它操作 参见：Java 同步原子（volatile）。
+有数据竞争的程序语义 弱有序和无数据竞争（DRF）只保证「无数据」竞争的程序的顺序一致性行为。新的 Java 模型（和原版本一致）出于以下原因定义了「有数据」竞争程序的顺序一致性行为：
+支持Java的一般安全（security）和安全保障（safety guarantee）。 让程序员更容易发现错误。 使攻击者更难利用问题，因为由于数据竞争的原因可能造成的损失更有限。 让程序员更清楚他们的程序是做什么的 新的模型不再依赖内存一致性（coherence），取而代之的复用 happens-before（已经用于决定程序是否存在竞争）来决定竞争读写的结果。
 具体规则参见：Java 决定竞争读写的具体规则。使用 happens-before 并结合Java 同步原子（volatile）就可以建立新的 happen before 关系，是对原始Java内存模型的重大改进。它为程序员提供了更多有用的保证，并使大量重要的编译器优化得到了明确的允。
-happens-before 不排除语无伦次（incoherence）
-以前发生的事不排除无用性（acausality）">
+happens-before 不排除语无伦次（incoherence） 以前发生的事不排除无用性（acausality）">
 
 
 <script type="application/ld+json">
@@ -172,31 +168,19 @@ happens-before 不排除语无伦次（incoherence）
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -212,7 +196,7 @@ happens-before 不排除语无伦次（incoherence）
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -240,35 +224,46 @@ happens-before 不排除语无伦次（incoherence）
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/notes/">Notes</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       新的 Java 内存模型（2004）
     </h1>
-    <div class="post-meta"><span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2021-07-13 20:13:00 +0800 +0800'>July 13, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e5%90%8c%e6%ad%a5%e5%8e%9f%e5%ad%90-volatile-%e5%92%8c%e5%85%b6%e5%ae%83%e6%93%8d%e4%bd%9c" aria-label="同步原子（volatile）和其它操作">同步原子（volatile）和其它操作</a></li>
-                <li>
-                    <a href="#%e6%9c%89%e6%95%b0%e6%8d%ae%e7%ab%9e%e4%ba%89%e7%9a%84%e7%a8%8b%e5%ba%8f%e8%af%ad%e4%b9%89" aria-label="有数据竞争的程序语义">有数据竞争的程序语义</a></li>
-                <li>
-                    <a href="#happens-before-%e4%b8%8d%e6%8e%92%e9%99%a4%e8%af%ad%e6%97%a0%e4%bc%a6%e6%ac%a1-incoherence" aria-label="happens-before 不排除语无伦次（incoherence）">happens-before 不排除语无伦次（incoherence）</a></li>
-                <li>
-                    <a href="#%e4%bb%a5%e5%89%8d%e5%8f%91%e7%94%9f%e7%9a%84%e4%ba%8b%e4%b8%8d%e6%8e%92%e9%99%a4%e6%97%a0%e7%94%a8%e6%80%a7-acausality" aria-label="以前发生的事不排除无用性（acausality）">以前发生的事不排除无用性（acausality）</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+    <div class="inner"><ul>
+            <li>
+                <a href="#%e5%90%8c%e6%ad%a5%e5%8e%9f%e5%ad%90-volatile-%e5%92%8c%e5%85%b6%e5%ae%83%e6%93%8d%e4%bd%9c" aria-label="同步原子（volatile）和其它操作">同步原子（volatile）和其它操作</a></li>
+            <li>
+                <a href="#%e6%9c%89%e6%95%b0%e6%8d%ae%e7%ab%9e%e4%ba%89%e7%9a%84%e7%a8%8b%e5%ba%8f%e8%af%ad%e4%b9%89" aria-label="有数据竞争的程序语义">有数据竞争的程序语义</a></li>
+            <li>
+                <a href="#happens-before-%e4%b8%8d%e6%8e%92%e9%99%a4%e8%af%ad%e6%97%a0%e4%bc%a6%e6%ac%a1-incoherence" aria-label="happens-before 不排除语无伦次（incoherence）">happens-before 不排除语无伦次（incoherence）</a></li>
+            <li>
+                <a href="#%e4%bb%a5%e5%89%8d%e5%8f%91%e7%94%9f%e7%9a%84%e4%ba%8b%e4%b8%8d%e6%8e%92%e9%99%a4%e6%97%a0%e7%94%a8%e6%80%a7-acausality" aria-label="以前发生的事不排除无用性（acausality）">以前发生的事不排除无用性（acausality）</a>
+            </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><ul>
+  <div class="post-content md-content"><ul>
 <li>tags: <a href="/notes/20210713202541-java_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Java 内存模型</a></li>
 </ul>
 <p>新模型遵循 DRF-SC 方法：保证<a href="/notes/20210712164357-%E5%BC%B1%E6%9C%89%E5%BA%8F%E5%92%8C%E6%97%A0%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89_drf/">弱有序和无数据竞争（DRF）</a>的 Java 程序以顺序一致的方式执行。</p>
@@ -299,6 +294,14 @@ happens-before 不排除语无伦次（incoherence）
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -2007,7 +2010,9 @@ happens-before 不排除语无伦次（incoherence）
 C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供了三种原子性：强同步（顺序一致性），弱同步（内存一致性（coherence））和无同步（“relaxed”，用于隐藏竞争）。 第一点尝试消除对 Java 模型的复杂性需求，“relaxed” 的原子性重新引入 Java 关于定义什么是竞争程序的所有复杂性。结果是C&#43;&#43;模型比Java更复杂，但对程序员的帮助更小。
 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-07-16 11:32:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to C&#43;&#43;11 内存模型" href="https://notes.0081800.xyz/notes/20210716113225-c_11_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
           </article>
        
@@ -2022,22 +2027,31 @@ C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供�
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2064,25 +2078,25 @@ C&#43;&#43; 对具有数据竞争的程序不做任何保证 C&#43;&#43; 提供�
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

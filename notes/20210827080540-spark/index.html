@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +39,7 @@ Transformations 和 Actions 是执行在 Spark 集群的。
 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/20210827080540-spark/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -68,67 +68,52 @@ Transformations 和 Actions 是执行在 Spark 集群的。
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/20210827080540-spark/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/notes/20210827080540-spark/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Spark">
-  <meta property="og:description" content=" tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
+  <meta property="og:description" content="tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
 Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
 Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
 以下代码是在 Executor 上执行的：
 Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
     <meta property="article:published_time" content="2021-08-27T08:05:00+08:00">
     <meta property="article:modified_time" content="2021-08-27T08:05:00+08:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark">
-<meta name="twitter:description" content="
-tags: Bigdata
 
-Spark 编程语言选择
-毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。
-JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。
-其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
-Spark Driver &amp; Executor
-
-Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。
-Executor Spark Worker 上的线程
-
-
-     
-
-
-See also:
-
-Understanding the working of Spark Driver and Executor
-Cluster Mode Overview
-
-Spark 代码执行
-我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。
-但是我通过学习 Spark RDD 学习到了一些知识。
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Spark">
+  <meta name="twitter:description" content="tags: Bigdata Spark 编程语言选择 毋庸置疑，Python 应该是最简单也是大部分的选择，但是如果有依赖那么将要付出额外的心智负担（Spark 管理 Python 依赖）。 JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排除 Spark 生态之后）都 bundle 进 Jar 包里。 其中 Scala 兼具简单和 JVM 的优势，但是它「不流行」。
+Spark Driver &amp; Executor Driver 执行 spark-commit 客户端，创建 SparkContext 执行 main 函数。 Executor Spark Worker 上的线程 See also:
+Understanding the working of Spark Driver and Executor Cluster Mode Overview Spark 代码执行 我在配置 Spark 的时候就在好奇，从观察上看部分代码应该是执行在 Driver 上部分代码会执行在 Executer，这让我很好奇。 但是我通过学习 Spark RDD 学习到了一些知识。
 以下代码是在 Executor 上执行的：
-
-Transformations 和 Actions 是执行在 Spark 集群的。
-传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。
-
-其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：">
+Transformations 和 Actions 是执行在 Spark 集群的。 传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。 其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 collect：">
 
 
 <script type="application/ld+json">
@@ -185,31 +170,19 @@ Transformations 和 Actions 是执行在 Spark 集群的。
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -225,7 +198,7 @@ Transformations 和 Actions 是执行在 Spark 集群的。
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -253,74 +226,85 @@ Transformations 和 Actions 是执行在 Spark 集群的。
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/notes/">Notes</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/notes/">Notes</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       Spark
     </h1>
-    <div class="post-meta"><span title='2021-08-27 08:05:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2021-08-27 08:05:00 +0800 +0800'>August 27, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#spark-%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e9%80%89%e6%8b%a9" aria-label="Spark 编程语言选择">Spark 编程语言选择</a></li>
-                <li>
-                    <a href="#spark-driver-and-executor" aria-label="Spark Driver &amp; Executor">Spark Driver &amp; Executor</a></li>
-                <li>
-                    <a href="#spark-%e4%bb%a3%e7%a0%81%e6%89%a7%e8%a1%8c" aria-label="Spark 代码执行">Spark 代码执行</a></li>
-                <li>
-                    <a href="#spark-%e7%bc%96%e7%a8%8b%e6%8a%bd%e8%b1%a1" aria-label="Spark 编程抽象">Spark 编程抽象</a><ul>
-                        
-                <li>
-                    <a href="#spark-rdd" aria-label="Spark RDD">Spark RDD</a><ul>
-                        
-                <li>
-                    <a href="#%e9%9b%86%e5%90%88%e5%b9%b6%e8%a1%8c%e5%8c%96" aria-label="集合并行化">集合并行化</a></li>
-                <li>
-                    <a href="#%e5%a4%96%e9%83%a8%e6%95%b0%e6%8d%ae%e9%9b%86" aria-label="外部数据集">外部数据集</a></li>
-                <li>
-                    <a href="#spark-transformations-vs-actions" aria-label="Spark Transformations vs Actions">Spark Transformations vs Actions</a></li>
-                <li>
-                    <a href="#spark-transformations-%e6%87%92%e6%89%a7%e8%a1%8c" aria-label="Spark Transformations 懒执行">Spark Transformations 懒执行</a></li>
-                <li>
-                    <a href="#spark-transformations-%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97" aria-label="Spark transformations 重复计算">Spark transformations 重复计算</a></li></ul>
-                </li>
-                <li>
-                    <a href="#spark-%e5%85%b1%e4%ba%ab%e5%8f%98%e9%87%8f" aria-label="Spark 共享变量">Spark 共享变量</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae-spark-python-%e7%89%88%e6%9c%ac" aria-label="设置 Spark Python 版本">设置 Spark Python 版本</a></li>
-                <li>
-                    <a href="#spark-%e7%ae%a1%e7%90%86-python-%e4%be%9d%e8%b5%96" aria-label="Spark 管理 Python 依赖">Spark 管理 Python 依赖</a><ul>
-                        
-                <li>
-                    <a href="#yarn" aria-label="YARN">YARN</a></li>
-                <li>
-                    <a href="#standalone-cluster" aria-label="Standalone cluster">Standalone cluster</a></li></ul>
-                </li>
-                <li>
-                    <a href="#spark-hive-%e8%a1%a8%e9%97%ae%e9%a2%98%e6%b1%87%e6%80%bb" aria-label="Spark Hive 表问题汇总">Spark Hive 表问题汇总</a><ul>
-                        
-                <li>
-                    <a href="#spark-2-dot-3-%e4%b9%8b%e5%90%8e%e8%af%bb%e5%8f%96-hive-orc-%e5%ad%97%e6%ae%b5%e5%85%a8%e6%98%af-null-%e6%88%96%e8%80%85%e6%97%a0%e6%b3%95%e8%bf%87%e6%bb%a4" aria-label="Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤">Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤</a></li>
-                <li>
-                    <a href="#%e6%9b%b4%e5%a4%9a%e5%9d%91%e5%8f%af%e4%bb%a5%e7%9c%8b-upgrading-guide" aria-label="更多坑可以看 Upgrading Guide">更多坑可以看 Upgrading Guide</a></li>
-                <li>
-                    <a href="#spark-%e5%86%99%e5%85%a5%e7%9a%84-hive-orc-%e8%a1%a8%e4%bd%86%e6%98%af%e6%97%a7%e7%89%88-hive-%e6%97%a0%e6%b3%95%e8%af%bb%e5%8f%96" aria-label="Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取">Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取</a>
-                </li>
-            </ul>
+    <div class="inner"><ul>
+            <li>
+                <a href="#spark-%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e9%80%89%e6%8b%a9" aria-label="Spark 编程语言选择">Spark 编程语言选择</a></li>
+            <li>
+                <a href="#spark-driver-and-executor" aria-label="Spark Driver &amp; Executor">Spark Driver &amp; Executor</a></li>
+            <li>
+                <a href="#spark-%e4%bb%a3%e7%a0%81%e6%89%a7%e8%a1%8c" aria-label="Spark 代码执行">Spark 代码执行</a></li>
+            <li>
+                <a href="#spark-%e7%bc%96%e7%a8%8b%e6%8a%bd%e8%b1%a1" aria-label="Spark 编程抽象">Spark 编程抽象</a><ul>
+                    
+            <li>
+                <a href="#spark-rdd" aria-label="Spark RDD">Spark RDD</a><ul>
+                    
+            <li>
+                <a href="#%e9%9b%86%e5%90%88%e5%b9%b6%e8%a1%8c%e5%8c%96" aria-label="集合并行化">集合并行化</a></li>
+            <li>
+                <a href="#%e5%a4%96%e9%83%a8%e6%95%b0%e6%8d%ae%e9%9b%86" aria-label="外部数据集">外部数据集</a></li>
+            <li>
+                <a href="#spark-transformations-vs-actions" aria-label="Spark Transformations vs Actions">Spark Transformations vs Actions</a></li>
+            <li>
+                <a href="#spark-transformations-%e6%87%92%e6%89%a7%e8%a1%8c" aria-label="Spark Transformations 懒执行">Spark Transformations 懒执行</a></li>
+            <li>
+                <a href="#spark-transformations-%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97" aria-label="Spark transformations 重复计算">Spark transformations 重复计算</a></li></ul>
             </li>
-            </ul>
-        </div>
-    </details>
-</div>
+            <li>
+                <a href="#spark-%e5%85%b1%e4%ba%ab%e5%8f%98%e9%87%8f" aria-label="Spark 共享变量">Spark 共享变量</a></li></ul>
+            </li>
+            <li>
+                <a href="#%e8%ae%be%e7%bd%ae-spark-python-%e7%89%88%e6%9c%ac" aria-label="设置 Spark Python 版本">设置 Spark Python 版本</a></li>
+            <li>
+                <a href="#spark-%e7%ae%a1%e7%90%86-python-%e4%be%9d%e8%b5%96" aria-label="Spark 管理 Python 依赖">Spark 管理 Python 依赖</a><ul>
+                    
+            <li>
+                <a href="#yarn" aria-label="YARN">YARN</a></li>
+            <li>
+                <a href="#standalone-cluster" aria-label="Standalone cluster">Standalone cluster</a></li></ul>
+            </li>
+            <li>
+                <a href="#spark-hive-%e8%a1%a8%e9%97%ae%e9%a2%98%e6%b1%87%e6%80%bb" aria-label="Spark Hive 表问题汇总">Spark Hive 表问题汇总</a><ul>
+                    
+            <li>
+                <a href="#spark-2-dot-3-%e4%b9%8b%e5%90%8e%e8%af%bb%e5%8f%96-hive-orc-%e5%ad%97%e6%ae%b5%e5%85%a8%e6%98%af-null-%e6%88%96%e8%80%85%e6%97%a0%e6%b3%95%e8%bf%87%e6%bb%a4" aria-label="Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤">Spark 2.3 之后读取 Hive Orc 字段全是 null 或者无法过滤</a></li>
+            <li>
+                <a href="#%e6%9b%b4%e5%a4%9a%e5%9d%91%e5%8f%af%e4%bb%a5%e7%9c%8b-upgrading-guide" aria-label="更多坑可以看 Upgrading Guide">更多坑可以看 Upgrading Guide</a></li>
+            <li>
+                <a href="#spark-%e5%86%99%e5%85%a5%e7%9a%84-hive-orc-%e8%a1%a8%e4%bd%86%e6%98%af%e6%97%a7%e7%89%88-hive-%e6%97%a0%e6%b3%95%e8%af%bb%e5%8f%96" aria-label="Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取">Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取</a>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><ul>
+  <div class="post-content md-content"><ul>
 <li>tags: <a href="/topics/20200320100519_%E5%A4%A7%E6%95%B0%E6%8D%AE/">Bigdata</a></li>
 </ul>
 <h2 id="spark-编程语言选择">Spark 编程语言选择<a hidden class="anchor" aria-hidden="true" href="#spark-编程语言选择">#</a></h2>
@@ -350,15 +334,15 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <li>传递给 Transformations 和 Actions 的闭包函数也是执行在 Spark 集群上的。</li>
 </ul>
 <p>其他额外的代码都是执行在 Driver 上的，所以想要在 Driver 打印日志需要上使用 <code>collect</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>rdd<span style="color:#f92672">.</span>collect<span style="color:#f92672">().</span>foreach<span style="color:#f92672">(</span>println<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>rdd<span style="color:#f92672">.</span>collect<span style="color:#f92672">().</span>foreach<span style="color:#f92672">(</span>println<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p><code>collect</code> 可能会导致 Driver 内存爆掉，可以使用 <code>take</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>rd<span style="color:#f92672">.</span>take<span style="color:#f92672">(</span><span style="color:#ae81ff">100</span><span style="color:#f92672">).</span>foreach<span style="color:#f92672">(</span>println<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>rd<span style="color:#f92672">.</span>take<span style="color:#f92672">(</span><span style="color:#ae81ff">100</span><span style="color:#f92672">).</span>foreach<span style="color:#f92672">(</span>println<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>所以在这就带来在闭包中共享变量的问题，参见 <a href="#spark-%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F">Spark 共享变量</a>。</p>
 <h2 id="spark-编程抽象">Spark 编程抽象<a hidden class="anchor" aria-hidden="true" href="#spark-编程抽象">#</a></h2>
 <p><a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html">RDD Programming Guide</a></p>
 <h3 id="spark-rdd">Spark RDD<a hidden class="anchor" aria-hidden="true" href="#spark-rdd">#</a></h3>
 <h4 id="集合并行化">集合并行化<a hidden class="anchor" aria-hidden="true" href="#集合并行化">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> data <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Array</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> data <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Array</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> distData <span style="color:#66d9ef">=</span> sc<span style="color:#f92672">.</span>parallelize<span style="color:#f92672">(</span>data<span style="color:#f92672">)</span>
 </span></span></code></pre></div><h4 id="外部数据集">外部数据集<a hidden class="anchor" aria-hidden="true" href="#外部数据集">#</a></h4>
 <ul>
@@ -387,10 +371,10 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <li>Accumulators</li>
 </ul>
 <h2 id="设置-spark-python-版本">设置 Spark Python 版本<a hidden class="anchor" aria-hidden="true" href="#设置-spark-python-版本">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PYSPARK_DRIVER_PYTHON<span style="color:#f92672">=</span>python <span style="color:#75715e"># Do not set in cluster modes.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PYSPARK_DRIVER_PYTHON<span style="color:#f92672">=</span>python <span style="color:#75715e"># Do not set in cluster modes.</span>
 </span></span><span style="display:flex;"><span>export PYSPARK_PYTHON<span style="color:#f92672">=</span>./environment/bin/python <span style="color:#75715e"># Executor</span>
 </span></span></code></pre></div><p>上面 environment 是提交的时候需要在 <code>--archives</code> 缀上的:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>spark-submit --archives pyspark_conda_env.tar.gz#environment app.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>spark-submit --archives pyspark_conda_env.tar.gz#environment app.py
 </span></span></code></pre></div><blockquote>
 <p>Note that <code>PYSPARK_DRIVER_PYTHON</code> above should not be set for cluster modes in YARN or Kubernetes.</p>
 </blockquote>
@@ -404,7 +388,7 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 <p>See alos: <a href="https://spark.apache.org/docs/latest/api/python/user%5Fguide/python%5Fpackaging.html">Python Package Management</a></p>
 <h3 id="standalone-cluster">Standalone cluster<a hidden class="anchor" aria-hidden="true" href="#standalone-cluster">#</a></h3>
 <p>可以借助上面的 Python 包管理机制，将打包好的环境在各个节点进行同步。假设将 conda-pack 解压到 <code>/opt/conda-envs/test</code>，可以通过在 Spark 任务脚本最上方通过 <code>PYSPARK_PYTHON</code> 指定解释器：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#39;PYSPARK_PYTHON&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/opt/conda-envs/test&#39;</span>
 </span></span><span style="display:flex;"><span>
@@ -418,7 +402,7 @@ JVM 语言的依赖组织方式则具有天然的优势，可以将依赖（排�
 </code></pre><p>但是启用这个会导致写 Hive Orc 表的时候报错：</p>
 <pre tabindex="0"><code class="language-prog" data-lang="prog">[2021-11-20 08:22:26,500] {spark_submit.py:523} INFO - : java.lang.NoSuchMethodException: org.apache.hadoop.hive.ql.metadata.Hive.loadPartition(org.apache.hadoop.fs.Path, java.lang.String, java.util.Map, boolean, boolean, boolean, boolean, boolean, boolean)
 </code></pre><p>只能在读指定表的时候动态设置:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>spark<span style="color:#f92672">.</span>conf<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;spark.sql.hive.convertMetastoreOrc&#34;</span>, <span style="color:#66d9ef">False</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>spark<span style="color:#f92672">.</span>conf<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;spark.sql.hive.convertMetastoreOrc&#34;</span>, <span style="color:#66d9ef">False</span>)
 </span></span></code></pre></div><h3 id="更多坑可以看-upgrading-guide">更多坑可以看 Upgrading Guide<a hidden class="anchor" aria-hidden="true" href="#更多坑可以看-upgrading-guide">#</a></h3>
 <p><a href="https://spark.apache.org/docs/2.4.2/sql-migration-guide-upgrade.html">Upgrading Guide</a></p>
 <h3 id="spark-写入的-hive-orc-表但是旧版-hive-无法读取">Spark 写入的 Hive Orc 表但是旧版 Hive 无法读取<a hidden class="anchor" aria-hidden="true" href="#spark-写入的-hive-orc-表但是旧版-hive-无法读取">#</a></h3>
@@ -433,6 +417,14 @@ spark.sql.orc.impl=hive
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -2140,7 +2132,9 @@ spark.sql.orc.impl=hive
               <p> tags: Spark Batch processing is the paradigm at work when you process a bounded data stream. In this mode of operation you can choose to ingest the entire dataset before producing any results, which means that it is possible, for example, to sort the data, compute global statistics, or produce a final report that summarizes all of the input.
 </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-04 10:50:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-04 10:50:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Batch processing" href="https://notes.0081800.xyz/notes/20220104105030-batch_processing/"></a>
           </article>
        
@@ -2155,22 +2149,31 @@ spark.sql.orc.impl=hive
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2197,25 +2200,25 @@ spark.sql.orc.impl=hive
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

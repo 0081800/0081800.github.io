@@ -4,7 +4,7 @@
     <title>Rust on Taking Smart Notes With Org-mode</title>
     <link>https://notes.0081800.xyz/tags/rust/</link>
     <description>Recent content in Rust on Taking Smart Notes With Org-mode</description>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/tags/rust/index.xml" rel="self" type="application/rss+xml" />
@@ -86,7 +86,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;函数指针&#34;&gt;函数指针&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;fn&lt;/code&gt; 区分闭包的 &lt;code&gt;Fn&lt;/code&gt; 特性，函数指针都实现来三个闭包的特性。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;do&lt;/span&gt;(f: &lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;, arg: &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;)  -&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;do&lt;/span&gt;(f: &lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;, arg: &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;)  -&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	f(arg) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; f(arg)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>

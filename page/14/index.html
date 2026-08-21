@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.152.2"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -19,8 +19,8 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/index.xml">
-<link rel="alternate" type="application/json" href="https://notes.0081800.xyz/index.json">
+<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://notes.0081800.xyz/index.json" title="json">
 <link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/">
 <noscript>
     <style>
@@ -42,30 +42,39 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Taking Smart Notes With Org-mode">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Taking Smart Notes With Org-mode">
-<meta name="twitter:description" content="">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Taking Smart Notes With Org-mode">
 
 <script type="application/ld+json">
 {
@@ -81,31 +90,19 @@
 }
 </script>
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -121,7 +118,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -149,6 +146,77 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">读写一致性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>也称为「写后读一致性」，解决用户主节点写入后立马从从节点读取不到到情况。只能解决单用户的一致性，但是解决不了多用户的一致性。
+场景 用户新提交了评论，但是自己看不到，需要等一会才能看到。
+解决方案 记录更新时间戳，在指定时间内从主节点读取。
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2021-06-14 21:07:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to 读写一致性" href="https://notes.0081800.xyz/notes/20210614210755-%E8%AF%BB%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">最终一致性效应
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>主从异步复制的情况下会导致数据库中出现明显不一致，此时从不同的从节点读取就会得到不一样的结果。这种不一致只是一个暂时状态，如果停止写入数据，经过一段时间之后，从节点最终会赶上并与主节点保持一致。
+这种效应被称为最终一致性。
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2021-06-14 21:00:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to 最终一致性效应" href="https://notes.0081800.xyz/notes/20210614210005-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%E6%95%88%E5%BA%94/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">复制滞后问题
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>异步同步的情况下出出现最终一致性效应复制滞后会导致：用户提交了修改到主节点，但是从从节点没有读取到最新的变更，比如看不到自己提交的评论等。
+读写一致性：读自己的写 一旦用户的数据最近发生改变则路由用户请求从主节点进行读取，规避复制滞后的问题。
+缺点：只保证单一用户写后读的的一致性，但是不保证多个用户的一致性。比如发了一条评论，自己能刷新到但是同在身边的朋友可能就刷新不到。
+单调读一致性 前缀一致读 解决方案 应用层可以提供比数据库更强有力的保证。 事务是数据库提供的更强保证的一种方式。 </p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2021-06-14 20:56:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to 复制滞后问题" href="https://notes.0081800.xyz/notes/20210614205621-%E5%A4%8D%E5%88%B6%E6%BB%9E%E5%90%8E%E9%97%AE%E9%A2%98/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">复制日志实现
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>基于语句复制 优点：简单 缺点：语句副作用，或者随时间改变返回值的函数的使用会导致复制的数据产生改变。
+基于预写日志（WAL）传输 优点：解决基于语句复制的问题。 缺点：日志描述过于底层：哪些磁盘块的哪些字节发生了改变，和引擎实现高度耦合，不利于模式演进。
+基于行的逻辑日志复制 用一系列记录来描述数据表行级别的写请求：
+对于插入行，日志包含所有相关列的新值。 对于删除行，标记主键删除。 对于行货更新，记录主键和对应列的新值。 MySQL binlog 基于此模式。
+优点：更利于模式演进，支持向后兼容，同时解耦特性引擎便于外部解析。
+基于触发器的复制 触发器支持注册自己的应用层代码并在数据发生改变时被调用。
+优点：将复制控制交给应用层，支持更高的灵活性。 缺点：开销更大，更容易出错。
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2021-06-14 20:52:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to 复制日志实现" href="https://notes.0081800.xyz/notes/20210614205249-%E5%A4%8D%E5%88%B6%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">主从复制
     </h2>
   </header>
@@ -159,7 +227,9 @@
 异步复制 主节点写入，不等待从节点写入直接返回写入成功。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-14 20:32:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-14 20:32:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 主从复制" href="https://notes.0081800.xyz/notes/20210614203213-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"></a>
 </article>
 
@@ -177,7 +247,9 @@
 性能 容忍数据中心失效 容忍网络问题 缺点：写冲突
 离线客户端操作 协作编辑 处理写冲突 同步与异步冲突检测 同步：等待写请求完成对所有主节点的同步再通知用户写入成功。 异步：等待单一主节点写入成功后通知用户卸乳成功，稍后多主节点数据同步的时候才能检测到冲突 避免冲突 收敛于一致的状态 自定义冲突解决逻辑 写入时解决 读取时解决 拓扑结构 环形拓扑 星型拓扑 全部-至-全部型拓扑 无主节点复制</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-14 20:31:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-14 20:31:00 +0800 +0800'>June 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 数据复制" href="https://notes.0081800.xyz/notes/20210614203122-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6/"></a>
 </article>
 
@@ -191,7 +263,9 @@
 They are: tutorials, how-to guides, technical reference and explanation. They represent four different purposes or functions, and require four different approaches to their creation. Understanding the implications of this will help improve most documentation - often immensely.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-12 09:28:00 +0800 +0800'>June 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-12 09:28:00 +0800 +0800'>June 12, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 认同的话" href="https://notes.0081800.xyz/notes/20210612092853-%E8%AE%A4%E5%90%8C%E7%9A%84%E8%AF%9D/"></a>
 </article>
 
@@ -205,7 +279,9 @@ They are: tutorials, how-to guides, technical reference and explanation. They re
 Actor 框架集成了任务调度和消息流的框架。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-12 09:18:00 +0800 +0800'>June 12, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-12 09:18:00 +0800 +0800'>June 12, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Actor" href="https://notes.0081800.xyz/notes/20210612091808-actor/"></a>
 </article>
 
@@ -221,7 +297,9 @@ Avro 编码数据中只有对应字段的长度和具体的数据，不包含字
 读取数据的代码中遇到出现在写模式但是不在读模式的字段，则忽略。 如果读数据的带代码需要某个字段，但是写模式不包含该字段的名称，则使用在读模式中声明的默认值填充。 模式演化 向前兼容：新版本的模式作为 writer，旧版本的模式作为 reader。 向后兼容：新版本的模式作为 reader，旧版本的模式作为 writer。 同时为了保持兼容性，只能添加莫删除具有默认值的字段。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Avro" href="https://notes.0081800.xyz/notes/20210610222725-avro/"></a>
 </article>
 
@@ -236,7 +314,9 @@ Avro 编码数据中只有对应字段的长度和具体的数据，不包含字
 改变类型同时也会导致前后兼容问题。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-10 22:27:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Thrift 与 Protocol Buffers" href="https://notes.0081800.xyz/notes/20210610222754-thrift_%E4%B8%8E_protocol_buffers/"></a>
 </article>
 
@@ -251,7 +331,9 @@ Avro 编码数据中只有对应字段的长度和具体的数据，不包含字
 Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模式 基于数据库的数据流 不同是写写入不同的值 归档存储 基于服务的数据流：REST 和 RPC RPC 的问题 给人一种本地调用的错觉，却需要面临网络的不确定性：延迟和超时。
 基于消息传递的数据流 消息中间件：RabbitMQ、Kafka 分布式Actor 框架：Akka、Erlang OTP</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 21:53:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-10 21:53:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 数据编码与演化" href="https://notes.0081800.xyz/notes/20210610215330-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96/"></a>
 </article>
 
@@ -264,7 +346,9 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
     <p>在线分析处理（Online Analytic Processing，OLAP）。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 21:45:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-10 21:45:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to OLAP" href="https://notes.0081800.xyz/notes/20210610214521-olap/"></a>
 </article>
 
@@ -277,7 +361,9 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
     <p>在线事务处理（Online Transaction Processing，OLTP）。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-10 21:43:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-10 21:43:00 +0800 +0800'>June 10, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to OLTP" href="https://notes.0081800.xyz/notes/20210610214348-oltp/"></a>
 </article>
 
@@ -296,7 +382,9 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 追加的写 WAL； 每个 B-tree 必须先更新 WAL 然后再修改树本身的页。 通过使用「锁存器」保护进行并发控制，保护 B-tree 页被多个线程访问而看到树不一样的状态。
 优化 通过复制方案替代 WAL 进行崩溃恢复，修改的页被写入不同的位置，树中父页的新版本被创建，并指向新的位置。 保存键的缩略信息，可以压入更多的键，保持更高的分支因子，减少层数。 对树进行布局，相邻叶子页按顺序保存在磁盘。 添加额外的指针到树中，如左右兄弟页。 变体，如分形树：借鉴日志结构减少磁盘寻道。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-06 14:39:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to B-trees" href="https://notes.0081800.xyz/notes/20210606143901-b_trees/"></a>
 </article>
 
@@ -312,7 +400,9 @@ Message Pack：二进制的 JSON Thrift 与 Protocol Buffers Avro 数据流模�
 key-value 索引通常使用 hash map 来实现，最简单的索引策略：保存内存中的 hash map，把每个键一一映射到数据文件中特定的字节偏移量。
 优化磁盘占用 将日志分解成一定大小的段，当文件达到一定大小时就关闭它，并将后续写入到新的段文件中。 然后可以在这些段上执行压缩：丢弃重复的键，并且只保留每个键最近的更新。 同时将变小后的多个段在后台合并在一起（段在写入后不再会进行修改所以不会出现竞争）。 合并完成后将读取请求切换到新的合并段上，然后可以安全的删除旧的段文件。 实现中面临的问题 文件格式：二进制。 删除记录：通过特殊的墓碑标记。 崩溃恢复：Bitcask 通过将 hash map 快照存储到磁盘。 部分写入：文件校验丢弃损坏的部分。 并发控制：只有一个写线程。 追加的好处 顺序写性能高。 并发控制和崩溃恢复简单。 段合并避免文件碎片化。 局限性 大量的键存储在内存可能导致内存耗尽，同时需要处理哈希冲突 区间查询效率不高。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:33:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-06 10:33:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 哈希索引" href="https://notes.0081800.xyz/notes/20210606103354-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95/"></a>
 </article>
 
@@ -332,7 +422,9 @@ key-value 索引通常使用 hash map 来实现，最简单的索引策略：保
 在磁盘上保留单独的日志，每个写入都会立即追加到该日志。并且无需排序。 内存表写入 SSTable 时，丢弃相应的日志。 使用此技术的数据库 LevelDB RocksDB 类似的
 Cassandra HBase </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-06 10:31:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 排序字符串表：SSTables" href="https://notes.0081800.xyz/notes/20210606103142-%E6%8E%92%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8_sstables/"></a>
 </article>
 
@@ -347,7 +439,9 @@ Cassandra HBase </p>
 LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables。即使数据集远远大于可用内存，仍然能够正常工作。 基于有序的特性，可以有效的执行区间查询，并且由于磁盘是顺序写入，所以 LSM-Tree 可以支持非常高的写入吞吐量。
 性能优化 通过布隆过滤器优化 LSM-Tree 查找不存在的键性能低下的问题。 通过大小分级和分层压缩优化 SSTables 压缩和合并时的具体顺序和时机。 大小分级：较新和较小的 SSTables 被连续合并到较旧和较大的 SSTables。 分层压缩：键的范围分裂成多个更小的 SSTables，就数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-06 10:03:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to LSM-Tree" href="https://notes.0081800.xyz/notes/20210606100317-lsm_tree/"></a>
 </article>
 
@@ -365,7 +459,9 @@ LSM-Tree 基本思想：保存在后台并合并的排序字符串表：SSTables
 事务处理与分析处理 事务处理：OLTP 分析处理：OLAP 对比 属性 OLTP OLAP 主要读属性 基于键，每次查询返回少量记录 对于大量记录进行汇总 主要写属性 随机访问，低延迟写入用户的输入 批量导入（ETL）或事件流 典型使用场景 终端用户，通过网络应用程序 内部分析师，为决策提供支持 数据表征 最新的数据状态（当前时间点） 随着事件而变化的所有事件历史 数据规模 GB 到 TB TB 到 PB 数据仓库 星型与雪花型分析模式 星型模型也称为维度建模。
 列式存储 列压缩</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-06 09:55:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 数据存储与检索" href="https://notes.0081800.xyz/notes/20210606095514-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/"></a>
 </article>
 
@@ -383,7 +479,9 @@ MapReduce 查询 MapReduce 是一种编程模型，用于在许多机器上批�
 MongoDB 中的 MapReduce
 db.observations.mapReduce( function map() { // 2 var year = this.observationTimestamp.getFullYear(); var month = this.obbservationTimestamp.getMonth() &#43; 1; emit(year &#43; &#34;-&#34; &#43; month, this.numAnimals); // 3 }, function reduce(key, values) { // 4 return Array.sum(values); // 5 }, { query: {family: &#34;Sharks&#34;}, // 1 out: &#34;monthlySharkReport&#34; // 6 } ); 过滤器声明式执行鲨鱼种类（MongoDB 特有扩展）。 mapper：对于每个匹配的文档都会调用一次这个 JavaScript 函数。 mapper 发射一个「键-值」对，键是 “2013-12” 格式的字符串，值是动物的数量 mapper 发射的键值对按键分组，对于相同键的所有「键-值」对，调用 reduce 函数。 reducer 函数将特定月份的所有观察到的动物数量相加。 最终输出写入到 monthlySharkReport 集合中 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-06 09:52:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-06 09:52:00 +0800 +0800'>June 6, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 数据模型与查询语言" href="https://notes.0081800.xyz/notes/20210606095222-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80/"></a>
 </article>
 
@@ -399,7 +497,9 @@ db.observations.mapReduce( function map() { // 2 var year = this.observationTime
 简单性：简化复杂度 抽象！
 可演化性：易于改变 TDD 重构 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-04 22:16:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-04 22:16:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 可靠、可扩展与可维护的应用系统" href="https://notes.0081800.xyz/notes/20210604221658-%E5%8F%AF%E9%9D%A0_%E5%8F%AF%E6%89%A9%E5%B1%95%E4%B8%8E%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F/"></a>
 </article>
 
@@ -414,7 +514,9 @@ db.observations.mapReduce( function map() { // 2 var year = this.observationTime
 垂直扩展：提升单机性能 水平扩展：无共享结构，由软件实现核心逻辑 复制与分区：
 复制：多节点冗余 分区：数据库拆分 分片：分区分配给不同的节点 数据复制 数据分区 事务 分布式系统挑战 一致性与共识 派生数据 记录系统：真实数据系统，拥有数据的权威版本。 派生数据系统：从另一个数据系统获取，丢失可以根据数据源重建，如缓存等。 批处理系统 流处理系统</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-06-04 22:14:00 +0800 +0800'>June 4, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 《数据密集型应用系统设计》读书笔记" href="https://notes.0081800.xyz/notes/20210604221412-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
 </article>
 
@@ -426,7 +528,9 @@ db.observations.mapReduce( function map() { // 2 var year = this.observationTime
   <div class="entry-content">
     <p> tags: 技术随想 几何结构 mobius Klein Trefoil knot Penrose triangle 植物 bonsai broccoli 科幻 tardis dalek 消灭 神话</p>
   </div>
-  <footer class="entry-footer"><span title='2021-05-25 11:32:00 +0800 +0800'>May 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-05-25 11:32:00 +0800 +0800'>May 25, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 项目代号" href="https://notes.0081800.xyz/notes/20210525113247-%E9%A1%B9%E7%9B%AE%E4%BB%A3%E5%8F%B7/"></a>
 </article>
 
@@ -439,7 +543,9 @@ db.observations.mapReduce( function map() { // 2 var year = this.observationTime
     <p> tags: macOS,macOS Cheatsheet 通常你沟通苹果的官方支持一般都会给你三板斧：
 重启：按住电源键 10 秒中，然后等几秒钟后再开机 重置 SMC：关机然后按住：Ctrl &#43; Option &#43; 右侧Shift &#43; 电源键 7 秒钟关机，等待几秒钟后开机。 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-03-22 14:59:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-03-22 14:59:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to macOS 问题解决三板斧" href="https://notes.0081800.xyz/notes/20210322145956-macos_%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E4%B8%89%E6%9D%BF%E6%96%A7/"></a>
 </article>
 
@@ -452,7 +558,9 @@ db.observations.mapReduce( function map() { // 2 var year = this.observationTime
     <p> tags: macOS 查看 TimeMachine 日志：
 printf &#39;\e[3J&#39; &amp;&amp; log show --predicate &#39;subsystem == &#34;com.apple.TimeMachine&#34;&#39; --debug --last 6m </p>
   </div>
-  <footer class="entry-footer"><span title='2021-03-22 14:58:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-03-22 14:58:00 +0800 +0800'>March 22, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to macOS TimeMachine 日志" href="https://notes.0081800.xyz/notes/20210322145854-macos_timemachine_%E6%97%A5%E5%BF%97/"></a>
 </article>
 
@@ -466,7 +574,9 @@ printf &#39;\e[3J&#39; &amp;&amp; log show --predicate &#39;subsystem == &#34;co
 音标后面的 ː 提示拖长音。 元音 大而圆 音标 中文 发音技巧 常见单词 拼读规则 /​æ​/ 爱 张大嘴发中文的「爱」,发音短促有力。 bag map dad sad a /​e​/ 爱 音同 /​æ​/ 但是嘴形要小一些。 get let pen yes e /​ɔː​/ 哦 嘴巴轮圆了发音，并拖长音 floor door store sport oor,ore,or /​ɔ​/ 哦 /​ɔː​/ 的短音 lot dog hot shop o 扁扁扁 音标 中文 发音技巧 常见单词 拼读规则 /iː​/ 一 相比一嘴要扁一些，稍稍更用力一些 see meet he she ee, e /​i​/ 一 /iː​/ 短音 happy daddy honey 词尾的 y 或 ey /​I​/ 一 用 /​e​/ 的嘴形发 /​i​/ this give it city i /əː​/ 呃 相比中文嘴要扁一些，稍稍更用力一些 work girl dirt sir or, ir /​ə​/ 呃 /əː​/ 的短音 again a father weather 单独的 a 及词尾的 er 需要额外注意的：
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to English IPA" href="https://notes.0081800.xyz/notes/20210317141647-english_ipa/"></a>
 </article>
 
@@ -479,7 +589,9 @@ printf &#39;\e[3J&#39; &amp;&amp; log show --predicate &#39;subsystem == &#34;co
     <p> tags: Algorithm,Data Structures,Binary Search Tree 分为三种：前序、后序和中序，其中最容易用栈改写的是后序。
 前序(Preorder)：Root -&gt; Left -&gt; Right class Solution { public: void processPreorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPreorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processPreorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPreorderTraversal(root, ret); return ret; } }; 中序(Inorder): Left -&gt; Root -&gt; Right class Solution { public: void processInorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processInorderTraversal(root-&gt;left, collector); collector.push_back(root-&gt;val); processInorderTraversal(root-&gt;right, collector); } vector&lt;int&gt; inorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processInorderTraversal(root, ret); return ret; } }; 后序(Postorder)：Left -&gt; Right -&gt; Root class Solution { public: void processPostorderTraversal(TreeNode* root, vector&lt;int&gt; &amp; collector) { if (root == nullptr) { return; } processPostorderTraversal(root-&gt;left, collector); processPostorderTraversal(root-&gt;right, collector); collector.push_back(root-&gt;val); } vector&lt;int&gt; postorderTraversal(TreeNode* root) { vector&lt;int&gt; ret; if (root == nullptr) { return ret; } processPostorderTraversal(root, ret); return ret; } }; 非递归遍历 【刷题】二叉树非递归遍历 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 20:32:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-02-20 20:32:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 二叉树的遍历" href="https://notes.0081800.xyz/notes/20210220203210-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"></a>
 </article>
 
@@ -492,7 +604,9 @@ printf &#39;\e[3J&#39; &amp;&amp; log show --predicate &#39;subsystem == &#34;co
     <p> tags: Taking Notes, Org Mode 方案一：通过 Emacs 批处理模式 emacs file.org --batch -f org-hugo-export-wim-to-md --kill --batch 默认不启用配置文件，可以使用 -l
 emacs file.org --batch -l ~/.emacs.d/init.el -f org-hugo-export-wim-to-md --kill 方案二：通过 LISP 遍历 (mapc (lambda (x) (with-current-buffer (find-file-noselect x) (org-hugo-export-wim-to-md t))) (directory-files &#34;/Users/wh/codes/notes/roam-research-notes-hugo/journal&#34; nil &#34;^[0-9]&#43;$&#34; t)) </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 17:55:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-02-20 17:55:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to OX-HUGO 批量导出 Markdown" href="https://notes.0081800.xyz/notes/20210220175534-ox_hugo_%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA_markdown/"></a>
 </article>
 
@@ -508,7 +622,9 @@ emacs file.org --batch -l ~/.emacs.d/init.el -f org-hugo-export-wim-to-md --kill
 U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这样上层和下层系统都依赖中间件，但是系统之间不再强耦合，下层系统可以依赖中间件随意的进行所扩容而不用被上层系统感知。 这时候中间件只要保证中间件稳定即可，可以在中间件上进行热重启。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 中间件" href="https://notes.0081800.xyz/notes/20210220165816-%E4%B8%AD%E9%97%B4%E4%BB%B6/"></a>
 </article>
 
@@ -520,7 +636,9 @@ U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这�
   <div class="entry-content">
     <p> 项目代号 技术概念 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-02-20 16:58:00 +0800 +0800'>February 20, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 技术随想" href="https://notes.0081800.xyz/notes/20210220165806-%E6%8A%80%E6%9C%AF%E9%9A%8F%E6%83%B3/"></a>
 </article>
 
@@ -532,7 +650,9 @@ U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这�
   <div class="entry-content">
     <p> tags: C/C&#43;&#43; source: All about thread-local storage </p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-19 20:09:00 +0800 +0800'>February 19, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-02-19 20:09:00 +0800 +0800'>February 19, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to C/C&#43;&#43; thread-local storage" href="https://notes.0081800.xyz/notes/20210219200958-c_c_thread_local_storage/"></a>
 </article>
 
@@ -545,7 +665,9 @@ U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这�
     <p> tags: macOS fix “Too many open files in system” error
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-01-25 17:43:00 +0800 +0800'>January 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-01-25 17:43:00 +0800 +0800'>January 25, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to macOS max open files" href="https://notes.0081800.xyz/notes/20210125174343-macos_max_open_files/"></a>
 </article>
 
@@ -557,7 +679,9 @@ U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这�
   <div class="entry-content">
     <p> tags: GDB thread apply all bt </p>
   </div>
-  <footer class="entry-footer"><span title='2021-01-18 11:47:00 +0800 +0800'>January 18, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-01-18 11:47:00 +0800 +0800'>January 18, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to GDB 打出所有线程的 Backtrace" href="https://notes.0081800.xyz/notes/20210118114707-gdb_%E6%89%93%E5%87%BA%E6%89%80%E6%9C%89%E7%BA%BF%E7%A8%8B%E7%9A%84_backtrace/"></a>
 </article>
 
@@ -571,7 +695,9 @@ U | &#43;------&#43; | HA | &#43;------&#43; / | \ /--- | ---\ / | \ A B C 这�
 mkdir build cd build cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. mv compile_commands.json ../ 然后重启 M-x lsp-restart-workspace RET 即可。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2021-01-14 17:50:00 +0800 +0800'>January 14, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-01-14 17:50:00 +0800 +0800'>January 14, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to C&#43;&#43; LSP" href="https://notes.0081800.xyz/notes/20210114175011-lsp/"></a>
 </article>
 
@@ -591,7 +717,9 @@ LLVM 工具集（toolchain）就是这个模型的一个很好的成功的例子
 CPython 尽管不需要支持多个源语言和目标机器，尔仅仅需要支持 Python 代码和 CPython 虚拟机。不过，CPython 同样实现了三阶段设计。 如果想知道为什么，我们需要更加详细的解释编译器的三阶段的每个阶段。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-10-15 18:28:00 +0800 +0800'>October 15, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-10-15 18:28:00 +0800 +0800'>October 15, 2020</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Python behind the scenes #2: how the CPython compiler works" href="https://notes.0081800.xyz/notes/20201015182827-python_behind_the_scenes_2_how_the_cpython_compiler_works/"></a>
 </article>
 
@@ -608,7 +736,9 @@ M-x straight-freeze-versions RET 锁定当前版本
 Duplicated with straight.el 更新所有已安装的包
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-10-06 20:07:00 +0800 +0800'>October 6, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-10-06 20:07:00 +0800 +0800'>October 6, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to straight.el 命令" href="https://notes.0081800.xyz/notes/20201006200745-straight_el_%E6%9B%B4%E6%96%B0/"></a>
 </article>
 
@@ -620,7 +750,9 @@ Duplicated with straight.el 更新所有已安装的包
   <div class="entry-content">
     <p> straight-thaw-versions straight-pull-all straight-freeze-versions </p>
   </div>
-  <footer class="entry-footer"><span title='2020-10-06 20:07:00 +0800 +0800'>October 6, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-10-06 20:07:00 +0800 +0800'>October 6, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to straight.el 更新所有已安装的包" href="https://notes.0081800.xyz/notes/20201006200745-straight_el_%E6%9B%B4%E6%96%B0%E6%89%80%E6%9C%89%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84%E5%8C%85/"></a>
 </article>
 
@@ -632,7 +764,9 @@ Duplicated with straight.el 更新所有已安装的包
   <div class="entry-content">
     <p> tags: Emacs source: https://www.gnu.org/software/emacs/manual/html%5Fnode/emacs/Uniquify.html </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-27 17:01:00 +0800 +0800'>September 27, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-27 17:01:00 +0800 +0800'>September 27, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Emacs Buffer 名字去重" href="https://notes.0081800.xyz/notes/20200927170116-emacs_buffer_%E5%90%8D%E5%AD%97%E5%8E%BB%E9%87%8D/"></a>
 </article>
 
@@ -645,7 +779,9 @@ Duplicated with straight.el 更新所有已安装的包
     <p>具有“长度”概念的函数。在线性代数、泛函分析等相关数学领域，是一个函数，其为向量空间内所有向量赋予非零的正长度或大小。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-12 10:23:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-12 10:23:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 范数（norm）" href="https://notes.0081800.xyz/notes/20200912102351-%E8%8C%83%E6%95%B0/"></a>
 </article>
 
@@ -658,7 +794,9 @@ Duplicated with straight.el 更新所有已安装的包
     <p>\[MAE(X,h) = \frac{1}{m}\sum_{i=1}^{m}\left\lvert h(x^{(i)} - y ^{i})\right\rvert\]
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-12 10:15:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-12 10:15:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to MAE（平均绝对误差）" href="https://notes.0081800.xyz/notes/20200912101549-mae_%E5%B9%B3%E5%9D%87%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AE/"></a>
 </article>
 
@@ -674,7 +812,9 @@ Duplicated with straight.el 更新所有已安装的包
 m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\) 是数据集中第 \(i\) 个实例的所有特征值的向量（标签特征除外），\(y{(i)}\) 是标签（也就是我们期待该实例的输出值） X 是数据集中所有实例所有特征值的矩阵（标记特征除外）。每个实例一行，也就是说第 \(i\) 行等于 \(x^{(i)}\) 的转置矩阵1，记作 \((x^{(i)})^T\) h 是系统的预测函数，也称为一个假设。当给定系统一个实例的特征向量 \(x^{(i)}\) ，他会输出一个预测值 \(\hat{y}=h(x^{(i)})\) RMSE(X,h) 是使用假设 h 在示例上测量的成本函数。 转置运算符会将列向量转换成行向量。 ↩︎
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-12 09:45:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-12 09:45:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to RMSE（均方根误差）" href="https://notes.0081800.xyz/notes/20200912094544-rmse_%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE/"></a>
 </article>
 
@@ -686,7 +826,9 @@ m 是你在测量 RMSE 时，所使用的数据集中实例的数量 \(x^{(i)}\)
   <div class="entry-content">
     <p>公式 RMSE（均方根误差） MAE（平均绝对误差） 概念 标准差（Std Dev） 范数 方差 皮尔逊相关系数（标准相关系数） 线性相关性</p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-12 09:38:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-12 09:38:00 +0800 +0800'>September 12, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 机器学习涉及数学概念" href="https://notes.0081800.xyz/notes/20200912093811-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B6%89%E5%8F%8A%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"></a>
 </article>
 
@@ -703,7 +845,9 @@ $ python script.py 这篇文章将开启一个系列来尝试解答这个问题�
 CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可能是：Python 是一门编程语言。 当正确问相同的问题，那么答案将会更加明确：什么定义了 Python？Python 不像 C 语言有正式的规范， 但是与之相近的是 Python 语言参考（Python Language Reference），它以如下内容开始：
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-08 10:36:00 +0800 +0800'>September 8, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-08 10:36:00 +0800 +0800'>September 8, 2020</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Python behind the scenes #1: how the CPython VM works" href="https://notes.0081800.xyz/notes/20200908103647-python_behind_the_scenes_1_how_the_cpython_vm_works/"></a>
 </article>
 
@@ -718,7 +862,9 @@ CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可
 交叉验证 为避免验证集浪费太多数据，交叉验证将训练集分成若干个互补子集，然后每个模型都通过这些子集的不同组合来 训练，之后用剩余的子集进行验证。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-07 08:12:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-07 08:12:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 机器学习测试与验证" href="https://notes.0081800.xyz/notes/20200907081217-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81/"></a>
 </article>
 
@@ -736,7 +882,9 @@ CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可
 训练数据拟合不足 解决方法：
 选择一个带有更多参数、更强大的模型 给学习算法提供更好的特征集 减少模型中的约束（如减少正则化超参数） </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-07 08:03:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-07 08:03:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 机器学习的主要挑战" href="https://notes.0081800.xyz/notes/20200907080323-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%BB%E8%A6%81%E6%8C%91%E6%88%98/"></a>
 </article>
 
@@ -760,7 +908,9 @@ CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可
 线性回归算法的意义所在：通过你提供的训练样本，找出最符合所提供数据的线性模型的参数，这就是训练过程。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-07 07:42:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-07 07:42:00 +0800 +0800'>September 7, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 机器学习系统的种类" href="https://notes.0081800.xyz/notes/20200907074200-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%A7%8D%E7%B1%BB/"></a>
 </article>
 
@@ -773,7 +923,9 @@ CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可
     <p>概览 机器学习系统的种类 机器学习的主要挑战 机器学习测试与验证 模型是观察的简化。
 相关数学概念 机器学习涉及数学概念 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-05 07:57:00 +0800 +0800'>September 5, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-05 07:57:00 +0800 +0800'>September 5, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 《机器学习实战》读书笔记" href="https://notes.0081800.xyz/notes/20200905075701-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
 </article>
 
@@ -785,7 +937,9 @@ CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可
   <div class="entry-content">
     <p> scikit-learn 提供一些常见的机器学习算法 逻辑回归(Logistic Regression aka LR) 线性分类器 XGBoost 提供随机森林解决逻辑回归特征不明显的问题 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-09-03 18:02:00 +0800 +0800'>September 3, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-09-03 18:02:00 +0800 +0800'>September 3, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Machine Learning" href="https://notes.0081800.xyz/notes/20200903180214-machine_learning/"></a>
 </article>
 
@@ -799,7 +953,9 @@ CPython 实现了 Python，但是 Python 是什么？最简单的一个答案可
 unwinding
 </p>
   </div>
-  <footer class="entry-footer"><span title='2020-08-29 08:11:00 +0800 +0800'>August 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-08-29 08:11:00 +0800 +0800'>August 29, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Rust Obscure Words for non-native English speakers" href="https://notes.0081800.xyz/notes/20200829081145-rust_obscure_words_for_non_native_english_speakers/"></a>
 </article>
 
@@ -812,7 +968,9 @@ unwinding
     <p> tags: Rust Future async fn 将一个代码块转换为一个 Future 对象， Future 对象维护一个状态机 Future 对象必须运行在一个 Executor 上 Executor futures::executor::block_on 阻塞当前线程直到 future 完成
 // `block_on` blocks the current thread until the provided future has run to // completion. Other executors provide more complex behavior, like scheduling // multiple futures onto the same thread. use futures::executor::block_on; async fn hello_world() { println!(&#34;hello, world!&#34;); } fn main() { let future = hello_world(); // Nothing is printed block_on(future); // `future` is run and &#34;hello, world!&#34; is printed } await await 异步的等待 future 完成，不阻塞当前线程，可以配合 futures::join! 可以同时 await 多个 future futures::try_join! 如果其中一个子 future 返回错误则立即返回（join! 需要等所有 future 全部返回） futures::select! 任意一个 future 完成则立即返回 async fn learn_and_sing() { // Wait until the song has been learned before singing it. // We use `.await` here rather than `block_on` to prevent blocking the // thread, which makes it possible to `dance` at the same time. let song = learn_song().await; sing_song(song).await; } async fn async_main() { let f1 = learn_and_sing(); let f2 = dance(); // `join!` is like `.await` but can wait for multiple futures concurrently. // If we&#39;re temporarily blocked in the `learn_and_sing` future, the `dance` // future will take over the current thread. If `dance` becomes blocked, // `learn_and_sing` can take back over. If both futures are blocked, then // `async_main` is blocked and will yield to the executor. futures::join!(f1, f2); } fn main() { block_on(async_main()); } </p>
   </div>
-  <footer class="entry-footer"><span title='2020-08-28 16:08:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-08-28 16:08:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Rust Asynchronous Programming" href="https://notes.0081800.xyz/notes/20200828160809-rust_asynchronous_programming/"></a>
 </article>
 
@@ -830,65 +988,10 @@ paths: {} swagger: &#34;2.0&#34; 使用单独的包托管 swagger 相关定义 �
 // Package swagger defines API documentation. // // Swagger 演示后端接口 // // Schemes: http // Host: 10.200.242.35:8080 // BasePath: /api/ // Version: 0.1.0 // Contact: 王会&lt;hui.wang.a@17zuoye.com&gt; // // Consumes: // - application/json // // Produces: // - application/vnd.17zuoye.v1&#43;json // // swagger:meta package swagger 上面文件通过注释来定义了一些接口相关的信息，包括：
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2020-08-28 10:47:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2020-08-28 10:47:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Go Swagger 实现代码即文档" href="https://notes.0081800.xyz/notes/20200828104706-go_swagger/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">MySQL forget password
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: MySQL 启动 mysqld 时加上 --skip-grant-tables 参数可以无密码进入 MySQL。
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-27 19:59:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to MySQL forget password" href="https://notes.0081800.xyz/notes/20200827195950-mysql_forget_password/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">MVCC
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: MySQL https://liuzhengyang.github.io/2017/04/18/innodb-mvcc/ 来自《高性能 MySQL》：
-InnoDB 在每一行都隐式的多存储两个字段：
-事务更新版本 事务删除版本 当事务开始时记录这两个版本，在读取的时候根据 Undo Log 和 Redo Log 来实现隔离级别的控制。序列化隔离级别下只能通过行锁来保证。
-在可重复读隔离级别下：
-首先判断事务更新版本是否大于事务开始前的版本 如果大于则根据 Undo Log 进行回退实现可重复读，这样在同一事务下不管读多少遍读取到的内容都是一样的。 可重复读隔离即便下无法避免幻读：即一开始没有读取到，随着其他插入事务的提交在同一事务里执行查询又能读取到的情况。
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-27 19:58:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to MVCC" href="https://notes.0081800.xyz/notes/20200827195823-mvcc/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">MySQL grant subnet
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: MySQL,Network https://stackoverflow.com/a/38389851/2873718
-MySQL 授权用户子网段需要使用:
-172.16.0.0/255.240.0.0 而不能使用
-172.16.0.0/12 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-27 19:56:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to MySQL grant subnet" href="https://notes.0081800.xyz/notes/20200827195621-mysql_grant_subnet/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Network
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-27 18:06:00 +0800 +0800'>August 27, 2020</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Network" href="https://notes.0081800.xyz/notes/20200827180638-network/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -904,22 +1007,31 @@ MySQL 授权用户子网段需要使用:
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -946,25 +1058,25 @@ MySQL 授权用户子网段需要使用:
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - Taking Smart Notes With Org-mode">
 <meta name="author" content="">
 <link rel="canonical" href="https://notes.0081800.xyz/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://notes.0081800.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/notes/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://notes.0081800.xyz/notes/index.xml" title="rss">
 <link rel="alternate" hreflang="en" href="https://notes.0081800.xyz/notes/">
 <noscript>
     <style>
@@ -40,30 +40,39 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/notes/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/notes/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Notes">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes">
-<meta name="twitter:description" content="">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Notes">
 
 
 <script type="application/ld+json">
@@ -81,31 +90,19 @@
 }
 </script>
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -121,7 +118,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -146,11 +143,82 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a></div>
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
   <h1>
     Notes
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Flink: How does State Snapshotting Work?
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Fault Tolerance via State Snapshots,Flink State Snapshots,Wikipedia: Chandy–Lamport algorithm source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/fault%5Ftolerance/#how-does-state-snapshotting-work Workflow:
+Checkpoint coordinator (part of the job manager) instructs a task manager to begin a checkpoint.
+Insert numbered checkpoint barriers into their streams of all the sources record their offsets.
+checkpoint barriers flow through the job graph, indicating the part of the stream before and after each checkpoint.
+Checkpoint n will contain the state of each operator that resulted from having consumed every event before checkpoint barrier n, and none of the events after it.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:25:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Flink: How does State Snapshotting Work?" href="https://notes.0081800.xyz/notes/20220104112527-flink_how_does_state_snapshotting_work/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Flink Checkpoint
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Flink State Snapshots,Fault Tolerance via State Snapshots a snapshot taken automatically by Flink for the purpose of being able to recover from faults. Checkpoints can be incremental, and are optimized for being restored quickly.
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Flink Checkpoint" href="https://notes.0081800.xyz/notes/20220104112356-flink_checkpoint/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Flink Savepoint
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Flink State Snapshots a snapshot triggered manually by a user (or an API call) for some operational purpose, such as a stateful redeploy/upgrade/rescaling operation. Savepoints are always complete, and are optimized for operational flexibility.
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Flink Savepoint" href="https://notes.0081800.xyz/notes/20220104112301-flink_savepoint/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Flink Checkpoint Storage
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Flink State Snapshots,Fault Tolerance via State Snapshots,Flink Checkpoint source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/fault%5Ftolerance/#checkpoint-storage Flink periodically takes persistent snapshots of all the state in every operator and copies these snapshots somewhere more durable, such as a distributed file system. In the event of the failure, Flink can restore the complete state of your application and resume processing as though nothing had gone wrong.
+Two implementations:
+A distributed file system. JobManager’s heap. </p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:19:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Flink Checkpoint Storage" href="https://notes.0081800.xyz/notes/20220104111922-flink_checkpoint_storage/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -166,7 +234,9 @@ Risk Large amount state will cause OOM.
 Conclusion Both of these state backends are able to do asynchronous snapshotting, meaning that they can take a snapshot without impeding the ongoing stream processing.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 11:14:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:14:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to State Backends" href="https://notes.0081800.xyz/notes/20220104111432-state_backends/"></a>
 </article>
 
@@ -178,7 +248,9 @@ Conclusion Both of these state backends are able to do asynchronous snapshotting
   <div class="entry-content">
     <p> tags: Flink State Snapshots,Stateful Stream Processing source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/fault%5Ftolerance/ </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 11:13:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:13:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Fault Tolerance via State Snapshots" href="https://notes.0081800.xyz/notes/20220104111325-fault_tolerance_via_state_snapshots/"></a>
 </article>
 
@@ -190,7 +262,9 @@ Conclusion Both of these state backends are able to do asynchronous snapshotting
   <div class="entry-content">
     <p> tags: Stateful Stream Processing </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 11:11:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 11:11:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Flink State Snapshots" href="https://notes.0081800.xyz/notes/20220104111119-flink_state_snapshots/"></a>
 </article>
 
@@ -204,7 +278,9 @@ Conclusion Both of these state backends are able to do asynchronous snapshotting
 How the stateful streaming processing works on a distributed cluster? The set of parallel instances of a stateful operator is effectively a sharded key-value store. Each parallel instance is responsible for handling events for a specific group of keys, and the state for those keys is kept locally.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:58:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:58:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Stateful Stream Processing" href="https://notes.0081800.xyz/notes/20220104105853-stateful_stream_processing/"></a>
 </article>
 
@@ -217,7 +293,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
     <p> tags: Stream processing,Flink source: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/learn-flink/overview/#timely-stream-processing Flink timely stream processing support by using event timestamps that are recorded in data stream, rather than using the clocks of the machines processing the data.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:58:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:58:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Timely Stream Processing" href="https://notes.0081800.xyz/notes/20220104105829-timely_stream_processing/"></a>
 </article>
 
@@ -230,7 +308,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
     <p> tags: Flink Parallel Dataflows Redistributing streams (as between map() and keyBy/window above, as well as between keyBy/window and Sink) change the partitioning of streams. Each operator subtask sends data to different target subtasks, depending on the selected transformation. Examples are keyBy() (which re-partitions by hashing the key), broadcast(), or rebalance() (which re-partitions randomly). In a redistributing exchange the ordering among the elements is only preserved within each pair of sending and receiving subtasks (for example, subtask[1] of map() and subtask[2] of keyBy/window). So, for example, the redistribution between the keyBy/window and the Sink operators shown above introduces non-determinism regarding the order in which the aggregated results for different keys arrive at the Sink.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:57:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:57:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Flink Redistributing" href="https://notes.0081800.xyz/notes/20220104105758-flink_redistributing/"></a>
 </article>
 
@@ -243,7 +323,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
     <p> tags: Flink Parallel Dataflows One-to-one streams (for example between the Source and the map() operators in the figure above) preserve the partitioning and ordering of the elements. That means that subtask[1] of the map() operator will see the same elements in the same order as they were produced by subtask[1] of the Source operator.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:57:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:57:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to One-to-one" href="https://notes.0081800.xyz/notes/20220104105704-one_to_one/"></a>
 </article>
 
@@ -256,7 +338,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
     <p> tags: Flink Streams can transport data between two operators in a one-to-one (or forwarding) pattern, or in a redistributing pattern:
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:56:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:56:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Flink Parallel Dataflows" href="https://notes.0081800.xyz/notes/20220104105628-flink_parallel_dataflows/"></a>
 </article>
 
@@ -269,7 +353,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
     <p> tags: Flink Stream processing, on the other hand, involves unbounded data streams. Conceptually, at least, the input may never end, and so you are forced to continuously process the data as it arrives.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:51:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:51:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Stream processing" href="https://notes.0081800.xyz/notes/20220104105119-stream_processing/"></a>
 </article>
 
@@ -282,7 +368,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
     <p> tags: Spark Batch processing is the paradigm at work when you process a bounded data stream. In this mode of operation you can choose to ingest the entire dataset before producing any results, which means that it is possible, for example, to sort the data, compute global statistics, or produce a final report that summarizes all of the input.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:50:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:50:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Batch processing" href="https://notes.0081800.xyz/notes/20220104105030-batch_processing/"></a>
 </article>
 
@@ -294,7 +382,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
   <div class="entry-content">
     <p></p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:44:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:44:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>0 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Flink实时计算-深入理解 Checkpoint和Savepoint" href="https://notes.0081800.xyz/notes/20220104104436-flink%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3_checkpoint%E5%92%8Csavepoint/"></a>
 </article>
 
@@ -306,7 +396,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
   <div class="entry-content">
     <p> tags: Flink,Flink State Snapshots,Flink Checkpoint,Flink Savepoint source: https://zhuanlan.zhihu.com/p/79526638 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:44:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:44:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 知乎：Flink实时计算-深入理解 Checkpoint和Savepoint" href="https://notes.0081800.xyz/notes/20220104104450-%E7%9F%A5%E4%B9%8E_flink%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3_checkpoint%E5%92%8Csavepoint/"></a>
 </article>
 
@@ -318,7 +410,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
   <div class="entry-content">
     <p> tags: Linux source: https://github.com/sunym1993/flash-linux0.11-talk </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:43:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:43:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to GitHub: 像小说一样品读 Linux 0.11 核心代码" href="https://notes.0081800.xyz/notes/20220104104331-github_%E5%83%8F%E5%B0%8F%E8%AF%B4%E4%B8%80%E6%A0%B7%E5%93%81%E8%AF%BB_linux_0_11_%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81/"></a>
 </article>
 
@@ -330,7 +424,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
   <div class="entry-content">
     <p> tags: Linux source: https://archive.org/details/199405-decusnew-orleans/1994050DECUSNewOrleansLinuxImplementationIssuesInLinux.ogg </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:41:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:41:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Audio: The lost talks from Linus Torvalds at DECUS&#39;94" href="https://notes.0081800.xyz/notes/20220104104134-audio_the_lost_talks_from_linus_torvalds_at_decus_94/"></a>
 </article>
 
@@ -342,7 +438,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
   <div class="entry-content">
     <p> tags: Operating system </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 10:39:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 10:39:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Linux" href="https://notes.0081800.xyz/notes/20220104103936-linux/"></a>
 </article>
 
@@ -356,7 +454,9 @@ How the stateful streaming processing works on a distributed cluster? The set of
 This is important for reasons other than scalability.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 08:30:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 08:30:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Ethereum: Shard chains" href="https://notes.0081800.xyz/notes/20220104083051-ethereum_shard_chains/"></a>
 </article>
 
@@ -370,7 +470,9 @@ This is important for reasons other than scalability.
 The beacon chain receives state information from shards and makes it available for other shards, allowing the network to stay in sync. The beacon chain will also manage the validators from registering their stake deposits to issuing their rewards and penalties.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 08:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 08:23:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Ethereum: The Beacon Chain" href="https://notes.0081800.xyz/notes/20220104082350-ethereum_the_beacon_chain/"></a>
 </article>
 
@@ -385,7 +487,9 @@ Attestation
 If a validator isn’t chosen to propose a new shard block, they’ll have to attest to another validator’s proposal and confirm that everything looks as it should. It’s the attestation that is recorded in the beacon chain rather than the transaction itself.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 08:21:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 08:21:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to How does Ethereum&#39;s proof-of-stake work?" href="https://notes.0081800.xyz/notes/20220104082123-how_does_ehtereum_s_proof_of_stake_work/"></a>
 </article>
 
@@ -397,7 +501,9 @@ If a validator isn’t chosen to propose a new shard block, they’ll have to at
   <div class="entry-content">
     <p> tags: Ethereum </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 08:15:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 08:15:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to ETH" href="https://notes.0081800.xyz/notes/20220104081524-eth/"></a>
 </article>
 
@@ -410,7 +516,9 @@ If a validator isn’t chosen to propose a new shard block, they’ll have to at
     <p> tags: Blockchain Proof,Solana,Proof-of-stake Solana is a Proof of Stake network. This short phrase - “Proof of Stake” - represents a much larger concept with considerable complexity behind it, and even more so for Solana, which adds the unique properties of Proof of History to the mix to enable fast, low-latency transactions while still maintaining censorship resistance.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 08:13:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 08:13:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Proof-of-history" href="https://notes.0081800.xyz/notes/20220104081314-proof_of_history/"></a>
 </article>
 
@@ -426,7 +534,9 @@ Validators are chosen at random to create blocks and are responsible for checkin
 user’s stake is also used as a way to incentivise good validator behavior. For example, a user can lose a portion of their stake for things like going offline (failing to validate) or their entire stake for deliberate collusion.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 07:10:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 07:10:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Proof-of-stake" href="https://notes.0081800.xyz/notes/20220104071052-proof_of_stake/"></a>
 </article>
 
@@ -440,7 +550,9 @@ user’s stake is also used as a way to incentivise good validator behavior. For
 With a hash function, let’s say SHA-1. For example, to do PoW, we need to generate a SHA-1 hash of the given data that must begins 52 binary zeros, that is 13 hexadecimal zeros:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 07:08:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 07:08:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Proof-of-work" href="https://notes.0081800.xyz/notes/20220104070857-proof_of_work/"></a>
 </article>
 
@@ -452,7 +564,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Blockchain </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 07:07:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 07:07:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Blockchain Proof" href="https://notes.0081800.xyz/notes/20220104070749-blockchain_proof/"></a>
 </article>
 
@@ -464,7 +578,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Blockchain,Solana,Proof-of-stake,Proof-of-history source: “Shinobi Systems’ Solana Proof of Stake &#43; Proof of History Primer.” Accessed January 5, 2022. https://www.shinobi-systems.com/primer.html. </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-04 07:04:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-04 07:04:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Shinobi Systems&#39; Solana Proof of Stake &#43; Proof of History Primer" href="https://notes.0081800.xyz/notes/20220104070408-shinobi_systems_solana_proof_of_stake_proof_of_history_primer/"></a>
 </article>
 
@@ -476,7 +592,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Video: Blockchain 101 - A Visual Demo，区块链, Online Tools source: https://andersbrownworth.com/blockchain/hash </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-03 08:20:00 +0800 +0800'>January 3, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-03 08:20:00 +0800 +0800'>January 3, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Blockchain Demo" href="https://notes.0081800.xyz/notes/20220103082057-blockchain_demo/"></a>
 </article>
 
@@ -489,7 +607,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
     <p> tags: 区块链 source: https://youtu.be/%5F160oMzblY8 It’s like Git but not support merge. The progress of changing blocks like git rebase.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-03 08:19:00 +0800 +0800'>January 3, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-03 08:19:00 +0800 +0800'>January 3, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Video: Blockchain 101 - A Visual Demo" href="https://notes.0081800.xyz/notes/20220103081929-video_blockchain_101_a_visual_demo/"></a>
 </article>
 
@@ -502,7 +622,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
     <p> tags: C/C&#43;&#43; 只能通过抽象类的指针或引用调用动态解析子类函数，虚函数表示需要动态解析，纯虚函数必须被子类覆盖，否则无法实例化。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-02 07:45:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-02 07:45:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to C/C&#43;&#43; 多态" href="https://notes.0081800.xyz/notes/20220102074500-c_c_%E5%A4%9A%E6%80%81/"></a>
 </article>
 
@@ -514,7 +636,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Programming Language </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-02 07:37:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-02 07:37:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to JavaScript" href="https://notes.0081800.xyz/notes/20220102073737-javascript/"></a>
 </article>
 
@@ -526,7 +650,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Programming Language </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-02 07:36:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-02 07:36:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Swift" href="https://notes.0081800.xyz/notes/20220102073640-swift/"></a>
 </article>
 
@@ -538,7 +664,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Computer Systems,读书笔记 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-02 07:28:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-02 07:28:00 +0800 +0800'>January 2, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to 《深入理解计算机系统》读书笔记" href="https://notes.0081800.xyz/notes/20220102072835-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"></a>
 </article>
 
@@ -550,7 +678,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Rust source: https://stackoverflow.com/a/34745885/2873718 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:21:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:21:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to SO: What is the difference between iter and into_iter?" href="https://notes.0081800.xyz/notes/20220101082142-so_what_is_the_difference_between_iter_and_into_iter/"></a>
 </article>
 
@@ -562,7 +692,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Rust Wrapper Types,Rust source: Rust Memory Container Cheat-sheet </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:20:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:20:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to GitHub: Rust Memory Container Cheat-sheet" href="https://notes.0081800.xyz/notes/20220101082045-github_rust_memory_container_cheat_sheet/"></a>
 </article>
 
@@ -574,7 +706,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Rust,Rust Wrapper Types source: https://manishearth.github.io/blog/2015/05/27/wrapper-types-in-rust-choosing-your-guarantees/ </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:19:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:19:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Wrapper Types in Rust: Choosing Your Guarantees" href="https://notes.0081800.xyz/notes/20220101081950-wrapper_types_in_rust_choosing_your_guarantees/"></a>
 </article>
 
@@ -586,7 +720,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Tokio source: https://github.com/tony612/tokio-internals </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:17:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:17:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to GitHub: Internal details of Tokio from code to designs" href="https://notes.0081800.xyz/notes/20220101081722-github_internal_details_of_tokio_from_code_to_designs/"></a>
 </article>
 
@@ -598,7 +734,9 @@ With a hash function, let’s say SHA-1. For example, to do PoW, we need to gene
   <div class="entry-content">
     <p> tags: Raft source: https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:07:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:07:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to PAPER: Raft" href="https://notes.0081800.xyz/notes/20220101080713-paper_raft/"></a>
 </article>
 
@@ -613,7 +751,9 @@ The defination of a distributed system: the order of its events occurred is unpr
 How this paper try to solve this problem: use a “happened before” relation to define a partial ordering and distributed algorithm.
 Background</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:06:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:06:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to PAPER: Time, Clocks, and the Ordering of Events in a Distributed System" href="https://notes.0081800.xyz/notes/20220101080622-paper_time_clocks_and_the_ordering_of_events_in_a_distributed_system/"></a>
 </article>
 
@@ -625,7 +765,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: Paxos source: https://blog.csdn.net/qq%5F35440678/article/details/78080431 </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:03:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:03:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to CSDN:  理解这两点，也就理解了paxos协议的精髓" href="https://notes.0081800.xyz/notes/20220101080340-csdn_%E7%90%86%E8%A7%A3%E8%BF%99%E4%B8%A4%E7%82%B9_%E4%B9%9F%E5%B0%B1%E7%90%86%E8%A7%A3%E4%BA%86paxos%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%B2%BE%E9%AB%93/"></a>
 </article>
 
@@ -637,7 +779,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: Rust,Raft source: https://github.com/tikv/raft-rs </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:02:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:02:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to GitHub: raft-rs" href="https://notes.0081800.xyz/notes/20220101080223-github_raft_rs/"></a>
 </article>
 
@@ -649,7 +793,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: Raft,分布式，分布式共识，Online Tools source: http://thesecretlivesofdata.com/raft/ </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 08:00:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 08:00:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Raft Understandable Distributed Consensus" href="https://notes.0081800.xyz/notes/20220101080054-raft_understandable_distributed_consensus/"></a>
 </article>
 
@@ -661,7 +807,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: 分布式共识,Online Tools,区块链 source: https://web3scout.github.io/forcecons-sim/ </p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-01 07:51:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2022-01-01 07:51:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Distributed consensus (blockchain) simulation and visualization" href="https://notes.0081800.xyz/notes/20220101075156-distributed_consensus_blockchain_simulation_and_visualization/"></a>
 </article>
 
@@ -675,7 +823,9 @@ Background</p>
 {{ $re := $.File.BaseFileName }} {{ $backlinks := slice }} {{ range .Site.AllPages }} {{ if and (findRE $re .RawContent) (not (eq $re .File.BaseFileName)) }} {{ $backlinks = $backlinks | append . }} {{ end }} {{ end }} &lt;hr&gt; {{ if gt (len $backlinks) 0 }} &lt;div class=&#34;bl-section&#34;&gt; &lt;h4&gt;Links to this note&lt;/h4&gt; &lt;div class=&#34;backlinks&#34;&gt; &lt;ul&gt; {{ range $backlinks }} &lt;li&gt;&lt;a href=&#34;{{ .RelPermalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/li&gt; {{ end }} &lt;/ul&gt; &lt;/div&gt; &lt;/div&gt; {{ else }} &lt;div class=&#34;bl-section&#34;&gt; &lt;h4&gt;No notes link to this note&lt;/h4&gt; &lt;/div&gt; {{ end }} 然后插入到的 single.html 就行
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 14:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-31 14:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Org-roam export backlinks on Hugo" href="https://notes.0081800.xyz/notes/20211231142642-org_roam_export_backlinks_on_hugo/"></a>
 </article>
 
@@ -687,7 +837,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: Tools </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:33:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-31 12:33:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Online Tools" href="https://notes.0081800.xyz/notes/20211231123329-online_tools/"></a>
 </article>
 
@@ -699,7 +851,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: Taking Notes,Online Tools </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:32:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-31 12:32:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to RoamResearch" href="https://notes.0081800.xyz/notes/20211231123253-roamresearch/"></a>
 </article>
 
@@ -711,7 +865,9 @@ Background</p>
   <div class="entry-content">
     <p> tags: Learning,Taking Notes source: https://www.nateliason.com/blog/roam </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:29:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-31 12:29:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Roam: Why I Love It and How I Use It" href="https://notes.0081800.xyz/notes/20211231122919-roam_why_i_love_it_and_how_i_use_it/"></a>
 </article>
 
@@ -725,7 +881,9 @@ Background</p>
 But Luhmann often remarked that he never forced himself to do anything he didn’t feel like doing: “I only do what is easy. I only write when I immediately know how to do it. If I falter for a moment, I put the matter aside and do something else” (Luhmann et al., 1987, 154f).
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-31 12:26:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to How To Take Smart Notes: 10 Principles to Revolutionize Your Note-Taking and Writing" href="https://notes.0081800.xyz/notes/20211231122658-how_to_take_smart_notes_10_principles_to_revolutionize_your_note_taking_and_writing/"></a>
 </article>
 
@@ -741,57 +899,10 @@ Note-taking for writing:
 Find topic/research question Research/find literature Read and take notes Draw conclusions / outline text Write Two types of notes:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:23:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+  <footer class="entry-footer">
+
+<span title='2021-12-31 12:23:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to How To Take Smart Notes With Org-mode" href="https://notes.0081800.xyz/notes/20211231122318-how_to_take_smart_notes_with_org_mode/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2021-12-31 12:21:00 +0800 +0800'>December 31, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to Learning" href="https://notes.0081800.xyz/notes/20211231122121-learning/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">读书笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2021-12-10 18:12:00 +0800 +0800'>December 10, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 读书笔记" href="https://notes.0081800.xyz/notes/20211210181234-%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">加解密
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>证书 [译] 写给工程师：关于证书（certificate）和公钥基础设施（PKI）的一切（SmallStep, 2018）
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-10-09 10:49:00 +0800 +0800'>October 9, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 加解密" href="https://notes.0081800.xyz/notes/20211009104957-%E5%8A%A0%E8%A7%A3%E5%AF%86/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">英语读音规则
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Learning English 一般现在时第三人称单音形规则 一般过去时音形规则</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-09-25 20:23:00 +0800 +0800'>September 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
-  <a class="entry-link" aria-label="post link to 英语读音规则" href="https://notes.0081800.xyz/notes/20210925202345-%E8%8B%B1%E8%AF%AD%E8%AF%BB%E9%9F%B3%E8%A7%84%E5%88%99/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -807,22 +918,31 @@ Find topic/research question Research/find literature Read and take notes Draw c
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -849,25 +969,25 @@ Find topic/research question Research/find literature Read and take notes Draw c
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@ tags: Programming Language
 ">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/topics/20200307191429_rust/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -41,37 +41,45 @@ tags: Programming Language
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/topics/20200307191429_rust/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/topics/20200307191429_rust/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Rust">
-  <meta property="og:description" content=" tags: Programming Language ">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:description" content="tags: Programming Language">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="topics">
     <meta property="article:published_time" content="2020-03-07T00:00:00+08:00">
     <meta property="article:modified_time" content="2020-03-07T00:00:00+08:00">
     <meta property="article:tag" content="Rust">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rust">
-<meta name="twitter:description" content="
-tags: Programming Language
-">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rust">
+  <meta name="twitter:description" content="tags: Programming Language">
 
 
 <script type="application/ld+json">
@@ -128,31 +136,19 @@ tags: Programming Language
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -168,7 +164,7 @@ tags: Programming Language
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -196,16 +192,29 @@ tags: Programming Language
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/topics/">Topics</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/topics/">Topics</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       Rust
     </h1>
-    <div class="post-meta"><span title='2020-03-07 00:00:00 +0800 +0800'>March 7, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2020-03-07 00:00:00 +0800 +0800'>March 7, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
   </header> 
 
-  <div class="post-content"><ul>
+  <div class="post-content md-content"><ul>
 <li>tags: <a href="/topics/20200320170914_programming_language/">Programming Language</a></li>
 </ul>
 
@@ -218,6 +227,14 @@ tags: Programming Language
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -1992,7 +2009,9 @@ tags: Programming Language
 fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) { manipulate(s) } else { s.to_owned() // 存在额外的开销 }; take_reference(&amp;s); // s.into_owned() 可以得到 String 类型的值 } fn manipulate(s: &amp;str) -&gt; String { s.to_owned() } fn take_reference(s: &amp;str) { } 另外一种方式就是通过 Cow 避免不必要的 clone 开销：
 fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) { Cow::from(manipulate(s)) } else { Cow::from(s) // 没有额外的开销 }; take_reference(&amp;s); } fn manipulate(s: &amp;str) -&gt; String { s.to_owned() } fn take_reference(s: &amp;str) { } </p>
             </div>
-            <footer class="entry-footer"><span title='2024-05-06 11:51:00 +0800 +0800'>May 6, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2024-05-06 11:51:00 +0800 +0800'>May 6, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust std::borrow::Cow" href="https://notes.0081800.xyz/notes/20240506115111-rust_std_borrow_cow/"></a>
           </article>
        
@@ -2004,7 +2023,9 @@ fn maybe_need_to_change(s: &amp;str) { let s = if s.starts_with(&#34;xxx&#34;) {
             <div class="entry-content">
               <p> tags: Rust source: Johnston, Dylan R. “Formally Verifying Rust’s Opaque Types,” August 1, 2022. https://dylanj.xyz/posts/rust-coq-opaque-types/. Prelude trait ToString { fn to_string(&amp;self) -&gt; String; } Static Dispatch fn yell&lt;S: ToString&gt;(stringable: S) { println!(stringable.to_string().to_uppercase()) } Dynamic Dispatch fn yell(stringable: &amp;dyn ToString) { println!(stringable.to_string().to_uppercase()) } impl Trait fn yell(stringable: impl ToString) { println!(stringable.to_string().to_uppercase()) } </p>
             </div>
-            <footer class="entry-footer"><span title='2022-08-02 10:41:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-08-02 10:41:00 +0800 +0800'>August 2, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Opaque Types: Static Dispatch vs. Dynamic Dispatch" href="https://notes.0081800.xyz/notes/20220802104148-rust_opaque_types_static_dispatch_vs_dynamic_dispatch/"></a>
           </article>
        
@@ -2020,7 +2041,9 @@ https://github.com/fzyzcjy/flutter_rust_bridge/issues/496 http://cjycode.com/flu
 Xcode will strip the unused symbols in release mode, and won’t realize the FFI invocation; So we need add some dummy invocations to the AppDelegate.swift to make sure it have been used. Next, add this line to ios/Runner/Runner-Bridging-Header.h:
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2022-07-25 08:13:00 +0800 +0800'>July 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-07-25 08:13:00 +0800 +0800'>July 25, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Flutter FFI didn&#39;t be Invoked in Release Mode" href="https://notes.0081800.xyz/notes/20220725081335-flutter_ffi_won_t_be_invoked_in_release_mode/"></a>
           </article>
        
@@ -2032,7 +2055,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Rust GUI Overview Platform Documentation Community Activity Most Activity Period Native UI Cross platform Leak 5.7k stars Yes 2019-2021 No Conclusion Use the the platform-native widgets or mimic them. (Relm, SixtyFPS) Embed easily into custom render pipelines. (Conrod) Adhere to a specific architectural style such as Elm. (Iced, Relm) Support rendering to HTML when targeting the web. (Iced, Moxie) </p>
             </div>
-            <footer class="entry-footer"><span title='2022-02-08 13:32:00 +0800 +0800'>February 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-02-08 13:32:00 +0800 +0800'>February 8, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: linebender/druid – A data-first Rust-native UI design toolkit." href="https://notes.0081800.xyz/notes/20220208133213-github_linebender_druid_a_data_first_rust_native_ui_design_toolkit/"></a>
           </article>
        
@@ -2044,7 +2069,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Rust GUI Overview Platform Documentation Community Activity Most Activity Period Native UI Cross platform Leak 3.5k stars Kind of 2020 No Conclusion Highlights – Cross platform Downsides – Documentation leak and not in activity development. </p>
             </div>
-            <footer class="entry-footer"><span title='2022-02-08 12:10:00 +0800 +0800'>February 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-02-08 12:10:00 +0800 +0800'>February 8, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: redox-os/orbtk –  The Rust UI-Toolkit." href="https://notes.0081800.xyz/notes/20220208121018-github_redox_os_orbtk_the_rust_ui_toolkit/"></a>
           </article>
        
@@ -2056,7 +2083,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,GUI </p>
             </div>
-            <footer class="entry-footer"><span title='2022-02-08 12:10:00 +0800 +0800'>February 8, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-02-08 12:10:00 +0800 +0800'>February 8, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust GUI" href="https://notes.0081800.xyz/notes/20220208121029-rust_gui/"></a>
           </article>
        
@@ -2068,7 +2097,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust “Why Rust Strings Seem Hard | Brandon’s Website.” Accessed January 17, 2022. https://www.brandons.me/blog/why-rust-strings-seem-hard. </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 17:03:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 17:03:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Why Rust strings seem hard" href="https://notes.0081800.xyz/notes/20220117170333-why_rust_strings_seem_hard/"></a>
           </article>
        
@@ -2081,7 +2112,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
               <p> tags: Rust,Thread Safety source: Hexi. “如何理解 Sync 和 Send?” 李晨曦的博客 | Hexi Blog, May 5, 2019. https://hexilee.me/2019/05/05/how-to-understand-sync-and-send-in-rust/. 语义：
 实现了 Send 的类型，可以安全地在线程间传递所有权。也就是说， 可以跨线程移动。 实现了 Sync 的类型， 可以安全地在线程间传递不可变借用。也就是说，可以跨线程共享。 </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:51:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:51:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 如何理解 Sync 和 Send?" href="https://notes.0081800.xyz/notes/20220117165142-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3_sync_%E5%92%8C_send/"></a>
           </article>
        
@@ -2093,7 +2126,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Rust Macro,Online Tutorial source: https://danielkeep.github.io/tlborm/book/index.html </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:47:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:47:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to The Little Book of Rust Macros" href="https://notes.0081800.xyz/notes/20220117164736-the_little_book_of_rust_macros/"></a>
           </article>
        
@@ -2105,7 +2140,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Online Tutorial source: fasterthanli.me. “A Half-Hour to Learn Rust.” Accessed January 17, 2022. https://fasterthanli.me/articles/a-half-hour-to-learn-rust. </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:46:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:46:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to A half-hour to learn Rust" href="https://notes.0081800.xyz/notes/20220117164630-a_half_hour_to_learn_rust/"></a>
           </article>
        
@@ -2117,7 +2154,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:45:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:45:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Macro" href="https://notes.0081800.xyz/notes/20220117164506-rust_macro/"></a>
           </article>
        
@@ -2129,7 +2168,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Rust Macro,Learning </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:44:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:44:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: dtolnay/proc-macro-workshop - Learn to write Rust procedural macros" href="https://notes.0081800.xyz/notes/20220117164450-github_dtolnay_proc_macro_workshop_learn_to_write_rust_procedural_macros/"></a>
           </article>
        
@@ -2141,7 +2182,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Distributed Systems,Online Tutorial,Learning source: https://github.com/pingcap/talent-plan </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:43:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:43:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: pingcap/talent-plan - open source training courses about distributed database and distributed systemes" href="https://notes.0081800.xyz/notes/20220117164352-github_pingcap_talent_plan_open_source_training_courses_about_distributed_database_and_distributed_systemes/"></a>
           </article>
        
@@ -2153,7 +2196,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Online Tutorial,Learning source: https://github.com/rust-lang/rustlings </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-17 16:43:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-17 16:43:00 +0800 +0800'>January 17, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: rust-lang/rustlings – Small exercises to get you used to reading and writing Rust code!" href="https://notes.0081800.xyz/notes/20220117164303-github_rust_lang_rustlings_small_exercises_to_get_you_used_to_reading_and_writing_rust_code/"></a>
           </article>
        
@@ -2165,7 +2210,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Online Tutorial source: https://cheats.rs/ </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-05 19:03:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-05 19:03:00 +0800 +0800'>January 5, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Language Cheat Sheet" href="https://notes.0081800.xyz/notes/20220105190301-rust_language_cheat_sheet/"></a>
           </article>
        
@@ -2177,7 +2224,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,优化,High Performance source: https://blog.datalust.co/deserializing-json-really-fast/ </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-04 18:42:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-04 18:42:00 +0800 +0800'>January 4, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Deserializing JSON really fast" href="https://notes.0081800.xyz/notes/20220104184242-deserializing_json_really_fast/"></a>
           </article>
        
@@ -2189,7 +2238,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust source: https://stackoverflow.com/a/34745885/2873718 </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-01 08:21:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-01 08:21:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to SO: What is the difference between iter and into_iter?" href="https://notes.0081800.xyz/notes/20220101082142-so_what_is_the_difference_between_iter_and_into_iter/"></a>
           </article>
        
@@ -2201,7 +2252,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust Wrapper Types,Rust source: Rust Memory Container Cheat-sheet </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-01 08:20:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-01 08:20:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: Rust Memory Container Cheat-sheet" href="https://notes.0081800.xyz/notes/20220101082045-github_rust_memory_container_cheat_sheet/"></a>
           </article>
        
@@ -2213,7 +2266,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Rust Wrapper Types source: https://manishearth.github.io/blog/2015/05/27/wrapper-types-in-rust-choosing-your-guarantees/ </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-01 08:19:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-01 08:19:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Wrapper Types in Rust: Choosing Your Guarantees" href="https://notes.0081800.xyz/notes/20220101081950-wrapper_types_in_rust_choosing_your_guarantees/"></a>
           </article>
        
@@ -2225,7 +2280,9 @@ Xcode will strip the unused symbols in release mode, and won’t realize the FFI
             <div class="entry-content">
               <p> tags: Rust,Raft source: https://github.com/tikv/raft-rs </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-01 08:02:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-01 08:02:00 +0800 +0800'>January 1, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to GitHub: raft-rs" href="https://notes.0081800.xyz/notes/20220101080223-github_raft_rs/"></a>
           </article>
        
@@ -2241,7 +2298,9 @@ use actix_web::{get, web, App, HttpServer, Responder}; #[get(&#34;/{id}/{name}/i
 use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(req: HttpRequest) -&gt; impl Responder { let name = req.match_info().get(&#34;name&#34;).unwrap_or(&#34;World&#34;); format!(&#34;Hello {}!&#34;, &amp;name) } #[actix_web::main] async fn main() -&gt; std::io::Result&lt;()&gt; { HttpServer::new(|| { App::new() .route(&#34;/&#34;, web::get().to(greet)) .route(&#34;/{name}&#34;, web::get().to(greet)) }) .bind((&#34;127.0.0.1&#34;, 8080))? .run() .await } 看下来方法 to 的签名，实现一个参数的提取也不困难：
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-12-21 17:46:00 +0800 +0800'>December 21, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-12-21 17:46:00 +0800 +0800'>December 21, 2021</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to actix-web extractors 支持提取任意长度的参数" href="https://notes.0081800.xyz/articles/20211221174651-actix_web_extractor/"></a>
           </article>
        
@@ -2253,7 +2312,9 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
             <div class="entry-content">
               <p> tags: Rust 原文：When Zero Cost Abstractions Aren’t Zero Cost </p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-10 15:17:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-08-10 15:17:00 +0800 +0800'>August 10, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to When Zero Cost Abstractions Aren&#39;t Zero Cost" href="https://notes.0081800.xyz/notes/20210810151736-when_zero_cost_abstractions_aren_t_zero_cost/"></a>
           </article>
        
@@ -2265,7 +2326,9 @@ use actix_web::{web, App, HttpRequest, HttpServer, Responder}; async fn greet(re
             <div class="entry-content">
               <p> tags: Rust </p>
             </div>
-            <footer class="entry-footer"><span title='2021-08-08 08:31:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-08-08 08:31:00 +0800 +0800'>August 8, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Tokio" href="https://notes.0081800.xyz/notes/20210808083146-tokio/"></a>
           </article>
        
@@ -2284,7 +2347,9 @@ $ cargo new waytoodeep Created binary (application) `waytoodeep` package 我们�
 $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0 Downloaded 1 crate (57.6 KB) in 0.47s Ignored package `cargo-edit v0.7.0` is already installed, use --force to override 因为 cargo-edit 很方便，所以你可能已经安装过它。部分读者会感到困惑是因为像 cargo new, cargo build, cargo test, cargo run 等子命令都内置在 cargo 中， 但是 cargo add 没有。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;44 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-07-26 10:57:00 +0800 +0800'>July 26, 2021</span>&nbsp;·&nbsp;<span>44 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Understanding Rust futures by going way too deep" href="https://notes.0081800.xyz/articles/20210726105711-understanding_rust_futures_by_going_way_too_deep/"></a>
           </article>
        
@@ -2297,7 +2362,9 @@ $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0
               <p> tags: Rust,Swift,编程语言内存模型 都采用C&#43;&#43;11 内存模型。
 </p>
             </div>
-            <footer class="entry-footer"><span title='2021-07-16 12:02:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-07-16 12:02:00 +0800 +0800'>July 16, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to C、Rust 和 Swift 的内存模型" href="https://notes.0081800.xyz/notes/20210716120258-c_rust_%E5%92%8C_swift_%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"></a>
           </article>
        
@@ -2311,7 +2378,9 @@ $ cargo install cargo-edit Updating crates.io index Downloaded cargo-edit v0.7.0
 unwinding
 </p>
             </div>
-            <footer class="entry-footer"><span title='2020-08-29 08:11:00 +0800 +0800'>August 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-08-29 08:11:00 +0800 +0800'>August 29, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Obscure Words for non-native English speakers" href="https://notes.0081800.xyz/notes/20200829081145-rust_obscure_words_for_non_native_english_speakers/"></a>
           </article>
        
@@ -2324,7 +2393,9 @@ unwinding
               <p> tags: Rust Future async fn 将一个代码块转换为一个 Future 对象， Future 对象维护一个状态机 Future 对象必须运行在一个 Executor 上 Executor futures::executor::block_on 阻塞当前线程直到 future 完成
 // `block_on` blocks the current thread until the provided future has run to // completion. Other executors provide more complex behavior, like scheduling // multiple futures onto the same thread. use futures::executor::block_on; async fn hello_world() { println!(&#34;hello, world!&#34;); } fn main() { let future = hello_world(); // Nothing is printed block_on(future); // `future` is run and &#34;hello, world!&#34; is printed } await await 异步的等待 future 完成，不阻塞当前线程，可以配合 futures::join! 可以同时 await 多个 future futures::try_join! 如果其中一个子 future 返回错误则立即返回（join! 需要等所有 future 全部返回） futures::select! 任意一个 future 完成则立即返回 async fn learn_and_sing() { // Wait until the song has been learned before singing it. // We use `.await` here rather than `block_on` to prevent blocking the // thread, which makes it possible to `dance` at the same time. let song = learn_song().await; sing_song(song).await; } async fn async_main() { let f1 = learn_and_sing(); let f2 = dance(); // `join!` is like `.await` but can wait for multiple futures concurrently. // If we&#39;re temporarily blocked in the `learn_and_sing` future, the `dance` // future will take over the current thread. If `dance` becomes blocked, // `learn_and_sing` can take back over. If both futures are blocked, then // `async_main` is blocked and will yield to the executor. futures::join!(f1, f2); } fn main() { block_on(async_main()); } </p>
             </div>
-            <footer class="entry-footer"><span title='2020-08-28 16:08:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-08-28 16:08:00 +0800 +0800'>August 28, 2020</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Asynchronous Programming" href="https://notes.0081800.xyz/notes/20200828160809-rust_asynchronous_programming/"></a>
           </article>
        
@@ -2336,7 +2407,9 @@ unwinding
             <div class="entry-content">
               <p> tags: Rust source: Choosing a Rust web framework, 2020 edition </p>
             </div>
-            <footer class="entry-footer"><span title='2020-07-10 10:12:00 +0800 +0800'>July 10, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-07-10 10:12:00 +0800 +0800'>July 10, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Choosing a Rust web framework, 2020 edition" href="https://notes.0081800.xyz/notes/20200710101214-web/"></a>
           </article>
        
@@ -2348,7 +2421,9 @@ unwinding
             <div class="entry-content">
               <p> tags: Rust 原文链接：https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html </p>
             </div>
-            <footer class="entry-footer"><span title='2020-07-03 10:40:00 +0800 +0800'>July 3, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-07-03 10:40:00 +0800 +0800'>July 3, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Fearless Concurrency with Rust" href="https://notes.0081800.xyz/notes/20200703104039-fearless_concurrency_with_rust/"></a>
           </article>
        
@@ -2370,7 +2445,9 @@ Rust 的许多特性都是从其他语言借鉴而来。Rust 之所以变得有�
 fn process(from: &amp;Path, to: &amp;Path) -&gt; IoResult&lt;()&gt; { // creates a new tempdir with the specified suffix let tempdir = try!(TempDir::new(&#34;skylight&#34;)); // open the input file let mut from_file = try!(File::open(from)); // create a temporary file inside the tempdir let mut tempfile = try!(File::create(&amp;tempdir.path().join(&#34;tmp1&#34;))); // copy the input file into the tempfile try!(io::util::copy(&amp;mut from_file, &amp;mut tempfile)); // use an external program to process the tmpfile in place // after processing, copy the tempfile into the output file let mut out = try!(File::create(to)); io::util::copy(&amp;mut tempfile, &amp;mut out) } 在这个例子中，函数 process 的作用域再第一行创建了 TempDir 是其初始拥有者。在这个例子中， process 函数从未放弃所有权，所以当函数完成调用， 它就会自动被丢弃（dropped），也就是会删除 Tempfile 。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-06-29 18:17:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-06-29 18:17:00 +0800 +0800'>June 29, 2020</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Means Never Having to Close a Socket" href="https://notes.0081800.xyz/notes/20200629181735-rust_means_never_having_to_close_a_socket/"></a>
           </article>
        
@@ -2389,7 +2466,9 @@ fn generic&lt;T&gt;(t: T) { // --snip-- } 实际上相当于像下面这样硬�
 fn generic&lt;T: Sized&gt;(t: T) { // --snip-- } 也可以通过下面特定的语法取消这个限制：
 fn geneic&lt;T: ?Sized&gt;(t: &amp;T) { // --snip-- } </p>
             </div>
-            <footer class="entry-footer"><span title='2020-03-29 00:00:00 +0800 +0800'>March 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-03-29 00:00:00 +0800 +0800'>March 29, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Trait Object" href="https://notes.0081800.xyz/notes/20200329204833_rust_trait_object/"></a>
           </article>
        
@@ -2410,7 +2489,9 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
 所有者超出作用域，或 正在持有的所有者改变绑定（原始绑定变成 void）。 所有者和借用者的权限（privileges）和限制 这一节基于 Rust Guide 在权限（privileges）一部分提到拷贝和转移。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Borrow and Lifetimes" href="https://notes.0081800.xyz/articles/20200325182450_rust_borrow_and_lifetimes/"></a>
           </article>
        
@@ -2422,7 +2503,9 @@ Rust 拷贝像 C。每一个按值（by-value）使用一个值都是字节拷�
             <div class="entry-content">
               <p> tags: Rust </p>
             </div>
-            <footer class="entry-footer"><span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-03-25 00:00:00 +0800 +0800'>March 25, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Wrapper Types" href="https://notes.0081800.xyz/notes/20200325165657_rust_wrapper_types/"></a>
           </article>
        
@@ -2452,7 +2535,9 @@ Rust 并发
 函数指针 fn 区分闭包的 Fn 特性，函数指针都实现来三个闭包的特性。
 fn do(f: fn(i32) -&gt; i32, arg: i32) -&gt; i32 { f(arg) &#43; f(arg) } </p>
             </div>
-            <footer class="entry-footer"><span title='2019-04-09 00:00:00 +0800 +0800'>April 9, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2019-04-09 00:00:00 +0800 +0800'>April 9, 2019</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 《The Rust Programming Language》读书笔记" href="https://notes.0081800.xyz/notes/20200325165411_the_rust_programming_language/"></a>
           </article>
        
@@ -2467,22 +2552,31 @@ fn do(f: fn(i32) -&gt; i32, arg: i32) -&gt; i32 { f(arg) &#43; f(arg) } </p>
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2509,25 +2603,25 @@ fn do(f: fn(i32) -&gt; i32, arg: i32) -&gt; i32 { f(arg) &#43; f(arg) } </p>
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

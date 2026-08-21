@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Learning English - Taking Smart Notes With Org-mode">
 <meta name="author" content="Gray King">
 <link rel="canonical" href="https://notes.0081800.xyz/topics/20210317141621-learning_english/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://notes.0081800.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://notes.0081800.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://notes.0081800.xyz/favicon-32x32.png">
@@ -39,33 +39,42 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://notes.0081800.xyz/topics/20210317141621-learning_english/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://notes.0081800.xyz/topics/20210317141621-learning_english/">
   <meta property="og:site_name" content="Taking Smart Notes With Org-mode">
   <meta property="og:title" content="Learning English">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="topics">
     <meta property="article:published_time" content="2021-03-17T14:16:00+08:00">
     <meta property="article:modified_time" content="2021-03-17T14:16:00+08:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learning English">
-<meta name="twitter:description" content="">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Learning English">
 
 
 <script type="application/ld+json">
@@ -122,31 +131,19 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://notes.0081800.xyz/" accesskey="h" title="Taking Smart Notes With Org-mode (Alt + H)">Taking Smart Notes With Org-mode</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -162,7 +159,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://notes.0081800.xyz/about" title="About">
                     <span>About</span>
@@ -190,11 +187,24 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://notes.0081800.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://notes.0081800.xyz/topics/">Topics</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/topics/">Topics</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       Learning English
     </h1>
-    <div class="post-meta"><span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Gray King
+    <div class="post-meta">
+
+<span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;<span>0 min</span>&nbsp;·&nbsp;<span>Gray King</span>
 
 </div>
   </header> 
@@ -205,6 +215,14 @@
     </ul>
   </footer>
 
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -1945,7 +1963,9 @@
             <div class="entry-content">
               <p> tags: Learning English, Journal </p>
             </div>
-            <footer class="entry-footer"><span title='2023-06-08 21:46:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2023-06-08 21:46:00 +0800 +0800'>June 8, 2023</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to English Words" href="https://notes.0081800.xyz/notes/20230608214607-english_words/"></a>
           </article>
        
@@ -1959,7 +1979,9 @@
 The reasons is:
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2022-03-28 11:06:00 +0800 +0800'>March 28, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-03-28 11:06:00 +0800 +0800'>March 28, 2022</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to How to Speak and Write Correctly" href="https://notes.0081800.xyz/notes/20220328110642-how_to_speak_and_write_correctly/"></a>
           </article>
        
@@ -1971,7 +1993,9 @@ The reasons is:
             <div class="entry-content">
               <p> tags: Learning English </p>
             </div>
-            <footer class="entry-footer"><span title='2022-02-28 10:48:00 +0800 +0800'>February 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-02-28 10:48:00 +0800 +0800'>February 28, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to English Listening Practice" href="https://notes.0081800.xyz/notes/20220228104819-english_listening_practice/"></a>
           </article>
        
@@ -1983,7 +2007,9 @@ The reasons is:
             <div class="entry-content">
               <p> tags: Learning English,Online: Title Case source: The Chicago Manual of Style. Seventeenth edition. Chicago: The University of Chicago Press, 2017. </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-10 07:13:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-10 07:13:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Chicago Manual of Style: Chapter 8 Names, Terms, and Titles of Works" href="https://notes.0081800.xyz/notes/20220110071319-chicago_manual_of_style_chaper_8_names_terms_and_titles_of_works/"></a>
           </article>
        
@@ -1995,7 +2021,9 @@ The reasons is:
             <div class="entry-content">
               <p> tags: Learning English,Writing </p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-10 07:01:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-10 07:01:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Title Case" href="https://notes.0081800.xyz/notes/20220110070124-title_case/"></a>
           </article>
        
@@ -2015,7 +2043,9 @@ e.g. “The Land and Save We Live On”
 Capitalize sub-phrase as if they were their own title
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2022-01-10 07:00:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2022-01-10 07:00:00 +0800 +0800'>January 10, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to The Programmer&#39;s Way to Write in Title Case Using Emacs Lisp" href="https://notes.0081800.xyz/notes/20220110070044-the_programmer_s_way_to_write_in_title_case_using_emacs_lisp/"></a>
           </article>
        
@@ -2027,7 +2057,9 @@ Capitalize sub-phrase as if they were their own title
             <div class="entry-content">
               <p> tags: Learning English 一般现在时第三人称单音形规则 一般过去时音形规则</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-25 20:23:00 +0800 +0800'>September 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-25 20:23:00 +0800 +0800'>September 25, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语读音规则" href="https://notes.0081800.xyz/notes/20210925202345-%E8%8B%B1%E8%AF%AD%E8%AF%BB%E9%9F%B3%E8%A7%84%E5%88%99/"></a>
           </article>
        
@@ -2040,7 +2072,9 @@ Capitalize sub-phrase as if they were their own title
               <p> tags: Learning English 比较级 形容词/副词比较级 常规单音节词 -er fast -&gt; faster small -&gt; smaller nice -&gt; nicer large -&gt; larger（删除词尾不发音的 e） -y -&gt; -ier busy -&gt; busier pretty -&gt; prettier 短元音 &#43; 辅音：重写辅音 -er big -&gt; bigger hot -&gt; hotter 多音节： more &#43; diffcult -&gt; more difficult interesting -&gt; more interesting careful /kɛəful/ -&gt; more careful -y 二音节词（-ly副词除外）：常不加 more busy -&gt; busier pretty -&gt; prettier quickly -&gt; more quickly 特殊 much/many -&gt; more little -&gt; less good/well -&gt; better bad -&gt; worse 代词比较级 more less 比较级修饰 a little/ a bit &#43; 比较级 更…一点 much / a lot / far &#43; 比较级 更…得多 英语常见词用法 open/close 静态和动态 open When do you open(v.)? 强调动态，时间点 We are open at 9 every day. When are you open(adj.)? 强调静态，时间段 We are open from 9 to 6 every day. close close v. 动态 closed adj. 静态 示例
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-21 09:22:00 +0800 +0800'>September 21, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-21 09:22:00 +0800 +0800'>September 21, 2021</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语词法" href="https://notes.0081800.xyz/notes/20210921092250-%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B3%95/"></a>
           </article>
        
@@ -2059,7 +2093,9 @@ her ideas Where is it? 语块切割 Chunking 语块（Chunk） 能表达实际�
 get to -&gt; geto
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-21 09:15:00 +0800 +0800'>September 21, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-21 09:15:00 +0800 +0800'>September 21, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 流利英语" href="https://notes.0081800.xyz/notes/20210921091537-%E6%B5%81%E5%88%A9%E8%8B%B1%E8%AF%AD/"></a>
           </article>
        
@@ -2074,7 +2110,9 @@ get to -&gt; geto
 Show me (please) Can you show me? Can you show me please? Would you show me (please)? Could you show me (please)? 适用场景
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-20 08:17:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-20 08:17:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语习语" href="https://notes.0081800.xyz/notes/20210920081734-%E8%8B%B1%E8%AF%AD%E4%B9%A0%E8%AF%AD/"></a>
           </article>
        
@@ -2090,7 +2128,9 @@ I want to buy you it.(X)
 双宾语动词 bring/give/tell/sell/ask/show Bring it to me Bring me a present. Give it to me Give me the pen. tell the story to me tell me the story email the photo to me email me the photo sell the handbag to her sell her the handbag ask sb. sth. show sb. sth. take the coffee to her: 不能使用 Give me the hand：习语不能使用 宾语从句 I think (that) … 在「一句简单句有且只有一个谓语动词」的基础上实现复杂句。
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-20 08:11:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-20 08:11:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语语法结构" href="https://notes.0081800.xyz/notes/20210920081114-%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84/"></a>
           </article>
        
@@ -2103,7 +2143,9 @@ I want to buy you it.(X)
               <p> tags: Learning English seem 表示似乎 It seems to be very popular nowdays. 用作委婉 背景：the man in the photo。 对比以下两句
 He is in good health He seems to be in good health(这句是错的 He seems in good health) 表示犹豫 That’s not right That doesn’t seem right That doesn’t seem to be right </p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-20 07:58:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-20 07:58:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语常用词" href="https://notes.0081800.xyz/notes/20210920075833-%E8%8B%B1%E8%AF%AD%E5%B8%B8%E7%94%A8%E8%AF%8D/"></a>
           </article>
        
@@ -2116,7 +2158,9 @@ He is in good health He seems to be in good health(这句是错的 He seems in g
               <p> tags: Learning English shape ʃeip be in great/good shape stay/keep in (good) shape 英语表示次数范围 five times a month once two weeks 英语表示尺码 loose /luːs/ 松的 tight /tait/ 紧的 what/how about 提议 What/How about some coffee? What/How about you? 穿衣：try on/take off/put on n.: try on sth I’d like to try on the shoes. pron.: try sth. on I’d like to try them on. think of 认为 sth. 怎么样 What do you think of my new shirt? What does she think of me? would like 委婉表示想要 do sth. I’d like to see some casual shirts.
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-20 07:54:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-20 07:54:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语短语" href="https://notes.0081800.xyz/notes/20210920075417-%E8%8B%B1%E8%AF%AD%E7%9F%AD%E8%AF%AD/"></a>
           </article>
        
@@ -2135,7 +2179,9 @@ can(could)/may(might)/must/need/to/shall(should)/will(would).
 形变规则 特殊 1 -e：去 e 加 ing live -&gt; living give -&gt; giving 特殊 2 短元音 &#43; 一辅音：重复最后一个字母加 ing jog -&gt; jogging swim -&gt; swimming 常规：直接加 ing do -&gt; doing study -&gt; studying 词性 I usually go swimming.
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-20 07:34:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-20 07:34:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语词性" href="https://notes.0081800.xyz/notes/20210920073442-%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%80%A7/"></a>
           </article>
        
@@ -2157,7 +2203,9 @@ do/does（实意动词）：具体动作
 I’m looking for a shirt. I’m not taking it off. Everyone is wearing the same shirt on the street! 结构 am/is/are doing
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-09-20 07:30:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-09-20 07:30:00 +0800 +0800'>September 20, 2021</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to 英语时态" href="https://notes.0081800.xyz/notes/20210920073034-%E8%8B%B1%E8%AF%AD%E6%97%B6%E6%80%81/"></a>
           </article>
        
@@ -2171,7 +2219,9 @@ I’m looking for a shirt. I’m not taking it off. Everyone is wearing the same
 音标后面的 ː 提示拖长音。 元音 大而圆 音标 中文 发音技巧 常见单词 拼读规则 /​æ​/ 爱 张大嘴发中文的「爱」,发音短促有力。 bag map dad sad a /​e​/ 爱 音同 /​æ​/ 但是嘴形要小一些。 get let pen yes e /​ɔː​/ 哦 嘴巴轮圆了发音，并拖长音 floor door store sport oor,ore,or /​ɔ​/ 哦 /​ɔː​/ 的短音 lot dog hot shop o 扁扁扁 音标 中文 发音技巧 常见单词 拼读规则 /iː​/ 一 相比一嘴要扁一些，稍稍更用力一些 see meet he she ee, e /​i​/ 一 /iː​/ 短音 happy daddy honey 词尾的 y 或 ey /​I​/ 一 用 /​e​/ 的嘴形发 /​i​/ this give it city i /əː​/ 呃 相比中文嘴要扁一些，稍稍更用力一些 work girl dirt sir or, ir /​ə​/ 呃 /əː​/ 的短音 again a father weather 单独的 a 及词尾的 er 需要额外注意的：
 ...</p>
             </div>
-            <footer class="entry-footer"><span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2021-03-17 14:16:00 +0800 +0800'>March 17, 2021</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to English IPA" href="https://notes.0081800.xyz/notes/20210317141647-english_ipa/"></a>
           </article>
        
@@ -2185,7 +2235,9 @@ I’m looking for a shirt. I’m not taking it off. Everyone is wearing the same
 unwinding
 </p>
             </div>
-            <footer class="entry-footer"><span title='2020-08-29 08:11:00 +0800 +0800'>August 29, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-08-29 08:11:00 +0800 +0800'>August 29, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Rust Obscure Words for non-native English speakers" href="https://notes.0081800.xyz/notes/20200829081145-rust_obscure_words_for_non_native_english_speakers/"></a>
           </article>
        
@@ -2197,7 +2249,9 @@ unwinding
             <div class="entry-content">
               <p> tags: Learning,Learning English </p>
             </div>
-            <footer class="entry-footer"><span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Gray King</footer>
+            <footer class="entry-footer">
+
+<span title='2020-03-09 00:00:00 +0800 +0800'>March 9, 2020</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
             <a class="entry-link" aria-label="post link to Translate" href="https://notes.0081800.xyz/topics/20200309112105_translate/"></a>
           </article>
        
@@ -2212,22 +2266,31 @@ unwinding
 <footer class="footer">
         <span>&copy; 2026 <a href="https://notes.0081800.xyz/">Taking Smart Notes With Org-mode</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -2254,25 +2317,25 @@ unwinding
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
