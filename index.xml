@@ -6,8 +6,39 @@
     <description>Recent content on Taking Smart Notes With Org-mode</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 09:28:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 16:36:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eSIM</title>
+      <link>https://notes.0081800.xyz/notes/20260825163602-esim/</link>
+      <pubDate>Tue, 25 Aug 2026 16:36:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260825163602-esim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>eUICC</title>
+      <link>https://notes.0081800.xyz/notes/20260825163615-euicc/</link>
+      <pubDate>Tue, 25 Aug 2026 16:36:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260825163615-euicc/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260825163602-esim/&#34;&gt;eSIM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>lpac eUICC eSIM reader Usage</title>
+      <link>https://notes.0081800.xyz/notes/20260825163551-lpac_euicc_esim_reader_usage/</link>
+      <pubDate>Tue, 25 Aug 2026 16:35:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260825163551-lpac_euicc_esim_reader_usage/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260825163602-esim/&#34;&gt;eSIM&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260825163615-euicc/&#34;&gt;eUICC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://github.com/estkme-group/lpac&#34;&gt;https://github.com/estkme-group/lpac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;download-esim-profile&#34;&gt;Download eSIM profile&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./lpac download -a &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;eSIM-activation-code&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;enable-esim&#34;&gt;Enable eSIM&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./lpac enable &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ssid&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>We never use AI. For anything.</title>
       <link>https://notes.0081800.xyz/notes/20260825092808-we_never_use_ai_for_anything/</link>

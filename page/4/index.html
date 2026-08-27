@@ -146,6 +146,57 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Solana 101: 4. SPL NFT
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Solana 101: Create an Escrow dApp </p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-11-22 20:45:00 +0800 +0800'>November 22, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Solana 101: 4. SPL NFT" href="https://notes.0081800.xyz/notes/20221122204541-solana_101_4_create_a_spl_nft/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Solana 101: 2. Anchor
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Solana 101: Create an Escrow dApp 链上数据存储 账号所有权 账号可以通过 Metadata 指定一个 Program 作为拥有者（Owner）； Program 作为拥有者可以： 修改账号数据； 可以使用该 PDA 进行签名。 PDA(Program Derived Address) 1 使用 PDA 进行合约状态链上存储。
+PDA 只有一个类似公钥的地址，但是没有对应的私钥； 链下生成：通过 PublicKey.findProgramAddress 生成 PDA，seeds 用于生成多个 PDA； 链上创建：将 PDA 作为账号传递给 Program 进行链上创建：填充足够的 lamports 用于支付租金、开辟空间、指定 program 作为 Owner。 创建一个计数器 部署智能合约； 生成一个 PDA 并进行链上创建； 增加计数器； 其他账号获取 PDA，并增加计数器； 使用 Anchor 重写计数器 安装 Anchor 安装 Yarn 安装 avm cargo install --git https://github.com/project-serum/anchor avm --locked --force 使用 avm 安装 anchor avm install latest avm use latest 创建 anchor 项目 anchor init hello-anchor anchor 项目结构 Understanding Program Derived Addresses ↩︎
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-11-22 20:44:00 +0800 +0800'>November 22, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Solana 101: 2. Anchor" href="https://notes.0081800.xyz/notes/20221122204442-solana_101_2_anchor/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Solana 101: 1. Develop Model
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> tags: Solana 101: Create an Escrow dApp Account UTXO Unspend Transaction Output.
+EVM Accounts1 EOA(Externally-owned acount) - 用户用私钥控制的账号； 合约账号（Contract account） - 代码控制的账号，用于部署智能合约代码。 账号模型通过用户地址为用户开辟一块单独的存储，简单的理解就是用公私钥导出的唯一地址作为主键存储在节点的存储系统里（RocksDB）； 这样只要将链上转账或者智能合约产生的结果或副作用存储在账号下面即可。
+Solana Account Model Accounts2 账号用于提供给智能合约（Program）跨交易存储状态，类似文件系统； 包含元数据（metadata）说明谁有权限访问这些状态； Solana 独特的创新：账号伴有生命周期，也就是对应的私钥并不完全拥有一个账号，而是从链上租借（rent）了一个账号，并支付对应的租金，当租借过期且没有足够的余额（lamports）支付租金的情况下，账号下的数据将被链回收； 一笔交易里可以参与的账号类型有：
+Signers 一笔交易可以包含一个或多个签名者，表示授权此笔交易（多签机制）； Read-only 交易里对该账号只读； Executable 其账号可以作为智能合约进行调用（将其账号对应的公钥地址作为 program id）； Programs or Smart Contract3 账号被标记为 Executable 可以部署代码（Program）作为智能合约。两种类型的智能合约：
+Native Programs – 区块链系统提供的标准库； On Chain Programs – 用户开发部署到链上的智能合约。 同时智能合约可以控制多个其他账号，并且只能修改它所拥有的账号数据，但是可以读取其他账号的数据。
+Solana 的 Program 可以被更新。
+搭建开发环境 命令行钱包 sh -c &#34;$(curl -sSfL https://release.solana.com/stable/install)&#34; 连接到测试节点 solana config set --url https://api.testnet.solana.com 官方文档是连接到本地节点，这里不太推荐，因为使用测试节点可以结合链浏览器比较直观的观测结果。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2022-11-22 20:42:00 +0800 +0800'>November 22, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
+  <a class="entry-link" aria-label="post link to Solana 101: 1. Develop Model" href="https://notes.0081800.xyz/notes/20221122204241-solana_101_develop_model/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Solana 101: 0. Prelude
     </h2>
   </header>
@@ -859,55 +910,6 @@ convert function from u16 to a readable string. convert status_code from StatusC
 
 <span title='2022-06-06 14:12:00 +0800 +0800'>June 6, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
   <a class="entry-link" aria-label="post link to Seal is a verifiable timestamp mechanism for cryptographically proving that a note is created before a specific time." href="https://notes.0081800.xyz/notes/20220606141221-seal_is_a_verifiable_timestamp_mechanism_for_cryptographically_proving_that_a_note_is_created_before_a_specific_time/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Binary Search : Median of two sorted arrays of different sizes.
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Binary Search,LeetCodeNJ YouTube: https://www.youtube.com/watch?v=LPFhl65R7ww The most difficult thing is doing binary search among two sorted arrays, in this video Tushar Roy given us a straightforward method of how to do binary search among tow sorted arrays.
-Assume we have two sorted arrays, X and Y, and cut them between at x2,x3 and y3,y4:
-If we meet the conditions:
-x2 &lt;= y3 y2 &lt;= x3 then we find the median postion, as the merged arrays of the four elements may be order by:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2022-06-06 07:10:00 +0800 +0800'>June 6, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
-  <a class="entry-link" aria-label="post link to Binary Search : Median of two sorted arrays of different sizes." href="https://notes.0081800.xyz/notes/20220606071010-binary_search_median_of_two_sorted_arrays_of_different_sizes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">LeetCodeNJ
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Algorithm,Data Structures Make my best effort to move to Nanjing for my son. This is a successor of LeetCode101.
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2022-06-06 07:10:00 +0800 +0800'>June 6, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
-  <a class="entry-link" aria-label="post link to LeetCodeNJ" href="https://notes.0081800.xyz/notes/20220606071040-leetcodenj/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Starcoin Blockchain from Scartch
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> tags: Starcoin Web3 StarTrek,Blockchain Overview Block is the basic element in a blockchain system, as we known blockchain system is just a ledger, which means a bookkeeping1 that recording of financial transactions. In the blockchain system, those transactions are stored in the blocks. In each block, the data stored in may look like:
-TXN FROM TO VALUE #0 God Cale 100 #1 Cale Alice 10 #2 Alice Bob 1 #3 Bob Mike 0.5 Then what’s a blockchain? Just simply chain the blocks together, usually add a field to point to its parent:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2022-06-02 11:09:00 +0800 +0800'>June 2, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Gray King</span></footer>
-  <a class="entry-link" aria-label="post link to Starcoin Blockchain from Scartch" href="https://notes.0081800.xyz/notes/20220602110916-starcoin_blockchain/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
