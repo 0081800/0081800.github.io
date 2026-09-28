@@ -6,8 +6,35 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 14 Sep 2026 10:25:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 10:10:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Burnout</title>
+      <link>https://notes.0081800.xyz/notes/20260928101045-ai_burnout/</link>
+      <pubDate>Mon, 28 Sep 2026 10:10:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260928101045-ai_burnout/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>How to keep enjoying programming in a world of LLMs</title>
+      <link>https://notes.0081800.xyz/notes/20260928101032-how_to_keep_enjoying_programming_in_a_world_of_llms/</link>
+      <pubDate>Mon, 28 Sep 2026 10:10:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260928101032-how_to_keep_enjoying_programming_in_a_world_of_llms/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260928101045-ai_burnout/&#34;&gt;AI Burnout&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260914102522-resist_ai/&#34;&gt;Resist &amp;ldquo;AI&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://discourse.haskell.org/t/how-to-keep-enjoying-programming-in-a-world-of-llms/14705&#34;&gt;https://discourse.haskell.org/t/how-to-keep-enjoying-programming-in-a-world-of-llms/14705&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;read-if-you-like-programming&#34;&gt;Read if you like programming&lt;/h2&gt;
+&lt;h2 id=&#34;researching-to-understand&#34;&gt;Researching to understand&lt;/h2&gt;
+&lt;p&gt;Instead of letting AI Agents summarization for you, Let AI agents write the results with source links.
+Understand it and make yourself be better at the domain, even better than the agent.
+You make the decision.&lt;/p&gt;
+&lt;h2 id=&#34;change-the-coding-work-flow&#34;&gt;Change the coding work flow&lt;/h2&gt;
+&lt;h3 id=&#34;ai-plans-and-then-i-code-instead-of-ai-do-them-all&#34;&gt;AI Plans and then I code instead of &amp;ldquo;AI Do them All&amp;rdquo;&lt;/h3&gt;
+&lt;p&gt;Use agents to do the low-risk or boring or repeatable jobs that you&amp;rsquo;ve already known good.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>  Resist &#34;AI&#34;
   </title>

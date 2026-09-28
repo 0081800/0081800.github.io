@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://notes.0081800.xyz/notes/20260914102522-resist_ai/</loc>
-    <lastmod>2026-09-14T10:25:00+08:00</lastmod>
+    <loc>https://notes.0081800.xyz/notes/20260928101045-ai_burnout/</loc>
+    <lastmod>2026-09-28T10:10:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20260928101032-how_to_keep_enjoying_programming_in_a_world_of_llms/</loc>
+    <lastmod>2026-09-28T10:10:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2026-09-14T10:25:00+08:00</lastmod>
+    <lastmod>2026-09-28T10:10:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2026-09-28T10:10:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/notes/20260914102522-resist_ai/</loc>
     <lastmod>2026-09-14T10:25:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20260908093124-ai_is_the_one_ring/</loc>
