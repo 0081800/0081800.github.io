@@ -6,8 +6,51 @@
     <description>Recent content in Notes on Taking Smart Notes With Org-mode</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 28 Sep 2026 10:10:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 10:27:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Coding is NOT solved</title>
+      <link>https://notes.0081800.xyz/notes/20260929102729-coding_is_not_solved/</link>
+      <pubDate>Tue, 29 Sep 2026 10:27:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260929102729-coding_is_not_solved/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260928101045-ai_burnout/&#34;&gt;AI Burnout&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260914102522-resist_ai/&#34;&gt;Resist &amp;ldquo;AI&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://blog.alexewerlof.com/p/coding-is-not-solved&#34;&gt;https://blog.alexewerlof.com/p/coding-is-not-solved&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Coding is not only about creation, but maintenance, reliability, security, scalability, etc. for scaled production software.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the exceptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Personal software&lt;/li&gt;
+&lt;li&gt;POC(proof of concept)&lt;/li&gt;
+&lt;li&gt;Weaponized AI&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>The Problem is not the AI Code, but Nobody Knows Anything Anymore</title>
+      <link>https://notes.0081800.xyz/notes/20260929102237-the_problem_is_not_the_ai_code_but_nobody_knows_anything_anymore/</link>
+      <pubDate>Tue, 29 Sep 2026 10:22:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260929102237-the_problem_is_not_the_ai_code_but_nobody_knows_anything_anymore/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20260928101045-ai_burnout/&#34;&gt;AI Burnout&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260914102522-resist_ai/&#34;&gt;Resist &amp;ldquo;AI&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;source: &lt;a href=&#34;https://www.ssp.sh/brain/the-problem-is-not-the-ai-code-but-nobody-knows-anything-anymore/&#34;&gt;https://www.ssp.sh/brain/the-problem-is-not-the-ai-code-but-nobody-knows-anything-anymore/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For now, AI can&amp;rsquo;t drive itself. And it&amp;rsquo;s hard to maintain large codebase.
+AI produces average code or levels up small codebase to average.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a smimilar post:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Yubikey Renew GnuPG</title>
+      <link>https://notes.0081800.xyz/notes/20260928205509-yubikey_renew_gnupg/</link>
+      <pubDate>Mon, 28 Sep 2026 20:55:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/notes/20260928205509-yubikey_renew_gnupg/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20230225090409-yubikey/&#34;&gt;Yubikey&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20231005202026-yubikey_guide/&#34;&gt;YubiKey-Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;extra-steps&#34;&gt;Extra steps&lt;/h2&gt;
+&lt;h3 id=&#34;you-may-need-to-import-private-key-manually-if-gpg-k-returns-empty&#34;&gt;You may need to import private key manually if &lt;code&gt;gpg -K&lt;/code&gt; returns empty&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --import /path/to/backup/mastersub.key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;import-you-new-public-key&#34;&gt;Import you new public key&lt;/h3&gt;</description>
+    </item>
     <item>
       <title>AI Burnout</title>
       <link>https://notes.0081800.xyz/notes/20260928101045-ai_burnout/</link>
