@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.0081800.xyz/articles/</loc>
+    <lastmod>2026-09-30T08:39:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/</loc>
+    <lastmod>2026-09-30T08:39:00+08:00</lastmod>
+  </url><url>
+    <loc>https://notes.0081800.xyz/articles/20260930083918-%E7%BB%A7%E7%BB%AD%E7%83%AD%E7%88%B1%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2026-09-30T08:39:00+08:00</lastmod>
+  </url><url>
     <loc>https://notes.0081800.xyz/notes/20260929102729-coding_is_not_solved/</loc>
     <lastmod>2026-09-29T10:27:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/</loc>
-    <lastmod>2026-09-29T10:27:00+08:00</lastmod>
-  </url><url>
-    <loc>https://notes.0081800.xyz/</loc>
     <lastmod>2026-09-29T10:27:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20260929102237-the_problem_is_not_the_ai_code_but_nobody_knows_anything_anymore/</loc>
@@ -247,9 +253,6 @@
   </url><url>
     <loc>https://notes.0081800.xyz/notes/20231101155522-logrotate/</loc>
     <lastmod>2023-11-01T15:55:00+08:00</lastmod>
-  </url><url>
-    <loc>https://notes.0081800.xyz/articles/</loc>
-    <lastmod>2023-11-01T15:54:00+08:00</lastmod>
   </url><url>
     <loc>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</loc>
     <lastmod>2023-11-01T15:54:00+08:00</lastmod>

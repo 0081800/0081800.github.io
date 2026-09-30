@@ -6,8 +6,36 @@
     <description>Recent content in Articles on Taking Smart Notes With Org-mode</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Nov 2023 15:54:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 08:39:00 +0800</lastBuildDate>
     <atom:link href="https://notes.0081800.xyz/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 AI 时代继续热爱编程</title>
+      <link>https://notes.0081800.xyz/articles/20260930083918-%E7%BB%A7%E7%BB%AD%E7%83%AD%E7%88%B1%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Wed, 30 Sep 2026 08:39:00 +0800</pubDate>
+      <guid>https://notes.0081800.xyz/articles/20260930083918-%E7%BB%A7%E7%BB%AD%E7%83%AD%E7%88%B1%E7%BC%96%E7%A8%8B/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;tags: &lt;a href=&#34;https://notes.0081800.xyz/notes/20200309112015_ai/&#34;&gt;AI&lt;/a&gt;, &lt;a href=&#34;https://notes.0081800.xyz/notes/20260928101045-ai_burnout/&#34;&gt;AI Burnout&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;随着工作年限积累，在当前这个环境下我陷入一种职业倦怠里：一种苦练多年的技艺无处施展的无所适从。
+当计算机算法逐步碾过象棋和围棋时，那些热爱象棋和围棋的人应该会有同感吧。&lt;/p&gt;
+&lt;p&gt;当然我也在一直积极的尝试挣脱这种状态：消极的使用 AI。毕竟像我这样脑袋空空只享受编程没有多少创意的人是无法感受 AI 所带来的美好愿景：Making things。
+毕竟好的产品创意从来都是一个稀缺品，我除了制造一堆写完再也没有碰过的 AI Slop 之外，AI 成了一个献祭大脑走捷径的工具。&lt;/p&gt;
+&lt;p&gt;最近读到的一篇文章： &lt;a href=&#34;https://notes.0081800.xyz/notes/20260928101032-how_to_keep_enjoying_programming_in_a_world_of_llms/&#34;&gt;How to keep enjoying programming in a world of LLMs&lt;/a&gt; 给了我很大的启发，
+让我来重新审视我和 AI 的关系。作为一个热爱编程的开发者，我享受编程过程中的学习和发现带来的乐趣和成就感。
+毋庸置疑，用 AI 节省了我大量的时间，但是催生出了一种失控感，且剥夺了乐趣和成就感。
+在懒惰和不甘于人后的焦虑下我心怀抵触的使用 AI，工作完成的很快而且好像还不错，我则看似掌控了什么了不得的工具，
+但是我知道这工具不属于我，不像我电脑里装的 Emacs 那样属于我：运行在我自己的电脑上、我自己的配置、
+可以不依赖网络运行。参考此篇文章进行实践：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用 AI 进行计划，自己进行大部分的编程和实现，可以留下一些无聊、低风险、重复的工作给 AI，让 AI 来完成；&lt;/li&gt;
+&lt;li&gt;让 AI 执行 review-cycle：编写代码 -&amp;gt; AI review -&amp;gt; 调整/重复；&lt;/li&gt;
+&lt;li&gt;让 AI 研究不是仅仅生成总结：让 AI 列出来源，自己验证并搞懂；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当计算机算法战胜了围棋，依然有人热爱围棋：Just for fun。所以当 AI 才可以编写平均水平的代码，
+我为什么不热爱编程呢？未来不远处即使 AI 能编写超高水平的代码，我会选择向 AI 学习编程，而不再献祭大脑。
+就像 &lt;a href=&#34;https://notes.0081800.xyz/notes/20260929102729-coding_is_not_solved/&#34;&gt;Coding is NOT solved&lt;/a&gt; 中提到的：那些认为大模型生成的代码足够好的人大概率写代码不如 AI，
+在当下这个环境下，我实在不甘心承认我写的代码不如 AI。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Logrotate Don&#39;t Work With Supervisor on Ubuntu 20.04 With Systemd</title>
       <link>https://notes.0081800.xyz/articles/20231101155419-logrotate_don_t_work_with_supervisor_on_ubuntu_20_04_with_systemd/</link>

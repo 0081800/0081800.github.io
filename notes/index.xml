@@ -23,7 +23,15 @@
 &lt;li&gt;Personal software&lt;/li&gt;
 &lt;li&gt;POC(proof of concept)&lt;/li&gt;
 &lt;li&gt;Weaponized AI&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Those who claim LLM-generated software is good enough:
+❌ Haven’t written code in ages
+❌ Cannot spot if their code figuratively had 6 fingers!
+❌ Have a low bar for what good looks like
+❌ Don’t care about quality or NFR
+❌ Have difficulty understanding an S-curve
+✅ Are honest: AI genuinely writes better code than them&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Problem is not the AI Code, but Nobody Knows Anything Anymore</title>
